@@ -1,0 +1,152 @@
++++
+title = "Develop with containers"
+date = 2024-10-23T14:54:35+08:00
+weight = 10
+type = "docs"
+description = ""
+isCJKLanguage = true
+draft = false
++++
+
+> 原文: [https://docs.docker.com/get-started/introduction/develop-with-containers/](https://docs.docker.com/get-started/introduction/develop-with-containers/)
+>
+> 收录该文档的时间：`2024-10-23T14:54:35+08:00`
+
+# Develop with containers
+
+<iframe id="youtube-player-D0SDBrS3t9I" data-video-id="D0SDBrS3t9I" class="youtube-video aspect-video h-fit w-full py-2" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Docker Concepts: Develop with Containers" width="100%" height="100%" src="https://www.youtube.com/embed/D0SDBrS3t9I?rel=0&amp;iv_load_policy=3&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fdocs.docker.com&amp;widgetid=1" data-gtm-yt-inspected-24="true" style="--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border-width: 0px; border-style: solid; border-color: initial; display: block; vertical-align: middle; aspect-ratio: 16 / 9; height: fit-content; width: 634.672px; padding-top: 0.5rem; padding-bottom: 0.5rem; color: rgb(0, 0, 0); font-family: &quot;Roboto Flex&quot;, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"></iframe>
+
+## [Explanation](https://docs.docker.com/get-started/introduction/develop-with-containers/#explanation)
+
+Now that you have Docker Desktop installed, you are ready to do some application development. Specifically, you will do the following:
+
+1. Clone and start a development project
+2. Make changes to the backend and frontend
+3. See the changes immediately
+
+## [Try it out](https://docs.docker.com/get-started/introduction/develop-with-containers/#try-it-out)
+
+In this hands-on guide, you'll learn how to develop with containers.
+
+## [Start the project](https://docs.docker.com/get-started/introduction/develop-with-containers/#start-the-project)
+
+1. To get started, either clone or [download the project as a ZIP file](https://github.com/docker/getting-started-todo-app/archive/refs/heads/main.zip) to your local machine.
+
+   
+
+   ```console
+   $ git clone https://github.com/docker/getting-started-todo-app
+   ```
+
+   And after the project is cloned, navigate into the new directory created by the clone:
+
+   
+
+   ```console
+   $ cd getting-started-todo-app
+   ```
+
+2. Once you have the project, start the development environment using Docker Compose.
+
+   To start the project using the CLI, run the following command:
+
+   
+
+   ```console
+   $ docker compose watch
+   ```
+
+   You will see an output that shows container images being pulled down, containers starting, and more. Don't worry if you don't understand it all at this point. But, within a moment or two, things should stabilize and finish.
+
+3. Open your browser to [http://localhost](http://localhost/) to see the application up and running. It may take a few minutes for the app to run. The app is a simple to-do application, so feel free to add an item or two, mark some as done, or even delete an item.
+
+   ![Screenshot of the getting started to-do app after its first launch](Developwithcontainers_img/develop-getting-started-app-first-launch.webp)
+
+### [What's in the environment?](https://docs.docker.com/get-started/introduction/develop-with-containers/#whats-in-the-environment)
+
+Now that the environment is up and running, what's actually in it? At a high-level, there are several containers (or processes) that each serve a specific need for the application:
+
+- React frontend - a Node container that's running the React dev server, using [Vite](https://vitejs.dev/).
+- Node backend - the backend provides an API that provides the ability to retrieve, create, and delete to-do items.
+- MySQL database - a database to store the list of the items.
+- phpMyAdmin - a web-based interface to interact with the database that is accessible at [http://db.localhost](http://db.localhost/).
+- Traefik proxy - [Traefik](https://traefik.io/traefik/) is an application proxy that routes requests to the right service. It sends all requests for `localhost/api/*` to the backend, requests for `localhost/*` to the frontend, and then requests for `db.localhost` to phpMyAdmin. This provides the ability to access all applications using port 80 (instead of different ports for each service).
+
+With this environment, you as the developer don’t need to install or configure any services, populate a database schema, configure database credentials, or anything. You only need Docker Desktop. The rest just works.
+
+## [Make changes to the app](https://docs.docker.com/get-started/introduction/develop-with-containers/#make-changes-to-the-app)
+
+With this environment up and running, you’re ready to make a few changes to the application and see how Docker helps provide a fast feedback loop.
+
+### [Change the greeting](https://docs.docker.com/get-started/introduction/develop-with-containers/#change-the-greeting)
+
+The greeting at the top of the page is populated by an API call at `/api/greeting`. Currently, it always returns "Hello world!". You’ll now modify it to return one of three randomized messages (that you'll get to choose).
+
+1. Open the `backend/src/routes/getGreeting.js` file in a text editor. This file provides the handler for the API endpoint.
+
+2. Modify the variable at the top to an array of greetings. Feel free to use the following modifications or customize it to your own liking. Also, update the endpoint to send a random greeting from this list.
+
+   
+
+   | ` 1 2 3 4 5 6 7 8 9 10 11 ` | `const GREETINGS = [    "Whalecome!",    "All hands on deck!",    "Charting the course ahead!", ]; module.exports = async (req, res) => {    res.send({        greeting: GREETINGS[ Math.floor( Math.random() * GREETINGS.length )],    }); };` |
+   | --------------------------- | ------------------------------------------------------------ |
+   |                             |                                                              |
+
+3. If you haven't done so yet, save the file. If you refresh your browser, you should see a new greeting. If you keep refreshing, you should see all of the messages appear.
+
+   ![Screenshot of the to-do app with a new greeting](Developwithcontainers_img/develop-app-with-greetings.webp)
+
+### [Change the placeholder text](https://docs.docker.com/get-started/introduction/develop-with-containers/#change-the-placeholder-text)
+
+When you look at the app, you'll see the placeholder text is simply "New Item". You’ll now make that a little more descriptive and fun. You’ll also make a few changes to the styling of the app too.
+
+1. Open the `client/src/components/AddNewItemForm.jsx` file. This provides the component to add a new item to the to-do list.
+
+2. Modify the `placeholder` attribute of the `Form.Control` element to whatever you'd like to display.
+
+   
+
+   | `33 34 35 36 37 38 39 ` | `<Form.Control    value={newItem}    onChange={(e) => setNewItem(e.target.value)}    type="text"    placeholder="What do you need to do?"    aria-label="New item" />` |
+   | ----------------------- | ------------------------------------------------------------ |
+   |                         |                                                              |
+
+3. Save the file and go back to your browser. You should see the change already hot-reloaded into your browser. If you don't like it, feel free to tweak it until it looks just right.
+
+![Screenshot of the to-do app with an updated placeholder in the add item text field"](Developwithcontainers_img/develop-app-with-updated-placeholder.webp)
+
+### [Change the background color](https://docs.docker.com/get-started/introduction/develop-with-containers/#change-the-background-color)
+
+Before you consider the application finalized, you need to make the colors better.
+
+1. Open the `client/src/index.scss` file.
+
+2. Adjust the `background-color` attribute to any color you'd like. The provided snippet is a soft blue to go along with Docker's nautical theme.
+
+   If you're using an IDE, you can pick a color using the integrated color pickers. Otherwise, feel free to use an online [Color Picker](https://www.w3schools.com/colors/colors_picker.asp).
+
+   
+
+   | `3 4 5 6 7 ` | `body {    background-color: #99bbff;    margin-top: 50px;    font-family: 'Lato'; }` |
+   | ------------ | ------------------------------------------------------------ |
+   |              |                                                              |
+
+   Each save should let you see the change immediately in the browser. Keep adjusting it until it's the perfect setup for you.
+
+   ![Screenshot of the to-do app with a new placeholder and background color"](Developwithcontainers_img/develop-app-with-updated-client.webp)
+
+And with that, you're done. Congrats on updating your website.
+
+## [Recap](https://docs.docker.com/get-started/introduction/develop-with-containers/#recap)
+
+Before you move on, take a moment and reflect on what happened here. Within a few moments, you were able to:
+
+- Start a complete development project with zero installation effort. The containerized environment provided the development environment, ensuring you have everything you need. You didn't have to install Node, MySQL, or any of the other dependencies directly on your machine. All you needed was Docker Desktop and a code editor.
+- Make changes and see them immediately. This was made possible because 1) the processes running in each container are watching and responding to file changes and 2) the files are shared with the containerized environment.
+
+Docker Desktop enables all of this and so much more. Once you start thinking with containers, you can create almost any environment and easily share it with your team.
+
+## [Next steps](https://docs.docker.com/get-started/introduction/develop-with-containers/#next-steps)
+
+Now that the application has been updated, you’re ready to learn about packaging it as a container image and pushing it to a registry, specifically Docker Hub.
+
+[Build and push your first image](https://docs.docker.com/get-started/introduction/build-and-push-first-image/)

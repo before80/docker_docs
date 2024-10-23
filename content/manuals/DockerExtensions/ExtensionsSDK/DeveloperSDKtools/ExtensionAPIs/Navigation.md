@@ -1,0 +1,70 @@
++++
+title = "Navigation"
+date = 2024-10-23T14:54:40+08:00
+weight = 40
+type = "docs"
+description = ""
+isCJKLanguage = true
+draft = false
++++
+
+> 原文: [https://docs.docker.com/extensions/extensions-sdk/dev/api/dashboard-routes-navigation/](https://docs.docker.com/extensions/extensions-sdk/dev/api/dashboard-routes-navigation/)
+>
+> 收录该文档的时间：`2024-10-23T14:54:40+08:00`
+
+# Navigation
+
+`ddClient.desktopUI.navigate` enables navigation to specific screens of Docker Desktop such as the containers tab, the images tab, or a specific container's logs.
+
+For example, navigate to a given container logs:
+
+
+
+```typescript
+const id = '8c7881e6a107';
+try {
+  await ddClient.desktopUI.navigate.viewContainerLogs(id);
+} catch (e) {
+  console.error(e);
+  ddClient.desktopUI.toast.error(
+    `Failed to navigate to logs for container "${id}".`
+  );
+}
+```
+
+#### [Parameters](https://docs.docker.com/extensions/extensions-sdk/dev/api/dashboard-routes-navigation/#parameters)
+
+| Name | Type     | Description                                                  |
+| :--- | :------- | :----------------------------------------------------------- |
+| `id` | `string` | The full container id, e.g. `46b57e400d801762e9e115734bf902a2450d89669d85881058a46136520aca28`. You can use the `--no-trunc` flag as part of the `docker ps` command to display the full container id. |
+
+#### [Returns](https://docs.docker.com/extensions/extensions-sdk/dev/api/dashboard-routes-navigation/#returns)
+
+`Promise`<`void`>
+
+A promise that fails if the container doesn't exist.
+
+For more details about all navigation methods, see the [Navigation API reference](https://docs.docker.com/reference/api/extensions-sdk/NavigationIntents/).
+
+> Deprecated navigation methods
+>
+> These methods are deprecated and will be removed in a future version. Use the methods specified above.
+
+
+
+```typescript
+window.ddClient.navigateToContainers();
+// id - the full container id, e.g. `46b57e400d801762e9e115734bf902a2450d89669d85881058a46136520aca28`
+window.ddClient.navigateToContainer(id);
+window.ddClient.navigateToContainerLogs(id);
+window.ddClient.navigateToContainerInspect(id);
+window.ddClient.navigateToContainerStats(id);
+
+window.ddClient.navigateToImages();
+window.ddClient.navigateToImage(id, tag);
+
+window.ddClient.navigateToVolumes();
+window.ddClient.navigateToVolume(volume);
+
+window.ddClient.navigateToDevEnvironments();
+```

@@ -1,0 +1,114 @@
++++
+title = "Overlay network driver"
+date = 2024-10-23T14:54:40+08:00
+weight = 50
+type = "docs"
+description = ""
+isCJKLanguage = true
+draft = false
++++
+
+> 原文: [https://docs.docker.com/engine/network/drivers/overlay/](https://docs.docker.com/engine/network/drivers/overlay/)
+>
+> 收录该文档的时间：`2024-10-23T14:54:40+08:00`
+
+# Overlay network driver
+
+The `overlay` network driver creates a distributed network among multiple Docker daemon hosts. This network sits on top of (overlays) the host-specific networks, allowing containers connected to it to communicate securely when encryption is enabled. Docker transparently handles routing of each packet to and from the correct Docker daemon host and the correct destination container.
+
+You can create user-defined `overlay` networks using `docker network create`, in the same way that you can create user-defined `bridge` networks. Services or containers can be connected to more than one network at a time. Services or containers can only communicate across networks they're each connected to.
+
+Overlay networks are often used to create a connection between Swarm services, but you can also use it to connect standalone containers running on different hosts. When using standalone containers, it's still required that you use Swarm mode to establish a connection between the hosts.
+
+This page describes overlay networks in general, and when used with standalone containers. For information about overlay for Swarm services, see [Manage Swarm service networks](https://docs.docker.com/engine/swarm/networking/).
+
+## [Create an overlay network](https://docs.docker.com/engine/network/drivers/overlay/#create-an-overlay-network)
+
+Before you start, you must ensure that participating nodes can communicate over the network. The following table lists ports that need to be open to each host participating in an overlay network:
+
+| Ports                  | Description                                                  |
+| :--------------------- | :----------------------------------------------------------- |
+| `2377/tcp`             | The default Swarm control plane port, is configurable with [`docker swarm join --listen-addr`](https://docs.docker.com/reference/cli/docker/swarm/join/#--listen-addr-value) |
+| `4789/udp`             | The default overlay traffic port, configurable with [`docker swarm init --data-path-addr`](https://docs.docker.com/reference/cli/docker/swarm/init/#data-path-port) |
+| `7946/tcp`, `7946/udp` | Used for communication among nodes, not configurable         |
+
+To create an overlay network that containers on other Docker hosts can connect to, run the following command:
+
+
+
+```console
+$ docker network create -d overlay --attachable my-attachable-overlay
+```
+
+The `--attachable` option enables both standalone containers and Swarm services to connect to the overlay network. Without `--attachable`, only Swarm services can connect to the network.
+
+You can specify the IP address range, subnet, gateway, and other options. See `docker network create --help` for details.
+
+## [Encrypt traffic on an overlay network](https://docs.docker.com/engine/network/drivers/overlay/#encrypt-traffic-on-an-overlay-network)
+
+Use the `--opt encrypted` flag to encrypt the application data transmitted over the overlay network:
+
+
+
+```console
+$ docker network create \
+  --opt encrypted \
+  --driver overlay \
+  --attachable \
+  my-attachable-multi-host-network
+```
+
+This enables IPsec encryption at the level of the Virtual Extensible LAN (VXLAN). This encryption imposes a non-negligible performance penalty, so you should test this option before using it in production.
+
+> **Warning**
+>
+> 
+>
+> Don't attach Windows containers to encrypted overlay networks.
+>
+> Overlay network encryption isn't supported on Windows. Swarm doesn't report an error when a Windows host attempts to connect to an encrypted overlay network, but networking for the Windows containers is affected as follows:
+>
+> - Windows containers can't communicate with Linux containers on the network
+> - Data traffic between Windows containers on the network isn't encrypted
+
+## [Attach a container to an overlay network](https://docs.docker.com/engine/network/drivers/overlay/#attach-a-container-to-an-overlay-network)
+
+Adding containers to an overlay network gives them the ability to communicate with other containers without having to set up routing on the individual Docker daemon hosts. A prerequisite for doing this is that the hosts have joined the same Swarm.
+
+To join an overlay network named `multi-host-network` with a `busybox` container:
+
+
+
+```console
+$ docker run --network multi-host-network busybox sh
+```
+
+> **Note**
+>
+> 
+>
+> This only works if the overlay network is attachable (created with the `--attachable` flag).
+
+## [Container discovery](https://docs.docker.com/engine/network/drivers/overlay/#container-discovery)
+
+Publishing ports of a container on an overlay network opens the ports to other containers on the same network. Containers are discoverable by doing a DNS lookup using the container name.
+
+| Flag value                      | Description                                                  |
+| ------------------------------- | ------------------------------------------------------------ |
+| `-p 8080:80`                    | Map TCP port 80 in the container to port `8080` on the overlay network. |
+| `-p 8080:80/udp`                | Map UDP port 80 in the container to port `8080` on the overlay network. |
+| `-p 8080:80/sctp`               | Map SCTP port 80 in the container to port `8080` on the overlay network. |
+| `-p 8080:80/tcp -p 8080:80/udp` | Map TCP port 80 in the container to TCP port `8080` on the overlay network, and map UDP port 80 in the container to UDP port `8080` on the overlay network. |
+
+## [Connection limit for overlay networks](https://docs.docker.com/engine/network/drivers/overlay/#connection-limit-for-overlay-networks)
+
+Due to limitations set by the Linux kernel, overlay networks become unstable and inter-container communications may break when 1000 containers are co-located on the same host.
+
+For more information about this limitation, see [moby/moby#44973](https://github.com/moby/moby/issues/44973#issuecomment-1543747718).
+
+## [Next steps](https://docs.docker.com/engine/network/drivers/overlay/#next-steps)
+
+- Go through the [overlay networking tutorial](https://docs.docker.com/engine/network/tutorials/overlay/)
+- Learn about [networking from the container's point of view](https://docs.docker.com/engine/network/)
+- Learn about [standalone bridge networks](https://docs.docker.com/engine/network/drivers/bridge/)
+- Learn about [Macvlan networks](https://docs.docker.com/engine/network/drivers/macvlan/)
