@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/logging/drivers/fluentd/](https://docs.docker.com/engine/logging/drivers/fluentd/)
+> 原文：[https://docs.docker.com/engine/logging/drivers/fluentd/](https://docs.docker.com/engine/logging/drivers/fluentd/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -25,7 +25,7 @@ In addition to the log message itself, the `fluentd` log driver sends the follow
 | `source`         | `stdout` or `stderr`                                         |
 | `log`            | The container log                                            |
 
-## [Usage](https://docs.docker.com/engine/logging/drivers/fluentd/#usage)
+## Usage
 
 Some options are supported by specifying `--log-opt` as many times as needed:
 
@@ -73,11 +73,11 @@ $ docker run --log-driver=fluentd --log-opt fluentd-address=fluentdhost:24224
 
 If container cannot connect to the Fluentd daemon, the container stops immediately unless the `fluentd-async` option is used.
 
-## [Options](https://docs.docker.com/engine/logging/drivers/fluentd/#options)
+## Options
 
 Users can use the `--log-opt NAME=VALUE` flag to specify additional Fluentd logging driver options.
 
-### [fluentd-address](https://docs.docker.com/engine/logging/drivers/fluentd/#fluentd-address)
+### fluentd-address
 
 By default, the logging driver connects to `localhost:24224`. Supply the `fluentd-address` option to connect to a different address. `tcp`(default) and `unix` sockets are supported.
 
@@ -91,47 +91,47 @@ $ docker run --log-driver=fluentd --log-opt fluentd-address=unix:///path/to/flue
 
 Two of the above specify the same address, because `tcp` is default.
 
-### [tag](https://docs.docker.com/engine/logging/drivers/fluentd/#tag)
+### tag
 
-By default, Docker uses the first 12 characters of the container ID to tag log messages. Refer to the [log tag option documentation](https://docs.docker.com/engine/logging/log_tags/) for customizing the log tag format.
+By default, Docker uses the first 12 characters of the container ID to tag log messages. Refer to the [log tag option documentation]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}) for customizing the log tag format.
 
-### [labels, labels-regex, env, and env-regex](https://docs.docker.com/engine/logging/drivers/fluentd/#labels-labels-regex-env-and-env-regex)
+### labels, labels-regex, env, and env-regex
 
 The `labels` and `env` options each take a comma-separated list of keys. If there is collision between `label` and `env` keys, the value of the `env` takes precedence. Both options add additional fields to the extra attributes of a logging message.
 
-The `env-regex` and `labels-regex` options are similar to and compatible with respectively `env` and `labels`. Their values are regular expressions to match logging-related environment variables and labels. It is used for advanced [log tag options](https://docs.docker.com/engine/logging/log_tags/).
+The `env-regex` and `labels-regex` options are similar to and compatible with respectively `env` and `labels`. Their values are regular expressions to match logging-related environment variables and labels. It is used for advanced [log tag options]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}).
 
-### [fluentd-async](https://docs.docker.com/engine/logging/drivers/fluentd/#fluentd-async)
+### fluentd-async
 
 Docker connects to Fluentd in the background. Messages are buffered until the connection is established. Defaults to `false`.
 
-### [fluentd-async-reconnect-interval](https://docs.docker.com/engine/logging/drivers/fluentd/#fluentd-async-reconnect-interval)
+### fluentd-async-reconnect-interval
 
 When `fluentd-async` is enabled, the `fluentd-async-reconnect-interval` option defines the interval, in milliseconds, at which the connection to `fluentd-address` is re-established. This option is useful if the address resolves to one or more IP addresses, for example a Consul service address.
 
-### [fluentd-buffer-limit](https://docs.docker.com/engine/logging/drivers/fluentd/#fluentd-buffer-limit)
+### fluentd-buffer-limit
 
 Sets the number of events buffered on the memory. Records will be stored in memory up to this number. If the buffer is full, the call to record logs will fail. The default is 1048576. ( https://github.com/fluent/fluent-logger-golang/tree/master#bufferlimit)
 
-### [fluentd-retry-wait](https://docs.docker.com/engine/logging/drivers/fluentd/#fluentd-retry-wait)
+### fluentd-retry-wait
 
 How long to wait between retries. Defaults to 1 second.
 
-### [fluentd-max-retries](https://docs.docker.com/engine/logging/drivers/fluentd/#fluentd-max-retries)
+### fluentd-max-retries
 
 The maximum number of retries. Defaults to `4294967295` (2**32 - 1).
 
-### [fluentd-sub-second-precision](https://docs.docker.com/engine/logging/drivers/fluentd/#fluentd-sub-second-precision)
+### fluentd-sub-second-precision
 
 Generates event logs in nanosecond resolution. Defaults to `false`.
 
-## [Fluentd daemon management with Docker](https://docs.docker.com/engine/logging/drivers/fluentd/#fluentd-daemon-management-with-docker)
+## Fluentd daemon management with Docker
 
 About `Fluentd` itself, see [the project webpage](https://www.fluentd.org/) and [its documents](https://docs.fluentd.org/).
 
 To use this logging driver, start the `fluentd` daemon on a host. We recommend that you use [the Fluentd docker image](https://hub.docker.com/r/fluent/fluentd/). This image is especially useful if you want to aggregate multiple container logs on each host then, later, transfer the logs to another Fluentd node to create an aggregate store.
 
-### [Test container loggers](https://docs.docker.com/engine/logging/drivers/fluentd/#test-container-loggers)
+### Test container loggers
 
 1. Write a configuration file (`test.conf`) to dump input logs:
 

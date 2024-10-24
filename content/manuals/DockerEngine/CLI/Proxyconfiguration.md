@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/cli/proxy/](https://docs.docker.com/engine/cli/proxy/)
+> 原文：[https://docs.docker.com/engine/cli/proxy/](https://docs.docker.com/engine/cli/proxy/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ This page describes how to configure the Docker CLI to use proxies via environme
 
 This page doesn't describe how to configure proxies for Docker Desktop. For instructions, see [configuring Docker Desktop to use HTTP/HTTPS proxies](https://docs.docker.com/desktop/settings/#proxies).
 
-If you're running Docker Engine without Docker Desktop, refer to [Configure the Docker daemon to use a proxy](https://docs.docker.com/engine/daemon/proxy/) to learn how to configure a proxy server for the Docker daemon (`dockerd`) itself.
+If you're running Docker Engine without Docker Desktop, refer to [Configure the Docker daemon to use a proxy]({{< ref "/manuals/DockerEngine/Daemon/Daemonproxyconfiguration" >}}) to learn how to configure a proxy server for the Docker daemon (`dockerd`) itself.
 
 If your container needs to use an HTTP, HTTPS, or FTP proxy server, you can configure it in different ways:
 
@@ -33,7 +33,7 @@ If your container needs to use an HTTP, HTTPS, or FTP proxy server, you can conf
 >
 > If you're interested in the history of these variables, check out this blog post on the subject, by the GitLab team: [We need to talk: Can we standardize NO_PROXY?](https://about.gitlab.com/blog/2021/01/27/we-need-to-talk-no-proxy/).
 
-## [Configure the Docker client](https://docs.docker.com/engine/cli/proxy/#configure-the-docker-client)
+## Configure the Docker client
 
 You can add proxy configurations for the Docker client using a JSON configuration file, located in `~/.docker/config.json`. Builds and containers use the configuration specified in this file.
 
@@ -71,9 +71,9 @@ The following table describes the available configuration parameters.
 | `noProxy`    | Sets the `NO_PROXY` and `no_proxy` environment variables and build arguments. |
 | `allProxy`   | Sets the `ALL_PROXY` and `all_proxy` environment variables and build arguments. |
 
-These settings are used to configure proxy environment variables for containers only, and not used as proxy settings for the Docker CLI or the Docker Engine itself. Refer to the [environment variables](https://docs.docker.com/reference/cli/docker/#environment-variables) and [configure the Docker daemon to use a proxy server](https://docs.docker.com/engine/daemon/proxy/) sections for configuring proxy settings for the CLI and daemon.
+These settings are used to configure proxy environment variables for containers only, and not used as proxy settings for the Docker CLI or the Docker Engine itself. Refer to the [environment variables](https://docs.docker.com/reference/cli/docker/#environment-variables) and [configure the Docker daemon to use a proxy server]({{< ref "/manuals/DockerEngine/Daemon/Daemonproxyconfiguration" >}}) sections for configuring proxy settings for the CLI and daemon.
 
-### [Run containers with a proxy configuration](https://docs.docker.com/engine/cli/proxy/#run-containers-with-a-proxy-configuration)
+### Run containers with a proxy configuration
 
 When you start a container, its proxy-related environment variables are set to reflect your proxy configuration in `~/.docker/config.json`.
 
@@ -91,7 +91,7 @@ no_proxy=*.test.example.com,.example.org,127.0.0.0/8
 NO_PROXY=*.test.example.com,.example.org,127.0.0.0/8
 ```
 
-### [Build with a proxy configuration](https://docs.docker.com/engine/cli/proxy/#build-with-a-proxy-configuration)
+### Build with a proxy configuration
 
 When you invoke a build, proxy-related build arguments are pre-populated automatically, based on the proxy settings in your Docker client configuration file.
 
@@ -122,7 +122,7 @@ EOF
 #5 DONE 0.1s
 ```
 
-### [Configure proxy settings per daemon](https://docs.docker.com/engine/cli/proxy/#configure-proxy-settings-per-daemon)
+### Configure proxy settings per daemon
 
 The `default` key under `proxies` in `~/.docker/config.json` configures the proxy settings for all daemons that the client connects to. To configure the proxies for individual daemons, use the address of the daemon instead of the `default` key.
 
@@ -145,7 +145,7 @@ The following example configures both a default proxy config, and a no-proxy ove
 }
 ```
 
-## [Set proxy using the CLI](https://docs.docker.com/engine/cli/proxy/#set-proxy-using-the-cli)
+## Set proxy using the CLI
 
 Instead of [configuring the Docker client](https://docs.docker.com/engine/cli/proxy/#configure-the-docker-client), you can specify proxy configurations on the command-line when you invoke the `docker build` and `docker run` commands.
 
@@ -160,7 +160,7 @@ $ docker run --env HTTP_PROXY="http://proxy.example.com:3128" redis
 
 For a list of all the proxy-related build arguments that you can use with the `docker build` command, see [Predefined ARGs](https://docs.docker.com/reference/dockerfile/#predefined-args). These proxy values are only available in the build container. They're not included in the build output.
 
-## [Proxy as environment variable for builds](https://docs.docker.com/engine/cli/proxy/#proxy-as-environment-variable-for-builds)
+## Proxy as environment variable for builds
 
 Don't use the `ENV` Dockerfile instruction to specify proxy settings for builds. Use build arguments instead.
 

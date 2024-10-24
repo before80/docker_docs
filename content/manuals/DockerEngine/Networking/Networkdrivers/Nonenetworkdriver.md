@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/network/drivers/none/](https://docs.docker.com/engine/network/drivers/none/)
+> 原文：[https://docs.docker.com/engine/network/drivers/none/](https://docs.docker.com/engine/network/drivers/none/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -38,10 +38,10 @@ $ docker run --rm --network none --name no-net-alpine alpine:latest ip addr show
        valid_lft forever preferred_lft forever
 ```
 
-## [Next steps](https://docs.docker.com/engine/network/drivers/none/#next-steps)
+## Next steps
 
-- Go through the [host networking tutorial](https://docs.docker.com/engine/network/tutorials/host/)
-- Learn about [networking from the container's point of view](https://docs.docker.com/engine/network/)
-- Learn about [bridge networks](https://docs.docker.com/engine/network/drivers/bridge/)
-- Learn about [overlay networks](https://docs.docker.com/engine/network/drivers/overlay/)
-- Learn about [Macvlan networks](https://docs.docker.com/engine/network/drivers/macvlan/)
+- Go through the [host networking tutorial]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingusingthehostnetwork" >}})
+- Learn about [networking from the container's point of view]({{< ref "/manuals/DockerEngine/Networking" >}})
+- Learn about [bridge networks]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Bridgenetworkdriver" >}})
+- Learn about [overlay networks]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Overlaynetworkdriver" >}})
+- Learn about [Macvlan networks]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Macvlannetworkdriver" >}})

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/extend/config/](https://docs.docker.com/engine/extend/config/)
+> 原文：[https://docs.docker.com/engine/extend/config/](https://docs.docker.com/engine/extend/config/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,7 +22,7 @@ Plugin configs describe the various constituents of a Docker engine plugin. Plug
 | ----------- | --------------------------------------- |
 | config      | `application/vnd.docker.plugin.v1+json` |
 
-## [Config Field Descriptions](https://docs.docker.com/engine/extend/config/#config-field-descriptions)
+## Config Field Descriptions
 
 Config provides the base accessible fields for working with V0 plugin format in the registry.
 
@@ -175,7 +175,7 @@ Config provides the base accessible fields for working with V0 plugin format in 
 
       Path of the device.
 
-## [Example Config](https://docs.docker.com/engine/extend/config/#example-config)
+## Example Config
 
 The following example shows the 'tiborvass/sample-volume-plugin' plugin config.
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/compose-file/volumes/](https://docs.docker.com/reference/compose-file/volumes/)
+> 原文：[https://docs.docker.com/reference/compose-file/volumes/](https://docs.docker.com/reference/compose-file/volumes/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -22,9 +22,9 @@ To use a volume across multiple services, you must explicitly grant each service
 >
 > 
 >
-> Working with large repositories or monorepos, or with virtual file systems that are no longer scaling with your codebase? Compose now takes advantage of [Synchronized file shares](https://docs.docker.com/desktop/synchronized-file-sharing/) and automatically creates file shares for bind mounts. Ensure you're signed in to Docker with a paid subscription and have enabled both **Access experimental features** and **Manage Synchronized file shares with Compose** in Docker Desktop's settings.
+> Working with large repositories or monorepos, or with virtual file systems that are no longer scaling with your codebase? Compose now takes advantage of [Synchronized file shares]({{< ref "/manuals/DockerDesktop/Synchronizedfileshares" >}}) and automatically creates file shares for bind mounts. Ensure you're signed in to Docker with a paid subscription and have enabled both **Access experimental features** and **Manage Synchronized file shares with Compose** in Docker Desktop's settings.
 
-## [Example](https://docs.docker.com/reference/compose-file/volumes/#example)
+## Example
 
 The following example shows a two-service setup where a database's data directory is shared with another service as a volume, named `db-data`, so that it can be periodically backed up.
 
@@ -50,11 +50,11 @@ The `db-data` volume is mounted at the `/var/lib/backup/data` and `/etc/data` co
 
 Running `docker compose up` creates the volume if it doesn't already exist. Otherwise, the existing volume is used and is recreated if it's manually deleted outside of Compose.
 
-## [Attributes](https://docs.docker.com/reference/compose-file/volumes/#attributes)
+## Attributes
 
 An entry under the top-level `volumes` section can be empty, in which case it uses the container engine's default configuration for creating a volume. Optionally, you can configure it with the following keys:
 
-### [driver](https://docs.docker.com/reference/compose-file/volumes/#driver)
+### driver
 
 Specifies which volume driver should be used. If the driver is not available, Compose returns an error and doesn't deploy the application.
 
@@ -66,7 +66,7 @@ volumes:
     driver: foobar
 ```
 
-### [driver_opts](https://docs.docker.com/reference/compose-file/volumes/#driver_opts)
+### driver_opts
 
 `driver_opts` specifies a list of options as key-value pairs to pass to the driver for this volume. The options are driver-dependent.
 
@@ -81,7 +81,7 @@ volumes:
       device: ":/docker/example"
 ```
 
-### [external](https://docs.docker.com/reference/compose-file/volumes/#external)
+### external
 
 If set to `true`:
 
@@ -104,7 +104,7 @@ volumes:
     external: true
 ```
 
-### [labels](https://docs.docker.com/reference/compose-file/volumes/#labels)
+### labels
 
 `labels` are used to add metadata to volumes. You can use either an array or a dictionary.
 
@@ -134,7 +134,7 @@ volumes:
 
 Compose sets `com.docker.compose.project` and `com.docker.compose.volume` labels.
 
-### [name](https://docs.docker.com/reference/compose-file/volumes/#name)
+### name
 
 `name` sets a custom name for a volume. The name field can be used to reference volumes that contain special characters. The name is used as is and is not scoped with the stack name.
 

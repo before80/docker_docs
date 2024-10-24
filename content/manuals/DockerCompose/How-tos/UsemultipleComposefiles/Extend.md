@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/how-tos/multiple-compose-files/extends/](https://docs.docker.com/compose/how-tos/multiple-compose-files/extends/)
+> 原文：[https://docs.docker.com/compose/how-tos/multiple-compose-files/extends/](https://docs.docker.com/compose/how-tos/multiple-compose-files/extends/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,9 +24,9 @@ Extending services is useful if you have several services that reuse a common se
 >
 > When you use multiple Compose files, you must make sure all paths in the files are relative to the base Compose file (i.e. the Compose file in your main-project folder). This is required because extend files need not be valid Compose files. Extend files can contain small fragments of configuration. Tracking which fragment of a service is relative to which path is difficult and confusing, so to keep paths easier to understand, all paths must be defined relative to the base file.
 
-## [How it works](https://docs.docker.com/compose/how-tos/multiple-compose-files/extends/#how-it-works)
+## How it works
 
-### [Extending services from another file](https://docs.docker.com/compose/how-tos/multiple-compose-files/extends/#extending-services-from-another-file)
+### Extending services from another file
 
 Take the following example:
 
@@ -76,9 +76,9 @@ services:
       service: webapp
 ```
 
-Alternatively, you can use [include](https://docs.docker.com/compose/how-tos/multiple-compose-files/include/).
+Alternatively, you can use [include]({{< ref "/manuals/DockerCompose/How-tos/UsemultipleComposefiles/Include" >}}).
 
-### [Extending services within the same file](https://docs.docker.com/compose/how-tos/multiple-compose-files/extends/#extending-services-within-the-same-file)
+### Extending services within the same file
 
 If you define services in the same Compose file and extend one service from another, both the original service and the extended service will be part of your final configuration. For example:
 
@@ -94,7 +94,7 @@ services:
       - DEBUG=1
 ```
 
-### [Extending services within the same file and from another file](https://docs.docker.com/compose/how-tos/multiple-compose-files/extends/#extending-services-within-the-same-file-and-from-another-file)
+### Extending services within the same file and from another file
 
 You can go further and define, or re-define, configuration locally in `compose.yaml`:
 
@@ -115,7 +115,7 @@ services:
     cpu_shares: 10
 ```
 
-## [Additional example](https://docs.docker.com/compose/how-tos/multiple-compose-files/extends/#additional-example)
+## Additional example
 
 Extending an individual service is useful when you have multiple services that have a common configuration. The example below is a Compose app with two services, a web application and a queue worker. Both services use the same codebase and share many configuration options.
 
@@ -159,13 +159,13 @@ services:
       - queue
 ```
 
-## [Exceptions and limitations](https://docs.docker.com/compose/how-tos/multiple-compose-files/extends/#exceptions-and-limitations)
+## Exceptions and limitations
 
 `volumes_from` and `depends_on` are never shared between services using `extends`. These exceptions exist to avoid implicit dependencies; you always define `volumes_from` locally. This ensures dependencies between services are clearly visible when reading the current file. Defining these locally also ensures that changes to the referenced file don't break anything.
 
 `extends` is useful if you only need a single service to be shared and you are familiar with the file you're extending to, so you can tweak the configuration. But this isn’t an acceptable solution when you want to re-use someone else's unfamiliar configurations and you don’t know about its own dependencies.
 
-## [Relative paths](https://docs.docker.com/compose/how-tos/multiple-compose-files/extends/#relative-paths)
+## Relative paths
 
 When using `extends` with a `file` attribute which points to another folder, relative paths declared by the service being extended are converted so they still point to the same file when used by the extending service. This is illustrated in the following example:
 
@@ -204,6 +204,6 @@ services:
       - ../commons/container.env
 ```
 
-## [Reference information](https://docs.docker.com/compose/how-tos/multiple-compose-files/extends/#reference-information)
+## Reference information
 
 - [`extends`](https://docs.docker.com/reference/compose-file/services/#extends)

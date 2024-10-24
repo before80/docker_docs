@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/swarm-tutorial/delete-service/](https://docs.docker.com/engine/swarm/swarm-tutorial/delete-service/)
+> 原文：[https://docs.docker.com/engine/swarm/swarm-tutorial/delete-service/](https://docs.docker.com/engine/swarm/swarm-tutorial/delete-service/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -56,8 +56,8 @@ The remaining steps in the tutorial don't use the `helloworld` service, so now y
    CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS     NAMES
    ```
 
-## [Next steps](https://docs.docker.com/engine/swarm/swarm-tutorial/delete-service/#next-steps)
+## Next steps
 
 Next, you'll set up a new service and apply a rolling update.
 
-[Apply rolling updates](https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/)
+[Apply rolling updates]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode/Applyrollingupdatestoaservice" >}})

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/guides/oauth2-flow/](https://docs.docker.com/extensions/extensions-sdk/guides/oauth2-flow/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/guides/oauth2-flow/](https://docs.docker.com/extensions/extensions-sdk/guides/oauth2-flow/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,7 +24,7 @@ Learn how you can let users authenticate from your extension using OAuth 2.0 via
 
 In OAuth 2.0, the term "grant type" refers to the way an application gets an access token. Although OAuth 2.0 defines several grant types, this page only describes how to authorize users from your extension using the Authorization Code grant type.
 
-## [Authorization code grant flow](https://docs.docker.com/extensions/extensions-sdk/guides/oauth2-flow/#authorization-code-grant-flow)
+## Authorization code grant flow
 
 The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
 
@@ -39,14 +39,14 @@ The image above shows that:
 - The service provider then validates these details and returns an access token.
 - The extension uses the access token to request the user data with the service provider.
 
-### [OAuth 2.0 terminology](https://docs.docker.com/extensions/extensions-sdk/guides/oauth2-flow/#oauth-20-terminology)
+### OAuth 2.0 terminology
 
 - Auth URL: The endpoint for the API provider authorization server, to retrieve the auth code.
 - Redirect URI: The client application callback URL to redirect to after auth. This must be registered with the API provider.
 
 Once the user enters the username and password, they're successfully authenticated.
 
-## [Open a browser page to authenticate the user](https://docs.docker.com/extensions/extensions-sdk/guides/oauth2-flow/#open-a-browser-page-to-authenticate-the-user)
+## Open a browser page to authenticate the user
 
 From the extension UI, you can provide a button that, when selected, opens a new window in a browser to authenticate the user.
 
@@ -61,7 +61,7 @@ window.ddClient.openExternal("https://authorization-server.com/authorize?
   &redirect_uri=${REDIRECT_URI});
 ```
 
-## [Get the authorization code and access token](https://docs.docker.com/extensions/extensions-sdk/guides/oauth2-flow/#get-the-authorization-code-and-access-token)
+## Get the authorization code and access token
 
 You can get the authorization code from the extension UI by listing `docker-desktop://dashboard/extension-tab?extensionId=awesome/my-extension` as the `redirect_uri` in the OAuth app you're using and concatenating the authorization code as a query parameter. The extension UI code will then be able to read the corresponding code query-param.
 
@@ -69,13 +69,13 @@ You can get the authorization code from the extension UI by listing `docker-desk
 >
 > 
 >
-> Using this feature requires the extension SDK 0.3.3 in Docker Desktop. You need to ensure that the required SDK version for your extension set with `com.docker.desktop.extension.api.version` in [image labels](https://docs.docker.com/extensions/extensions-sdk/extensions/labels/) is higher than 0.3.3.
+> Using this feature requires the extension SDK 0.3.3 in Docker Desktop. You need to ensure that the required SDK version for your extension set with `com.docker.desktop.extension.api.version` in [image labels]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish/Addlabels" >}}) is higher than 0.3.3.
 
-#### [Authorization](https://docs.docker.com/extensions/extensions-sdk/guides/oauth2-flow/#authorization)
+#### Authorization
 
 This step is where the user enters their credentials in the browser. After the authorization is complete, the user is redirected back to your extension user interface, and the extension UI code can consume the authorization code that's part of the query parameters in the URL.
 
-#### [Exchange the Authorization Code](https://docs.docker.com/extensions/extensions-sdk/guides/oauth2-flow/#exchange-the-authorization-code)
+#### Exchange the Authorization Code
 
 Next, you exchange the authorization code for an access token.
 
@@ -97,7 +97,7 @@ POST https://authorization-server.com/token
 >
 > The client's credentials are included in the `POST` query params in this example. OAuth authorization servers may require that the credentials are sent as a HTTP Basic Authentication header or might support different formats. See your OAuth provider docs for details.
 
-### [Store the access token](https://docs.docker.com/extensions/extensions-sdk/guides/oauth2-flow/#store-the-access-token)
+### Store the access token
 
 The Docker Extensions SDK doesn't provide a specific mechanism to store secrets.
 
@@ -109,6 +109,6 @@ It's highly recommended that you use an external source of storage to store the 
 >
 > The user interface Local Storage is isolated between extensions (an extension can't access another extension's local storage), and each extension's local storage gets deleted when users uninstall an extension.
 
-## [What's next](https://docs.docker.com/extensions/extensions-sdk/guides/oauth2-flow/#whats-next)
+## What's next
 
-Learn how to [publish and distribute your extension](https://docs.docker.com/extensions/extensions-sdk/extensions/)
+Learn how to [publish and distribute your extension]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish" >}})

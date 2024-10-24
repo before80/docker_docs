@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/faqs/linuxfaqs/](https://docs.docker.com/desktop/faqs/linuxfaqs/)
+> 原文：[https://docs.docker.com/desktop/faqs/linuxfaqs/](https://docs.docker.com/desktop/faqs/linuxfaqs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # FAQs for Docker Desktop for Linux
 
-### [Why does Docker Desktop for Linux run a VM?](https://docs.docker.com/desktop/faqs/linuxfaqs/#why-does-docker-desktop-for-linux-run-a-vm)
+### Why does Docker Desktop for Linux run a VM?
 
 Docker Desktop for Linux runs a Virtual Machine (VM) for the following reasons:
 
@@ -38,7 +38,7 @@ Docker Desktop for Linux runs a Virtual Machine (VM) for the following reasons:
 
    As such, we have adjusted the default memory available to the VM in Docker Desktop for Linux. You can tweak this setting to your specific needs by using the **Memory** slider within the **Settings** > **Resources** tab of Docker Desktop.
 
-### [How do I enable file sharing?](https://docs.docker.com/desktop/faqs/linuxfaqs/#how-do-i-enable-file-sharing)
+### How do I enable file sharing?
 
 Docker Desktop for Linux uses [VirtioFS](https://virtio-fs.gitlab.io/) as the default (and currently only) mechanism to enable file sharing between the host and Docker Desktop VM. In order not to require elevated privileges, without unnecessarily restricting operations on the shared files, Docker Desktop runs the file sharing service (`virtiofsd`) inside a user namespace (see `user_namespaces(7)`) with UID and GID mapping configured. As a result Docker Desktop relies on the host being configured to enable the current user to use subordinate ID delegation. For this to be true `/etc/subuid` (see `subuid(5)`) and `/etc/subgid` (see `subgid(5)`) must be present. Docker Desktop only supports subordinate ID delegation configured via files. Docker Desktop maps the current user ID and GID to 0 in the containers. It uses the first entry corresponding to the current user in `/etc/subuid` and `/etc/subgid` to set up mappings for IDs above 0 in the containers.
 
@@ -74,17 +74,17 @@ exampleuser:100000:65536
 
 In this scenario if a shared file is `chown`ed inside a Docker Desktop container owned by a user with a UID of 1000, it shows up on the host as owned by a user with a UID of 100999. This has the unfortunate side effect of preventing easy access to such a file on the host. The problem is resolved by creating a group with the new GID and adding our user to it, or by setting a recursive ACL (see `setfacl(1)`) for folders shared with the Docker Desktop VM.
 
-### [Where does Docker Desktop store Linux containers?](https://docs.docker.com/desktop/faqs/linuxfaqs/#where-does-docker-desktop-store-linux-containers)
+### Where does Docker Desktop store Linux containers?
 
 Docker Desktop stores Linux containers and images in a single, large "disk image" file in the Linux filesystem. This is different from Docker on Linux, which usually stores containers and images in the `/var/lib/docker` directory on the host's filesystem.
 
-#### [Where is the disk image file?](https://docs.docker.com/desktop/faqs/linuxfaqs/#where-is-the-disk-image-file)
+#### Where is the disk image file?
 
 To locate the disk image file, select **Settings** from the Docker Dashboard then **Advanced** from the **Resources** tab.
 
 The **Advanced** tab displays the location of the disk image. It also displays the maximum size of the disk image and the actual space the disk image is consuming. Note that other tools might display space usage of the file in terms of the maximum file size, and not the actual file size.
 
-##### [What if the file is too large?](https://docs.docker.com/desktop/faqs/linuxfaqs/#what-if-the-file-is-too-large)
+##### What if the file is too large?
 
 If the disk image file is too large, you can:
 
@@ -92,7 +92,7 @@ If the disk image file is too large, you can:
 - Delete unnecessary containers and images
 - Reduce the maximum allowable size of the file
 
-##### [How do I move the file to a bigger drive?](https://docs.docker.com/desktop/faqs/linuxfaqs/#how-do-i-move-the-file-to-a-bigger-drive)
+##### How do I move the file to a bigger drive?
 
 To move the disk image file to a different location:
 
@@ -102,7 +102,7 @@ To move the disk image file to a different location:
 
 Do not move the file directly in Finder as this can cause Docker Desktop to lose track of the file.
 
-##### [How do I delete unnecessary containers and images?](https://docs.docker.com/desktop/faqs/linuxfaqs/#how-do-i-delete-unnecessary-containers-and-images)
+##### How do I delete unnecessary containers and images?
 
 Check whether you have any unnecessary containers and images. If your client and daemon API are running version 1.25 or later (use the `docker version` command on the client to check your client and daemon API versions), you can see the detailed space usage information by running:
 
@@ -163,7 +163,7 @@ $ ls -klsh Docker.raw
 
 In this example, the actual size of the disk is `2333548` KB, whereas the maximum size of the disk is `64` GB.
 
-##### [How do I reduce the maximum size of the file?](https://docs.docker.com/desktop/faqs/linuxfaqs/#how-do-i-reduce-the-maximum-size-of-the-file)
+##### How do I reduce the maximum size of the file?
 
 To reduce the maximum size of the disk image file:
 

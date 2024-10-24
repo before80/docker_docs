@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/compose-file/fragments/](https://docs.docker.com/reference/compose-file/fragments/)
+> 原文：[https://docs.docker.com/reference/compose-file/fragments/](https://docs.docker.com/reference/compose-file/fragments/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -20,7 +20,7 @@ Anchors are created using the `&` sign. The sign is followed by an alias name. Y
 
 You can use more than one anchor and alias in a single Compose file.
 
-## [Example 1](https://docs.docker.com/reference/compose-file/fragments/#example-1)
+## Example 1
 
 
 
@@ -33,9 +33,9 @@ volumes:
 
 In the example above, a `default-volume` anchor is created based on the `db-data` volume. It is later reused by the alias `*default-volume` to define the `metrics` volume.
 
-Anchor resolution takes place before [variables interpolation](https://docs.docker.com/reference/compose-file/interpolation/), so variables can't be used to set anchors or aliases.
+Anchor resolution takes place before [variables interpolation]({{< ref "/reference/Composefilereference/Interpolation" >}}), so variables can't be used to set anchors or aliases.
 
-## [Example 2](https://docs.docker.com/reference/compose-file/fragments/#example-2)
+## Example 2
 
 
 
@@ -52,9 +52,9 @@ services:
     environment: *env
 ```
 
-If you have an anchor that you want to use in more than one service, use it in conjunction with an [extension](https://docs.docker.com/reference/compose-file/extension/) to make your Compose file easier to maintain.
+If you have an anchor that you want to use in more than one service, use it in conjunction with an [extension]({{< ref "/reference/Composefilereference/Extensions" >}}) to make your Compose file easier to maintain.
 
-## [Example 3](https://docs.docker.com/reference/compose-file/fragments/#example-3)
+## Example 3
 
 You may want to partially override values. Compose follows the rule outlined by [YAML merge type](https://yaml.org/type/merge.html).
 
@@ -78,7 +78,7 @@ volumes:
     name: "metrics"
 ```
 
-## [Example 4](https://docs.docker.com/reference/compose-file/fragments/#example-4)
+## Example 4
 
 You can also extend the anchor to add additional values.
 

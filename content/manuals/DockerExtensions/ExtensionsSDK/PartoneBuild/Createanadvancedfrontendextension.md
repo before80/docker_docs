@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,11 +16,11 @@ draft = false
 
 To start creating your extension, you first need a directory with files which range from the extension’s source code to the required extension-specific files. This page provides information on how to set up an extension with a more advanced frontend.
 
-Before you start, make sure you have installed the latest version of [Docker Desktop](https://docs.docker.com/desktop/release-notes/).
+Before you start, make sure you have installed the latest version of [Docker Desktop]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}).
 
-## [Extension folder structure](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/#extension-folder-structure)
+## Extension folder structure
 
-The quickest way to create a new extension is to run `docker extension init my-extension` as in the [Quickstart](https://docs.docker.com/extensions/extensions-sdk/quickstart/). This creates a new directory `my-extension` that contains a fully functional extension.
+The quickest way to create a new extension is to run `docker extension init my-extension` as in the [Quickstart]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/Quickstart" >}}). This creates a new directory `my-extension` that contains a fully functional extension.
 
 > **Tip**
 >
@@ -55,7 +55,7 @@ Although you can start from an empty directory or from the `react-extension` [sa
 5. The icon that is displayed in the left-menu of the Docker Desktop Dashboard.
 6. A file that provides information about the extension such as the name, description, and version.
 
-## [Adapting the Dockerfile](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/#adapting-the-dockerfile)
+## Adapting the Dockerfile
 
 > **Note**
 >
@@ -108,7 +108,7 @@ COPY --from=client-builder /ui/build ui
 
 ------
 
-## [Configure the metadata file](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/#configure-the-metadata-file)
+## Configure the metadata file
 
 In order to add a tab in Docker Desktop for your extension, you have to configure it in the `metadata.json` file the root of your extension directory.
 
@@ -131,7 +131,7 @@ The `title` property is the name of the extension that is displayed in the left-
 
 For more information on the `ui` section of the `metadata.json`, see [Metadata](https://docs.docker.com/extensions/extensions-sdk/architecture/metadata/#ui-section).
 
-## [Build the extension and install it](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/#build-the-extension-and-install-it)
+## Build the extension and install it
 
 Now that you have configured the extension, you need to build the extension image that Docker Desktop will use to install it.
 
@@ -151,7 +151,7 @@ Finally, you can install the extension and see it appearing in the Docker Deskto
 docker extension install awesome-inc/my-extension:latest
 ```
 
-## [Use the Extension APIs client](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/#use-the-extension-apis-client)
+## Use the Extension APIs client
 
 To use the Extension APIs and perform actions with Docker Desktop, the extension must first import the `@docker/extension-api-client` library. To install it, run the command below:
 
@@ -270,7 +270,7 @@ export function App() {
 
 ------
 
-## [Policies enforced for the front-end code](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/#policies-enforced-for-the-front-end-code)
+## Policies enforced for the front-end code
 
 Extension UI code is rendered in a separate electron session and doesn't have a node.js environment initialized, nor direct access to the electron APIs.
 
@@ -284,7 +284,7 @@ Extensions UI parts are isolated from each other and extension UI code is runnin
 
 If your extension uses `localStorage` to store data, other extensions running in Docker Desktop can't access the local storage of your extension. The extension’s local storage is persisted even after Docker Desktop is stopped or restarted. When an extension is upgraded, its local storage is persisted, whereas when it is uninstalled, its local storage is completely removed.
 
-## [Re-build the extension and update it](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/#re-build-the-extension-and-update-it)
+## Re-build the extension and update it
 
 Since you have modified the code of the extension, you must build again the extension.
 
@@ -310,11 +310,11 @@ Now you can see the backend service running in the containers tab of the Docker 
 >
 > You can turn on [hot reloading](https://docs.docker.com/extensions/extensions-sdk/dev/test-debug/#hot-reloading-whilst-developing-the-ui) to avoid the need to rebuild the extension every time you make a change.
 
-## [What's next?](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/#whats-next)
+## What's next?
 
-- Add a [backend](https://docs.docker.com/extensions/extensions-sdk/build/backend-extension-tutorial/) to your extension.
-- Learn how to [test and debug](https://docs.docker.com/extensions/extensions-sdk/dev/test-debug/) your extension.
-- Learn how to [setup CI for your extension](https://docs.docker.com/extensions/extensions-sdk/dev/continuous-integration/).
-- Learn more about extensions [architecture](https://docs.docker.com/extensions/extensions-sdk/architecture/).
-- For more information and guidelines on building the UI, see the [Design and UI styling section](https://docs.docker.com/extensions/extensions-sdk/design/design-guidelines/).
-- If you want to set up user authentication for the extension, see [Authentication](https://docs.docker.com/extensions/extensions-sdk/guides/oauth2-flow/).
+- Add a [backend]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/PartoneBuild/Addabackendtoyourextension" >}}) to your extension.
+- Learn how to [test and debug]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DeveloperSDKtools/Testanddebug" >}}) your extension.
+- Learn how to [setup CI for your extension]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DeveloperSDKtools/ContinuousIntegrationCI" >}}).
+- Learn more about extensions [architecture]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/Architecture" >}}).
+- For more information and guidelines on building the UI, see the [Design and UI styling section]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DesignandUIstyling/Guidelines" >}}).
+- If you want to set up user authentication for the extension, see [Authentication]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DeveloperGuides/Authentication" >}}).

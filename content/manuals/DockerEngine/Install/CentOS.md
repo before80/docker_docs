@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/install/centos/](https://docs.docker.com/engine/install/centos/)
+> 原文：[https://docs.docker.com/engine/install/centos/](https://docs.docker.com/engine/install/centos/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,9 +16,9 @@ draft = false
 
 To get started with Docker Engine on CentOS, make sure you [meet the prerequisites](https://docs.docker.com/engine/install/centos/#prerequisites), and then follow the [installation steps](https://docs.docker.com/engine/install/centos/#installation-methods).
 
-## [Prerequisites](https://docs.docker.com/engine/install/centos/#prerequisites)
+## Prerequisites
 
-### [OS requirements](https://docs.docker.com/engine/install/centos/#os-requirements)
+### OS requirements
 
 To install Docker Engine, you need a maintained version of one of the following CentOS versions:
 
@@ -26,7 +26,7 @@ To install Docker Engine, you need a maintained version of one of the following 
 
 The `centos-extras` repository must be enabled. This repository is enabled by default. If you have disabled it, you need to re-enable it.
 
-### [Uninstall old versions](https://docs.docker.com/engine/install/centos/#uninstall-old-versions)
+### Uninstall old versions
 
 Older versions of Docker went by `docker` or `docker-engine`. Uninstall any such older versions before attempting to install a new version, along with associated dependencies.
 
@@ -47,7 +47,7 @@ $ sudo yum remove docker \
 
 Images, containers, volumes, and networks stored in `/var/lib/docker/` aren't automatically removed when you uninstall Docker.
 
-## [Installation methods](https://docs.docker.com/engine/install/centos/#installation-methods)
+## Installation methods
 
 You can install Docker Engine in different ways, depending on your needs:
 
@@ -55,11 +55,11 @@ You can install Docker Engine in different ways, depending on your needs:
 - You can download the RPM package, [install it manually](https://docs.docker.com/engine/install/centos/#install-from-a-package), and manage upgrades completely manually. This is useful in situations such as installing Docker on air-gapped systems with no access to the internet.
 - In testing and development environments, you can use automated [convenience scripts](https://docs.docker.com/engine/install/centos/#install-using-the-convenience-script) to install Docker.
 
-### [Install using the rpm repository](https://docs.docker.com/engine/install/centos/#install-using-the-repository)
+### Install using the rpm repository
 
 Before you install Docker Engine for the first time on a new host machine, you need to set up the Docker repository. Afterward, you can install and update Docker from the repository.
 
-#### [Set up the repository](https://docs.docker.com/engine/install/centos/#set-up-the-repository)
+#### Set up the repository
 
 Install the `yum-utils` package (which provides the `yum-config-manager` utility) and set up the repository.
 
@@ -70,13 +70,13 @@ $ sudo yum install -y yum-utils
 $ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 ```
 
-#### [Install Docker Engine](https://docs.docker.com/engine/install/centos/#install-docker-engine)
+#### Install Docker Engine
 
 1. Install Docker Engine, containerd, and Docker Compose:
 
-   Latest Specific version
+   {{< tabpane text=true persist=disabled >}}
 
-   ------
+   {{% tab header="Latest" %}}
 
    To install the latest version, run:
 
@@ -89,6 +89,42 @@ $ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/do
    If prompted to accept the GPG key, verify that the fingerprint matches `060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35`, and if so, accept it.
 
    This command installs Docker, but it doesn't start Docker. It also creates a `docker` group, however, it doesn't add any users to the group by default.
+
+   {{% /tab  %}}
+
+   {{% tab header="Specific version" %}}
+
+   To install a specific version, start by listing the available versions in the repository:
+
+   
+
+   ```console
+   $ yum list docker-ce --showduplicates | sort -r
+   
+   docker-ce.x86_64    3:27.1.1-1.el9    docker-ce-stable
+   docker-ce.x86_64    3:27.1.0-1.el9    docker-ce-stable
+   <...>
+   ```
+
+   The list returned depends on which repositories are enabled, and is specific to your version of CentOS (indicated by the `.el9` suffix in this example).
+
+   Install a specific version by its fully qualified package name, which is the package name (`docker-ce`) plus the version string (2nd column), separated by a hyphen (`-`). For example, `docker-ce-3:27.1.1-1.el9`.
+
+   Replace `<VERSION_STRING>` with the desired version and then run the following command to install:
+
+   
+
+   ```console
+   $ sudo yum install docker-ce-VERSION_STRING docker-ce-cli-VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin
+   ```
+
+   This command installs Docker, but it doesn't start Docker. It also creates a `docker` group, however, it doesn't add any users to the group by default.
+
+   {{% /tab  %}}
+
+   {{< /tabpane >}}
+
+   
 
    ------
 
@@ -118,13 +154,13 @@ You have now successfully installed and started Docker Engine.
 >
 > Receiving errors when trying to run without root?
 >
-> The `docker` user group exists but contains no users, which is why you’re required to use `sudo` to run Docker commands. Continue to [Linux postinstall](https://docs.docker.com/engine/install/linux-postinstall) to allow non-privileged users to run Docker commands and for other optional configuration steps.
+> The `docker` user group exists but contains no users, which is why you’re required to use `sudo` to run Docker commands. Continue to [Linux postinstall]({{< ref "/manuals/DockerEngine/Install/Post-installationsteps" >}}) to allow non-privileged users to run Docker commands and for other optional configuration steps.
 
-#### [Upgrade Docker Engine](https://docs.docker.com/engine/install/centos/#upgrade-docker-engine)
+#### Upgrade Docker Engine
 
 To upgrade Docker Engine, follow the [installation instructions](https://docs.docker.com/engine/install/centos/#install-using-the-repository), choosing the new version you want to install.
 
-### [Install from a package](https://docs.docker.com/engine/install/centos/#install-from-a-package)
+### Install from a package
 
 If you can't use Docker's `rpm` repository to install Docker Engine, you can download the `.rpm` file for your release and install it manually. You need to download a new file each time you want to upgrade Docker Engine.
 
@@ -166,13 +202,13 @@ You have now successfully installed and started Docker Engine.
 >
 > Receiving errors when trying to run without root?
 >
-> The `docker` user group exists but contains no users, which is why you’re required to use `sudo` to run Docker commands. Continue to [Linux postinstall](https://docs.docker.com/engine/install/linux-postinstall) to allow non-privileged users to run Docker commands and for other optional configuration steps.
+> The `docker` user group exists but contains no users, which is why you’re required to use `sudo` to run Docker commands. Continue to [Linux postinstall]({{< ref "/manuals/DockerEngine/Install/Post-installationsteps" >}}) to allow non-privileged users to run Docker commands and for other optional configuration steps.
 
-#### [Upgrade Docker Engine](https://docs.docker.com/engine/install/centos/#upgrade-docker-engine-1)
+#### Upgrade Docker Engine
 
 To upgrade Docker Engine, download the newer package files and repeat the [installation procedure](https://docs.docker.com/engine/install/centos/#install-from-a-package), using `yum -y upgrade` instead of `yum -y install`, and point to the new files.
 
-### [Install using the convenience script](https://docs.docker.com/engine/install/centos/#install-using-the-convenience-script)
+### Install using the convenience script
 
 Docker provides a convenience script at https://get.docker.com/ to install Docker into development environments non-interactively. The convenience script isn't recommended for production environments, but it's useful for creating a provisioning script tailored to your needs. Also refer to the [install using the repository](https://docs.docker.com/engine/install/centos/#install-using-the-repository) steps to learn about installation steps to install using the package repository. The source code for the script is open source, and you can find it in the [`docker-install` repository on GitHub](https://github.com/docker/docker-install).
 
@@ -211,9 +247,9 @@ You have now successfully installed and started Docker Engine. The `docker` serv
 
 > **Use Docker as a non-privileged user, or install in rootless mode?**
 >
-> The installation script requires `root` or `sudo` privileges to install and use Docker. If you want to grant non-root users access to Docker, refer to the [post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user). You can also install Docker without `root` privileges, or configured to run in rootless mode. For instructions on running Docker in rootless mode, refer to [run the Docker daemon as a non-root user (rootless mode)](https://docs.docker.com/engine/security/rootless/).
+> The installation script requires `root` or `sudo` privileges to install and use Docker. If you want to grant non-root users access to Docker, refer to the [post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user). You can also install Docker without `root` privileges, or configured to run in rootless mode. For instructions on running Docker in rootless mode, refer to [run the Docker daemon as a non-root user (rootless mode)]({{< ref "/manuals/DockerEngine/Security/Rootlessmode" >}}).
 
-#### [Install pre-releases](https://docs.docker.com/engine/install/centos/#install-pre-releases)
+#### Install pre-releases
 
 Docker also provides a convenience script at https://test.docker.com/ to install pre-releases of Docker on Linux. This script is equal to the script at `get.docker.com`, but configures your package manager to use the test channel of the Docker package repository. The test channel includes both stable and pre-releases (beta versions, release-candidates) of Docker. Use this script to get early access to new releases, and to evaluate them in a testing environment before they're released as stable.
 
@@ -226,11 +262,11 @@ $ curl -fsSL https://test.docker.com -o test-docker.sh
 $ sudo sh test-docker.sh
 ```
 
-#### [Upgrade Docker after using the convenience script](https://docs.docker.com/engine/install/centos/#upgrade-docker-after-using-the-convenience-script)
+#### Upgrade Docker after using the convenience script
 
 If you installed Docker using the convenience script, you should upgrade Docker using your package manager directly. There's no advantage to re-running the convenience script. Re-running it can cause issues if it attempts to re-install repositories which already exist on the host machine.
 
-## [Uninstall Docker Engine](https://docs.docker.com/engine/install/centos/#uninstall-docker-engine)
+## Uninstall Docker Engine
 
 1. Uninstall the Docker Engine, CLI, containerd, and Docker Compose packages:
 
@@ -251,6 +287,6 @@ If you installed Docker using the convenience script, you should upgrade Docker 
 
 You have to delete any edited configuration files manually.
 
-## [Next steps](https://docs.docker.com/engine/install/centos/#next-steps)
+## Next steps
 
-- Continue to [Post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/).
+- Continue to [Post-installation steps for Linux]({{< ref "/manuals/DockerEngine/Install/Post-installationsteps" >}}).

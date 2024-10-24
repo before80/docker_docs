@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/provisioning/scim/](https://docs.docker.com/security/for-admins/provisioning/scim/)
+> 原文：[https://docs.docker.com/security/for-admins/provisioning/scim/](https://docs.docker.com/security/for-admins/provisioning/scim/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -29,7 +29,7 @@ The following lists the supported provisioning features:
 - Re-activate users
 - Group mapping
 
-## [Supported attributes](https://docs.docker.com/security/for-admins/provisioning/scim/#supported-attributes)
+## Supported attributes
 
 The following table lists the supported attributes. Note that your attribute mappings must match for SSO to prevent duplicating your members.
 
@@ -54,9 +54,9 @@ For additional details about supported attributes and SCIM, see [Docker Hub API 
 >
 > Optional Just-in-Time (JIT) provisioning is available when you use the Admin Console and enable SCIM. With this feature, you can avoid conflicts between SCIM and JIT by disabling JIT provisioning in your SSO connection. See [SSO authentication with JIT provisioning disabled](https://docs.docker.com/security/for-admins/provisioning/just-in-time/#sso-authentication-with-jit-provisioning-disabled).
 
-## [Enable SCIM in Docker](https://docs.docker.com/security/for-admins/provisioning/scim/#enable-scim-in-docker)
+## Enable SCIM in Docker
 
-You must make sure you have [configured SSO](https://docs.docker.com/security/for-admins/single-sign-on/configure/) before you enable SCIM. Enforcing SSO isn't required.
+You must make sure you have [configured SSO]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Configure" >}}) before you enable SCIM. Enforcing SSO isn't required.
 
 Docker Hub Admin Console
 
@@ -71,7 +71,7 @@ Docker Hub Admin Console
 
 ------
 
-## [Enable SCIM in your IdP](https://docs.docker.com/security/for-admins/provisioning/scim/#enable-scim-in-your-idp)
+## Enable SCIM in your IdP
 
 The user interface for your IdP may differ slightly from the following steps. You can refer to the documentation for your IdP to verify.
 
@@ -79,7 +79,7 @@ Okta Entra ID SAML 2.0
 
 ------
 
-### [Enable SCIM](https://docs.docker.com/security/for-admins/provisioning/scim/#enable-scim)
+### Enable SCIM
 
 1. Go to the Okta admin portal.
 2. Go to the app you created when you configured your SSO connection.
@@ -96,7 +96,7 @@ Okta Entra ID SAML 2.0
 8. Review the test results.
 9. Select **Save**.
 
-### [Enable synchronization](https://docs.docker.com/security/for-admins/provisioning/scim/#enable-synchronization)
+### Enable synchronization
 
 1. Go to **Provisioning > To App > Edit**.
 2. Enable **Create Users**, **Update User Attributes**, and **Deactivate Users**.
@@ -114,9 +114,9 @@ See the documentation for your IdP for additional details:
 - [Okta](https://help.okta.com/en-us/Content/Topics/Apps/Apps_App_Integration_Wizard_SCIM.htm)
 - [Entra ID (formerly Azure AD)](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/user-provisioning)
 
-## [Set up role mapping](https://docs.docker.com/security/for-admins/provisioning/scim/#set-up-role-mapping)
+## Set up role mapping
 
-You can assign [roles](https://docs.docker.com/security/for-admins/roles-and-permissions/) to members in your organization in the IdP. To set up a role, you can use optional user-level attributes for the person you want to assign a role. In addition to roles, you can set an organization or team to override the default provisioning values set by the SSO connection.
+You can assign [roles]({{< ref "/manuals/Security/Foradmins/Rolesandpermissions" >}}) to members in your organization in the IdP. To set up a role, you can use optional user-level attributes for the person you want to assign a role. In addition to roles, you can set an organization or team to override the default provisioning values set by the SSO connection.
 
 > **Note**
 >
@@ -128,9 +128,9 @@ The following table lists the supported optional user-level attributes.
 
 | Attribute    | Possible values                                              | Considerations                                               |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `dockerRole` | `member`, `editor`, or `owner`. For a list of permissions for each role, see [Roles and permissions](https://docs.docker.com/security/for-admins/roles-and-permissions/). | If you don't assign a role in the IdP, the value of the `dockerRole` attribute defaults to `member`. When you set the attribute, this overrides the default value. |
+| `dockerRole` | `member`, `editor`, or `owner`. For a list of permissions for each role, see [Roles and permissions]({{< ref "/manuals/Security/Foradmins/Rolesandpermissions" >}}). | If you don't assign a role in the IdP, the value of the `dockerRole` attribute defaults to `member`. When you set the attribute, this overrides the default value. |
 | `dockerOrg`  | `organizationName`. For example, an organization named "moby" would be `moby`. | Setting this attribute overrides the default organization configured by the SSO connection. Also, this won't add the user to the default team. If this attribute isn't set, the user is provisioned to the default organization and the default team. If set and `dockerTeam` is also set, this provisions the user to the team within that organization. |
-| `dockerTeam` | `teamName`. For example, a team named "developers" would be `developers`. | Setting this attribute provisions the user to the default organization and to the specified team, instead of the SSO connection's default team. This also creates the team if it doesn't exist. You can still use group mapping to provision users to teams in multiple organizations. See [Group mapping](https://docs.docker.com/security/for-admins/provisioning/group-mapping/). |
+| `dockerTeam` | `teamName`. For example, a team named "developers" would be `developers`. | Setting this attribute provisions the user to the default organization and to the specified team, instead of the SSO connection's default team. This also creates the team if it doesn't exist. You can still use group mapping to provision users to teams in multiple organizations. See [Group mapping]({{< ref "/manuals/Security/Foradmins/Provisioning/Groupmapping" >}}). |
 
 After you set the role in the IdP, you need to sync to push the changes to Docker.
 
@@ -140,9 +140,9 @@ Okta Entra ID SAML 2.0
 
 ------
 
-### [Set up](https://docs.docker.com/security/for-admins/provisioning/scim/#set-up)
+### Set up
 
-1. Setup [SSO](https://docs.docker.com/security/for-admins/single-sign-on/configure/) and SCIM first.
+1. Setup [SSO]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Configure" >}}) and SCIM first.
 2. In the Okta admin portal, go to **Directory > Profile Editor** and select **User (Default)**.
 3. Select **Add Attribute** and configure the values for the role, org, or team you want to add. Exact naming isn't required.
 4. Return to the **Profile Editor** and select your application.
@@ -151,12 +151,12 @@ Okta Entra ID SAML 2.0
 7. Go to the newly created attributes and map the variable names selected above to the external names, then select **Save Mappings**. If you’re using JIT provisioning, continue to the following step.
 8. Go to **Applications > YOUR APP > General > SAML Settings > Edit > Step 2** and configure the mapping from the user attribute to the docker variables.
 
-### [Assign roles by user](https://docs.docker.com/security/for-admins/provisioning/scim/#assign-roles-by-user)
+### Assign roles by user
 
 1. Go to **Directory > People > YOUR USER > Profile**, then select **Edit** on **Attributes**.
 2. Update the attributes to the desired values.
 
-### [Assign roles by group](https://docs.docker.com/security/for-admins/provisioning/scim/#assign-roles-by-group)
+### Assign roles by group
 
 1. Go to **Directory > People > YOUR GROUP > Applications > YOUR APPLICATION**, then select the **Edit** icon.
 2. Update the attributes to the desired values.
@@ -170,7 +170,7 @@ See the documentation for your IdP for additional details:
 - [Okta](https://help.okta.com/en-us/Content/Topics/users-groups-profiles/usgp-add-custom-user-attributes.htm)
 - [Entra ID (formerly Azure AD)](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes#provisioning-a-custom-extension-attribute-to-a-scim-compliant-application)
 
-## [Disable SCIM](https://docs.docker.com/security/for-admins/provisioning/scim/#disable-scim)
+## Disable SCIM
 
 If SCIM is disabled, any user provisioned through SCIM will remain in the organization. Future changes for your users will not sync from your IdP. User de-provisioning is only possible when manually removing the user from the organization.
 
@@ -187,7 +187,7 @@ Docker Hub Admin Console
 
 ------
 
-## [More resources](https://docs.docker.com/security/for-admins/provisioning/scim/#more-resources)
+## More resources
 
 The following videos demonstrate how to configure SCIM for your IdP.
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/)
+> 原文：[https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -31,7 +31,7 @@ services:
     image: "webapp:${TAG}"
 ```
 
-When you run `docker compose up`, the `web` service defined in the Compose file [interpolates](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/) in the image `webapp:v1.5` which was set in the `.env` file. You can verify this with the [config command](https://docs.docker.com/reference/cli/docker/compose/config/), which prints your resolved application config to the terminal:
+When you run `docker compose up`, the `web` service defined in the Compose file [interpolates]({{< ref "/manuals/DockerCompose/How-tos/Useenvironmentvariables/Interpolation" >}}) in the image `webapp:v1.5` which was set in the `.env` file. You can verify this with the [config command]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposeconfig" >}}), which prints your resolved application config to the terminal:
 
 
 
@@ -42,7 +42,7 @@ services:
     image: 'webapp:v1.5'
 ```
 
-## [Interpolation syntax](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/#interpolation-syntax)
+## Interpolation syntax
 
 Interpolation is applied for unquoted and double-quoted values. Both braced (`${VAR}`) and unbraced (`$VAR`) expressions are supported.
 
@@ -60,9 +60,9 @@ For braced expressions, the following formats are supported:
   - `${VAR:+replacement}` -> `replacement` if `VAR` is set and non-empty, otherwise empty
   - `${VAR+replacement}` -> `replacement` if `VAR` is set, otherwise empty
 
-For more information, see [Interpolation](https://docs.docker.com/reference/compose-file/interpolation/) in the Compose Specification.
+For more information, see [Interpolation]({{< ref "/reference/Composefilereference/Interpolation" >}}) in the Compose Specification.
 
-## [Ways to set variables with interpolation](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/#ways-to-set-variables-with-interpolation)
+## Ways to set variables with interpolation
 
 Docker Compose can interpolate variables into your Compose file from multiple sources.
 
@@ -74,7 +74,7 @@ Note that when the same variable is declared by multiple sources, precedence app
 
 You can check variables and values used by Compose to interpolate the Compose model by running `docker compose config --environment`.
 
-### [`.env` file](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/#env-file)
+### `.env` file
 
 An `.env` file in Docker Compose is a text file used to define variables that should be made available for interpolation when running `docker compose up`. This file typically contains key-value pairs of variables, and it lets you centralize and manage configuration in one place. The `.env` file is useful if you have multiple variables you need to store.
 
@@ -103,7 +103,7 @@ services:
       DEBUG: "true"
 ```
 
-#### [Additional information](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/#additional-information)
+#### Additional information
 
 - If you define a variable in your `.env` file, you can reference it directly in your `compose.yml` with the [`environment` attribute](https://docs.docker.com/reference/compose-file/services/#environment). For example, if your `.env` file contains the environment variable `DEBUG=1` and your `compose.yml` file looks like this:
 
@@ -123,7 +123,7 @@ services:
   >
   > 
   >
-  > Be aware of [Environment variables precedence](https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence/) when using variables in an `.env` file that as environment variables in your container's environment.
+  > Be aware of [Environment variables precedence]({{< ref "/manuals/DockerCompose/How-tos/Useenvironmentvariables/Environmentvariablesprecedence" >}}) when using variables in an `.env` file that as environment variables in your container's environment.
 
 - You can place your `.env` file in a location other than the root of your project's directory, and then use the [`--env-file` option in the CLI](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/#substitute-with---env-file) so Compose can navigate to it.
 
@@ -137,7 +137,7 @@ services:
 >
 > It is not supported by Swarm when running `docker stack deploy`.
 
-#### [`.env` file syntax](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/#env-file-syntax)
+#### `.env` file syntax
 
 The following syntax rules apply to environment files:
 
@@ -227,7 +227,7 @@ The following syntax rules apply to environment files:
   - `VAR='some\tvalue'` -> `some\tvalue`
   - `VAR=some\tvalue` -> `some\tvalue`
 
-### [Substitute with `--env-file`](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/#substitute-with---env-file)
+### Substitute with `--env-file`
 
 You can set default values for multiple environment variables, in an `.env` file and then pass the file as an argument in the CLI.
 
@@ -239,7 +239,7 @@ The advantage of this method is that you can store the file anywhere and name it
 $ docker compose --env-file ./config/.env.dev up
 ```
 
-#### [Additional information](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/#additional-information-1)
+#### Additional information
 
 - This method is useful if you want to temporarily override an
 
@@ -423,9 +423,9 @@ $ docker compose --env-file ./config/.env.dev up
   $ docker compose --env-file .env.dev up -e DATABASE_URL=mysql://new_user:new_password@new_db:3306/new_database
   ```
 
-### [local `.env` file versus `.env` file](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/#local-env-file-versus-project-directory-env-file)
+### local `.env` file versus `.env` file
 
-An `.env` file can also be used to declare [pre-defined environment variables](https://docs.docker.com/compose/how-tos/environment-variables/envvars/) used to control Compose behavior and files to be loaded.
+An `.env` file can also be used to declare [pre-defined environment variables]({{< ref "/manuals/DockerCompose/How-tos/Useenvironmentvariables/Pre-definedenvironmentvariables" >}}) used to control Compose behavior and files to be loaded.
 
 When executed without an explicit `--env-file` flag, Compose searches for an `.env` file in your working directory ( [PWD](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html#index-PWD)) and loads values both for self-configuration and interpolation. If the values in this file define the `COMPOSE_FILE` pre-defined variable, which results in a project directory being set to another folder, Compose will load a second `.env` file, if present. This second `.env` file has a lower precedence.
 
@@ -451,7 +451,7 @@ services:
     image: "postgres:9.3"
 ```
 
-### [Substitute from the shell](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/#substitute-from-the-shell)
+### Substitute from the shell
 
 You can use existing environment variables from your host machine or from the shell environment where you execute `docker compose` commands. This lets you dynamically inject values into your Docker Compose configuration at runtime. For example, suppose the shell contains `POSTGRES_VERSION=9.3` and you supply the following configuration:
 

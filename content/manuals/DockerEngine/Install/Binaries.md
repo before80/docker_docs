@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/install/binaries/](https://docs.docker.com/engine/install/binaries/)
+> 原文：[https://docs.docker.com/engine/install/binaries/](https://docs.docker.com/engine/install/binaries/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,7 +24,7 @@ draft = false
 >
 > Also, static binaries may not include all functionalities provided by the dynamic packages.
 >
-> On Windows and Mac, we recommend that you install [Docker Desktop](https://docs.docker.com/desktop/) instead. For Linux, we recommend that you follow the instructions specific for your distribution.
+> On Windows and Mac, we recommend that you install [Docker Desktop]({{< ref "/manuals/DockerDesktop" >}}) instead. For Linux, we recommend that you follow the instructions specific for your distribution.
 
 If you want to try Docker or use it in a testing environment, but you're not on a supported platform, you can try installing from static binaries. If possible, you should use packages built for your operating system, and use your operating system's package management system to manage Docker installation and upgrades.
 
@@ -36,9 +36,9 @@ This topic discusses binary installation for Linux, Windows, and macOS:
 - [Install client binaries on macOS](https://docs.docker.com/engine/install/binaries/#install-client-binaries-on-macos)
 - [Install server and client binaries on Windows](https://docs.docker.com/engine/install/binaries/#install-server-and-client-binaries-on-windows)
 
-## [Install daemon and client binaries on Linux](https://docs.docker.com/engine/install/binaries/#install-daemon-and-client-binaries-on-linux)
+## Install daemon and client binaries on Linux
 
-### [Prerequisites](https://docs.docker.com/engine/install/binaries/#prerequisites)
+### Prerequisites
 
 Before attempting to install Docker from binaries, be sure your host machine meets the prerequisites:
 
@@ -50,9 +50,9 @@ Before attempting to install Docker from binaries, be sure your host machine mee
 - [XZ Utils](https://tukaani.org/xz/) 4.9 or higher
 - A [properly mounted](https://github.com/tianon/cgroupfs-mount/blob/master/cgroupfs-mount) `cgroupfs` hierarchy; a single, all-encompassing `cgroup` mount point is not sufficient. See Github issues [#2683](https://github.com/moby/moby/issues/2683), [#3485](https://github.com/moby/moby/issues/3485), [#4568](https://github.com/moby/moby/issues/4568)).
 
-#### [Secure your environment as much as possible](https://docs.docker.com/engine/install/binaries/#secure-your-environment-as-much-as-possible)
+#### Secure your environment as much as possible
 
-##### [OS considerations](https://docs.docker.com/engine/install/binaries/#os-considerations)
+##### OS considerations
 
 Enable SELinux or AppArmor if possible.
 
@@ -62,12 +62,12 @@ It is recommended to use AppArmor or SELinux if your Linux distribution supports
 >
 > If either of the security mechanisms is enabled, do not disable it as a work-around to make Docker or its containers run. Instead, configure it correctly to fix any problems.
 
-##### [Docker daemon considerations](https://docs.docker.com/engine/install/binaries/#docker-daemon-considerations)
+##### Docker daemon considerations
 
-- Enable `seccomp` security profiles if possible. See [Enabling `seccomp` for Docker](https://docs.docker.com/engine/security/seccomp/).
+- Enable `seccomp` security profiles if possible. See [Enabling `seccomp` for Docker]({{< ref "/manuals/DockerEngine/Security/SeccompsecurityprofilesforDocker" >}}).
 - Enable user namespaces if possible. See the [Daemon user namespace options](https://docs.docker.com/reference/cli/dockerd/#daemon-user-namespace-options).
 
-### [Install static binaries](https://docs.docker.com/engine/install/binaries/#install-static-binaries)
+### Install static binaries
 
 1. Download the static binary archive. Go to https://download.docker.com/linux/static/stable/, choose your hardware platform, and download the `.tgz` file relating to the version of Docker Engine you want to install.
 
@@ -115,15 +115,15 @@ You have now successfully installed and started Docker Engine.
 >
 > Receiving errors when trying to run without root?
 >
-> The `docker` user group exists but contains no users, which is why you’re required to use `sudo` to run Docker commands. Continue to [Linux postinstall](https://docs.docker.com/engine/install/linux-postinstall) to allow non-privileged users to run Docker commands and for other optional configuration steps.
+> The `docker` user group exists but contains no users, which is why you’re required to use `sudo` to run Docker commands. Continue to [Linux postinstall]({{< ref "/manuals/DockerEngine/Install/Post-installationsteps" >}}) to allow non-privileged users to run Docker commands and for other optional configuration steps.
 
-## [Install client binaries on macOS](https://docs.docker.com/engine/install/binaries/#install-client-binaries-on-macos)
+## Install client binaries on macOS
 
 > **Note**
 >
 > 
 >
-> The following instructions are mostly suitable for testing purposes. The macOS binary includes the Docker client only. It does not include the `dockerd` daemon which is required to run containers. Therefore, we recommend that you install [Docker Desktop](https://docs.docker.com/desktop/) instead.
+> The following instructions are mostly suitable for testing purposes. The macOS binary includes the Docker client only. It does not include the `dockerd` daemon which is required to run containers. Therefore, we recommend that you install [Docker Desktop]({{< ref "/manuals/DockerDesktop" >}}) instead.
 
 The binaries for Mac also do not contain:
 
@@ -176,13 +176,13 @@ To install client binaries, perform the following steps:
 
    This command downloads a test image and runs it in a container. When the container runs, it prints a message and exits.
 
-## [Install server and client binaries on Windows](https://docs.docker.com/engine/install/binaries/#install-server-and-client-binaries-on-windows)
+## Install server and client binaries on Windows
 
 > **Note**
 >
 > 
 >
-> The following section describes how to install the Docker daemon on Windows Server which allows you to run Windows containers only. When you install the Docker daemon on Windows Server, the daemon doesn't contain Docker components such as `buildx` and `compose`. If you're running Windows 10 or 11, we recommend that you install [Docker Desktop](https://docs.docker.com/desktop/) instead.
+> The following section describes how to install the Docker daemon on Windows Server which allows you to run Windows containers only. When you install the Docker daemon on Windows Server, the daemon doesn't contain Docker components such as `buildx` and `compose`. If you're running Windows 10 or 11, we recommend that you install [Docker Desktop]({{< ref "/manuals/DockerDesktop" >}}) instead.
 
 Binary packages on Windows include both `dockerd.exe` and `docker.exe`. On Windows, these binaries only provide the ability to run native Windows containers (not Linux containers).
 
@@ -217,10 +217,10 @@ To install server and client binaries, perform the following steps:
 
    This command downloads a test image and runs it in a container. When the container runs, it prints a message and exits.
 
-## [Upgrade static binaries](https://docs.docker.com/engine/install/binaries/#upgrade-static-binaries)
+## Upgrade static binaries
 
 To upgrade your manual installation of Docker Engine, first stop any `dockerd` or `dockerd.exe` processes running locally, then follow the regular installation steps to install the new version on top of the existing version.
 
-## [Next steps](https://docs.docker.com/engine/install/binaries/#next-steps)
+## Next steps
 
-- Continue to [Post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/).
+- Continue to [Post-installation steps for Linux]({{< ref "/manuals/DockerEngine/Install/Post-installationsteps" >}}).

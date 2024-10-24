@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/26.0/](https://docs.docker.com/engine/release-notes/26.0/)
+> 原文：[https://docs.docker.com/engine/release-notes/26.0/](https://docs.docker.com/engine/release-notes/26.0/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,10 +18,10 @@ This page describes the latest changes, additions, known issues, and fixes for D
 
 For more information about:
 
-- Deprecated and removed features, see [Deprecated Engine Features](https://docs.docker.com/engine/deprecated/).
-- Changes to the Engine API, see [Engine API version history](https://docs.docker.com/reference/api/engine/version-history/).
+- Deprecated and removed features, see [Deprecated Engine Features]({{< ref "/manuals/DockerEngine/Deprecatedfeatures" >}}).
+- Changes to the Engine API, see [Engine API version history]({{< ref "/reference/APIreference/DockerEngineAPI/EngineAPIversionhistory" >}}).
 
-## [26.0.2](https://docs.docker.com/engine/release-notes/26.0/#2602)
+## 26.0.2
 
 *2024-04-18*
 
@@ -32,15 +32,15 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Deprecated and removed features, see [Deprecated Features](https://github.com/docker/cli/blob/v26.0.2/docs/deprecated.md).
 - Changes to the Engine API, see [API version history](https://github.com/moby/moby/blob/v26.0.2/docs/api/version-history.md).
 
-### [Security](https://docs.docker.com/engine/release-notes/26.0/#security)
+### Security
 
 This release contains a security fix for [CVE-2024-32473](https://github.com/moby/moby/security/advisories/GHSA-x84c-p2g9-rqv9), an unexpected configuration of IPv6 on IPv4-only interfaces.
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/26.0/#bug-fixes-and-enhancements)
+### Bug fixes and enhancements
 
 - [CVE-2024-32473](https://github.com/moby/moby/security/advisories/GHSA-x84c-p2g9-rqv9): Ensure IPv6 is disabled on interfaces only allocated an IPv4 address by the engine. [moby#GHSA-x84c-p2g9-rqv9](https://github.com/moby/moby/security/advisories/GHSA-x84c-p2g9-rqv9)
 
-## [26.0.1](https://docs.docker.com/engine/release-notes/26.0/#2601)
+## 26.0.1
 
 *2024-04-11*
 
@@ -51,7 +51,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Deprecated and removed features, see [Deprecated Features](https://github.com/docker/cli/blob/v26.0.1/docs/deprecated.md).
 - Changes to the Engine API, see [API version history](https://github.com/moby/moby/blob/v26.0.1/docs/api/version-history.md).
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/26.0/#bug-fixes-and-enhancements-1)
+### Bug fixes and enhancements
 
 - Fix a regression that meant network interface specific `--sysctl` options prevented container startup. [moby/moby#47646](https://github.com/moby/moby/pull/47646)
 - Remove erroneous `platform` from image `config` OCI descriptor in `docker save` output. [moby/moby#47694](https://github.com/moby/moby/pull/47694)
@@ -59,13 +59,13 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Fix a regression that prevented the internal resolver from forwarding requests from IPvlan L3 networks to external resolvers. [moby/moby#47705](https://github.com/moby/moby/pull/47705)
 - Prevent the use of external resolvers in IPvlan and Macvlan networks created with no parent interface specified. [moby/moby#47705](https://github.com/moby/moby/pull/47705)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/26.0/#packaging-updates)
+### Packaging updates
 
 - Update Go runtime to 1.21.9 [moby/moby#47671](https://github.com/moby/moby/pull/47671), [docker/cli#4987](https://github.com/docker/cli/pull/4987)
 - Update Compose to [v1.26.1 ](https://github.com/docker/compose/releases/tag/v2.26.1), [docker/docker-ce-packaging#1009](https://github.com/docker/docker-ce-packaging/pull/1009)
 - Update containerd to [v1.7.15](https://github.com/containerd/containerd/releases/tag/v1.7.15) (static binaries only) [moby/moby#47692](https://github.com/moby/moby/pull/47692)
 
-## [26.0.0](https://docs.docker.com/engine/release-notes/26.0/#2600)
+## 26.0.0
 
 *2024-03-20*
 
@@ -76,11 +76,11 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Deprecated and removed features, see [Deprecated Features](https://github.com/docker/cli/blob/v26.0.0/docs/deprecated.md).
 - Changes to the Engine API, see [API version history](https://github.com/moby/moby/blob/v26.0.0/docs/api/version-history.md).
 
-### [Security](https://docs.docker.com/engine/release-notes/26.0/#security-1)
+### Security
 
 This release contains a security fix for [CVE-2024-29018](https://github.com/moby/moby/security/advisories/GHSA-mq39-4gv4-mvpx), a potential data exfiltration from 'internal' networks via authoritative DNS servers.
 
-### [New](https://docs.docker.com/engine/release-notes/26.0/#new)
+### New
 
 - Add `Subpath` field to the `VolumeOptions` making it possible to mount a subpath of a volume. [moby/moby#45687](https://github.com/moby/moby/pull/45687)
 - Add `volume-subpath` support to the mount flag (`--mount type=volume,...,volume-subpath=<subpath>`). [docker/cli#4331](https://github.com/docker/cli/pull/4331)
@@ -89,7 +89,7 @@ This release contains a security fix for [CVE-2024-29018](https://github.com/mob
 - containerd image store: `docker image ls` no longer creates duplicates entries for multi-platform images. [moby/moby#45967](https://github.com/moby/moby/pull/45967)
 - containerd image store: Send Prometheus metrics. [moby/moby#47555](https://github.com/moby/moby/pull/47555)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/26.0/#bug-fixes-and-enhancements-2)
+### Bug fixes and enhancements
 
 - [CVE-2024-29018](https://github.com/moby/moby/security/advisories/GHSA-mq39-4gv4-mvpx): Do not forward requests to external DNS servers for a container that is only connected to an 'internal' network. Previously, requests were forwarded if the host's DNS server was running on a loopback address, like systemd's 127.0.0.53. [moby/moby#47589](https://github.com/moby/moby/pull/47589)
 
@@ -135,7 +135,7 @@ This release contains a security fix for [CVE-2024-29018](https://github.com/mob
 
 - containerd image store: Fix image pull not emitting `Pulling fs layer` status. [moby/moby#47432](https://github.com/moby/moby/pull/47432)
 
-### [API](https://docs.docker.com/engine/release-notes/26.0/#api)
+### API
 
 - To preserve backwards compatibility, read-only mounts are not recursive by default when using older clients (API version < v1.44). [moby/moby#47391](https://github.com/moby/moby/pull/47391)
 - `GET /images/{id}/json` omits the `Created` field (previously it was `0001-01-01T00:00:00Z`) if the `Created` field is missing from the image config. [moby/moby#47451](https://github.com/moby/moby/pull/47451)
@@ -143,7 +143,7 @@ This release contains a security fix for [CVE-2024-29018](https://github.com/mob
 - The `is_automated` field in the `POST /images/search` endpoint results is always `false` now. Consequently, searching for `is-automated=true` will yield no results, while `is-automated=false` will be a no-op. [moby/moby#47465](https://github.com/moby/moby/pull/47465)
 - Remove `Container` and `ContainerConfig` fields from the `GET /images/{name}/json` response. [moby/moby#47430](https://github.com/moby/moby/pull/47430)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/26.0/#packaging-updates-1)
+### Packaging updates
 
 - Update BuildKit to [v0.13.1](https://github.com/moby/buildkit/releases/tag/v0.13.1). [moby/moby#47582](https://github.com/moby/moby/pull/47582)
 - Update Buildx to [v0.13.1](https://github.com/docker/buildx/releases/tag/v0.13.1). [docker/docker-ce-packaging#1000](https://github.com/docker/docker-ce-packaging/pull/1000)
@@ -154,7 +154,7 @@ This release contains a security fix for [CVE-2024-29018](https://github.com/mob
 - Update runc binary to v1.1.12 [moby/moby#47268](https://github.com/moby/moby/pull/47268)
 - Update OTel to v0.46.1 / v1.21.0 [moby/moby#47245](https://github.com/moby/moby/pull/47245)
 
-### [Removed](https://docs.docker.com/engine/release-notes/26.0/#removed)
+### Removed
 
 - Remove `Container` and `ContainerConfig` fields from the `GET /images/{name}/json` response. [moby/moby#47430](https://github.com/moby/moby/pull/47430)
 - Deprecate the ability to accept remote TCP connections without TLS. [Deprecation notice](https://github.com/docker/cli/tree/v26.0.0/deprecation.md#unauthenticated-tcp-connections) [docker/cli#4928](https://github.com/docker/cli/pull/4928) [moby/moby#47556](https://github.com/moby/moby/pull/47556).

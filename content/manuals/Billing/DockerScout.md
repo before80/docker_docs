@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/billing/scout-billing/](https://docs.docker.com/billing/scout-billing/)
+> 原文：[https://docs.docker.com/billing/scout-billing/](https://docs.docker.com/billing/scout-billing/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ draft = false
 >
 > Docker is introducing enhanced subscription plans. Our new plans are packed with more features, higher usage limits, and simplified pricing. The new subscription plans take effect at your next renewal date that occurs on or after November 15, 2024. No charges on Docker Hub image pulls or storage will be incurred between November 15, 2024, and January 31, 2025. See [Announcing Upgraded Docker Plans](https://www.docker.com/blog/november-2024-updated-plans-announcement/) for more details and learn how your usage fits into these updates.
 
-Docker Scout lets users secure their software supply chain and continuously observe and improve their security posture. Docker Scout is free for up to 3 repositories. You can buy Docker Scout Team or Docker Scout Business to turn on Docker Scout for additional repositories. See [Docker Scout subscription and features](https://docs.docker.com/subscription/scout-details/) to select the plan that works for you.
+Docker Scout lets users secure their software supply chain and continuously observe and improve their security posture. Docker Scout is free for up to 3 repositories. You can buy Docker Scout Team or Docker Scout Business to turn on Docker Scout for additional repositories. See [Docker Scout subscription and features]({{< ref "/manuals/Subscription/DockerScoutsubscriptionsandfeatures" >}}) to select the plan that works for you.
 
 In this section, learn how to buy and manage a Docker Scout Team subscription for your personal account or for an organization. If you're an organization with multiple teams, a Docker Scout Business plan may be better. To buy Docker Scout Business, [contact sales](https://www.docker.com/products/docker-scout/#contact-sales).
 
@@ -30,7 +30,7 @@ In this section, learn how to buy and manage a Docker Scout Team subscription fo
 >
 > You need to be an owner to manage billing for an organization.
 
-## [Set up Docker Scout Team subscription](https://docs.docker.com/billing/scout-billing/#set-up-docker-scout-team-subscription)
+## Set up Docker Scout Team subscription
 
 1. Go to [Billing settings](https://scout.docker.com/settings/billing) in the Docker Scout Dashboard.
 2. The default plan is Docker Scout Free. Next to the plan name, select **Change plan**.
@@ -42,7 +42,7 @@ In this section, learn how to buy and manage a Docker Scout Team subscription fo
 
 Subscribing redirects you back to the billing page in Docker Scout, where you can find your active Docker Scout plan. Once your purchase is complete, you receive a confirmation email and a copy of your invoice.
 
-## [Manage your subscription](https://docs.docker.com/billing/scout-billing/#manage-your-subscription)
+## Manage your subscription
 
 To access your subscription details, sign in to [Docker Scout](https://scout.docker.com/) with your Docker ID. Select **Settings**, then **Billing** for your personal account or organization that's subscribed.
 
@@ -54,7 +54,7 @@ Here you can find:
 
 Renewals charge to the original credit card used to buy Docker Scout Team. Select the **Payment methods and billing history** link to update your payment information or view past invoices.
 
-### [Update number of repositories for your subscription](https://docs.docker.com/billing/scout-billing/#update-number-of-repositories-for-your-subscription)
+### Update number of repositories for your subscription
 
 On a Docker Scout Team plan, you can add or remove the number of repositories associated with your subscription. The number of repositories you can add or remove are bundled in groups of five.
 
@@ -80,7 +80,7 @@ The number of repositories updates on your next billing cycle.
 >
 > You can't add repositories while repository removal is pending. You can add repositories again during the next billing cycle.
 
-### [Downgrade your subscription](https://docs.docker.com/billing/scout-billing/#downgrade-your-subscription)
+### Downgrade your subscription
 
 You can downgrade from Docker Scout Team or Docker Scout Business to a Docker Scout Free subscription at anytime before the renewal date. Your subscription features remain available until the end of your billing cycle.
 
@@ -95,7 +95,7 @@ You can downgrade from Docker Scout Team or Docker Scout Business to a Docker Sc
 3. On the Docker Scout Free card, select **Downgrade to this plan**, then review the warning message.
 4. To confirm the downgrade, select **Continue to Downgrade**.
 
-### [Cancel your subscription downgrade](https://docs.docker.com/billing/scout-billing/#cancel-your-subscription-downgrade)
+### Cancel your subscription downgrade
 
 You can cancel a subscription downgrade at anytime before the end of the billing cycle. You can find this date in the details for your current plan.
 

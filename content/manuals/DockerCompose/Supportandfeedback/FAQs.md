@@ -8,21 +8,21 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/support-and-feedback/faq/](https://docs.docker.com/compose/support-and-feedback/faq/)
+> 原文：[https://docs.docker.com/compose/support-and-feedback/faq/](https://docs.docker.com/compose/support-and-feedback/faq/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Compose FAQs
 
-### [What is the difference between `docker compose` and `docker-compose`](https://docs.docker.com/compose/support-and-feedback/faq/#what-is-the-difference-between-docker-compose-and-docker-compose)
+### What is the difference between `docker compose` and `docker-compose`
 
 Version one of the Docker Compose command-line binary was first released in 2014. It was written in Python, and is invoked with `docker-compose`. Typically, Compose V1 projects include a top-level version element in the compose.yml file, with values ranging from 2.0 to 3.8, which refer to the specific file formats.
 
 Version two of the Docker Compose command-line binary was announced in 2020, is written in Go, and is invoked with `docker compose`. Compose V2 ignores the version top-level element in the compose.yml file.
 
-For further information, see [History and development of Compose](https://docs.docker.com/compose/intro/history/).
+For further information, see [History and development of Compose]({{< ref "/manuals/DockerCompose/IntroductiontoCompose/Historyanddevelopment" >}}).
 
-### [What's the difference between `up`, `run`, and `start`?](https://docs.docker.com/compose/support-and-feedback/faq/#whats-the-difference-between-up-run-and-start)
+### What's the difference between `up`, `run`, and `start`?
 
 Typically, you want `docker compose up`. Use `up` to start or restart all the services defined in a `compose.yml`. In the default "attached" mode, you see all the logs from all the containers. In "detached" mode (`-d`), Compose exits after starting the containers, but the containers continue to run in the background.
 
@@ -30,9 +30,9 @@ The `docker compose run` command is for running "one-off" or "adhoc" tasks. It r
 
 The `docker compose start` command is useful only to restart containers that were previously created but were stopped. It never creates new containers.
 
-### [Why do my services take 10 seconds to recreate or stop?](https://docs.docker.com/compose/support-and-feedback/faq/#why-do-my-services-take-10-seconds-to-recreate-or-stop)
+### Why do my services take 10 seconds to recreate or stop?
 
-The `docker compose stop` command attempts to stop a container by sending a `SIGTERM`. It then waits for a [default timeout of 10 seconds](https://docs.docker.com/reference/cli/docker/compose/stop/). After the timeout, a `SIGKILL` is sent to the container to forcefully kill it. If you are waiting for this timeout, it means that your containers aren't shutting down when they receive the `SIGTERM` signal.
+The `docker compose stop` command attempts to stop a container by sending a `SIGTERM`. It then waits for a [default timeout of 10 seconds]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposestop" >}}). After the timeout, a `SIGKILL` is sent to the container to forcefully kill it. If you are waiting for this timeout, it means that your containers aren't shutting down when they receive the `SIGTERM` signal.
 
 There has already been a lot written about this problem of [processes handling signals](https://medium.com/@gchudnov/trapping-signals-in-docker-containers-7a57fdda7d86) in containers.
 
@@ -57,11 +57,11 @@ To fix this problem, try the following:
 
 - If you can't modify the application, wrap the application in a lightweight init system (like [s6](https://skarnet.org/software/s6/)) or a signal proxy (like [dumb-init](https://github.com/Yelp/dumb-init) or [tini](https://github.com/krallin/tini)). Either of these wrappers takes care of handling `SIGTERM` properly.
 
-### [How do I run multiple copies of a Compose file on the same host?](https://docs.docker.com/compose/support-and-feedback/faq/#how-do-i-run-multiple-copies-of-a-compose-file-on-the-same-host)
+### How do I run multiple copies of a Compose file on the same host?
 
 Compose uses the project name to create unique identifiers for all of a project's containers and other resources. To run multiple copies of a project, set a custom project name using the `-p` command line option or the [`COMPOSE_PROJECT_NAME` environment variable](https://docs.docker.com/compose/how-tos/environment-variables/envvars/#compose_project_name).
 
-### [Can I use JSON instead of YAML for my Compose file?](https://docs.docker.com/compose/support-and-feedback/faq/#can-i-use-json-instead-of-yaml-for-my-compose-file)
+### Can I use JSON instead of YAML for my Compose file?
 
 Yes. [YAML is a superset of JSON](https://stackoverflow.com/a/1729545/444646) so any JSON file should be valid YAML. To use a JSON file with Compose, specify the filename to use, for example:
 
@@ -71,7 +71,7 @@ Yes. [YAML is a superset of JSON](https://stackoverflow.com/a/1729545/444646) so
 $ docker compose -f docker-compose.json up
 ```
 
-### [Should I include my code with `COPY`/`ADD` or a volume?](https://docs.docker.com/compose/support-and-feedback/faq/#should-i-include-my-code-with-copyadd-or-a-volume)
+### Should I include my code with `COPY`/`ADD` or a volume?
 
 You can add your code to the image using `COPY` or `ADD` directive in a `Dockerfile`. This is useful if you need to relocate your code along with the Docker image, for example when you're sending code to another environment (production, CI, etc).
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/copilot/](https://docs.docker.com/copilot/)
+> 原文：[https://docs.docker.com/copilot/](https://docs.docker.com/copilot/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -29,7 +29,7 @@ The key features are:
 - Open pull requests with generated Docker assets directly from the chat interface.
 - Get summaries of project vulnerabilities from Docker Scout and receive next steps via CLI.
 
-## [Data Privacy](https://docs.docker.com/copilot/#data-privacy)
+## Data Privacy
 
 The Docker agent is trained exclusively on Docker's documentation and tools to assist with containerization and related tasks. It does not have access to your project's data outside the context of the questions you ask.
 
@@ -39,7 +39,7 @@ If the agent is requested to check for vulnerabilities or generate Docker-relate
 
 Source code, questions, and responses are not persistently stored. The Docker agent processes data only to provide responses and discards it immediately afterward.
 
-## [Supported languages](https://docs.docker.com/copilot/#supported-languages)
+## Supported languages
 
 The Docker Extension for GitHub Copilot supports the following programming languages:
 
@@ -51,18 +51,18 @@ The Docker Extension for GitHub Copilot supports the following programming langu
 - Rust
 - TypeScript
 
-## [Get Started](https://docs.docker.com/copilot/#get-started)
+## Get Started
 
 Here's how to get started with the Docker Extension for GitHub Copilot.
 
-### [Prerequisites](https://docs.docker.com/copilot/#prerequisites)
+### Prerequisites
 
 Before you start, ensure that:
 
 - You have been granted access to GitHub's [limited public beta program](https://github.blog/changelog/2024-05-21-copilot-extensions-now-in-limited-public-beta/).
 - You're signed in to your GitHub account on GitHub.com.
 
-### [Install the extension for your organization](https://docs.docker.com/copilot/#install-the-extension-for-your-organization)
+### Install the extension for your organization
 
 1. Go to the [Docker for GitHub Copilot](https://github.com/marketplace/docker-for-github-copilot) app in the GitHub Marketplace.
 2. Select the **Add** button at the top of the page.
@@ -74,7 +74,7 @@ Before you start, ensure that:
 >
 > Before you can use Copilot Extensions in your organization, you need to enable the Copilot Extensions policy. For more information, see [Setting a policy for GitHub Copilot Extensions in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#setting-a-policy-for-github-copilot-extensions-in-your-organization).
 
-### [Set up Copilot Chat](https://docs.docker.com/copilot/#set-up-copilot-chat)
+### Set up Copilot Chat
 
 Once you've installed the Docker Extension for GitHub Copilot and enabled the Copilot Extensions policy, you can use the extension in your editor or IDE, or on GitHub.com.
 
@@ -94,13 +94,13 @@ You can verify that the extension has been properly installed by typing `@docker
 
 ![Docker agent in chat](DockerforGitHubCopilotEarlyAccess_img/docker-agent-copilot.png)
 
-## [Using the extension](https://docs.docker.com/copilot/#using-the-extension)
+## Using the extension
 
 The Docker Extension for GitHub Copilot provides a chat interface that you can use to interact with the Docker agent. You can ask questions and get help Dockerizing your project.
 
 The Docker agent is trained to understand Docker-related questions, and provide guidance on Dockerfiles, Docker Compose files, and other Docker assets.
 
-### [Editor](https://docs.docker.com/copilot/#editor)
+### Editor
 
 To use the extension in your editor or IDE:
 
@@ -108,7 +108,7 @@ To use the extension in your editor or IDE:
 2. Open the Copilot chat interface.
 3. Interact with the Docker agent using the `/docker` or `@docker`, followed by your question.
 
-### [GitHub.com](https://docs.docker.com/copilot/#githubcom)
+### GitHub.com
 
 To use the extension in the GitHub web interface:
 
@@ -122,11 +122,11 @@ To use the extension in the GitHub web interface:
 
 4. Interact with the Docker agent by tagging `@docker`.
 
-## [Example prompts](https://docs.docker.com/copilot/#example-prompts)
+## Example prompts
 
 Here are some examples of the types of questions you can ask the Docker agent:
 
-### [Ask general Docker questions](https://docs.docker.com/copilot/#ask-general-docker-questions)
+### Ask general Docker questions
 
 You can ask general question about Docker. For example:
 
@@ -134,7 +134,7 @@ You can ask general question about Docker. For example:
 - `@docker how do I build a Docker image`
 - `@docker how do I run a Docker container`
 
-### [Ask questions about your project](https://docs.docker.com/copilot/#ask-questions-about-your-project)
+### Ask questions about your project
 
 You can ask questions about your project, such as:
 
@@ -143,7 +143,7 @@ You can ask questions about your project, such as:
 
 The Docker agent will analyze your project, generate the necessary files, and, if applicable, offer to raise a pull request with the necessary Docker assets.
 
-## [Performing actions on your behalf](https://docs.docker.com/copilot/#performing-actions-on-your-behalf)
+## Performing actions on your behalf
 
 Before the agent performs any actions on your behalf, such as opening a pull request for you, you're prompted to provide your consent to allow the operation. You can always roll back or back out of the changes.
 
@@ -151,6 +151,6 @@ Before the agent performs any actions on your behalf, such as opening a pull req
 
 In the event that the agent encounters an error, for example during PR creation, it handles timeouts and lack of responses gracefully.
 
-## [Feedback](https://docs.docker.com/copilot/#feedback)
+## Feedback
 
 For issues or feedback, visit the [GitHub feedback repository](https://github.com/docker/copilot-issues).

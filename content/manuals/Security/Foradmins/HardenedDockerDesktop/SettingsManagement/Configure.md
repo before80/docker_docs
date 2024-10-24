@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/configure/](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/configure/)
+> 原文：[https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/configure/](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/configure/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,12 +22,12 @@ This page contains information for admins on how to configure Settings Managemen
 
 Settings Management is designed specifically for organizations who don’t give developers root access to their machines.
 
-### [Prerequisites](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/configure/#prerequisites)
+### Prerequisites
 
-- [Download and install Docker Desktop 4.13.0 or later](https://docs.docker.com/desktop/release-notes/).
-- As an administrator, you need to [enforce sign-in](https://docs.docker.com/security/for-admins/enforce-sign-in/). This is because this feature requires a Docker Business subscription and therefore your Docker Desktop users must authenticate to your organization for this configuration to take effect. Enforcing sign-in ensures that your Docker Desktop developers always authenticate to your organization, even though they can authenticate without it and the feature will take effect. Enforcing sign-in guarantees the feature always takes effect.
+- [Download and install Docker Desktop 4.13.0 or later]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}).
+- As an administrator, you need to [enforce sign-in]({{< ref "/manuals/Security/Foradmins/Enforcesign-in" >}}). This is because this feature requires a Docker Business subscription and therefore your Docker Desktop users must authenticate to your organization for this configuration to take effect. Enforcing sign-in ensures that your Docker Desktop developers always authenticate to your organization, even though they can authenticate without it and the feature will take effect. Enforcing sign-in guarantees the feature always takes effect.
 
-### [Step one: Create the `admin-settings.json` file and save it in the correct location](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/configure/#step-one-create-the-admin-settingsjson-file-and-save-it-in-the-correct-location)
+### Step one: Create the `admin-settings.json` file and save it in the correct location
 
 You can either use the `--admin-settings` installer flag on [macOS](https://docs.docker.com/desktop/install/mac-install/#install-from-the-command-line) or [Windows](https://docs.docker.com/desktop/install/windows-install/#install-from-the-command-line) to automatically create the `admin-settings.json` and save it in the correct location, or set it up manually.
 
@@ -49,7 +49,7 @@ To set it up manually:
    >
    > It is assumed that you have the ability to push the `admin-settings.json` settings file to the locations specified above through a device management software such as [Jamf](https://www.jamf.com/lp/en-gb/apple-mobile-device-management-mdm-jamf-shared/?attr=google_ads-brand-search-shared&gclid=CjwKCAjw1ICZBhAzEiwAFfvFhEXjayUAi8FHHv1JJitFPb47C_q_RCySTmF86twF1qJc_6GST-YDmhoCuJsQAvD_BwE).
 
-### [Step two: Configure the settings you want to lock in](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/configure/#step-two-configure-the-settings-you-want-to-lock-in)
+### Step two: Configure the settings you want to lock in
 
 > **Note**
 >
@@ -204,9 +204,9 @@ The following `admin-settings.json` code and table provides an example of the re
 | `proxy`                              |              | If `mode` is set to `system` instead of `manual`, Docker Desktop gets the proxy values from the system and ignores and values set for `http`, `https` and `exclude`. Change `mode` to `manual` to manually configure proxy servers. If the proxy port is custom, specify it in the `http` or `https` property, for example `"https": "http://myotherproxy.com:4321"`. The `exclude` property specifies a comma-separated list of hosts and domains to bypass the proxy. |
 | `windowsDockerdPort`                 | Windows only | Exposes Docker Desktop's internal proxy locally on this port for the Windows Docker daemon to connect to. If it is set to 0, a random free port is chosen. If the value is greater than 0, use that exact value for the port. The default value is -1 which disables the option. Note: This is available for Windows containers only. |
 | `enableKerberosNtlm`                 |              | When set to `true`, Kerberos and NTLM authentication is enabled. Default is `false`. Available in Docker Desktop version 4.32 and later. For more information, see the settings documentation. |
-| `containersProxy` (Beta)             |              | Allows you to create air-gapped containers. For more information see [Air-Gapped Containers](https://docs.docker.com/security/for-admins/hardened-desktop/air-gapped-containers/). |
-| `enhancedContainerIsolation`         |              | If `value` is set to true, Docker Desktop runs all containers as unprivileged, via the Linux user-namespace, prevents them from modifying sensitive configurations inside the Docker Desktop VM, and uses other advanced techniques to isolate them. For more information, see [Enhanced Container Isolation](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/). |
-| `dockerSocketMount`                  |              | By default, enhanced container isolation blocks bind-mounting the Docker Engine socket into containers (e.g., `docker run -v /var/run/docker.sock:/var/run/docker.sock ...`). This allows admins to relax this in a controlled way. See [ECI Configuration](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/config/) for more info. |
+| `containersProxy` (Beta)             |              | Allows you to create air-gapped containers. For more information see [Air-Gapped Containers]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/Air-gappedcontainers" >}}). |
+| `enhancedContainerIsolation`         |              | If `value` is set to true, Docker Desktop runs all containers as unprivileged, via the Linux user-namespace, prevents them from modifying sensitive configurations inside the Docker Desktop VM, and uses other advanced techniques to isolate them. For more information, see [Enhanced Container Isolation]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/EnhancedContainerIsolation" >}}). |
+| `dockerSocketMount`                  |              | By default, enhanced container isolation blocks bind-mounting the Docker Engine socket into containers (e.g., `docker run -v /var/run/docker.sock:/var/run/docker.sock ...`). This allows admins to relax this in a controlled way. See [ECI Configuration]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/EnhancedContainerIsolation/Advancedconfiguration" >}}) for more info. |
 | `imageList`                          |              | Indicates which container images are allowed to bind-mount the Docker Engine socket. |
 | `commandList`                        |              | Restricts the commands that containers can issue via the bind-mounted Docker Engine socket. |
 | `linuxVM`                            |              | Parameters and settings related to Linux VM options - grouped together here for convenience. |
@@ -222,7 +222,7 @@ The following `admin-settings.json` code and table provides an example of the re
 | `scout`                              |              | Setting `useBackgroundIndexing` to `false` disables automatic indexing of images loaded to the image store. Setting `sbomIndexing` to `false` prevents users from being able to index image by inspecting them in Docker Desktop or using `docker scout` CLI commands. |
 | `allowExperimentalFeatures`          |              | If `value` is set to `false`, experimental features are disabled. |
 | `allowBetaFeatures`                  |              | If `value` is set to `false`, beta features are disabled.    |
-| `blockDockerLoad`                    |              | If `value` is set to `true`, users are no longer able to run [`docker load`](https://docs.docker.com/reference/cli/docker/image/load/) and receive an error if they try to. |
+| `blockDockerLoad`                    |              | If `value` is set to `true`, users are no longer able to run [`docker load`]({{< ref "/reference/CLIreference/docker/dockerimage/dockerimageload" >}}) and receive an error if they try to. |
 | `filesharingAllowedDirectories`      |              | Specify which paths your developers can add file shares to. Also accepts `$HOME`, `$TMP`, or `$TEMP` as `path` variables. When a path is added, its subdirectories are allowed. If `sharedByDefault` is set to `true`, that path will be added upon factory reset or when Docker Desktop first starts. |
 | `useVirtualizationFrameworkVirtioFS` | macOS only   | If `value` is set to `true`, VirtioFS is set as the file sharing mechanism. Note: If both `useVirtualizationFrameworkVirtioFS` and `useGrpcfuse` have `value` set to `true`, VirtioFS takes precedence. Likewise, if both `useVirtualizationFrameworkVirtioFS` and `useGrpcfuse` have `value` set to `false`, osxfs is set as the file sharing mechanism. |
 | `useVirtualizationFrameworkRosetta`  | macOS only   | If `value` is set to `true`, Docker Desktop turns on Rosetta to accelerate x86_64/amd64 binary emulation on Apple Silicon. Note: This also automatically enables `Use Virtualization framework`. |
@@ -230,7 +230,7 @@ The following `admin-settings.json` code and table provides an example of the re
 | `displayedOnboarding`                |              | If `value` is set to `true`, the onboarding survey will not be displayed to new users. Setting `value` to `false` has no effect. |
 | `desktopTerminalEnabled`             |              | If `value` is set to `false`, developers cannot use the Docker terminal to interact with the host machine and execute commands directly from Docker Desktop. |
 
-### [Step three: Re-launch Docker Desktop](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/configure/#step-three-re-launch-docker-desktop)
+### Step three: Re-launch Docker Desktop
 
 > **Note**
 >

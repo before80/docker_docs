@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/start/](https://docs.docker.com/reference/cli/docker/compose/start/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/start/](https://docs.docker.com/reference/cli/docker/compose/start/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 | :---------- | ----------------------------------- |
 | Usage       | `docker compose start [SERVICE...]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/start/#description)
+## Description
 
 Starts existing containers for a servicedocker compose start
 
@@ -26,6 +26,6 @@ Starts existing containers for a servicedocker compose start
 | :---------- | ----------------------------------- |
 | Usage       | `docker compose start [SERVICE...]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/start/#description)
+## Description
 
 Starts existing containers for a service

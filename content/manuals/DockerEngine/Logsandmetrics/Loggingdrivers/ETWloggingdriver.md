@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/logging/drivers/etwlogs/](https://docs.docker.com/engine/logging/drivers/etwlogs/)
+> 原文：[https://docs.docker.com/engine/logging/drivers/etwlogs/](https://docs.docker.com/engine/logging/drivers/etwlogs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ The Event Tracing for Windows (ETW) logging driver forwards container logs as ET
 
 The ETW provider that this logging driver registers with Windows, has the GUID identifier of: `{a3693192-9ed6-46d2-a981-f8226c8363bd}`. A client creates an ETW listener and registers to listen to events from the logging driver's provider. It doesn't matter the order in which the provider and listener are created. A client can create their ETW listener and start listening for events from the provider, before the provider has been registered with the system.
 
-## [Usage](https://docs.docker.com/engine/logging/drivers/etwlogs/#usage)
+## Usage
 
 Here is an example of how to listen to these events using the logman utility program included in most installations of Windows:
 

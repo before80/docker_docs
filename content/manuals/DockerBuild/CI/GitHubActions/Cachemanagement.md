@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/ci/github-actions/cache/](https://docs.docker.com/build/ci/github-actions/cache/)
+> 原文：[https://docs.docker.com/build/ci/github-actions/cache/](https://docs.docker.com/build/ci/github-actions/cache/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,11 +20,11 @@ This page contains examples on using the cache storage backends with GitHub Acti
 >
 > 
 >
-> See [Cache storage backends](https://docs.docker.com/build/cache/backends/) for more details about cache storage backends.
+> See [Cache storage backends]({{< ref "/manuals/DockerBuild/Cache/Cachestoragebackends" >}}) for more details about cache storage backends.
 
-## [Inline cache](https://docs.docker.com/build/ci/github-actions/cache/#inline-cache)
+## Inline cache
 
-In most cases you want to use the [inline cache exporter](https://docs.docker.com/build/cache/backends/inline/). However, note that the `inline` cache exporter only supports `min` cache mode. To use `max` cache mode, push the image and the cache separately using the registry cache exporter with the `cache-to` option, as shown in the [registry cache example](https://docs.docker.com/build/ci/github-actions/cache/#registry-cache).
+In most cases you want to use the [inline cache exporter]({{< ref "/manuals/DockerBuild/Cache/Cachestoragebackends/Inlinecache" >}}). However, note that the `inline` cache exporter only supports `min` cache mode. To use `max` cache mode, push the image and the cache separately using the registry cache exporter with the `cache-to` option, as shown in the [registry cache example](https://docs.docker.com/build/ci/github-actions/cache/#registry-cache).
 
 
 
@@ -56,9 +56,9 @@ jobs:
           cache-to: type=inline
 ```
 
-## [Registry cache](https://docs.docker.com/build/ci/github-actions/cache/#registry-cache)
+## Registry cache
 
-You can import/export cache from a cache manifest or (special) image configuration on the registry with the [registry cache exporter](https://docs.docker.com/build/cache/backends/registry/).
+You can import/export cache from a cache manifest or (special) image configuration on the registry with the [registry cache exporter]({{< ref "/manuals/DockerBuild/Cache/Cachestoragebackends/Registrycache" >}}).
 
 
 
@@ -90,15 +90,15 @@ jobs:
           cache-to: type=registry,ref=user/app:buildcache,mode=max
 ```
 
-## [GitHub cache](https://docs.docker.com/build/ci/github-actions/cache/#github-cache)
+## GitHub cache
 
-### [Cache backend API](https://docs.docker.com/build/ci/github-actions/cache/#cache-backend-api)
+### Cache backend API
 
 **Experimental**
 
 This cache exporter is experimental. Please provide feedback on the [BuildKit repository](https://github.com/moby/buildkit) if you experience any issues.
 
-The [GitHub Actions cache exporter](https://docs.docker.com/build/cache/backends/gha/) backend uses the [GitHub Cache API](https://github.com/tonistiigi/go-actions-cache/blob/master/api.md) to fetch and upload cache blobs. That's why you should only use this cache backend in a GitHub Action workflow, as the `url` (`$ACTIONS_CACHE_URL`) and `token` (`$ACTIONS_RUNTIME_TOKEN`) attributes only get populated in a workflow context.
+The [GitHub Actions cache exporter]({{< ref "/manuals/DockerBuild/Cache/Cachestoragebackends/GitHubActionscache" >}}) backend uses the [GitHub Cache API](https://github.com/tonistiigi/go-actions-cache/blob/master/api.md) to fetch and upload cache blobs. That's why you should only use this cache backend in a GitHub Action workflow, as the `url` (`$ACTIONS_CACHE_URL`) and `token` (`$ACTIONS_RUNTIME_TOKEN`) attributes only get populated in a workflow context.
 
 
 
@@ -130,7 +130,7 @@ jobs:
           cache-to: type=gha,mode=max
 ```
 
-### [Cache mounts](https://docs.docker.com/build/ci/github-actions/cache/#cache-mounts)
+### Cache mounts
 
 BuildKit doesn't preserve cache mounts in the GitHub Actions cache by default. If you wish to put your cache mounts into GitHub Actions cache and reuse it between builds, you can use a workaround provided by [`reproducible-containers/buildkit-cache-dance`](https://github.com/reproducible-containers/buildkit-cache-dance).
 
@@ -212,7 +212,7 @@ jobs:
 
 For more information about this workaround, refer to the [GitHub repository](https://github.com/reproducible-containers/buildkit-cache-dance).
 
-### [Local cache](https://docs.docker.com/build/ci/github-actions/cache/#local-cache)
+### Local cache
 
 > **Warning**
 >
@@ -220,7 +220,7 @@ For more information about this workaround, refer to the [GitHub repository](htt
 >
 > At the moment, old cache entries aren't deleted, so the cache size [keeps growing](https://github.com/docker/build-push-action/issues/252). The following example uses the `Move cache` step as a workaround (see [`moby/buildkit#1896`](https://github.com/moby/buildkit/issues/1896) for more info).
 
-You can also leverage [GitHub cache](https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows) using the [actions/cache](https://github.com/actions/cache) and [local cache exporter](https://docs.docker.com/build/cache/backends/local/) with this action:
+You can also leverage [GitHub cache](https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows) using the [actions/cache](https://github.com/actions/cache) and [local cache exporter]({{< ref "/manuals/DockerBuild/Cache/Cachestoragebackends/Localcache" >}}) with this action:
 
 
 

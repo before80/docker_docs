@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/intro/features-uses/](https://docs.docker.com/compose/intro/features-uses/)
+> 原文：[https://docs.docker.com/compose/intro/features-uses/](https://docs.docker.com/compose/intro/features-uses/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Why use Compose?
 
-## [Key benefits of Docker Compose](https://docs.docker.com/compose/intro/features-uses/#key-benefits-of-docker-compose)
+## Key benefits of Docker Compose
 
 Using Docker Compose offers several benefits that streamline the development, deployment, and management of containerized applications:
 
@@ -24,21 +24,21 @@ Using Docker Compose offers several benefits that streamline the development, de
 - Portability across environments: Compose supports variables in the Compose file. You can use these variables to customize your composition for different environments, or different users.
 - Extensive community and support: Docker Compose benefits from a vibrant and active community, which means abundant resources, tutorials, and support. This community-driven ecosystem contributes to the continuous improvement of Docker Compose and helps users troubleshoot issues effectively.
 
-## [Common use cases of Docker Compose](https://docs.docker.com/compose/intro/features-uses/#common-use-cases-of-docker-compose)
+## Common use cases of Docker Compose
 
 Compose can be used in many different ways. Some common use cases are outlined below.
 
-### [Development environments](https://docs.docker.com/compose/intro/features-uses/#development-environments)
+### Development environments
 
 When you're developing software, the ability to run an application in an isolated environment and interact with it is crucial. The Compose command line tool can be used to create the environment and interact with it.
 
-The [Compose file](https://docs.docker.com/reference/compose-file/) provides a way to document and configure all of the application's service dependencies (databases, queues, caches, web service APIs, etc). Using the Compose command line tool you can create and start one or more containers for each dependency with a single command (`docker compose up`).
+The [Compose file]({{< ref "/reference/Composefilereference" >}}) provides a way to document and configure all of the application's service dependencies (databases, queues, caches, web service APIs, etc). Using the Compose command line tool you can create and start one or more containers for each dependency with a single command (`docker compose up`).
 
 Together, these features provide a convenient way for you to get started on a project. Compose can reduce a multi-page "developer getting started guide" to a single machine-readable Compose file and a few commands.
 
-### [Automated testing environments](https://docs.docker.com/compose/intro/features-uses/#automated-testing-environments)
+### Automated testing environments
 
-An important part of any Continuous Deployment or Continuous Integration process is the automated test suite. Automated end-to-end testing requires an environment in which to run tests. Compose provides a convenient way to create and destroy isolated testing environments for your test suite. By defining the full environment in a [Compose file](https://docs.docker.com/reference/compose-file/), you can create and destroy these environments in just a few commands:
+An important part of any Continuous Deployment or Continuous Integration process is the automated test suite. Automated end-to-end testing requires an environment in which to run tests. Compose provides a convenient way to create and destroy isolated testing environments for your test suite. By defining the full environment in a [Compose file]({{< ref "/reference/Composefilereference" >}}), you can create and destroy these environments in just a few commands:
 
 
 
@@ -48,14 +48,14 @@ $ ./run_tests
 $ docker compose down
 ```
 
-### [Single host deployments](https://docs.docker.com/compose/intro/features-uses/#single-host-deployments)
+### Single host deployments
 
 Compose has traditionally been focused on development and testing workflows, but with each release we're making progress on more production-oriented features.
 
-For details on using production-oriented features, see [Compose in production](https://docs.docker.com/compose/how-tos/production/).
+For details on using production-oriented features, see [Compose in production]({{< ref "/manuals/DockerCompose/How-tos/UseComposeinproduction" >}}).
 
-## [What's next?](https://docs.docker.com/compose/intro/features-uses/#whats-next)
+## What's next?
 
-- [Learn about the history of Compose](https://docs.docker.com/compose/intro/history/)
-- [Understand how Compose works](https://docs.docker.com/compose/intro/compose-application-model/)
-- [Quickstart](https://docs.docker.com/compose/gettingstarted/)
+- [Learn about the history of Compose]({{< ref "/manuals/DockerCompose/IntroductiontoCompose/Historyanddevelopment" >}})
+- [Understand how Compose works]({{< ref "/manuals/DockerCompose/IntroductiontoCompose/HowComposeworks" >}})
+- [Quickstart]({{< ref "/manuals/DockerCompose/Quickstart" >}})

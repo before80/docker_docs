@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/release-notes/cli/](https://docs.docker.com/scout/release-notes/cli/)
+> 原文：[https://docs.docker.com/scout/release-notes/cli/](https://docs.docker.com/scout/release-notes/cli/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,16 +16,16 @@ draft = false
 
 This page contains information about the new features, improvements, known issues, and bug fixes in the Docker Scout [CLI plugin](https://github.com/docker/scout-cli/) and the `docker/scout-action` [GitHub Action](https://github.com/docker/scout-action).
 
-## [1.13.0](https://docs.docker.com/scout/release-notes/cli/#1130)
+## 1.13.0
 
 *2024-08-05*
 
-### [New](https://docs.docker.com/scout/release-notes/cli/#new)
+### New
 
 - Add `--only-policy` filter option to the `docker scout quickview`, `docker scout policy` and `docker scout compare` commands.
-- Add `--ignore-suppressed` filter option to `docker scout cves` and `docker scout quickview` commands to filter out CVEs affected by [exceptions](https://docs.docker.com/scout/explore/exceptions/).
+- Add `--ignore-suppressed` filter option to `docker scout cves` and `docker scout quickview` commands to filter out CVEs affected by [exceptions]({{< ref "/manuals/DockerScout/Explore/Managevulnerabilityexceptions" >}}).
 
-### [Bug fixes and enhancements](https://docs.docker.com/scout/release-notes/cli/#bug-fixes-and-enhancements)
+### Bug fixes and enhancements
 
 - Use conditional policy name in checks.
 
@@ -37,11 +37,11 @@ This page contains information about the new features, improvements, known issue
   $ go build -ldflags "-X main.Version=1.2.3"
   ```
 
-## [1.12.0](https://docs.docker.com/scout/release-notes/cli/#1120)
+## 1.12.0
 
 *2024-07-31*
 
-### [New](https://docs.docker.com/scout/release-notes/cli/#new-1)
+### New
 
 - Only display vulnerabilities from the base image:
 
@@ -103,16 +103,16 @@ This page contains information about the new features, improvements, known issue
     vex-location: ./path/to/my.vex.json
   ```
 
-### [Bug fixes and enhancements](https://docs.docker.com/scout/release-notes/cli/#bug-fixes-and-enhancements-1)
+### Bug fixes and enhancements
 
 - Update `github.com/docker/docker` to `v26.1.5+incompatible` to fix CVE-2024-41110.
 - Update Syft to 1.10.0.
 
-## [1.11.0](https://docs.docker.com/scout/release-notes/cli/#1110)
+## 1.11.0
 
 *2024-07-25*
 
-### [New](https://docs.docker.com/scout/release-notes/cli/#new-2)
+### New
 
 - Filter CVEs listed in the CISA Known Exploited Vulnerabilities catalog.
 
@@ -157,18 +157,18 @@ This page contains information about the new features, improvements, known issue
   - `eclipse-mosquitto`
   - `znc`
 
-### [Bug fixes and enhancements](https://docs.docker.com/scout/release-notes/cli/#bug-fixes-and-enhancements-2)
+### Bug fixes and enhancements
 
 - Allow VEX matching when no subcomponents.
 - Fix panic when attaching an invalid VEX document.
 - Fix SPDX document root.
 - Fix base image detection when image uses SCRATCH as the base image.
 
-## [1.10.0](https://docs.docker.com/scout/release-notes/cli/#1100)
+## 1.10.0
 
 *2024-06-26*
 
-### [Bug fixes and enhancements](https://docs.docker.com/scout/release-notes/cli/#bug-fixes-and-enhancements-3)
+### Bug fixes and enhancements
 
 - Add new classifiers:
 
@@ -207,19 +207,19 @@ This page contains information about the new features, improvements, known issue
     to: sbom://image2.json
   ```
 
-## [1.9.3](https://docs.docker.com/scout/release-notes/cli/#193)
+## 1.9.3
 
 *2024-05-28*
 
-### [Bug fix](https://docs.docker.com/scout/release-notes/cli/#bug-fix)
+### Bug fix
 
 - Fix a panic while retrieving cached SBOMs.
 
-## [1.9.1](https://docs.docker.com/scout/release-notes/cli/#191)
+## 1.9.1
 
 *2024-05-27*
 
-### [New](https://docs.docker.com/scout/release-notes/cli/#new-3)
+### New
 
 - Add support for the [GitLab container scanning file format](https://docs.gitlab.com/ee/development/integrations/secure.html#container-scanning) with `--format gitlab` on `docker scout cves` command.
 
@@ -269,22 +269,22 @@ This page contains information about the new features, improvements, known issue
         container_scanning: gl-container-scanning-report.json
   ```
 
-### [Bug fixes and enhancements](https://docs.docker.com/scout/release-notes/cli/#bug-fixes-and-enhancements-4)
+### Bug fixes and enhancements
 
 - Support single-architecture images for `docker scout attest add` command
 - Indicate on the `docker scout quickview` and `docker scout recommendations` commands if image provenance was not created using `mode=max`. Without `mode=max`, base images may be incorrectly detected, resulting in less accurate results.
 
-## [1.9.0](https://docs.docker.com/scout/release-notes/cli/#190)
+## 1.9.0
 
 *2024-05-24*
 
 Discarded in favor of [1.9.1](https://docs.docker.com/scout/release-notes/cli/#191).
 
-## [1.8.0](https://docs.docker.com/scout/release-notes/cli/#180)
+## 1.8.0
 
 *2024-04-25*
 
-### [Bug fixes and enhancements](https://docs.docker.com/scout/release-notes/cli/#bug-fixes-and-enhancements-5)
+### Bug fixes and enhancements
 
 - Improve format of EPSS score and percentile.
 
@@ -308,15 +308,15 @@ Discarded in favor of [1.9.1](https://docs.docker.com/scout/release-notes/cli/#1
 
 - Fix markdown output of the `docker scout cves` command when analyzing local filesystem. [docker/scout-cli#113](https://github.com/docker/scout-cli/issues/113)
 
-## [1.7.0](https://docs.docker.com/scout/release-notes/cli/#170)
+## 1.7.0
 
 *2024-04-15*
 
-### [New](https://docs.docker.com/scout/release-notes/cli/#new-4)
+### New
 
-- The [`docker scout push` command](https://docs.docker.com/reference/cli/docker/scout/push/) is now fully available: analyze images locally and push the SBOM to Docker Scout.
+- The [`docker scout push` command]({{< ref "/reference/CLIreference/docker/dockerscout/dockerscoutpush" >}}) is now fully available: analyze images locally and push the SBOM to Docker Scout.
 
-### [Bug fixes and enhancements](https://docs.docker.com/scout/release-notes/cli/#bug-fixes-and-enhancements-6)
+### Bug fixes and enhancements
 
 - Fix adding attestations with `docker scout attestation add` to images in private repositories
 
@@ -332,36 +332,36 @@ Discarded in favor of [1.9.1](https://docs.docker.com/scout/release-notes/cli/#1
 
 - Add classifier for Joomla packages
 
-## [1.6.4](https://docs.docker.com/scout/release-notes/cli/#164)
+## 1.6.4
 
 *2024-03-26*
 
-### [Bug fixes and enhancements](https://docs.docker.com/scout/release-notes/cli/#bug-fixes-and-enhancements-7)
+### Bug fixes and enhancements
 
 - Fix epoch handling for RPM-based Linux distributions
 
-## [1.6.3](https://docs.docker.com/scout/release-notes/cli/#163)
+## 1.6.3
 
 *2024-03-22*
 
-### [Bug fixes and enhancements](https://docs.docker.com/scout/release-notes/cli/#bug-fixes-and-enhancements-8)
+### Bug fixes and enhancements
 
 - Improve package detection to ignore referenced but not installed packages.
 
-## [1.6.2](https://docs.docker.com/scout/release-notes/cli/#162)
+## 1.6.2
 
 *2024-03-22*
 
-### [Bug fixes and enhancements](https://docs.docker.com/scout/release-notes/cli/#bug-fixes-and-enhancements-9)
+### Bug fixes and enhancements
 
 - EPSS data is now fetched via the backend, as opposed to via the CLI client.
 - Fix an issue when rendering markdown output using the `sbom://` prefix.
 
-### [Removed](https://docs.docker.com/scout/release-notes/cli/#removed)
+### Removed
 
 - The `docker scout cves --epss-date` and `docker scout cache prune --epss` flags have been removed.
 
-## [1.6.1](https://docs.docker.com/scout/release-notes/cli/#161)
+## 1.6.1
 
 *2024-03-20*
 
@@ -371,7 +371,7 @@ Discarded in favor of [1.9.1](https://docs.docker.com/scout/release-notes/cli/#1
 >
 > This release only affects the `docker/scout-action` GitHub Action.
 
-### [New](https://docs.docker.com/scout/release-notes/cli/#new-5)
+### New
 
 - Add support for passing in SBOM files in SDPX or in-toto SDPX format
 
@@ -395,7 +395,7 @@ Discarded in favor of [1.9.1](https://docs.docker.com/scout/release-notes/cli/#1
       image: sbom://alpine.syft.json
   ```
 
-## [1.6.0](https://docs.docker.com/scout/release-notes/cli/#160)
+## 1.6.0
 
 *2024-03-19*
 
@@ -405,7 +405,7 @@ Discarded in favor of [1.9.1](https://docs.docker.com/scout/release-notes/cli/#1
 >
 > This release only affects the CLI plugin, not the GitHub Action
 
-### [New](https://docs.docker.com/scout/release-notes/cli/#new-6)
+### New
 
 - Add support for passing in SBOM files in SDPX or in-toto SDPX format
 
@@ -437,18 +437,18 @@ Discarded in favor of [1.9.1](https://docs.docker.com/scout/release-notes/cli/#1
   - `--epss-score` and `--epss-percentile` to filter by score and percentile
   - Prune cached EPSS files with `docker scout cache prune --epss`
 
-### [Bug fixes and enhancements](https://docs.docker.com/scout/release-notes/cli/#bug-fixes-and-enhancements-10)
+### Bug fixes and enhancements
 
 - Use Windows cache from WSL2
 
   When inside WSL2 with Docker Desktop running, the Docker Scout CLI plugin now uses the cache from Windows. That way, if an image has been indexed for instance by Docker Desktop there's no need anymore to re-index it on WSL2 side.
 
-- Indexing is now blocked in the CLI if it has been disabled using [Settings Management](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/configure/) feature.
+- Indexing is now blocked in the CLI if it has been disabled using [Settings Management]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/SettingsManagement/Configure" >}}) feature.
 
 - Fix a panic that would occur when analyzing a single-image `oci-dir` input
 
 - Improve local attestation support with the containerd image store
 
-## [Earlier versions](https://docs.docker.com/scout/release-notes/cli/#earlier-versions)
+## Earlier versions
 
 Release notes for earlier versions of the Docker Scout CLI plugin are available on [GitHub](https://github.com/docker/scout-cli/releases).

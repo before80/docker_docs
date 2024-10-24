@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/extend/plugin_api/](https://docs.docker.com/engine/extend/plugin_api/)
+> 原文：[https://docs.docker.com/engine/extend/plugin_api/](https://docs.docker.com/engine/extend/plugin_api/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,11 +16,11 @@ draft = false
 
 Docker plugins are out-of-process extensions which add capabilities to the Docker Engine.
 
-This document describes the Docker Engine plugin API. To view information on plugins managed by Docker Engine, refer to [Docker Engine plugin system](https://docs.docker.com/engine/extend/).
+This document describes the Docker Engine plugin API. To view information on plugins managed by Docker Engine, refer to [Docker Engine plugin system]({{< ref "/manuals/DockerEngine/DockerEngineplugins" >}}).
 
-This page is intended for people who want to develop their own Docker plugin. If you just want to learn about or use Docker plugins, look [here](https://docs.docker.com/engine/extend/legacy_plugins/).
+This page is intended for people who want to develop their own Docker plugin. If you just want to learn about or use Docker plugins, look [here]({{< ref "/manuals/DockerEngine/DockerEngineplugins/UseDockerEngineplugins" >}}).
 
-## [What plugins are](https://docs.docker.com/engine/extend/plugin_api/#what-plugins-are)
+## What plugins are
 
 A plugin is a process running on the same or a different host as the Docker daemon, which registers itself by placing a file on the daemon host in one of the plugin directories described in [Plugin discovery](https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery).
 
@@ -28,7 +28,7 @@ Plugins have human-readable names, which are short, lowercase strings. For examp
 
 Plugins can run inside or outside containers. Currently running them outside containers is recommended.
 
-## [Plugin discovery](https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery)
+## Plugin discovery
 
 Docker discovers plugins by looking for them in the plugin directory whenever a user or container tries to use one by name.
 
@@ -50,7 +50,7 @@ You can define each plugin into a separated subdirectory if you want to isolate 
 
 Docker always searches for Unix sockets in `/run/docker/plugins` first. It checks for spec or json files under `/etc/docker/plugins` and `/usr/lib/docker/plugins` if the socket doesn't exist. The directory scan stops as soon as it finds the first plugin definition with the given name.
 
-### [JSON specification](https://docs.docker.com/engine/extend/plugin_api/#json-specification)
+### JSON specification
 
 This is the JSON format for a plugin:
 
@@ -71,19 +71,19 @@ This is the JSON format for a plugin:
 
 The `TLSConfig` field is optional and TLS will only be verified if this configuration is present.
 
-## [Plugin lifecycle](https://docs.docker.com/engine/extend/plugin_api/#plugin-lifecycle)
+## Plugin lifecycle
 
 Plugins should be started before Docker, and stopped after Docker. For example, when packaging a plugin for a platform which supports `systemd`, you might use [`systemd` dependencies](https://www.freedesktop.org/software/systemd/man/systemd.unit.html#Before=) to manage startup and shutdown order.
 
 When upgrading a plugin, you should first stop the Docker daemon, upgrade the plugin, then start Docker again.
 
-## [Plugin activation](https://docs.docker.com/engine/extend/plugin_api/#plugin-activation)
+## Plugin activation
 
 When a plugin is first referred to -- either by a user referring to it by name (e.g. `docker run --volume-driver=foo`) or a container already configured to use a plugin being started -- Docker looks for the named plugin in the plugin directory and activates it with a handshake. See Handshake API below.
 
 Plugins are not activated automatically at Docker daemon startup. Rather, they are activated only lazily, or on-demand, when they are needed.
 
-## [Systemd socket activation](https://docs.docker.com/engine/extend/plugin_api/#systemd-socket-activation)
+## Systemd socket activation
 
 Plugins may also be socket activated by `systemd`. The official [Plugins helpers](https://github.com/docker/go-plugins-helpers) natively supports socket activation. In order for a plugin to be socket activated it needs a `service` file and a `socket` file.
 
@@ -122,7 +122,7 @@ WantedBy=sockets.target
 
 This will allow plugins to be actually started when the Docker daemon connects to the sockets they're listening on (for instance the first time the daemon uses them or if one of the plugin goes down accidentally).
 
-## [API design](https://docs.docker.com/engine/extend/plugin_api/#api-design)
+## API design
 
 The Plugin API is RPC-style JSON over HTTP, much like webhooks.
 
@@ -132,11 +132,11 @@ All requests are HTTP `POST` requests.
 
 The API is versioned via an Accept header, which currently is always set to `application/vnd.docker.plugins.v1+json`.
 
-## [Handshake API](https://docs.docker.com/engine/extend/plugin_api/#handshake-api)
+## Handshake API
 
 Plugins are activated via the following "handshake" API call.
 
-### [/Plugin.Activate](https://docs.docker.com/engine/extend/plugin_api/#pluginactivate)
+### /Plugin.Activate
 
 Request: empty body
 
@@ -154,14 +154,14 @@ Responds with a list of Docker subsystems which this plugin implements. After ac
 
 Possible values are:
 
-- [`authz`](https://docs.docker.com/engine/extend/plugins_authorization/)
-- [`NetworkDriver`](https://docs.docker.com/engine/extend/plugins_network/)
-- [`VolumeDriver`](https://docs.docker.com/engine/extend/plugins_volume/)
+- [`authz`]({{< ref "/manuals/DockerEngine/DockerEngineplugins/Accessauthorizationplugin" >}})
+- [`NetworkDriver`]({{< ref "/manuals/DockerEngine/DockerEngineplugins/Dockernetworkdriverplugins" >}})
+- [`VolumeDriver`]({{< ref "/manuals/DockerEngine/DockerEngineplugins/Dockervolumeplugins" >}})
 
-## [Plugin retries](https://docs.docker.com/engine/extend/plugin_api/#plugin-retries)
+## Plugin retries
 
 Attempts to call a method on a plugin are retried with an exponential backoff for up to 30 seconds. This may help when packaging plugins as containers, since it gives plugin containers a chance to start up before failing any user containers which depend on them.
 
-## [Plugins helpers](https://docs.docker.com/engine/extend/plugin_api/#plugins-helpers)
+## Plugins helpers
 
 To ease plugins development, we're providing an `sdk` for each kind of plugins currently supported by Docker at [docker/go-plugins-helpers](https://github.com/docker/go-plugins-helpers).

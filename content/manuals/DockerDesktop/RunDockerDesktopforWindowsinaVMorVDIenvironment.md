@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/vm-vdi/](https://docs.docker.com/desktop/vm-vdi/)
+> 原文：[https://docs.docker.com/desktop/vm-vdi/](https://docs.docker.com/desktop/vm-vdi/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ In general, we recommend running Docker Desktop natively on either Mac, Linux, o
 
 To run Docker Desktop in a virtual desktop environment, it is essential nested virtualization is enabled on the virtual machine that provides the virtual desktop. This is because, under the hood, Docker Desktop is using a Linux VM in which it runs Docker Engine and the containers.
 
-## [Virtual desktop support](https://docs.docker.com/desktop/vm-vdi/#virtual-desktop-support)
+## Virtual desktop support
 
 > **Note**
 >
@@ -26,23 +26,23 @@ To run Docker Desktop in a virtual desktop environment, it is essential nested v
 >
 > Support for running Docker Desktop on a virtual desktop is available to Docker Business customers, on VMware ESXi or Azure VMs only.
 
-The support available from Docker extends to installing and running Docker Desktop inside the VM, once the nested virtualization is set up correctly. The only hypervisors we have successfully tested are VMware ESXi and Azure, and there is no support for other VMs. For more information on Docker Desktop support, see [Get support](https://docs.docker.com/desktop/support/).
+The support available from Docker extends to installing and running Docker Desktop inside the VM, once the nested virtualization is set up correctly. The only hypervisors we have successfully tested are VMware ESXi and Azure, and there is no support for other VMs. For more information on Docker Desktop support, see [Get support]({{< ref "/manuals/DockerDesktop/Getsupport" >}}).
 
 For troubleshooting problems and intermittent failures that are outside of Docker's control, you should contact your hypervisor vendor. Each hypervisor vendor offers different levels of support. For example, Microsoft supports running nested Hyper-V both on-prem and on Azure, with some version constraints. This may not be the case for VMWare ESXi.
 
 Docker does not support running multiples instances of Docker Desktop on the same machine in a VM or VDI environment.
 
-## [Turn on nested virtualization](https://docs.docker.com/desktop/vm-vdi/#turn-on-nested-virtualization)
+## Turn on nested virtualization
 
 You must turn on nested virtualization before you install Docker Desktop on a virtual machine.
 
-### [Turn on nested virtualization on VMware ESXi](https://docs.docker.com/desktop/vm-vdi/#turn-on-nested-virtualization-on-vmware-esxi)
+### Turn on nested virtualization on VMware ESXi
 
 Nested virtualization of other hypervisors like Hyper-V inside a vSphere VM [is not a supported scenario](https://kb.vmware.com/s/article/2009916). However, running Hyper-V VM in a VMware ESXi VM is technically possible and, depending on the version, ESXi includes hardware-assisted virtualization as a supported feature. For internal testing, we used a VM that had 1 CPU with 4 cores and 12GB of memory.
 
 For steps on how to expose hardware-assisted virtualization to the guest OS, [see VMware's documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html).
 
-### [Turn on nested virtualization on an Azure Virtual Machine](https://docs.docker.com/desktop/vm-vdi/#turn-on-nested-virtualization-on-an-azure-virtual-machine)
+### Turn on nested virtualization on an Azure Virtual Machine
 
 Nested virtualization is supported by Microsoft for running Hyper-V inside an Azure VM.
 

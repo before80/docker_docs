@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/trusted-content/insights-analytics/](https://docs.docker.com/trusted-content/insights-analytics/)
+> 原文：[https://docs.docker.com/trusted-content/insights-analytics/](https://docs.docker.com/trusted-content/insights-analytics/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,7 +22,7 @@ Insights and analytics provides usage analytics for Docker Verified Publisher (D
 >
 > Head to the [Docker Verified Publisher Program](https://www.docker.com/partners/programs/) or [Docker-Sponsored Open Source](https://www.docker.com/community/open-source/application/#) pages to learn more about the programs.
 
-## [View the image's analytics data](https://docs.docker.com/trusted-content/insights-analytics/#view-the-images-analytics-data)
+## View the image's analytics data
 
 You can find analytics data for your repositories on the **Insights and analytics** dashboard at the following URL: `https://hub.docker.com/orgs/{namespace}/insights/images`. The dashboard contains a visualization of the usage data and a table where you can download the data as CSV files.
 
@@ -40,7 +40,7 @@ To view data in the chart:
 >
 > Hovering your cursor over the chart displays a tooltip, showing precise data for points in time.
 
-### [Share analytics data](https://docs.docker.com/trusted-content/insights-analytics/#share-analytics-data)
+### Share analytics data
 
 You can share the visualization with others using the **Share** icon above the chart. This is a convenient way to share statistics with others in your organization.
 
@@ -48,17 +48,17 @@ You can share the visualization with others using the **Share** icon above the c
 
 Selecting the icon generates a link that's copied to your clipboard. The link preserves the display selections you made. When someone follows the link, the **Insights and analytics** page opens and displays the chart with the same configuration as you had set up when creating the link.
 
-## [Extension analytics data](https://docs.docker.com/trusted-content/insights-analytics/#extension-analytics-data)
+## Extension analytics data
 
 If you have published Docker Extensions in the Extension marketplace, you can also get analytics about your extension usage, available as CSV files. You can download extension CSV reports from the **Insights and analytics** dashboard at the following URL: `https://hub.docker.com/orgs/{namespace}/insights/extensions`. If your Docker namespace contains extensions known in the marketplace, you will see an **Extensions** tab listing CSV files for your extension(s).
 
-## [Exporting analytics data](https://docs.docker.com/trusted-content/insights-analytics/#exporting-analytics-data)
+## Exporting analytics data
 
-You can export the analytics data either from the web dashboard, or using the [DVP Data API](https://docs.docker.com/reference/api/hub/dvp/). All members of an organization have access to the analytics data.
+You can export the analytics data either from the web dashboard, or using the [DVP Data API]({{< ref "/reference/APIreference/DockerHubAPI/DVPDataAPI" >}}). All members of an organization have access to the analytics data.
 
 The data is available as a downloadable CSV file, in a weekly (Monday through Sunday) or monthly format. Monthly data is available from the first day of the following calendar month. You can import this data into your own systems, or you can analyze it manually as a spreadsheet.
 
-### [Export data](https://docs.docker.com/trusted-content/insights-analytics/#export-data)
+### Export data
 
 Export usage data for your organization's images using the Docker Hub website by following these steps:
 
@@ -74,17 +74,17 @@ Export usage data for your organization's images using the Docker Hub website by
 
    ![Filtering options and download links for analytics data](Insightsandanalytics_img/download-analytics-data.png)
 
-### [Export data using the API](https://docs.docker.com/trusted-content/insights-analytics/#export-data-using-the-api)
+### Export data using the API
 
-The HTTP API endpoints are available at: `https://hub.docker.com/api/publisher/analytics/v1`. Learn how to export data using the API in the [DVP Data API documentation](https://docs.docker.com/reference/api/hub/dvp/).
+The HTTP API endpoints are available at: `https://hub.docker.com/api/publisher/analytics/v1`. Learn how to export data using the API in the [DVP Data API documentation]({{< ref "/reference/APIreference/DockerHubAPI/DVPDataAPI" >}}).
 
-## [Data points](https://docs.docker.com/trusted-content/insights-analytics/#data-points)
+## Data points
 
 Export data in either raw or summary format. Each format contains different data points and with different structure.
 
 The following sections describe the available data points for each format. The **Date added** column shows when the field was first introduced.
 
-### [Image pulls raw data](https://docs.docker.com/trusted-content/insights-analytics/#image-pulls-raw-data)
+### Image pulls raw data
 
 The raw data format contains the following data points. Each row in the CSV file represents an image pull.
 
@@ -96,9 +96,9 @@ The raw data format contains the following data points. Each row in the CSV file
 | Digest                        | Image digest.                                                | January 1, 2022   |
 | HTTP method                   | HTTP method used in the request, see [registry API documentation](https://docs.docker.com/registry/spec/api/) for details. | January 1, 2022   |
 | Host                          | The cloud service provider used in an event.                 | January 1, 2022   |
-| Namespace                     | Docker [organization](https://docs.docker.com/admin/organization/orgs/) (image namespace). | January 1, 2022   |
+| Namespace                     | Docker [organization]({{< ref "/manuals/Administration/Organizationadministration/Createyourorganization" >}}) (image namespace). | January 1, 2022   |
 | Reference                     | Image digest or tag used in the request.                     | January 1, 2022   |
-| Repository                    | Docker [repository](https://docs.docker.com/docker-hub/repos/) (image name). | January 1, 2022   |
+| Repository                    | Docker [repository]({{< ref "/manuals/DockerHub/Managerepositories" >}}) (image name). | January 1, 2022   |
 | Tag (included when available) | Tag name that's only available if the request referred to a tag. | January 1, 2022   |
 | Timestamp                     | Date and time of the request: `YYYY-MM-DD 00:00:00`.         | January 1, 2022   |
 | Type                          | The industry from which the event originates. One of `business`, `isp`, `hosting`, `education`, `null`. | January 1, 2022   |
@@ -107,7 +107,7 @@ The raw data format contains the following data points. Each row in the CSV file
 | Domain                        | Request origin domain, see [Privacy](https://docs.docker.com/trusted-content/insights-analytics/#privacy). | October 11, 2022  |
 | Owner                         | The name of the organization that owns the repository.       | December 19, 2022 |
 
-### [Image pulls summary data](https://docs.docker.com/trusted-content/insights-analytics/#image-pulls-summary-data)
+### Image pulls summary data
 
 There are two levels of summary data available:
 
@@ -124,7 +124,7 @@ The summary data formats contain the following data points for the selected time
 | Version check     | HEAD by tag, not followed by a GET                           | January 1, 2022   |
 | Owner             | The name of the organization that owns the repository.       | December 19, 2022 |
 
-### [Image pulls action classification rules](https://docs.docker.com/trusted-content/insights-analytics/#image-pulls-action-classification-rules)
+### Image pulls action classification rules
 
 An action represents the multiple request events associated with a `docker pull`. Pulls are grouped by category to make the data more meaningful for understanding user behavior and intent. The categories are:
 
@@ -150,7 +150,7 @@ The following table describes the rules applied for determining intent behind pu
 | HEAD           | digest    | GET by same digest                                           | Pull by digest   | Image is single-arch and/or image is multi-arch but some part of the image already exists on the local machine |                                                              |
 | HEAD           | digest    | GET by same digest, then a second GET by different digest    | Pull by Digest   | Image is multi-arch                                          |                                                              |
 
-### [Extension Summary data](https://docs.docker.com/trusted-content/insights-analytics/#extension-summary-data)
+### Extension Summary data
 
 There are two levels of extension summary data available:
 
@@ -179,7 +179,7 @@ The core-summary-data file contains the following data points for the selected t
 | Usage            | Number of openings of the extension tab           | Feb 1, 2024 |
 | UniqueUsers      | Number of unique users openings the extension tab | Feb 1, 2024 |
 
-## [Changes in data over time](https://docs.docker.com/trusted-content/insights-analytics/#changes-in-data-over-time)
+## Changes in data over time
 
 The insights and analytics service is continuously improved to increase the value it brings to publishers. Some changes might include adding new data points, or improving existing data to make it more useful.
 
@@ -187,7 +187,7 @@ Changes in the dataset, such as added or removed fields, generally only apply fr
 
 Refer to the tables in the [Data points](https://docs.docker.com/trusted-content/insights-analytics/#data-points) section to see from which date a given data point is available.
 
-## [Privacy](https://docs.docker.com/trusted-content/insights-analytics/#privacy)
+## Privacy
 
 This section contains information about privacy-protecting measures that ensures consumers of content on Docker Hub remain completely anonymous.
 

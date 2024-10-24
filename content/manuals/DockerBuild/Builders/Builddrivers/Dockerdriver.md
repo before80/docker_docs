@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/builders/drivers/docker/](https://docs.docker.com/build/builders/drivers/docker/)
+> 原文：[https://docs.docker.com/build/builders/drivers/docker/](https://docs.docker.com/build/builders/drivers/docker/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ Unlike the other drivers, builders using the Docker driver can't be manually cre
 
 Images built with the Docker driver are automatically loaded to the local image store.
 
-## [Synopsis](https://docs.docker.com/build/builders/drivers/docker/#synopsis)
+## Synopsis
 
 
 
@@ -31,8 +31,8 @@ docker buildx build .
 
 It's not possible to configure which BuildKit version to use, or to pass any additional BuildKit parameters to a builder using the Docker driver. The BuildKit version and parameters are preset by the Docker Engine internally.
 
-If you need additional configuration and flexibility, consider using the [Docker container driver](https://docs.docker.com/build/builders/drivers/docker-container/).
+If you need additional configuration and flexibility, consider using the [Docker container driver]({{< ref "/manuals/DockerBuild/Builders/Builddrivers/Dockercontainerbuilddriver" >}}).
 
-## [Further reading](https://docs.docker.com/build/builders/drivers/docker/#further-reading)
+## Further reading
 
 For more information on the Docker driver, see the [buildx reference](https://docs.docker.com/reference/cli/docker/buildx/create/#driver).

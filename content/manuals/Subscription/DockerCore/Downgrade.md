@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/subscription/core-subscription/downgrade/](https://docs.docker.com/subscription/core-subscription/downgrade/)
+> 原文：[https://docs.docker.com/subscription/core-subscription/downgrade/](https://docs.docker.com/subscription/core-subscription/downgrade/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,19 +24,19 @@ When you downgrade your subscription, access to paid features is available until
 >
 > If you downgrade your personal account from a Pro subscription to a Personal subscription, note that [Personal subscriptions](https://docs.docker.com/subscription/core-subscription/details/#docker-personal) don't include collaborators for private repositories, and only one private repository is included. When you downgrade, all collaborators will be removed and additional private repositories are locked.
 
-## [Before you downgrade](https://docs.docker.com/subscription/core-subscription/downgrade/#before-you-downgrade)
+## Before you downgrade
 
 Consider the following aspects before you downgrade your subscription.
 
-### [Team size](https://docs.docker.com/subscription/core-subscription/downgrade/#team-size)
+### Team size
 
 You may need to reduce the number of team members and convert any private repositories to public repositories or delete them. For information on features available in each tier, see [Docker Pricing](https://www.docker.com/pricing).
 
-### [SSO and SCIM](https://docs.docker.com/subscription/core-subscription/downgrade/#sso-and-scim)
+### SSO and SCIM
 
 If you want to downgrade a Docker Business subscription and your organization uses single sign-on (SSO) for user authentication, you need to remove your SSO connection and verified domains before downgrading. After removing the SSO connection, any organization members that were auto-provisioned (for example, with SCIM) need to set up a password to sign in without SSO. To do this, users can [reset their password at sign in](https://docs.docker.com/accounts/create-account/#reset-your-password-at-sign-in).
 
-## [Downgrade your Docker subscription](https://docs.docker.com/subscription/core-subscription/downgrade/#downgrade-your-docker-subscription)
+## Downgrade your Docker subscription
 
 > **Important**
 >
@@ -54,6 +54,6 @@ If you want to downgrade a Docker Business subscription and your organization us
 
 If you want to cancel the downgrade, select **Cancel the downgrade** on the **Plan** tab.
 
-## [Pause a subscription](https://docs.docker.com/subscription/core-subscription/downgrade/#pause-a-subscription)
+## Pause a subscription
 
 You can't pause or delay a subscription. If a subscription invoice hasn't been paid on the due date, there's a 15 day grace period, including the due date.

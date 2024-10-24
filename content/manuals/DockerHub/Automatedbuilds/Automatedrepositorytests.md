@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/docker-hub/builds/automated-testing/](https://docs.docker.com/docker-hub/builds/automated-testing/)
+> 原文：[https://docs.docker.com/docker-hub/builds/automated-testing/](https://docs.docker.com/docker-hub/builds/automated-testing/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,13 +18,13 @@ draft = false
 >
 > 
 >
-> Automated builds require a [Docker Pro, Team, or Business subscription](https://docs.docker.com/subscription/).
+> Automated builds require a [Docker Pro, Team, or Business subscription]({{< ref "/manuals/Subscription" >}}).
 
-Docker Hub can automatically test changes to your source code repositories using containers. You can enable `Autotest` on [any Docker Hub repository](https://docs.docker.com/docker-hub/repos/) to run tests on each pull request to the source code repository to create a continuous integration testing service.
+Docker Hub can automatically test changes to your source code repositories using containers. You can enable `Autotest` on [any Docker Hub repository]({{< ref "/manuals/DockerHub/Managerepositories" >}}) to run tests on each pull request to the source code repository to create a continuous integration testing service.
 
-Enabling `Autotest` builds an image for testing purposes, but does not automatically push the built image to the Docker repository. If you want to push built images to your Docker Hub repository, enable [Automated Builds](https://docs.docker.com/docker-hub/builds/).
+Enabling `Autotest` builds an image for testing purposes, but does not automatically push the built image to the Docker repository. If you want to push built images to your Docker Hub repository, enable [Automated Builds]({{< ref "/manuals/DockerHub/Automatedbuilds" >}}).
 
-## [Set up automated test files](https://docs.docker.com/docker-hub/builds/automated-testing/#set-up-automated-test-files)
+## Set up automated test files
 
 To set up your automated tests, create a `docker-compose.test.yml` file which defines a `sut` service that lists the tests to be run. The `docker-compose.test.yml` file should be located in the same directory that contains the Dockerfile used to build the image.
 
@@ -57,9 +57,9 @@ You can define more than one `docker-compose.test.yml` file if needed. Any file 
 >
 > If you enable Automated builds, they also run any tests defined in the `test.yml` files.
 
-## [Enable Automated tests on a repository](https://docs.docker.com/docker-hub/builds/automated-testing/#enable-automated-tests-on-a-repository)
+## Enable Automated tests on a repository
 
-To enable testing on a source code repository, you must first create an associated build-repository in Docker Hub. Your `Autotest` settings are configured on the same page as [automated builds](https://docs.docker.com/docker-hub/builds/), however you do not need to enable Autobuilds to use `Autotest`. Autobuild is enabled per branch or tag, and you do not need to enable it at all.
+To enable testing on a source code repository, you must first create an associated build-repository in Docker Hub. Your `Autotest` settings are configured on the same page as [automated builds]({{< ref "/manuals/DockerHub/Automatedbuilds" >}}), however you do not need to enable Autobuilds to use `Autotest`. Autobuild is enabled per branch or tag, and you do not need to enable it at all.
 
 Only branches that are configured to use Autobuild push images to the Docker repository, regardless of the Autotest settings.
 
@@ -71,7 +71,7 @@ Only branches that are configured to use Autobuild push images to the Docker rep
 
 4. Select **Configure automated builds**.
 
-5. Configure the automated build settings as explained in [Automated Builds](https://docs.docker.com/docker-hub/builds/).
+5. Configure the automated build settings as explained in [Automated Builds]({{< ref "/manuals/DockerHub/Automatedbuilds" >}}).
 
    At minimum you must configure:
 
@@ -95,7 +95,7 @@ Only branches that are configured to use Autobuild push images to the Docker rep
 
 7. Select **Save** to save the settings, or select **Save and build** to save and run an initial test.
 
-## [Check your test results](https://docs.docker.com/docker-hub/builds/automated-testing/#check-your-test-results)
+## Check your test results
 
 From the repository's details page, select **Timeline**.
 

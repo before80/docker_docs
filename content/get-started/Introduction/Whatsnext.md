@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/introduction/whats-next/](https://docs.docker.com/get-started/introduction/whats-next/)
+> 原文：[https://docs.docker.com/get-started/introduction/whats-next/](https://docs.docker.com/get-started/introduction/whats-next/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 The following sections provide step-by-step guides to help you understand core Docker concepts, building images, and running containers.
 
-## [The basics](https://docs.docker.com/get-started/introduction/whats-next/#the-basics)
+## The basics
 
 Get started learning the core concepts of containers, images, registries, and Docker Compose.
 
@@ -36,7 +36,7 @@ What is Docker Compose?
 
 Gain a better understanding of Docker Compose.
 
-## [Building images](https://docs.docker.com/get-started/introduction/whats-next/#building-images)
+## Building images
 
 Craft optimized container images with Dockerfiles, build cache, and multi-stage builds.
 
@@ -60,7 +60,7 @@ Multi-stage builds
 
 Get a better understanding of multi-stage builds and their benefits.
 
-## [Running containers](https://docs.docker.com/get-started/introduction/whats-next/#running-containers)
+## Running containers
 
 Master essential techniques for exposing ports, overriding defaults, persisting data, sharing files, and managing multi-container applications.
 

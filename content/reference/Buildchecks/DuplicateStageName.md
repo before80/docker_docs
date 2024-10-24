@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/build-checks/duplicate-stage-name/](https://docs.docker.com/reference/build-checks/duplicate-stage-name/)
+> 原文：[https://docs.docker.com/reference/build-checks/duplicate-stage-name/](https://docs.docker.com/reference/build-checks/duplicate-stage-name/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
 # DuplicateStageName
 
-## [Output](https://docs.docker.com/reference/build-checks/duplicate-stage-name/#output)
+## Output
 
 
 
@@ -22,11 +22,11 @@ draft = false
 Duplicate stage name 'foo-base', stage names should be unique
 ```
 
-## [Description](https://docs.docker.com/reference/build-checks/duplicate-stage-name/#description)
+## Description
 
 Defining multiple stages with the same name results in an error because the builder is unable to uniquely resolve the stage name reference.
 
-## [Examples](https://docs.docker.com/reference/build-checks/duplicate-stage-name/#examples)
+## Examples
 
 ❌ Bad: `builder` is declared as a stage name twice.
 

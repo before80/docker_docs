@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/install/debian/](https://docs.docker.com/engine/install/debian/)
+> 原文：[https://docs.docker.com/engine/install/debian/](https://docs.docker.com/engine/install/debian/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,9 +16,9 @@ draft = false
 
 To get started with Docker Engine on Debian, make sure you [meet the prerequisites](https://docs.docker.com/engine/install/debian/#prerequisites), and then follow the [installation steps](https://docs.docker.com/engine/install/debian/#installation-methods).
 
-## [Prerequisites](https://docs.docker.com/engine/install/debian/#prerequisites)
+## Prerequisites
 
-### [Firewall limitations](https://docs.docker.com/engine/install/debian/#firewall-limitations)
+### Firewall limitations
 
 > **Warning**
 >
@@ -27,9 +27,9 @@ To get started with Docker Engine on Debian, make sure you [meet the prerequisit
 > Before you install Docker, make sure you consider the following security implications and firewall incompatibilities.
 
 - If you use ufw or firewalld to manage firewall settings, be aware that when you expose container ports using Docker, these ports bypass your firewall rules. For more information, refer to [Docker and ufw](https://docs.docker.com/engine/network/packet-filtering-firewalls/#docker-and-ufw).
-- Docker is only compatible with `iptables-nft` and `iptables-legacy`. Firewall rules created with `nft` are not supported on a system with Docker installed. Make sure that any firewall rulesets you use are created with `iptables` or `ip6tables`, and that you add them to the `DOCKER-USER` chain, see [Packet filtering and firewalls](https://docs.docker.com/engine/network/packet-filtering-firewalls/).
+- Docker is only compatible with `iptables-nft` and `iptables-legacy`. Firewall rules created with `nft` are not supported on a system with Docker installed. Make sure that any firewall rulesets you use are created with `iptables` or `ip6tables`, and that you add them to the `DOCKER-USER` chain, see [Packet filtering and firewalls]({{< ref "/manuals/DockerEngine/Networking/Packetfilteringandfirewalls" >}}).
 
-### [OS requirements](https://docs.docker.com/engine/install/debian/#os-requirements)
+### OS requirements
 
 To install Docker Engine, you need the 64-bit version of one of these Debian versions:
 
@@ -38,7 +38,7 @@ To install Docker Engine, you need the 64-bit version of one of these Debian ver
 
 Docker Engine for Debian is compatible with x86_64 (or amd64), armhf, arm64, and ppc64le (ppc64el) architectures.
 
-### [Uninstall old versions](https://docs.docker.com/engine/install/debian/#uninstall-old-versions)
+### Uninstall old versions
 
 Before you can install Docker Engine, you need to uninstall any conflicting packages.
 
@@ -65,16 +65,16 @@ $ for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; 
 
 Images, containers, volumes, and networks stored in `/var/lib/docker/` aren't automatically removed when you uninstall Docker. If you want to start with a clean installation, and prefer to clean up any existing data, read the [uninstall Docker Engine](https://docs.docker.com/engine/install/debian/#uninstall-docker-engine) section.
 
-## [Installation methods](https://docs.docker.com/engine/install/debian/#installation-methods)
+## Installation methods
 
 You can install Docker Engine in different ways, depending on your needs:
 
-- Docker Engine comes bundled with [Docker Desktop for Linux](https://docs.docker.com/desktop/install/linux/). This is the easiest and quickest way to get started.
+- Docker Engine comes bundled with [Docker Desktop for Linux]({{< ref "/manuals/DockerDesktop/Install/Linux" >}}). This is the easiest and quickest way to get started.
 - Set up and install Docker Engine from [Docker's `apt` repository](https://docs.docker.com/engine/install/debian/#install-using-the-repository).
 - [Install it manually](https://docs.docker.com/engine/install/debian/#install-from-a-package) and manage upgrades manually.
 - Use a [convenience script](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script). Only recommended for testing and development environments.
 
-### [Install using the `apt` repository](https://docs.docker.com/engine/install/debian/#install-using-the-repository)
+### Install using the `apt` repository
 
 Before you install Docker Engine for the first time on a new host machine, you need to set up the Docker `apt` repository. Afterward, you can install and update Docker from the repository.
 
@@ -114,9 +114,9 @@ Before you install Docker Engine for the first time on a new host machine, you n
 
 2. Install the Docker packages.
 
-   Latest Specific version
+   {{< tabpane text=true persist=disabled >}}
 
-   ------
+   {{% tab header="Latest" %}}
 
    To install the latest version, run:
 
@@ -125,6 +125,38 @@ Before you install Docker Engine for the first time on a new host machine, you n
    ```console
    $ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
    ```
+
+   {{% /tab  %}}
+
+   {{% tab header="Specific version" %}}
+
+   To install a specific version of Docker Engine, start by listing the available versions in the repository:
+
+   
+
+   ```console
+   # List the available versions:
+   $ apt-cache madison docker-ce | awk '{ print $3 }'
+   
+   5:27.1.1-1~debian.12~bookworm
+   5:27.1.0-1~debian.12~bookworm
+   ...
+   ```
+
+   Select the desired version and install:
+
+   
+
+   ```console
+   VERSION_STRING=5:27.1.1-1~debian.12~bookworm
+   sudo apt-get install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin
+   ```
+
+   {{% /tab  %}}
+
+   {{< /tabpane >}}
+
+    
 
    ------
 
@@ -146,13 +178,13 @@ You have now successfully installed and started Docker Engine.
 >
 > Receiving errors when trying to run without root?
 >
-> The `docker` user group exists but contains no users, which is why you’re required to use `sudo` to run Docker commands. Continue to [Linux postinstall](https://docs.docker.com/engine/install/linux-postinstall) to allow non-privileged users to run Docker commands and for other optional configuration steps.
+> The `docker` user group exists but contains no users, which is why you’re required to use `sudo` to run Docker commands. Continue to [Linux postinstall]({{< ref "/manuals/DockerEngine/Install/Post-installationsteps" >}}) to allow non-privileged users to run Docker commands and for other optional configuration steps.
 
-#### [Upgrade Docker Engine](https://docs.docker.com/engine/install/debian/#upgrade-docker-engine)
+#### Upgrade Docker Engine
 
 To upgrade Docker Engine, follow step 2 of the [installation instructions](https://docs.docker.com/engine/install/debian/#install-using-the-repository), choosing the new version you want to install.
 
-### [Install from a package](https://docs.docker.com/engine/install/debian/#install-from-a-package)
+### Install from a package
 
 If you can't use Docker's `apt` repository to install Docker Engine, you can download the `deb` file for your release and install it manually. You need to download a new file each time you want to upgrade Docker Engine.
 
@@ -203,13 +235,13 @@ You have now successfully installed and started Docker Engine.
 >
 > Receiving errors when trying to run without root?
 >
-> The `docker` user group exists but contains no users, which is why you’re required to use `sudo` to run Docker commands. Continue to [Linux postinstall](https://docs.docker.com/engine/install/linux-postinstall) to allow non-privileged users to run Docker commands and for other optional configuration steps.
+> The `docker` user group exists but contains no users, which is why you’re required to use `sudo` to run Docker commands. Continue to [Linux postinstall]({{< ref "/manuals/DockerEngine/Install/Post-installationsteps" >}}) to allow non-privileged users to run Docker commands and for other optional configuration steps.
 
-#### [Upgrade Docker Engine](https://docs.docker.com/engine/install/debian/#upgrade-docker-engine-1)
+#### Upgrade Docker Engine
 
 To upgrade Docker Engine, download the newer package files and repeat the [installation procedure](https://docs.docker.com/engine/install/debian/#install-from-a-package), pointing to the new files.
 
-### [Install using the convenience script](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script)
+### Install using the convenience script
 
 Docker provides a convenience script at https://get.docker.com/ to install Docker into development environments non-interactively. The convenience script isn't recommended for production environments, but it's useful for creating a provisioning script tailored to your needs. Also refer to the [install using the repository](https://docs.docker.com/engine/install/debian/#install-using-the-repository) steps to learn about installation steps to install using the package repository. The source code for the script is open source, and you can find it in the [`docker-install` repository on GitHub](https://github.com/docker/docker-install).
 
@@ -248,9 +280,9 @@ You have now successfully installed and started Docker Engine. The `docker` serv
 
 > **Use Docker as a non-privileged user, or install in rootless mode?**
 >
-> The installation script requires `root` or `sudo` privileges to install and use Docker. If you want to grant non-root users access to Docker, refer to the [post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user). You can also install Docker without `root` privileges, or configured to run in rootless mode. For instructions on running Docker in rootless mode, refer to [run the Docker daemon as a non-root user (rootless mode)](https://docs.docker.com/engine/security/rootless/).
+> The installation script requires `root` or `sudo` privileges to install and use Docker. If you want to grant non-root users access to Docker, refer to the [post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user). You can also install Docker without `root` privileges, or configured to run in rootless mode. For instructions on running Docker in rootless mode, refer to [run the Docker daemon as a non-root user (rootless mode)]({{< ref "/manuals/DockerEngine/Security/Rootlessmode" >}}).
 
-#### [Install pre-releases](https://docs.docker.com/engine/install/debian/#install-pre-releases)
+#### Install pre-releases
 
 Docker also provides a convenience script at https://test.docker.com/ to install pre-releases of Docker on Linux. This script is equal to the script at `get.docker.com`, but configures your package manager to use the test channel of the Docker package repository. The test channel includes both stable and pre-releases (beta versions, release-candidates) of Docker. Use this script to get early access to new releases, and to evaluate them in a testing environment before they're released as stable.
 
@@ -263,11 +295,11 @@ $ curl -fsSL https://test.docker.com -o test-docker.sh
 $ sudo sh test-docker.sh
 ```
 
-#### [Upgrade Docker after using the convenience script](https://docs.docker.com/engine/install/debian/#upgrade-docker-after-using-the-convenience-script)
+#### Upgrade Docker after using the convenience script
 
 If you installed Docker using the convenience script, you should upgrade Docker using your package manager directly. There's no advantage to re-running the convenience script. Re-running it can cause issues if it attempts to re-install repositories which already exist on the host machine.
 
-## [Uninstall Docker Engine](https://docs.docker.com/engine/install/debian/#uninstall-docker-engine)
+## Uninstall Docker Engine
 
 1. Uninstall the Docker Engine, CLI, containerd, and Docker Compose packages:
 
@@ -297,6 +329,6 @@ If you installed Docker using the convenience script, you should upgrade Docker 
 
 You have to delete any edited configuration files manually.
 
-## [Next steps](https://docs.docker.com/engine/install/debian/#next-steps)
+## Next steps
 
-- Continue to [Post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/).
+- Continue to [Post-installation steps for Linux]({{< ref "/manuals/DockerEngine/Install/Post-installationsteps" >}}).

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/bake/remote-definition/](https://docs.docker.com/build/bake/remote-definition/)
+> 原文：[https://docs.docker.com/build/bake/remote-definition/](https://docs.docker.com/build/bake/remote-definition/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -55,7 +55,7 @@ This fetches the Bake definition from the specified remote location and executes
 }
 ```
 
-## [Use the local context with a remote definition](https://docs.docker.com/build/bake/remote-definition/#use-the-local-context-with-a-remote-definition)
+## Use the local context with a remote definition
 
 When building with a remote Bake definition, you may want to consume local files relative to the directory where the Bake command is executed. You can define contexts as relative to the command context using a `cwd://` prefix.
 
@@ -95,7 +95,7 @@ $ docker buildx bake "https://github.com/dvdksn/buildx.git#bake-remote-example"
 
 You can append a path to the `cwd://` prefix if you want to use a specific local directory as a context. Note that if you do specify a path, it must be within the working directory where the command gets executed. If you use an absolute path, or a relative path leading outside of the working directory, Bake will throw an error.
 
-### [Local named contexts](https://docs.docker.com/build/bake/remote-definition/#local-named-contexts)
+### Local named contexts
 
 You can also use the `cwd://` prefix to define local directories in the Bake execution context as named contexts.
 
@@ -114,7 +114,7 @@ target "default" {
 
 By contrast, if you omit the `cwd://` prefix, the path would be resolved relative to the build context.
 
-## [Specify the Bake definition to use](https://docs.docker.com/build/bake/remote-definition/#specify-the-bake-definition-to-use)
+## Specify the Bake definition to use
 
 When loading a Bake file from a remote Git repository, if the repository contains more than one Bake file, you can specify which Bake definition to use with the `--file` or `-f` flag:
 
@@ -133,7 +133,7 @@ docker buildx bake -f bake.hcl "https://github.com/crazy-max/buildx.git#remote-w
 #4 DONE 0.3s
 ```
 
-## [Combine local and remote Bake definitions](https://docs.docker.com/build/bake/remote-definition/#combine-local-and-remote-bake-definitions)
+## Combine local and remote Bake definitions
 
 You can also combine remote definitions with local ones using the `cwd://` prefix with `-f`.
 
@@ -197,7 +197,7 @@ One case where combining local and remote Bake definitions becomes necessary is 
           targets: build
 ```
 
-## [Remote definition in a private repository](https://docs.docker.com/build/bake/remote-definition/#remote-definition-in-a-private-repository)
+## Remote definition in a private repository
 
 If you want to use a remote definition that lives in a private repository, you may need to specify credentials for Bake to use when fetching the definition.
 

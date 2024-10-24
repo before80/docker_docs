@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/how-tos/use-secrets/](https://docs.docker.com/compose/how-tos/use-secrets/)
+> 原文：[https://docs.docker.com/compose/how-tos/use-secrets/](https://docs.docker.com/compose/how-tos/use-secrets/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,15 +20,15 @@ Docker Compose provides a way for you to use secrets without having to use envir
 
 Environment variables are often available to all processes, and it can be difficult to track access. They can also be printed in logs when debugging errors without your knowledge. Using secrets mitigates these risks.
 
-## [Use secrets](https://docs.docker.com/compose/how-tos/use-secrets/#use-secrets)
+## Use secrets
 
-Getting a secret into a container is a two-step process. First, define the secret using the [top-level secrets element in your Compose file](https://docs.docker.com/reference/compose-file/secrets/). Next, update your service definitions to reference the secrets they require with the [secrets attribute](https://docs.docker.com/reference/compose-file/services/#secrets). Compose grants access to secrets on a per-service basis.
+Getting a secret into a container is a two-step process. First, define the secret using the [top-level secrets element in your Compose file]({{< ref "/reference/Composefilereference/Secretstop-levelelements" >}}). Next, update your service definitions to reference the secrets they require with the [secrets attribute](https://docs.docker.com/reference/compose-file/services/#secrets). Compose grants access to secrets on a per-service basis.
 
 Unlike the other methods, this permits granular access control within a service container via standard filesystem permissions.
 
-## [Examples](https://docs.docker.com/compose/how-tos/use-secrets/#examples)
+## Examples
 
-### [Simple](https://docs.docker.com/compose/how-tos/use-secrets/#simple)
+### Simple
 
 In the following example, the frontend service is given access to the `my_secret` secret. In the container, `/run/secrets/my_secret` is set to the contents of the file `./my_secret.txt`.
 
@@ -45,7 +45,7 @@ secrets:
     file: ./my_secret.txt
 ```
 
-### [Advanced](https://docs.docker.com/compose/how-tos/use-secrets/#advanced)
+### Advanced
 
 
 
@@ -100,7 +100,7 @@ In the advanced example above:
 >
 > The `_FILE` environment variables demonstrated here are a convention used by some images, including Docker Official Images like [mysql](https://hub.docker.com/_/mysql) and [postgres](https://hub.docker.com/_/postgres).
 
-### [Build secrets](https://docs.docker.com/compose/how-tos/use-secrets/#build-secrets)
+### Build secrets
 
 In the following example, the `npm_token` secret is made available at build time. Its value is taken from the `NPM_TOKEN` environment variable.
 
@@ -119,8 +119,8 @@ secrets:
     environment: NPM_TOKEN
 ```
 
-## [Resources](https://docs.docker.com/compose/how-tos/use-secrets/#resources)
+## Resources
 
-- [Secrets top-level element](https://docs.docker.com/reference/compose-file/secrets/)
+- [Secrets top-level element]({{< ref "/reference/Composefilereference/Secretstop-levelelements" >}})
 - [Secrets attribute for services top-level element](https://docs.docker.com/reference/compose-file/services/#secrets)
-- [Build secrets](https://docs.docker.com/build/building/secrets/)
+- [Build secrets]({{< ref "/manuals/DockerBuild/Building/Secrets" >}})

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/use-desktop/builds/](https://docs.docker.com/desktop/use-desktop/builds/)
+> 原文：[https://docs.docker.com/desktop/use-desktop/builds/](https://docs.docker.com/desktop/use-desktop/builds/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,9 +22,9 @@ Opening the **Builds** view in Docker Desktop displays a list of completed build
 
 ![Build UI screenshot active builds](Builds_img/build-ui-active-builds.webp)
 
-If you're connected to a cloud builder through [Docker Build Cloud](https://docs.docker.com/build-cloud/), the Builds view also lists any active or completed cloud builds by other team members connected to the same cloud builder.
+If you're connected to a cloud builder through [Docker Build Cloud]({{< ref "/manuals/DockerBuildCloud" >}}), the Builds view also lists any active or completed cloud builds by other team members connected to the same cloud builder.
 
-## [Show build list](https://docs.docker.com/desktop/use-desktop/builds/#show-build-list)
+## Show build list
 
 Select the **Builds** view in the Docker Dashboard to open the build list.
 
@@ -32,19 +32,19 @@ The build list shows your completed and ongoing builds. The **Build history** ta
 
 The list shows builds for your active, running builders. It doesn't list builds for inactive builders: builders that you've removed from your system, or builders that have been stopped.
 
-### [Builder settings](https://docs.docker.com/desktop/use-desktop/builds/#builder-settings)
+### Builder settings
 
 The top-right corner shows the name of your currently selected builder, and the **Builder settings** button lets you [manage builders](https://docs.docker.com/desktop/use-desktop/builds/#manage-builders) in the Docker Desktop settings.
 
-### [Import builds](https://docs.docker.com/desktop/use-desktop/builds/#import-builds)
+### Import builds
 
 **Beta feature**
 
 Import builds is currently in [Beta](https://docs.docker.com/release-lifecycle/#Beta).
 
-The **Import builds** button lets you import build records for builds by other people, or builds in a CI environment. When you've imported a build record, it gives you full access to the logs, traces, and other data for that build, directly in Docker Desktop. The [build summary](https://docs.docker.com/build/ci/github-actions/build-summary/) for the `docker/build-push-action` and `docker/bake-action` GitHub Actions includes a link to download the build records, for inspecting CI jobs with Docker Desktop.
+The **Import builds** button lets you import build records for builds by other people, or builds in a CI environment. When you've imported a build record, it gives you full access to the logs, traces, and other data for that build, directly in Docker Desktop. The [build summary]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Buildsummary" >}}) for the `docker/build-push-action` and `docker/bake-action` GitHub Actions includes a link to download the build records, for inspecting CI jobs with Docker Desktop.
 
-## [Inspect builds](https://docs.docker.com/desktop/use-desktop/builds/#inspect-builds)
+## Inspect builds
 
 To inspect a build, select the build that you want to view in the list. The inspection view contains a number of tabs.
 
@@ -54,9 +54,9 @@ If you're inspecting a multi-platform build, the drop-down menu in the top-right
 
 ![Platform filter](Builds_img/build-ui-platform-menu.webp)
 
-The **Source details** section shows information about the frontend [frontend](https://docs.docker.com/build/buildkit/frontend/) and, if available, the source code repository used for the build.
+The **Source details** section shows information about the frontend [frontend]({{< ref "/manuals/DockerBuild/BuildKit/CustomDockerfilesyntax" >}}) and, if available, the source code repository used for the build.
 
-### [Build timing](https://docs.docker.com/desktop/use-desktop/builds/#build-timing)
+### Build timing
 
 The **Build timing** section of the Info tab contains charts showing a breakdown of the build execution from various angles.
 
@@ -78,10 +78,10 @@ The chart colors and legend keys describe the different build operations. Build 
 | HTTP                 | Remote artifact downloads using `ADD`.                       |
 | Git                  | Same as **HTTP** but for Git URLs.                           |
 | Result exports       | Time spent exporting the build results.                      |
-| SBOM                 | Time spent generating the [SBOM attestation](https://docs.docker.com/build/metadata/attestations/sbom/). |
+| SBOM                 | Time spent generating the [SBOM attestation]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations/SBOMattestations" >}}). |
 | Idle                 | Idle time for build workers, which can happen if you have configured a [max parallelism limit](https://docs.docker.com/build/buildkit/configure/#max-parallelism). |
 
-### [Build dependencies](https://docs.docker.com/desktop/use-desktop/builds/#build-dependencies)
+### Build dependencies
 
 The **Dependencies** section shows images and remote resources used during the build. Resources listed here include:
 
@@ -89,7 +89,7 @@ The **Dependencies** section shows images and remote resources used during the b
 - Git repositories included using the `ADD` Dockerfile instruction
 - Remote HTTPS resources included using the `ADD` Dockerfile instruction
 
-### [Arguments, secrets, and other parameters](https://docs.docker.com/desktop/use-desktop/builds/#arguments-secrets-and-other-parameters)
+### Arguments, secrets, and other parameters
 
 The **Configuration** section of the Info tab shows parameters passed to the build:
 
@@ -99,15 +99,15 @@ The **Configuration** section of the Info tab shows parameters passed to the bui
 - Labels
 - [Additional contexts](https://docs.docker.com/reference/cli/docker/buildx/build/#build-context)
 
-### [Outputs and artifacts](https://docs.docker.com/desktop/use-desktop/builds/#outputs-and-artifacts)
+### Outputs and artifacts
 
 The **Build results** section shows a summary of the generated build artifacts, including image manifest details, attestations, and build traces.
 
-Attestations are metadata records attached to a container image. The metadata describes something about the image, for example how it was built or what packages it contains. For more information about attestations, see [Build attestations](https://docs.docker.com/build/metadata/attestations/).
+Attestations are metadata records attached to a container image. The metadata describes something about the image, for example how it was built or what packages it contains. For more information about attestations, see [Build attestations]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations" >}}).
 
 Build traces capture information about the build execution steps in Buildx and BuildKit. The traces are available in two formats: OTLP and Jaeger. You can download build traces from Docker Desktop by opening the actions menu and selecting the format you want to download.
 
-#### [Inspect build traces with Jaeger](https://docs.docker.com/desktop/use-desktop/builds/#inspect-build-traces-with-jaeger)
+#### Inspect build traces with Jaeger
 
 Using a Jaeger client, you can import and inspect build traces from Docker Desktop. The following steps show you how to export a trace from Docker Desktop and view it in [Jaeger](https://www.jaegertracing.io/):
 
@@ -133,15 +133,15 @@ Now you can analyze the build trace using the Jaeger UI:
 
 ![Jaeger UI screenshot](Builds_img/build-ui-jaeger-screenshot.png)Screenshot of a build trace in the Jaeger UI
 
-### [Dockerfile source and errors](https://docs.docker.com/desktop/use-desktop/builds/#dockerfile-source-and-errors)
+### Dockerfile source and errors
 
-When inspecting a successful completed build or an ongoing active build, the **Source** tab shows the [frontend](https://docs.docker.com/build/buildkit/frontend/) used to create the build.
+When inspecting a successful completed build or an ongoing active build, the **Source** tab shows the [frontend]({{< ref "/manuals/DockerBuild/BuildKit/CustomDockerfilesyntax" >}}) used to create the build.
 
 If the build failed, an **Error** tab displays instead of the **Source** tab. The error message is inlined in the Dockerfile source, indicating where the failure happened and why.
 
 ![Build error displayed inline in the Dockerfile](Builds_img/build-ui-error.webp)
 
-### [Build logs](https://docs.docker.com/desktop/use-desktop/builds/#build-logs)
+### Build logs
 
 The **Logs** tab displays the build logs. For active builds, the logs are updated in real-time.
 
@@ -152,7 +152,7 @@ You can toggle between a **List view** and a **Plain-text view** of a build log.
 
 The **Copy** button lets you copy the plain-text version of the log to your clipboard.
 
-### [Build history](https://docs.docker.com/desktop/use-desktop/builds/#build-history)
+### Build history
 
 The **History** tab displays statistics data about completed builds.
 
@@ -162,7 +162,7 @@ The time series chart illustrates trends in duration, build steps, and cache usa
 
 You can navigate to and inspect a related build by selecting it in the chart, or using the **Past builds** list below the chart.
 
-## [Manage builders](https://docs.docker.com/desktop/use-desktop/builds/#manage-builders)
+## Manage builders
 
 The **Builder settings** view in the Docker Desktop settings lets you:
 

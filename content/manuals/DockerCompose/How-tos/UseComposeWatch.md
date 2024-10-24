@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/how-tos/file-watch/](https://docs.docker.com/compose/how-tos/file-watch/)
+> 原文：[https://docs.docker.com/compose/how-tos/file-watch/](https://docs.docker.com/compose/how-tos/file-watch/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -46,7 +46,7 @@ You don't need to switch on `watch` for all services in a Compose project. In so
 
 Compose Watch is designed to work with services built from local source code using the `build` attribute. It doesn't track changes for services that rely on pre-built images specified by the `image` attribute.
 
-## [Compose Watch versus bind mounts](https://docs.docker.com/compose/how-tos/file-watch/#compose-watch-versus-bind-mounts)
+## Compose Watch versus bind mounts
 
 Compose supports sharing a host directory inside service containers. Watch mode does not replace this functionality but exists as a companion specifically suited to developing in containers.
 
@@ -59,7 +59,7 @@ For example, in a JavaScript project, ignoring the `node_modules/` directory has
 
 For example, in a Node.js project, it's not recommended to sync the `node_modules/` directory. Even though JavaScript is interpreted, `npm` packages can contain native code that is not portable across platforms.
 
-## [Configuration](https://docs.docker.com/compose/how-tos/file-watch/#configuration)
+## Configuration
 
 The `watch` attribute defines a list of rules that control automatic service updates based on local file changes.
 
@@ -67,7 +67,7 @@ Each rule requires, a `path` pattern and `action` to take when a modification is
 
 Watch mode can be used with many different languages and frameworks. The specific paths and rules will vary from project to project, but the concepts remain the same.
 
-### [Prerequisites](https://docs.docker.com/compose/how-tos/file-watch/#prerequisites)
+### Prerequisites
 
 In order to work properly, `watch` relies on common executables. Make sure your service image contains the following binaries:
 
@@ -94,9 +94,9 @@ RUN npm install
 COPY --chown=app:app . /app
 ```
 
-### [`action`](https://docs.docker.com/compose/how-tos/file-watch/#action)
+### `action`
 
-#### [Sync](https://docs.docker.com/compose/how-tos/file-watch/#sync)
+#### Sync
 
 If `action` is set to `sync`, Compose makes sure any changes made to files on your host automatically match with the corresponding files within the service container.
 
@@ -104,7 +104,7 @@ If `action` is set to `sync`, Compose makes sure any changes made to files on yo
 
 More generally, `sync` rules can be used in place of bind mounts for many development use cases.
 
-#### [Rebuild](https://docs.docker.com/compose/how-tos/file-watch/#rebuild)
+#### Rebuild
 
 If `action` is set to `rebuild`, Compose automatically builds a new image with BuildKit and replaces the running service container.
 
@@ -112,7 +112,7 @@ The behavior is the same as running `docker compose up --build <svc>`.
 
 Rebuild is ideal for compiled languages or as fallbacks for modifications to particular files that require a full image rebuild (e.g. `package.json`).
 
-#### [Sync + Restart](https://docs.docker.com/compose/how-tos/file-watch/#sync--restart)
+#### Sync + Restart
 
 If `action` is set to `sync+restart`, Compose synchronizes your changes with the service containers and restarts it.
 
@@ -122,9 +122,9 @@ If `action` is set to `sync+restart`, Compose synchronizes your changes with the
 >
 > 
 >
-> Optimize your `Dockerfile` for speedy incremental rebuilds with [image layer caching](https://docs.docker.com/build/cache) and [multi-stage builds](https://docs.docker.com/build/building/multi-stage/).
+> Optimize your `Dockerfile` for speedy incremental rebuilds with [image layer caching]({{< ref "/manuals/DockerBuild/Cache" >}}) and [multi-stage builds]({{< ref "/manuals/DockerBuild/Building/Multi-stage" >}}).
 
-### [`path` and `target`](https://docs.docker.com/compose/how-tos/file-watch/#path-and-target)
+### `path` and `target`
 
 The `target` field controls how the path is mapped into the container.
 
@@ -134,7 +134,7 @@ For `path: ./app/html` and a change to `./app/html/index.html`:
 - `target: /app/static` -> `/app/static/index.html`
 - `target: /assets` -> `/assets/index.html`
 
-## [Example 1](https://docs.docker.com/compose/how-tos/file-watch/#example-1)
+## Example 1
 
 This minimal example targets a Node.js application with the following structure:
 
@@ -178,7 +178,7 @@ Unlike source code files, adding a new dependency can’t be done on-the-fly, so
 
 This pattern can be followed for many languages and frameworks, such as Python with Flask: Python source files can be synced while a change to `requirements.txt` should trigger a rebuild.
 
-## [Example 2](https://docs.docker.com/compose/how-tos/file-watch/#example-2)
+## Example 2
 
 Adapting the previous example to demonstrate `sync+restart`:
 
@@ -208,7 +208,7 @@ services:
 
 This setup demonstrates how to use the `sync+restart` action in Docker Compose to efficiently develop and test a Node.js application with a frontend web server and backend service. The configuration ensures that changes to the application code and configuration files are quickly synchronized and applied, with the `web` service restarting as needed to reflect the changes.
 
-## [Use `watch`](https://docs.docker.com/compose/how-tos/file-watch/#use-watch)
+## Use `watch`
 
 1. Add `watch` sections to one or more services in `compose.yaml`.
 2. Run `docker compose up --watch` to build and launch a Compose project and start the file watch mode.
@@ -226,10 +226,10 @@ This setup demonstrates how to use the `sync+restart` action in Docker Compose t
 >
 > Check out [`dockersamples/avatars`](https://github.com/dockersamples/avatars), or [local setup for Docker docs](https://github.com/docker/docs/blob/main/CONTRIBUTING.md) for a demonstration of Compose `watch`.
 
-## [Feedback](https://docs.docker.com/compose/how-tos/file-watch/#feedback)
+## Feedback
 
 We are actively looking for feedback on this feature. Give feedback or report any bugs you may find in the [Compose Specification repository](https://github.com/compose-spec/compose-spec/pull/253).
 
-## [Reference](https://docs.docker.com/compose/how-tos/file-watch/#reference)
+## Reference
 
-- [Compose Develop Specification](https://docs.docker.com/reference/compose-file/develop/)
+- [Compose Develop Specification]({{< ref "/reference/Composefilereference/ComposeDevelopSpecification" >}})

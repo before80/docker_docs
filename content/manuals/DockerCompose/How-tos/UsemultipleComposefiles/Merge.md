@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/how-tos/multiple-compose-files/merge/](https://docs.docker.com/compose/how-tos/multiple-compose-files/merge/)
+> 原文：[https://docs.docker.com/compose/how-tos/multiple-compose-files/merge/](https://docs.docker.com/compose/how-tos/multiple-compose-files/merge/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,9 +18,9 @@ Docker Compose lets you merge and override a set of Compose files together to cr
 
 By default, Compose reads two files, a `compose.yml` and an optional `compose.override.yml` file. By convention, the `compose.yml` contains your base configuration. The override file can contain configuration overrides for existing services or entirely new services.
 
-If a service is defined in both files, Compose merges the configurations using the rules described below and in the [Compose Specification](https://docs.docker.com/reference/compose-file/merge/).
+If a service is defined in both files, Compose merges the configurations using the rules described below and in the [Compose Specification]({{< ref "/reference/Composefilereference/Merge" >}}).
 
-## [How to merge multiple Compose files](https://docs.docker.com/compose/how-tos/multiple-compose-files/merge/#how-to-merge-multiple-compose-files)
+## How to merge multiple Compose files
 
 To use multiple override files, or an override file with a different name, you can either use the pre-defined [COMPOSE_FILE](https://docs.docker.com/compose/how-tos/environment-variables/envvars/#compose_file) environment variable, or use the `-f` option to specify the list of files.
 
@@ -79,7 +79,7 @@ webapp:
 >
 > When you use multiple Compose files, you must make sure all paths in the files are relative to the base Compose file (the first Compose file specified with `-f`). This is required because override files need not be valid Compose files. Override files can contain small fragments of configuration. Tracking which fragment of a service is relative to which path is difficult and confusing, so to keep paths easier to understand, all paths must be defined relative to the base file.
 
-### [Additional information](https://docs.docker.com/compose/how-tos/multiple-compose-files/merge/#additional-information)
+### Additional information
 
 - Using `-f` is optional. If not provided, Compose searches the working directory and its parent directories for a `compose.yml` and a `compose.override.yml` file. You must supply at least the `compose.yml` file. If both files exist on the same directory level, Compose combines them into a single configuration.
 
@@ -106,7 +106,7 @@ webapp:
 
 - You can use the `-f` flag to specify a path to a Compose file that is not located in the current directory, either from the command line or by setting up a [COMPOSE_FILE environment variable](https://docs.docker.com/compose/how-tos/environment-variables/envvars/#compose_file) in your shell or in an environment file.
 
-  For example, if you are running the [Compose Rails sample](https://github.com/docker/awesome-compose/tree/master/official-documentation-samples/rails/README.md), and have a `compose.yml` file in a directory called `sandbox/rails`. You can use a command like [docker compose pull](https://docs.docker.com/reference/cli/docker/compose/pull/) to get the postgres image for the `db` service from anywhere by using the `-f` flag as follows: `docker compose -f ~/sandbox/rails/compose.yml pull db`
+  For example, if you are running the [Compose Rails sample](https://github.com/docker/awesome-compose/tree/master/official-documentation-samples/rails/README.md), and have a `compose.yml` file in a directory called `sandbox/rails`. You can use a command like [docker compose pull]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposepull" >}}) to get the postgres image for the `db` service from anywhere by using the `-f` flag as follows: `docker compose -f ~/sandbox/rails/compose.yml pull db`
 
   Here's the full example:
 
@@ -133,7 +133,7 @@ webapp:
   Status: Downloaded newer image for postgres:latest
   ```
 
-## [Merging rules](https://docs.docker.com/compose/how-tos/multiple-compose-files/merge/#merging-rules)
+## Merging rules
 
 Compose copies configurations from the original service over to the local one. If a configuration option is defined in both the original service and the local service, the local value replaces or extends the original value.
 
@@ -297,9 +297,9 @@ services:
       - ./local:/baz
 ```
 
-For more merging rules, see [Merge and override](https://docs.docker.com/reference/compose-file/merge/) in the Compose Specification.
+For more merging rules, see [Merge and override]({{< ref "/reference/Composefilereference/Merge" >}}) in the Compose Specification.
 
-## [Example](https://docs.docker.com/compose/how-tos/multiple-compose-files/merge/#example)
+## Example
 
 A common use case for multiple files is changing a development Compose app for a production-like environment (which may be production, staging or CI). To support these differences, you can split your Compose configuration into a few different files:
 
@@ -388,12 +388,12 @@ $ docker compose -f compose.yml -f compose.prod.yml up -d
 
 This deploys all three services using the configuration in `compose.yml` and `compose.prod.yml` but not the dev configuration in `compose.override.yml`.
 
-For more information, see [Using Compose in production](https://docs.docker.com/compose/how-tos/production/).
+For more information, see [Using Compose in production]({{< ref "/manuals/DockerCompose/How-tos/UseComposeinproduction" >}}).
 
-## [Limitations](https://docs.docker.com/compose/how-tos/multiple-compose-files/merge/#limitations)
+## Limitations
 
 Docker Compose supports relative paths for the many resources to be included in the application model: build context for service images, location of file defining environment variables, path to a local directory used in a bind-mounted volume. With such a constraint, code organization in a monorepo can become hard as a natural choice would be to have dedicated folders per team or component, but then the Compose files relative paths become irrelevant.
 
-## [Reference information](https://docs.docker.com/compose/how-tos/multiple-compose-files/merge/#reference-information)
+## Reference information
 
-- [Merge rules](https://docs.docker.com/reference/compose-file/merge/)
+- [Merge rules]({{< ref "/reference/Composefilereference/Merge" >}})

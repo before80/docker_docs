@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/how-tos/profiles/](https://docs.docker.com/compose/how-tos/profiles/)
+> 原文：[https://docs.docker.com/compose/how-tos/profiles/](https://docs.docker.com/compose/how-tos/profiles/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 Profiles help you adjust your Compose application for different environments or use cases by selectively activating services. Services can be assigned to one or more profiles; unassigned services start by default, while assigned ones only start when their profile is active. This setup means specific services, like those for debugging or development, to be included in a single `compose.yml` file and activated only as needed.
 
-## [Assigning profiles to services](https://docs.docker.com/compose/how-tos/profiles/#assigning-profiles-to-services)
+## Assigning profiles to services
 
 Services are associated with profiles through the [`profiles` attribute](https://docs.docker.com/reference/compose-file/services/#profiles) which takes an array of profile names:
 
@@ -52,9 +52,9 @@ Valid profiles names follow the regex format of `[a-zA-Z0-9][a-zA-Z0-9_.-]+`.
 >
 > The core services of your application shouldn't be assigned `profiles` so they are always enabled and automatically started.
 
-## [Start specific profiles](https://docs.docker.com/compose/how-tos/profiles/#start-specific-profiles)
+## Start specific profiles
 
-To start a specific profile supply the `--profile` [command-line option](https://docs.docker.com/reference/cli/docker/compose/) or use the [`COMPOSE_PROFILES` environment variable](https://docs.docker.com/compose/how-tos/environment-variables/envvars/#compose_profiles):
+To start a specific profile supply the `--profile` [command-line option]({{< ref "/reference/CLIreference/docker/dockercompose" >}}) or use the [`COMPOSE_PROFILES` environment variable](https://docs.docker.com/compose/how-tos/environment-variables/envvars/#compose_profiles):
 
 
 
@@ -70,7 +70,7 @@ $ COMPOSE_PROFILES=debug docker compose up
 
 Both commands start the services with the `debug` profile enabled. In the previous `compose.yml` file, this starts the services `db`, `backend` and `phpmyadmin`.
 
-### [Start multiple profiles](https://docs.docker.com/compose/how-tos/profiles/#start-multiple-profiles)
+### Start multiple profiles
 
 You can also enable multiple profiles, e.g. with `docker compose --profile frontend --profile debug up` the profiles `frontend` and `debug` will be enabled.
 
@@ -90,7 +90,7 @@ $ COMPOSE_PROFILES=frontend,debug docker compose up
 
 If you want to enable all profiles at the same time, you can run `docker compose --profile "*"`.
 
-## [Auto-starting profiles and dependency resolution](https://docs.docker.com/compose/how-tos/profiles/#auto-starting-profiles-and-dependency-resolution)
+## Auto-starting profiles and dependency resolution
 
 When a service with assigned `profiles` is explicitly targeted on the command line its profiles are started automatically so you don't need to start them manually. This can be used for one-off services and debugging tools. As an example consider the following configuration:
 
@@ -191,7 +191,7 @@ $ docker compose --profile dev up phpmyadmin
 $ COMPOSE_PROFILES=dev docker compose up phpmyadmin
 ```
 
-## [Stop specific profiles](https://docs.docker.com/compose/how-tos/profiles/#stop-specific-profiles)
+## Stop specific profiles
 
 As with starting specific profiles, you can use the `--profile` [command-line option](https://docs.docker.com/reference/cli/docker/compose/#use--p-to-specify-a-project-name) or use the [`COMPOSE_PROFILES` environment variable](https://docs.docker.com/compose/how-tos/environment-variables/envvars/#compose_profiles):
 
@@ -235,6 +235,6 @@ services:
 >
 > Running `docker compose down` only stops `backend` and `db`.
 
-## [Reference information](https://docs.docker.com/compose/how-tos/profiles/#reference-information)
+## Reference information
 
 [`profiles`](https://docs.docker.com/reference/compose-file/services/#profiles)

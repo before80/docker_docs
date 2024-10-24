@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/trusted-content/](https://docs.docker.com/trusted-content/)
+> 原文：[https://docs.docker.com/trusted-content/](https://docs.docker.com/trusted-content/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,19 +16,19 @@ draft = false
 
 Trusted content is a selection of high-quality, secure images, curated by Docker and verified publishing partners. These images are stable, up-to-date, and follow industry best-practices. They provide a strong foundation for developing applications.
 
-![img](_index_img/doi-icon.svg+xml)
+![img](_index_img/doi-icon.svg)
 
 Docker Official Images
 
 A curated set of Docker repositories hosted on Docker Hub.
 
-![img](_index_img/dvp-icon.svg+xml)
+![img](_index_img/dvp-icon.svg)
 
 Docker Verified Publisher
 
 High-quality images from verified vendors.
 
-![img](_index_img/dsos-icon.svg+xml)
+![img](_index_img/dsos-icon.svg)
 
 Docker-Sponsored Open Source
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/ci/github-actions/build-summary/](https://docs.docker.com/build/ci/github-actions/build-summary/)
+> 原文：[https://docs.docker.com/build/ci/github-actions/build-summary/](https://docs.docker.com/build/ci/github-actions/build-summary/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ Docker's GitHub Actions for building and pushing images generate a job summary f
 
 - A summary showing the Dockerfile used, the build duration, and cache utilization
 - Inputs for the build, such as build arguments, tags, labels, and build contexts
-- For builds with [Bake](https://docs.docker.com/build/bake/), the full bake definition for the build
+- For builds with [Bake]({{< ref "/manuals/DockerBuild/Bake" >}}), the full bake definition for the build
 
 ![A GitHub Actions build summary](Buildsummary_img/gha_build_summary.png)
 
@@ -31,7 +31,7 @@ To view the job summary, open the details page for the job in GitHub after the j
 
 ![Builds summary error message](Buildsummary_img/build_summary_error.png)
 
-## [Import build records to Docker Desktop](https://docs.docker.com/build/ci/github-actions/build-summary/#import-build-records-to-docker-desktop)
+## Import build records to Docker Desktop
 
 Introduced in Docker Desktop version 4.31
 
@@ -39,11 +39,11 @@ Introduced in Docker Desktop version 4.31
 
 Import builds is currently in [Beta](https://docs.docker.com/release-lifecycle/#Beta).
 
-The job summary includes a link for downloading a build record archive for the run. The build record archive is a ZIP file containing the details about a build (or builds, if you use `docker/bake-action` to build multiple targets). You can import this build record archive into Docker Desktop, which gives you a powerful, graphical interface for further analyzing the build's performance via the [Docker Desktop **Builds** view](https://docs.docker.com/desktop/use-desktop/builds/).
+The job summary includes a link for downloading a build record archive for the run. The build record archive is a ZIP file containing the details about a build (or builds, if you use `docker/bake-action` to build multiple targets). You can import this build record archive into Docker Desktop, which gives you a powerful, graphical interface for further analyzing the build's performance via the [Docker Desktop **Builds** view]({{< ref "/manuals/DockerDesktop/ExploreDockerDesktop/Builds" >}}).
 
 To import the build record archive into Docker Desktop:
 
-1. Download and install [Docker Desktop](https://docs.docker.com/get-started/get-docker/).
+1. Download and install [Docker Desktop]({{< ref "/get-started/GetDocker" >}}).
 2. Download the build record archive from the job summary in GitHub Actions.
 3. Open the **Builds** view in Docker Desktop.
 4. Select the **Import build** button, and then browse for the `.zip` archive job summary that you downloaded. Alternatively, you can drag-and-drop the build record archive ZIP file onto the Docker Desktop window after opening the import build dialog.
@@ -51,7 +51,7 @@ To import the build record archive into Docker Desktop:
 
 After a few seconds, the builds from the GitHub Actions run appear under the **Completed builds** tab in the Builds view. To inspect a build and see a detailed view of all the inputs, results, build steps, and cache utilization, select the item in the list.
 
-## [Disable job summary](https://docs.docker.com/build/ci/github-actions/build-summary/#disable-job-summary)
+## Disable job summary
 
 To disable job summaries, set the `DOCKER_BUILD_SUMMARY` environment variable in the YAML configuration for your build step:
 
@@ -68,7 +68,7 @@ To disable job summaries, set the `DOCKER_BUILD_SUMMARY` environment variable in
           labels: ${{ steps.meta.outputs.labels }}
 ```
 
-## [Disable build record upload](https://docs.docker.com/build/ci/github-actions/build-summary/#disable-build-record-upload)
+## Disable build record upload
 
 To disable the upload of the build record archive to GitHub, set the `DOCKER_BUILD_RECORD_UPLOAD` environment variable in the YAML configuration for your build step:
 
@@ -87,11 +87,11 @@ To disable the upload of the build record archive to GitHub, set the `DOCKER_BUI
 
 With this configuration, the build summary is still generated, but does not contain a link to download the build record archive.
 
-## [Limitations](https://docs.docker.com/build/ci/github-actions/build-summary/#limitations)
+## Limitations
 
 Build summaries are currently not supported for:
 
-- Builds using [Docker Build Cloud](https://docs.docker.com/build-cloud/). Support for Docker Build Cloud is planned for a future release.
+- Builds using [Docker Build Cloud]({{< ref "/manuals/DockerBuildCloud" >}}). Support for Docker Build Cloud is planned for a future release.
 - Repositories hosted on GitHub Enterprise Servers. Summaries can only be viewed for repositories hosted on GitHub.com.
 
 [Edit this page](https://github.com/docker/docs/edit/main/content/manuals/build/ci/github-actions/build-summary.md)

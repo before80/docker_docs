@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/builders/drivers/remote/](https://docs.docker.com/build/builders/drivers/remote/)
+> 原文：[https://docs.docker.com/build/builders/drivers/remote/](https://docs.docker.com/build/builders/drivers/remote/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 The Buildx remote driver allows for more complex custom build workloads, allowing you to connect to externally managed BuildKit instances. This is useful for scenarios that require manual management of the BuildKit daemon, or where a BuildKit daemon is exposed from another source.
 
-## [Synopsis](https://docs.docker.com/build/builders/drivers/remote/#synopsis)
+## Synopsis
 
 
 
@@ -37,7 +37,7 @@ The following table describes the available driver-specific options that you can
 | `servername`   | String  | Endpoint hostname. | TLS server name used in requests.                            |
 | `default-load` | Boolean | `false`            | Automatically load images to the Docker Engine image store.  |
 
-## [Example: Remote BuildKit over Unix sockets](https://docs.docker.com/build/builders/drivers/remote/#example-remote-buildkit-over-unix-sockets)
+## Example: Remote BuildKit over Unix sockets
 
 This guide shows you how to create a setup with a BuildKit daemon listening on a Unix socket, and have Buildx connect through it.
 
@@ -96,7 +96,7 @@ $ docker buildx build --builder=remote-unix -t test --load .
 
 Remember that you need to use the `--load` flag if you want to load the build result into the Docker daemon.
 
-## [Example: Remote BuildKit in Docker container](https://docs.docker.com/build/builders/drivers/remote/#example-remote-buildkit-in-docker-container)
+## Example: Remote BuildKit in Docker container
 
 This guide will show you how to create setup similar to the `docker-container` driver, by manually booting a BuildKit Docker container and connecting to it using the Buildx remote driver. This procedure will manually create a container and access it via it's exposed port. (You'd probably be better of just using the `docker-container` driver that connects to BuildKit through the Docker daemon, but this is for illustration purposes.)
 
@@ -154,7 +154,7 @@ This guide will show you how to create setup similar to the `docker-container` d
      docker-container://remote-container
    ```
 
-## [Example: Remote BuildKit in Kubernetes](https://docs.docker.com/build/builders/drivers/remote/#example-remote-buildkit-in-kubernetes)
+## Example: Remote BuildKit in Kubernetes
 
 This guide will show you how to create a setup similar to the `kubernetes` driver by manually creating a BuildKit `Deployment`. While the `kubernetes` driver will do this under-the-hood, it might sometimes be desirable to scale BuildKit manually. Additionally, when executing builds from inside Kubernetes pods, the Buildx builder will need to be recreated from within each pod or copied between them.
 
@@ -176,7 +176,7 @@ This guide will show you how to create a setup similar to the `kubernetes` drive
 
 Note that this only works internally, within the cluster, since the BuildKit setup guide only creates a `ClusterIP` service. To access a builder remotely, you can set up and use an ingress, which is outside the scope of this guide.
 
-### [Debug a remote builder in Kubernetes](https://docs.docker.com/build/builders/drivers/remote/#debug-a-remote-builder-in-kubernetes)
+### Debug a remote builder in Kubernetes
 
 If you're having trouble accessing a remote builder deployed in Kubernetes, you can use the `kube-pod://` URL scheme to connect directly to a BuildKit pod through the Kubernetes API. Note that this method only connects to a single pod in the deployment.
 

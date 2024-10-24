@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/bake/funcs/](https://docs.docker.com/build/bake/funcs/)
+> 原文：[https://docs.docker.com/build/bake/funcs/](https://docs.docker.com/build/bake/funcs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 HCL functions are great for when you need to manipulate values in your build configuration in more complex ways than just concatenation or interpolation.
 
-## [Standard library](https://docs.docker.com/build/bake/funcs/#standard-library)
+## Standard library
 
 Bake ships with built-in support for the [`go-cty` standard library functions](https://github.com/zclconf/go-cty/tree/main/cty/function/stdlib). The following example shows the `add` function.
 
@@ -67,7 +67,7 @@ $ docker buildx bake --print webapp
 }
 ```
 
-## [User-defined functions](https://docs.docker.com/build/bake/funcs/#user-defined-functions)
+## User-defined functions
 
 You can create [user-defined functions](https://github.com/hashicorp/hcl/tree/main/ext/userfunc) that do just what you want, if the built-in standard library functions don't meet your needs.
 
@@ -121,9 +121,9 @@ $ docker buildx bake --print webapp
 }
 ```
 
-## [Variables in functions](https://docs.docker.com/build/bake/funcs/#variables-in-functions)
+## Variables in functions
 
-You can make references to [variables](https://docs.docker.com/build/bake/variables/) and standard library functions inside your functions.
+You can make references to [variables]({{< ref "/manuals/DockerBuild/Bake/Variables" >}}) and standard library functions inside your functions.
 
 You can't reference user-defined functions from other functions.
 

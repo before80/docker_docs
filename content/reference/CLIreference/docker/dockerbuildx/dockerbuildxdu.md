@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/buildx/du/](https://docs.docker.com/reference/cli/docker/buildx/du/)
+> 原文：[https://docs.docker.com/reference/cli/docker/buildx/du/](https://docs.docker.com/reference/cli/docker/buildx/du/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,20 +18,20 @@ draft = false
 | :---------- | ------------------ |
 | Usage       | `docker buildx du` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/buildx/du/#description)
+## Description
 
 Disk usage
 
-## [Options](https://docs.docker.com/reference/cli/docker/buildx/du/#options)
+## Options
 
 | Option                                                       | Default | Description                   |
 | ------------------------------------------------------------ | ------- | ----------------------------- |
 | `--filter`                                                   |         | Provide filter values         |
 | [`--verbose`](https://docs.docker.com/reference/cli/docker/buildx/du/#verbose) |         | Provide a more verbose output |
 
-## [Examples](https://docs.docker.com/reference/cli/docker/buildx/du/#examples)
+## Examples
 
-### [Show disk usage](https://docs.docker.com/reference/cli/docker/buildx/du/#show-disk-usage)
+### Show disk usage
 
 The `docker buildx du` command shows the disk usage for the currently selected builder.
 
@@ -64,7 +64,7 @@ The asterisks (*) in the default output indicate the following:
 - An asterisk next to an ID (`zu7m6evdpebh5h8kfkpw9dlf2*`) indicates that the record is mutable. The size of the record may change, or another build can take ownership of it and change or commit to it. If you run the `du` command again, this item may not be there anymore, or the size might be different.
 - An asterisk next to a size (`8.288kB*`) indicates that the record is shared. Storage of the record is shared with some other resource, typically an image. If you prune such a record then you will lose build cache but only metadata will be deleted as the image still needs to actual storage layers.
 
-### [Use verbose output (--verbose)](https://docs.docker.com/reference/cli/docker/buildx/du/#verbose)
+### Use verbose output (--verbose)
 
 The verbose output of the `docker buildx du` command is useful for inspecting the disk usage records in more detail. The verbose output shows the mutable and shared states more clearly, as well as additional information about the corresponding layer.
 
@@ -92,7 +92,7 @@ Reclaimable:    4.453GB
 Total:          4.453GB
 ```
 
-### [Override the configured builder instance (--builder)](https://docs.docker.com/reference/cli/docker/buildx/du/#builder)
+### Override the configured builder instance (--builder)
 
 Use the `--builder` flag to inspect the disk usage of a particular builder.
 

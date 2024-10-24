@@ -19,7 +19,7 @@ Follow the guides to help you get started and learn how Docker can optimize your
 
 For more advanced concepts and scenarios in Docker, see [Guides](https://docs.docker.com/guides/).
 
-## [Foundations of Docker](https://docs.docker.com/get-started/#foundations-of-docker)
+## Foundations of Docker
 
 Install Docker and jump into discovering what Docker is.
 

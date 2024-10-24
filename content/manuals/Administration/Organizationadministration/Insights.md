@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/admin/organization/insights/](https://docs.docker.com/admin/organization/insights/)
+> 原文：[https://docs.docker.com/admin/organization/insights/](https://docs.docker.com/admin/organization/insights/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 > **Note**
 >
-> Insights requires a [Docker Business subscription](https://docs.docker.com/subscription/core-subscription/details/#docker-business) and administrators must [enforce sign-in](https://docs.docker.com/security/for-admins/enforce-sign-in/) to ensure that users sign in with an account associated with their organization.
+> Insights requires a [Docker Business subscription](https://docs.docker.com/subscription/core-subscription/details/#docker-business) and administrators must [enforce sign-in]({{< ref "/manuals/Security/Foradmins/Enforcesign-in" >}}) to ensure that users sign in with an account associated with their organization.
 
 Insights helps administrators visualize and understand how Docker is used within their organizations. With Insights, administrators can ensure their teams are fully equipped to utilize Docker to its fullest potential, leading to improved productivity and efficiency across the organization.
 
@@ -27,7 +27,7 @@ Key benefits include:
 - Increased visibility. Monitor and drive adoption of organizational configurations and policies.
 - Optimized license use. Ensure that developers have access to advanced features provided by a Docker subscription.
 
-## [View Insights for organization users](https://docs.docker.com/admin/organization/insights/#view-insights-for-organization-users)
+## View Insights for organization users
 
 1. Go to the [Admin Console](https://app.docker.com/admin/) and sign in to an account that is an organization owner.
 2. In the Admin Console, select your organization from the drop-down in the left navigation.
@@ -47,7 +47,7 @@ You can view data in the following charts:
 - [Docker Hub images](https://docs.docker.com/admin/organization/insights/#docker-hub-images)
 - [Extensions](https://docs.docker.com/admin/organization/insights/#extensions)
 
-### [Docker Desktop users](https://docs.docker.com/admin/organization/insights/#docker-desktop-users)
+### Docker Desktop users
 
 Track active Docker Desktop users in your domain, differentiated by license status. This chart helps you understand the engagement levels within your organization, providing insights into how many users are actively using Docker Desktop. Note that users who opt out of analytics aren't included in the active counts.
 
@@ -55,13 +55,13 @@ The chart contains the following data.
 
 | Data                         | Description                                                  |
 | :--------------------------- | :----------------------------------------------------------- |
-| Total active users           | The number of users that have actively used Docker Desktop and either signed in with a Docker account that has a license in your organization or signed in to a Docker account with an email address from a domain associated with your organization.  Users who don’t sign in to an account associated with your organization are not represented in the data. To ensure users sign in with an account associated with your organization, you can [enforce sign-in](https://docs.docker.com/security/for-admins/enforce-sign-in/). |
+| Total active users           | The number of users that have actively used Docker Desktop and either signed in with a Docker account that has a license in your organization or signed in to a Docker account with an email address from a domain associated with your organization.  Users who don’t sign in to an account associated with your organization are not represented in the data. To ensure users sign in with an account associated with your organization, you can [enforce sign-in]({{< ref "/manuals/Security/Foradmins/Enforcesign-in" >}}). |
 | Active with license          | The number of users that have actively used Docker Desktop and have signed in to a Docker account with a license in your organization. |
-| Active without license       | The number of users that have actively used Docker Desktop, are linked to a Docker account with an email address from a domain associated with your organization, and don’t have a license assigned to their account.  Users without a license don’t receive the benefits of your subscription. You can use [domain audit](https://docs.docker.com/security/for-admins/domain-audit/) to identify users without a license. You can also use [Just-in-Time provisioning](https://docs.docker.com/security/for-admins/provisioning/just-in-time/) or [SCIM](https://docs.docker.com/security/for-admins/provisioning/scim/) to help automatically provision users with a license. Note that when SSO is configured and [enforced](https://docs.docker.com/security/for-admins/single-sign-on/connect/#optional-enforce-sso), active without license will be 0. |
+| Active without license       | The number of users that have actively used Docker Desktop, are linked to a Docker account with an email address from a domain associated with your organization, and don’t have a license assigned to their account.  Users without a license don’t receive the benefits of your subscription. You can use [domain audit]({{< ref "/manuals/Security/Foradmins/Domainaudit" >}}) to identify users without a license. You can also use [Just-in-Time provisioning]({{< ref "/manuals/Security/Foradmins/Provisioning/Just-in-Time" >}}) or [SCIM]({{< ref "/manuals/Security/Foradmins/Provisioning/SCIM" >}}) to help automatically provision users with a license. Note that when SSO is configured and [enforced](https://docs.docker.com/security/for-admins/single-sign-on/connect/#optional-enforce-sso), active without license will be 0. |
 | Users opted out of analytics | The number of users that are a member of your organization that have opted out of sending analytics.  When users opt out of sending analytics, you won't see any of their data in Insights. To ensure that the data includes all users, you can use [Settings Management](https://docs.docker.com/desktop/hardened-desktop/settings-management/) to set `analyticsEnabled` for all your users. |
 | Active users (graph)         | The view over time for total active users.                   |
 
-### [Builds](https://docs.docker.com/admin/organization/insights/#builds)
+### Builds
 
 Monitor development efficiency and the time your team invests in builds with this chart. It provides a clear view of the build activity, helping you identify patterns, optimize build times, and enhance overall development productivity.
 
@@ -74,7 +74,7 @@ The chart contains the following data.
 | Build success rate     | The percentage of builds that were successful out of the total number of builds. A successful build includes any build that exits normally. |
 | Total builds (graph)   | The total number of builds separated into successful builds and failed builds. A successful build includes any build that exits normally. A failed build includes any build that exits abnormally. |
 
-### [Containers](https://docs.docker.com/admin/organization/insights/#containers)
+### Containers
 
 View the total and average number of containers run by users with this chart. It lets you gauge container usage across your organization, helping you understand usage trends and manage resources effectively.
 
@@ -86,7 +86,7 @@ The chart contains the following data.
 | Average number of containers run       | The average number of containers run per active user.        |
 | Containers run by active users (graph) | The number of containers run over time by active users.      |
 
-### [Docker Desktop usage](https://docs.docker.com/admin/organization/insights/#docker-desktop-usage)
+### Docker Desktop usage
 
 Explore Docker Desktop usage patterns with this chart to optimize your team's workflows and ensure compatibility. It provides valuable insights into how Docker Desktop is being utilized, enabling you to streamline processes and improve efficiency.
 
@@ -96,10 +96,10 @@ The chart contains the following data.
 | :-------------------------------- | :----------------------------------------------------------- |
 | Most used version                 | The most used version of Docker Desktop by users in your organization. |
 | Most used OS                      | The most used operating system by users.                     |
-| Versions by active users (graph)  | The number of active users using each version of Docker Desktop.  To learn more about each version and release dates, see the [Docker Desktop release notes](https://docs.docker.com/desktop/release-notes/). |
+| Versions by active users (graph)  | The number of active users using each version of Docker Desktop.  To learn more about each version and release dates, see the [Docker Desktop release notes]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}). |
 | Interface by active users (graph) | The number of active users grouped into the type of interface they used to interact with Docker Desktop.  A CLI user is any active user who has run a `docker` command. A GUI user is any active user who has interacted with the Docker Desktop graphical user interface. |
 
-### [Docker Hub images](https://docs.docker.com/admin/organization/insights/#docker-hub-images)
+### Docker Hub images
 
 Analyze image distribution activity with this chart and view the most utilized Docker Hub images within your domain. This information helps you manage image usage, ensuring that the most critical resources are readily available and efficiently used.
 
@@ -115,7 +115,7 @@ The chart contains the following data.
 | Total pushed images  | The total number of images pushed by users to Docker Hub.    |
 | Top 10 pulled images | A list of the top 10 images pulled by users from Docker Hub and the number of times each image has been pulled. |
 
-### [Extensions](https://docs.docker.com/admin/organization/insights/#extensions)
+### Extensions
 
 Monitor extension installation activity with this chart. It provides visibility into the Docker Desktop extensions your team are using, letting you track adoption and identify popular tools that enhance productivity.
 
@@ -126,7 +126,7 @@ The chart contains the following data.
 | Percentage of org with extensions installed    | The percentage of users in your organization with at least one Docker Desktop extension installed. |
 | Top 5 extensions installed in the organization | A list of the top 5 Docker Desktop extensions installed by users in your organization and the number of users who have installed each extension. |
 
-## [Troubleshoot Insights](https://docs.docker.com/admin/organization/insights/#troubleshoot-insights)
+## Troubleshoot Insights
 
 If you’re experiencing issues with data in Insights, consider the following solutions to resolve common problems.
 
@@ -144,4 +144,4 @@ If you’re experiencing issues with data in Insights, consider the following so
 
 - Ensure that users are signing in to an account associated with your organization.
 
-  Users who don’t sign in to an account associated with your organization are not represented in the data. To ensure users sign in with an account associated with your organization, you can [enforce sign-in](https://docs.docker.com/security/for-admins/enforce-sign-in/).
+  Users who don’t sign in to an account associated with your organization are not represented in the data. To ensure users sign in with an account associated with your organization, you can [enforce sign-in]({{< ref "/manuals/Security/Foradmins/Enforcesign-in" >}}).

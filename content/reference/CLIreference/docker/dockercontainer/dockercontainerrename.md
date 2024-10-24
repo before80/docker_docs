@@ -8,6 +8,25 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/container/rename/](https://docs.docker.com/reference/cli/docker/container/rename/)
+> 原文：[https://docs.docker.com/reference/cli/docker/container/rename/](https://docs.docker.com/reference/cli/docker/container/rename/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
+
+# docker container rename
+
+| Description | Rename a container                           |
+| :---------- | -------------------------------------------- |
+| Usage       | `docker container rename CONTAINER NEW_NAME` |
+| Aliases     | `docker rename`                              |
+
+## Description
+
+The `docker rename` command renames a container.
+
+## Examples
+
+
+
+```console
+$ docker rename my_container my_new_container
+```

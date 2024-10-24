@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/exporters/local-tar/](https://docs.docker.com/build/exporters/local-tar/)
+> 原文：[https://docs.docker.com/build/exporters/local-tar/](https://docs.docker.com/build/exporters/local-tar/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -19,7 +19,7 @@ The `local` and `tar` exporters output the root filesystem of the build result i
 - `local` exports files and directories.
 - `tar` exports the same, but bundles the export into a tarball.
 
-## [Synopsis](https://docs.docker.com/build/exporters/local-tar/#synopsis)
+## Synopsis
 
 Build a container image using the `local` exporter:
 
@@ -36,6 +36,6 @@ The following table describes the available parameters:
 | --------- | ------ | ------- | --------------------- |
 | `dest`    | String |         | Path to copy files to |
 
-## [Further reading](https://docs.docker.com/build/exporters/local-tar/#further-reading)
+## Further reading
 
 For more information on the `local` or `tar` exporters, see the [BuildKit README](https://github.com/moby/buildkit/blob/master/README.md#local-directory).

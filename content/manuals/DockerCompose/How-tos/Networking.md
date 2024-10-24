@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/how-tos/networking/](https://docs.docker.com/compose/how-tos/networking/)
+> 原文：[https://docs.docker.com/compose/how-tos/networking/](https://docs.docker.com/compose/how-tos/networking/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,13 +22,13 @@ draft = false
 >
 > Effective July 2023, Compose V1 stopped receiving updates and is no longer in new Docker Desktop releases. Compose V2 has replaced it and is now integrated into all current Docker Desktop versions. For more information, see [Migrate to Compose V2](https://docs.docker.com/compose/migrate).
 
-By default Compose sets up a single [network](https://docs.docker.com/reference/cli/docker/network/create/) for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by the service's name.
+By default Compose sets up a single [network]({{< ref "/reference/CLIreference/docker/dockernetwork/dockernetworkcreate" >}}) for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by the service's name.
 
 > **Note**
 >
 > 
 >
-> Your app's network is given a name based on the "project name", which is based on the name of the directory it lives in. You can override the project name with either the [`--project-name` flag](https://docs.docker.com/reference/cli/docker/compose/) or the [`COMPOSE_PROJECT_NAME` environment variable](https://docs.docker.com/compose/how-tos/environment-variables/envvars/#compose_project_name).
+> Your app's network is given a name based on the "project name", which is based on the name of the directory it lives in. You can override the project name with either the [`--project-name` flag]({{< ref "/reference/CLIreference/docker/dockercompose" >}}) or the [`COMPOSE_PROJECT_NAME` environment variable](https://docs.docker.com/compose/how-tos/environment-variables/envvars/#compose_project_name).
 
 For example, suppose your app is in a directory called `myapp`, and your `compose.yml` looks like this:
 
@@ -58,7 +58,7 @@ It is important to note the distinction between `HOST_PORT` and `CONTAINER_PORT`
 
 Within the `web` container, your connection string to `db` would look like `postgres://db:5432`, and from the host machine, the connection string would look like `postgres://{DOCKER_IP}:8001` for example `postgres://localhost:8001` if your container is running locally.
 
-## [Update containers on the network](https://docs.docker.com/compose/how-tos/networking/#update-containers-on-the-network)
+## Update containers on the network
 
 If you make a configuration change to a service and run `docker compose up` to update it, the old container is removed and the new one joins the network under a different IP address but the same name. Running containers can look up that name and connect to the new address, but the old address stops working.
 
@@ -70,7 +70,7 @@ If any containers have connections open to the old container, they are closed. I
 >
 > Reference containers by name, not IP, whenever possible. Otherwise you’ll need to constantly update the IP address you use.
 
-## [Link containers](https://docs.docker.com/compose/how-tos/networking/#link-containers)
+## Link containers
 
 Links allow you to define extra aliases by which a service is reachable from another service. They are not required to enable services to communicate. By default, any service can reach any other service at that service's name. In the following example, `db` is reachable from `web` at the hostnames `db` and `database`:
 
@@ -89,17 +89,17 @@ services:
 
 See the [links reference](https://docs.docker.com/reference/compose-file/services/#links) for more information.
 
-## [Multi-host networking](https://docs.docker.com/compose/how-tos/networking/#multi-host-networking)
+## Multi-host networking
 
-When deploying a Compose application on a Docker Engine with [Swarm mode enabled](https://docs.docker.com/engine/swarm/), you can make use of the built-in `overlay` driver to enable multi-host communication.
+When deploying a Compose application on a Docker Engine with [Swarm mode enabled]({{< ref "/manuals/DockerEngine/Swarmmode" >}}), you can make use of the built-in `overlay` driver to enable multi-host communication.
 
 Overlay networks are always created as `attachable`. You can optionally set the [`attachable`](https://docs.docker.com/reference/compose-file/networks/#attachable) property to `false`.
 
-Consult the [Swarm mode section](https://docs.docker.com/engine/swarm/), to see how to set up a Swarm cluster, and the [Getting started with multi-host networking](https://docs.docker.com/engine/network/tutorials/overlay/) to learn about multi-host overlay networks.
+Consult the [Swarm mode section]({{< ref "/manuals/DockerEngine/Swarmmode" >}}), to see how to set up a Swarm cluster, and the [Getting started with multi-host networking]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithoverlaynetworks" >}}) to learn about multi-host overlay networks.
 
-## [Specify custom networks](https://docs.docker.com/compose/how-tos/networking/#specify-custom-networks)
+## Specify custom networks
 
-Instead of just using the default app network, you can specify your own networks with the top-level `networks` key. This lets you create more complex topologies and specify [custom network drivers](https://docs.docker.com/engine/extend/plugins_network/) and options. You can also use it to connect services to externally-created networks which aren't managed by Compose.
+Instead of just using the default app network, you can specify your own networks with the top-level `networks` key. This lets you create more complex topologies and specify [custom network drivers]({{< ref "/manuals/DockerEngine/DockerEngineplugins/Dockernetworkdriverplugins" >}}) and options. You can also use it to connect services to externally-created networks which aren't managed by Compose.
 
 Each service can specify what networks to connect to with the service-level `networks` key, which is a list of names referencing entries under the top-level `networks` key.
 
@@ -149,7 +149,7 @@ networks:
     driver: custom-driver-1
 ```
 
-## [Configure the default network](https://docs.docker.com/compose/how-tos/networking/#configure-the-default-network)
+## Configure the default network
 
 Instead of, or as well as, specifying your own networks, you can also change the settings of the app-wide default network by defining an entry under `networks` named `default`:
 
@@ -170,7 +170,7 @@ networks:
     driver: custom-driver-1
 ```
 
-## [Use a pre-existing network](https://docs.docker.com/compose/how-tos/networking/#use-a-pre-existing-network)
+## Use a pre-existing network
 
 If you want your containers to join a pre-existing network, use the [`external` option](https://docs.docker.com/reference/compose-file/networks/#external)
 
@@ -187,9 +187,9 @@ networks:
 
 Instead of attempting to create a network called `[projectname]_default`, Compose looks for a network called `my-pre-existing-network` and connects your app's containers to it.
 
-## [Further reference information](https://docs.docker.com/compose/how-tos/networking/#further-reference-information)
+## Further reference information
 
 For full details of the network configuration options available, see the following references:
 
-- [Top-level `networks` element](https://docs.docker.com/reference/compose-file/networks/)
+- [Top-level `networks` element]({{< ref "/reference/Composefilereference/Networkstop-levelelements" >}})
 - [Service-level `networks` attribute](https://docs.docker.com/reference/compose-file/services/#networks)

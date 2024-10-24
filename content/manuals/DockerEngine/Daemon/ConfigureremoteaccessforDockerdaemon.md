@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/daemon/remote-access/](https://docs.docker.com/engine/daemon/remote-access/)
+> 原文：[https://docs.docker.com/engine/daemon/remote-access/](https://docs.docker.com/engine/daemon/remote-access/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,15 +24,15 @@ By default, the Docker daemon listens for connections on a Unix socket to accept
 >
 > It's critically important that you understand the security implications of opening Docker to the network. If steps aren't taken to secure the connection, it's possible for remote non-root users to gain root access on the host.
 >
-> Remote access without TLS is **not recommended**, and will require explicit opt-in in a future release. For more information on how to use TLS certificates to secure this connection, see [Protect the Docker daemon socket](https://docs.docker.com/engine/security/protect-access/).
+> Remote access without TLS is **not recommended**, and will require explicit opt-in in a future release. For more information on how to use TLS certificates to secure this connection, see [Protect the Docker daemon socket]({{< ref "/manuals/DockerEngine/Security/ProtecttheDockerdaemonsocket" >}}).
 
-## [Enable remote access](https://docs.docker.com/engine/daemon/remote-access/#enable-remote-access)
+## Enable remote access
 
 You can enable remote access to the daemon either using a `docker.service` systemd unit file for Linux distributions using systemd. Or you can use the `daemon.json` file, if your distribution doesn't use systemd.
 
 Configuring Docker to listen for connections using both the systemd unit file and the `daemon.json` file causes a conflict that prevents Docker from starting.
 
-### [Configuring remote access with systemd unit file](https://docs.docker.com/engine/daemon/remote-access/#configuring-remote-access-with-systemd-unit-file)
+### Configuring remote access with systemd unit file
 
 1. Use the command `sudo systemctl edit docker.service` to open an override file for `docker.service` in a text editor.
 
@@ -73,7 +73,7 @@ Configuring Docker to listen for connections using both the systemd unit file an
    tcp        0      0 127.0.0.1:2375          0.0.0.0:*               LISTEN      3758/dockerd
    ```
 
-### [Configuring remote access with `daemon.json`](https://docs.docker.com/engine/daemon/remote-access/#configuring-remote-access-with-daemonjson)
+### Configuring remote access with `daemon.json`
 
 1. Set the `hosts` array in the `/etc/docker/daemon.json` to connect to the Unix socket and an IP address, as follows:
 
@@ -96,7 +96,7 @@ Configuring Docker to listen for connections using both the systemd unit file an
    tcp        0      0 127.0.0.1:2375          0.0.0.0:*               LISTEN      3758/dockerd
    ```
 
-### [Allow access to the remote API through a firewall](https://docs.docker.com/engine/daemon/remote-access/#allow-access-to-the-remote-api-through-a-firewall)
+### Allow access to the remote API through a firewall
 
 If you run a firewall on the same host as you run Docker, and you want to access the Docker Remote API from another remote host, you must configure your firewall to allow incoming connections on the Docker port. The default port is `2376` if you're using TLS encrypted transport, or `2375` otherwise.
 
@@ -122,6 +122,6 @@ Consult the documentation for your OS and firewall. The following information mi
 
   Make sure that the interface names and chain names are correct.
 
-## [Additional information](https://docs.docker.com/engine/daemon/remote-access/#additional-information)
+## Additional information
 
 For more detailed information on configuration options for remote access to the daemon, refer to the [dockerd CLI reference](https://docs.docker.com/reference/cli/dockerd/#bind-docker-to-another-hostport-or-a-unix-socket).

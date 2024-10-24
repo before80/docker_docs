@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/down/](https://docs.docker.com/reference/cli/docker/compose/down/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/down/](https://docs.docker.com/reference/cli/docker/compose/down/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 | :---------- | ------------------------------------------ |
 | Usage       | `docker compose down [OPTIONS] [SERVICES]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/down/#description)
+## Description
 
 Stops containers and removes containers, networks, volumes, and images created by `up`.
 
@@ -32,7 +32,7 @@ Networks and volumes defined as external are never removed.
 
 Anonymous volumes are not removed by default. However, as they don’t have a stable name, they are not automatically mounted by a subsequent `up`. For data that needs to persist between updates, use explicit paths as bind mounts or named volumes.
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/down/#options)
+## Options
 
 | Option             | Default | Description                                                  |
 | ------------------ | ------- | ------------------------------------------------------------ |

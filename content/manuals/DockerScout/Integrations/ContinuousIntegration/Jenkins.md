@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/integrations/ci/jenkins/](https://docs.docker.com/scout/integrations/ci/jenkins/)
+> 原文：[https://docs.docker.com/scout/integrations/ci/jenkins/](https://docs.docker.com/scout/integrations/ci/jenkins/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -52,4 +52,4 @@ This installs Docker Scout, logs into Docker Hub, and then runs Docker Scout to 
 >
 > 
 >
-> If you're seeing a `permission denied` error related to the image cache, try setting the [`DOCKER_SCOUT_CACHE_DIR`](https://docs.docker.com/scout/how-tos/configure-cli/) environment variable to a writable directory. Or alternatively, disable local caching entirely with `DOCKER_SCOUT_NO_CACHE=true`.
+> If you're seeing a `permission denied` error related to the image cache, try setting the [`DOCKER_SCOUT_CACHE_DIR`]({{< ref "/manuals/DockerScout/How-tos/DockerScoutenvironmentvariables" >}}) environment variable to a writable directory. Or alternatively, disable local caching entirely with `DOCKER_SCOUT_NO_CACHE=true`.

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/gpu/](https://docs.docker.com/desktop/gpu/)
+> 原文：[https://docs.docker.com/desktop/gpu/](https://docs.docker.com/desktop/gpu/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ draft = false
 >
 > Currently GPU support in Docker Desktop is only available on Windows with the WSL2 backend.
 
-## [Using NVIDIA GPUs with WSL2](https://docs.docker.com/desktop/gpu/#using-nvidia-gpus-with-wsl2)
+## Using NVIDIA GPUs with WSL2
 
 Docker Desktop for Windows supports WSL 2 GPU Paravirtualization (GPU-PV) on NVIDIA GPUs. To enable WSL 2 GPU Paravirtualization, you need:
 

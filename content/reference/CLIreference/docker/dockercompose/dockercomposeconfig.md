@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/config/](https://docs.docker.com/reference/cli/docker/compose/config/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/config/](https://docs.docker.com/reference/cli/docker/compose/config/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -19,11 +19,11 @@ draft = false
 | Usage       | `docker compose config [OPTIONS] [SERVICE...]`             |
 | Aliases     | `docker compose convert`                                   |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/config/#description)
+## Description
 
 `docker compose config` renders the actual data model to be applied on the Docker Engine. It merges the Compose files set by `-f` flags, resolves variables in the Compose file, and expands short-notation into the canonical format.
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/config/#options)
+## Options
 
 | Option                    | Default | Description                                                  |
 | ------------------------- | ------- | ------------------------------------------------------------ |

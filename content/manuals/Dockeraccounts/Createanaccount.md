@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/accounts/create-account/](https://docs.docker.com/accounts/create-account/)
+> 原文：[https://docs.docker.com/accounts/create-account/](https://docs.docker.com/accounts/create-account/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,9 +24,9 @@ Your Docker ID becomes your username for hosted Docker services, and [Docker for
 >
 > Explore [Docker's core subscriptions](https://www.docker.com/pricing/) to see what else Docker can offer you.
 
-## [Create a Docker ID](https://docs.docker.com/accounts/create-account/#create-a-docker-id)
+## Create a Docker ID
 
-### [Sign up with your email address](https://docs.docker.com/accounts/create-account/#sign-up-with-your-email-address)
+### Sign up with your email address
 
 1. Go to the [Docker sign-up page](https://app.docker.com/signup/).
 
@@ -50,7 +50,7 @@ Your Docker ID becomes your username for hosted Docker services, and [Docker for
 >
 > You have limited actions available until you verify your email address.
 
-### [Sign up with Google or GitHub](https://docs.docker.com/accounts/create-account/#sign-up-with-google-or-github)
+### Sign up with Google or GitHub
 
 > **Important**
 >
@@ -72,11 +72,11 @@ Your Docker ID becomes your username for hosted Docker services, and [Docker for
 
 6. Select **Sign up**.
 
-## [Sign in](https://docs.docker.com/accounts/create-account/#sign-in)
+## Sign in
 
 Once you register and verify your Docker ID email address, you can sign in to [your Docker account](https://login.docker.com/u/login/). You can sign in with your email address (or username) and password. Or, you can sign in with your social provider. See [Sign in with your social provider](https://docs.docker.com/accounts/create-account/#sign-in-with-your-social-provider).
 
-You can also sign in through the CLI using the `docker login` command. For more information, see [`docker login`](https://docs.docker.com/reference/cli/docker/login/).
+You can also sign in through the CLI using the `docker login` command. For more information, see [`docker login`]({{< ref "/reference/CLIreference/docker/dockerlogin" >}}).
 
 > **Warning**
 >
@@ -84,9 +84,9 @@ You can also sign in through the CLI using the `docker login` command. For more 
 >
 > When you use the `docker login` command, your credentials are stored in your home directory in `.docker/config.json`. The password is base64-encoded in this file.
 >
-> We recommend using one of the [Docker credential helpers](https://github.com/docker/docker-credential-helpers) for secure storage of passwords. For extra security, you can also use a [personal access token](https://docs.docker.com/security/for-developers/access-tokens/) to log in instead, which is still encoded in this file (without a Docker credential helper) but doesn't allow admin actions (such as changing the password).
+> We recommend using one of the [Docker credential helpers](https://github.com/docker/docker-credential-helpers) for secure storage of passwords. For extra security, you can also use a [personal access token]({{< ref "/manuals/Security/Fordevelopers/Accesstokens" >}}) to log in instead, which is still encoded in this file (without a Docker credential helper) but doesn't allow admin actions (such as changing the password).
 
-### [Sign in with your social provider](https://docs.docker.com/accounts/create-account/#sign-in-with-your-social-provider)
+### Sign in with your social provider
 
 > **Important**
 >
@@ -98,10 +98,10 @@ Optionally, you can sign in to an existing Docker account with your Google or Gi
 
 If you try to sign in with your social provider and don't have a Docker account yet, a new account will be created for you. Follow the on-screen instructions to create a Docker ID using your social provider.
 
-## [Reset your password at sign in](https://docs.docker.com/accounts/create-account/#reset-your-password-at-sign-in)
+## Reset your password at sign in
 
 To reset your password, enter your email address on the [Sign in](https://login.docker.com/u/login) page and continue to sign in. When prompted for your password, select **Forgot password?**.
 
-## [Troubleshooting](https://docs.docker.com/accounts/create-account/#troubleshooting)
+## Troubleshooting
 
-For support and troubleshooting information, see [Get support](https://docs.docker.com/support/).
+For support and troubleshooting information, see [Get support]({{< ref "/manuals/Getsupport" >}}).

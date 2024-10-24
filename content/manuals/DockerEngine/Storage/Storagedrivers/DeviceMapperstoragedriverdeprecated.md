@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/storage/drivers/device-mapper-driver/](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/)
+> 原文：[https://docs.docker.com/engine/storage/drivers/device-mapper-driver/](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 > **Deprecated**
 >
-> The Device Mapper driver [has been deprecated](https://docs.docker.com/engine/deprecated/#device-mapper-storage-driver), and is removed in Docker Engine v25.0. If you are using Device Mapper, you must migrate to a supported storage driver before upgrading to Docker Engine v25.0. Read the [Docker storage drivers](https://docs.docker.com/engine/storage/drivers/select-storage-driver/) page for supported storage drivers.
+> The Device Mapper driver [has been deprecated](https://docs.docker.com/engine/deprecated/#device-mapper-storage-driver), and is removed in Docker Engine v25.0. If you are using Device Mapper, you must migrate to a supported storage driver before upgrading to Docker Engine v25.0. Read the [Docker storage drivers]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers/Selectastoragedriver" >}}) page for supported storage drivers.
 
 Device Mapper is a kernel-based framework that underpins many advanced volume management technologies on Linux. Docker's `devicemapper` storage driver leverages the thin provisioning and snapshotting capabilities of this framework for image and container management. This article refers to the Device Mapper storage driver as `devicemapper`, and the kernel framework as *Device Mapper*.
 
@@ -24,17 +24,17 @@ For the systems where it is supported, `devicemapper` support is included in the
 
 The `devicemapper` driver uses block devices dedicated to Docker and operates at the block level, rather than the file level. These devices can be extended by adding physical storage to your Docker host, and they perform better than using a filesystem at the operating system (OS) level.
 
-## [Prerequisites](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#prerequisites)
+## Prerequisites
 
 - `devicemapper` is supported on Docker Engine - Community running on CentOS, Fedora, SLES 15, Ubuntu, Debian, or RHEL.
 - `devicemapper` requires the `lvm2` and `device-mapper-persistent-data` packages to be installed.
 - Changing the storage driver makes any containers you have already created inaccessible on the local system. Use `docker save` to save containers, and push existing images to Docker Hub or a private repository, so you do not need to recreate them later.
 
-## [Configure Docker with the `devicemapper` storage driver](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#configure-docker-with-the-devicemapper-storage-driver)
+## Configure Docker with the `devicemapper` storage driver
 
 Before following these procedures, you must first meet all the [prerequisites](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#prerequisites).
 
-### [Configure `loop-lvm` mode for testing](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#configure-loop-lvm-mode-for-testing)
+### Configure `loop-lvm` mode for testing
 
 This configuration is only appropriate for testing. The `loop-lvm` mode makes use of a 'loopback' mechanism that allows files on the local disk to be read from and written to as if they were an actual physical disk or block device. However, the addition of the loopback mechanism, and interaction with the OS filesystem layer, means that IO operations can be slow and resource-intensive. Use of loopback devices can also introduce race conditions. However, setting up `loop-lvm` mode can help identify basic issues (such as missing user space packages, kernel drivers, etc.) ahead of attempting the more complex set up required to enable `direct-lvm` mode. `loop-lvm` mode should therefore only be used to perform rudimentary testing prior to configuring `direct-lvm`.
 
@@ -109,7 +109,7 @@ For production systems, see [Configure direct-lvm mode for production](https://d
 
 This host is running in `loop-lvm` mode, which is **not** supported on production systems. This is indicated by the fact that the `Data loop file` and a `Metadata loop file` are on files under `/var/lib/docker/devicemapper`. These are loopback-mounted sparse files. For production systems, see [Configure direct-lvm mode for production](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#configure-direct-lvm-mode-for-production).
 
-### [Configure direct-lvm mode for production](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#configure-direct-lvm-mode-for-production)
+### Configure direct-lvm mode for production
 
 Production hosts using the `devicemapper` storage driver must use `direct-lvm` mode. This mode uses block devices to create the thin pool. This is faster than using loopback devices, uses system resources more efficiently, and block devices can grow as needed. However, more setup is required than in `loop-lvm` mode.
 
@@ -119,7 +119,7 @@ After you have satisfied the [prerequisites](https://docs.docker.com/engine/stor
 >
 > Changing the storage driver makes any containers you have already created inaccessible on the local system. Use `docker save` to save containers, and push existing images to Docker Hub or a private repository, so you do not need to recreate them later.
 
-#### [Allow Docker to configure direct-lvm mode](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#allow-docker-to-configure-direct-lvm-mode)
+#### Allow Docker to configure direct-lvm mode
 
 Docker can manage the block device for you, simplifying configuration of `direct-lvm` mode. **This is appropriate for fresh Docker setups only.** You can only use a single block device. If you need to use multiple block devices, [configure direct-lvm mode manually](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#configure-direct-lvm-mode-manually) instead. The following new configuration options are available:
 
@@ -160,7 +160,7 @@ Restart Docker for the changes to take effect. Docker invokes the commands to co
 
 You still need to [perform periodic maintenance tasks](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#manage-devicemapper).
 
-#### [Configure direct-lvm mode manually](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#configure-direct-lvm-mode-manually)
+#### Configure direct-lvm mode manually
 
 The procedure below creates a logical volume configured as a thin pool to use as backing for the storage pool. It assumes that you have a spare block device at `/dev/xvdf` with enough free space to complete the task. The device identifier and volume sizes may be different in your environment and you should substitute your own values throughout the procedure. The procedure also assumes that the Docker daemon is in the `stopped` state.
 
@@ -383,9 +383,9 @@ The procedure below creates a logical volume configured as a thin pool to use as
     $ sudo rm -rf /var/lib/docker.bk
     ```
 
-## [Manage devicemapper](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#manage-devicemapper)
+## Manage devicemapper
 
-### [Monitor the thin pool](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#monitor-the-thin-pool)
+### Monitor the thin pool
 
 Do not rely on LVM auto-extension alone. The volume group automatically extends, but the volume can still fill up. You can monitor free space on the volume using `lvs` or `lvs -a`. Consider using a monitoring tool at the OS level, such as Nagios.
 
@@ -399,15 +399,15 @@ $ sudo journalctl -fu dm-event.service
 
 If you run into repeated problems with thin pool, you can set the storage option `dm.min_free_space` to a value (representing a percentage) in `/etc/docker/daemon.json`. For instance, setting it to `10` ensures that operations fail with a warning when the free space is at or near 10%. See the [storage driver options in the Engine daemon reference](https://docs.docker.com/reference/cli/dockerd/#daemon-storage-driver).
 
-### [Increase capacity on a running device](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#increase-capacity-on-a-running-device)
+### Increase capacity on a running device
 
 You can increase the capacity of the pool on a running thin-pool device. This is useful if the data's logical volume is full and the volume group is at full capacity. The specific procedure depends on whether you are using a [loop-lvm thin pool](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#resize-a-loop-lvm-thin-pool) or a [direct-lvm thin pool](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#resize-a-direct-lvm-thin-pool).
 
-#### [Resize a loop-lvm thin pool](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#resize-a-loop-lvm-thin-pool)
+#### Resize a loop-lvm thin pool
 
 The easiest way to resize a `loop-lvm` thin pool is to [use the device_tool utility](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#use-the-device_tool-utility), but you can [use operating system utilities](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#use-operating-system-utilities) instead.
 
-##### [Use the device_tool utility](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#use-the-device_tool-utility)
+##### Use the device_tool utility
 
 A community-contributed script called `device_tool.go` is available in the [moby/moby](https://github.com/moby/moby/tree/master/contrib/docker-device-tool) Github repository. You can use this tool to resize a `loop-lvm` thin pool, avoiding the long process above. This tool is not guaranteed to work, but you should only be using `loop-lvm` on non-production systems.
 
@@ -423,7 +423,7 @@ If you do not want to use `device_tool`, you can [resize the thin pool manually]
    $ ./device_tool resize 200GB
    ```
 
-##### [Use operating system utilities](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#use-operating-system-utilities)
+##### Use operating system utilities
 
 If you do not want to [use the device-tool utility](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#use-the-device_tool-utility), you can resize a `loop-lvm` thin pool manually using the following procedure.
 
@@ -522,7 +522,7 @@ Follow these steps to increase the size of the thin pool. In this example, the t
    $ sudo dmsetup resume docker-8:1-123141-pool
    ```
 
-#### [Resize a direct-lvm thin pool](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#resize-a-direct-lvm-thin-pool)
+#### Resize a direct-lvm thin pool
 
 To extend a `direct-lvm` thin pool, you need to first attach a new block device to the Docker host, and make note of the name assigned to it by the kernel. In this example, the new block device is `/dev/xvdg`.
 
@@ -586,7 +586,7 @@ Follow this procedure to extend a `direct-lvm` thin pool, substituting your bloc
    <...>
    ```
 
-### [Activate the `devicemapper` after reboot](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#activate-the-devicemapper-after-reboot)
+### Activate the `devicemapper` after reboot
 
 If you reboot the host and find that the `docker` service failed to start, look for the error, "Non existing device". You need to re-activate the logical volumes with this command:
 
@@ -596,7 +596,7 @@ If you reboot the host and find that the `docker` service failed to start, look 
 $ sudo lvchange -ay docker/thinpool
 ```
 
-## [How the `devicemapper` storage driver works](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#how-the-devicemapper-storage-driver-works)
+## How the `devicemapper` storage driver works
 
 > **Warning**
 >
@@ -630,17 +630,17 @@ $ mount |grep devicemapper
 
 When you use `devicemapper`, Docker stores image and layer contents in the thinpool, and exposes them to containers by mounting them under subdirectories of `/var/lib/docker/devicemapper/`.
 
-### [Image and container layers on-disk](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#image-and-container-layers-on-disk)
+### Image and container layers on-disk
 
 The `/var/lib/docker/devicemapper/metadata/` directory contains metadata about the Devicemapper configuration itself and about each image and container layer that exist. The `devicemapper` storage driver uses snapshots, and this metadata include information about those snapshots. These files are in JSON format.
 
 The `/var/lib/docker/devicemapper/mnt/` directory contains a mount point for each image and container layer that exists. Image layer mount points are empty, but a container's mount point shows the container's filesystem as it appears from within the container.
 
-### [Image layering and sharing](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#image-layering-and-sharing)
+### Image layering and sharing
 
 The `devicemapper` storage driver uses dedicated block devices rather than formatted filesystems, and operates on files at the block level for maximum performance during copy-on-write (CoW) operations.
 
-#### [Snapshots](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#snapshots)
+#### Snapshots
 
 Another feature of `devicemapper` is its use of snapshots (also sometimes called *thin devices* or *virtual devices*), which store the differences introduced in each layer as very small, lightweight thin pools. Snapshots provide many benefits:
 
@@ -649,7 +649,7 @@ Another feature of `devicemapper` is its use of snapshots (also sometimes called
 - Because `devicemapper` operates at the block level, multiple blocks in a writable layer can be modified simultaneously.
 - Snapshots can be backed up using standard OS-level backup utilities. Just make a copy of `/var/lib/docker/devicemapper/`.
 
-#### [Devicemapper workflow](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#devicemapper-workflow)
+#### Devicemapper workflow
 
 When you start Docker with the `devicemapper` storage driver, all objects related to image and container layers are stored in `/var/lib/docker/devicemapper/`, which is backed by one or more block-level devices, either loopback devices (testing only) or physical disks.
 
@@ -661,9 +661,9 @@ Each image layer is a snapshot of the layer below it. The lowest layer of each i
 
 ![Ubuntu and busybox image layers](DeviceMapperstoragedriverdeprecated_img/two_dm_container.webp)
 
-## [How container reads and writes work with `devicemapper`](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#how-container-reads-and-writes-work-with-devicemapper)
+## How container reads and writes work with `devicemapper`
 
-### [Reading files](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#reading-files)
+### Reading files
 
 With `devicemapper`, reads happen at the block level. The diagram below shows the high level process for reading a single block (`0x44f`) in an example container.
 
@@ -671,7 +671,7 @@ With `devicemapper`, reads happen at the block level. The diagram below shows th
 
 An application makes a read request for block `0x44f` in the container. Because the container is a thin snapshot of an image, it doesn't have the block, but it has a pointer to the block on the nearest parent image where it does exist, and it reads the block from there. The block now exists in the container's memory.
 
-### [Writing files](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#writing-files)
+### Writing files
 
 **Writing a new file**: With the `devicemapper` driver, writing new data to a container is accomplished by an *allocate-on-demand* operation. Each block of the new file is allocated in the container's writable layer and the block is written there.
 
@@ -681,7 +681,7 @@ An application makes a read request for block `0x44f` in the container. Because 
 
 **Writing and then deleting a file**: If a container writes to a file and later deletes the file, all of those operations happen in the container's writable layer. In that case, if you are using `direct-lvm`, the blocks are freed. If you use `loop-lvm`, the blocks may not be freed. This is another reason not to use `loop-lvm` in production.
 
-## [Device Mapper and Docker performance](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#device-mapper-and-docker-performance)
+## Device Mapper and Docker performance
 
 - **`allocate-on demand` performance impact**:
 
@@ -689,7 +689,7 @@ An application makes a read request for block `0x44f` in the container. Because 
 
 - **Copy-on-write performance impact**: The first time a container modifies a specific block, that block is written to the container's writable layer. Because these writes happen at the level of the block rather than the file, performance impact is minimized. However, writing a large number of blocks can still negatively impact performance, and the `devicemapper` storage driver may actually perform worse than other storage drivers in this scenario. For write-heavy workloads, you should use data volumes, which bypass the storage driver completely.
 
-### [Performance best practices](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#performance-best-practices)
+### Performance best practices
 
 Keep these things in mind to maximize performance when using the `devicemapper` storage driver.
 
@@ -697,10 +697,10 @@ Keep these things in mind to maximize performance when using the `devicemapper` 
 - **Use fast storage**: Solid-state drives (SSDs) provide faster reads and writes than spinning disks.
 - **Memory usage**: the `devicemapper` uses more memory than some other storage drivers. Each launched container loads one or more copies of its files into memory, depending on how many blocks of the same file are being modified at the same time. Due to the memory pressure, the `devicemapper` storage driver may not be the right choice for certain workloads in high-density use cases.
 - **Use volumes for write-heavy workloads**: Volumes provide the best and most predictable performance for write-heavy workloads. This is because they bypass the storage driver and do not incur any of the potential overheads introduced by thin provisioning and copy-on-write. Volumes have other benefits, such as allowing you to share data among containers and persisting even when no running container is using them.
-- **Note**: when using `devicemapper` and the `json-file` log driver, the log files generated by a container are still stored in Docker's dataroot directory, by default `/var/lib/docker`. If your containers generate lots of log messages, this may lead to increased disk usage or the inability to manage your system due to a full disk. You can configure a [log driver](https://docs.docker.com/engine/logging/configure/) to store your container logs externally.
+- **Note**: when using `devicemapper` and the `json-file` log driver, the log files generated by a container are still stored in Docker's dataroot directory, by default `/var/lib/docker`. If your containers generate lots of log messages, this may lead to increased disk usage or the inability to manage your system due to a full disk. You can configure a [log driver]({{< ref "/manuals/DockerEngine/Logsandmetrics/Configureloggingdrivers" >}}) to store your container logs externally.
 
-## [Related Information](https://docs.docker.com/engine/storage/drivers/device-mapper-driver/#related-information)
+## Related Information
 
-- [Volumes](https://docs.docker.com/engine/storage/volumes/)
-- [Understand images, containers, and storage drivers](https://docs.docker.com/engine/storage/drivers/)
-- [Select a storage driver](https://docs.docker.com/engine/storage/drivers/select-storage-driver/)
+- [Volumes]({{< ref "/manuals/DockerEngine/Storage/Volumes" >}})
+- [Understand images, containers, and storage drivers]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers" >}})
+- [Select a storage driver]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers/Selectastoragedriver" >}})

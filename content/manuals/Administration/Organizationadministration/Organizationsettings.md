@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/admin/organization/general-settings/](https://docs.docker.com/admin/organization/general-settings/)
+> 原文：[https://docs.docker.com/admin/organization/general-settings/](https://docs.docker.com/admin/organization/general-settings/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,13 +16,13 @@ draft = false
 
 **Early Access**
 
-The Docker Admin Console is an [early access](https://docs.docker.com/release-lifecycle#early-access-ea) product.
+The Docker Admin Console is an [early access]({{< ref "/manuals/Releaselifecycle#early-access-ea" >}}) product.
 
 It's available to all company owners and organization owners. You can still manage organizations in Docker Hub, but the Admin Console includes company-level management and enhanced features for organization management.
 
 This section describes how to manage organization settings in the Docker Admin Console.
 
-## [Configure general information](https://docs.docker.com/admin/organization/general-settings/#configure-general-information)
+## Configure general information
 
 General organization information appears on your organization landing page in Docker Hub.
 
@@ -41,6 +41,6 @@ To edit this information:
 3. Under **Organization settings**, select **General**.
 4. Specify the organization information and select **Save**.
 
-## [Next steps](https://docs.docker.com/admin/organization/general-settings/#next-steps)
+## Next steps
 
-In the **Organization settings** menu, you can also [configure SSO](https://docs.docker.com/security/for-admins/single-sign-on/configure/) and [set up SCIM](https://docs.docker.com/security/for-admins/provisioning/scim/). If your organization isn't part of a company, from here you can also [audit your domains](https://docs.docker.com/security/for-admins/domain-audit/) or [create a company](https://docs.docker.com/admin/company/new-company/).
+In the **Organization settings** menu, you can also [configure SSO]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Configure" >}}) and [set up SCIM]({{< ref "/manuals/Security/Foradmins/Provisioning/SCIM" >}}). If your organization isn't part of a company, from here you can also [audit your domains]({{< ref "/manuals/Security/Foradmins/Domainaudit" >}}) or [create a company]({{< ref "/manuals/Administration/Companyadministration/Createacompany" >}}).

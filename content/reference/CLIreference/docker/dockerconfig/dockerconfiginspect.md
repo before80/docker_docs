@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/config/inspect/](https://docs.docker.com/reference/cli/docker/config/inspect/)
+> 原文：[https://docs.docker.com/reference/cli/docker/config/inspect/](https://docs.docker.com/reference/cli/docker/config/inspect/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -20,7 +20,7 @@ draft = false
 
 Swarm This command works with the Swarm orchestrator.
 
-## [Description](https://docs.docker.com/reference/cli/docker/config/inspect/#description)
+## Description
 
 Inspects the specified config.
 
@@ -28,22 +28,22 @@ By default, this renders all results in a JSON array. If a format is specified, 
 
 Go's [text/template](https://pkg.go.dev/text/template) package describes all the details of the format.
 
-For detailed information about using configs, refer to [store configuration data using Docker Configs](https://docs.docker.com/engine/swarm/configs/).
+For detailed information about using configs, refer to [store configuration data using Docker Configs]({{< ref "/manuals/DockerEngine/Swarmmode/StoreconfigurationdatausingDockerConfigs" >}}).
 
 > **Note**
 >
-> This is a cluster management command, and must be executed on a Swarm manager node. To learn about managers and workers, refer to the [Swarm mode section](https://docs.docker.com/engine/swarm/) in the documentation.
+> This is a cluster management command, and must be executed on a Swarm manager node. To learn about managers and workers, refer to the [Swarm mode section]({{< ref "/manuals/DockerEngine/Swarmmode" >}}) in the documentation.
 
-## [Options](https://docs.docker.com/reference/cli/docker/config/inspect/#options)
+## Options
 
 | Option                                                       | Default | Description                                                  |
 | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
 | [`-f, --format`](https://docs.docker.com/reference/cli/docker/config/inspect/#format) |         | Format output using a custom template: 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
 | `--pretty`                                                   |         | Print the information in a human friendly format             |
 
-## [Examples](https://docs.docker.com/reference/cli/docker/config/inspect/#examples)
+## Examples
 
-### [Inspect a config by name or ID](https://docs.docker.com/reference/cli/docker/config/inspect/#inspect-a-config-by-name-or-id)
+### Inspect a config by name or ID
 
 You can inspect a config, either by its *name*, or *ID*
 
@@ -89,7 +89,7 @@ The output is in JSON format, for example:
 ]
 ```
 
-### [Format the output (--format)](https://docs.docker.com/reference/cli/docker/config/inspect/#format)
+### Format the output (--format)
 
 You can use the --format option to obtain specific information about a config. The following example command outputs the creation time of the config.
 

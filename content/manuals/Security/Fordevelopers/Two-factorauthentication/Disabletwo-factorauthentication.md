@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-developers/2fa/disable-2fa/](https://docs.docker.com/security/for-developers/2fa/disable-2fa/)
+> 原文：[https://docs.docker.com/security/for-developers/2fa/disable-2fa/](https://docs.docker.com/security/for-developers/2fa/disable-2fa/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 

@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/security/trust/deploying_notary/](https://docs.docker.com/engine/security/trust/deploying_notary/)
+> 原文：[https://docs.docker.com/engine/security/trust/deploying_notary/](https://docs.docker.com/engine/security/trust/deploying_notary/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Deploy Notary Server with Compose
 
-The easiest way to deploy Notary Server is by using Docker Compose. To follow the procedure on this page, you must have already [installed Docker Compose](https://docs.docker.com/compose/install/).
+The easiest way to deploy Notary Server is by using Docker Compose. To follow the procedure on this page, you must have already [installed Docker Compose]({{< ref "/manuals/DockerCompose/Install" >}}).
 
 1. Clone the Notary repository.
 
@@ -38,6 +38,6 @@ The easiest way to deploy Notary Server is by using Docker Compose. To follow th
 
 See the instructions for [Docker](https://docs.docker.com/reference/cli/docker/#notary) or for [Notary](https://github.com/docker/notary#using-notary) depending on which one you are using.
 
-## [If you want to use Notary in production](https://docs.docker.com/engine/security/trust/deploying_notary/#if-you-want-to-use-notary-in-production)
+## If you want to use Notary in production
 
 Check back here for instructions after Notary Server has an official stable release. To get a head start on deploying Notary in production, see [the Notary repository](https://github.com/theupdateframework/notary).

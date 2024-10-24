@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/admin/](https://docs.docker.com/admin/)
+> 原文：[https://docs.docker.com/admin/](https://docs.docker.com/admin/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 

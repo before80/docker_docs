@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/20.10/](https://docs.docker.com/engine/release-notes/20.10/)
+> 原文：[https://docs.docker.com/engine/release-notes/20.10/](https://docs.docker.com/engine/release-notes/20.10/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,18 +16,18 @@ draft = false
 
 This document describes the latest changes, additions, known issues, and fixes for Docker Engine version 20.10.
 
-## [20.10.24](https://docs.docker.com/engine/release-notes/20.10/#201024)
+## 20.10.24
 
 *2023-04-04*
 
-### [Updates](https://docs.docker.com/engine/release-notes/20.10/#updates)
+### Updates
 
 - Update Go runtime to [1.19.7](https://go.dev/doc/devel/release#go1.19.minor).
 - Update Docker Buildx to [v0.10.4](https://github.com/docker/buildx/releases/tag/v0.10.4).
 - Update containerd to [v1.6.20](https://github.com/containerd/containerd/releases/tag/v1.6.20).
 - Update runc to [v1.1.5](https://github.com/opencontainers/runc/releases/tag/v1.1.5).
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/20.10/#bug-fixes-and-enhancements)
+### Bug fixes and enhancements
 
 - Fixed a number of issues that can cause Swarm encrypted overlay networks to fail to uphold their guarantees, addressing
 
@@ -58,13 +58,13 @@ This document describes the latest changes, additions, known issues, and fixes f
 
 - Fix missing Bash completion for installed cli-plugins [docker/cli#4091](https://github.com/docker/cli/pull/4091).
 
-## [20.10.23](https://docs.docker.com/engine/release-notes/20.10/#201023)
+## 20.10.23
 
 *2023-01-19*
 
 This release of Docker Engine contains updated versions of Docker Compose, Docker Buildx, containerd, and some minor bug fixes and enhancements.
 
-### [Updates](https://docs.docker.com/engine/release-notes/20.10/#updates-1)
+### Updates
 
 - Update Docker Compose to [v2.15.1](https://github.com/docker/compose/releases/tag/v2.15.1).
 - Update Docker Buildx to [v0.10.0](https://github.com/docker/buildx/releases/tag/v0.10.0).
@@ -72,7 +72,7 @@ This release of Docker Engine contains updated versions of Docker Compose, Docke
 - Update the package versioning format for `docker-compose-cli` to allow distro version updates [docker/docker-ce-packaging#822](https://github.com/docker/docker-ce-packaging/pull/822).
 - Update Go runtime to [1.18.10](https://go.dev/doc/devel/release#go1.18.minor),
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/20.10/#bug-fixes-and-enhancements-1)
+### Bug fixes and enhancements
 
 - Fix an issue where `docker build` would fail when using `--add-host=host.docker.internal:host-gateway` with BuildKit enabled [moby/moby#44650](https://github.com/moby/moby/pull/44650).
 
@@ -84,51 +84,51 @@ This release of Docker Engine contains updated versions of Docker Compose, Docke
 
   Future releases, will filter `AF_VSOCK`. Users who need to allow containers to communicate over the unnamespaced `AF_VSOCK` will need to turn off seccomp confinement or set a custom seccomp profile.
 
-## [20.10.22](https://docs.docker.com/engine/release-notes/20.10/#201022)
+## 20.10.22
 
 *2022-12-16*
 
 This release of Docker Engine contains updated versions of Docker Compose, Docker Scan, containerd, and some minor bug fixes and enhancements.
 
-### [Updates](https://docs.docker.com/engine/release-notes/20.10/#updates-2)
+### Updates
 
 - Update Docker Compose to [v2.14.1](https://github.com/docker/compose/releases/tag/v2.14.1).
 - Update Docker Scan to [v0.23.0](https://github.com/docker/scan-cli-plugin/releases/tag/v0.23.0).
 - Update containerd (`containerd.io` package) to [v1.6.13](https://github.com/containerd/containerd/releases/tag/v1.6.13), to include a fix for [CVE-2022-23471](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23471).
 - Update Go runtime to [1.18.9](https://go.dev/doc/devel/release#go1.18.minor), to include fixes for [CVE-2022-41716](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-41716), [CVE-2022-41717](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-41717), and [CVE-2022-41720](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-41720).
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/20.10/#bug-fixes-and-enhancements-2)
+### Bug fixes and enhancements
 
 - Improve error message when attempting to pull an unsupported image format or OCI artifact [moby/moby#44413](https://github.com/moby/moby/pull/44413), [moby/moby#44569](https://github.com/moby/moby/pull/44569).
 - Fix an issue where the host's ephemeral port-range was ignored when selecting random ports for containers [moby/moby#44476](https://github.com/moby/moby/pull/44476).
 - Fix `ssh: parse error in message type 27` errors during `docker build` on hosts using OpenSSH 8.9 or above [moby/moby#3862](https://github.com/moby/moby/pull/3862).
 - seccomp: block socket calls to `AF_VSOCK` in default profile [moby/moby#44564](https://github.com/moby/moby/pull/44564).
 
-## [20.10.21](https://docs.docker.com/engine/release-notes/20.10/#201021)
+## 20.10.21
 
 *2022-10-25*
 
 This release of Docker Engine contains updated versions of Docker Compose, Docker Scan, containerd, added packages for Ubuntu 22.10, and some minor bug fixes and enhancements.
 
-### [New](https://docs.docker.com/engine/release-notes/20.10/#new)
+### New
 
 - Provide packages for Ubuntu 22.10 (Kinetic Kudu).
 - Add support for `allow-nondistributable-artifacts` towards Docker Hub [moby/moby#44313](https://github.com/moby/moby/pull/44313).
 
-### [Updates](https://docs.docker.com/engine/release-notes/20.10/#updates-3)
+### Updates
 
 - Update Docker Compose to [v2.12.2](https://github.com/docker/compose/releases/tag/v2.12.2).
 - Update Docker Scan to [v0.21.0](https://github.com/docker/scan-cli-plugin/releases/tag/v0.21.0).
 - Update containerd (`containerd.io` package) to [v1.6.9](https://github.com/containerd/containerd/releases/tag/v1.6.9).
 - Update bundled BuildKit version to fix `output clipped, log limit 1MiB reached` errors [moby/moby#44339](https://github.com/moby/moby/pull/44339).
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/20.10/#bug-fixes-and-enhancements-3)
+### Bug fixes and enhancements
 
 - Remove experimental gate for `--platform` in bash completion [docker/cli#3824](https://github.com/docker/cli/pull/3824).
 - Fix an `Invalid standard handle identifier` panic when registering the Docker Engine as a service from a legacy CLI on Windows [moby/moby#44326](https://github.com/moby/moby/pull/44326).
 - Fix running Git commands in Cygwin on Windows [moby/moby#44332](https://github.com/moby/moby/pull/44332).
 
-## [20.10.20](https://docs.docker.com/engine/release-notes/20.10/#201020)
+## 20.10.20
 
 *2022-10-18*
 
@@ -138,40 +138,40 @@ The Git vulnerability allows a maliciously crafted Git repository, when used as 
 
 The mitigations available in this release and in other consumers of the daemon API are partial and only protect users who build a Git URL context (e.g. `git+protocol://`). As the vulnerability could still be exploited by manually run Git commands that interact with and check out submodules, users should immediately upgrade to a patched version of Git to protect against this vulnerability. Further details are available from the GitHub blog ( ["Git security vulnerabilities announced"](https://github.blog/2022-10-18-git-security-vulnerabilities-announced/)).
 
-### [Updates](https://docs.docker.com/engine/release-notes/20.10/#updates-4)
+### Updates
 
 - Update Docker Compose to [v2.12.0](https://github.com/docker/compose/releases/tag/v2.12.0).
 - Updated handling of `image:tag@digest` references. When pulling an image using the `image:tag@digest` ("pull by digest"), image resolution happens through the content-addressable digest and the `image` and `tag` are not used. While this is expected, this could lead to confusing behavior, and could potentially be exploited through social engineering to run an image that is already present in the local image store. Docker now checks if the digest matches the repository name used to pull the image, and otherwise will produce an error.
 - Updated handling of `image:tag@digest` references. Refer to the "Daemon" section above for details.
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/20.10/#bug-fixes-and-enhancements-4)
+### Bug fixes and enhancements
 
 - Added a mitigation for [CVE-2022-39253](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-39253), when using the classic Builder with a Git URL as the build context.
 - Added a mitigation to the classic Builder and updated BuildKit to [v0.8.3-31-gc0149372](https://github.com/moby/buildkit/commit/c014937225cba29cfb1d5161fd134316c0e9bdaa), for [CVE-2022-39253](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-39253).
 
-## [20.10.19](https://docs.docker.com/engine/release-notes/20.10/#201019)
+## 20.10.19
 
 *2022-10-14*
 
 This release of Docker Engine comes with some bug-fixes, and an updated version of Docker Compose.
 
-### [Updates](https://docs.docker.com/engine/release-notes/20.10/#updates-5)
+### Updates
 
 - Update Docker Compose to [v2.11.2](https://github.com/docker/compose/releases/tag/v2.11.2).
 - Update Go runtime to [1.18.7](https://go.dev/doc/devel/release#go1.18.minor), which contains fixes for [CVE-2022-2879](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-2879), [CVE-2022-2880](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-2880), and [CVE-2022-41715](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-41715).
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/20.10/#bug-fixes-and-enhancements-5)
+### Bug fixes and enhancements
 
 - Fix an issue that could result in a panic during `docker builder prune` or `docker system prune` [moby/moby#44122](https://github.com/moby/moby/pull/44122).
 - Fix a bug where using `docker volume prune` would remove volumes that were still in use if the daemon was running with "live restore" and was restarted [moby/moby#44238](https://github.com/moby/moby/pull/44238).
 
-## [20.10.18](https://docs.docker.com/engine/release-notes/20.10/#201018)
+## 20.10.18
 
 *2022-09-09*
 
 This release of Docker Engine comes with a fix for a low-severity security issue, some minor bug fixes, and updated versions of Docker Compose, Docker Buildx, `containerd`, and `runc`.
 
-### [Updates](https://docs.docker.com/engine/release-notes/20.10/#updates-6)
+### Updates
 
 - Update Docker Buildx to [v0.9.1](https://github.com/docker/buildx/releases/tag/v0.9.1).
 - Update Docker Compose to [v2.10.2](https://github.com/docker/compose/releases/tag/v2.10.2).
@@ -179,7 +179,7 @@ This release of Docker Engine comes with a fix for a low-severity security issue
 - Update runc version to [v1.1.4](https://github.com/opencontainers/runc/releases/tag/v1.1.4).
 - Update Go runtime to [1.18.6](https://go.dev/doc/devel/release#go1.18.minor), which contains fixes for [CVE-2022-27664](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27664) and [CVE-2022-32190](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32190).
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/20.10/#bug-fixes-and-enhancements-6)
+### Bug fixes and enhancements
 
 - Add Bash completion for Docker Compose [docker/cli#3752](https://github.com/docker/cli/pull/3752).
 - Fix an issue where file-capabilities were not preserved during build [moby/moby#43876](https://github.com/moby/moby/pull/43876).
@@ -190,50 +190,50 @@ This release of Docker Engine comes with a fix for a low-severity security issue
 - Fix an issue where cache lookup for image manifests would fail, resulting in a redundant round-trip to the image registry [moby/moby#44109](https://github.com/moby/moby/pull/44109).
 - Fix an issue where `exec` processes and healthchecks were not terminated when they timed out [moby/moby#44018](https://github.com/moby/moby/pull/44018).
 
-## [20.10.17](https://docs.docker.com/engine/release-notes/20.10/#201017)
+## 20.10.17
 
 *2022-06-06*
 
 This release of Docker Engine comes with updated versions of Docker Compose and the `containerd`, and `runc` components, as well as some minor bug fixes.
 
-### [Updates](https://docs.docker.com/engine/release-notes/20.10/#updates-7)
+### Updates
 
 - Update Docker Compose to [v2.6.0](https://github.com/docker/compose/releases/tag/v2.6.0).
 - Update containerd (`containerd.io` package) to [v1.6.6](https://github.com/containerd/containerd/releases/tag/v1.6.6), which contains a fix for [CVE-2022-31030](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-31030)
 - Update runc version to [v1.1.2](https://github.com/opencontainers/runc/releases/tag/v1.1.2), which contains a fix for [CVE-2022-29162](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29162).
 - Update Go runtime to [1.17.11](https://go.dev/doc/devel/release#go1.17.minor), which contains fixes for [CVE-2022-30634](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-30634), [CVE-2022-30629](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-30629), [CVE-2022-30580](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-30580) and [CVE-2022-29804](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29804)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/20.10/#bug-fixes-and-enhancements-7)
+### Bug fixes and enhancements
 
 - Remove asterisk from docker commands in zsh completion script [docker/cli#3648](https://github.com/docker/cli/pull/3648).
 - Fix Windows port conflict with published ports in host mode for overlay [moby/moby#43644](https://github.com/moby/moby/pull/43644).
 - Ensure performance tuning is always applied to libnetwork sandboxes [moby/moby#43683](https://github.com/moby/moby/pull/43683).
 
-## [20.10.16](https://docs.docker.com/engine/release-notes/20.10/#201016)
+## 20.10.16
 
 *2022-05-12*
 
 This release of Docker Engine fixes a regression in the Docker CLI builds for macOS, fixes an issue with `docker stats` when using containerd 1.5 and up, and updates the Go runtime to include a fix for [CVE-2022-29526](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29526).
 
-### [Updates](https://docs.docker.com/engine/release-notes/20.10/#updates-8)
+### Updates
 
 - Update golang.org/x/sys dependency which contains a fix for [CVE-2022-29526](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29526).
 - Updated the `golang.org/x/sys` build-time dependency which contains a fix for [CVE-2022-29526](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29526).
 - Updated Go runtime to [1.17.10](https://go.dev/doc/devel/release#go1.17.minor), which contains a fix for [CVE-2022-29526](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29526).
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/20.10/#bug-fixes-and-enhancements-8)
+### Bug fixes and enhancements
 
 - Fixed a regression in binaries for macOS introduced in [20.10.15](https://docs.docker.com/engine/release-notes/20.10/#201015), which resulted in a panic [docker/cli#43426](https://github.com/docker/cli/pull/3592).
 - Fixed an issue where `docker stats` was showing empty stats when running with containerd 1.5.0 or up [moby/moby#43567](https://github.com/moby/moby/pull/43567).
 - Used "weak" dependencies for the `docker scan` CLI plugin, to prevent a "conflicting requests" error when users performed an off-line installation from downloaded RPM packages [docker/docker-ce-packaging#659](https://github.com/docker/docker-ce-packaging/pull/659).
 
-## [20.10.15](https://docs.docker.com/engine/release-notes/20.10/#201015)
+## 20.10.15
 
 *2022-05-05*
 
 This release of Docker Engine comes with updated versions of the `compose`, `buildx`, `containerd`, and `runc` components, as well as some minor bug fixes.
 
-### [Updates](https://docs.docker.com/engine/release-notes/20.10/#updates-9)
+### Updates
 
 - Update Docker Compose to [v2.5.0](https://github.com/docker/compose/releases/tag/v2.5.0).
 - Update Docker Buildx to [v0.8.2](https://github.com/docker/buildx/releases/tag/v0.8.2).
@@ -241,41 +241,41 @@ This release of Docker Engine comes with updated versions of the `compose`, `bui
 - Update containerd (`containerd.io` package) to [v1.6.4](https://github.com/containerd/containerd/releases/tag/v1.6.4).
 - Update runc version to [v1.1.1](https://github.com/opencontainers/runc/releases/tag/v1.1.1).
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/20.10/#bug-fixes-and-enhancements-9)
+### Bug fixes and enhancements
 
 - Use a RWMutex for stateCounter to prevent potential locking congestion [moby/moby#43426](https://github.com/moby/moby/pull/43426).
 - Prevent an issue where the daemon was unable to find an available IP-range in some conditions [moby/moby#43360](https://github.com/moby/moby/pull/43360)
 - Add packages for CentOS 9 stream and Fedora 36.
 
-### [Known issues](https://docs.docker.com/engine/release-notes/20.10/#known-issues)
+### Known issues
 
 - We've identified an issue with the [macOS CLI binaries](https://download.docker.com/mac/static/stable/) in the 20.10.15 release. This issue has been resolved in the [20.10.16](https://docs.docker.com/engine/release-notes/20.10/#201016) release.
 
-## [20.10.14](https://docs.docker.com/engine/release-notes/20.10/#201014)
+## 20.10.14
 
 *2022-03-23*
 
 This release of Docker Engine updates the default inheritable capabilities for containers to address [CVE-2022-24769](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24769), a new version of the `containerd.io` runtime is also included to address the same issue.
 
-### [Updates](https://docs.docker.com/engine/release-notes/20.10/#updates-10)
+### Updates
 
 - Update the default inheritable capabilities.
 - Update the default inheritable capabilities for containers used during build.
 - Update containerd (`containerd.io` package) to [v1.5.11](https://github.com/containerd/containerd/releases/tag/v1.5.11).
 - Update `docker buildx` to [v0.8.1](https://github.com/docker/buildx/releases/tag/v0.8.1).
 
-## [20.10.13](https://docs.docker.com/engine/release-notes/20.10/#201013)
+## 20.10.13
 
 *2022-03-10*
 
 This release of Docker Engine contains some bug-fixes and packaging changes, updates to the `docker scan` and `docker buildx` commands, an updated version of the Go runtime, and new versions of the `containerd.io` runtime. Together with this release, we now also provide `.deb` and `.rpm` packages of Docker Compose V2, which can be installed using the (optional) `docker-compose-plugin` package.
 
-### [New](https://docs.docker.com/engine/release-notes/20.10/#new-1)
+### New
 
 - Provide `.deb` and `.rpm` packages for Docker Compose V2. [Docker Compose v2.3.3](https://github.com/docker/compose/releases/tag/v2.3.3) can now be installed on Linux using the `docker-compose-plugin` packages, which provides the `docker compose` subcommand on the Docker CLI. The Docker Compose plugin can also be installed and run standalone to be used as a drop-in replacement for `docker-compose` (Docker Compose V1) [docker/docker-ce-packaging#638](https://github.com/docker/docker-ce-packaging/pull/638). The `compose-cli-plugin` package can also be used on older version of the Docker CLI with support for CLI plugins (Docker CLI 18.09 and up).
 - Provide packages for the upcoming Ubuntu 22.04 "Jammy Jellyfish" LTS release [docker/docker-ce-packaging#645](https://github.com/docker/docker-ce-packaging/pull/645), [docker/containerd-packaging#271](https://github.com/docker/containerd-packaging/pull/271).
 
-### [Updates](https://docs.docker.com/engine/release-notes/20.10/#updates-11)
+### Updates
 
 - Updated the bundled version of buildx to [v0.8.0](https://github.com/docker/buildx/releases/tag/v0.8.0).
 - Update `docker buildx` to [v0.8.0](https://github.com/docker/buildx/releases/tag/v0.8.0).
@@ -285,7 +285,7 @@ This release of Docker Engine contains some bug-fixes and packaging changes, upd
 - Update Golang runtime to Go 1.16.15.
 - Updates the fluentd log driver to prevent a potential daemon crash, and prevent containers from hanging when using the `fluentd-async-connect=true` and the remote server is unreachable [moby/moby#43147](https://github.com/moby/moby/pull/43147).
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/20.10/#bug-fixes-and-enhancements-10)
+### Bug fixes and enhancements
 
 - Fix a race condition when updating the container's state [moby/moby#43166](https://github.com/moby/moby/pull/43166).
 - Update the etcd dependency to prevent the daemon from incorrectly holding file locks [moby/moby#43259](https://github.com/moby/moby/pull/43259)
@@ -294,7 +294,7 @@ This release of Docker Engine contains some bug-fixes and packaging changes, upd
 - Various fixes in command-line reference and API documentation.
 - Prevent an OOM when using the "local" logging driver with containers that produce a large amount of log messages [moby/moby#43165](https://github.com/moby/moby/pull/43165).
 
-## [20.10.12](https://docs.docker.com/engine/release-notes/20.10/#201012)
+## 20.10.12
 
 2021-12-13
 
@@ -337,13 +337,13 @@ Provider:   Snyk (1.790.0 (standalone))
 
 [Read our blog post on CVE-2021-44228](https://www.docker.com/blog/apache-log4j-2-cve-2021-44228/) to learn how to use the `docker scan` command to check if images are vulnerable.
 
-### [Packaging](https://docs.docker.com/engine/release-notes/20.10/#packaging)
+### Packaging
 
 - Update `docker scan` to [v0.12.0](https://github.com/docker/scan-cli-plugin/releases/tag/v0.12.0).
 - Update `docker buildx` to [v0.7.1](https://github.com/docker/buildx/releases/tag/v0.7.1).
 - Update Golang runtime to Go 1.16.12.
 
-## [20.10.11](https://docs.docker.com/engine/release-notes/20.10/#201011)
+## 20.10.11
 
 2021-11-17
 
@@ -351,22 +351,22 @@ Provider:   Snyk (1.790.0 (standalone))
 >
 > Due to [net/http changes](https://github.com/golang/go/issues/40909) in [Go 1.16](https://golang.org/doc/go1.16#net/http), HTTP proxies configured through the `$HTTP_PROXY` environment variable are no longer used for TLS (`https://`) connections. Make sure you also set an `$HTTPS_PROXY` environment variable for handling requests to `https://` URLs.
 >
-> Refer to [Configure the daemon to use a proxy](https://docs.docker.com/engine/daemon/proxy/) to learn how to configure the Docker Daemon to use a proxy server.
+> Refer to [Configure the daemon to use a proxy]({{< ref "/manuals/DockerEngine/Daemon/Daemonproxyconfiguration" >}}) to learn how to configure the Docker Daemon to use a proxy server.
 
-### [Distribution](https://docs.docker.com/engine/release-notes/20.10/#distribution)
+### Distribution
 
 - Handle ambiguous OCI manifest parsing to mitigate [CVE-2021-41190](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-41190) / [GHSA-mc8v-mgrf-8f4m](https://github.com/opencontainers/distribution-spec/security/advisories/GHSA-mc8v-mgrf-8f4m). See [GHSA-xmmx-7jpf-fx42](https://github.com/moby/moby/security/advisories/GHSA-xmmx-7jpf-fx42) for details.
 
-### [Windows](https://docs.docker.com/engine/release-notes/20.10/#windows)
+### Windows
 
 - Fix panic.log file having read-only attribute set [moby/moby#42987](https://github.com/moby/moby/pull/42987).
 
-### [Packaging](https://docs.docker.com/engine/release-notes/20.10/#packaging-1)
+### Packaging
 
 - Update containerd to [v1.4.12](https://github.com/containerd/containerd/releases/tag/v1.4.12) to mitigate [CVE-2021-41190](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-41190).
 - Update Golang runtime to Go 1.16.10.
 
-## [20.10.10](https://docs.docker.com/engine/release-notes/20.10/#201010)
+## 20.10.10
 
 2021-10-25
 
@@ -374,29 +374,29 @@ Provider:   Snyk (1.790.0 (standalone))
 >
 > Due to [net/http changes](https://github.com/golang/go/issues/40909) in [Go 1.16](https://golang.org/doc/go1.16#net/http), HTTP proxies configured through the `$HTTP_PROXY` environment variable are no longer used for TLS (`https://`) connections. Make sure you also set an `$HTTPS_PROXY` environment variable for handling requests to `https://` URLs.
 >
-> Refer to the [HTTP/HTTPS proxy section](https://docs.docker.com/engine/daemon/proxy/) to learn how to configure the Docker Daemon to use a proxy server.
+> Refer to the [HTTP/HTTPS proxy section]({{< ref "/manuals/DockerEngine/Daemon/Daemonproxyconfiguration" >}}) to learn how to configure the Docker Daemon to use a proxy server.
 
-### [Builder](https://docs.docker.com/engine/release-notes/20.10/#builder)
+### Builder
 
 - Fix platform-matching logic to fix `docker build` using not finding images in the local image cache on Arm machines when using BuildKit [moby/moby#42954](https://github.com/moby/moby/pull/42954)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/20.10/#runtime)
+### Runtime
 
 - Add support for `clone3` syscall in the default seccomp policy to support running containers based on recent versions of Fedora and Ubuntu. [moby/moby/#42836](https://github.com/moby/moby/pull/42836).
 - Windows: update hcsshim library to fix a bug in sparse file handling in container layers, which was exposed by recent changes in Windows [moby/moby#42944](https://github.com/moby/moby/pull/42944).
 - Fix some situations where `docker stop` could hang forever [moby/moby#42956](https://github.com/moby/moby/pull/42956).
 
-### [Swarm](https://docs.docker.com/engine/release-notes/20.10/#swarm)
+### Swarm
 
 - Fix an issue where updating a service did not roll back on failure [moby/moby#42875](https://github.com/moby/moby/pull/42875).
 
-### [Packaging](https://docs.docker.com/engine/release-notes/20.10/#packaging-2)
+### Packaging
 
 - Add packages for Ubuntu 21.10 "Impish Indri" and Fedora 35.
 - Update `docker scan` to v0.9.0
 - Update Golang runtime to Go 1.16.9.
 
-## [20.10.9](https://docs.docker.com/engine/release-notes/20.10/#20109)
+## 20.10.9
 
 2021-10-04
 
@@ -406,18 +406,18 @@ This release is a security release with security fixes in the CLI, runtime, as w
 >
 > Due to [net/http changes](https://github.com/golang/go/issues/40909) in [Go 1.16](https://golang.org/doc/go1.16#net/http), HTTP proxies configured through the `$HTTP_PROXY` environment variable are no longer used for TLS (`https://`) connections. Make sure you also set an `$HTTPS_PROXY` environment variable for handling requests to `https://` URLs.
 >
-> Refer to the [HTTP/HTTPS proxy section](https://docs.docker.com/engine/daemon/proxy/) to learn how to configure the Docker Daemon to use a proxy server.
+> Refer to the [HTTP/HTTPS proxy section]({{< ref "/manuals/DockerEngine/Daemon/Daemonproxyconfiguration" >}}) to learn how to configure the Docker Daemon to use a proxy server.
 
-### [Client](https://docs.docker.com/engine/release-notes/20.10/#client)
+### Client
 
 - [CVE-2021-41092](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-41092) Ensure default auth config has address field set, to prevent credentials being sent to the default registry.
 
-### [Runtime](https://docs.docker.com/engine/release-notes/20.10/#runtime-1)
+### Runtime
 
 - [CVE-2021-41089](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-41089) Create parent directories inside a chroot during `docker cp` to prevent a specially crafted container from changing permissions of existing files in the host’s filesystem.
 - [CVE-2021-41091](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-41091) Lock down file permissions to prevent unprivileged users from discovering and executing programs in `/var/lib/docker`.
 
-### [Packaging](https://docs.docker.com/engine/release-notes/20.10/#packaging-3)
+### Packaging
 
 > **Known issue**
 >
@@ -427,7 +427,7 @@ This release is a security release with security fixes in the CLI, runtime, as w
 - Update static binaries and containerd.io rpm and deb packages to containerd v1.4.11 and runc v1.0.2 to address [CVE-2021-41103](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-41103).
 - Update the bundled buildx version to v0.6.3 for rpm and deb packages.
 
-## [20.10.8](https://docs.docker.com/engine/release-notes/20.10/#20108)
+## 20.10.8
 
 2021-08-03
 
@@ -435,35 +435,35 @@ This release is a security release with security fixes in the CLI, runtime, as w
 >
 > Due to [net/http changes](https://github.com/golang/go/issues/40909) in [Go 1.16](https://golang.org/doc/go1.16#net/http), HTTP proxies configured through the `$HTTP_PROXY` environment variable are no longer used for TLS (`https://`) connections. Make sure you also set an `$HTTPS_PROXY` environment variable for handling requests to `https://` URLs.
 >
-> Refer to the [HTTP/HTTPS proxy section](https://docs.docker.com/engine/daemon/proxy/) to learn how to configure the Docker Daemon to use a proxy server.
+> Refer to the [HTTP/HTTPS proxy section]({{< ref "/manuals/DockerEngine/Daemon/Daemonproxyconfiguration" >}}) to learn how to configure the Docker Daemon to use a proxy server.
 
-### [Deprecation](https://docs.docker.com/engine/release-notes/20.10/#deprecation)
+### Deprecation
 
 - Deprecate support for encrypted TLS private keys. Legacy PEM encryption as specified in RFC 1423 is insecure by design. Because it does not authenticate the ciphertext, it is vulnerable to padding oracle attacks that can let an attacker recover the plaintext. Support for encrypted TLS private keys is now marked as deprecated, and will be removed in an upcoming release. [docker/cli#3219](https://github.com/docker/cli/pull/3219)
 - Deprecate Kubernetes stack support. Following the deprecation of [Compose on Kubernetes](https://github.com/docker/compose-on-kubernetes), support for Kubernetes in the `stack` and `context` commands in the Docker CLI is now marked as deprecated, and will be removed in an upcoming release [docker/cli#3174](https://github.com/docker/cli/pull/3174).
 
-### [Client](https://docs.docker.com/engine/release-notes/20.10/#client-1)
+### Client
 
 - Fix `Invalid standard handle identifier` errors on Windows [docker/cli#3132](https://github.com/docker/cli/pull/3132).
 
-### [Rootless](https://docs.docker.com/engine/release-notes/20.10/#rootless)
+### Rootless
 
 - Avoid `can't open lock file /run/xtables.lock: Permission denied` error on SELinux hosts [moby/moby#42462](https://github.com/moby/moby/pull/42462).
 - Disable overlay2 when running with SELinux to prevent permission denied errors [moby/moby#42462](https://github.com/moby/moby/pull/42462).
 - Fix `x509: certificate signed by unknown authority` error on openSUSE Tumbleweed [moby/moby#42462](https://github.com/moby/moby/pull/42462).
 
-### [Runtime](https://docs.docker.com/engine/release-notes/20.10/#runtime-2)
+### Runtime
 
 - Print a warning when using the `--platform` option to pull a single-arch image that does not match the specified architecture [moby/moby#42633](https://github.com/moby/moby/pull/42633).
 - Fix incorrect `Your kernel does not support swap memory limit` warning when running with cgroups v2 [moby/moby#42479](https://github.com/moby/moby/pull/42479).
 - Windows: Fix a situation where containers were not stopped if `HcsShutdownComputeSystem` returned an `ERROR_PROC_NOT_FOUND` error [moby/moby#42613](https://github.com/moby/moby/pull/42613)
 
-### [Swarm](https://docs.docker.com/engine/release-notes/20.10/#swarm-1)
+### Swarm
 
 - Fix a possibility where overlapping IP addresses could exist as a result of the node failing to clean up its old loadbalancer IPs [moby/moby#42538](https://github.com/moby/moby/pull/42538)
 - Fix a deadlock in log broker ("dispatcher is stopped") [moby/moby#42537](https://github.com/moby/moby/pull/42537)
 
-### [Packaging](https://docs.docker.com/engine/release-notes/20.10/#packaging-4)
+### Packaging
 
 > **Known issue**
 >
@@ -474,16 +474,16 @@ This release is a security release with security fixes in the CLI, runtime, as w
 - Update the bundled buildx version to v0.6.1 for rpm and deb packages [docker/docker-ce-packaging#562](https://github.com/docker/docker-ce-packaging/pull/562)
 - Update static binaries and containerd.io rpm and deb packages to containerd v1.4.9 and runc v1.0.1: [docker/containerd-packaging#241](https://github.com/docker/containerd-packaging/pull/241), [docker/containerd-packaging#245](https://github.com/docker/containerd-packaging/pull/245), [docker/containerd-packaging#247](https://github.com/docker/containerd-packaging/pull/247).
 
-## [20.10.7](https://docs.docker.com/engine/release-notes/20.10/#20107)
+## 20.10.7
 
 2021-06-02
 
-### [Client](https://docs.docker.com/engine/release-notes/20.10/#client-2)
+### Client
 
 - Suppress warnings for deprecated cgroups [docker/cli#3099](https://github.com/docker/cli/pull/3099).
 - Prevent sending `SIGURG` signals to container on Linux and macOS. The Go runtime (starting with Go 1.14) uses `SIGURG` signals internally as an interrupt to support preemptable syscalls. In situations where the Docker CLI was attached to a container, these interrupts were forwarded to the container. This fix changes the Docker CLI to ignore `SIGURG` signals [docker/cli#3107](https://github.com/docker/cli/pull/3107), [moby/moby#42421](https://github.com/moby/moby/pull/42421).
 
-### [Builder](https://docs.docker.com/engine/release-notes/20.10/#builder-1)
+### Builder
 
 - Update BuildKit to version v0.8.3-3-g244e8cde
 
@@ -500,65 +500,65 @@ This release is a security release with security fixes in the CLI, runtime, as w
 
 - Fix build failures when `FROM` image is not cached when using legacy schema 1 images [moby/moby#42382](https://github.com/moby/moby/pull/42382).
 
-### [Logging](https://docs.docker.com/engine/release-notes/20.10/#logging)
+### Logging
 
 - Update the hcsshim SDK to make daemon logs on Windows less verbose [moby/moby#42292](https://github.com/moby/moby/pull/42292).
 
-### [Rootless](https://docs.docker.com/engine/release-notes/20.10/#rootless-1)
+### Rootless
 
 - Fix capabilities not being honored when an image was built on a daemon with user-namespaces enabled [moby/moby#42352](https://github.com/moby/moby/pull/42352).
 
-### [Networking](https://docs.docker.com/engine/release-notes/20.10/#networking)
+### Networking
 
 - Update libnetwork to fix publishing ports on environments with kernel boot parameter `ipv6.disable=1`, and to fix a deadlock causing internal DNS lookups to fail [moby/moby#42413](https://github.com/moby/moby/pull/42413).
 
-### [Contrib](https://docs.docker.com/engine/release-notes/20.10/#contrib)
+### Contrib
 
 - Update rootlesskit to v0.14.2 to fix a timeout when starting the userland proxy with the `slirp4netns` port driver [moby/moby#42294](https://github.com/moby/moby/pull/42294).
 - Fix "Device or resource busy" errors when running docker-in-docker on a rootless daemon [moby/moby#42342](https://github.com/moby/moby/pull/42342).
 
-### [Packaging](https://docs.docker.com/engine/release-notes/20.10/#packaging-5)
+### Packaging
 
 - Update containerd to v1.4.6, runc v1.0.0-rc95 to address [CVE-2021-30465](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-30465) [moby/moby#42398](https://github.com/moby/moby/pull/42398), [moby/moby#42395](https://github.com/moby/moby/pull/42395), [docker/containerd-packaging#234](https://github.com/docker/containerd-packaging/pull/234)
 - Update containerd to v1.4.5, runc v1.0.0-rc94 [moby/moby#42372](https://github.com/moby/moby/pull/42372), [moby/moby#42388](https://github.com/moby/moby/pull/42388), [docker/containerd-packaging#232](https://github.com/docker/containerd-packaging/pull/232).
 - Update Docker Scan plugin packages (`docker-scan-plugin`) to v0.8 [docker/docker-ce-packaging#545](https://github.com/docker/docker-ce-packaging/pull/545).
 
-## [20.10.6](https://docs.docker.com/engine/release-notes/20.10/#20106)
+## 20.10.6
 
 2021-04-12
 
-### [Client](https://docs.docker.com/engine/release-notes/20.10/#client-3)
+### Client
 
 - Apple Silicon (darwin/arm64) support for Docker CLI [docker/cli#3042](https://github.com/docker/cli/pull/3042)
 - config: print deprecation warning when falling back to pre-v1.7.0 config file `~/.dockercfg`. Support for this file will be removed in a future release [docker/cli#3000](https://github.com/docker/cli/pull/3000)
 
-### [Builder](https://docs.docker.com/engine/release-notes/20.10/#builder-2)
+### Builder
 
 - Fix classic builder silently ignoring unsupported Dockerfile options and prompt to enable BuildKit instead [moby/moby#42197](https://github.com/moby/moby/pull/42197)
 
-### [Logging](https://docs.docker.com/engine/release-notes/20.10/#logging-1)
+### Logging
 
 - json-file: fix sporadic unexpected EOF errors [moby/moby#42174](https://github.com/moby/moby/pull/42174)
 
-### [Networking](https://docs.docker.com/engine/release-notes/20.10/#networking-1)
+### Networking
 
 - Fix a regression in docker 20.10, causing IPv6 addresses no longer to be bound by default when mapping ports [moby/moby#42205](https://github.com/moby/moby/pull/42205)
 - Fix implicit IPv6 port-mappings not included in API response. Before docker 20.10, published ports were accessible through both IPv4 and IPv6 by default, but the API only included information about the IPv4 (0.0.0.0) mapping [moby/moby#42205](https://github.com/moby/moby/pull/42205)
 - Fix a regression in docker 20.10, causing the docker-proxy to not be terminated in all cases [moby/moby#42205](https://github.com/moby/moby/pull/42205)
 - Fix iptables forwarding rules not being cleaned up upon container removal [moby/moby#42205](https://github.com/moby/moby/pull/42205)
 
-### [Packaging](https://docs.docker.com/engine/release-notes/20.10/#packaging-6)
+### Packaging
 
 - Update containerd to [v1.4.4](https://github.com/containerd/containerd/releases/tag/v1.4.4) for static binaries. The containerd.io package on apt/yum repos already had this update out of band. Includes a fix for [CVE-2021-21334](https://github.com/containerd/containerd/security/advisories/GHSA-6g2q-w5j3-fwh4). [moby/moby#42124](https://github.com/moby/moby/pull/42124)
 - Packages for Debian/Raspbian 11 Bullseye, Ubuntu 21.04 Hirsute Hippo and Fedora 34 [docker/docker-ce-packaging#521](https://github.com/docker/docker-ce-packaging/pull/521) [docker/docker-ce-packaging#522](https://github.com/docker/docker-ce-packaging/pull/522) [docker/docker-ce-packaging#533](https://github.com/docker/docker-ce-packaging/pull/533)
 - Provide the [Docker Scan CLI](https://github.com/docker/scan-cli-plugin) plugin on Linux amd64 via a `docker-scan-plugin` package as a recommended dependency for the `docker-ce-cli` package [docker/docker-ce-packaging#537](https://github.com/docker/docker-ce-packaging/pull/537)
 - Include VPNKit binary for arm64 [moby/moby#42141](https://github.com/moby/moby/pull/42141)
 
-### [Plugins](https://docs.docker.com/engine/release-notes/20.10/#plugins)
+### Plugins
 
 - Fix docker plugin create making plugins that were incompatible with older versions of Docker [moby/moby#42256](https://github.com/moby/moby/pull/42256)
 
-### [Rootless](https://docs.docker.com/engine/release-notes/20.10/#rootless-2)
+### Rootless
 
 - Update RootlessKit to [v0.14.1](https://github.com/rootless-containers/rootlesskit/releases/tag/v0.14.1) (see also [v0.14.0](https://github.com/rootless-containers/rootlesskit/releases/tag/v0.14.0) [v0.13.2](https://github.com/rootless-containers/rootlesskit/releases/tag/v0.13.2)) [moby/moby#42186](https://github.com/moby/moby/pull/42186) [moby/moby#42232](https://github.com/moby/moby/pull/42232)
 - dockerd-rootless-setuptool.sh: create CLI context "rootless" [moby/moby#42109](https://github.com/moby/moby/pull/42109)
@@ -569,19 +569,19 @@ This release is a security release with security fixes in the CLI, runtime, as w
 - btrfs: allow unprivileged user to delete subvolumes (kernel >= 4.18) [moby/moby#42253](https://github.com/moby/moby/pull/42253)
 - cgroup2: Move cgroup v2 out of experimental [moby/moby#42263](https://github.com/moby/moby/pull/42263)
 
-## [20.10.5](https://docs.docker.com/engine/release-notes/20.10/#20105)
+## 20.10.5
 
 2021-03-02
 
-### [Client](https://docs.docker.com/engine/release-notes/20.10/#client-4)
+### Client
 
 - Revert [docker/cli#2960](https://github.com/docker/cli/pull/2960) to fix hanging in `docker start --attach` and remove spurious `Unsupported signal: <nil>. Discarding` messages. [docker/cli#2987](https://github.com/docker/cli/pull/2987).
 
-## [20.10.4](https://docs.docker.com/engine/release-notes/20.10/#20104)
+## 20.10.4
 
 2021-02-26
 
-### [Builder](https://docs.docker.com/engine/release-notes/20.10/#builder-3)
+### Builder
 
 - Fix incorrect cache match for inline cache import with empty layers [moby/moby#42061](https://github.com/moby/moby/pull/42061)
 
@@ -602,12 +602,12 @@ This release is a security release with security fixes in the CLI, runtime, as w
 
 - Ensure libnetwork state files do not leak [moby/moby#41972](https://github.com/moby/moby/pull/41972)
 
-### [Client](https://docs.docker.com/engine/release-notes/20.10/#client-5)
+### Client
 
 - Fix a panic on `docker login` if no config file is present [docker/cli#2959](https://github.com/docker/cli/pull/2959)
 - Fix `WARNING: Error loading config file: .dockercfg: $HOME is not defined` [docker/cli#2958](https://github.com/docker/cli/pull/2958)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/20.10/#runtime-3)
+### Runtime
 
 - docker info: silence unhandleable warnings [moby/moby#41958](https://github.com/moby/moby/pull/41958)
 - Avoid creating parent directories for XGlobalHeader [moby/moby#42017](https://github.com/moby/moby/pull/42017)
@@ -619,23 +619,23 @@ This release is a security release with security fixes in the CLI, runtime, as w
 - Fix userns-remap option when username & UID match [moby/moby#42013](https://github.com/moby/moby/pull/42013)
 - static: update runc binary to v1.0.0-rc93 [moby/moby#42014](https://github.com/moby/moby/pull/42014)
 
-### [Logger](https://docs.docker.com/engine/release-notes/20.10/#logger)
+### Logger
 
 - Honor `labels-regex` config even if `labels` is not set [moby/moby#42046](https://github.com/moby/moby/pull/42046)
 - Handle long log messages correctly preventing awslogs in non-blocking mode to split events bigger than 16kB [mobymoby#41975](https://github.com/moby/moby/pull/41975)
 
-### [Rootless](https://docs.docker.com/engine/release-notes/20.10/#rootless-3)
+### Rootless
 
 - Prevent the service hanging when stopping by setting systemd KillMode to mixed [moby/moby#41956](https://github.com/moby/moby/pull/41956)
 - dockerd-rootless.sh: add typo guard [moby/moby#42070](https://github.com/moby/moby/pull/42070)
 - Update rootlesskit to v0.13.1 to fix handling of IPv6 addresses [moby/moby#42025](https://github.com/moby/moby/pull/42025)
 - allow mknodding FIFO inside userns [moby/moby#41957](https://github.com/moby/moby/pull/41957)
 
-### [Security](https://docs.docker.com/engine/release-notes/20.10/#security)
+### Security
 
 - profiles: seccomp: update to Linux 5.11 syscall list [moby/moby#41971](https://github.com/moby/moby/pull/41971)
 
-### [Swarm](https://docs.docker.com/engine/release-notes/20.10/#swarm-2)
+### Swarm
 
 - Fix issue with heartbeat not persisting upon restart [moby/moby#42060](https://github.com/moby/moby/pull/42060)
 - Fix potential stalled tasks [moby/moby#42060](https://github.com/moby/moby/pull/42060)
@@ -643,63 +643,63 @@ This release is a security release with security fixes in the CLI, runtime, as w
 - Fix `docker service rollback` returning a non-zero exit code in some situations [docker/cli#2964](https://github.com/docker/cli/pull/2964)
 - Fix inconsistent progress-bar direction on `docker service rollback` [docker/cli#2964](https://github.com/docker/cli/pull/2964)
 
-## [20.10.3](https://docs.docker.com/engine/release-notes/20.10/#20103)
+## 20.10.3
 
 2021-02-01
 
-### [Security](https://docs.docker.com/engine/release-notes/20.10/#security-1)
+### Security
 
 - [CVE-2021-21285](https://github.com/moby/moby/security/advisories/GHSA-6fj5-m822-rqx8) Prevent an invalid image from crashing docker daemon
 - [CVE-2021-21284](https://github.com/moby/moby/security/advisories/GHSA-7452-xqpj-6rpc) Lock down file permissions to prevent remapped root from accessing docker state
 - Ensure AppArmor and SELinux profiles are applied when building with BuildKit
 
-### [Client](https://docs.docker.com/engine/release-notes/20.10/#client-6)
+### Client
 
 - Check contexts before importing them to reduce risk of extracted files escaping context store
 - Windows: prevent executing certain binaries from current directory [docker/cli#2950](https://github.com/docker/cli/pull/2950)
 
-## [20.10.2](https://docs.docker.com/engine/release-notes/20.10/#20102)
+## 20.10.2
 
 2021-01-04
 
-### [Runtime](https://docs.docker.com/engine/release-notes/20.10/#runtime-4)
+### Runtime
 
 - Fix a daemon start up hang when restoring containers with restart policies but that keep failing to start [moby/moby#41729](https://github.com/moby/moby/pull/41729)
 - overlay2: fix an off-by-one error preventing to build or run containers when data-root is 24-bytes long [moby/moby#41830](https://github.com/moby/moby/pull/41830)
 - systemd: send `sd_notify STOPPING=1` when shutting down [moby/moby#41832](https://github.com/moby/moby/pull/41832)
 
-### [Networking](https://docs.docker.com/engine/release-notes/20.10/#networking-2)
+### Networking
 
 - Fix IPv6 port forwarding [moby/moby#41805](https://github.com/moby/moby/pull/41805) [moby/libnetwork#2604](https://github.com/moby/libnetwork/pull/2604)
 
-### [Swarm](https://docs.docker.com/engine/release-notes/20.10/#swarm-3)
+### Swarm
 
 - Fix filtering for `replicated-job` and `global-job` service modes [moby/moby#41806](https://github.com/moby/moby/pull/41806)
 
-### [Packaging](https://docs.docker.com/engine/release-notes/20.10/#packaging-7)
+### Packaging
 
 - buildx updated to [v0.5.1](https://github.com/docker/buildx/releases/tag/v0.5.1) [docker/docker-ce-packaging#516](https://github.com/docker/docker-ce-packaging/pull/516)
 
-## [20.10.1](https://docs.docker.com/engine/release-notes/20.10/#20101)
+## 20.10.1
 
 2020-12-14
 
-### [Builder](https://docs.docker.com/engine/release-notes/20.10/#builder-4)
+### Builder
 
 - buildkit: updated to [v0.8.1](https://github.com/moby/buildkit/releases/tag/v0.8.1) with various bugfixes [moby/moby#41793](https://github.com/moby/moby/pull/41793)
 
-### [Packaging](https://docs.docker.com/engine/release-notes/20.10/#packaging-8)
+### Packaging
 
 - Revert a change in the systemd unit that could prevent docker from starting due to a startup order conflict [docker/docker-ce-packaging#514](https://github.com/docker/docker-ce-packaging/pull/514)
 - buildx updated to [v0.5.0](https://github.com/docker/buildx/releases/tag/v0.5.0) [docker/docker-ce-packaging#515](https://github.com/docker/docker-ce-packaging/pull/515)
 
-## [20.10.0](https://docs.docker.com/engine/release-notes/20.10/#20100)
+## 20.10.0
 
 2020-12-08
 
-### [Deprecation / Removal](https://docs.docker.com/engine/release-notes/20.10/#deprecation--removal)
+### Deprecation / Removal
 
-For an overview of all deprecated features, refer to the [Deprecated Engine Features](https://docs.docker.com/engine/deprecated/) page.
+For an overview of all deprecated features, refer to the [Deprecated Engine Features]({{< ref "/manuals/DockerEngine/Deprecatedfeatures" >}}) page.
 
 - Warnings and deprecation notice when `docker pull`-ing from non-compliant registries not supporting pull-by-digest [docker/cli#2872](https://github.com/docker/cli/pull/2872)
 - Sterner warnings and deprecation notice for unauthenticated tcp access [moby/moby#41285](https://github.com/moby/moby/pull/41285)
@@ -715,7 +715,7 @@ For an overview of all deprecated features, refer to the [Deprecated Engine Feat
 - Remove deprecated `docker search --automated` and `--stars` flags [docker/cli#2338](https://github.com/docker/cli/pull/2338)
 - No longer allow reserved namespaces in engine labels [docker/cli#2326](https://github.com/docker/cli/pull/2326)
 
-### [API](https://docs.docker.com/engine/release-notes/20.10/#api)
+### API
 
 - Update API version to v1.41
 
@@ -753,7 +753,7 @@ For an overview of all deprecated features, refer to the [Deprecated Engine Feat
 
 - Add API support for PidsLimit on services [moby/moby#39882](https://github.com/moby/moby/pull/39882)
 
-### [Builder](https://docs.docker.com/engine/release-notes/20.10/#builder-5)
+### Builder
 
 - buildkit,dockerfile: Support for `RUN --mount` options without needing to specify experimental dockerfile `#syntax` directive. [moby/buildkit#1717](https://github.com/moby/buildkit/pull/1717)
 
@@ -835,7 +835,7 @@ For an overview of all deprecated features, refer to the [Deprecated Engine Feat
 
 - builder: remove legacy build's session handling (was experimental) [moby/moby#39983](https://github.com/moby/moby/pull/39983)
 
-### [Client](https://docs.docker.com/engine/release-notes/20.10/#client-7)
+### Client
 
 - Add swarm jobs support to CLI [docker/cli#2262](https://github.com/docker/cli/pull/2262)
 - Add `-a/--all-tags` to docker push [docker/cli#2220](https://github.com/docker/cli/pull/2220)
@@ -864,7 +864,7 @@ For an overview of all deprecated features, refer to the [Deprecated Engine Feat
 - docker cp: prevent NPE when failing to stat destination [docker/cli#2221](https://github.com/docker/cli/pull/2221)
 - config: preserve ownership and permissions on configfile [docker/cli#2228](https://github.com/docker/cli/pull/2228)
 
-### [Logging](https://docs.docker.com/engine/release-notes/20.10/#logging-2)
+### Logging
 
 - Support reading `docker logs` with all logging drivers (best effort) [moby/moby#40543](https://github.com/moby/moby/pull/40543)
 - Add `splunk-index-acknowledgment` log option to work with Splunk HECs with index acknowledgment enabled [moby/moby#39987](https://github.com/moby/moby/pull/39987)
@@ -872,7 +872,7 @@ For an overview of all deprecated features, refer to the [Deprecated Engine Feat
 - Reduce allocations for logfile reader [moby/moby#40796](https://github.com/moby/moby/pull/40796)
 - Fluentd: add fluentd-async, fluentd-request-ack, and deprecate fluentd-async-connect [moby/moby#39086](https://github.com/moby/moby/pull/39086)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/20.10/#runtime-5)
+### Runtime
 
 - Support cgroup2 [moby/moby#40174](https://github.com/moby/moby/pull/40174) [moby/moby#40657](https://github.com/moby/moby/pull/40657) [moby/moby#40662](https://github.com/moby/moby/pull/40662)
 - cgroup2: use "systemd" cgroup driver by default when available [moby/moby#40846](https://github.com/moby/moby/pull/40846)
@@ -893,7 +893,7 @@ For an overview of all deprecated features, refer to the [Deprecated Engine Feat
 - Accept platform spec on container create [moby/moby#40725](https://github.com/moby/moby/pull/40725)
 - Fix handling of looking up user- and group-names with spaces [moby/moby#41377](https://github.com/moby/moby/pull/41377)
 
-### [Networking](https://docs.docker.com/engine/release-notes/20.10/#networking-3)
+### Networking
 
 - Support host.docker.internal in dockerd on Linux [moby/moby#40007](https://github.com/moby/moby/pull/40007)
 
@@ -936,19 +936,19 @@ For an overview of all deprecated features, refer to the [Deprecated Engine Feat
 
 - Fix VFP leak in Windows overlay network deletion [moby/moby#40596](https://github.com/moby/moby/pull/40596) [moby/libnetwork#2524](https://github.com/moby/libnetwork/pull/2524)
 
-### [Packaging](https://docs.docker.com/engine/release-notes/20.10/#packaging-9)
+### Packaging
 
 - docker.service: Add multi-user.target to After= in unit file [moby/moby#41297](https://github.com/moby/moby/pull/41297)
 - docker.service: Allow socket activation [moby/moby#37470](https://github.com/moby/moby/pull/37470)
 - seccomp: Remove dependency in dockerd on libseccomp [moby/moby#41395](https://github.com/moby/moby/pull/41395)
 
-### [Rootless](https://docs.docker.com/engine/release-notes/20.10/#rootless-4)
+### Rootless
 
 - rootless: graduate from experimental [moby/moby#40759](https://github.com/moby/moby/pull/40759)
 - Add dockerd-rootless-setuptool.sh [moby/moby#40950](https://github.com/moby/moby/pull/40950)
 - Support `--exec-opt native.cgroupdriver=systemd` [moby/moby#40486](https://github.com/moby/moby/pull/40486)
 
-### [Security](https://docs.docker.com/engine/release-notes/20.10/#security-2)
+### Security
 
 - Fix CVE-2019-14271 loading of nsswitch based config inside chroot under Glibc [moby/moby#39612](https://github.com/moby/moby/pull/39612)
 - seccomp: Whitelist `clock_adjtime`. `CAP_SYS_TIME` is still required for time adjustment [moby/moby#40929](https://github.com/moby/moby/pull/40929)
@@ -959,7 +959,7 @@ For an overview of all deprecated features, refer to the [Deprecated Engine Feat
 - Add default sysctls to allow ping sockets and privileged ports with no capabilities [moby/moby#41030](https://github.com/moby/moby/pull/41030)
 - Fix seccomp profile for clone syscall [moby/moby#39308](https://github.com/moby/moby/pull/39308)
 
-### [Swarm](https://docs.docker.com/engine/release-notes/20.10/#swarm-4)
+### Swarm
 
 - Add support for swarm jobs [moby/moby#40307](https://github.com/moby/moby/pull/40307)
 - Add capabilities support to stack/service commands [docker/cli#2687](https://github.com/docker/cli/pull/2687) [docker/cli#2709](https://github.com/docker/cli/pull/2709) [moby/moby#39173](https://github.com/moby/moby/pull/39173) [moby/moby#41249](https://github.com/moby/moby/pull/41249)

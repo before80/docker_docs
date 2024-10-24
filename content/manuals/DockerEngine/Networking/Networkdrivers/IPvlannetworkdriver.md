@@ -8,19 +8,19 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/network/drivers/ipvlan/](https://docs.docker.com/engine/network/drivers/ipvlan/)
+> 原文：[https://docs.docker.com/engine/network/drivers/ipvlan/](https://docs.docker.com/engine/network/drivers/ipvlan/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # IPvlan network driver
 
-The IPvlan driver gives users total control over both IPv4 and IPv6 addressing. The VLAN driver builds on top of that in giving operators complete control of layer 2 VLAN tagging and even IPvlan L3 routing for users interested in underlay network integration. For overlay deployments that abstract away physical constraints see the [multi-host overlay](https://docs.docker.com/engine/network/tutorials/overlay/) driver.
+The IPvlan driver gives users total control over both IPv4 and IPv6 addressing. The VLAN driver builds on top of that in giving operators complete control of layer 2 VLAN tagging and even IPvlan L3 routing for users interested in underlay network integration. For overlay deployments that abstract away physical constraints see the [multi-host overlay]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithoverlaynetworks" >}}) driver.
 
 IPvlan is a new twist on the tried and true network virtualization technique. The Linux implementations are extremely lightweight because rather than using the traditional Linux bridge for isolation, they are associated to a Linux Ethernet interface or sub-interface to enforce separation between networks and connectivity to the physical network.
 
 IPvlan offers a number of unique features and plenty of room for further innovations with the various modes. Two high level advantages of these approaches are, the positive performance implications of bypassing the Linux bridge and the simplicity of having fewer moving parts. Removing the bridge that traditionally resides in between the Docker host NIC and container interface leaves a simple setup consisting of container interfaces, attached directly to the Docker host interface. This result is easy to access for external facing services as there is no need for port mappings in these scenarios.
 
-## [Options](https://docs.docker.com/engine/network/drivers/ipvlan/#options)
+## Options
 
 The following table describes the driver-specific options that you can pass to `--option` when creating a network using the `ipvlan` driver.
 
@@ -30,16 +30,16 @@ The following table describes the driver-specific options that you can pass to `
 | `ipvlan_flag` | `bridge` | Sets the IPvlan mode flag. Can be one of: `bridge`, `private`, `vepa` |
 | `parent`      |          | Specifies the parent interface to use.                       |
 
-## [Examples](https://docs.docker.com/engine/network/drivers/ipvlan/#examples)
+## Examples
 
-### [Prerequisites](https://docs.docker.com/engine/network/drivers/ipvlan/#prerequisites)
+### Prerequisites
 
 - The examples on this page are all single host.
 - All examples can be performed on a single host running Docker. Any example using a sub-interface like `eth0.10` can be replaced with `eth0` or any other valid parent interface on the Docker host. Sub-interfaces with a `.` are created on the fly. `-o parent` interfaces can also be left out of the `docker network create` all together and the driver will create a `dummy` interface that will enable local host connectivity to perform the examples.
 - Kernel requirements:
   - IPvlan Linux kernel v4.2+ (support for earlier kernels exists but is buggy). To check your current kernel version, use `uname -r`
 
-### [IPvlan L2 mode example usage](https://docs.docker.com/engine/network/drivers/ipvlan/#ipvlan-l2-mode-example-usage)
+### IPvlan L2 mode example usage
 
 An example of the IPvlan `L2` mode topology is shown in the following image. The driver is specified with `-d driver_name` option. In this case `-d ipvlan`.
 
@@ -133,7 +133,7 @@ $ docker exec -it cid2 /bin/sh
 $ docker exec -it cid3 /bin/sh
 ```
 
-### [IPvlan 802.1Q trunk L2 mode example usage](https://docs.docker.com/engine/network/drivers/ipvlan/#ipvlan-8021q-trunk-l2-mode-example-usage)
+### IPvlan 802.1Q trunk L2 mode example usage
 
 Architecturally, IPvlan L2 mode trunking is the same as Macvlan with regard to gateways and L2 path isolation. There are nuances that can be advantageous for CAM table pressure in ToR switches, one MAC per port and MAC exhaustion on a host's parent NIC to name a few. The 802.1Q trunk scenario looks the same. Both modes adhere to tagging standards and have seamless integration with the physical network for underlay integration and hardware vendor plugin integrations.
 
@@ -151,7 +151,7 @@ For example: use `eth0.10` to denote a sub-interface of `eth0` tagged with the V
 
 The example creates the VLAN tagged networks and then starts two containers to test connectivity between containers. Different VLANs cannot ping one another without a router routing between the two networks. The default namespace is not reachable per IPvlan design in order to isolate container namespaces from the underlying host.
 
-#### [VLAN ID 20](https://docs.docker.com/engine/network/drivers/ipvlan/#vlan-id-20)
+#### VLAN ID 20
 
 In the first network tagged and isolated by the Docker host, `eth0.20` is the parent interface tagged with VLAN id `20` specified with `-o parent=eth0.20`. Other naming formats can be used, but the links need to be added and deleted manually using `ip link` or Linux configuration files. As long as the `-o parent` exists, anything can be used if it is compliant with Linux netlink.
 
@@ -169,7 +169,7 @@ $ docker run --net=ipvlan20 -it --name ivlan_test1 --rm alpine /bin/sh
 $ docker run --net=ipvlan20 -it --name ivlan_test2 --rm alpine /bin/sh
 ```
 
-#### [VLAN ID 30](https://docs.docker.com/engine/network/drivers/ipvlan/#vlan-id-30)
+#### VLAN ID 30
 
 In the second network, tagged and isolated by the Docker host, `eth0.30` is the parent interface tagged with VLAN id `30` specified with `-o parent=eth0.30`. The `ipvlan_mode=` defaults to l2 mode `ipvlan_mode=l2`. It can also be explicitly set with the same result as shown in the next example.
 
@@ -226,7 +226,7 @@ An example being, NetOps provides VLAN ID and the associated subnets for VLANs b
 - VLAN: 30, Subnet: 10.1.100.0/16, Gateway: 10.1.100.1
   - `--subnet=10.1.100.0/16 --gateway=10.1.100.1 -o parent=eth0.30`
 
-### [IPvlan L3 mode example](https://docs.docker.com/engine/network/drivers/ipvlan/#ipvlan-l3-mode-example)
+### IPvlan L3 mode example
 
 IPvlan will require routes to be distributed to each endpoint. The driver only builds the IPvlan L3 mode port and attaches the container to the interface. Route distribution throughout a cluster is beyond the initial implementation of this single host scoped driver. In L3 mode, the Docker host is very similar to a router starting new networks in the container. They are on networks that the upstream network will not know about without route distribution. For those curious how IPvlan L3 will fit into container networking, see the following examples.
 
@@ -290,7 +290,7 @@ $ docker run --net=ipnet210 --ip=10.1.214.9 -it --rm alpine ping -c 2 192.168.21
 
 In order to ping the containers from a remote Docker host or the container be able to ping a remote host, the remote host or the physical network in between need to have a route pointing to the host IP address of the container's Docker host eth interface.
 
-### [Dual stack IPv4 IPv6 IPvlan L2 mode](https://docs.docker.com/engine/network/drivers/ipvlan/#dual-stack-ipv4-ipv6-ipvlan-l2-mode)
+### Dual stack IPv4 IPv6 IPvlan L2 mode
 
 - Not only does Libnetwork give you complete control over IPv4 addressing, but it also gives you total control over IPv6 addressing as well as feature parity between the two address families.
 - The next example will start with IPv6 only. Start two containers on the same VLAN `139` and ping one another. Since the IPv4 subnet is not specified, the default IPAM will provision a default IPv4 subnet. That subnet is isolated unless the upstream network is explicitly routing it on VLAN `139`.
@@ -413,7 +413,7 @@ $ docker run --net=ipvlan140 --ip=192.168.140.10 -it --rm alpine /bin/sh
 >
 > Different subnets on the same parent interface in IPvlan `L2` mode cannot ping one another. That requires a router to proxy-arp the requests with a secondary subnet. However, IPvlan `L3` will route the unicast traffic between disparate subnets as long as they share the same `-o parent` parent link.
 
-### [Dual stack IPv4 IPv6 IPvlan L3 mode](https://docs.docker.com/engine/network/drivers/ipvlan/#dual-stack-ipv4-ipv6-ipvlan-l3-mode)
+### Dual stack IPv4 IPv6 IPvlan L3 mode
 
 Example: IPvlan L3 Mode Dual Stack IPv4/IPv6, Multi-Subnet w/ 802.1Q VLAN Tag:118
 
@@ -483,9 +483,9 @@ default dev eth0  metric 1024
 docker: Error response from daemon: Address already in use.
 ```
 
-### [Manually create 802.1Q links](https://docs.docker.com/engine/network/drivers/ipvlan/#manually-create-8021q-links)
+### Manually create 802.1Q links
 
-#### [VLAN ID 40](https://docs.docker.com/engine/network/drivers/ipvlan/#vlan-id-40)
+#### VLAN ID 40
 
 If a user does not want the driver to create the VLAN sub-interface, it needs to exist before running `docker network create`. If you have sub-interface naming that is not `interface.vlan_id` it is honored in the `-o parent=` option again as long as the interface exists and is up.
 

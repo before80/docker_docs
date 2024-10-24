@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/ci/github-actions/](https://docs.docker.com/build/ci/github-actions/)
+> 原文：[https://docs.docker.com/build/ci/github-actions/](https://docs.docker.com/build/ci/github-actions/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -23,34 +23,34 @@ The following GitHub Actions are available:
 - [Docker Setup Buildx](https://github.com/marketplace/actions/docker-setup-buildx): initiates a BuildKit builder.
 - [Docker Metadata action](https://github.com/marketplace/actions/docker-metadata-action): extracts metadata from Git reference and GitHub events.
 - [Docker Setup QEMU](https://github.com/marketplace/actions/docker-setup-qemu): installs [QEMU](https://github.com/qemu/qemu) static binaries for multi-arch builds.
-- [Docker Buildx Bake](https://github.com/marketplace/actions/docker-buildx-bake): enables using high-level builds with [Bake](https://docs.docker.com/build/bake/).
+- [Docker Buildx Bake](https://github.com/marketplace/actions/docker-buildx-bake): enables using high-level builds with [Bake]({{< ref "/manuals/DockerBuild/Bake" >}}).
 - [Docker Scout](https://github.com/docker/scout-action): analyze Docker images for security vulnerabilities.
 
 Using Docker's actions provides an easy-to-use interface, while still allowing flexibility for customizing build parameters.
 
-## [Examples](https://docs.docker.com/build/ci/github-actions/#examples)
+## Examples
 
 If you're looking for examples on how to use the Docker GitHub Actions, refer to the following sections:
 
-- [Add image annotations with GitHub Actions](https://docs.docker.com/build/ci/github-actions/annotations/)
-- [Add SBOM and provenance attestations with GitHub Actions](https://docs.docker.com/build/ci/github-actions/attestations/)
-- [Using secrets with GitHub Actions](https://docs.docker.com/build/ci/github-actions/secrets/)
-- [GitHub Actions build summary](https://docs.docker.com/build/ci/github-actions/build-summary/)
-- [Configuring your GitHub Actions builder](https://docs.docker.com/build/ci/github-actions/configure-builder/)
-- [Cache management with GitHub Actions](https://docs.docker.com/build/ci/github-actions/cache/)
-- [Copy image between registries with GitHub Actions](https://docs.docker.com/build/ci/github-actions/copy-image-registries/)
-- [Export to Docker with GitHub Actions](https://docs.docker.com/build/ci/github-actions/export-docker/)
-- [Local registry with GitHub Actions](https://docs.docker.com/build/ci/github-actions/local-registry/)
-- [Multi-platform image with GitHub Actions](https://docs.docker.com/build/ci/github-actions/multi-platform/)
-- [Named contexts with GitHub Actions](https://docs.docker.com/build/ci/github-actions/named-contexts/)
-- [Push to multiple registries with GitHub Actions](https://docs.docker.com/build/ci/github-actions/push-multi-registries/)
-- [Reproducible builds with GitHub Actions](https://docs.docker.com/build/ci/github-actions/reproducible-builds/)
-- [Share built image between jobs with GitHub Actions](https://docs.docker.com/build/ci/github-actions/share-image-jobs/)
-- [Manage tags and labels with GitHub Actions](https://docs.docker.com/build/ci/github-actions/manage-tags-labels/)
-- [Test before push with GitHub Actions](https://docs.docker.com/build/ci/github-actions/test-before-push/)
-- [Update Docker Hub description with GitHub Actions](https://docs.docker.com/build/ci/github-actions/update-dockerhub-desc/)
+- [Add image annotations with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Annotations" >}})
+- [Add SBOM and provenance attestations with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Attestations" >}})
+- [Using secrets with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Buildsecrets" >}})
+- [GitHub Actions build summary]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Buildsummary" >}})
+- [Configuring your GitHub Actions builder]({{< ref "/manuals/DockerBuild/CI/GitHubActions/BuildKitconfiguration" >}})
+- [Cache management with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Cachemanagement" >}})
+- [Copy image between registries with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Copyimagebetweenregistries" >}})
+- [Export to Docker with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/ExporttoDocker" >}})
+- [Local registry with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Localregistry" >}})
+- [Multi-platform image with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Multi-platformimage" >}})
+- [Named contexts with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Namedcontexts" >}})
+- [Push to multiple registries with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Pushtomultipleregistries" >}})
+- [Reproducible builds with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Reproduciblebuilds" >}})
+- [Share built image between jobs with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Shareimagebetweenjobs" >}})
+- [Manage tags and labels with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Tagsandlabels" >}})
+- [Test before push with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Testbeforepush" >}})
+- [Update Docker Hub description with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/UpdateDockerHubdescription" >}})
 
-## [Get started with GitHub Actions](https://docs.docker.com/build/ci/github-actions/#get-started-with-github-actions)
+## Get started with GitHub Actions
 
 This tutorial walks you through the process of setting up and using Docker GitHub Actions for building Docker images, and pushing images to Docker Hub. You will complete the following steps:
 
@@ -60,7 +60,7 @@ This tutorial walks you through the process of setting up and using Docker GitHu
 
 To follow this tutorial, you need a Docker ID and a GitHub account.
 
-### [Step one: Create the repository](https://docs.docker.com/build/ci/github-actions/#step-one-create-the-repository)
+### Step one: Create the repository
 
 Create a GitHub repository and configure the Docker Hub credentials.
 
@@ -78,7 +78,7 @@ Create a GitHub repository and configure the Docker Hub credentials.
 
 With your repository created, and credentials configured, you're now ready for action.
 
-### [Step two: Set up the workflow](https://docs.docker.com/build/ci/github-actions/#step-two-set-up-the-workflow)
+### Step two: Set up the workflow
 
 Set up your GitHub Actions workflow for building and pushing the image to Docker Hub.
 
@@ -111,7 +111,7 @@ Set up your GitHub Actions workflow for building and pushing the image to Docker
 
 For more information about the YAML syntax used here, see [Workflow syntax for GitHub Actions](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions).
 
-### [Step three: Define the workflow steps](https://docs.docker.com/build/ci/github-actions/#step-three-define-the-workflow-steps)
+### Step three: Define the workflow steps
 
 Now the essentials: what steps to run, and in what order to run them.
 
@@ -185,7 +185,7 @@ jobs:
           tags: ${{ vars.DOCKERHUB_USERNAME }}/clockbox:latest
 ```
 
-### [Run the workflow](https://docs.docker.com/build/ci/github-actions/#run-the-workflow)
+### Run the workflow
 
 Save the workflow file and run the job.
 
@@ -201,8 +201,8 @@ Save the workflow file and run the job.
 
    If you see the new repository in that list, it means the GitHub Actions successfully pushed the image to Docker Hub.
 
-## [Next steps](https://docs.docker.com/build/ci/github-actions/#next-steps)
+## Next steps
 
 This tutorial has shown you how to create a simple GitHub Actions workflow, using the official Docker actions, to build and push an image to Docker Hub.
 
-There are many more things you can do to customize your workflow to better suit your needs. To learn more about some of the more advanced use cases, take a look at the advanced examples, such as [building multi-platform images](https://docs.docker.com/build/ci/github-actions/multi-platform/), or [using cache storage backends](https://docs.docker.com/build/ci/github-actions/cache/) and also how to [configure your builder](https://docs.docker.com/build/ci/github-actions/configure-builder/).
+There are many more things you can do to customize your workflow to better suit your needs. To learn more about some of the more advanced use cases, take a look at the advanced examples, such as [building multi-platform images]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Multi-platformimage" >}}), or [using cache storage backends]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Cachemanagement" >}}) and also how to [configure your builder]({{< ref "/manuals/DockerBuild/CI/GitHubActions/BuildKitconfiguration" >}}).

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/how-swarm-mode-works/swarm-task-states/](https://docs.docker.com/engine/swarm/how-swarm-mode-works/swarm-task-states/)
+> 原文：[https://docs.docker.com/engine/swarm/how-swarm-mode-works/swarm-task-states/](https://docs.docker.com/engine/swarm/how-swarm-mode-works/swarm-task-states/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -45,7 +45,7 @@ Tasks go through the states in the following order:
 | `ORPHANED`  | The node was down for too long.                              |
 | `REMOVE`    | The task is not terminal but the associated service was removed or scaled down. |
 
-## [View task state](https://docs.docker.com/engine/swarm/how-swarm-mode-works/swarm-task-states/#view-task-state)
+## View task state
 
 Run `docker service ps <service-name>` to get the state of a task. The `CURRENT STATE` field shows the task's state and how long it's been there.
 
@@ -59,6 +59,6 @@ j91iahr8s74p    \_ webserver.1   nginx    UbuntuVM    Shutdown       Failed 50 s
 7dyaszg13mw2    \_ webserver.1   nginx    UbuntuVM    Shutdown       Failed 5 hours ago       "No such container: webserver.…"
 ```
 
-## [Where to go next](https://docs.docker.com/engine/swarm/how-swarm-mode-works/swarm-task-states/#where-to-go-next)
+## Where to go next
 
 - [Learn about swarm tasks](https://github.com/docker/swarmkit/blob/master/design/task_model.md)

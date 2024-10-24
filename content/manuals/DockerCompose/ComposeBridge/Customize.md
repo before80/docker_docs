@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/bridge/customize/](https://docs.docker.com/compose/bridge/customize/)
+> 原文：[https://docs.docker.com/compose/bridge/customize/](https://docs.docker.com/compose/bridge/customize/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ Compose Bridge is an [Experimental](https://docs.docker.com/release-lifecycle/#e
 
 This page explains how Compose Bridge utilizes templating to efficiently translate Docker Compose files into Kubernetes manifests. It also explain how you can customize these templates for your specific requirements and needs, or how you can build your own transformation.
 
-## [How it works](https://docs.docker.com/compose/bridge/customize/#how-it-works)
+## How it works
 
 Compose bridge uses transformations to let you convert a Compose model into another form.
 
@@ -28,7 +28,7 @@ A transformation is packaged as a Docker image that receives the fully-resolved 
 
 Compose Bridge provides its transformation for Kubernetes using Go templates, so that it is easy to extend for customization by just replacing or appending your own templates.
 
-### [Syntax](https://docs.docker.com/compose/bridge/customize/#syntax)
+### Syntax
 
 Compose Bridge make use of templates to transform a Compose configuration file into Kubernetes manifests. Templates are plain text files that use the [Go templating syntax](https://pkg.go.dev/text/template). This enables the insertion of logic and data, making the templates dynamic and adaptable according to the Compose model.
 
@@ -56,7 +56,7 @@ key: value
 {{ end }}
 ```
 
-### [Input](https://docs.docker.com/compose/bridge/customize/#input)
+### Input
 
 The input Compose model is the canonical YAML model you can get by running `docker compose config`. Within the templates, data from the `compose.yaml` is accessed using dot notation, allowing you to navigate through nested data structures. For example, to access the deployment mode of a service, you would use `service.deploy.mode`:
 
@@ -74,7 +74,7 @@ kind: DaemonSet
 
 You can check the [Compose Specification JSON schema](https://github.com/compose-spec/compose-go/blob/main/schema/compose-spec.json) to have a full overview of the Compose model. This schema outlines all possible configurations and their data types in the Compose model.
 
-### [Helpers](https://docs.docker.com/compose/bridge/customize/#helpers)
+### Helpers
 
 As part of the Go templating syntax, Compose Bridge offers a set of YAML helper functions designed to manipulate data within the templates efficiently:
 
@@ -99,11 +99,11 @@ In the following example, the template checks if a healthcheck interval is speci
 {{ end }}
 ```
 
-## [Customization](https://docs.docker.com/compose/bridge/customize/#customization)
+## Customization
 
 As Kubernetes is a versatile platform, there are many ways to map Compose concepts into Kubernetes resource definitions. Compose Bridge lets you customize the transformation to match your own infrastructure decisions and preferences, with various level of flexibility and effort.
 
-### [Modify the default templates](https://docs.docker.com/compose/bridge/customize/#modify-the-default-templates)
+### Modify the default templates
 
 You can extract templates used by the default transformation `docker/compose-bridge-kubernetes`, by running `compose-bridge transformations create --from docker/compose-bridge-kubernetes my-template` and adjusting the templates to match your needs.
 
@@ -126,7 +126,7 @@ You can then use your transformation as a replacement:
 $ compose-bridge convert --transformations mycompany/transform 
 ```
 
-### [Add your own templates](https://docs.docker.com/compose/bridge/customize/#add-your-own-templates)
+### Add your own templates
 
 For resources that are not managed by Compose Bridge's default transformation, you can build your own templates. The `compose.yaml` model may not offer all the configuration attributes required to populate the target manifest. If this is the case, you can then rely on Compose custom extensions to better describe the application, and offer an agnostic transformation.
 
@@ -170,7 +170,7 @@ $ compose-bridge convert \
     --transformation mycompany/transform 
 ```
 
-### [Build your own transformation](https://docs.docker.com/compose/bridge/customize/#build-your-own-transformation)
+### Build your own transformation
 
 While Compose Bridge templates make it easy to customize with minimal changes, you may want to make significant changes, or rely on an existing conversion tool.
 
@@ -195,6 +195,6 @@ CMD ["/usr/bin/kompose", "convert", "-f", "/in/compose.yaml", "--out", "/out"]
 
 This Dockerfile bundles Kompose and defines the command to run this tool according to the Compose Bridge transformation contract.
 
-## [What's next?](https://docs.docker.com/compose/bridge/customize/#whats-next)
+## What's next?
 
-- [Explore the advanced integration](https://docs.docker.com/compose/bridge/advanced-integration/)
+- [Explore the advanced integration]({{< ref "/manuals/DockerCompose/ComposeBridge/Advanced" >}})

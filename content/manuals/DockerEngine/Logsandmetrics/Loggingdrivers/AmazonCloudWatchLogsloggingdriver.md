@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/logging/drivers/awslogs/](https://docs.docker.com/engine/logging/drivers/awslogs/)
+> 原文：[https://docs.docker.com/engine/logging/drivers/awslogs/](https://docs.docker.com/engine/logging/drivers/awslogs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 The `awslogs` logging driver sends container logs to [Amazon CloudWatch Logs](https://aws.amazon.com/cloudwatch/details/#log-monitoring). Log entries can be retrieved through the [AWS Management Console](https://console.aws.amazon.com/cloudwatch/home#logs:) or the [AWS SDKs and Command Line Tools](https://docs.aws.amazon.com/cli/latest/reference/logs/index.html).
 
-## [Usage](https://docs.docker.com/engine/logging/drivers/awslogs/#usage)
+## Usage
 
 To use the `awslogs` driver as the default logging driver, set the `log-driver` and `log-opt` keys to appropriate values in the `daemon.json` file, which is located in `/etc/docker/` on Linux hosts or `C:\ProgramData\docker\config\daemon.json` on Windows Server. For more about configuring Docker using `daemon.json`, see [daemon.json](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file). The following example sets the log driver to `awslogs` and sets the `awslogs-region` option.
 
@@ -53,11 +53,11 @@ myservice:
       awslogs-region: us-east-1
 ```
 
-## [Amazon CloudWatch Logs options](https://docs.docker.com/engine/logging/drivers/awslogs/#amazon-cloudwatch-logs-options)
+## Amazon CloudWatch Logs options
 
 You can add logging options to the `daemon.json` to set Docker-wide defaults, or use the `--log-opt NAME=VALUE` flag to specify Amazon CloudWatch Logs logging driver options when starting a container.
 
-### [awslogs-region](https://docs.docker.com/engine/logging/drivers/awslogs/#awslogs-region)
+### awslogs-region
 
 The `awslogs` logging driver sends your Docker logs to a specific region. Use the `awslogs-region` log option or the `AWS_REGION` environment variable to set the region. By default, if your Docker daemon is running on an EC2 instance and no region is set, the driver uses the instance's region.
 
@@ -67,7 +67,7 @@ The `awslogs` logging driver sends your Docker logs to a specific region. Use th
 $ docker run --log-driver=awslogs --log-opt awslogs-region=us-east-1 ...
 ```
 
-### [awslogs-endpoint](https://docs.docker.com/engine/logging/drivers/awslogs/#awslogs-endpoint)
+### awslogs-endpoint
 
 By default, Docker uses either the `awslogs-region` log option or the detected region to construct the remote CloudWatch Logs API endpoint. Use the `awslogs-endpoint` log option to override the default endpoint with the provided endpoint.
 
@@ -77,7 +77,7 @@ By default, Docker uses either the `awslogs-region` log option or the detected r
 >
 > The `awslogs-region` log option or detected region controls the region used for signing. You may experience signature errors if the endpoint you've specified with `awslogs-endpoint` uses a different region.
 
-### [awslogs-group](https://docs.docker.com/engine/logging/drivers/awslogs/#awslogs-group)
+### awslogs-group
 
 You must specify a [log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) for the `awslogs` logging driver. You can specify the log group with the `awslogs-group` log option:
 
@@ -87,7 +87,7 @@ You must specify a [log group](https://docs.aws.amazon.com/AmazonCloudWatch/late
 $ docker run --log-driver=awslogs --log-opt awslogs-region=us-east-1 --log-opt awslogs-group=myLogGroup ...
 ```
 
-### [awslogs-stream](https://docs.docker.com/engine/logging/drivers/awslogs/#awslogs-stream)
+### awslogs-stream
 
 To configure which [log stream](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) should be used, you can specify the `awslogs-stream` log option. If not specified, the container ID is used as the log stream.
 
@@ -97,7 +97,7 @@ To configure which [log stream](https://docs.aws.amazon.com/AmazonCloudWatch/lat
 >
 > Log streams within a given log group should only be used by one container at a time. Using the same log stream for multiple containers concurrently can cause reduced logging performance.
 
-### [awslogs-create-group](https://docs.docker.com/engine/logging/drivers/awslogs/#awslogs-create-group)
+### awslogs-create-group
 
 Log driver returns an error by default if the log group doesn't exist. However, you can set the `awslogs-create-group` to `true` to automatically create the log group as needed. The `awslogs-create-group` option defaults to `false`.
 
@@ -118,7 +118,7 @@ $ docker run \
 >
 > Your AWS IAM policy must include the `logs:CreateLogGroup` permission before you attempt to use `awslogs-create-group`.
 
-### [awslogs-create-stream](https://docs.docker.com/engine/logging/drivers/awslogs/#awslogs-create-stream)
+### awslogs-create-stream
 
 By default, the log driver creates the AWS CloudWatch Logs stream used for container log persistence.
 
@@ -138,7 +138,7 @@ $ docker run \
     ...
 ```
 
-### [awslogs-datetime-format](https://docs.docker.com/engine/logging/drivers/awslogs/#awslogs-datetime-format)
+### awslogs-datetime-format
 
 The `awslogs-datetime-format` option defines a multi-line start pattern in [Python `strftime` format](https://strftime.org/). A log message consists of a line that matches the pattern and any following lines that don't match the pattern. Thus the matched line is the delimiter between log messages.
 
@@ -218,7 +218,7 @@ The following `strftime` codes are supported:
 | `%Z` | Time zone name.                                              | PST      |
 | `%j` | Day of the year as a zero-padded decimal number.             | 363      |
 
-### [awslogs-multiline-pattern](https://docs.docker.com/engine/logging/drivers/awslogs/#awslogs-multiline-pattern)
+### awslogs-multiline-pattern
 
 The `awslogs-multiline-pattern` option defines a multi-line start pattern using a regular expression. A log message consists of a line that matches the pattern and any following lines that don't match the pattern. Thus the matched line is the delimiter between log messages.
 
@@ -270,9 +270,9 @@ INFO Another multi-line message was logged
 INFO Another message was logged
 ```
 
-### [tag](https://docs.docker.com/engine/logging/drivers/awslogs/#tag)
+### tag
 
-Specify `tag` as an alternative to the `awslogs-stream` option. `tag` interprets Go template markup, such as `{{.ID}}`, `{{.FullID}}` or `{{.Name}}` `docker.{{.ID}}`. See the [tag option documentation](https://docs.docker.com/engine/logging/log_tags/) for details on supported template substitutions.
+Specify `tag` as an alternative to the `awslogs-stream` option. `tag` interprets Go template markup, such as `{{.ID}}`, `{{.FullID}}` or `{{.Name}}` `docker.{{.ID}}`. See the [tag option documentation]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}) for details on supported template substitutions.
 
 When both `awslogs-stream` and `tag` are specified, the value supplied for `awslogs-stream` overrides the template specified with `tag`.
 
@@ -292,7 +292,7 @@ If not specified, the container ID is used as the log stream.
 >
 > the output is something like: `alpine_latest-bf0072049c76`
 
-### [awslogs-force-flush-interval-seconds](https://docs.docker.com/engine/logging/drivers/awslogs/#awslogs-force-flush-interval-seconds)
+### awslogs-force-flush-interval-seconds
 
 The `awslogs` driver periodically flushes logs to CloudWatch.
 
@@ -300,7 +300,7 @@ The `awslogs-force-flush-interval-seconds` option changes log flush interval sec
 
 Default is 5 seconds.
 
-### [awslogs-max-buffered-events](https://docs.docker.com/engine/logging/drivers/awslogs/#awslogs-max-buffered-events)
+### awslogs-max-buffered-events
 
 The `awslogs` driver buffers logs.
 
@@ -308,7 +308,7 @@ The `awslogs-max-buffered-events` option changes log buffer size.
 
 Default is 4K.
 
-## [Credentials](https://docs.docker.com/engine/logging/drivers/awslogs/#credentials)
+## Credentials
 
 You must provide AWS credentials to the Docker daemon to use the `awslogs` logging driver. You can provide these credentials with the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_SESSION_TOKEN` environment variables, the default AWS shared credentials file (`~/.aws/credentials` of the root user), or if you are running the Docker daemon on an Amazon EC2 instance, the Amazon EC2 instance profile.
 

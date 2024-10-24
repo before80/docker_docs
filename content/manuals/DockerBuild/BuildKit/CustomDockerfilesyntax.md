@@ -8,15 +8,15 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/buildkit/frontend/](https://docs.docker.com/build/buildkit/frontend/)
+> 原文：[https://docs.docker.com/build/buildkit/frontend/](https://docs.docker.com/build/buildkit/frontend/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Custom Dockerfile syntax
 
-## [Dockerfile frontend](https://docs.docker.com/build/buildkit/frontend/#dockerfile-frontend)
+## Dockerfile frontend
 
-BuildKit supports loading frontends dynamically from container images. To use an external Dockerfile frontend, the first line of your [Dockerfile](https://docs.docker.com/reference/dockerfile/) needs to set the [`syntax` directive](https://docs.docker.com/reference/dockerfile/#syntax) pointing to the specific image you want to use:
+BuildKit supports loading frontends dynamically from container images. To use an external Dockerfile frontend, the first line of your [Dockerfile]({{< ref "/reference/Dockerfilereference" >}}) needs to set the [`syntax` directive](https://docs.docker.com/reference/dockerfile/#syntax) pointing to the specific image you want to use:
 
 
 
@@ -59,11 +59,11 @@ Custom Dockerfile implementations allow you to:
 >
 > BuildKit ships with a built-in Dockerfile frontend, but it's recommended to use an external image to make sure that all users use the same version on the builder and to pick up bug fixes automatically without waiting for a new version of BuildKit or Docker Engine.
 
-## [Official releases](https://docs.docker.com/build/buildkit/frontend/#official-releases)
+## Official releases
 
 Docker distributes official versions of the images that can be used for building Dockerfiles under `docker/dockerfile` repository on Docker Hub. There are two channels where new images are released: `stable` and `labs`.
 
-### [Stable channel](https://docs.docker.com/build/buildkit/frontend/#stable-channel)
+### Stable channel
 
 The `stable` channel follows [semantic versioning](https://semver.org/). For example:
 
@@ -75,7 +75,7 @@ We recommend using `docker/dockerfile:1`, which always points to the latest stab
 
 If a specific version is used, such as `1.2` or `1.2.1`, the Dockerfile needs to be updated manually to continue receiving bugfixes and new features. Old versions of the Dockerfile remain compatible with the new versions of the builder.
 
-### [Labs channel](https://docs.docker.com/build/buildkit/frontend/#labs-channel)
+### Labs channel
 
 The `labs` channel provides early access to Dockerfile features that are not yet available in the `stable` channel. `labs` images are released at the same time as stable releases, and follow the same version pattern, but use the `-labs` suffix, for example:
 
@@ -86,6 +86,6 @@ The `labs` channel provides early access to Dockerfile features that are not yet
 
 Choose a channel that best fits your needs. If you want to benefit from new features, use the `labs` channel. Images in the `labs` channel contain all the features in the `stable` channel, plus early access features. Stable features in the `labs` channel follow [semantic versioning](https://semver.org/), but early access features don't, and newer releases may not be backwards compatible. Pin the version to avoid having to deal with breaking changes.
 
-## [Other resources](https://docs.docker.com/build/buildkit/frontend/#other-resources)
+## Other resources
 
 For documentation on `labs` features, master builds, and nightly feature releases, refer to the description in [the BuildKit source repository on GitHub](https://github.com/moby/buildkit/blob/master/README.md). For a full list of available images, visit the [`docker/dockerfile` repository on Docker Hub](https://hub.docker.com/r/docker/dockerfile), and the [`docker/dockerfile-upstream` repository on Docker Hub](https://hub.docker.com/r/docker/dockerfile-upstream) for development builds.

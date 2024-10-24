@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/samples/pi-hole/](https://docs.docker.com/reference/samples/pi-hole/)
+> 原文：[https://docs.docker.com/reference/samples/pi-hole/](https://docs.docker.com/reference/samples/pi-hole/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 

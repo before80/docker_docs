@@ -8,23 +8,23 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/18.01/](https://docs.docker.com/engine/release-notes/18.01/)
+> 原文：[https://docs.docker.com/engine/release-notes/18.01/](https://docs.docker.com/engine/release-notes/18.01/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Engine 18.01 release notes
 
-## [18.01.0-ce](https://docs.docker.com/engine/release-notes/18.01/#18010-ce)
+## 18.01.0-ce
 
 2018-01-10
 
-### [Builder](https://docs.docker.com/engine/release-notes/18.01/#builder)
+### Builder
 
 - Fix files not being deleted if user-namespaces are enabled [moby/moby#35822](https://github.com/moby/moby/pull/35822)
 
 - Add support for expanding environment-variables in `docker commit --change ...` [moby/moby#35582](https://github.com/moby/moby/pull/35582)
 
-### [Client](https://docs.docker.com/engine/release-notes/18.01/#client)
+### Client
 
 - Return errors from client in stack deploy configs [docker/cli#757](https://github.com/docker/cli/pull/757)
 
@@ -40,7 +40,7 @@ draft = false
 
 - Fix bash completion for `"docker swarm"` [docker/cli#772](https://github.com/docker/cli/pull/772)
 
-### [Documentation](https://docs.docker.com/engine/release-notes/18.01/#documentation)
+### Documentation
 
 - Correct references to `--publish` long syntax in docs [docker/cli#746](https://github.com/docker/cli/pull/746)
 - Corrected descriptions for MAC_ADMIN and MAC_OVERRIDE [docker/cli#761](https://github.com/docker/cli/pull/761)
@@ -49,26 +49,26 @@ draft = false
 - Fix `"on-failure"` restart policy being documented as "failure" [docker/cli#754](https://github.com/docker/cli/pull/754)
 - Fix anchors to "Storage driver options" [docker/cli#748](https://github.com/docker/cli/pull/748)
 
-### [Experimental](https://docs.docker.com/engine/release-notes/18.01/#experimental)
+### Experimental
 
 - Add kubernetes support to `docker stack` command [docker/cli#721](https://github.com/docker/cli/pull/721)
 
 - Don't append the container id to custom directory checkpoints. [moby/moby#35694](https://github.com/moby/moby/pull/35694)
 
-### [Logging](https://docs.docker.com/engine/release-notes/18.01/#logging)
+### Logging
 
 - Fix daemon crash when using the GELF log driver over TCP when the GELF server goes down [moby/moby#35765](https://github.com/moby/moby/pull/35765)
 
 - Fix awslogs batch size calculation for large logs [moby/moby#35726](https://github.com/moby/moby/pull/35726)
 
-### [Networking](https://docs.docker.com/engine/release-notes/18.01/#networking)
+### Networking
 
 - Windows: Fix to allow docker service to start on Windows VM [docker/libnetwork#1916](https://github.com/docker/libnetwork/pull/1916)
 - Fix for docker intercepting DNS requests on ICS network [docker/libnetwork#2014](https://github.com/docker/libnetwork/pull/2014)
 
 - Windows: Added a new network creation driver option [docker/libnetwork#2021](https://github.com/docker/libnetwork/pull/2021)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/18.01/#runtime)
+### Runtime
 
 - Validate Mount-specs on container start to prevent missing host-path [moby/moby#35833](https://github.com/moby/moby/pull/35833)
 
@@ -80,7 +80,7 @@ draft = false
 - Fix VFS graph driver failure to initialize because of failure to setup fs quota [moby/moby#35827](https://github.com/moby/moby/pull/35827)
 - Fix containerd events being processed twice [moby/moby#35896](https://github.com/moby/moby/pull/35896)
 
-### [Swarm mode](https://docs.docker.com/engine/release-notes/18.01/#swarm-mode)
+### Swarm mode
 
 - Fix published ports not being updated if a service has the same number of host-mode published ports with Published Port 0 [docker/swarmkit#2376](https://github.com/docker/swarmkit/pull/2376)
 

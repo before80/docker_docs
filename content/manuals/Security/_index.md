@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/](https://docs.docker.com/security/)
+> 原文：[https://docs.docker.com/security/](https://docs.docker.com/security/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ If you're an administrator, you can enforce sign-in across Docker products for y
 
 For both administrators and developers, Docker provides security-specific products such as Docker Scout, for securing your software supply chain with proactive image vulnerability monitoring and remediation strategies.
 
-## [For administrators](https://docs.docker.com/security/#for-administrators)
+## For administrators
 
 Explore the security features Docker offers to satisfy your company's security policies.
 
@@ -96,7 +96,7 @@ Private marketplace for Extensions (Beta)
 
 Learn how to configure and set up a private marketplace with a curated list of extensions for your Docker Desktop users.
 
-## [For developers](https://docs.docker.com/security/#for-developers)
+## For developers
 
 See how you can protect your local environments, infrastructure, and networks without impeding productivity.
 
@@ -130,7 +130,7 @@ Secrets in Docker Compose
 
 Learn how to use secrets in Docker Compose.
 
-## [Further resources](https://docs.docker.com/security/#further-resources)
+## Further resources
 
 
 

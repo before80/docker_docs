@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/buildx/stop/](https://docs.docker.com/reference/cli/docker/buildx/stop/)
+> 原文：[https://docs.docker.com/reference/cli/docker/buildx/stop/](https://docs.docker.com/reference/cli/docker/buildx/stop/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,12 +18,12 @@ draft = false
 | :---------- | --------------------------- |
 | Usage       | `docker buildx stop [NAME]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/buildx/stop/#description)
+## Description
 
 Stops the specified or current builder. This does not prevent buildx build to restart the builder. The implementation of stop depends on the driver.
 
-## [Examples](https://docs.docker.com/reference/cli/docker/buildx/stop/#examples)
+## Examples
 
-### [Override the configured builder instance (--builder)](https://docs.docker.com/reference/cli/docker/buildx/stop/#builder)
+### Override the configured builder instance (--builder)
 
 Same as [`buildx --builder`](https://docs.docker.com/reference/cli/docker/buildx/#builder).

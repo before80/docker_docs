@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/compose-file/include/](https://docs.docker.com/reference/compose-file/include/)
+> 原文：[https://docs.docker.com/reference/compose-file/include/](https://docs.docker.com/reference/compose-file/include/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -42,7 +42,7 @@ services:
       - serviceB #use serviceB directly as if it was declared in this Compose file
 ```
 
-Compose also supports the use of interpolated variables with `include`. It's recommended that you [specify mandatory variables](https://docs.docker.com/reference/compose-file/interpolation/). For example:
+Compose also supports the use of interpolated variables with `include`. It's recommended that you [specify mandatory variables]({{< ref "/reference/Composefilereference/Interpolation" >}}). For example:
 
 
 
@@ -51,7 +51,7 @@ include:
   -${INCLUDE_PATH:?FOO}/compose.yaml
 ```
 
-## [Short syntax](https://docs.docker.com/reference/compose-file/include/#short-syntax)
+## Short syntax
 
 The short syntax only defines paths to other Compose files. The file is loaded with the parent folder as the project directory, and an optional `.env` file that is loaded to define any variables' default values by interpolation. The local project's environment can override those values.
 
@@ -70,7 +70,7 @@ services:
 
 In the above example, both `../commons/compose.yaml` and `../another_domain/compose.yaml` are loaded as individual Compose projects. Relative paths in Compose files being referred by `include` are resolved relative to their own Compose file path, not based on the local project's directory. Variables are interpolated using values set in the optional `.env` file in same folder and are overridden by the local project's environment.
 
-## [Long syntax](https://docs.docker.com/reference/compose-file/include/#long-syntax)
+## Long syntax
 
 The long syntax offers more control over the sub-project parsing:
 
@@ -83,9 +83,9 @@ include:
      env_file: ../another/.env
 ```
 
-### [path](https://docs.docker.com/reference/compose-file/include/#path)
+### path
 
-`path` is required and defines the location of the Compose file(s) to be parsed and included into the local Compose model. `path` can be set to either a string when a single Compose file is involved, or to a list of strings when multiple Compose files need to be [merged together](https://docs.docker.com/reference/compose-file/merge/) to define the Compose model to be included in the local application.
+`path` is required and defines the location of the Compose file(s) to be parsed and included into the local Compose model. `path` can be set to either a string when a single Compose file is involved, or to a list of strings when multiple Compose files need to be [merged together]({{< ref "/reference/Composefilereference/Merge" >}}) to define the Compose model to be included in the local application.
 
 
 
@@ -96,11 +96,11 @@ include:
        - ./commons-override.yaml
 ```
 
-### [project_directory](https://docs.docker.com/reference/compose-file/include/#project_directory)
+### project_directory
 
 `project_directory` defines a base path to resolve relative paths set in the Compose file. It defaults to the directory of the included Compose file.
 
-### [env_file](https://docs.docker.com/reference/compose-file/include/#env_file)
+### env_file
 
 `env_file` defines an environment file(s) to use to define default values when interpolating variables in the Compose file being parsed. It defaults to `.env` file in the `project_directory` for the Compose file being parsed.
 
@@ -118,6 +118,6 @@ include:
 
 The local project's environment has precedence over the values set by the Compose file, so that the local project can override values for customization.
 
-## [Additional resources](https://docs.docker.com/reference/compose-file/include/#additional-resources)
+## Additional resources
 
-For more information on using `include`, see [Working with multiple Compose files](https://docs.docker.com/compose/how-tos/multiple-compose-files/)
+For more information on using `include`, see [Working with multiple Compose files]({{< ref "/manuals/DockerCompose/How-tos/UsemultipleComposefiles" >}})

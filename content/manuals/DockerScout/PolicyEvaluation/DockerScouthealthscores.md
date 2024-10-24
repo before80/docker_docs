@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/policy/scores/](https://docs.docker.com/scout/policy/scores/)
+> 原文：[https://docs.docker.com/scout/policy/scores/](https://docs.docker.com/scout/policy/scores/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,7 +22,7 @@ Docker Scout health scores provide a security assessment, and overall supply cha
 
 Only users who are members of the organization that owns the repository, and have at least “read” access to the repository, can view the health score. The score is not visible to users outside the organization or members without "read" access.
 
-## [Viewing health scores](https://docs.docker.com/scout/policy/scores/#viewing-health-scores)
+## Viewing health scores
 
 To view the health score of an image:
 
@@ -45,15 +45,15 @@ The score is also displayed on the Docker Hub page for a given repository, along
 
 ![Scout "A" health score](DockerScouthealthscores_img/score-a-shiny.png)
 
-## [Scoring system](https://docs.docker.com/scout/policy/scores/#scoring-system)
+## Scoring system
 
-Health scores are determined by evaluating images against Docker Scout [policies](https://docs.docker.com/scout/policy/). These policies align with best practices for the software supply chain.
+Health scores are determined by evaluating images against Docker Scout [policies]({{< ref "/manuals/DockerScout/PolicyEvaluation" >}}). These policies align with best practices for the software supply chain.
 
 If your image repositories are already enrolled with Docker Scout, the health score is calculated automatically based on the policies that are enabled for your organization. This also includes any custom policies that you have configured.
 
 If you're not using Docker Scout, the health scores show the compliance of your images with the default policies, a set of supply chain rules recommended by Docker as foundational standards for images. You can enable Docker Scout for your organization and edit the policy configurations to get a more relevant health score based on your specific policies.
 
-### [Scoring process](https://docs.docker.com/scout/policy/scores/#scoring-process)
+### Scoring process
 
 Each policy is assigned a points value based on its [type](https://docs.docker.com/scout/policy/#policy-types). If the image is compliant with a policy, it is awarded the points value for that policy type. The health score of an image is calculated based on the percentage of points achieved relative to the total possible points.
 
@@ -80,7 +80,7 @@ Each policy is assigned a points value based on its [type](https://docs.docker.c
    | 11% to 30%                               | E     |
    | Less than 10%                            | F     |
 
-### [N/A scores](https://docs.docker.com/scout/policy/scores/#na-scores)
+### N/A scores
 
 Images can also be assigned an `N/A` score, which can happen when:
 
@@ -94,7 +94,7 @@ If you see an `N/A` score, consider the following:
 - If the image has an unsupported architecture, rebuild the image for a supported architecture.
 - If the image is too old, push a new tag to trigger a fresh evaluation.
 
-### [Policy weights](https://docs.docker.com/scout/policy/scores/#policy-weights)
+### Policy weights
 
 Different policy types carry varying weights, which impact the score assigned to an image during evaluation, as shown in the following table.
 
@@ -111,28 +111,28 @@ Different policy types carry varying weights, which impact the score assigned to
 
 \* *This policy is not enabled by default and must be configured by the user.*
 
-### [Evaluation](https://docs.docker.com/scout/policy/scores/#evaluation)
+### Evaluation
 
 Health scores are calculated for new images pushed to Docker Hub after the feature is enabled. The health scores help you maintain high security standards and ensure your applications are built on secure and reliable images.
 
-### [Repository scores](https://docs.docker.com/scout/policy/scores/#repository-scores)
+### Repository scores
 
 In addition to individual image scores (per tag or digest), each repository receives a health score based on the latest pushed tag, providing an overall view of the repository's security status.
 
-### [Example](https://docs.docker.com/scout/policy/scores/#example)
+### Example
 
 For an image with a total possible score of 100 points:
 
 - If the image only deviates from one policy, worth 5 points, its score will be 95 out of 100. Since this score is above the 90th percentile, the image receives an A health score.
 - If the image is non-compliant with more policies and scores 65 out of 100, it receives a C health score, reflecting its lower compliance.
 
-## [Improving your health score](https://docs.docker.com/scout/policy/scores/#improving-your-health-score)
+## Improving your health score
 
-To improve the health score of an image, take steps to ensure that the image is compliant with the Docker Scout recommended [policies](https://docs.docker.com/scout/policy/).
+To improve the health score of an image, take steps to ensure that the image is compliant with the Docker Scout recommended [policies]({{< ref "/manuals/DockerScout/PolicyEvaluation" >}}).
 
 1. Go to the [Docker Scout Dashboard](https://scout.docker.com/).
 2. Sign in using your Docker ID.
 3. Go to [Repository settings](https://scout.docker.com/settings/repos) and enable Docker Scout for your Docker Hub image repositories.
-4. Analyze the [policy compliance](https://docs.docker.com/scout/policy/) for your repositories, and take actions to ensure your images are policy-compliant.
+4. Analyze the [policy compliance]({{< ref "/manuals/DockerScout/PolicyEvaluation" >}}) for your repositories, and take actions to ensure your images are policy-compliant.
 
 Since policies are weighted differently, prioritize the policies with the highest scores for a greater impact on your image's overall score.

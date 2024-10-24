@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/18.09/](https://docs.docker.com/engine/release-notes/18.09/)
+> 原文：[https://docs.docker.com/engine/release-notes/18.09/](https://docs.docker.com/engine/release-notes/18.09/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,69 +24,69 @@ draft = false
 > $ sudo apt-get install docker-ce docker-ce-cli containerd.io
 > ```
 >
-> See the [installation instructions](https://docs.docker.com/engine/install/) for the corresponding Linux distro for details.
+> See the [installation instructions]({{< ref "/manuals/DockerEngine/Install" >}}) for the corresponding Linux distro for details.
 
-## [18.09.9](https://docs.docker.com/engine/release-notes/18.09/#18099)
+## 18.09.9
 
 2019-09-03
 
-### [Client](https://docs.docker.com/engine/release-notes/18.09/#client)
+### Client
 
 - Fix Windows absolute path detection on non-Windows. [docker/cli#1990](https://github.com/docker/cli/pull/1990)
 - Fix Docker refusing to load key from delegation.key on Windows. [docker/cli#1968](https://github.com/docker/cli/pull/1968)
 - Completion scripts updates for bash and zsh.
 
-### [Logging](https://docs.docker.com/engine/release-notes/18.09/#logging)
+### Logging
 
 - Fix for reading journald logs. [moby/moby#37819](https://github.com/moby/moby/pull/37819) [moby/moby#38859](https://github.com/moby/moby/pull/38859)
 
-### [Networking](https://docs.docker.com/engine/release-notes/18.09/#networking)
+### Networking
 
 - Prevent panic on network attached to a container with disabled networking. [moby/moby#39589](https://github.com/moby/moby/pull/39589)
 - Fix service port for an application becomes unavailable randomly. [docker/libnetwork#2069](https://github.com/docker/libnetwork/pull/2069)
 - Fix cleaning up `--config-only` networks `--config-from` networkshave ungracefully exited. [docker/libnetwork#2373](https://github.com/docker/libnetwork/pull/2373)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/18.09/#runtime)
+### Runtime
 
 - Update to Go 1.11.13.
 - Fix a potential engine panic when using XFS disk quota for containers. [moby/moby#39644](https://github.com/moby/moby/pull/39644)
 
-### [Swarm](https://docs.docker.com/engine/release-notes/18.09/#swarm)
+### Swarm
 
 - Fix "grpc: received message larger than max" errors. [moby/moby#39306](https://github.com/moby/moby/pull/39306)
 - Fix an issue where nodes several tasks could not be removed. [docker/swarmkit#2867](https://github.com/docker/swarmkit/pull/2867)
 
-## [18.09.8](https://docs.docker.com/engine/release-notes/18.09/#18098)
+## 18.09.8
 
 2019-07-17
 
-### [Runtime](https://docs.docker.com/engine/release-notes/18.09/#runtime-1)
+### Runtime
 
 - Masked the secrets updated to the log files when running Docker Engine in debug mode. [CVE-2019-13509](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13509): If a Docker engine is running in debug mode, and `docker stack deploy` is used to redeploy a stack which includes non-external secrets, the logs will contain the secret.
 
-### [Client](https://docs.docker.com/engine/release-notes/18.09/#client-1)
+### Client
 
 - Fixed rollback config type interpolation for `parallelism` and `max_failure_ratio` fields.
 
-### [Known Issue](https://docs.docker.com/engine/release-notes/18.09/#known-issue)
+### Known Issue
 
 - There are important changes to the upgrade process that, if not correctly followed, can have an impact on the availability of applications running on the Swarm during upgrades. These constraints impact any upgrades coming from any version before 18.09 to version 18.09 or later.
 
-## [18.09.7](https://docs.docker.com/engine/release-notes/18.09/#18097)
+## 18.09.7
 
 2019-06-27
 
-### [Builder](https://docs.docker.com/engine/release-notes/18.09/#builder)
+### Builder
 
 - Fixed a panic error when building dockerfiles that contain only comments. [moby/moby#38487](https://github.com/moby/moby/pull/38487)
 - Added a workaround for GCR authentication issue. [moby/moby#38246](https://github.com/moby/moby/pull/38246)
 - Builder-next: Fixed a bug in the GCR token cache implementation workaround. [moby/moby#39183](https://github.com/moby/moby/pull/39183)
 
-### [Networking](https://docs.docker.com/engine/release-notes/18.09/#networking-1)
+### Networking
 
 - Fixed an error where `--network-rm` would fail to remove a network. [moby/moby#39174](https://github.com/moby/moby/pull/39174)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/18.09/#runtime-2)
+### Runtime
 
 - Added performance optimizations in aufs and layer store that helps in massively parallel container creation and removal. [moby/moby#39107](https://github.com/moby/moby/pull/39107), [moby/moby#39135](https://github.com/moby/moby/pull/39135)
 - Updated containerd to version 1.2.6. [moby/moby#39016](https://github.com/moby/moby/pull/39016)
@@ -95,98 +95,98 @@ draft = false
 - daemon: fixed a mirrors validation issue. [moby/moby#38991](https://github.com/moby/moby/pull/38991)
 - Docker no longer supports sorting UID and GID ranges in ID maps. [moby/moby#39288](https://github.com/moby/moby/pull/39288)
 
-### [Logging](https://docs.docker.com/engine/release-notes/18.09/#logging-1)
+### Logging
 
 - Added a fix that now allows large log lines for logger plugins. [moby/moby#39038](https://github.com/moby/moby/pull/39038)
 
-### [Known Issue](https://docs.docker.com/engine/release-notes/18.09/#known-issue-1)
+### Known Issue
 
 - There are important changes to the upgrade process that, if not correctly followed, can have an impact on the availability of applications running on the Swarm during upgrades. These constraints impact any upgrades coming from any version before 18.09 to version 18.09 or later.
 
-## [18.09.6](https://docs.docker.com/engine/release-notes/18.09/#18096)
+## 18.09.6
 
 2019-05-06
 
-### [Builder](https://docs.docker.com/engine/release-notes/18.09/#builder-1)
+### Builder
 
 - Fixed `COPY` and `ADD` with multiple `<src>` to not invalidate cache if `DOCKER_BUILDKIT=1`. [moby/moby#38964](https://github.com/moby/moby/issues/38964)
 
-### [Networking](https://docs.docker.com/engine/release-notes/18.09/#networking-2)
+### Networking
 
 - Cleaned up the cluster provider when the agent is closed. [docker/libnetwork#2354](https://github.com/docker/libnetwork/pull/2354)
 - Windows: Now selects a random host port if the user does not specify a host port. [docker/libnetwork#2369](https://github.com/docker/libnetwork/pull/2369)
 
-### [Known Issues](https://docs.docker.com/engine/release-notes/18.09/#known-issues)
+### Known Issues
 
 - There are important changes to the upgrade process that, if not correctly followed, can have an impact on the availability of applications running on the Swarm during upgrades. These constraints impact any upgrades coming from any version before 18.09 to version 18.09 or later.
 
-## [18.09.5](https://docs.docker.com/engine/release-notes/18.09/#18095)
+## 18.09.5
 
 2019-04-11
 
-### [Builder](https://docs.docker.com/engine/release-notes/18.09/#builder-2)
+### Builder
 
 - Fixed `DOCKER_BUILDKIT=1 docker build --squash ..` [docker/engine#176](https://github.com/docker/engine/pull/176)
 
-### [Client](https://docs.docker.com/engine/release-notes/18.09/#client-2)
+### Client
 
 - Fixed tty initial size error. [docker/cli#1775](https://github.com/docker/cli/pull/1775)
 - Fixed dial-stdio goroutine leakage. [docker/cli#1795](https://github.com/docker/cli/pull/1795)
 - Fixed the stack informer's selector used to track deployment. [docker/cli#1794](https://github.com/docker/cli/pull/1794)
 
-### [Networking](https://docs.docker.com/engine/release-notes/18.09/#networking-3)
+### Networking
 
 - Fixed `network=host` using wrong `resolv.conf` with `systemd-resolved`. [docker/engine#180](https://github.com/docker/engine/pull/180)
 - Fixed Windows ARP entries getting corrupted randomly under load. [docker/engine#192](https://github.com/docker/engine/pull/192)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/18.09/#runtime-3)
+### Runtime
 
 - Now showing stopped containers with restart policy as `Restarting`. [docker/engine#181](https://github.com/docker/engine/pull/181)
 - Now using original process spec for execs. [docker/engine#178](https://github.com/docker/engine/pull/178)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/18.09/#swarm-mode)
+### Swarm Mode
 
 - Fixed leaking task resources when nodes are deleted. [docker/engine#185](https://github.com/docker/engine/pull/185)
 
-### [Known Issues](https://docs.docker.com/engine/release-notes/18.09/#known-issues-1)
+### Known Issues
 
 - There are important changes to the upgrade process that, if not correctly followed, can have an impact on the availability of applications running on the Swarm during upgrades. These constraints impact any upgrades coming from any version before 18.09 to version 18.09 or later.
 
-## [18.09.4](https://docs.docker.com/engine/release-notes/18.09/#18094)
+## 18.09.4
 
 2019-03-28
 
-### [Builder](https://docs.docker.com/engine/release-notes/18.09/#builder-3)
+### Builder
 
 - Fixed [CVE-2019-13139](https://nvd.nist.gov/vuln/detail/CVE-2019-13139) by adding validation for `git ref` to avoid misinterpretation as a flag. [moby/moby#38944](https://github.com/moby/moby/pull/38944)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/18.09/#runtime-4)
+### Runtime
 
 - Fixed `docker cp` error for filenames greater than 100 characters. [moby/moby#38634](https://github.com/moby/moby/pull/38634)
 - Fixed `layer/layer_store` to ensure `NewInputTarStream` resources are released. [moby/moby#38413](https://github.com/moby/moby/pull/38413)
 - Increased GRPC limit for `GetConfigs`. [moby/moby#38800](https://github.com/moby/moby/pull/38800)
 - Updated `containerd` 1.2.5. [docker/engine#173](https://github.com/docker/engine/pull/173)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/18.09/#swarm-mode-1)
+### Swarm Mode
 
 - Fixed nil pointer exception when joining node to swarm. [moby/moby#38618](https://github.com/moby/moby/issues/38618)
 - Fixed issue for swarm nodes not being able to join as masters if http proxy is set. [moby/moby#36951]
 
-### [Known Issues](https://docs.docker.com/engine/release-notes/18.09/#known-issues-2)
+### Known Issues
 
 - There are important changes to the upgrade process that, if not correctly followed, can have impact on the availability of applications running on the Swarm during upgrades. These constraints impact any upgrades coming from any version before 18.09 to version 18.09 or later.
 
-## [18.09.3](https://docs.docker.com/engine/release-notes/18.09/#18093)
+## 18.09.3
 
 2019-02-28
 
-### [Networking fixes](https://docs.docker.com/engine/release-notes/18.09/#networking-fixes)
+### Networking fixes
 
 - Windows: now avoids regeneration of network IDs to prevent broken references to networks. [docker/engine#149](https://github.com/docker/engine/pull/149)
 - Windows: Fixed an issue to address `- restart always` flag on standalone containers not working when specifying a network. (docker/escalation#1037)
 - Fixed an issue to address the IPAM state from networkdb if the manager is not attached to the overlay network. (docker/escalation#1049)
 
-### [Runtime fixes and updates](https://docs.docker.com/engine/release-notes/18.09/#runtime-fixes-and-updates)
+### Runtime fixes and updates
 
 - Updated to Go version 1.10.8.
 - Modified names in the container name generator. [docker/engine#159](https://github.com/docker/engine/pull/159)
@@ -195,30 +195,30 @@ draft = false
 - Fixed nil pointer derefence on failure to connect to containerd. [docker/engine#162](https://github.com/docker/engine/pull/162)
 - Deleted stale containerd object on start failure. [docker/engine#154](https://github.com/docker/engine/pull/154)
 
-### [Known Issues](https://docs.docker.com/engine/release-notes/18.09/#known-issues-3)
+### Known Issues
 
 - There are important changes to the upgrade process that, if not correctly followed, can have impact on the availability of applications running on the Swarm during upgrades. These constraints impact any upgrades coming from any version before 18.09 to version 18.09 or greater.
 
-## [18.09.2](https://docs.docker.com/engine/release-notes/18.09/#18092)
+## 18.09.2
 
 2019-02-11
 
-### [Security fixes](https://docs.docker.com/engine/release-notes/18.09/#security-fixes)
+### Security fixes
 
 - Update `runc` to address a critical vulnerability that allows specially-crafted containers to gain administrative privileges on the host. [CVE-2019-5736](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5736)
 - Ubuntu 14.04 customers using a 3.13 kernel will need to upgrade to a supported Ubuntu 4.x kernel
 
 For additional information, [refer to the Docker blog post](https://blog.docker.com/2019/02/docker-security-update-cve-2018-5736-and-container-security-best-practices/).
 
-### [Known Issues](https://docs.docker.com/engine/release-notes/18.09/#known-issues-4)
+### Known Issues
 
 - There are important changes to the upgrade process that, if not correctly followed, can have impact on the availability of applications running on the Swarm during upgrades. These constraints impact any upgrades coming from any version before 18.09 to version 18.09 or greater.
 
-## [18.09.1](https://docs.docker.com/engine/release-notes/18.09/#18091)
+## 18.09.1
 
 2019-01-09
 
-#### [Important notes about this release](https://docs.docker.com/engine/release-notes/18.09/#important-notes-about-this-release)
+#### Important notes about this release
 
 In Docker versions prior to 18.09, containerd was managed by the Docker engine daemon. In Docker Engine 18.09, containerd is managed by systemd. Since containerd is managed by systemd, any custom configuration to the `docker.service` systemd configuration which changes mount settings (for example, `MountFlags=slave`) breaks interactions between the Docker Engine daemon and containerd, and you will not be able to start containers.
 
@@ -233,13 +233,13 @@ MountFlags=
 
 Update your configuration if this command prints a non-empty value for `MountFlags`, and restart the docker service.
 
-### [Security fixes](https://docs.docker.com/engine/release-notes/18.09/#security-fixes-1)
+### Security fixes
 
 - Upgraded Go language to 1.10.6 to resolve [CVE-2018-16873](https://nvd.nist.gov/vuln/detail/CVE-2018-16873), [CVE-2018-16874](https://nvd.nist.gov/vuln/detail/CVE-2018-16874), and [CVE-2018-16875](https://nvd.nist.gov/vuln/detail/CVE-2018-16875).
 - Fixed authz plugin for 0-length content and path validation.
 - Added `/proc/asound` to masked paths [docker/engine#126](https://github.com/docker/engine/pull/126)
 
-### [Improvements](https://docs.docker.com/engine/release-notes/18.09/#improvements)
+### Improvements
 
 - Updated to BuildKit 0.3.3 [docker/engine#122](https://github.com/docker/engine/pull/122)
 - Updated to containerd 1.2.2 [docker/engine#144](https://github.com/docker/engine/pull/144)
@@ -248,7 +248,7 @@ Update your configuration if this command prints a non-empty value for `MountFla
 - Added bash completion for experimental CLI commands (manifest) [docker/cli#1542](https://github.com/docker/cli/pull/1542)
 - Windows: allow process isolation on Windows 10 [docker/engine#81](https://github.com/docker/engine/pull/81)
 
-### [Fixes](https://docs.docker.com/engine/release-notes/18.09/#fixes)
+### Fixes
 
 - Disable kmem accounting in runc on RHEL/CentOS (docker/escalation#614, docker/escalation#692) [docker/engine#121](https://github.com/docker/engine/pull/121)
 - Fixed inefficient networking configuration [docker/engine#123](https://github.com/docker/engine/pull/123)
@@ -266,22 +266,22 @@ Update your configuration if this command prints a non-empty value for `MountFla
 - apparmor: allow receiving of signals from `docker kill` [docker/engine#116](https://github.com/docker/engine/pull/116)
 - overlay2: use index=off if possible (fix EBUSY on mount) [docker/engine#84](https://github.com/docker/engine/pull/84)
 
-### [Packaging](https://docs.docker.com/engine/release-notes/18.09/#packaging)
+### Packaging
 
 - Add docker.socket requirement for docker.service. [docker/docker-ce-packaging#276](https://github.com/docker/docker-ce-packaging/pull/276)
 - Add socket activation for RHEL-based distributions. [docker/docker-ce-packaging#274](https://github.com/docker/docker-ce-packaging/pull/274)
 - Add libseccomp requirement for RPM packages. [docker/docker-ce-packaging#266](https://github.com/docker/docker-ce-packaging/pull/266)
 
-### [Known Issues](https://docs.docker.com/engine/release-notes/18.09/#known-issues-5)
+### Known Issues
 
 - When upgrading from 18.09.0 to 18.09.1, `containerd` is not upgraded to the correct version on Ubuntu.
 - There are important changes to the upgrade process that, if not correctly followed, can have impact on the availability of applications running on the Swarm during upgrades. These constraints impact any upgrades coming from any version before 18.09 to version 18.09 or greater.
 
-## [18.09.0](https://docs.docker.com/engine/release-notes/18.09/#18090)
+## 18.09.0
 
 2018-11-08
 
-### [Important notes about this release](https://docs.docker.com/engine/release-notes/18.09/#important-notes-about-this-release-1)
+### Important notes about this release
 
 In Docker versions prior to 18.09, containerd was managed by the Docker engine daemon. In Docker Engine 18.09, containerd is managed by systemd. Since containerd is managed by systemd, any custom configuration to the `docker.service` systemd configuration which changes mount settings (for example, `MountFlags=slave`) breaks interactions between the Docker Engine daemon and containerd, and you will not be able to start containers.
 
@@ -296,7 +296,7 @@ MountFlags=
 
 Update your configuration if this command prints a non-empty value for `MountFlags`, and restart the docker service.
 
-### [New features](https://docs.docker.com/engine/release-notes/18.09/#new-features)
+### New features
 
 - Updated API version to 1.39 [moby/moby#37640](https://github.com/moby/moby/pull/37640)
 - Added support for remote connections using SSH [docker/cli#1014](https://github.com/docker/cli/pull/1014)
@@ -323,7 +323,7 @@ Update your configuration if this command prints a non-empty value for `MountFla
 - Added support for global default address pools [moby/moby#37558](https://github.com/moby/moby/pull/37558) [docker/cli#1233](https://github.com/docker/cli/pull/1233)
 - Moved the `POST /session` endpoint out of experimental. [moby/moby#40028](https://github.com/moby/moby/pull/40028)
 
-### [Improvements](https://docs.docker.com/engine/release-notes/18.09/#improvements-1)
+### Improvements
 
 - Does not return "`<unknown>`" in /info response [moby/moby#37472](https://github.com/moby/moby/pull/37472)
 - BuildKit: Changes `--console=[auto,false,true]` to `--progress=[auto,plain,tty]` [docker/cli#1276](https://github.com/docker/cli/pull/1276)
@@ -345,7 +345,7 @@ Update your configuration if this command prints a non-empty value for `MountFla
 - Builds binaries with Go 1.10.4 [docker-ce-packaging#181](https://github.com/docker/docker-ce-packaging/pull/181)
 - Removes `-ce` suffix from version string [docker-ce-packaging#206](https://github.com/docker/docker-ce-packaging/pull/206)
 
-### [Fixes](https://docs.docker.com/engine/release-notes/18.09/#fixes-1)
+### Fixes
 
 - BuildKit: Do not cancel buildkit status request. [moby/moby#37597](https://github.com/moby/moby/pull/37597)
 - Fixes no error is shown if build args are missing during docker build [moby/moby#37396](https://github.com/moby/moby/pull/37396)
@@ -377,7 +377,7 @@ Update your configuration if this command prints a non-empty value for `MountFla
 - Fixes mount propagation for btrfs [docker/engine#86](https://github.com/docker/engine/pull/86) / [moby/moby#38026](https://github.com/moby/moby/pull/38026)
 - Fixes nil pointer dereference in node allocation [docker/engine#94](https://github.com/docker/engine/pull/94) / [docker/swarmkit#2764](https://github.com/docker/swarmkit/pull/2764)
 
-### [Known Issues](https://docs.docker.com/engine/release-notes/18.09/#known-issues-6)
+### Known Issues
 
 - There are important changes to the upgrade process that, if not correctly followed, can have impact on the availability of applications running on the Swarm during upgrades. These constraints impact any upgrades coming from any version before 18.09 to version 18.09 or greater.
 
@@ -401,14 +401,14 @@ Update your configuration if this command prints a non-empty value for `MountFla
 
   This issue is resolved in 18.09.1.
 
-### [Deprecation Notices](https://docs.docker.com/engine/release-notes/18.09/#deprecation-notices)
+### Deprecation Notices
 
 - Docker has deprecated support for Device Mapper as a storage driver. It will continue to be supported at this time, but support will be removed in a future release.
 
-  The [Overlay2 storage driver](https://docs.docker.com/engine/storage/drivers/overlayfs-driver/) is now the default for Docker Engine implementations.
+  The [Overlay2 storage driver]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers/OverlayFSstoragedriver" >}}) is now the default for Docker Engine implementations.
 
-For more information on the list of deprecated flags and APIs, have a look at the [deprecation information](https://docs.docker.com/engine/deprecated/) where you can find the target removal dates.
+For more information on the list of deprecated flags and APIs, have a look at the [deprecation information]({{< ref "/manuals/DockerEngine/Deprecatedfeatures" >}}) where you can find the target removal dates.
 
-### [End of Life Notification](https://docs.docker.com/engine/release-notes/18.09/#end-of-life-notification)
+### End of Life Notification
 
 In this release, Docker has also removed support for TLS < 1.2 [moby/moby#37660](https://github.com/moby/moby/pull/37660), Ubuntu 14.04 "Trusty Tahr" [docker-ce-packaging#255](https://github.com/docker/docker-ce-packaging/pull/255) / [docker-ce-packaging#254](https://github.com/docker/docker-ce-packaging/pull/254), and Debian 8 "Jessie" [docker-ce-packaging#255](https://github.com/docker/docker-ce-packaging/pull/255) / [docker-ce-packaging#254](https://github.com/docker/docker-ce-packaging/pull/254).

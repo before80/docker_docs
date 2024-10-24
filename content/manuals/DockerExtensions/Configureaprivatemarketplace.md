@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/private-marketplace/](https://docs.docker.com/extensions/private-marketplace/)
+> 原文：[https://docs.docker.com/extensions/private-marketplace/](https://docs.docker.com/extensions/private-marketplace/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,15 +22,15 @@ Learn how to configure and set up a private marketplace with a curated list of e
 
 It is designed specifically
 
-Docker Extensions' private marketplace is designed specifically for organizations who don’t give developers root access to their machines. It makes use of [Settings Management](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/) so administrators have complete control over the private marketplace.
+Docker Extensions' private marketplace is designed specifically for organizations who don’t give developers root access to their machines. It makes use of [Settings Management]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/SettingsManagement" >}}) so administrators have complete control over the private marketplace.
 
-## [Prerequisites](https://docs.docker.com/extensions/private-marketplace/#prerequisites)
+## Prerequisites
 
-- [Download and install Docker Desktop 4.26.0 or later](https://docs.docker.com/desktop/release-notes/).
+- [Download and install Docker Desktop 4.26.0 or later]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}).
 - You must be an administrator for your organization.
 - You have the ability to push the `extension-marketplace` folder and `admin-settings.json` file to the locations specified below through device management software such as [Jamf](https://www.jamf.com/).
 
-## [Step one: Initialize the private marketplace](https://docs.docker.com/extensions/private-marketplace/#step-one-initialize-the-private-marketplace)
+## Step one: Initialize the private marketplace
 
 1. Create a folder locally for the content that will be deployed to your developers’ machines:
 
@@ -60,7 +60,7 @@ This creates 2 files:
 - `admin-settings.json`, which activates the private marketplace feature once it’s applied to Docker Desktop on your developers’ machines.
 - `extensions.txt`, which determines which extensions to list in your private marketplace.
 
-## [Step two: Set the behaviour](https://docs.docker.com/extensions/private-marketplace/#step-two-set-the-behaviour)
+## Step two: Set the behaviour
 
 The generated `admin-settings.json` file includes various settings you can modify.
 
@@ -83,9 +83,9 @@ Each setting has a `value` that you can set, including a `locked` field that let
   }
   ```
 
-To find out more information about the `admin-settings.json` file, see [Settings Management](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/).
+To find out more information about the `admin-settings.json` file, see [Settings Management]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/SettingsManagement" >}}).
 
-## [Step three: List allowed extensions](https://docs.docker.com/extensions/private-marketplace/#step-three-list-allowed-extensions)
+## Step three: List allowed extensions
 
 The generated `extensions.txt` file defines the list of extensions that are available in your private marketplace.
 
@@ -113,7 +113,7 @@ This list can include different types of extension images:
 >
 > Your developers can only install the version of the extension that you’ve listed.
 
-## [Step four: Generate the private marketplace](https://docs.docker.com/extensions/private-marketplace/#step-four-generate-the-private-marketplace)
+## Step four: Generate the private marketplace
 
 Once the list in `extensions.txt` is ready, you can generate the marketplace:
 
@@ -131,9 +131,9 @@ $ /Applications/Docker.app/Contents/Resources/bin/extension-admin generate
 
 This creates an `extension-marketplace` directory and downloads the marketplace metadata for all the allowed extensions.
 
-The marketplace content is generated from extension image information as image labels, which is the [same format as public extensions](https://docs.docker.com/extensions/extensions-sdk/extensions/labels/). It includes the extension title, description, screenshots, links, etc.
+The marketplace content is generated from extension image information as image labels, which is the [same format as public extensions]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish/Addlabels" >}}). It includes the extension title, description, screenshots, links, etc.
 
-## [Step five: Test the private marketplace setup](https://docs.docker.com/extensions/private-marketplace/#step-five-test-the-private-marketplace-setup)
+## Step five: Test the private marketplace setup
 
 It's recommended that you try the private marketplace on your Docker Desktop installation.
 
@@ -163,7 +163,7 @@ When you select the **Extensions** tab, you should see the private marketplace l
 
 ![Extensions Private Marketplace](Configureaprivatemarketplace_img/extensions-private-marketplace.webp)
 
-## [Step six: Distribute the private marketplace](https://docs.docker.com/extensions/private-marketplace/#step-six-distribute-the-private-marketplace)
+## Step six: Distribute the private marketplace
 
 Once you’ve confirmed that the private marketplace configuration works, the final step is to distribute the files to the developers’ machines with the MDM software your organization uses. For example, [Jamf](https://www.jamf.com/).
 
@@ -178,8 +178,8 @@ These files must be placed on developer's machines. Depending on your operating 
 - Windows: `C:\ProgramData\DockerDesktop`
 - Linux: `/usr/share/docker-desktop`
 
-Make sure your developers are signed in to Docker Desktop in order for the private marketplace configuration to take effect. As an administrator, you should [enforce sign-in](https://docs.docker.com/security/for-admins/enforce-sign-in/).
+Make sure your developers are signed in to Docker Desktop in order for the private marketplace configuration to take effect. As an administrator, you should [enforce sign-in]({{< ref "/manuals/Security/Foradmins/Enforcesign-in" >}}).
 
-## [Feedback](https://docs.docker.com/extensions/private-marketplace/#feedback)
+## Feedback
 
 Give feedback or report any bugs you may find by emailing `extensions@docker.com`.

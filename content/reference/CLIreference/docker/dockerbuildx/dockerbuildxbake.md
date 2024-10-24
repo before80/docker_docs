@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/buildx/bake/](https://docs.docker.com/reference/cli/docker/buildx/bake/)
+> 原文：[https://docs.docker.com/reference/cli/docker/buildx/bake/](https://docs.docker.com/reference/cli/docker/buildx/bake/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -19,17 +19,17 @@ draft = false
 | Usage       | `docker buildx bake [OPTIONS] [TARGET...]` |
 | Aliases     | `docker buildx f`                          |
 
-## [Description](https://docs.docker.com/reference/cli/docker/buildx/bake/#description)
+## Description
 
 Bake is a high-level build command. Each specified target runs in parallel as part of the build.
 
-Read [High-level build options with Bake](https://docs.docker.com/build/bake/) guide for introduction to writing bake files.
+Read [High-level build options with Bake]({{< ref "/manuals/DockerBuild/Bake" >}}) guide for introduction to writing bake files.
 
 > **Note**
 >
 > `buildx bake` command may receive backwards incompatible features in the future if needed. We are looking for feedback on improving the command and extending the functionality further.
 
-## [Options](https://docs.docker.com/reference/cli/docker/buildx/bake/#options)
+## Options
 
 | Option                                                       | Default | Description                                                  |
 | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
@@ -48,21 +48,21 @@ Read [High-level build options with Bake](https://docs.docker.com/build/bake/) g
 | [`--sbom`](https://docs.docker.com/reference/cli/docker/buildx/bake/#sbom) |         | Shorthand for `--set=*.attest=type=sbom`                     |
 | [`--set`](https://docs.docker.com/reference/cli/docker/buildx/bake/#set) |         | Override target value (e.g., `targetpattern.key=value`)      |
 
-## [Examples](https://docs.docker.com/reference/cli/docker/buildx/bake/#examples)
+## Examples
 
-### [Override the configured builder instance (--builder)](https://docs.docker.com/reference/cli/docker/buildx/bake/#builder)
+### Override the configured builder instance (--builder)
 
 Same as [`buildx --builder`](https://docs.docker.com/reference/cli/docker/buildx/#builder).
 
-### [Invoke a frontend method (--call)](https://docs.docker.com/reference/cli/docker/buildx/bake/#call)
+### Invoke a frontend method (--call)
 
 Same as [`build --call`](https://docs.docker.com/reference/cli/docker/buildx/build/#call).
 
-#### [Call: check (--check)](https://docs.docker.com/reference/cli/docker/buildx/bake/#check)
+#### Call: check (--check)
 
 Same as [`build --check`](https://docs.docker.com/reference/cli/docker/buildx/build/#check).
 
-### [Specify a build definition file (-f, --file)](https://docs.docker.com/reference/cli/docker/buildx/bake/#file)
+### Specify a build definition file (-f, --file)
 
 Use the `-f` / `--file` option to specify the build definition file to use. The file can be an HCL, JSON or Compose file. If multiple files are specified, all are read and the build configurations are combined.
 
@@ -98,9 +98,9 @@ target "db" {
 $ docker buildx bake -f docker-bake.dev.hcl db webapp-release
 ```
 
-See the [Bake file reference](https://docs.docker.com/build/bake/reference/) for more details.
+See the [Bake file reference]({{< ref "/manuals/DockerBuild/Bake/Bakefilereference" >}}) for more details.
 
-### [Write build results metadata to a file (--metadata-file)](https://docs.docker.com/reference/cli/docker/buildx/bake/#metadata-file)
+### Write build results metadata to a file (--metadata-file)
 
 Similar to [`buildx build --metadata-file`](https://docs.docker.com/reference/cli/docker/buildx/build/#metadata-file) but writes a map of results for each target such as:
 
@@ -180,11 +180,11 @@ $ cat metadata.json
 >
 > Build warnings (`buildx.build.warnings`) are not included by default. Set the `BUILDX_METADATA_WARNINGS` environment variable to `1` or `true` to include them.
 
-### [Don't use cache when building the image (--no-cache)](https://docs.docker.com/reference/cli/docker/buildx/bake/#no-cache)
+### Don't use cache when building the image (--no-cache)
 
 Same as `build --no-cache`. Don't use cache when building the image.
 
-### [Print the options without building (--print)](https://docs.docker.com/reference/cli/docker/buildx/bake/#print)
+### Print the options without building (--print)
 
 Prints the resulting options of the targets desired to be built, in a JSON format, without starting a build.
 
@@ -212,23 +212,23 @@ $ docker buildx bake -f docker-bake.hcl --print db
 }
 ```
 
-### [Set type of progress output (--progress)](https://docs.docker.com/reference/cli/docker/buildx/bake/#progress)
+### Set type of progress output (--progress)
 
 Same as [`build --progress`](https://docs.docker.com/reference/cli/docker/buildx/build/#progress).
 
-### [Create provenance attestations (--provenance)](https://docs.docker.com/reference/cli/docker/buildx/bake/#provenance)
+### Create provenance attestations (--provenance)
 
 Same as [`build --provenance`](https://docs.docker.com/reference/cli/docker/buildx/build/#provenance).
 
-### [Always attempt to pull a newer version of the image (--pull)](https://docs.docker.com/reference/cli/docker/buildx/bake/#pull)
+### Always attempt to pull a newer version of the image (--pull)
 
 Same as `build --pull`.
 
-### [Create SBOM attestations (--sbom)](https://docs.docker.com/reference/cli/docker/buildx/bake/#sbom)
+### Create SBOM attestations (--sbom)
 
 Same as [`build --sbom`](https://docs.docker.com/reference/cli/docker/buildx/build/#sbom).
 
-### [Override target configurations from command line (--set)](https://docs.docker.com/reference/cli/docker/buildx/bake/#set)
+### Override target configurations from command line (--set)
 
 
 

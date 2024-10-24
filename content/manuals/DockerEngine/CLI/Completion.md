@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/cli/completion/](https://docs.docker.com/engine/cli/completion/)
+> 原文：[https://docs.docker.com/engine/cli/completion/](https://docs.docker.com/engine/cli/completion/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,7 +22,7 @@ You can generate completion scripts for the following shells:
 - [Zsh](https://docs.docker.com/engine/cli/completion/#zsh)
 - [fish](https://docs.docker.com/engine/cli/completion/#fish)
 
-## [Bash](https://docs.docker.com/engine/cli/completion/#bash)
+## Bash
 
 To get Docker CLI completion with Bash, you first need to install the `bash-completion` package which contains a number of Bash functions for shell completion.
 
@@ -76,7 +76,7 @@ $ mkdir -p ~/.local/share/bash-completion/completions
 $ docker completion bash > ~/.local/share/bash-completion/completions/docker
 ```
 
-## [Zsh](https://docs.docker.com/engine/cli/completion/#zsh)
+## Zsh
 
 The Zsh [completion system](http://zsh.sourceforge.net/Doc/Release/Completion-System.html) takes care of things as long as the completion can be sourced using `FPATH`.
 
@@ -108,7 +108,7 @@ compinit
 EOT
 ```
 
-## [Fish](https://docs.docker.com/engine/cli/completion/#fish)
+## Fish
 
 fish shell supports a [completion system](https://fishshell.com/docs/current/#tab-completion) natively. To activate completion for Docker commands, copy or symlink the completion script to your fish shell `completions/` directory:
 

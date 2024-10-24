@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/bake/reference/](https://docs.docker.com/build/bake/reference/)
+> 原文：[https://docs.docker.com/build/bake/reference/](https://docs.docker.com/build/bake/reference/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 The Bake file is a file for defining workflows that you run using `docker buildx bake`.
 
-## [File format](https://docs.docker.com/build/bake/reference/#file-format)
+## File format
 
 You can define your Bake file in the following file formats:
 
@@ -136,7 +136,7 @@ $ docker buildx bake --print webapp
 }
 ```
 
-## [Syntax](https://docs.docker.com/build/bake/reference/#syntax)
+## Syntax
 
 The Bake file supports the following property types:
 
@@ -197,7 +197,7 @@ HCL is the preferred format for Bake files. Aside from syntactic differences, HC
 
 The examples in this document use the HCL format.
 
-## [Target](https://docs.docker.com/build/bake/reference/#target)
+## Target
 
 A target reflects a single `docker build` invocation. Consider the following build command:
 
@@ -251,7 +251,7 @@ The following table shows the complete list of attributes that you can assign to
 | [`target`](https://docs.docker.com/build/bake/reference/#targettarget) | String  | Target build stage                                           |
 | [`ulimits`](https://docs.docker.com/build/bake/reference/#targetulimits) | List    | Ulimit options                                               |
 
-### [`target.args`](https://docs.docker.com/build/bake/reference/#targetargs)
+### `target.args`
 
 Use the `args` attribute to define build arguments for the target. This has the same effect as passing a [`--build-arg`](https://docs.docker.com/reference/cli/docker/image/build/#build-arg) flag to the build command.
 
@@ -288,7 +288,7 @@ target "db" {
 }
 ```
 
-### [`target.annotations`](https://docs.docker.com/build/bake/reference/#targetannotations)
+### `target.annotations`
 
 The `annotations` attribute lets you add annotations to images built with bake. The key takes a list of annotations, in the format of `KEY=VALUE`.
 
@@ -324,7 +324,7 @@ target "default" {
 
 Read about the supported levels in [Specifying annotation levels](https://docs.docker.com/build/building/annotations/#specifying-annotation-levels).
 
-### [`target.attest`](https://docs.docker.com/build/bake/reference/#targetattest)
+### `target.attest`
 
 The `attest` attribute lets you apply [build attestations](https://docs.docker.com/build/attestations/) to the target. This attribute accepts the long-form CSV version of attestation parameters.
 
@@ -339,9 +339,9 @@ target "default" {
 }
 ```
 
-### [`target.cache-from`](https://docs.docker.com/build/bake/reference/#targetcache-from)
+### `target.cache-from`
 
-Build cache sources. The builder imports cache from the locations you specify. It uses the [Buildx cache storage backends](https://docs.docker.com/build/cache/backends/), and it works the same way as the [`--cache-from`](https://docs.docker.com/reference/cli/docker/buildx/build/#cache-from) flag. This takes a list value, so you can specify multiple cache sources.
+Build cache sources. The builder imports cache from the locations you specify. It uses the [Buildx cache storage backends]({{< ref "/manuals/DockerBuild/Cache/Cachestoragebackends" >}}), and it works the same way as the [`--cache-from`](https://docs.docker.com/reference/cli/docker/buildx/build/#cache-from) flag. This takes a list value, so you can specify multiple cache sources.
 
 
 
@@ -354,9 +354,9 @@ target "app" {
 }
 ```
 
-### [`target.cache-to`](https://docs.docker.com/build/bake/reference/#targetcache-to)
+### `target.cache-to`
 
-Build cache export destinations. The builder exports its build cache to the locations you specify. It uses the [Buildx cache storage backends](https://docs.docker.com/build/cache/backends/), and it works the same way as the [`--cache-to` flag](https://docs.docker.com/reference/cli/docker/buildx/build/#cache-to). This takes a list value, so you can specify multiple cache export targets.
+Build cache export destinations. The builder exports its build cache to the locations you specify. It uses the [Buildx cache storage backends]({{< ref "/manuals/DockerBuild/Cache/Cachestoragebackends" >}}), and it works the same way as the [`--cache-to` flag](https://docs.docker.com/reference/cli/docker/buildx/build/#cache-to). This takes a list value, so you can specify multiple cache export targets.
 
 
 
@@ -369,7 +369,7 @@ target "app" {
 }
 ```
 
-### [`target.context`](https://docs.docker.com/build/bake/reference/#targetcontext)
+### `target.context`
 
 Specifies the location of the build context to use for this target. Accepts a URL or a directory path. This is the same as the [build context](https://docs.docker.com/reference/cli/docker/buildx/build/#build-context) positional argument that you pass to the build command.
 
@@ -398,7 +398,7 @@ $ docker buildx bake --print -f - <<< 'target "default" {}'
 }
 ```
 
-### [`target.contexts`](https://docs.docker.com/build/bake/reference/#targetcontexts)
+### `target.contexts`
 
 Additional build contexts. This is the same as the [`--build-context` flag](https://docs.docker.com/reference/cli/docker/buildx/build/#build-context). This attribute takes a map, where keys result in named contexts that you can reference in your builds.
 
@@ -412,7 +412,7 @@ You can specify different types of contexts, such local directories, Git URLs, a
 | Local directory | `../path/to/src`                          |
 | Bake target     | `target:base`                             |
 
-#### [Pin an image version](https://docs.docker.com/build/bake/reference/#pin-an-image-version)
+#### Pin an image version
 
 
 
@@ -433,7 +433,7 @@ FROM alpine
 RUN echo "Hello world"
 ```
 
-#### [Use a local directory](https://docs.docker.com/build/bake/reference/#use-a-local-directory)
+#### Use a local directory
 
 
 
@@ -455,7 +455,7 @@ FROM golang
 COPY --from=src . .
 ```
 
-#### [Use another target as base](https://docs.docker.com/build/bake/reference/#use-another-target-as-base)
+#### Use another target as base
 
 > **Note**
 >
@@ -483,7 +483,7 @@ FROM baseapp
 RUN echo "Hello world"
 ```
 
-### [`target.dockerfile-inline`](https://docs.docker.com/build/bake/reference/#targetdockerfile-inline)
+### `target.dockerfile-inline`
 
 Uses the string value as an inline Dockerfile for the build target.
 
@@ -497,7 +497,7 @@ target "default" {
 
 The `dockerfile-inline` takes precedence over the `dockerfile` attribute. If you specify both, Bake uses the inline version.
 
-### [`target.dockerfile`](https://docs.docker.com/build/bake/reference/#targetdockerfile)
+### `target.dockerfile`
 
 Name of the Dockerfile to use for the build. This is the same as the [`--file` flag](https://docs.docker.com/reference/cli/docker/image/build/#file) for the `docker build` command.
 
@@ -526,7 +526,7 @@ $ docker buildx bake --print -f - <<< 'target "default" {}'
 }
 ```
 
-### [`target.entitlements`](https://docs.docker.com/build/bake/reference/#targetentitlements)
+### `target.entitlements`
 
 Entitlements are permissions that the build process requires to run.
 
@@ -546,7 +546,7 @@ target "integration-tests" {
 
 Entitlements are enabled with a two-step process. First, a target must declare the entitlements it requires. Secondly, when invoking the `bake` command, the user must grant the entitlements by passing the `--allow` flag or confirming the entitlements when prompted in an interactive terminal. This is to ensure that the user is aware of the possibly insecure permissions they are granting to the build process.
 
-### [`target.inherits`](https://docs.docker.com/build/bake/reference/#targetinherits)
+### `target.inherits`
 
 A target can inherit attributes from other targets. Use `inherits` to reference from one target to another.
 
@@ -638,7 +638,7 @@ $ docker buildx bake --print app-release
 }
 ```
 
-### [`target.labels`](https://docs.docker.com/build/bake/reference/#targetlabels)
+### `target.labels`
 
 Assigns image labels to the build. This is the same as the `--label` flag for `docker build`.
 
@@ -655,7 +655,7 @@ target "default" {
 
 It's possible to use a `null` value for labels. If you do, the builder uses the label value specified in the Dockerfile.
 
-### [`target.matrix`](https://docs.docker.com/build/bake/reference/#targetmatrix)
+### `target.matrix`
 
 A matrix strategy lets you fork a single target into multiple different variants, based on parameters that you specify. This works in a similar way to [Matrix strategies for GitHub Actions]. You can use this to reduce duplication in your bake definition.
 
@@ -711,7 +711,7 @@ $ docker buildx bake --print app
 }
 ```
 
-#### [Multiple axes](https://docs.docker.com/build/bake/reference/#multiple-axes)
+#### Multiple axes
 
 You can specify multiple keys in your matrix to fork a target on multiple axes. When using multiple matrix keys, Bake builds every possible variant.
 
@@ -738,7 +738,7 @@ target "app" {
 }
 ```
 
-#### [Multiple values per matrix target](https://docs.docker.com/build/bake/reference/#multiple-values-per-matrix-target)
+#### Multiple values per matrix target
 
 If you want to differentiate the matrix on more than just a single value, you can use maps as matrix values. Bake creates a target for each map, and you can access the nested values using dot notation.
 
@@ -771,7 +771,7 @@ target "app" {
 }
 ```
 
-### [`target.name`](https://docs.docker.com/build/bake/reference/#targetname)
+### `target.name`
 
 Specify name resolution for targets that use a matrix strategy. The following example resolves the `app` target to `app-foo` and `app-bar`.
 
@@ -787,7 +787,7 @@ target "app" {
 }
 ```
 
-### [`target.network`](https://docs.docker.com/build/bake/reference/#targetnetwork)
+### `target.network`
 
 Specify the network mode for the whole build request. This will override the default network mode for all the `RUN` instructions in the Dockerfile. Accepted values are `default`, `host`, and `none`.
 
@@ -804,7 +804,7 @@ target "app" {
 }
 ```
 
-### [`target.no-cache-filter`](https://docs.docker.com/build/bake/reference/#targetno-cache-filter)
+### `target.no-cache-filter`
 
 Don't use build cache for the specified stages. This is the same as the `--no-cache-filter` flag for `docker build`. The following example avoids build cache for the `foo` build stage.
 
@@ -816,7 +816,7 @@ target "default" {
 }
 ```
 
-### [`target.no-cache`](https://docs.docker.com/build/bake/reference/#targetno-cache)
+### `target.no-cache`
 
 Don't use cache when building the image. This is the same as the `--no-cache` flag for `docker build`.
 
@@ -828,7 +828,7 @@ target "default" {
 }
 ```
 
-### [`target.output`](https://docs.docker.com/build/bake/reference/#targetoutput)
+### `target.output`
 
 Configuration for exporting the build output. This is the same as the [`--output` flag](https://docs.docker.com/reference/cli/docker/buildx/build/#output). The following example configures the target to use a cache-only output,
 
@@ -840,7 +840,7 @@ target "default" {
 }
 ```
 
-### [`target.platforms`](https://docs.docker.com/build/bake/reference/#targetplatforms)
+### `target.platforms`
 
 Set target platforms for the build target. This is the same as the [`--platform` flag](https://docs.docker.com/reference/cli/docker/buildx/build/#platform). The following example creates a multi-platform build for three architectures.
 
@@ -852,7 +852,7 @@ target "default" {
 }
 ```
 
-### [`target.pull`](https://docs.docker.com/build/bake/reference/#targetpull)
+### `target.pull`
 
 Configures whether the builder should attempt to pull images when building the target. This is the same as the `--pull` flag for `docker build`. The following example forces the builder to always pull all images referenced in the build target.
 
@@ -864,7 +864,7 @@ target "default" {
 }
 ```
 
-### [`target.secret`](https://docs.docker.com/build/bake/reference/#targetsecret)
+### `target.secret`
 
 Defines secrets to expose to the build target. This is the same as the [`--secret` flag](https://docs.docker.com/reference/cli/docker/buildx/build/#secret).
 
@@ -894,7 +894,7 @@ RUN --mount=type=secret,id=KUBECONFIG,env=KUBECONFIG \
     helm upgrade --install
 ```
 
-### [`target.shm-size`](https://docs.docker.com/build/bake/reference/#targetshm-size)
+### `target.shm-size`
 
 Sets the size of the shared memory allocated for build containers when using `RUN` instructions.
 
@@ -914,7 +914,7 @@ target "default" {
 >
 > In most cases, it is recommended to let the builder automatically determine the appropriate configurations. Manual adjustments should only be considered when specific performance tuning is required for complex build scenarios.
 
-### [`target.ssh`](https://docs.docker.com/build/bake/reference/#targetssh)
+### `target.ssh`
 
 Defines SSH agent sockets or keys to expose to the build. This is the same as the [`--ssh` flag](https://docs.docker.com/reference/cli/docker/buildx/build/#ssh). This can be useful if you need to access private repositories during a build.
 
@@ -937,7 +937,7 @@ RUN --mount=type=ssh \
     && git clone git@github.com:user/my-private-repo.git
 ```
 
-### [`target.tags`](https://docs.docker.com/build/bake/reference/#targettags)
+### `target.tags`
 
 Image names and tags to use for the build target. This is the same as the [`--tag` flag](https://docs.docker.com/reference/cli/docker/image/build/#tag).
 
@@ -952,7 +952,7 @@ target "default" {
 }
 ```
 
-### [`target.target`](https://docs.docker.com/build/bake/reference/#targettarget)
+### `target.target`
 
 Set the target build stage to build. This is the same as the [`--target` flag](https://docs.docker.com/reference/cli/docker/image/build/#target).
 
@@ -964,7 +964,7 @@ target "default" {
 }
 ```
 
-### [`target.ulimits`](https://docs.docker.com/build/bake/reference/#targetulimits)
+### `target.ulimits`
 
 Ulimits overrides the default ulimits of build's containers when using `RUN` instructions and are specified with a soft and hard limit as such: `<type>=<soft limit>[:<hard limit>]`, for example:
 
@@ -986,7 +986,7 @@ target "app" {
 >
 > In most cases, it is recommended to let the builder automatically determine the appropriate configurations. Manual adjustments should only be considered when specific performance tuning is required for complex build scenarios.
 
-## [Group](https://docs.docker.com/build/bake/reference/#group)
+## Group
 
 Groups allow you to invoke multiple builds (targets) at once.
 
@@ -1028,7 +1028,7 @@ target "debian" {
 }
 ```
 
-## [Variable](https://docs.docker.com/build/bake/reference/#variable)
+## Variable
 
 The HCL file format supports variable block definitions. You can use variables as build arguments in your Dockerfile, or interpolate them in attribute values in your Bake file.
 
@@ -1055,7 +1055,7 @@ You can override variable defaults set in the Bake file using environment variab
 $ TAG=dev docker buildx bake webapp-dev
 ```
 
-### [Built-in variables](https://docs.docker.com/build/bake/reference/#built-in-variables)
+### Built-in variables
 
 The following variables are built-ins that you can use with Bake without having to define them.
 
@@ -1064,7 +1064,7 @@ The following variables are built-ins that you can use with Bake without having 
 | `BAKE_CMD_CONTEXT`    | Holds the main context when building using a remote Bake file. |
 | `BAKE_LOCAL_PLATFORM` | Returns the current platform’s default platform specification (e.g. `linux/amd64`). |
 
-### [Use environment variable as default](https://docs.docker.com/build/bake/reference/#use-environment-variable-as-default)
+### Use environment variable as default
 
 You can set a Bake variable to use the value of an environment variable as a default value:
 
@@ -1076,7 +1076,7 @@ variable "HOME" {
 }
 ```
 
-### [Interpolate variables into attributes](https://docs.docker.com/build/bake/reference/#interpolate-variables-into-attributes)
+### Interpolate variables into attributes
 
 To interpolate a variable into an attribute string value, you must use curly brackets. The following doesn't work:
 
@@ -1136,7 +1136,7 @@ $ docker buildx bake
 [+] Building 0.6s (5/5) FINISHED
 ```
 
-## [Function](https://docs.docker.com/build/bake/reference/#function)
+## Function
 
 A [set of general-purpose functions](https://github.com/docker/buildx/blob/master/bake/hclparser/stdlib.go) provided by [go-cty](https://github.com/zclconf/go-cty/tree/main/cty/function/stdlib) are available for use in HCL files:
 

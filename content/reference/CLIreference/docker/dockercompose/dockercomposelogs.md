@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/logs/](https://docs.docker.com/reference/cli/docker/compose/logs/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/logs/](https://docs.docker.com/reference/cli/docker/compose/logs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,11 +18,11 @@ draft = false
 | :---------- | -------------------------------------------- |
 | Usage       | `docker compose logs [OPTIONS] [SERVICE...]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/logs/#description)
+## Description
 
 Displays log output from services
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/logs/#options)
+## Options
 
 | Option             | Default | Description                                                  |
 | ------------------ | ------- | ------------------------------------------------------------ |

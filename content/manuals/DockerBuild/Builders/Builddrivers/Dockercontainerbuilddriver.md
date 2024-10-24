@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/builders/drivers/docker-container/](https://docs.docker.com/build/builders/drivers/docker-container/)
+> 原文：[https://docs.docker.com/build/builders/drivers/docker-container/](https://docs.docker.com/build/builders/drivers/docker-container/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,9 +20,9 @@ Using the Docker container driver has a couple of advantages over the default Do
 
 - Specify custom BuildKit versions to use.
 - Build multi-arch images, see [QEMU](https://docs.docker.com/build/builders/drivers/docker-container/#qemu)
-- Advanced options for [cache import and export](https://docs.docker.com/build/cache/backends/)
+- Advanced options for [cache import and export]({{< ref "/manuals/DockerBuild/Cache/Cachestoragebackends" >}})
 
-## [Synopsis](https://docs.docker.com/build/builders/drivers/docker-container/#synopsis)
+## Synopsis
 
 Run the following command to create a new builder, named `container`, that uses the Docker container driver:
 
@@ -54,9 +54,9 @@ The following table describes the available driver-specific options that you can
 | `restart-policy` | String  | `unless-stopped` | Sets the container's [restart policy](https://docs.docker.com/engine/containers/start-containers-automatically/#use-a-restart-policy). |
 | `env.<key>`      | String  |                  | Sets the environment variable `key` to the specified `value` in the container. |
 
-Before you configure the resource limits for the container, read about [configuring runtime resource constraints for containers](https://docs.docker.com/engine/containers/resource_constraints/).
+Before you configure the resource limits for the container, read about [configuring runtime resource constraints for containers]({{< ref "/manuals/DockerEngine/Containers/Resourceconstraints" >}}).
 
-## [Usage](https://docs.docker.com/build/builders/drivers/docker-container/#usage)
+## Usage
 
 When you run a build, Buildx pulls the specified `image` (by default, [`moby/buildkit`](https://hub.docker.com/r/moby/buildkit)). When the container has started, Buildx submits the build submitted to the containerized build server.
 
@@ -74,7 +74,7 @@ WARNING: No output specified with docker-container driver. Build result will onl
 ...
 ```
 
-## [Cache persistence](https://docs.docker.com/build/builders/drivers/docker-container/#cache-persistence)
+## Cache persistence
 
 The `docker-container` driver supports cache persistence, as it stores all the BuildKit state and related cache into a dedicated Docker volume.
 
@@ -107,7 +107,7 @@ $ docker buildx create --name=container --driver=docker-container --use --bootst
 container
 ```
 
-## [QEMU](https://docs.docker.com/build/builders/drivers/docker-container/#qemu)
+## QEMU
 
 The `docker-container` driver supports using [QEMU](https://www.qemu.org/) (user mode) to build non-native platforms. Use the `--platform` flag to specify which architectures that you want to build for.
 
@@ -129,11 +129,11 @@ $ docker buildx build \
 >
 > Emulation with QEMU can be much slower than native builds, especially for compute-heavy tasks like compilation and compression or decompression.
 
-## [Custom network](https://docs.docker.com/build/builders/drivers/docker-container/#custom-network)
+## Custom network
 
 You can customize the network that the builder container uses. This is useful if you need to use a specific network for your builds.
 
-For example, let's [create a network](https://docs.docker.com/reference/cli/docker/network/create/) named `foonet`:
+For example, let's [create a network]({{< ref "/reference/CLIreference/docker/dockernetwork/dockernetworkcreate" >}}) named `foonet`:
 
 
 
@@ -141,7 +141,7 @@ For example, let's [create a network](https://docs.docker.com/reference/cli/dock
 $ docker network create foonet
 ```
 
-Now create a [`docker-container` builder](https://docs.docker.com/reference/cli/docker/buildx/create/) that will use this network:
+Now create a [`docker-container` builder]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildxcreate" >}}) that will use this network:
 
 
 
@@ -152,7 +152,7 @@ $ docker buildx create --use \
   --driver-opt "network=foonet"
 ```
 
-Boot and [inspect `mybuilder`](https://docs.docker.com/reference/cli/docker/buildx/inspect/):
+Boot and [inspect `mybuilder`]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildxinspect" >}}):
 
 
 
@@ -160,7 +160,7 @@ Boot and [inspect `mybuilder`](https://docs.docker.com/reference/cli/docker/buil
 $ docker buildx inspect --bootstrap
 ```
 
-[Inspect the builder container](https://docs.docker.com/reference/cli/docker/inspect/) and see what network is being used:
+[Inspect the builder container]({{< ref "/reference/CLIreference/docker/dockerinspect" >}}) and see what network is being used:
 
 
 
@@ -169,6 +169,6 @@ $ docker inspect buildx_buildkit_mybuilder0 --format={{.NetworkSettings.Networks
 map[foonet:0xc00018c0c0]
 ```
 
-## [Further reading](https://docs.docker.com/build/builders/drivers/docker-container/#further-reading)
+## Further reading
 
 For more information on the Docker container driver, see the [buildx reference](https://docs.docker.com/reference/cli/docker/buildx/create/#driver).

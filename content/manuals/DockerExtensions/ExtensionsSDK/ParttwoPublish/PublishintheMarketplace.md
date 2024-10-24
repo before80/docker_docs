@@ -8,17 +8,17 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/extensions/publish/](https://docs.docker.com/extensions/extensions-sdk/extensions/publish/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/extensions/publish/](https://docs.docker.com/extensions/extensions-sdk/extensions/publish/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Publish in the Marketplace
 
-## [Submit your extension to the Marketplace](https://docs.docker.com/extensions/extensions-sdk/extensions/publish/#submit-your-extension-to-the-marketplace)
+## Submit your extension to the Marketplace
 
 Docker Desktop displays published extensions in the Extensions Marketplace on [Docker Desktop](https://open.docker.com/extensions/marketplace) and [Docker Hub](https://hub.docker.com/search?q=&type=extension). The Extensions Marketplace is a space where developers can discover extensions to improve their developer experience and propose their own extension to be available for all Desktop users.
 
-Whenever you are [ready to publish](https://docs.docker.com/extensions/extensions-sdk/extensions/DISTRIBUTION/) your extension in the Marketplace, you can [self-publish your extension](https://github.com/docker/extensions-submissions/issues/new?assignees=&labels=&template=1_automatic_review.yaml&title=[Submission]%3A+)
+Whenever you are [ready to publish]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish/Packageandreleaseyourextension" >}}) your extension in the Marketplace, you can [self-publish your extension](https://github.com/docker/extensions-submissions/issues/new?assignees=&labels=&template=1_automatic_review.yaml&title=[Submission]%3A+)
 
 > **Note**
 >
@@ -32,16 +32,16 @@ Whenever you are [ready to publish](https://docs.docker.com/extensions/extension
 >
 > The Docker manual review process for extensions is paused at the moment. Submit your extension through the [automated submission process](https://github.com/docker/extensions-submissions/issues/new?assignees=&labels=&template=1_automatic_review.yaml&title=[Submission]%3A+)
 
-### [Before you submit](https://docs.docker.com/extensions/extensions-sdk/extensions/publish/#before-you-submit)
+### Before you submit
 
-Before you submit your extension, it must pass the [validation](https://docs.docker.com/extensions/extensions-sdk/extensions/validate/) checks.
+Before you submit your extension, it must pass the [validation]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish/Validate" >}}) checks.
 
 It is highly recommended that your extension follows the guidelines outlined in this section before submitting your extension. If you request a review from the Docker Extensions team and have not followed the guidelines, the review process may take longer.
 
 These guidelines don't replace Docker's terms of service or guarantee approval:
 
-- Review the [design guidelines](https://docs.docker.com/extensions/extensions-sdk/design/design-guidelines/)
-- Ensure the [UI styling](https://docs.docker.com/extensions/extensions-sdk/design/) is in line with Docker Desktop guidelines
+- Review the [design guidelines]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DesignandUIstyling/Guidelines" >}})
+- Ensure the [UI styling]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DesignandUIstyling" >}}) is in line with Docker Desktop guidelines
 - Ensure your extensions support both light and dark mode
 - Consider the needs of both new and existing users of your extension
 - Test your extension with potential users
@@ -49,7 +49,7 @@ These guidelines don't replace Docker's terms of service or guarantee approval:
 - Test your extension on various platforms (Mac, Windows, Linux)
 - Read the [Terms of Service](https://www.docker.com/legal/extensions_marketplace_developer_agreement/)
 
-#### [Validation process](https://docs.docker.com/extensions/extensions-sdk/extensions/publish/#validation-process)
+#### Validation process
 
 Submitted extensions go through an automated validation process. If all the validation checks pass successfully, the extension is published on the Marketplace and accessible to all users within a few hours. It is the fastest way to get developers the tools they need and to get feedback from them as you work to evolve/polish your extension.
 

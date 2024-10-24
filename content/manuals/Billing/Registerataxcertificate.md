@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/billing/tax-certificate/](https://docs.docker.com/billing/tax-certificate/)
+> 原文：[https://docs.docker.com/billing/tax-certificate/](https://docs.docker.com/billing/tax-certificate/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,9 +22,9 @@ If you're a customer in the United States and you're exempt from sales tax, you 
 >
 > Starting July 1, 2024, Docker will begin collecting sales tax on subscription fees in compliance with state regulations for customers in the United States. For our global customers subject to VAT, the implementation will start rolling out on July 1, 2024. Note that while the rollout begins on this date, VAT charges may not apply to all applicable subscriptions immediately.
 >
-> To ensure that tax assessments are correct, make sure that your [billing information](https://docs.docker.com/billing/core-billing/details/) and VAT/Tax ID, if applicable, are updated. If you're exempt from sales tax, see [Register a tax certificate](https://docs.docker.com/billing/tax-certificate/).
+> To ensure that tax assessments are correct, make sure that your [billing information]({{< ref "/manuals/Billing/DockerCore/Updatethebillinginformation" >}}) and VAT/Tax ID, if applicable, are updated. If you're exempt from sales tax, see [Register a tax certificate]({{< ref "/manuals/Billing/Registerataxcertificate" >}}).
 
-## [Prerequisites](https://docs.docker.com/billing/tax-certificate/#prerequisites)
+## Prerequisites
 
 Before you submit your tax exemption certificate, ensure the following.
 
@@ -33,7 +33,7 @@ Before you submit your tax exemption certificate, ensure the following.
 3. Your certificate is signed and dated, and the expiration date hasn't passed
 4. You have a valid Docker ID/namespace(s) of the accounts that you want to apply the tax exemption certificate to
 
-## [Contact information](https://docs.docker.com/billing/tax-certificate/#contact-information)
+## Contact information
 
 You can use the following for Docker's contact information on your tax exemption certificate.
 
@@ -42,7 +42,7 @@ Docker, Inc.
 Palo Alto, CA 94306
 (415) 941-0376
 
-## [Register a tax certificate](https://docs.docker.com/billing/tax-certificate/#register-a-tax-certificate)
+## Register a tax certificate
 
 1. [Submit a Docker Support ticket](https://hub.docker.com/support/contact?topic=Billing&subtopic=Tax information) to initiate the process to register a tax certificate.
 

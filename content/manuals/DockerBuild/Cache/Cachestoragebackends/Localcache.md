@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/cache/backends/local/](https://docs.docker.com/build/cache/backends/local/)
+> 原文：[https://docs.docker.com/build/cache/backends/local/](https://docs.docker.com/build/cache/backends/local/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 The `local` cache store is a simple cache option that stores your cache as files in a directory on your filesystem, using an [OCI image layout](https://github.com/opencontainers/image-spec/blob/main/image-layout.md) for the underlying directory structure. Local cache is a good choice if you're just testing, or if you want the flexibility to self-manage a shared storage solution.
 
-## [Synopsis](https://docs.docker.com/build/cache/backends/local/#synopsis)
+## Synopsis
 
 
 
@@ -43,7 +43,7 @@ The following table describes the available CSV parameters that you can pass to 
 
 If the `src` cache doesn't exist, then the cache import step will fail, but the build continues.
 
-## [Cache versioning](https://docs.docker.com/build/cache/backends/local/#cache-versioning)
+## Cache versioning
 
 This section describes how versioning works for caches on a local filesystem, and how you can use the `digest` parameter to use older versions of cache.
 
@@ -82,8 +82,8 @@ $ docker buildx build --push -t <registry>/<image> \
   --cache-from type=local,ref=path/to/local/dir,digest=sha256:6982c70595cb91769f61cd1e064cf5f41d5357387bab6b18c0164c5f98c1f707 .
 ```
 
-## [Further reading](https://docs.docker.com/build/cache/backends/local/#further-reading)
+## Further reading
 
-For an introduction to caching see [Docker build cache](https://docs.docker.com/build/cache/).
+For an introduction to caching see [Docker build cache]({{< ref "/manuals/DockerBuild/Cache" >}}).
 
 For more information on the `local` cache backend, see the [BuildKit README](https://github.com/moby/buildkit#local-directory-1).

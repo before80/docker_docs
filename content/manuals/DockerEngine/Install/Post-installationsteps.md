@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/install/linux-postinstall/](https://docs.docker.com/engine/install/linux-postinstall/)
+> 原文：[https://docs.docker.com/engine/install/linux-postinstall/](https://docs.docker.com/engine/install/linux-postinstall/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 These optional post-installation procedures describe how to configure your Linux host machine to work better with Docker.
 
-## [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)
+## Manage Docker as a non-root user
 
 The Docker daemon binds to a Unix socket, not a TCP port. By default it's the `root` user that owns the Unix socket, and other users can only access it using `sudo`. The Docker daemon always runs as the `root` user.
 
@@ -32,7 +32,7 @@ If you don't want to preface the `docker` command with `sudo`, create a Unix gro
 >
 > 
 >
-> To run Docker without root privileges, see [Run the Docker daemon as a non-root user (Rootless mode)](https://docs.docker.com/engine/security/rootless/).
+> To run Docker without root privileges, see [Run the Docker daemon as a non-root user (Rootless mode)]({{< ref "/manuals/DockerEngine/Security/Rootlessmode" >}}).
 
 To create the `docker` group and add your user:
 
@@ -94,7 +94,7 @@ To create the `docker` group and add your user:
    $ sudo chmod g+rwx "$HOME/.docker" -R
    ```
 
-## [Configure Docker to start on boot with systemd](https://docs.docker.com/engine/install/linux-postinstall/#configure-docker-to-start-on-boot-with-systemd)
+## Configure Docker to start on boot with systemd
 
 Many modern Linux distributions use [systemd](https://systemd.io/) to manage which services start when the system boots. On Debian and Ubuntu, the Docker service starts on boot by default. To automatically start Docker and containerd on boot for other Linux distributions using systemd, run the following commands:
 
@@ -116,16 +116,16 @@ $ sudo systemctl disable containerd.service
 
 You can use systemd unit files to configure the Docker service on startup, for example to add an HTTP proxy, set a different directory or partition for the Docker runtime files, or other customizations. For an example, see [Configure the daemon to use a proxy](https://docs.docker.com/engine/daemon/proxy/#systemd-unit-file).
 
-## [Configure default logging driver](https://docs.docker.com/engine/install/linux-postinstall/#configure-default-logging-driver)
+## Configure default logging driver
 
-Docker provides [logging drivers](https://docs.docker.com/engine/logging/) for collecting and viewing log data from all containers running on a host. The default logging driver, `json-file`, writes log data to JSON-formatted files on the host filesystem. Over time, these log files expand in size, leading to potential exhaustion of disk resources.
+Docker provides [logging drivers]({{< ref "/manuals/DockerEngine/Logsandmetrics" >}}) for collecting and viewing log data from all containers running on a host. The default logging driver, `json-file`, writes log data to JSON-formatted files on the host filesystem. Over time, these log files expand in size, leading to potential exhaustion of disk resources.
 
 To avoid issues with overusing disk for log data, consider one of the following options:
 
-- Configure the `json-file` logging driver to turn on [log rotation](https://docs.docker.com/engine/logging/drivers/json-file/).
-- Use an [alternative logging driver](https://docs.docker.com/engine/logging/configure/#configure-the-default-logging-driver) such as the ["local" logging driver](https://docs.docker.com/engine/logging/drivers/local/) that performs log rotation by default.
+- Configure the `json-file` logging driver to turn on [log rotation]({{< ref "/manuals/DockerEngine/Logsandmetrics/Loggingdrivers/JSONFileloggingdriver" >}}).
+- Use an [alternative logging driver](https://docs.docker.com/engine/logging/configure/#configure-the-default-logging-driver) such as the ["local" logging driver]({{< ref "/manuals/DockerEngine/Logsandmetrics/Loggingdrivers/Localfileloggingdriver" >}}) that performs log rotation by default.
 - Use a logging driver that sends logs to a remote logging aggregator.
 
-## [Next steps](https://docs.docker.com/engine/install/linux-postinstall/#next-steps)
+## Next steps
 
-- Take a look at the [Docker workshop](https://docs.docker.com/get-started/workshop/) to learn how to build an image and run it as a containerized application.
+- Take a look at the [Docker workshop]({{< ref "/get-started/Dockerworkshop" >}}) to learn how to build an image and run it as a containerized application.

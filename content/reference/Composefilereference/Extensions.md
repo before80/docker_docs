@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/compose-file/extension/](https://docs.docker.com/reference/compose-file/extension/)
+> 原文：[https://docs.docker.com/reference/compose-file/extension/](https://docs.docker.com/reference/compose-file/extension/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,11 +18,11 @@ Extensions can be used to make your Compose file more efficient and easier to ma
 
 Use the prefix `x-` as a top-level element to modularize configurations that you want to reuse. Compose ignores any fields that start with `x-`, this is the sole exception where Compose silently ignores unrecognized fields.
 
-Extensions can also be used with [anchors and aliases](https://docs.docker.com/reference/compose-file/fragments/).
+Extensions can also be used with [anchors and aliases]({{< ref "/reference/Composefilereference/Fragments" >}}).
 
 They also can be used within any structure in a Compose file where user-defined keys are not expected. Compose uses those to enable experimental features, the same way browsers add support for [custom CSS features](https://www.w3.org/TR/2011/REC-CSS2-20110607/syndata.html#vendor-keywords)
 
-## [Example 1](https://docs.docker.com/reference/compose-file/extension/#example-1)
+## Example 1
 
 
 
@@ -50,7 +50,7 @@ service:
         x-azure-region: "france-central"
 ```
 
-## [Example 2](https://docs.docker.com/reference/compose-file/extension/#example-2)
+## Example 2
 
 
 
@@ -71,7 +71,7 @@ services:
 
 In this example, the environment variables do not belong to either of the services. They’ve been lifted out completely into the `x-env` extension field. This defines a new node which contains the environment field. The `&env` YAML anchor is used so both services can reference the extension field’s value as `*env`.
 
-## [Example 3](https://docs.docker.com/reference/compose-file/extension/#example-3)
+## Example 3
 
 
 
@@ -107,7 +107,7 @@ services:
 
 The `nodeinfo` and `echoit` services both include the `x-function` extension via the `&function` anchor, then set their specific image and environment.
 
-## [Example 4](https://docs.docker.com/reference/compose-file/extension/#example-4)
+## Example 4
 
 Using [YAML merge](https://yaml.org/type/merge.html) it is also possible to use multiple extensions and share and override additional attributes for specific needs:
 
@@ -135,7 +135,7 @@ services:
 >
 > In the example above, the environment variables are declared using the `FOO: BAR` mapping syntax, while the sequence syntax `- FOO=BAR` is only valid when no fragments are involved.
 
-## [Informative Historical Notes](https://docs.docker.com/reference/compose-file/extension/#informative-historical-notes)
+## Informative Historical Notes
 
 This section is informative. At the time of writing, the following prefixes are known to exist:
 
@@ -144,7 +144,7 @@ This section is informative. At the time of writing, the following prefixes are 
 | docker     | Docker              |
 | kubernetes | Kubernetes          |
 
-## [Specifying byte values](https://docs.docker.com/reference/compose-file/extension/#specifying-byte-values)
+## Specifying byte values
 
 Values express a byte value as a string in `{amount}{byte unit}` format: The supported units are `b` (bytes), `k` or `kb` (kilo bytes), `m` or `mb` (mega bytes) and `g` or `gb` (giga bytes).
 
@@ -158,7 +158,7 @@ Values express a byte value as a string in `{amount}{byte unit}` format: The sup
     1gb
 ```
 
-## [Specifying durations](https://docs.docker.com/reference/compose-file/extension/#specifying-durations)
+## Specifying durations
 
 Values express a duration as a string in the form of `{value}{unit}`. The supported units are `us` (microseconds), `ms` (milliseconds), `s` (seconds), `m` (minutes) and `h` (hours). Values can combine multiple values without separator.
 

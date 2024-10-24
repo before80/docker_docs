@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/compose-file/](https://docs.docker.com/reference/compose-file/)
+> 原文：[https://docs.docker.com/reference/compose-file/](https://docs.docker.com/reference/compose-file/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -16,9 +16,9 @@ draft = false
 
 > **New to Docker Compose?**
 >
-> Find more information about the [key features and use cases of Docker Compose](https://docs.docker.com/compose/intro/features-uses/) or [try the quickstart guide](https://docs.docker.com/compose/gettingstarted/).
+> Find more information about the [key features and use cases of Docker Compose]({{< ref "/manuals/DockerCompose/IntroductiontoCompose/WhyuseCompose" >}}) or [try the quickstart guide]({{< ref "/manuals/DockerCompose/Quickstart" >}}).
 
-The Compose Specification is the latest and recommended version of the Compose file format. It helps you define a [Compose file](https://docs.docker.com/compose/intro/compose-application-model/) which is used to configure your Docker application’s services, networks, volumes, and more.
+The Compose Specification is the latest and recommended version of the Compose file format. It helps you define a [Compose file]({{< ref "/manuals/DockerCompose/IntroductiontoCompose/HowComposeworks" >}}) which is used to configure your Docker application’s services, networks, volumes, and more.
 
 Legacy versions 2.x and 3.x of the Compose file format were merged into the Compose Specification. It is implemented in versions 1.27.0 and above (also known as Compose V2) of the Docker Compose CLI.
 

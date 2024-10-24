@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/install/msi/](https://docs.docker.com/desktop/install/msi/)
+> 原文：[https://docs.docker.com/desktop/install/msi/](https://docs.docker.com/desktop/install/msi/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -26,8 +26,8 @@ The MSI package supports various MDM (Mobile Device Management) solutions, makin
 
 Whether you're looking to implement scripted installations or integrate Docker Desktop with existing MDM solutions, this MSI package is an essential resource.
 
-## [What's next](https://docs.docker.com/desktop/install/msi/#whats-next)
+## What's next
 
-- [Use the Microsoft installer and read the configuration options](https://docs.docker.com/desktop/install/msi/install-and-configure/)
-- [Read the FAQs](https://docs.docker.com/desktop/install/msi/faq/)
-- [Install with Intune](https://docs.docker.com/desktop/install/msi/use-intune/)
+- [Use the Microsoft installer and read the configuration options]({{< ref "/manuals/DockerDesktop/Install/UsetheMSIinstaller/Installandconfigure" >}})
+- [Read the FAQs]({{< ref "/manuals/DockerDesktop/Install/UsetheMSIinstaller/MSIFAQs" >}})
+- [Install with Intune]({{< ref "/manuals/DockerDesktop/Install/UsetheMSIinstaller/UseIntune" >}})

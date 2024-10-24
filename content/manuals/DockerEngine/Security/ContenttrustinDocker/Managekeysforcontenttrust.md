@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/security/trust/trust_key_mng/](https://docs.docker.com/engine/security/trust/trust_key_mng/)
+> 原文：[https://docs.docker.com/engine/security/trust/trust_key_mng/](https://docs.docker.com/engine/security/trust/trust_key_mng/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -31,11 +31,11 @@ When doing a `docker push` with Content Trust enabled for the first time, the ro
 
 Delegation keys are optional, and not generated as part of the normal `docker` workflow. They need to be [manually generated and added to the repository](https://docs.docker.com/engine/security/trust/trust_delegation/#creating-delegation-keys).
 
-## [Choose a passphrase](https://docs.docker.com/engine/security/trust/trust_key_mng/#choose-a-passphrase)
+## Choose a passphrase
 
 The passphrases you chose for both the root key and your repository key should be randomly generated and stored in a password manager. Having the repository key allows users to sign image tags on a repository. Passphrases are used to encrypt your keys at rest and ensure that a lost laptop or an unintended backup doesn't put the private key material at risk.
 
-## [Back up your keys](https://docs.docker.com/engine/security/trust/trust_key_mng/#back-up-your-keys)
+## Back up your keys
 
 All the Docker trust keys are stored encrypted using the passphrase you provide on creation. Even so, you should still take care of the location where you back them up. Good practice is to create two encrypted USB keys.
 
@@ -53,19 +53,19 @@ The Docker client stores the keys in the `~/.docker/trust/private` directory. Be
 $ umask 077; tar -zcvf private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
 ```
 
-## [Hardware storage and signing](https://docs.docker.com/engine/security/trust/trust_key_mng/#hardware-storage-and-signing)
+## Hardware storage and signing
 
 Docker Content Trust can store and sign with root keys from a Yubikey 4. The Yubikey is prioritized over keys stored in the filesystem. When you initialize a new repository with content trust, Docker Engine looks for a root key locally. If a key is not found and the Yubikey 4 exists, Docker Engine creates a root key in the Yubikey 4. Consult the [Notary documentation](https://github.com/theupdateframework/notary/blob/master/docs/advanced_usage.md#use-a-yubikey) for more details.
 
 Prior to Docker Engine 1.11, this feature was only in the experimental branch.
 
-## [Key loss](https://docs.docker.com/engine/security/trust/trust_key_mng/#key-loss)
+## Key loss
 
 > **Warning**
 >
 > 
 >
-> If a publisher loses keys it means losing the ability to sign images for the repositories in question. If you lose a key, send an email to [Docker Hub Support](https://docs.docker.com/engine/security/trust/trust_key_mng/). As a reminder, the loss of a root key is not recoverable.
+> If a publisher loses keys it means losing the ability to sign images for the repositories in question. If you lose a key, send an email to [Docker Hub Support]({{< ref "/manuals/DockerEngine/Security/ContenttrustinDocker/Managekeysforcontenttrust" >}}). As a reminder, the loss of a root key is not recoverable.
 
 This loss also requires manual intervention from every consumer that used a signed tag from this repository prior to the loss.
 Image consumers get the following error for content previously downloaded from the affected repo(s):
@@ -78,9 +78,9 @@ Warning: potential malicious behavior - trust data has insufficient signatures f
 
 To correct this, they need to download a new image tag that is signed with the new key.
 
-## [Related information](https://docs.docker.com/engine/security/trust/trust_key_mng/#related-information)
+## Related information
 
-- [Content trust in Docker](https://docs.docker.com/engine/security/trust/)
-- [Automation with content trust](https://docs.docker.com/engine/security/trust/trust_automation/)
-- [Delegations for content trust](https://docs.docker.com/engine/security/trust/trust_delegation/)
-- [Play in a content trust sandbox](https://docs.docker.com/engine/security/trust/trust_sandbox/)
+- [Content trust in Docker]({{< ref "/manuals/DockerEngine/Security/ContenttrustinDocker" >}})
+- [Automation with content trust]({{< ref "/manuals/DockerEngine/Security/ContenttrustinDocker/Automationwithcontenttrust" >}})
+- [Delegations for content trust]({{< ref "/manuals/DockerEngine/Security/ContenttrustinDocker/Delegationsforcontenttrust" >}})
+- [Play in a content trust sandbox]({{< ref "/manuals/DockerEngine/Security/ContenttrustinDocker/Playinacontenttrustsandbox" >}})

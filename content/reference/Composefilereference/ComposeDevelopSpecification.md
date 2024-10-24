@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/compose-file/develop/](https://docs.docker.com/reference/compose-file/develop/)
+> 原文：[https://docs.docker.com/reference/compose-file/develop/](https://docs.docker.com/reference/compose-file/develop/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -20,7 +20,7 @@ draft = false
 
 This page defines how Compose behaves to efficiently assist you and defines the development constraints and workflows set by Compose. Only a subset of Compose file services may require a `develop` subsection.
 
-## [Illustrative example](https://docs.docker.com/reference/compose-file/develop/#illustrative-example)
+## Illustrative example
 
 
 
@@ -48,15 +48,15 @@ services:
           action: rebuild
 ```
 
-## [Attributes](https://docs.docker.com/reference/compose-file/develop/#attributes)
+## Attributes
 
 The `develop` subsection defines configuration options that are applied by Compose to assist you during development of a service with optimized workflows.
 
-### [watch](https://docs.docker.com/reference/compose-file/develop/#watch)
+### watch
 
-The `watch` attribute defines a list of rules that control automatic service updates based on local file changes. `watch` is a sequence, each individual item in the sequence defines a rule to be applied by Compose to monitor source code for changes. For more information, see [Use Compose Watch](https://docs.docker.com/compose/how-tos/file-watch/).
+The `watch` attribute defines a list of rules that control automatic service updates based on local file changes. `watch` is a sequence, each individual item in the sequence defines a rule to be applied by Compose to monitor source code for changes. For more information, see [Use Compose Watch]({{< ref "/manuals/DockerCompose/How-tos/UseComposeWatch" >}}).
 
-#### [action](https://docs.docker.com/reference/compose-file/develop/#action)
+#### action
 
 `action` defines the action to take when changes are detected. If `action` is set to:
 
@@ -66,7 +66,7 @@ The `watch` attribute defines a list of rules that control automatic service upd
 
 > `sync+restart` attribute is available with Docker Compose version 2.23.0 and later.
 
-#### [ignore](https://docs.docker.com/reference/compose-file/develop/#ignore)
+#### ignore
 
 The `ignore` attribute can be used to define a list of patterns for paths to be ignored. Any updated file that matches a pattern, or belongs to a folder that matches a pattern, won't trigger services to be re-created. The syntax is the same as `.dockerignore` file:
 
@@ -77,10 +77,10 @@ The `ignore` attribute can be used to define a list of patterns for paths to be 
 
 If the build context includes a `.dockerignore` file, the patterns in this file is loaded as implicit content for the `ignores` file, and values set in the Compose model are appended.
 
-#### [path](https://docs.docker.com/reference/compose-file/develop/#path)
+#### path
 
 `path` attribute defines the path to source code (relative to the project directory) to monitor for changes. Updates to any file inside the path, which doesn't match any `ignore` rule, triggers the configured action.
 
-#### [target](https://docs.docker.com/reference/compose-file/develop/#target)
+#### target
 
 `target` attribute only applies when `action` is configured for `sync`. Files within `path` with changes are synchronized with container filesystem, so that the latter is always running with up-to-date content.

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/docker-concepts/building-images/understanding-image-layers/](https://docs.docker.com/get-started/docker-concepts/building-images/understanding-image-layers/)
+> 原文：[https://docs.docker.com/get-started/docker-concepts/building-images/understanding-image-layers/](https://docs.docker.com/get-started/docker-concepts/building-images/understanding-image-layers/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
@@ -16,11 +16,11 @@ draft = false
 
 <iframe id="youtube-player-wJwqtAkmtQA" data-video-id="wJwqtAkmtQA" class="youtube-video aspect-video h-fit w-full py-2" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Docker concepts - Understanding image layers" width="100%" height="100%" src="https://www.youtube.com/embed/wJwqtAkmtQA?rel=0&amp;iv_load_policy=3&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fdocs.docker.com&amp;widgetid=1" data-gtm-yt-inspected-26="true" style="--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border-width: 0px; border-style: solid; border-color: initial; display: block; vertical-align: middle; aspect-ratio: 16 / 9; height: fit-content; width: 634.672px; padding-top: 0.5rem; padding-bottom: 0.5rem; color: rgb(0, 0, 0); font-family: &quot;Roboto Flex&quot;, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"></iframe>
 
-## [Explanation](https://docs.docker.com/get-started/docker-concepts/building-images/understanding-image-layers/#explanation)
+## Explanation
 
-As you learned in [What is an image?](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/), container images are composed of layers. And each of these layers, once created, are immutable. But, what does that actually mean? And how are those layers used to create the filesystem a container can use?
+As you learned in [What is an image?]({{< ref "/get-started/Dockerconcepts/Thebasics/Whatisanimage" >}}), container images are composed of layers. And each of these layers, once created, are immutable. But, what does that actually mean? And how are those layers used to create the filesystem a container can use?
 
-### [Image layers](https://docs.docker.com/get-started/docker-concepts/building-images/understanding-image-layers/#image-layers)
+### Image layers
 
 Each layer in an image contains a set of filesystem changes - additions, deletions, or modifications. Let’s look at a theoretical image:
 
@@ -40,7 +40,7 @@ This is beneficial because it allows layers to be reused between images. For exa
 
 Layers let you extend images of others by reusing their base layers, allowing you to add only the data that your application needs.
 
-### [Stacking the layers](https://docs.docker.com/get-started/docker-concepts/building-images/understanding-image-layers/#stacking-the-layers)
+### Stacking the layers
 
 Layering is made possible by content-addressable storage and union filesystems. While this will get technical, here’s how it works:
 
@@ -50,11 +50,11 @@ Layering is made possible by content-addressable storage and union filesystems. 
 
 When the union filesystem is created, in addition to the image layers, a directory is created specifically for the running container. This allows the container to make filesystem changes while allowing the original image layers to remain untouched. This enables you to run multiple containers from the same underlying image.
 
-## [Try it out](https://docs.docker.com/get-started/docker-concepts/building-images/understanding-image-layers/#try-it-out)
+## Try it out
 
-In this hands-on guide, you will create new image layers manually using the [`docker container commit`](https://docs.docker.com/reference/cli/docker/container/commit/) command. Note that you’ll rarely create images this way, as you’ll normally [use a Dockerfile](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/). But, it makes it easier to understand how it’s all working.
+In this hands-on guide, you will create new image layers manually using the [`docker container commit`]({{< ref "/reference/CLIreference/docker/dockercontainer/dockercontainercommit" >}}) command. Note that you’ll rarely create images this way, as you’ll normally [use a Dockerfile]({{< ref "/get-started/Dockerconcepts/Buildingimages/WritingaDockerfile" >}}). But, it makes it easier to understand how it’s all working.
 
-### [Create a base image](https://docs.docker.com/get-started/docker-concepts/building-images/understanding-image-layers/#create-a-base-image)
+### Create a base image
 
 In this first step, you will create your own base image that you will then use for the following steps.
 
@@ -96,7 +96,7 @@ In this first step, you will create your own base image that you will then use f
 
    You should then see a “Hello world!” appear in the console.
 
-5. Now that you have Node installed, you’re ready to save the changes you’ve made as a new image layer, from which you can start new containers or build new images. To do so, you will use the [`docker container commit`](https://docs.docker.com/reference/cli/docker/container/commit/) command. Run the following command in a new terminal:
+5. Now that you have Node installed, you’re ready to save the changes you’ve made as a new image layer, from which you can start new containers or build new images. To do so, you will use the [`docker container commit`]({{< ref "/reference/CLIreference/docker/dockercontainer/dockercontainercommit" >}}) command. Run the following command in a new terminal:
 
    
 
@@ -153,7 +153,7 @@ In this first step, you will create your own base image that you will then use f
 >
 > In this example, you probably won’t deploy this `node-base` image, as it doesn’t actually do anything yet. But it’s a base you can use for other builds.
 
-### [Build an app image](https://docs.docker.com/get-started/docker-concepts/building-images/understanding-image-layers/#build-an-app-image)
+### Build an app image
 
 Now that you have a base image, you can extend that image to build additional images.
 
@@ -233,15 +233,15 @@ Now that you have a base image, you can extend that image to build additional im
    $ docker rm -f app-container
    ```
 
-## [Additional resources](https://docs.docker.com/get-started/docker-concepts/building-images/understanding-image-layers/#additional-resources)
+## Additional resources
 
 If you’d like to dive deeper into the things you learned, check out the following resources:
 
-- [`docker image history`](https://docs.docker.com/reference/cli/docker/image/history/)
-- [`docker container commit`](https://docs.docker.com/reference/cli/docker/container/commit/)
+- [`docker image history`]({{< ref "/reference/CLIreference/docker/dockerimage/dockerimagehistory" >}})
+- [`docker container commit`]({{< ref "/reference/CLIreference/docker/dockercontainer/dockercontainercommit" >}})
 
-## [Next steps](https://docs.docker.com/get-started/docker-concepts/building-images/understanding-image-layers/#next-steps)
+## Next steps
 
 As hinted earlier, most image builds don’t use `docker container commit`. Instead, you’ll use a Dockerfile which automates these steps for you.
 
-[Writing a Dockerfile](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/)
+[Writing a Dockerfile]({{< ref "/get-started/Dockerconcepts/Buildingimages/WritingaDockerfile" >}})

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/introduction/build-and-push-first-image/](https://docs.docker.com/get-started/introduction/build-and-push-first-image/)
+> 原文：[https://docs.docker.com/get-started/introduction/build-and-push-first-image/](https://docs.docker.com/get-started/introduction/build-and-push-first-image/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
@@ -16,9 +16,9 @@ draft = false
 
 <iframe id="youtube-player-7ge1s5nAa34" data-video-id="7ge1s5nAa34" class="youtube-video aspect-video h-fit w-full py-2" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Docker Concepts: Build and Push Your First Image" width="100%" height="100%" src="https://www.youtube.com/embed/7ge1s5nAa34?rel=0&amp;iv_load_policy=3&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fdocs.docker.com&amp;widgetid=1" data-gtm-yt-inspected-26="true" style="--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border-width: 0px; border-style: solid; border-color: initial; display: block; vertical-align: middle; aspect-ratio: 16 / 9; height: fit-content; width: 634.672px; padding-top: 0.5rem; padding-bottom: 0.5rem; color: rgb(0, 0, 0); font-family: &quot;Roboto Flex&quot;, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"></iframe>
 
-## [Explanation](https://docs.docker.com/get-started/introduction/build-and-push-first-image/#explanation)
+## Explanation
 
-Now that you've updated the [to-do list app](https://docs.docker.com/get-started/introduction/develop-with-containers/), you’re ready to create a container image for the application and share it on Docker Hub. To do so, you will need to do the following:
+Now that you've updated the [to-do list app]({{< ref "/get-started/Introduction/Developwithcontainers" >}}), you’re ready to create a container image for the application and share it on Docker Hub. To do so, you will need to do the following:
 
 1. Sign in with your Docker account
 2. Create an image repository on Docker Hub
@@ -27,15 +27,15 @@ Now that you've updated the [to-do list app](https://docs.docker.com/get-started
 
 Before you dive into the hands-on guide, the following are a few core concepts that you should be aware of.
 
-### [Container images](https://docs.docker.com/get-started/introduction/build-and-push-first-image/#container-images)
+### Container images
 
 If you’re new to container images, think of them as a standardized package that contains everything needed to run an application, including its files, configuration, and dependencies. These packages can then be distributed and shared with others.
 
-### [Docker Hub](https://docs.docker.com/get-started/introduction/build-and-push-first-image/#docker-hub)
+### Docker Hub
 
 To share your Docker images, you need a place to store them. This is where registries come in. While there are many registries, Docker Hub is the default and go-to registry for images. Docker Hub provides both a place for you to store your own images and to find images from others to either run or use as the bases for your own images.
 
-In [Develop with containers](https://docs.docker.com/get-started/introduction/develop-with-containers/), you used the following images that came from Docker Hub, each of which are [Docker Official Images](https://docs.docker.com/trusted-content/official-images/):
+In [Develop with containers]({{< ref "/get-started/Introduction/Developwithcontainers" >}}), you used the following images that came from Docker Hub, each of which are [Docker Official Images]({{< ref "/manuals/Trustedcontent/DockerOfficialImages" >}}):
 
 - [node](https://hub.docker.com/_/node) - provides a Node environment and is used as the base of your development efforts. This image is also used as the base for the final application image.
 - [mysql](https://hub.docker.com/_/mysql) - provides a MySQL database to store the to-do list items
@@ -44,11 +44,11 @@ In [Develop with containers](https://docs.docker.com/get-started/introduction/de
 
 Explore the full catalog of [Docker Official Images](https://hub.docker.com/search?image_filter=official&q=), [Docker Verified Publishers](https://hub.docker.com/search?q=&image_filter=store), and [Docker Sponsored Open Source Software](https://hub.docker.com/search?q=&image_filter=open_source) images to see more of what there is to run and build on.
 
-## [Try it out](https://docs.docker.com/get-started/introduction/build-and-push-first-image/#try-it-out)
+## Try it out
 
 In this hands-on guide, you'll learn how to sign in to Docker Hub and push images to Docker Hub repository.
 
-## [Sign in with your Docker account](https://docs.docker.com/get-started/introduction/build-and-push-first-image/#sign-in-with-your-docker-account)
+## Sign in with your Docker account
 
 To push images to Docker Hub, you will need to sign in with a Docker account.
 
@@ -58,7 +58,7 @@ To push images to Docker Hub, you will need to sign in with a Docker account.
 
 Once you're done, you should see the **Sign in** button turn into a profile picture.
 
-## [Create an image repository](https://docs.docker.com/get-started/introduction/build-and-push-first-image/#create-an-image-repository)
+## Create an image repository
 
 Now that you have an account, you can create an image repository. Just as a Git repository holds source code, an image repository stores container images.
 
@@ -70,7 +70,7 @@ Now that you have an account, you can create an image repository. Just as a Git 
    - **Visibility** - select **Public** to allow others to pull your customized to-do app
 4. Select **Create** to create the repository.
 
-## [Build and push the image](https://docs.docker.com/get-started/introduction/build-and-push-first-image/#build-and-push-the-image)
+## Build and push the image
 
 Now that you have a repository, you are ready to build and push your image. An important note is that the image you are building extends the Node image, meaning you don't need to install or configure Node, yarn, etc. You can simply focus on what makes your application unique.
 
@@ -148,7 +148,7 @@ CLI VS Code
 
 ------
 
-## [Recap](https://docs.docker.com/get-started/introduction/build-and-push-first-image/#recap)
+## Recap
 
 Before you move on, take a moment and reflect on what happened here. Within a few moments, you were able to build a container image that packages your application and push it to Docker Hub.
 
@@ -161,8 +161,8 @@ Going forward, you’ll want to remember that:
 >
 > While Docker Hub is the default registry, registries are standardized and made interoperable through the [Open Container Initiative](https://opencontainers.org/). This allows companies and organizations to run their own private registries. Quite often, trusted content is mirrored (or copied) from Docker Hub into these private registries.
 
-## [Next steps](https://docs.docker.com/get-started/introduction/build-and-push-first-image/#next-steps)
+## Next steps
 
 Now that you’ve built an image, it's time to discuss why you as a developer should learn more about Docker and how it will help you in your day-to-day tasks.
 
-[What's Next](https://docs.docker.com/get-started/introduction/whats-next/)
+[What's Next]({{< ref "/get-started/Introduction/Whatsnext" >}})

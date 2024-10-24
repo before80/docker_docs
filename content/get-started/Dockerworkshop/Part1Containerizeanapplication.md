@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/workshop/02_our_app/](https://docs.docker.com/get-started/workshop/02_our_app/)
+> 原文：[https://docs.docker.com/get-started/workshop/02_our_app/](https://docs.docker.com/get-started/workshop/02_our_app/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
@@ -16,13 +16,13 @@ draft = false
 
 For the rest of this guide, you'll be working with a simple todo list manager that runs on Node.js. If you're not familiar with Node.js, don't worry. This guide doesn't require any prior experience with JavaScript.
 
-## [Prerequisites](https://docs.docker.com/get-started/workshop/02_our_app/#prerequisites)
+## Prerequisites
 
-- You have installed the latest version of [Docker Desktop](https://docs.docker.com/get-started/get-docker/).
+- You have installed the latest version of [Docker Desktop]({{< ref "/get-started/GetDocker" >}}).
 - You have installed a [Git client](https://git-scm.com/downloads).
 - You have an IDE or a text editor to edit files. Docker recommends using [Visual Studio Code](https://code.visualstudio.com/).
 
-## [Get the app](https://docs.docker.com/get-started/workshop/02_our_app/#get-the-app)
+## Get the app
 
 Before you can run the application, you need to get the application source code onto your machine.
 
@@ -48,7 +48,7 @@ Before you can run the application, you need to get the application source code 
    │ └── yarn.lock
    ```
 
-## [Build the app's image](https://docs.docker.com/get-started/workshop/02_our_app/#build-the-apps-image)
+## Build the app's image
 
 To build the image, you'll need to use a Dockerfile. A Dockerfile is simply a text-based file with no file extension that contains a script of instructions. Docker uses this script to build a container image.
 
@@ -167,7 +167,7 @@ To build the image, you'll need to use a Dockerfile. A Dockerfile is simply a te
 
    The `.` at the end of the `docker build` command tells Docker that it should look for the `Dockerfile` in the current directory.
 
-## [Start an app container](https://docs.docker.com/get-started/workshop/02_our_app/#start-an-app-container)
+## Start an app container
 
 Now that you have an image, you can run the application in a container using the `docker run` command.
 
@@ -230,17 +230,17 @@ In Docker Desktop, select the **Containers** tab to see a list of your container
 
 ------
 
-## [Summary](https://docs.docker.com/get-started/workshop/02_our_app/#summary)
+## Summary
 
 In this section, you learned the basics about creating a Dockerfile to build an image. Once you built an image, you started a container and saw the running app.
 
 Related information:
 
-- [Dockerfile reference](https://docs.docker.com/reference/dockerfile/)
-- [docker CLI reference](https://docs.docker.com/reference/cli/docker/)
+- [Dockerfile reference]({{< ref "/reference/Dockerfilereference" >}})
+- [docker CLI reference]({{< ref "/reference/CLIreference/docker" >}})
 
-## [Next steps](https://docs.docker.com/get-started/workshop/02_our_app/#next-steps)
+## Next steps
 
 Next, you're going to make a modification to your app and learn how to update your running application with a new image. Along the way, you'll learn a few other useful commands.
 
-[Update the application](https://docs.docker.com/get-started/workshop/03_updating_app/)
+[Update the application]({{< ref "/get-started/Dockerworkshop/Part2Updatetheapplication" >}})

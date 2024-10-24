@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/ps/](https://docs.docker.com/reference/cli/docker/compose/ps/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/ps/](https://docs.docker.com/reference/cli/docker/compose/ps/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 | :---------- | ------------------------------------------ |
 | Usage       | `docker compose ps [OPTIONS] [SERVICE...]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/ps/#description)
+## Description
 
 Lists containers for a Compose project, with current status and exposed ports.
 
@@ -41,7 +41,7 @@ example-foo-1   alpine    "/entrypoint.…"   foo        4 seconds ago   Up 2 se
 example-bar-1   alpine    "/entrypoint.…"   bar        4 seconds ago   exited (0)
 ```
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/ps/#options)
+## Options
 
 | Option                                                       | Default | Description                                                  |
 | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
@@ -54,9 +54,9 @@ example-bar-1   alpine    "/entrypoint.…"   bar        4 seconds ago   exited 
 | `--services`                                                 |         | Display services                                             |
 | [`--status`](https://docs.docker.com/reference/cli/docker/compose/ps/#status) |         | Filter services by status. Values: [paused \| restarting \| removing \| running \| dead \| created \| exited] |
 
-## [Examples](https://docs.docker.com/reference/cli/docker/compose/ps/#examples)
+## Examples
 
-### [Format the output (--format)](https://docs.docker.com/reference/cli/docker/compose/ps/#format)
+### Format the output (--format)
 
 By default, the `docker compose ps` command uses a table ("pretty") format to show the containers. The `--format` flag allows you to specify alternative presentations for the output. Currently, supported options are `pretty` (default), and `json`, which outputs information about the containers as a JSON array:
 
@@ -106,7 +106,7 @@ $ docker compose ps --format json | jq .
 ]
 ```
 
-### [Filter containers by status (--status)](https://docs.docker.com/reference/cli/docker/compose/ps/#status)
+### Filter containers by status (--status)
 
 Use the `--status` flag to filter the list of containers by status. For example, to show only containers that are running or only containers that have exited:
 
@@ -122,7 +122,7 @@ NAME            IMAGE     COMMAND           SERVICE    CREATED         STATUS   
 example-bar-1   alpine    "/entrypoint.…"   bar        4 seconds ago   exited (0)
 ```
 
-### [Filter containers by status (--filter)](https://docs.docker.com/reference/cli/docker/compose/ps/#filter)
+### Filter containers by status (--filter)
 
 The [`--status` flag](https://docs.docker.com/reference/cli/docker/compose/ps/#status) is a convenient shorthand for the `--filter status=<status>` flag. The example below is the equivalent to the example from the previous section, this time using the `--filter` flag:
 

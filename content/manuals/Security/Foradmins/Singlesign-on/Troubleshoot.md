@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/single-sign-on/troubleshoot/](https://docs.docker.com/security/for-admins/single-sign-on/troubleshoot/)
+> 原文：[https://docs.docker.com/security/for-admins/single-sign-on/troubleshoot/](https://docs.docker.com/security/for-admins/single-sign-on/troubleshoot/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 While configuring or using single sign-on (SSO), you may encounter issues that can stem from your identity provider (IdP) or Docker configuration. The following sections describe how to view the error messages in the Docker Admin Console as well as some common errors and possible solutions. You can also see your identity provider's documentation to learn if you can view error logs in their service.
 
-## [View SSO and SCIM error logs](https://docs.docker.com/security/for-admins/single-sign-on/troubleshoot/#view-sso-and-scim-error-logs)
+## View SSO and SCIM error logs
 
 1. Sign in to the [Admin Console](https://app.docker.com/admin/).
 
@@ -32,11 +32,11 @@ While configuring or using single sign-on (SSO), you may encounter issues that c
 
 4. In the **Connection errors** page, select **View error details** next to an error message for more details. A modal appears with a JSON object containing more details.
 
-## [Common SSO errors and solutions](https://docs.docker.com/security/for-admins/single-sign-on/troubleshoot/#common-sso-errors-and-solutions)
+## Common SSO errors and solutions
 
 [View the SSO and SCIM error logs](https://docs.docker.com/security/for-admins/single-sign-on/troubleshoot/#view-sso-and-scim-error-logs) and then use the following sections for solutions to common configuration errors.
 
-### [IdP-initiated sign in is not enabled for connection](https://docs.docker.com/security/for-admins/single-sign-on/troubleshoot/#idp-initiated-sign-in-is-not-enabled-for-connection)
+### IdP-initiated sign in is not enabled for connection
 
 An error message, similar to the following, appears in the error logs for this issue.
 
@@ -53,7 +53,7 @@ Possible solutions:
 - The user must initiate authentication from Docker apps (Hub, Desktop, etc). The user needs to enter their email address and they will get redirected to the configured SSO IdP for their domain.
 - (Optional) Configure the Docker SSO App as not visible to users on your IdP so users don’t attempt to start authentication from there.
 
-### [Not enough seats in organization](https://docs.docker.com/security/for-admins/single-sign-on/troubleshoot/#not-enough-seats-in-organization)
+### Not enough seats in organization
 
 An error message, similar to the following, appears in the error logs for this issue.
 
@@ -67,10 +67,10 @@ This error can occur when attempting to provision a user into the organization v
 
 Possible solutions:
 
-- Add more Docker Business subscription seats to the organization. For details, see [Add seats to your subscription](https://docs.docker.com/subscription/core-subscription/add-seats/).
-- Remove some users or pending invitations from your organization to make more seats available. For more details, see [Manage organization members](https://docs.docker.com/admin/organization/members/).
+- Add more Docker Business subscription seats to the organization. For details, see [Add seats to your subscription]({{< ref "/manuals/Subscription/DockerCore/Addseats" >}}).
+- Remove some users or pending invitations from your organization to make more seats available. For more details, see [Manage organization members]({{< ref "/manuals/Administration/Organizationadministration/Manageorganizationmembers" >}}).
 
-### [Domain is not verified for SSO connection](https://docs.docker.com/security/for-admins/single-sign-on/troubleshoot/#domain-is-not-verified-for-sso-connection)
+### Domain is not verified for SSO connection
 
 An error message, similar to the following, appears in the error logs for this issue.
 
@@ -87,7 +87,7 @@ Possible solutions:
 - Make sure the IdP SSO connection is returning the correct UPN value as part of the assertion attributes (attributes mapping).
 - Add and verify all domains and subdomains that are used as UPN by your IdP and associate them to your Docker SSO connection. For more details, see [Add and verify your domain](https://docs.docker.com/security/for-admins/single-sign-on/configure/#step-one-add-and-verify-your-domain).
 
-### [Unable to find session](https://docs.docker.com/security/for-admins/single-sign-on/troubleshoot/#unable-to-find-session)
+### Unable to find session
 
 An error message, similar to the following, appears in the error logs for this issue.
 
@@ -104,7 +104,7 @@ Possible solutions:
 - Avoid pressing the back or refresh buttons during sign in.
 - Close the browser’s tab and start the authentication flow from the beginning in the app (Docker Desktop, Hub, etc.)
 
-### [User is not assigned to the organization](https://docs.docker.com/security/for-admins/single-sign-on/troubleshoot/#user-is-not-assigned-to-the-organization)
+### User is not assigned to the organization
 
 An error message, similar to the following, appears in the error logs for this issue.
 
@@ -118,11 +118,11 @@ This error occurs if SSO Just-In-Time (JIT) provisioning is disabled. JIT provis
 
 Possible solutions:
 
-- Review your SSO connection configuration and enable JIT provisioning to add all users to the organization after authenticating via SSO. For more details, see [Just-in-Time provisioning](https://docs.docker.com/security/for-admins/provisioning/just-in-time/).
-- If JIT provisioning should remain disabled, then add the user to the organization by manually inviting them. Next time the user authenticates via SSO they will get added to the org because they are invited. For more details, see [Manage organization members](https://docs.docker.com/admin/organization/members/).
+- Review your SSO connection configuration and enable JIT provisioning to add all users to the organization after authenticating via SSO. For more details, see [Just-in-Time provisioning]({{< ref "/manuals/Security/Foradmins/Provisioning/Just-in-Time" >}}).
+- If JIT provisioning should remain disabled, then add the user to the organization by manually inviting them. Next time the user authenticates via SSO they will get added to the org because they are invited. For more details, see [Manage organization members]({{< ref "/manuals/Administration/Organizationadministration/Manageorganizationmembers" >}}).
 - If SCIM should provision the user, then ensure that the IdP controlling SCIM provisioning is properly configured to synchronize users with Docker as soon as they get assigned to the app. For more details, refer to your identity provider's documentation.
 
-### [Name ID is not an email address](https://docs.docker.com/security/for-admins/single-sign-on/troubleshoot/#name-id-is-not-an-email-address)
+### Name ID is not an email address
 
 An error message, similar to the following, appears in the error logs for this issue.
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/synchronized-file-sharing/](https://docs.docker.com/desktop/synchronized-file-sharing/)
+> 原文：[https://docs.docker.com/desktop/synchronized-file-sharing/](https://docs.docker.com/desktop/synchronized-file-sharing/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,7 +24,7 @@ Synchronized file shares is an alternative file sharing mechanism that provides 
 
 ![Image of Synchronized file shares pane](Synchronizedfileshares_img/synched-file-shares.webp)
 
-## [Who is it for?](https://docs.docker.com/desktop/synchronized-file-sharing/#who-is-it-for)
+## Who is it for?
 
 Synchronized file shares is ideal for developers who:
 
@@ -33,11 +33,11 @@ Synchronized file shares is ideal for developers who:
 - Regularly encounter performance limitations.
 - Don't want to worry about file ownership or spend time resolving conflicting file-ownership information when modifying multiple containers.
 
-## [How does Synchronized file shares work?](https://docs.docker.com/desktop/synchronized-file-sharing/#how-does-synchronized-file-shares-work)
+## How does Synchronized file shares work?
 
 A Synchronized file share behaves just like a virtual file share, but takes advantage of a high-performance, low-latency code synchronization engine to create a synchronized cache of the host files on an ext4 filesystem within the Docker Desktop VM. If you make filesystem changes on the host or in the VM’s containers, it propagates via bidirectional synchronization.
 
-After creating a file share instance, any container using a bind mount that points to a location on the host filesystem matching the specified synchronized file share location, or a subdirectory within it, utilizes the Synchronized File Shares feature. Bind mounts that don't satisfy this condition are passed to the normal virtual filesystem [bind-mounting mechanism](https://docs.docker.com/engine/storage/bind-mounts/), for example VirtioFS or gRPC-FUSE.
+After creating a file share instance, any container using a bind mount that points to a location on the host filesystem matching the specified synchronized file share location, or a subdirectory within it, utilizes the Synchronized File Shares feature. Bind mounts that don't satisfy this condition are passed to the normal virtual filesystem [bind-mounting mechanism]({{< ref "/manuals/DockerEngine/Storage/Bindmounts" >}}), for example VirtioFS or gRPC-FUSE.
 
 > **Note**
 >
@@ -51,7 +51,7 @@ After creating a file share instance, any container using a bind mount that poin
 >
 > Synchronized file shares isn't available on WSL or when using Windows containers.
 
-## [Create a file share instance](https://docs.docker.com/desktop/synchronized-file-sharing/#create-a-file-share-instance)
+## Create a file share instance
 
 To create a file share instance:
 
@@ -74,7 +74,7 @@ When the status indicator displays **Watching for filesystem changes**, your fil
 >
 > Compose can now automatically create file shares for bind mounts. Ensure you're signed in to Docker with a paid subscription and have enabled both **Access experimental features** and **Manage Synchronized file shares with Compose** in Docker Desktop's settings.
 
-## [Explore your file share instance](https://docs.docker.com/desktop/synchronized-file-sharing/#explore-your-file-share-instance)
+## Explore your file share instance
 
 The **Synchronized file shares** section displays all your file share instances and provides useful information about each instance including:
 
@@ -87,7 +87,7 @@ The **Synchronized file shares** section displays all your file share instances 
 
 Selecting a file share instance expands the dropdown and exposes this information.
 
-## [Use `.syncignore`](https://docs.docker.com/desktop/synchronized-file-sharing/#use-syncignore)
+## Use `.syncignore`
 
 You can use a `.syncignore` file at the root of each file share, to exclude local files from your file share instance. It supports the same syntax as `.dockerignore` files and excludes, and/or re-includes, paths from synchronization. `.syncignore` files are ignored at any location other than the root of the file share.
 
@@ -98,7 +98,7 @@ Some example of things you might want to add to your `.syncignore` file are:
 
 In general, use your `.syncignore` file to exclude items that aren't critical to your workflow, especially those that would be slow to sync or use significant storage.
 
-## [Known issues](https://docs.docker.com/desktop/synchronized-file-sharing/#known-issues)
+## Known issues
 
 - Changes made to `.syncignore` don't lead to immediate deletions unless the file share is recreated. In other words, files that are newly ignored due to modifications in the `.syncignore` file remain in their current location, but are no longer updated during synchronization.
 - File share instances are currently limited to approximately 2 million files per share. For best performance, if you have a file share instance of this size, try to decompose it into multiple shares corresponding to individual bind mount locations.
@@ -107,7 +107,7 @@ In general, use your `.syncignore` file to exclude items that aren't critical to
 - If you switch from WSL2 to Hyper-V on Windows, Docker Desktop needs to be fully restarted.
 - POSIX-style Windows paths are not supported. Avoid setting the [`COMPOSE_CONVERT_WINDOWS_PATHS`](https://docs.docker.com/compose/how-tos/environment-variables/envvars/#compose_convert_windows_paths) environment variable in Docker Compose.
 
-## [Feedback and support](https://docs.docker.com/desktop/synchronized-file-sharing/#feedback-and-support)
+## Feedback and support
 
 To give feedback or report bugs, visit:
 

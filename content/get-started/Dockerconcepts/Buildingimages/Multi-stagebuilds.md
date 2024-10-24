@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/docker-concepts/building-images/multi-stage-builds/](https://docs.docker.com/get-started/docker-concepts/building-images/multi-stage-builds/)
+> 原文：[https://docs.docker.com/get-started/docker-concepts/building-images/multi-stage-builds/](https://docs.docker.com/get-started/docker-concepts/building-images/multi-stage-builds/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 <iframe id="youtube-player-vR185cjwxZ8" data-video-id="vR185cjwxZ8" class="youtube-video aspect-video h-fit w-full py-2" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Docker concepts - Multi-stage builds" width="100%" height="100%" src="https://www.youtube.com/embed/vR185cjwxZ8?rel=0&amp;iv_load_policy=3&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fdocs.docker.com&amp;widgetid=1" data-gtm-yt-inspected-23="true" style="--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border-width: 0px; border-style: solid; border-color: initial; display: block; vertical-align: middle; aspect-ratio: 16 / 9; height: fit-content; width: 634.672px; padding-top: 0.5rem; padding-bottom: 0.5rem; color: rgb(0, 0, 0); font-family: &quot;Roboto Flex&quot;, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"></iframe>
 
-## [Explanation](https://docs.docker.com/get-started/docker-concepts/building-images/multi-stage-builds/#explanation)
+## Explanation
 
 In a traditional build, all build instructions are executed in sequence, and in a single build container: downloading dependencies, compiling code, and packaging the application. All those layers end up in your final image. This approach works, but it leads to bulky images carrying unnecessary weight and increasing your security risks. This is where multi-stage builds come in.
 
@@ -50,7 +50,7 @@ This Dockerfile uses two stages:
 - The build stage uses a base image containing build tools needed to compile your application. It includes commands to install build tools, copy source code, and execute build commands.
 - The final stage uses a smaller base image suitable for running your application. It copies the compiled artifacts (a JAR file, for example) from the build stage. Finally, it defines the runtime configuration (using `CMD` or `ENTRYPOINT`) for starting your application.
 
-## [Try it out](https://docs.docker.com/get-started/docker-concepts/building-images/multi-stage-builds/#try-it-out)
+## Try it out
 
 In this hands-on guide, you'll unlock the power of multi-stage builds to create lean and efficient Docker images for a sample Java application. You'll use a simple “Hello World” Spring Boot-based application built with Maven as your example.
 
@@ -138,7 +138,7 @@ In this hands-on guide, you'll unlock the power of multi-stage builds to create 
 
    The `SpringbootDockerApplication.java` file starts by declaring your `com.example.spring_boot_docker` package and importing necessary Spring frameworks. This Java file creates a simple Spring Boot web application that responds with "Hello World" when a user visits its homepage.
 
-### [Create the Dockerfile](https://docs.docker.com/get-started/docker-concepts/building-images/multi-stage-builds/#create-the-dockerfile)
+### Create the Dockerfile
 
 Now that you have the project, you’re ready to create the `Dockerfile`.
 
@@ -207,7 +207,7 @@ Now that you have the project, you’re ready to create the `Dockerfile`.
    CMD ["./mvnw", "spring-boot:run"]
    ```
 
-### [Build the container image](https://docs.docker.com/get-started/docker-concepts/building-images/multi-stage-builds/#build-the-container-image)
+### Build the container image
 
 1. Execute the following command to build the Docker image:
 
@@ -236,7 +236,7 @@ Now that you have the project, you’re ready to create the `Dockerfile`.
 
    This output shows that your image is 880MB in size. It contains the full JDK, Maven toolchain, and more. In production, you don’t need that in your final image.
 
-### [Run the Spring Boot application](https://docs.docker.com/get-started/docker-concepts/building-images/multi-stage-builds/#run-the-spring-boot-application)
+### Run the Spring Boot application
 
 1. Now that you have an image built, it's time to run the container.
 
@@ -278,7 +278,7 @@ Now that you have the project, you’re ready to create the `Dockerfile`.
    Hello World
    ```
 
-### [Use multi-stage builds](https://docs.docker.com/get-started/docker-concepts/building-images/multi-stage-builds/#use-multi-stage-builds)
+### Use multi-stage builds
 
 1. Consider the following Dockerfile:
 
@@ -348,9 +348,9 @@ Now that you have the project, you’re ready to create the `Dockerfile`.
    overall image size while still achieving the same functionality. This not only improves performance but
    also makes your Docker images more lightweight, more secure, and easier to manage.
 
-## [Additional resources](https://docs.docker.com/get-started/docker-concepts/building-images/multi-stage-builds/#additional-resources)
+## Additional resources
 
-- [Multi-stage builds](https://docs.docker.com/build/building/multi-stage/)
+- [Multi-stage builds]({{< ref "/manuals/DockerBuild/Building/Multi-stage" >}})
 - [Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
-- [Base images](https://docs.docker.com/build/building/base-images/)
+- [Base images]({{< ref "/manuals/DockerBuild/Building/Baseimages" >}})
 - [Spring Boot Docker](https://spring.io/guides/topicals/spring-boot-docker)

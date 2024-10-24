@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/ci/github-actions/secrets/](https://docs.docker.com/build/ci/github-actions/secrets/)
+> 原文：[https://docs.docker.com/build/ci/github-actions/secrets/](https://docs.docker.com/build/ci/github-actions/secrets/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -19,9 +19,9 @@ A build secret is sensitive information, such as a password or API token, consum
 - [Secret mounts](https://docs.docker.com/build/ci/github-actions/secrets/#secret-mounts) add secrets as files in the build container (under `/run/secrets` by default).
 - [SSH mounts](https://docs.docker.com/build/ci/github-actions/secrets/#ssh-mounts) add SSH agent sockets or keys into the build container.
 
-This page shows how to use secrets with GitHub Actions. For an introduction to secrets in general, see [Build secrets](https://docs.docker.com/build/building/secrets/).
+This page shows how to use secrets with GitHub Actions. For an introduction to secrets in general, see [Build secrets]({{< ref "/manuals/DockerBuild/Building/Secrets" >}}).
 
-## [Secret mounts](https://docs.docker.com/build/ci/github-actions/secrets/#secret-mounts)
+## Secret mounts
 
 In the following example uses and exposes the [`GITHUB_TOKEN` secret](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret) as provided by GitHub in your workflow.
 
@@ -111,7 +111,7 @@ secrets: |
 >
 > Double escapes are needed for quote signs.
 
-## [SSH mounts](https://docs.docker.com/build/ci/github-actions/secrets/#ssh-mounts)
+## SSH mounts
 
 SSH mounts let you authenticate with SSH servers. For example to perform a `git clone`, or to fetch application packages from a private repository.
 

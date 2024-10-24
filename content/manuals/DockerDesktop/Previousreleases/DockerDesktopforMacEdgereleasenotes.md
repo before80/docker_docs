@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/previous-versions/edge-releases-mac/](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/)
+> 原文：[https://docs.docker.com/desktop/previous-versions/edge-releases-mac/](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,16 +18,16 @@ This page contains information about Docker Desktop Edge releases. Edge releases
 
 For Docker Desktop system requirements, see [What to know before you install](https://docs.docker.com/desktop/install/mac-install/#system-requirements).
 
-## [Docker Desktop Community 2.5.4](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-254)
+## Docker Desktop Community 2.5.4
 
 2020-12-07
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades)
+### Upgrades
 
 - [Docker Engine 20.10.0-rc2](https://github.com/docker/docker-ce/blob/master/CHANGELOG.md#20100)
 - [Go 1.15.6](https://github.com/golang/go/issues?q=milestone%3AGo1.15.6+label%3ACherryPickApproved+)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes)
+### Bug fixes and minor changes
 
 - Changed the «Update and quit» menu entry to «Update and restart».
 - Fixed the check for updates dialog reporting the build number instead of the version number of a new version.
@@ -35,48 +35,48 @@ For Docker Desktop system requirements, see [What to know before you install](ht
 - Fixed a bug that DNS would return `NXDOMAIN` when a name exists but the type of record was not found. Fixes [docker/for-mac#5020](https://github.com/docker/for-mac/issues/5020). Related to https://gitlab.alpinelinux.org/alpine/aports/-/issues/11879
 - Avoid caching bad file sizes and modes when using `osxfs`. Fixes [docker/for-mac#5045](https://github.com/docker/for-mac/issues/5045).
 
-## [Docker Desktop Community 2.5.3](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-253)
+## Docker Desktop Community 2.5.3
 
 2020-11-30
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-1)
+### Upgrades
 
 - [Compose CLI v1.0.3](https://github.com/docker/compose-cli/releases/tag/v1.0.3)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-1)
+### Bug fixes and minor changes
 
 - Fixed a possible file sharing error where a file may appear to have the wrong size in a container when it is modified on the host. This is a partial fix for [docker/for-mac#4999](https://github.com/docker/for-mac/issues/4999).
 - Removed unnecessary log messages which slow down filesystem event injection.
 
-## [Docker Desktop Community 2.5.2](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-252)
+## Docker Desktop Community 2.5.2
 
 2020-11-26
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#new)
+### New
 
 - Use of three digit version number.
 - Starting with Docker Desktop 2.5.2, updates will be much smaller as they will be applied using delta patches.
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-2)
+### Bug fixes and minor changes
 
 - Re-enabled the experimental SOCKS proxy. Fixes [docker/for-mac#5048](https://github.com/docker/for-mac/issues/5048).
 - Fixed an unexpected EOF error when trying to start a non-existing container with `-v /var/run/docker.sock:`. See [docker/for-mac#5025](https://github.com/docker/for-mac/issues/5025).
 - Display an error message instead of crashing when the application needs write access on specific directories. See [docker/for-mac#5068](https://github.com/docker/for-mac/issues/5068)
 
-## [Docker Desktop Community 2.5.1.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2510)
+## Docker Desktop Community 2.5.1.0
 
 2020-11-18
 
 This release contains a Kubernetes upgrade. Note that your local Kubernetes cluster will be reset after installing Docker Desktop.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-2)
+### Upgrades
 
 - [Docker Engine 20.10.0-rc1](https://github.com/docker/docker-ce/blob/master/CHANGELOG.md#20100)
 - [Compose CLI v1.0.2](https://github.com/docker/compose-cli/releases/tag/v1.0.2)
 - [Snyk v1.424.4](https://github.com/snyk/snyk/releases/tag/v1.424.4)
 - [Kubernetes 1.19.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.19.3)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-3)
+### Bug fixes and minor changes
 
 - Renamed 'Run Diagnostics' to 'Get support'.
 - Fixed an issue that caused Docker Desktop to crash on MacOS 11.0 (Big Sur) when VirtualBox was also installed. See [docker/for-mac#4997](https://github.com/docker/for-mac/issues/4997).
@@ -85,15 +85,15 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - File sharing: fixed changing ownership of read-only files. Fixes [docker/for-mac#4989](https://github.com/docker/for-mac/issues/4989), [docker/for-mac#4964](https://github.com/docker/for-mac/issues/4964).
 - Fixed an unexpected EOF error when trying to start a non-existing container. See [docker/for-mac#5025](https://github.com/docker/for-mac/issues/5025).
 
-## [Docker Desktop Community 2.4.2.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2420)
+## Docker Desktop Community 2.4.2.0
 
 2020-10-19
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#new-1)
+### New
 
-- If you have enabled [Vulnerability Scanning](https://docs.docker.com/docker-hub/vulnerability-scanning/) in Docker Hub, the scan results will now appear in Docker Desktop.
+- If you have enabled [Vulnerability Scanning]({{< ref "/manuals/DockerHub/Staticvulnerabilityscanning" >}}) in Docker Hub, the scan results will now appear in Docker Desktop.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-3)
+### Upgrades
 
 - [Docker Engine 20.10.0 beta1](https://github.com/docker/docker-ce/blob/0fc7084265b3786a5867ec311d3f916af7bf7a23/CHANGELOG.md)
 - [Docker Compose CLI - 0.1.22](https://github.com/docker/compose-cli/releases/tag/v0.1.22)
@@ -101,7 +101,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - [Kubernetes 1.19.2](https://github.com/kubernetes/kubernetes/releases/tag/v1.19.2)
 - [Go 1.15.2](https://github.com/golang/go/issues?q=milestone:Go1.15.2+label:CherryPickApproved)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-4)
+### Bug fixes and minor changes
 
 - When sharing Linux directories (`/var`, `/bin`, etc) with containers, Docker Desktop avoids watching paths in the host file system.
 - When sharing a file into a container (e.g. `docker run -v ~/.gitconfig`) Docker Desktop does not watch the parent directory. Fixes [docker/for-mac#4981](https://github.com/docker/for-mac/issues/4981).
@@ -114,37 +114,37 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Diagnostics: avoid hanging when Kubernetes is in a broken state.
 - Fixed automatic start on log in. See [docker/for-mac#4877](https://github.com/docker/for-mac/issues/4877) and [docker/for-mac#4890](https://github.com/docker/for-mac/issues/4890).
 
-## [Docker Desktop Community 2.4.1.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2410)
+## Docker Desktop Community 2.4.1.0
 
 2020-10-01
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-4)
+### Upgrades
 
 - [Docker Compose CLI - 0.1.18](https://github.com/docker/compose-cli)
 - [Docker Compose 1.27.4](https://github.com/docker/compose/releases/tag/1.27.4)
 - [Snyk v1.399.1](https://github.com/snyk/snyk/releases/tag/v1.399.1)
 - [Docker Engine 19.03.13](https://github.com/docker/docker-ce/releases/tag/v19.03.13)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-5)
+### Bug fixes and minor changes
 
 - Docker Desktop always flushes filesystem caches synchronously on container start. See [docker/for-mac#4943](https://github.com/docker/for-mac/issues/4943).
 - Docker Desktop now supports `S_ISUID`, `S_ISGID` and `S_ISVTX` in calls to `chmod(2)` on shared filesystems. See [docker/for-mac#4943](https://github.com/docker/for-mac/issues/4943).
 - Fixed a possible premature file handle close when using `gRPC-FUSE`.
 
-## [Docker Desktop Community 2.3.7.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2370)
+## Docker Desktop Community 2.3.7.0
 
 2020-09-17
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#new-2)
+### New
 
 - [Amazon ECR Credential Helper](https://github.com/awslabs/amazon-ecr-credential-helper/releases/tag/v0.4.0)
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-5)
+### Upgrades
 
 - [Docker ACI integration 0.1.15](https://github.com/docker/aci-integration-beta/releases/tag/v0.1.15)
 - [Snyk v0.393.0](https://github.com/snyk/snyk/releases/tag/v1.393.0)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-6)
+### Bug fixes and minor changes
 
 - Fixed automatic start on log in. See [docker/for-mac#4877](https://github.com/docker/for-mac/issues/4877) and [docker/for-mac#4890](https://github.com/docker/for-mac/issues/4890).
 - Docker Desktop now allows symlinks to point outside of shared volumes. Fixes [docker/for-mac#4862](https://github.com/docker/for-mac/issues/4862).
@@ -154,27 +154,27 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Avoid exposing `/host_mnt` paths in `docker container inspect` and `docker volume inspect`. Fixes [docker/for-mac#4859](https://github.com/docker/for-mac/issues/4859).
 - Fixed container logs lagging under heavy load. See [docker/for-win#8216](https://github.com/docker/for-win/issues/8216).
 
-### [Known issues](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#known-issues)
+### Known issues
 
 - The `clock_gettime64` system call returns `EPERM` rather than `ENOSYS` in i386 images. To work around this issue, disable `seccomp` by using the `--privileged` flag. See [docker/for-win#8326](https://github.com/docker/for-win/issues/8326).
 
-## [Docker Desktop Community 2.3.6.1](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2361)
+## Docker Desktop Community 2.3.6.1
 
 2020-09-08
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-6)
+### Upgrades
 
 - [Docker Compose 1.27.0](https://github.com/docker/compose/releases/tag/1.27.0)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-7)
+### Bug fixes and minor changes
 
 - Docker Desktop now correctly displays the state of "Use gRPC FUSE for file sharing" in the UI. Fixes [docker/for-mac#4864](https://github.com/docker/for-mac/issues/4864).
 
-## [Docker Desktop Community 2.3.6.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2360)
+## Docker Desktop Community 2.3.6.0
 
 2020-09-01
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#new-3)
+### New
 
 - In partnership with Snyk, Docker Desktop launches vulnerability scanning for Docker local images.
 - Docker ECS plugin has been replaced by ECS cloud integration
@@ -183,109 +183,109 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - You can now push an image to Docker Hub using the Remote repositories drop-down menu.
 - WSL 2 files and directories can now be mounted from the Windows Docker CLI with e.g. `docker run -v \\wsl$\Ubuntu\my-files:/my-files ...`.
 
-### [Removal](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#removal)
+### Removal
 
 - Support for MacOS 10.13 has ended, you will need to update your system to keep using Docker Desktop.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-7)
+### Upgrades
 
 - [Alpine 3.12](https://alpinelinux.org/posts/Alpine-3.12.0-released.html)
 - [Kubernetes 1.18.8](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.8)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-8)
+### Bug fixes and minor changes
 
 - Fixed a Mac CPU usage bug by removing the serial console from `hyperkit`, see [docker/roadmap#12](https://github.com/docker/roadmap/issues/12#issuecomment-663163280). To open a shell in the VM use either `nc -U ~/Library/Containers/com.docker.docker/Data/debug-shell.sock` (on Mac) or `putty -serial \\.\pipe\dockerDebugShell` (on Windows).
 
-## [Docker Desktop Community 2.3.5.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2350)
+## Docker Desktop Community 2.3.5.0
 
 2020-08-21
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#new-4)
+### New
 
 - The **Images** view on the Dashboard now allows you to interact with images on Docker Hub. You can now pull a remote repository with specific tags from Docker Hub, or view the details of the repository on the Docker Hub page. To access the new Images view, from the Docker menu, select **Dashboard** > **Images**.
 - Docker Desktop now enables BuildKit by default after a reset to factory defaults. To revert to the old docker build experience, go to **Preferences** > **Docker Engine** and then disable the BuildKit feature.
 - Docker Desktop now uses **gRPC-FUSE** for file sharing by default. This has much faster file sharing and uses much less CPU than `osxfs`, especially when there are lots of file events on the host. To switch back to `osxfs`, go to **Preferences** > **General** and disable gRPC-FUSE.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-8)
+### Upgrades
 
 - [Go 1.14.7](https://github.com/golang/go/issues?q=milestone:Go1.14.7+label:CherryPickApproved)
 - [Docker ECS integration v1.0.0-beta.5](https://github.com/docker/ecs-plugin/releases/tag/v1.0.0-beta.5)
 - [Docker Engine 19.03.13-beta2](https://github.com/docker/docker-ce/releases/tag/v19.03.13-beta2)
 - [Docker ACI integration 0.1.12](https://github.com/docker/aci-integration-beta/releases/tag/v0.1.12)
 
-### [Removal](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#removal-1)
+### Removal
 
 - The Mutagen file sync feature that we have been experimenting with in recent Edge releases has been removed. Thanks to everyone who has provided feedback on this feature. We are reconsidering how to integrate it based on the feedback we have received so far.
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-9)
+### Bug fixes and minor changes
 
 - Moved **Dashboard** to the top of the whale menu.
 - Improved the error handling when `dockerd` crashes.
 - Fixed minor bugs in the **Images** view.
 
-## [Docker Desktop Community 2.3.4.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2340)
+## Docker Desktop Community 2.3.4.0
 
 2020-07-28
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#new-5)
+### New
 
 - Docker Desktop introduces the new **Images** view to the Docker Dashboard. The Images view allows users to view a list of Docker images on the disk, run an image as a container, pull the latest version of an image from Docker Hub, inspect images, and remove any unwanted images from the disk.
 
   To access the new Images view, from the Docker menu, select **Dashboard** > **Images**.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-9)
+### Upgrades
 
 - [Docker ECS integration v1.0.0-beta.4](https://github.com/docker/ecs-plugin/releases/tag/v1.0.0-beta.4)
 - [Kubernetes 1.18.6](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.6)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-10)
+### Bug fixes and minor changes
 
 - Copying the container logs from the dashboard does not copy the ANSI color codes to the clipboard anymore.
 - Mutagen two-way sync now uses `.dockersyncignore` rather than `.dockerignore` to exclude files.
 
-## [Docker Desktop Community 2.3.3.2](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2332)
+## Docker Desktop Community 2.3.3.2
 
 2020-07-21
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-10)
+### Upgrades
 
 - [Docker ECS integration v1.0.0-beta.2](https://github.com/docker/ecs-plugin/releases/tag/v1.0.0-beta.2)
 - [Docker ACI integration 0.1.10](https://github.com/docker/aci-integration-beta/releases/tag/v0.1.10)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-11)
+### Bug fixes and minor changes
 
 - Mutagen uses the `.dockerignore` file when creating a session to filter the list of synchronized files. See [docker/for-mac#4621](https://github.com/docker/for-mac/issues/4621).
 - Docker CLI commands can now bypass any active Mutagen synchronization for volumes using `:cached`. See [docker/for-mac#1592](https://github.com/docker/for-mac/issues/1592#issuecomment-651309816).
 
-## [Docker Desktop Community 2.3.3.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2330)
+## Docker Desktop Community 2.3.3.0
 
 2020-07-09
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-11)
+### Upgrades
 
 - Beta release of Docker ECS integration v1.0.0-beta.1
 - [Docker ACI integration v0.1.7](https://github.com/docker/aci-integration-beta/releases/tag/v0.1.7)
 - [Docker Compose 1.26.2](https://github.com/docker/compose/releases/tag/1.26.2)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-12)
+### Bug fixes and minor changes
 
 - Compose-on-Kubernetes is no longer included in the Docker Desktop installer. You can download it separately from the compose-on-kubernetes [release page](https://github.com/docker/compose-on-kubernetes/releases).
 - Fixed an incompatibility between `hyperkit` and `osquery` which resulted in excessive `hyperkit` CPU usage. See [docker/for-mac#3499](https://github.com/docker/for-mac/issues/3499#issuecomment-639140844)
 - Docker Desktop now respects consistency flags `cached`, `delegated`, `consistent` even when in a list of options (for example, `z,delegated`). See [docker/for-mac#4718](https://github.com/docker/for-mac/issues/4718).
 - Docker Desktop now implements the shared volume flag `:delegated` by automatically setting up a two-way file sync with Mutagen.
 
-## [Docker Desktop Community 2.3.2.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2320)
+## Docker Desktop Community 2.3.2.0
 
 2020-06-25
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-12)
+### Upgrades
 
 - [Docker 19.03.12](https://github.com/docker/docker-ce/releases/tag/v19.03.12)
 - [Docker Compose 1.26.0](https://github.com/docker/compose/releases/tag/1.26.0)
 - [Kubernetes 1.18.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.3)
 - Beta release of the [Docker ACI integration](https://docs.docker.com/engine/context/aci-integration/)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-13)
+### Bug fixes and minor changes
 
 - Fixed an issue with startup when the Kubernetes certificates have expired. See [docker/for-mac#4594](https://github.com/docker/for-mac/issues/4594).
 - Fixed `hyperkit` on newer Macs / newer versions of `Hypervisor.framework`.
@@ -296,46 +296,46 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Switched to Mutagen `posix-raw` symlink mode which fixes cases where the symlinks point outside the synchronized directory. See [docker/for-mac#4595](https://github.com/docker/for-mac/issues/4595).
 - Removed the legacy Kubernetes context `docker-for-desktop`. The context `docker-desktop` should be used instead. See [docker/for-mac#4089](https://github.com/docker/for-mac/issues/4089).
 
-## [Docker Desktop Community 2.3.1.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2310)
+## Docker Desktop Community 2.3.1.0
 
 2020-05-20
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#new-6)
+### New
 
 Docker Desktop introduces a directory caching mechanism to greatly improve disk performance in containers. This feature uses [mutagen.io](https://mutagen.io/) to sync files between the host and the containers and benefits from native disk performance.
 
 We appreciate you trying out an early version of the Mutagen file sync feature. Please let us know your feedback by creating an issue in the [Docker Desktop for Mac GitHub](https://github.com/docker/for-mac/issues) repository with the `Mutagen` label.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-13)
+### Upgrades
 
 - [Docker Compose 1.26.0-rc4](https://github.com/docker/compose/releases/tag/1.26.0-rc4)
 - Upgrade to Qemu 4.2.0, add Risc-V support
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-14)
+### Bug fixes and minor changes
 
 - Fixed a performance regression when using shared volumes in 2.2.0.5. Fixes [docker/for-mac#4423](https://github.com/docker/for-mac/issues/4423).
 - Fixed containers logs in Docker Desktop **Dashboard** which were sometimes truncated. Fixes [docker/for-win#5954](https://github.com/docker/for-win/issues/5954).
 
-## [Docker Desktop Community 2.3.0.1](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2301)
+## Docker Desktop Community 2.3.0.1
 
 2020-04-28
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-15)
+### Bug fixes and minor changes
 
 - Fixed a bug that caused starting and stopping of a Compose application from the UI to fail when the path contains whitespace.
 
-## [Docker Desktop Community 2.3.0.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2300)
+## Docker Desktop Community 2.3.0.0
 
 2020-04-20
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-14)
+### Upgrades
 
 - [Docker Compose 1.25.5](https://github.com/docker/compose/releases/tag/1.25.5)
 - [Go 1.13.10](https://github.com/golang/go/issues?q=milestone%3AGo1.13.10+label%3ACherryPickApproved)
 - [Linux kernel 4.19.76](https://hub.docker.com/layers/docker/for-desktop-kernel/4.19.76-ce15f646db9b062dc947cfc0c1deab019fa63f96-amd64/images/sha256-6c252199aee548e4bdc8457e0a068e7d8e81c2649d4c1e26e4150daa253a85d8?context=repo)
 - LinuxKit [init](https://hub.docker.com/layers/linuxkit/init/1a80a9907b35b9a808e7868ffb7b0da29ee64a95/images/sha256-64cc8fa50d63940dbaa9979a13c362c89ecb4439bcb3ab22c40d300b9c0b597e?context=explore), [runc](https://hub.docker.com/layers/linuxkit/runc/69b4a35eaa22eba4990ee52cccc8f48f6c08ed03/images/sha256-57e3c7cbd96790990cf87d7b0f30f459ea0b6f9768b03b32a89b832b73546280?context=explore), and [containerd](https://hub.docker.com/layers/linuxkit/containerd/09553963ed9da626c25cf8acdf6d62ec37645412/images/sha256-866be7edb0598430709f88d0e1c6ed7bfd4a397b5ed220e1f793ee9067255ff1?context=explore)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-16)
+### Bug fixes and minor changes
 
 > Docker Desktop Edge 2.3.0.0 fixes one issue reported on the [docker/for-mac](https://github.com/docker/for-mac/issues) GitHub repository.
 
@@ -346,21 +346,21 @@ We appreciate you trying out an early version of the Mutagen file sync feature. 
 - Made the embedded terminal resizable.
 - Fixed bug where diagnostic upload would fail if the username contained spaces.
 
-## [Docker Desktop Community 2.2.3.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2230)
+## Docker Desktop Community 2.2.3.0
 
 2020-04-02
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-15)
+### Upgrades
 
 - [Docker 19.03.8](https://github.com/docker/docker-ce/releases/tag/v19.03.8)
 - [Docker Compose 1.26.0-rc3](https://github.com/docker/compose/releases/tag/1.26.0-rc3)
 - [Linux 4.19.76](https://hub.docker.com/layers/docker/for-desktop-kernel/4.19.76-4e5d9e5f3bde0abf236f97e4a81b029ae0f5f6e7-amd64/images/sha256-11dc0f6ee3187088219ba1463ebb378f5093a7d98f176ddfd62dd6b741c2dd2d?context=repo)
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#new-7)
+### New
 
 - Docker Desktop introduces a new onboarding tutorial upon first startup. The Quick Start tutorial guides users to get started with Docker in a few easy steps. It includes a simple exercise to build an example Docker image, run it as a container, push and save the image to Docker Hub.
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-17)
+### Bug fixes and minor changes
 
 > Docker Desktop Edge 2.2.3.0 fixes 7 issues reported on the [docker/for-mac](https://github.com/docker/for-mac/issues) GitHub repository.
 
@@ -373,36 +373,36 @@ We appreciate you trying out an early version of the Mutagen file sync feature. 
 - Kubernetes: Persistent volumes created by claims are now stored in the virtual machine. Fixes [docker/for-win#5665](https://github.com/docker/for-win/issues/5665).
 - Removed port probing from dashboard, just unconditionally showing links to ports that should be available. Fixes [docker/for-mac#4264](https://github.com/docker/for-mac/issues/4264).
 
-### [Known issues](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#known-issues-1)
+### Known issues
 
 - Loopback and unspecified IPv6 addresses (`::` and `::1`) within a container do not currently work. Some web servers and other programs may be using these addresses in their configuration files.
 
-## [Docker Desktop Community 2.2.2.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2220)
+## Docker Desktop Community 2.2.2.0
 
 2020-03-02
 
 This release contains a Kubernetes upgrade. Note that your local Kubernetes cluster will be reset after installing Docker Desktop.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-16)
+### Upgrades
 
 - [Kubernetes 1.16.5](https://github.com/kubernetes/kubernetes/releases/tag/v1.16.5)
 - [Go 1.13.8](https://golang.org/doc/devel/release.html#go1.13)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-18)
+### Bug fixes and minor changes
 
 - Docker Desktop now shares `/var/folders` by default as it stores per-user temporary files and caches.
 - Ceph support has been removed from Docker Desktop to save disk space.
 
-## [Docker Desktop Community 2.2.1.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2210)
+## Docker Desktop Community 2.2.1.0
 
 2020-02-12
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-17)
+### Upgrades
 
 - [Docker Compose 1.25.4](https://github.com/docker/compose/releases/tag/1.25.4)
 - [Go 1.12.16](https://golang.org/doc/devel/release.html#go1.12)
 
-## [Docker Desktop Community 2.1.7.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2170)
+## Docker Desktop Community 2.1.7.0
 
 2019-12-11
 
@@ -412,11 +412,11 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 >
 > Docker Desktop Edge 2.1.7.0 is the release candidate for the upcoming major Stable release. Please help us test this version before the wider release and report any issues in the [docker/for-mac](https://github.com/docker/for-mac/issues) GitHub repository.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-18)
+### Upgrades
 
 - [Docker Compose 1.25.1-rc1](https://github.com/docker/compose/releases/tag/1.25.1-rc1)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-19)
+### Bug fixes and minor changes
 
 - The Docker Desktop Dashboard now displays port information inline with the container status.
 - Fixed an issue that caused the 'back' button on the Dashboard UI to behave inconsistently when repeatedly switching between the container details and the Settings window.
@@ -427,85 +427,85 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fixed an issue that caused Docker Desktop to fail on startup when there is an incomplete Kubernetes config file.
 - Fixed an issue where attempts to log into Docker through Docker Desktop could sometimes fail with the `Incorrect authentication credentials` error. Fixes [docker/for-mac#4010](https://github.com/docker/for-mac/issues/4010).
 
-## [Docker Desktop Community 2.1.6.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2160)
+## Docker Desktop Community 2.1.6.0
 
 2019-11-18
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-19)
+### Upgrades
 
 - [Docker 19.03.5](https://github.com/docker/docker-ce/releases/tag/v19.03.5)
 - [Go 1.12.13](https://golang.org/doc/devel/release.html#go1.12)
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#new-8)
+### New
 
 Added the ability to start and stop Compose-based applications and view combined logs in the Docker Desktop **Dashboard** UI.
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-20)
+### Bug fixes and minor changes
 
 - Fixed port forwarding when containers are using `overlay` networks.
 - Fixed a container start error when a container has more than one port with an arbitrary or not-yet-configured external port number. For example, `docker run -p 80 -p 443 nginx`. Fixes [docker/for-win#4935](https://github.com/docker/for-win/issues/4935) and [docker/compose#6998](https://github.com/docker/compose/issues/6998).
 
-## [Docker Desktop Community 2.1.5.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2150)
+## Docker Desktop Community 2.1.5.0
 
 2019-11-04
 
 This release contains a Kubernetes upgrade. Note that your local Kubernetes cluster will be reset after installation.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-20)
+### Upgrades
 
 - [Kubernetes 1.15.5](https://github.com/kubernetes/kubernetes/releases/tag/v1.15.5)
 - [Docker Compose 1.25.0-rc4](https://github.com/docker/compose/releases/tag/1.25.0-rc4)
 - Linux kernel 4.19.76
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#new-9)
+### New
 
 **Docker Desktop Dashboard:** The new Docker Desktop **Dashboard** provides a user-friendly interface which enables you to interact with containers and applications, and manage the lifecycle of your applications directly from the UI. In addition, it allows you to access the logs, view container details, and monitor resource utilization to explore the container behavior.
 
 To access the new Dashboard UI, select the Docker menu from the Mac menu bar and then click **Dashboard**.
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-21)
+### Bug fixes and minor changes
 
 Fixed an issue that caused VMs running on older hardware with macOS Catalina to fail on startup with the error `processor does not support desired secondary processor-based controls`.
 
-### [Known issues](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#known-issues-2)
+### Known issues
 
 - When you start a Docker Compose application and then start a Docker App which has the same name as the Compose application, Docker Desktop displays only one application on the Dashboard. However, when you expand the application, containers that belong to both applications are displayed on the Dashboard.
 - When you deploy a Docker App with multiple containers on Kubernetes, Docker Desktop displays each Pod as an application on the Dashboard.
 
-## [Docker Desktop Community 2.1.4.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2140)
+## Docker Desktop Community 2.1.4.0
 
 2019-10-15
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-21)
+### Upgrades
 
 - [Docker 19.03.3](https://github.com/docker/docker-ce/releases/tag/v19.03.3)
 - [Kubernetes 1.15.4](https://github.com/kubernetes/kubernetes/releases/tag/v1.15.4)
 - [Go 1.12.10](https://github.com/golang/go/issues?q=milestone%3AGo1.12.10+label%3ACherryPickApproved) for [CVE-2019-16276](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16276)
 - [Kitematic 0.17.9](https://github.com/docker/kitematic/releases/tag/v0.17.9)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-22)
+### Bug fixes and minor changes
 
 - Improved the navigation in **Settings** and **Troubleshoot** UI.
 - Fixed a bug in the UEFI boot menu that sometimes caused Docker Desktop to hang during restart. Fixes [docker/for-mac#2655](https://github.com/docker/for-mac/issues/2655) and [docker/for-mac#3921](https://github.com/docker/for-mac/issues/3921).
 - Docker Desktop now allows users to access the host’s SSH agent inside containers. Fixes [docker/for-mac#410](https://github.com/docker/for-mac/issues/410)
 - Docker Machine is no longer included in the Docker Desktop installer. You can download it separately from the [Docker Machine releases](https://github.com/docker/machine/releases) page.
 
-## [Docker Desktop Community 2.1.3.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2130)
+## Docker Desktop Community 2.1.3.0
 
 2019-09-16
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-23)
+### Bug fixes and minor changes
 
 - All binaries included in Docker Desktop are now notarized so that they can run on macOS Catalina. For more information, see [Notarization Requirement for Mac Software](https://developer.apple.com/news/?id=06032019i).
 - Fixed an issue which caused higher CPU utilization when closing Docker Desktop windows.
 - Added a loading overlay to the **Settings** and **Troubleshoot** windows to prevent editing conflicts.
 - Deactivated the **Reset Kubernetes** button when Kubernetes is not activated.
 
-## [Docker Desktop Community 2.1.2.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2120)
+## Docker Desktop Community 2.1.2.0
 
 2019-09-09
 
-#### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-22)
+#### Upgrades
 
 - [Docker 19.03.2](https://github.com/docker/docker-ce/releases/tag/v19.03.2)
 - [Kubernetes 1.14.6](https://github.com/kubernetes/kubernetes/releases/tag/v1.14.6)
@@ -514,34 +514,34 @@ Fixed an issue that caused VMs running on older hardware with macOS Catalina to 
 - [Docker Machine 0.16.2](https://github.com/docker/machine/releases/tag/v0.16.2)
 - [Kitematic 0.17.8](https://github.com/docker/kitematic/releases/tag/v0.17.8)
 
-#### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-24)
+#### Bug fixes and minor changes
 
 - Reduced the Virtual Machine (VM) startup time.
 - Added support for `Expect: 100-continue` headers in the Docker API proxy. Some HTTP clients such as `curl` send this header when the payload is large, for example, when creating containers. Fixes [moby/moby#39693](https://github.com/moby/moby/issues/39693).
 
-## [Docker Desktop Community 2.1.1.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2110)
+## Docker Desktop Community 2.1.1.0
 
 2019-08-12
 
-#### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-23)
+#### Upgrades
 
 - Linux Kernel 4.14.131
 - [Hyperkit v0.20190802](https://github.com/moby/hyperkit/releases/tag/v0.20190802)
 
-#### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-25)
+#### Bug fixes and minor changes
 
 - Docker Desktop now allows users to expose privileged UDP ports. [docker/for-mac#3775](https://github.com/docker/for-mac/issues/3775)
 - Added missing fish completions for Docker Compose. [docker/for-mac#3795](https://github.com/docker/for-mac/issues/3795)
 - Fixed an issue where running some Docker commands can fail if you are not using Credential Helpers. [docker/for-mac#3785](https://github.com/docker/for-mac/issues/3785)
 - Fixed a bug that did not allow users to copy and paste text in the **Preferences** > **Daemon** window. [docker/for-mac#3798](https://github.com/docker/for-mac/issues/3798)
 
-## [Docker Desktop Community 2.1.0.0](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-desktop-community-2100)
+## Docker Desktop Community 2.1.0.0
 
 2019-07-26
 
 This release contains Kubernetes security improvements. Note that your local Kubernetes PKI and cluster will be reset after installation.
 
-#### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#upgrades-24)
+#### Upgrades
 
 - [Docker 19.03.1](https://github.com/docker/docker-ce/releases/tag/v19.03.1)
 - [Docker Compose 1.24.1](https://github.com/docker/compose/releases/tag/1.24.1)
@@ -549,12 +549,12 @@ This release contains Kubernetes security improvements. Note that your local Kub
 - Linux Kernel 4.9.184
 - [Docker Credential Helpers 0.6.3](https://github.com/docker/docker-credential-helpers/releases/tag/v0.6.3)
 
-#### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#new-10)
+#### New
 
 - Introduced a new user interface for the Docker Desktop **Preferences** menu.
 - The **Restart**, **Reset**, and **Uninstall** options are now available on the **Troubleshoot** menu.
 
-#### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#bug-fixes-and-minor-changes-26)
+#### Bug fixes and minor changes
 
 - Changed the host's Kubernetes context to ensure `docker run -v .kube:kube ... kubectl` works.
 - Restricted cluster-admin role on local Kubernetes cluster to `kube-system` namespace.
@@ -563,7 +563,7 @@ This release contains Kubernetes security improvements. Note that your local Kub
 - Fixed a bug where the process output was not redirected to stdout when gathering diagnostics on Windows, which sometimes resulted in a crash.
 - Added `/etc/machine-id` to the virtual machine. Fixes [docker/for-mac#3554](https://github.com/docker/for-mac/issues/3554).
 
-## [Docker Community Edition 2.0.5.0 2019-06-12](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-2050-2019-06-12)
+## Docker Community Edition 2.0.5.0 2019-06-12
 
 This is the Edge channel, which gives you early access to our newest features. Be aware that some of them may be experimental, and some of them may not ever reach the Stable release.
 
@@ -587,12 +587,12 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Docker Desktop now allows running a Docker registry inside a container. Fixes [docker/for-mac#3611](https://github.com/docker/for-mac/issues/3611)
   - Fixed a stability issue with the DNS resolver.
 
-## [Docker Community Edition 2.0.4.1 2019-05-07](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-2041-2019-05-07)
+## Docker Community Edition 2.0.4.1 2019-05-07
 
 - Bug fixes and minor changes
   - Upgrade QEMU from 2.8.0 to 3.1.0 to fix an emulation issue when building and running Java applications on Arm64 devices.
 
-## [Docker Community Edition 2.0.4.0 2019-04-30](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-2040-2019-04-30)
+## Docker Community Edition 2.0.4.0 2019-04-30
 
 - Upgrades
   - [Docker 19.03.0-beta3](https://github.com/docker/docker-ce/releases/tag/v19.03.0-beta3)
@@ -617,7 +617,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Bug fixes and minor changes
   - Truncate UDP DNS responses which are over 512 bytes in size
 
-## [Docker Community Edition 2.0.3.0 2019-03-05](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-2030-2019-03-05)
+## Docker Community Edition 2.0.3.0 2019-03-05
 
 - Upgrades
   - [Docker 18.09.3](https://github.com/docker/docker-ce/releases/tag/v18.09.3)
@@ -625,12 +625,12 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fixed port 8080 that was used on localhost when starting Kubernetes. Fixes [docker/for-mac#3522](https://github.com/docker/for-mac/issues/3522)
   - Error message improvements, do not propose to run diagnostics / reset to factory default when not appropriate.
 
-### [Docker Community Edition 2.0.2.1 2019-02-15](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-2021-2019-02-15)
+### Docker Community Edition 2.0.2.1 2019-02-15
 
 - Upgrades
   - [Docker 18.09.2](https://github.com/docker/docker-ce/releases/tag/v18.09.2), fixes [CVE-2019-5736](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5736)
 
-## [Docker Community Edition 2.0.2.0 2019-02-06](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-2020-2019-02-06)
+## Docker Community Edition 2.0.2.0 2019-02-06
 
 - Upgrades
   - [Docker Compose 1.24.0-rc1](https://github.com/docker/compose/releases/tag/1.24.0-rc1)
@@ -643,7 +643,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix DockerHelper crash. [docker/for-mac#3470](https://github.com/docker/for-mac/issues/3470)
   - Fix binding of privileged ports with specified IP. [docker/for-mac#3464](https://github.com/docker/for-mac/issues/3464)
 
-## [Docker Community Edition 2.0.1.0 2019-01-11](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-2010-2019-01-11)
+## Docker Community Edition 2.0.1.0 2019-01-11
 
 - Upgrades
 
@@ -663,15 +663,15 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Rename Docker for Mac to Docker Desktop
   - Partially open services ports if possible. [docker/for-mac#3438](https://github.com/docker/for-mac/issues/3438)
 
-## [Edge Releases of 2018](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#edge-releases-of-2018)
+## Edge Releases of 2018
 
-### [Docker Community Edition 2.0.0.0-mac82 2018-12-07](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-2000-mac82-2018-12-07)
+### Docker Community Edition 2.0.0.0-mac82 2018-12-07
 
 - Upgrades
   - [Docker compose 1.23.2](https://github.com/docker/compose/releases/tag/1.23.2)
   - [Docker Machine 0.16.0](https://github.com/docker/machine/releases/tag/v0.16.0)
 
-### [Docker Community Edition 2.0.0.0-mac77 2018-11-14](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-2000-mac77-2018-11-14)
+### Docker Community Edition 2.0.0.0-mac77 2018-11-14
 
 - Upgrades
   - [Docker 18.09.0](https://github.com/docker/docker-ce-packaging/releases/tag/v18.09.0)
@@ -683,7 +683,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - VPNKit: Limit the size of the UDP NAT table. This ensures port forwarding and regular TCP traffic continue even when running very chatty UDP protocols.
   - Ensure Kubernetes can be installed when using a non-default internal IP subnet.
 
-### [Docker Community Edition 2.0.0.0-beta1-mac75 2018-09-14](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-2000-beta1-mac75-2018-09-14)
+### Docker Community Edition 2.0.0.0-beta1-mac75 2018-09-14
 
 - Upgrades
   - [Docker 18.09.0-ce-beta1](https://github.com/docker/docker-ce/releases/tag/v18.09.0-ce-beta1)
@@ -696,14 +696,14 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Bug fixes and minor changes
   - Fix panic in diagnose
 
-### [Docker Community Edition 18.06.1-ce-mac74 2018-08-29](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18061-ce-mac74-2018-08-29)
+### Docker Community Edition 18.06.1-ce-mac74 2018-08-29
 
 - Upgrades
   - [Docker 18.06.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.06.1-ce)
 - Bug fixes and minor changes
   - Fix local DNS failing to resolve inside containers.
 
-### [Docker Community Edition 18.06.0-ce-mac69 2018-07-25](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18060-ce-mac69-2018-07-25)
+### Docker Community Edition 18.06.0-ce-mac69 2018-07-25
 
 - Upgrades
   - [Docker 18.06.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.06.0-ce)
@@ -711,7 +711,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix bug in experimental SOCKS server. See [docker/for-mac#2670](https://github.com/docker/for-mac/issues/2670)
   - Fix bug in docker login when "Securely store Docker logins in macOS keychain" is unchecked. Fixed [docker/for-mac#3104](https://github.com/docker/for-mac/issues/3104)
 
-### [Docker Community Edition 18.06.0-ce-rc3-mac68 2018-07-19](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18060-ce-rc3-mac68-2018-07-19)
+### Docker Community Edition 18.06.0-ce-rc3-mac68 2018-07-19
 
 - Upgrades
   - [Docker 18.06.0-ce-rc3](https://github.com/docker/docker-ce/releases/tag/v18.06.0-ce-rc3)
@@ -727,7 +727,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix network connection leak triggered by haproxy TCP health-checks [docker/for-mac#1132](https://github.com/docker/for-mac/issues/1132)
   - Better message to reset vmnetd when it's disabled. See [docker/for-mac#3035](https://github.com/docker/for-mac/issues/3035)
 
-### [Docker Community Edition 18.05.0-ce-mac67 2018-06-07](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18050-ce-mac67-2018-06-07)
+### Docker Community Edition 18.05.0-ce-mac67 2018-06-07
 
 - Upgrades
   - [LinuxKit v0.4](https://github.com/linuxkit/linuxkit/releases/tag/v0.4)
@@ -740,7 +740,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Detect Vmnetd install error. Fixes [docker/for-mac#2934](https://github.com/docker/for-mac/issues/2934), [docker/for-mac#2687](https://github.com/docker/for-mac/issues/2687)
   - Virtual machine default disk path is stored relative to $HOME. Fixes [docker/for-mac#2928](https://github.com/docker/for-mac/issues/2928), [docker/for-mac#1209](https://github.com/docker/for-mac/issues/1209)
 
-### [Docker Community Edition 18.05.0-ce-mac66 2018-05-17](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18050-ce-mac66-2018-05-17)
+### Docker Community Edition 18.05.0-ce-mac66 2018-05-17
 
 - Upgrades
   - [Docker 18.05.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.05.0-ce)
@@ -756,7 +756,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix button order in reset dialog windows. Fixes [docker/for-mac#2827](https://github.com/docker/for-mac/issues/2827)
   - Diagnostics are run when diagnostics window is displayed; user is prompted to upload them when available.
 
-### [Docker Community Edition 18.05.0-ce-rc1-mac63 2018-04-26](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18050-ce-rc1-mac63-2018-04-26)
+### Docker Community Edition 18.05.0-ce-rc1-mac63 2018-04-26
 
 - Upgrades
   - [Docker 18.05.0-ce-rc1](https://github.com/docker/docker-ce/releases/tag/v18.05.0-ce-rc1)
@@ -766,13 +766,13 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Bug fixes and minor changes
   - Fix Docker for Mac not starting due to socket file paths being too long (typically HOME folder path being too long). Fixes [docker/for-mac#2727](https://github.com/docker/for-mac/issues/2727), [docker/for-mac#2731](https://github.com/docker/for-mac/issues/2731).
 
-### [Docker Community Edition 18.04.0-ce-mac62 2018-04-12](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18040-ce-mac62-2018-04-12)
+### Docker Community Edition 18.04.0-ce-mac62 2018-04-12
 
 - Upgrades
   - [Docker 18.04.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.04.0-ce)
   - [Docker compose 1.21.0](https://github.com/docker/compose/releases/tag/1.21.0)
 
-### [Docker Community Edition 18.04.0-ce-rc2-mac61 2018-04-09](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18040-ce-rc2-mac61-2018-04-09)
+### Docker Community Edition 18.04.0-ce-rc2-mac61 2018-04-09
 
 - Upgrades
   - [Docker 18.04.0-ce-rc2](https://github.com/docker/docker-ce/releases/tag/v18.04.0-ce-rc2)
@@ -782,13 +782,13 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Bug fixes and minor changes
   - Fix upgrade straight from pre-17.12 versions where Docker for Mac cannot restart once the upgrade has been performed. Fixes [docker/for-mac#2739](https://github.com/docker/for-mac/issues/2739)
 
-### [Docker Community Edition 18.03.0-ce-mac58 2018-03-26](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18030-ce-mac58-2018-03-26)
+### Docker Community Edition 18.03.0-ce-mac58 2018-03-26
 
 - Upgrades
   - [Docker 18.03.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.0-ce)
   - [Docker compose 1.20.1](https://github.com/docker/compose/releases/tag/1.20.1)
 
-### [Docker Community Edition 18.03.0-ce-rc4-mac57 2018-03-15](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18030-ce-rc4-mac57-2018-03-15)
+### Docker Community Edition 18.03.0-ce-rc4-mac57 2018-03-15
 
 - Upgrades
   - [Docker 18.03.0-ce-rc4](https://github.com/docker/docker-ce/releases/tag/v18.03.0-ce-rc4)
@@ -797,7 +797,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix support for AUFS. Fixes [docker/for-win#1831](https://github.com/docker/for-win/issues/1831)
   - Fix synchronisation between CLI `docker login` and GUI login.
 
-### [Docker Community Edition 18.03.0-ce-rc3-mac56 2018-03-13](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18030-ce-rc3-mac56-2018-03-13)
+### Docker Community Edition 18.03.0-ce-rc3-mac56 2018-03-13
 
 - Upgrades
   - [Docker 18.03.0-ce-rc3](https://github.com/docker/docker-ce/releases/tag/v18.03.0-ce-rc3)
@@ -809,7 +809,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix for the HTTP/S transparent proxy when using "localhost" names (for example "host.docker.internal", "docker.for.mac.host.internal", "docker.for.mac.localhost").
   - Fix daemon not starting properly when setting TLS-related options. Fixes [docker/for-mac#2663](https://github.com/docker/for-mac/issues/2663)
 
-### [Docker Community Edition 18.03.0-ce-rc1-mac54 2018-02-27](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18030-ce-rc1-mac54-2018-02-27)
+### Docker Community Edition 18.03.0-ce-rc1-mac54 2018-02-27
 
 - Upgrades
   - [Docker 18.03.0-ce-rc1](https://github.com/docker/docker-ce/releases/tag/v18.03.0-ce-rc1)
@@ -823,7 +823,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix hostPath mounts in Kubernetes.
   - Update Compose on Kubernetes to v0.3.0 rc4. Existing Kubernetes stacks will be removed during migration and need to be re-deployed on the cluster.
 
-### [Docker Community Edition 18.02.0-ce-mac53 2018-02-09](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18020-ce-mac53-2018-02-09)
+### Docker Community Edition 18.02.0-ce-mac53 2018-02-09
 
 - Upgrades
   - [Docker 18.02.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.02.0-ce)
@@ -833,7 +833,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix empty registry added by mistake in some cases in the Preference Daemon Pane. Fixes [docker/for-mac#2537](https://github.com/docker/for-mac/issues/2537)
   - Clearer error message when incompatible hardware is detected. Diagnostics are not proposed in the error popup in this case.
 
-### [Docker Community Edition 18.02.0-ce-rc2-mac51 2018-02-02](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18020-ce-rc2-mac51-2018-02-02)
+### Docker Community Edition 18.02.0-ce-rc2-mac51 2018-02-02
 
 - Upgrades
   - [Docker 18.02.0-ce-rc2](https://github.com/docker/docker-ce/releases/tag/v18.02.0-ce-rc2)
@@ -844,7 +844,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix some cases where selecting "Reset" after an error did not reset properly.
   - Fix incorrect NTP config. Fixes [docker/for-mac#2529](https://github.com/docker/for-mac/issues/2529)
 
-### [Docker Community Edition 18.02.0-ce-rc1-mac50 2018-01-26](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18020-ce-rc1-mac50-2018-01-26)
+### Docker Community Edition 18.02.0-ce-rc1-mac50 2018-01-26
 
 - Upgrades
   - [Docker 18.02.0-ce-rc1](https://github.com/docker/docker-ce/releases/tag/v18.02.0-ce-rc1)
@@ -853,7 +853,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Keep any existing kubectl binary when activating Kubernetes in Docker for Mac, and restore it when disabling Kubernetes. Fixes [docker/for-mac#2508](https://github.com/docker/for-mac/issues/2508), [docker/for-mac#2368](https://github.com/docker/for-mac/issues/2368)
   - Fix Kubernetes context selector. Fixes [docker/for-mac#2495](https://github.com/docker/for-mac/issues/2495)
 
-### [Docker Community Edition 18.01.0-ce-mac48 2018-01-19](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-18010-ce-mac48-2018-01-19)
+### Docker Community Edition 18.01.0-ce-mac48 2018-01-19
 
 - Upgrades
   - [Docker 18.01.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.01.0-ce)
@@ -873,19 +873,19 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - If kubectl was already installed before Docker For Mac, restore the existing kubectl when sitching Kubernetes off in Docker for Mac.
   - Migration of Docker Toolbox images is not proposed anymore in Docker For Mac installer (still possible to migrate Toolbox images manually).
 
-### [Docker Community Edition 17.12.0-ce-mac45 2018-01-05](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17120-ce-mac45-2018-01-05)
+### Docker Community Edition 17.12.0-ce-mac45 2018-01-05
 
 - Upgrades
   - [Docker 17.12.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.12.0-ce)
 - New
-  - Experimental Kubernetes Support. You can now run a single-node Kubernetes cluster from the "Kubernetes" Pane in Docker For Mac Preferences and use kubectl commands as well as docker commands. See [the Kubernetes section](https://docs.docker.com/desktop/kubernetes/)
+  - Experimental Kubernetes Support. You can now run a single-node Kubernetes cluster from the "Kubernetes" Pane in Docker For Mac Preferences and use kubectl commands as well as docker commands. See [the Kubernetes section]({{< ref "/manuals/DockerDesktop/DeployonKuberneteswithDockerDesktop" >}})
   - DNS name `docker.for.mac.host.internal` should be used instead of `docker.for.mac.localhost` (still valid) for host resolution from containers, since since there is an RFC banning the use of subdomains of localhost (See https://tools.ietf.org/html/draft-west-let-localhost-be-localhost-06).
 - Bug fixes and minor changes
   - The docker engine is configured to use VPNKit as an HTTP proxy, fixing 'docker pull' in environments with no DNS. Fixes [docker/for-mac#2320](https://github.com/docker/for-mac/issues/2320)
 
-## [Edge Releases of 2017](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#edge-releases-of-2017)
+## Edge Releases of 2017
 
-### [Docker Community Edition 17.12.0-ce-rc4-mac44 2017-12-21](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17120-ce-rc4-mac44-2017-12-21)
+### Docker Community Edition 17.12.0-ce-rc4-mac44 2017-12-21
 
 - Upgrades
   - [Docker 17.12.0-ce-rc4](https://github.com/docker/docker-ce/releases/tag/v17.12.0-ce-rc4)
@@ -894,14 +894,14 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Display actual size used by the virtual machine disk, especially useful for disks using raw format. See [docker/for-mac#2297](https://github.com/docker/for-mac/issues/2297).
   - Fix more specific edge cases in filesharing settings migration.
 
-### [Docker Community Edition 17.12.0-ce-rc3-mac43 2017-12-15](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17120-ce-rc3-mac43-2017-12-15)
+### Docker Community Edition 17.12.0-ce-rc3-mac43 2017-12-15
 
 - Upgrades
   - [Docker 17.12.0-ce-rc3](https://github.com/docker/docker-ce/releases/tag/v17.12.0-ce-rc3)
 - Bug fixes and minor changes
   - Fix filesharing migration issue ( [docker/for-mac#2317](https://github.com/docker/for-mac/issues/2317))
 
-### [Docker Community Edition 17.12.0-ce-rc2-mac41 2017-12-13](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17120-ce-rc2-mac41-2017-12-13)
+### Docker Community Edition 17.12.0-ce-rc2-mac41 2017-12-13
 
 - Upgrades
   - [Docker 17.12.0-ce-rc2](https://github.com/docker/docker-ce/releases/tag/v17.12.0-ce-rc2)
@@ -916,12 +916,12 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Display various component versions in About box
   - Better virtual machine state handling and error messages in case of virtual machine crashes
 
-### [Docker Community Edition 17.11.0-ce-mac40 2017-11-22](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17110-ce-mac40-2017-11-22)
+### Docker Community Edition 17.11.0-ce-mac40 2017-11-22
 
 - Upgrades
   - [Docker 17.11.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.11.0-ce)
 
-### [Docker Community Edition 17.11.0-ce-rc4-mac39 2017-11-17](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17110-ce-rc4-mac39-2017-11-17)
+### Docker Community Edition 17.11.0-ce-rc4-mac39 2017-11-17
 
 - Upgrades
   - [Docker 17.11.0-ce-rc4](https://github.com/docker/docker-ce/releases/tag/v17.11.0-ce-rc4)
@@ -932,14 +932,14 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - New
   - For systems running APFS on SSD on High Sierra, use `raw` format virtual machine disks by default. This increases disk throughput (from 320MiB/sec to 600MiB/sec in `dd` on a 2015 MacBook Pro) and disk space handling. Existing disks are kept in qcow format, if you want to switch to raw format you need to "Reset to factory defaults". To query the space usage of the file, use a command like: `$ cd ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/` `$ ls -ls Docker.raw` `3944768 -rw-r--r--@ 1 user staff 68719476736 Nov 16 11:19 Docker.raw` The first number (`3944768`) is the allocated space in blocks; the larger number `68719476736` is the maximum total amount of space the file may consume in future in bytes.
 
-### [Docker Community Edition 17.11.0-ce-rc3-mac38 2017-11-09](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17110-ce-rc3-mac38-2017-11-09)
+### Docker Community Edition 17.11.0-ce-rc3-mac38 2017-11-09
 
 - Upgrades
   - [Docker 17.11.0-ce-rc3](https://github.com/docker/docker-ce/releases/tag/v17.11.0-ce-rc3)
 - Bug fixes and minor changes
   - Fix Docker build exits successfully but fails to build image [moby/#35413](https://github.com/moby/moby/issues/35413).
 
-### [Docker Community Edition 17.11.0-ce-rc2-mac37 2017-11-02](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17110-ce-rc2-mac37-2017-11-02)
+### Docker Community Edition 17.11.0-ce-rc2-mac37 2017-11-02
 
 - Upgrades
   - [Docker 17.11.0-ce-rc2](https://github.com/docker/docker-ce/releases/tag/v17.11.0-ce-rc2)
@@ -948,7 +948,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Bug fixes and minor changes
   - Fix centos:5 & centos:6 images not starting properly with LinuxKit virtual machine (fixes [docker/for-mac#2169](https://github.com/docker/for-mac/issues/2169)).
 
-### [Docker Community Edition 17.10.0-ce-mac36 2017-10-24](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17100-ce-mac36-2017-10-24)
+### Docker Community Edition 17.10.0-ce-mac36 2017-10-24
 
 - Upgrades
   - [Docker 17.10.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.10.0-ce)
@@ -957,12 +957,12 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - New
   - Virtual machine entirely built with Linuxkit
 
-### [Docker Community Edition 17.09.0-ce-mac34 2017-10-06](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17090-ce-mac34-2017-10-06)
+### Docker Community Edition 17.09.0-ce-mac34 2017-10-06
 
 - Bug fixes and minor changes
   - Fix Docker For Mac unable to start in some cases : removed use of libgmp sometimes causing the vpnkit process to die.
 
-### [Docker Community Edition 17.09.0-ce-mac31 2017-09-29](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17090-ce-mac31-2017-09-29)
+### Docker Community Edition 17.09.0-ce-mac31 2017-09-29
 
 - Upgrades
   - [Docker 17.09.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.09.0-ce)
@@ -970,12 +970,12 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Bug fixes and minor changes
   - Fix password encoding/decoding. May require to re-login to docker cloud after this version is installed. (Fixes:docker/for-mac#2008, docker/for-mac#2016, docker/for-mac#1919, docker/for-mac#712, docker/for-mac#1220).
 
-### [Docker Community Edition 17.09.0-ce-rc3-mac30 2017-09-22](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17090-ce-rc3-mac30-2017-09-22)
+### Docker Community Edition 17.09.0-ce-rc3-mac30 2017-09-22
 
 - Upgrades
   - [Docker 17.09.0-ce-rc3](https://github.com/docker/docker-ce/releases/tag/v17.09.0-ce-rc3)
 
-### [Docker Community Edition 17.09.0-ce-rc2-mac29 2017-09-19](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17090-ce-rc2-mac29-2017-09-19)
+### Docker Community Edition 17.09.0-ce-rc2-mac29 2017-09-19
 
 - Upgrades
   - [Docker 17.09.0-ce-rc2](https://github.com/docker/docker-ce/releases/tag/v17.09.0-ce-rc2)
@@ -985,7 +985,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Kernel: Enable TASK_XACCT and TASK_IO_ACCOUNTING [docker/for-mac#1608](https://github.com/docker/for-mac/issues/1608)
   - Rotate logs in the virtual machine more often
 
-### [Docker Community Edition 17.09.0-ce-rc1-mac28 2017-09-07](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17090-ce-rc1-mac28-2017-09-07)
+### Docker Community Edition 17.09.0-ce-rc1-mac28 2017-09-07
 
 - Upgrades
   - [Docker 17.09.0-ce-rc1](https://github.com/docker/docker-ce/releases/tag/v17.09.0-ce-rc1)
@@ -994,14 +994,14 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Bug fixes and minor changes
   - VPNKit: change protocol to support error messages reported back from the server
 
-### [Docker Community Edition 17.07.0-ce-mac26, 2017-09-01](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17070-ce-mac26-2017-09-01)
+### Docker Community Edition 17.07.0-ce-mac26, 2017-09-01
 
 - Upgrades
   - [Docker 17.07.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.07.0-ce)
   - [Docker compose 1.16.0](https://github.com/docker/compose/releases/tag/1.16.0)
   - [Docker Credential Helpers 0.6.0](https://github.com/docker/docker-credential-helpers/releases/tag/v0.6.0)
 
-### [Docker Community Edition 17.07.0-ce-rc4-mac25, 2017-08-24](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17070-ce-rc4-mac25-2017-08-24)
+### Docker Community Edition 17.07.0-ce-rc4-mac25, 2017-08-24
 
 **Upgrades**
 
@@ -1013,7 +1013,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fixed string validation in daemon options (related to [docker/for-mac#1971](https://github.com/docker/for-mac/issues/1971))
 - VPNKit: Fixed a bug which causes a socket to leak if the corresponding TCP connection is idle for more than five minutes (related to [docker/for-mac#1374](https://github.com/docker/for-mac/issues/1374))
 
-### [Docker Community Edition 17.07.0-ce-rc3-mac23, 2017-08-21](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17070-ce-rc3-mac23-2017-08-21)
+### Docker Community Edition 17.07.0-ce-rc3-mac23, 2017-08-21
 
 **Upgrades**
 
@@ -1030,14 +1030,14 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - VPNKit: Improved the logging around the UNIX domain socket connections
 - VPNKit: Automatically trim whitespace from `int` or `bool` database keys
 
-### [Docker Community Edition 17.07.0-ce-rc2-mac22, 2017-08-11](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17070-ce-rc2-mac22-2017-08-11)
+### Docker Community Edition 17.07.0-ce-rc2-mac22, 2017-08-11
 
 **Upgrades**
 
 - [Docker 17.07.0-ce-rc2](https://github.com/docker/docker-ce/releases/tag/v17.07.0-ce-rc2)
 - Linux Kernel 4.9.41
 
-### [Docker Community Edition 17.07.0-ce-rc1-mac21, 2017-07-31](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17070-ce-rc1-mac21-2017-07-31)
+### Docker Community Edition 17.07.0-ce-rc1-mac21, 2017-07-31
 
 **Upgrades**
 
@@ -1056,9 +1056,9 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 
 - Add daemon options validation
 - Diagnose can be cancelled & Improved help information. Fixes [docker/for-mac#1134](https://github.com/docker/for-mac/issues/1134), [docker/for-mac#1474](https://github.com/docker/for-mac/issues/1474)
-- Support paging of Docker Cloud [repositories](https://docs.docker.com/docker-hub/repos/) and [organizations](https://docs.docker.com/admin/organization/orgs/). Fixes [docker/for-mac#1538](https://github.com/docker/for-mac/issues/1538)
+- Support paging of Docker Cloud [repositories]({{< ref "/manuals/DockerHub/Managerepositories" >}}) and [organizations]({{< ref "/manuals/Administration/Organizationadministration/Createyourorganization" >}}). Fixes [docker/for-mac#1538](https://github.com/docker/for-mac/issues/1538)
 
-### [Docker Community Edition 17.06.1-ce-mac20, 2017-07-18](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17061-ce-mac20-2017-07-18)
+### Docker Community Edition 17.06.1-ce-mac20, 2017-07-18
 
 **Upgrades**
 
@@ -1066,20 +1066,20 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Linux Kernel 4.9.36
 - AUFS 20170703
 
-### [Docker Community Edition 17.06.0-ce-mac17, 2017-06-28](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17060-ce-mac17-2017-06-28)
+### Docker Community Edition 17.06.0-ce-mac17, 2017-06-28
 
 **Upgrades**
 
 - [Docker 17.06.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.06.0-ce)
 
-### [Docker Community Edition 17.06.0-rc5-ce-mac16, 2017-06-21](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17060-rc5-ce-mac16-2017-06-21)
+### Docker Community Edition 17.06.0-rc5-ce-mac16, 2017-06-21
 
 **Upgrades**
 
 - [Docker 17.06.0-ce-rc5](https://github.com/docker/docker-ce/releases/tag/v17.06.0-ce-rc5)
 - [Docker compose 1.14.0](https://github.com/docker/compose/releases/tag/1.14.0)
 
-### [Docker Community Edition 17.06.0-rc4-ce-mac15, 2017-06-16](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17060-rc4-ce-mac15-2017-06-16)
+### Docker Community Edition 17.06.0-rc4-ce-mac15, 2017-06-16
 
 **Upgrades**
 
@@ -1087,7 +1087,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - [Docker Credential Helpers 0.5.2](https://github.com/docker/docker-credential-helpers/releases/tag/v0.5.2)
 - Linux Kernel 4.9.31
 
-### [Docker Community Edition 17.06.0-rc2-ce-mac14, 2017-06-08](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17060-rc2-ce-mac14-2017-06-08)
+### Docker Community Edition 17.06.0-rc2-ce-mac14, 2017-06-08
 
 **Upgrades**
 
@@ -1095,7 +1095,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - [Docker Machine 0.12.0](https://github.com/docker/machine/releases/tag/v0.12.0)
 - [Docker compose 1.14.0-rc2](https://github.com/docker/compose/releases/tag/1.14.0-rc2)
 
-### [Docker Community Edition 17.06.0-rc1-ce-mac13, 2017-06-01](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17060-rc1-ce-mac13-2017-06-01)
+### Docker Community Edition 17.06.0-rc1-ce-mac13, 2017-06-01
 
 **Upgrades**
 
@@ -1120,13 +1120,13 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Display all docker cloud organizations and repositories in the whale menu (fixes [docker/for-mac#1538](https://github.com/docker/for-mac/issues/1538))
 - OSXFS: improved latency for many common operations, such as read and write by approximately 25%
 
-### [Docker Community Edition 17.05.0-ce-mac11, 2017-05-12](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17050-ce-mac11-2017-05-12)
+### Docker Community Edition 17.05.0-ce-mac11, 2017-05-12
 
 **Upgrades**
 
 - Security fix for CVE-2017-7308
 
-### [Docker Community Edition 17.05.0-ce-mac9, 2017-05-09](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17050-ce-mac9-2017-05-09)
+### Docker Community Edition 17.05.0-ce-mac9, 2017-05-09
 
 **Upgrades**
 
@@ -1142,13 +1142,13 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - You are now prompted for your password, if you changed it in Docker Cloud.
 - Request time sync after waking up to improve [docker/for-mac#17](https://github.com/docker/for-mac/issues/17)
 
-### [Docker Community Edition 17.05.0-ce-rc1-mac8, 2017-04-13](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17050-ce-rc1-mac8-2017-04-13)
+### Docker Community Edition 17.05.0-ce-rc1-mac8, 2017-04-13
 
 **Upgrades**
 
 - [Docker 17.05.0-ce-rc1](https://github.com/docker/docker/releases/tag/v17.05.0-ce-rc1)
 
-### [Docker Community Edition 17.04.0-ce-mac7, 2017-04-06](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17040-ce-mac7-2017-04-06)
+### Docker Community Edition 17.04.0-ce-mac7, 2017-04-06
 
 **New**
 
@@ -1167,7 +1167,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Add a reset to factory defaults button when application crashes
 - Toolbox import dialog now defaults to "Skip"
 
-### [Docker Community Edition 17.04.0-ce-rc2-mac6, 2017-04-03](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17040-ce-rc2-mac6-2017-04-03)
+### Docker Community Edition 17.04.0-ce-rc2-mac6, 2017-04-03
 
 **Upgrades**
 
@@ -1184,7 +1184,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Disk trimming should work as expected
 - Diagnostics now contains more settings data
 
-### [Docker Community Edition 17.03.1-ce-rc1-mac3, 2017-03-28](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17031-ce-rc1-mac3-2017-03-28)
+### Docker Community Edition 17.03.1-ce-rc1-mac3, 2017-03-28
 
 **Upgrades**
 
@@ -1201,7 +1201,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - QCOW: numerous bugfixes
 - osxfs: buffer readdir
 
-### [Docker Community Edition 17.03.0-ce-mac2, 2017-03-06](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17030-ce-mac2-2017-03-06)
+### Docker Community Edition 17.03.0-ce-mac2, 2017-03-06
 
 **Hotfixes**
 
@@ -1212,7 +1212,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 
 - [Docker Credential Helpers 0.4.2](https://github.com/docker/docker-credential-helpers/releases/tag/v0.4.2)
 
-### [Docker Community Edition 17.03.0-ce-mac1, 2017-03-02](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17030-ce-mac1-2017-03-02)
+### Docker Community Edition 17.03.0-ce-mac1, 2017-03-02
 
 **New**
 
@@ -1234,7 +1234,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Add page_poison=1 to boot args
 - Add a new disk flushing option
 
-### [Docker Community Edition 17.03.0 RC1 Release Notes (2017-02-22 17.03.0-ce-rc1-mac1)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-community-edition-17030-rc1-release-notes-2017-02-22-17030-ce-rc1-mac1)
+### Docker Community Edition 17.03.0 RC1 Release Notes (2017-02-22 17.03.0-ce-rc1-mac1)
 
 **New**
 
@@ -1254,14 +1254,14 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Added `page_poison=1` to boot args
 - Added a new disk flushing option
 
-### [Beta 42 Release Notes (2017-02-09 1.13.1-beta42)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-42-release-notes-2017-02-09-1131-beta42)
+### Beta 42 Release Notes (2017-02-09 1.13.1-beta42)
 
 **Upgrades**
 
 - [Docker 1.13.1](https://github.com/docker/docker/releases/tag/v1.13.1)
 - [Docker Compose 1.11.1](https://github.com/docker/compose/releases/tag/1.11.1)
 
-### [Beta 41 Release Notes (2017-02-07-2017-1.13.1-rc2-beta41)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-41-release-notes-2017-02-07-2017-1131-rc2-beta41)
+### Beta 41 Release Notes (2017-02-07-2017-1.13.1-rc2-beta41)
 
 **Upgrades**
 
@@ -1274,7 +1274,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - VPNKit: set the Recursion Available bit on DNS responses from the cache
 - Don’t use port 4222 inside the Linux VM
 
-### [Beta 40 Release Notes (2017-01-31 1.13.1-rc1-beta40)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-40-release-notes-2017-01-31-1131-rc1-beta40)
+### Beta 40 Release Notes (2017-01-31 1.13.1-rc1-beta40)
 
 **Upgrades**
 
@@ -1295,7 +1295,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - HyperKit: Dump guest physical and linear address from VMCS when dumping state
 - HyperKit: Kernel boots with `panic=1` arg
 
-### [Beta 39 Release Notes (2017-01-26 1.13.0-beta39)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-39-release-notes-2017-01-26-1130-beta39)
+### Beta 39 Release Notes (2017-01-26 1.13.0-beta39)
 
 **Upgrades**
 
@@ -1318,7 +1318,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fix for swap not being mounted
 - Fix AUFS xattr delete issue ( [docker/docker#30245](https://github.com/docker/docker/issues/30245))
 
-### [Beta 38 Release Notes (2017-01-20 1.13.0-beta38)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-38-release-notes-2017-01-20-1130-beta38)
+### Beta 38 Release Notes (2017-01-20 1.13.0-beta38)
 
 **Upgrades**
 
@@ -1365,7 +1365,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - VPNKit: If one request fails, allow other concurrent requests to succeed. For example this allows IPv4 servers to work even if IPv6 is broken.
 - VPNKit: Fix bug which could cause the connection tracking to underestimate the number of active connections
 
-### [Beta 37 Release Notes (2017-01-16 1.13.0-rc7-beta37)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-37-release-notes-2017-01-16-1130-rc7-beta37)
+### Beta 37 Release Notes (2017-01-16 1.13.0-rc7-beta37)
 
 **Upgrades**
 
@@ -1373,7 +1373,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Notary 0.4.3
 - Linux kernel 4.9.3
 
-### [Beta 36 Release Notes (2017-01-12 1.13.0-rc6-beta36)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-36-release-notes-2017-01-12-1130-rc6-beta36)
+### Beta 36 Release Notes (2017-01-12 1.13.0-rc6-beta36)
 
 > **Important Note:** Plugins installed using the experimental "managed plugins" feature in Docker 1.12 must be removed/uninstalled before upgrading.
 
@@ -1387,7 +1387,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 
 - Uninstall should be more reliable
 
-### [Beta 35 Release Notes (2017-01-06 1.13.0-rc5-beta35)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-35-release-notes-2017-01-06-1130-rc5-beta35)
+### Beta 35 Release Notes (2017-01-06 1.13.0-rc5-beta35)
 
 > **Important Note:** Plugins installed using the experimental "managed plugins" feature in Docker 1.12 must be removed/uninstalled before upgrading.
 
@@ -1396,9 +1396,9 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Docker 1.13.0-rc5
 - Docker Compose 1.10-rc1
 
-## [Edge Releases of 2016](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#edge-releases-of-2016)
+## Edge Releases of 2016
 
-### [Beta 34.1 Release Notes (2016-12-22 1.13.0-rc4-beta34.1)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-341-release-notes-2016-12-22-1130-rc4-beta341)
+### Beta 34.1 Release Notes (2016-12-22 1.13.0-rc4-beta34.1)
 
 > **Important Note:** Plugins installed using the experimental "managed plugins" feature in Docker 1.12 must be removed/uninstalled before upgrading.
 
@@ -1410,7 +1410,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 
 - qcow-tool 0.7.2
 
-### [Beta 34 Release Notes (2016-12-20 1.13.0-rc4-beta34)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-34-release-notes-2016-12-20-1130-rc4-beta34)
+### Beta 34 Release Notes (2016-12-20 1.13.0-rc4-beta34)
 
 > **Important Note:** Plugins installed using the experimental "managed plugins" feature in Docker 1.12 must be removed/uninstalled before upgrading.
 
@@ -1432,7 +1432,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fix advanced daemon check json changes
 - Auto update polling every 24h
 
-### [Beta 33.1 Release Notes (2016-12-16 1.13.0-rc3-beta33.1)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-331-release-notes-2016-12-16-1130-rc3-beta331)
+### Beta 33.1 Release Notes (2016-12-16 1.13.0-rc3-beta33.1)
 
 > **Important Note:** Plugins installed using the experimental "managed plugins" feature in Docker 1.12 must be removed/uninstalled before upgrading.
 
@@ -1440,7 +1440,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 
 - Fixed issue where sometimes TRIM would cause the virtual machine to hang
 
-### [Beta 33 Release Notes (2016-12-15 1.13.0-rc3-beta33)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-33-release-notes-2016-12-15-1130-rc3-beta33)
+### Beta 33 Release Notes (2016-12-15 1.13.0-rc3-beta33)
 
 > **Important Note:** Plugins installed using the experimental "managed plugins" feature in Docker 1.12 must be removed/uninstalled before upgrading.
 
@@ -1462,7 +1462,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 
 - Kernel boots with `vsyscall=emulate arg` and `CONFIG_LEGACY_VSYSCALL` set to `NONE` in Moby
 
-### [Beta 32 Release Notes (2016-12-07 1.13.0-rc3-beta32)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-32-release-notes-2016-12-07-1130-rc3-beta32)
+### Beta 32 Release Notes (2016-12-07 1.13.0-rc3-beta32)
 
 **New**
 
@@ -1481,7 +1481,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - On the beta channel you can't opt-out of analytics
 - If you opt-out of analytics, you're prompted for approval before a bug report is sent
 
-### [Beta 31 Release Notes (2016-12-01 1.13.0-rc2-beta31)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-31-release-notes-2016-12-01-1130-rc2-beta31)
+### Beta 31 Release Notes (2016-12-01 1.13.0-rc2-beta31)
 
 **New**
 
@@ -1507,7 +1507,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Tab key is now cycling through tabs while setting proxy parameters
 - Fixed an issue where the preference pane disappeared when the welcome whale menu was closed
 
-### [Beta 30 Release Notes (2016-11-10 1.12.3-beta30)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-30-release-notes-2016-11-10-1123-beta30)
+### Beta 30 Release Notes (2016-11-10 1.12.3-beta30)
 
 **New**
 
@@ -1525,26 +1525,26 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Improvements to Logging and Diagnostics
 - osxfs: switched to `libev/kqueue` to improve latency
 
-### [Beta 29.3 Release Notes (2016-11-02 1.12.3-beta29.3)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-293-release-notes-2016-11-02-1123-beta293)
+### Beta 29.3 Release Notes (2016-11-02 1.12.3-beta29.3)
 
 **Upgrades**
 
 - Docker Compose 1.9.0-rc2
 - `osxfs`: Fixed a simultaneous volume mount race which can result in a crash
 
-### [Beta 29.2 Release Notes (2016-10-27 1.12.2-beta29.2)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-292-release-notes-2016-10-27-1122-beta292)
+### Beta 29.2 Release Notes (2016-10-27 1.12.2-beta29.2)
 
 **Hotfixes**
 
 - Upgrade to Docker 1.12.3
 
-### [Beta 29.1 Release Notes (2016-10-26 1.12.1-beta29.1)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-291-release-notes-2016-10-26-1121-beta291)
+### Beta 29.1 Release Notes (2016-10-26 1.12.1-beta29.1)
 
 **Hotfixes**
 
 - Fixed missing `/dev/pty/ptmx`
 
-### [Beta 29 Release Notes (2016-10-25 1.12.3-rc1-beta29)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-29-release-notes-2016-10-25-1123-rc1-beta29)
+### Beta 29 Release Notes (2016-10-25 1.12.3-rc1-beta29)
 
 **New**
 
@@ -1564,7 +1564,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fixed an issue where the Docker status would continue to be yellow/animated after the VM had started correctly
 - osxfs: fixed the prohibition of chown on read-only or mode 0 files (fixes [docker/for-mac#117](https://github.com/docker/for-mac/issues/117), [docker/for-mac#263](https://github.com/docker/for-mac/issues/263), [docker/for-mac#633](https://github.com/docker/for-mac/issues/633) )
 
-### [Beta 28 Release Notes (2016-10-13 1.12.2-rc3-beta28)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-28-release-notes-2016-10-13-1122-rc3-beta28)
+### Beta 28 Release Notes (2016-10-13 1.12.2-rc3-beta28)
 
 **Upgrades**
 
@@ -1579,7 +1579,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Channel is now displayed in About box
 - Crash reports are sent over Bugsnag rather than HockeyApp
 
-### [Beta 27 Release Notes (2016-09-28 1.12.2-rc1-beta27)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-27-release-notes-2016-09-28-1122-rc1-beta27)
+### Beta 27 Release Notes (2016-09-28 1.12.2-rc1-beta27)
 
 **Upgrades**
 
@@ -1602,7 +1602,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - UDP: made the forwarding more robust; now, drop packets and continue rather than stopping
 - disk: made the "flush" behaviour configurable for database-like workloads. This works around a performance regression in `v1.12.1`.
 
-### [Beta 26 Release Notes (2016-09-14 1.12.1-beta26)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-26-release-notes-2016-09-14-1121-beta26)
+### Beta 26 Release Notes (2016-09-14 1.12.1-beta26)
 
 **New**
 
@@ -1627,10 +1627,10 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 **Known Issues**
 
 - `Docker.app` sometimes uses 200% CPU after macOS wakes up from sleep mode. The issue is being investigated. The workaround is to restart Docker.app.
-- There are a number of issues with the performance of directories bind-mounted with `osxfs`. In particular, writes of small blocks and traversals of large directories are currently slow. Additionally, containers that perform large numbers of directory operations, such as repeated scans of large directory trees, may suffer from poor performance. More information is available in [Known Issues](https://docs.docker.com/desktop/troubleshoot/known-issues/) in Troubleshooting.
+- There are a number of issues with the performance of directories bind-mounted with `osxfs`. In particular, writes of small blocks and traversals of large directories are currently slow. Additionally, containers that perform large numbers of directory operations, such as repeated scans of large directory trees, may suffer from poor performance. More information is available in [Known Issues]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}) in Troubleshooting.
 - Under some unhandled error conditions, `inotify` event delivery can fail and become permanently disabled. The workaround is to restart `Docker.app`.
 
-### [Beta 25 Release Notes (2016-09-07 1.12.1-beta25)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-25-release-notes-2016-09-07-1121-beta25)
+### Beta 25 Release Notes (2016-09-07 1.12.1-beta25)
 
 **Upgrades**
 
@@ -1646,10 +1646,10 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 
 - Several problems have been reported on macOS 10.12 Sierra and are being investigated. This includes failure to launch the app and being unable to upgrade to a new version.
 - Docker.app sometimes uses 200% CPU after macOS wakes up from sleep mode. The issue is being investigated. The workaround is to restart Docker.app
-- There are a number of issues with the performance of directories bind-mounted with `osxfs`. In particular, writes of small blocks and traversals of large directories are currently slow. Additionally, containers that perform large numbers of directory operations, such as repeated scans of large directory trees, may suffer from poor performance. More information is available in [Known Issues](https://docs.docker.com/desktop/troubleshoot/known-issues/) in Troubleshooting.
+- There are a number of issues with the performance of directories bind-mounted with `osxfs`. In particular, writes of small blocks and traversals of large directories are currently slow. Additionally, containers that perform large numbers of directory operations, such as repeated scans of large directory trees, may suffer from poor performance. More information is available in [Known Issues]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}) in Troubleshooting.
 - Under some unhandled error conditions, `inotify` event delivery can fail and become permanently disabled. The workaround is to restart Docker.app.
 
-### [Beta 24 Release Notes (2016-08-23 1.12.1-beta24)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-24-release-notes-2016-08-23-1121-beta24)
+### Beta 24 Release Notes (2016-08-23 1.12.1-beta24)
 
 **Upgrades**
 
@@ -1670,10 +1670,10 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 
 - Several problems have been reported on macOS 10.12 Sierra and are being investigated. This includes failure to launch the app and being unable to upgrade to a new version.
 - `Docker.app` sometimes uses 200% CPU after macOS wakes up from sleep mode. The issue is being investigated. The workaround is to restart `Docker.app`.
-- There are a number of issues with the performance of directories bind-mounted with `osxfs`. In particular, writes of small blocks and traversals of large directories are currently slow. Additionally, containers that perform large numbers of directory operations, such as repeated scans of large directory trees, may suffer from poor performance. For more information and workarounds, see the bullet on performance of bind-mounted directories in [Known Issues](https://docs.docker.com/desktop/troubleshoot/known-issues/) in Troubleshooting.
+- There are a number of issues with the performance of directories bind-mounted with `osxfs`. In particular, writes of small blocks and traversals of large directories are currently slow. Additionally, containers that perform large numbers of directory operations, such as repeated scans of large directory trees, may suffer from poor performance. For more information and workarounds, see the bullet on performance of bind-mounted directories in [Known Issues]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}) in Troubleshooting.
 - Under some unhandled error conditions, `inotify` event delivery can fail and become permanently disabled. The workaround is to restart `Docker.app`.
 
-### [Beta 23 Release Notes (2016-08-16 1.12.1-rc1-beta23)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-23-release-notes-2016-08-16-1121-rc1-beta23)
+### Beta 23 Release Notes (2016-08-16 1.12.1-rc1-beta23)
 
 **Upgrades**
 
@@ -1693,10 +1693,10 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 
 - Docker for Mac is not supported on macOS 10.12 Sierra
 - Docker.app sometimes uses 200% CPU after macOS wakes up from sleep mode. The issue is being investigated. The workaround is to restart Docker.app
-- There are a number of issues with the performance of directories bind-mounted with `osxfs`. In particular, writes of small blocks and traversals of large directories are currently slow. Additionally, containers that perform large numbers of directory operations, such as repeated scans of large directory trees, may suffer from poor performance. For more information and workarounds, see the bullet on performance of bind-mounted directories in [Known Issues](https://docs.docker.com/desktop/troubleshoot/known-issues/) in Troubleshooting.
+- There are a number of issues with the performance of directories bind-mounted with `osxfs`. In particular, writes of small blocks and traversals of large directories are currently slow. Additionally, containers that perform large numbers of directory operations, such as repeated scans of large directory trees, may suffer from poor performance. For more information and workarounds, see the bullet on performance of bind-mounted directories in [Known Issues]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}) in Troubleshooting.
 - Under some unhandled error conditions, `inotify` event delivery can fail and become permanently disabled. The workaround is to restart Docker.app
 
-### [Beta 22 Release Notes (2016-08-11 1.12.0-beta22)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-22-release-notes-2016-08-11-1120-beta22)
+### Beta 22 Release Notes (2016-08-11 1.12.0-beta22)
 
 **Upgrades**
 
@@ -1714,10 +1714,10 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 **Known issues**
 
 - Docker.app sometimes uses 200% CPU after macOS wakes up from sleep mode. The issue is being investigated. The workaround is to restart Docker.app
-- There are a number of issues with the performance of directories bind-mounted with `osxfs`. In particular, writes of small blocks and traversals of large directories are currently slow. Additionally, containers that perform large numbers of directory operations, such as repeated scans of large directory trees, may suffer from poor performance. More information is available in [Known Issues](https://docs.docker.com/desktop/troubleshoot/known-issues/).
+- There are a number of issues with the performance of directories bind-mounted with `osxfs`. In particular, writes of small blocks and traversals of large directories are currently slow. Additionally, containers that perform large numbers of directory operations, such as repeated scans of large directory trees, may suffer from poor performance. More information is available in [Known Issues]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}).
 - Under some unhandled error conditions, `inotify` event delivery can fail and become permanently disabled. The workaround is to restart Docker.app
 
-### [Beta 21.1 Release Notes (2016-08-03 1.12.0-beta21.1)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-211-release-notes-2016-08-03-1120-beta211)
+### Beta 21.1 Release Notes (2016-08-03 1.12.0-beta21.1)
 
 This bug fix release contains osxfs improvements. The fixed issues may have been seen as failures with apt-get and npm in containers, missed `inotify` events or unexpected unmounts.
 
@@ -1728,11 +1728,11 @@ This bug fix release contains osxfs improvements. The fixed issues may have been
 - osxfs: fixed an issue causing all `inotify` events to stop when an ancestor directory of a mounted directory was mounted
 - osxfs: fixed an issue causing volumes mounted under other mounts to spontaneously unmount (docker/docker#24503)
 
-### [Docker for Mac 1.12.0 (2016-07-28 1.12.0-beta21)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#docker-for-mac-1120-2016-07-28-1120-beta21)
+### Docker for Mac 1.12.0 (2016-07-28 1.12.0-beta21)
 
 **New**
 
-- Docker for Mac is now available from 2 channels: **stable** and **beta**. New features and bug fixes will go out first in auto-updates to users in the beta channel. Updates to the stable channel are much less frequent and happen in sync with major and minor releases of the Docker engine. Only features that are well-tested and ready for production are added to the stable channel releases. For downloads of both and more information, see the [installation guide](https://docs.docker.com/desktop/install/mac-install/).
+- Docker for Mac is now available from 2 channels: **stable** and **beta**. New features and bug fixes will go out first in auto-updates to users in the beta channel. Updates to the stable channel are much less frequent and happen in sync with major and minor releases of the Docker engine. Only features that are well-tested and ready for production are added to the stable channel releases. For downloads of both and more information, see the [installation guide]({{< ref "/manuals/DockerDesktop/Install/Mac" >}}).
 
 **Upgrades**
 
@@ -1754,10 +1754,10 @@ This bug fix release contains osxfs improvements. The fixed issues may have been
 **Known issues**
 
 - Docker.app sometimes uses 200% CPU after macOS wakes up from sleep mode. The issue is being investigated. The workaround is to restart Docker.app
-- There are a number of issues with the performance of directories bind-mounted with `osxfs`. In particular, writes of small blocks, and traversals of large directories are currently slow. Additionally, containers that perform large numbers of directory operations, such as repeated scans of large directory trees, may suffer from poor performance. For more information and workarounds, see [Known Issues](https://docs.docker.com/desktop/troubleshoot/known-issues/) in [Logs and Troubleshooting](https://docs.docker.com/desktop/troubleshoot/).
+- There are a number of issues with the performance of directories bind-mounted with `osxfs`. In particular, writes of small blocks, and traversals of large directories are currently slow. Additionally, containers that perform large numbers of directory operations, such as repeated scans of large directory trees, may suffer from poor performance. For more information and workarounds, see [Known Issues]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}) in [Logs and Troubleshooting]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose" >}}).
 - Under some unhandled error conditions, `inotify` event delivery can fail and become permanently disabled. The workaround is to restart Docker.app
 
-### [Beta 20 Release Notes (2016-07-19 1.12.0-rc4-beta20)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-20-release-notes-2016-07-19-1120-rc4-beta20)
+### Beta 20 Release Notes (2016-07-19 1.12.0-rc4-beta20)
 
 **Bug fixes and minor changes**
 
@@ -1772,7 +1772,7 @@ This bug fix release contains osxfs improvements. The fixed issues may have been
 
 - `Docker.app` sometimes uses 200% CPU after macOS wakes up from sleep mode. The issue is being investigated. The workaround is to restart Docker for Mac (`Docker.app`).
 
-### [Beta 19 Release Notes (2016-07-14 1.12.0-rc4-beta19)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-19-release-notes-2016-07-14-1120-rc4-beta19)
+### Beta 19 Release Notes (2016-07-14 1.12.0-rc4-beta19)
 
 **New**
 
@@ -1797,9 +1797,9 @@ This bug fix release contains osxfs improvements. The fixed issues may have been
 
 **Known issues**
 
-- See [Known Issues](https://docs.docker.com/desktop/troubleshoot/known-issues/).
+- See [Known Issues]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}).
 
-### [Beta 18.1 Release Notes (2016-07-07 1.12.0-rc3-beta18.1)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-181-release-notes-2016-07-07-1120-rc3-beta181)
+### Beta 18.1 Release Notes (2016-07-07 1.12.0-rc3-beta18.1)
 
 > **Note**: Docker 1.12.0 RC3 release introduces a backward incompatible change from RC2. You can fix this by recreating or updating your containers.
 
@@ -1823,9 +1823,9 @@ This bug fix release contains osxfs improvements. The fixed issues may have been
 
 **Known issues**
 
-- See [Known Issues](https://docs.docker.com/desktop/troubleshoot/known-issues/).
+- See [Known Issues]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}).
 
-### [Beta 18 Release Notes (2016-07-06 1.12.0-rc3-beta18)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-18-release-notes-2016-07-06-1120-rc3-beta18)
+### Beta 18 Release Notes (2016-07-06 1.12.0-rc3-beta18)
 
 **New**
 
@@ -1844,9 +1844,9 @@ This bug fix release contains osxfs improvements. The fixed issues may have been
 
 **Known issues**
 
-- See [Known Issues](https://docs.docker.com/desktop/troubleshoot/known-issues/).
+- See [Known Issues]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}).
 
-### [Beta 17 Release Notes (2016-06-29 1.12.0-rc2-beta17)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-17-release-notes-2016-06-29-1120-rc2-beta17)
+### Beta 17 Release Notes (2016-06-29 1.12.0-rc2-beta17)
 
 **Upgrades**
 
@@ -1854,7 +1854,7 @@ This bug fix release contains osxfs improvements. The fixed issues may have been
 
 **Bug fixes and minor changes**
 
-- Documentation moved to [/desktop/mac/](https://docs.docker.com/desktop/)
+- Documentation moved to [/desktop/mac/]({{< ref "/manuals/DockerDesktop" >}})
 - Allow non-admin users to launch the app for the first time (using admin creds)
 - Prompt non-admin users for admin password when needed in Preferences
 - Fixed download links, documentation links
@@ -1863,9 +1863,9 @@ This bug fix release contains osxfs improvements. The fixed issues may have been
 
 **Known issues**
 
-- See [Known Issues](https://docs.docker.com/desktop/troubleshoot/known-issues/).
+- See [Known Issues]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}).
 
-### [Beta 16 Release Notes (2016-06-17 1.12.0-rc2-beta16)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-16-release-notes-2016-06-17-1120-rc2-beta16)
+### Beta 16 Release Notes (2016-06-17 1.12.0-rc2-beta16)
 
 **Upgrades**
 
@@ -1884,9 +1884,9 @@ This bug fix release contains osxfs improvements. The fixed issues may have been
 
 **Known issues**
 
-- See [Known Issues](https://docs.docker.com/desktop/troubleshoot/known-issues/).
+- See [Known Issues]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}).
 
-### [Beta 15 Release Notes (2016-06-10 1.11.2-beta15)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-15-release-notes-2016-06-10-1112-beta15)
+### Beta 15 Release Notes (2016-06-10 1.11.2-beta15)
 
 **New**
 
@@ -1908,9 +1908,9 @@ This bug fix release contains osxfs improvements. The fixed issues may have been
 
 **Known issues**
 
-- See [Known Issues](https://docs.docker.com/desktop/troubleshoot/known-issues/).
+- See [Known Issues]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}).
 
-### [Beta 14 Release Notes (2016-06-02 1.11.1-beta14)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-14-release-notes-2016-06-02-1111-beta14)
+### Beta 14 Release Notes (2016-06-02 1.11.1-beta14)
 
 **New**
 
@@ -1927,7 +1927,7 @@ This bug fix release contains osxfs improvements. The fixed issues may have been
 - Fall back to secondary DNS server if primary fails.
 - Added a link to the documentation from menu.
 
-### [Beta 13.1 Release Notes (2016-05-28 1.11.1-beta13.1)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-131-release-notes-2016-05-28-1111-beta131)
+### Beta 13.1 Release Notes (2016-05-28 1.11.1-beta13.1)
 
 **Hotfixes**
 
@@ -1944,7 +1944,7 @@ This bug fix release contains osxfs improvements. The fixed issues may have been
 
 - Fixed issue where log file sizes doubled on docker daemon restart
 
-### [Beta 13 Release Notes (2016-05-25 1.11.1-beta13)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-13-release-notes-2016-05-25-1111-beta13)
+### Beta 13 Release Notes (2016-05-25 1.11.1-beta13)
 
 **New**
 
@@ -1971,7 +1971,7 @@ This bug fix release contains osxfs improvements. The fixed issues may have been
 
 - improved time synchronisation after sleep
 
-### [Beta 12 Release (2016-05-17 1.11.1-beta12)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-12-release-2016-05-17-1111-beta12)
+### Beta 12 Release (2016-05-17 1.11.1-beta12)
 
 **Upgrades**
 
@@ -1986,7 +1986,7 @@ This bug fix release contains osxfs improvements. The fixed issues may have been
 - UI improvements
 - Fixed a problem in osxfs where`mkdir` returned EBUSY but directory was created.
 
-### [Beta 11 Release (2016-05-10 1.11.1-beta11)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-11-release-2016-05-10-1111-beta11)
+### Beta 11 Release (2016-05-10 1.11.1-beta11)
 
 **New**
 
@@ -2010,7 +2010,7 @@ The `osxfs` file system now persists ownership changes in an extended attribute.
   - Fixes to disk formatting scripts
   - Linux kernel upgrade to 4.4.9
 
-### [Beta 10 Release (2016-05-03 1.11.0-beta10)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-10-release-2016-05-03-1110-beta10)
+### Beta 10 Release (2016-05-03 1.11.0-beta10)
 
 **New**
 
@@ -2030,7 +2030,7 @@ The `osxfs` file system now persists ownership changes in an extended attribute.
 - Fixed uninstall process
 - HyperKit vcpu state machine improvements, may improve suspend/resume
 
-### [Beta 9 Release (2016-04-26 1.11.0-beta9)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-9-release-2016-04-26-1110-beta9)
+### Beta 9 Release (2016-04-26 1.11.0-beta9)
 
 **New**
 
@@ -2071,7 +2071,7 @@ The `osxfs` file system now persists ownership changes in an extended attribute.
 
 - Record virtual machine start and stop events
 
-### [Beta 8 Release (2016-04-20 1.11.0-beta8)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-8-release-2016-04-20-1110-beta8)
+### Beta 8 Release (2016-04-20 1.11.0-beta8)
 
 **New**
 
@@ -2098,7 +2098,7 @@ The `osxfs` file system now persists ownership changes in an extended attribute.
 - Fixed a `com.docker.osx.HyperKit.linux` supervisor deadlock if processes exit during a controlled shutdown
 - Fixed VPN mode malformed DNS query bug preventing some resolutions
 
-### [Beta 7 Release (2016-04-12 1.11.0-beta7)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-7-release-2016-04-12-1110-beta7)
+### Beta 7 Release (2016-04-12 1.11.0-beta7)
 
 **New**
 
@@ -2121,7 +2121,7 @@ The `osxfs` file system now persists ownership changes in an extended attribute.
 - Logging improvements
 - Improve process management
 
-### [Beta 6 Release (2016-04-05 1.11.0-beta6)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-6-release-2016-04-05-1110-beta6)
+### Beta 6 Release (2016-04-05 1.11.0-beta6)
 
 **New**
 
@@ -2157,7 +2157,7 @@ The `osxfs` file system now persists ownership changes in an extended attribute.
 - Fixed a memory leak in `com.docker.db`
 - Fixed a race condition on startup between Docker and networking which can lead to `Docker.app` not starting on reboot
 
-### [Beta 5 Release (2016-03-29 1.10.3-beta5)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-5-release-2016-03-29-1103-beta5)
+### Beta 5 Release (2016-03-29 1.10.3-beta5)
 
 **New**
 
@@ -2179,7 +2179,7 @@ The `osxfs` file system now persists ownership changes in an extended attribute.
 - Removed status from Preferences
 - Check for incompatible versions of VirtualBox
 
-### [Beta 4 Release (2016-03-22 1.10.3-beta4)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-4-release-2016-03-22-1103-beta4)
+### Beta 4 Release (2016-03-22 1.10.3-beta4)
 
 **New Features and Upgrades**
 
@@ -2203,7 +2203,7 @@ The `osxfs` file system now persists ownership changes in an extended attribute.
 - Fixed “Notification Center”-related crash on startup
 - Fixed watchdog crash on startup
 
-### [Beta 3 Release (2016-03-15 1.10.3-beta3)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-3-release-2016-03-15-1103-beta3)
+### Beta 3 Release (2016-03-15 1.10.3-beta3)
 
 **New Features and Upgrades**
 
@@ -2235,7 +2235,7 @@ The `osxfs` file system now persists ownership changes in an extended attribute.
   - Moby logs included in diagnose upload
   - App version included in logs on startup
 
-### [Beta 2 Release (2016-03-08 1.10.2-beta2)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-2-release-2016-03-08-1102-beta2)
+### Beta 2 Release (2016-03-08 1.10.2-beta2)
 
 **New Features and Upgrades**
 
@@ -2257,7 +2257,7 @@ The `osxfs` file system now persists ownership changes in an extended attribute.
 - Fixed various problems with linking and dependencies
 - Various improvements to logging
 
-### [Beta 1 Release (2016-03-01 1.10.2-b1)](https://docs.docker.com/desktop/previous-versions/edge-releases-mac/#beta-1-release-2016-03-01-1102-b1)
+### Beta 1 Release (2016-03-01 1.10.2-b1)
 
 - GUI
   - Added dialog to explain why we need admin rights

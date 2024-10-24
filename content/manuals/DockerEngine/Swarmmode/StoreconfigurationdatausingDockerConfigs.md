@@ -8,17 +8,17 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/configs/](https://docs.docker.com/engine/swarm/configs/)
+> 原文：[https://docs.docker.com/engine/swarm/configs/](https://docs.docker.com/engine/swarm/configs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Store configuration data using Docker Configs
 
-## [About configs](https://docs.docker.com/engine/swarm/configs/#about-configs)
+## About configs
 
 Docker swarm service configs allow you to store non-sensitive information, such as configuration files, outside a service's image or running containers. This allows you to keep your images as generic as possible, without the need to bind-mount configuration files into the containers or use environment variables.
 
-Configs operate in a similar way to [secrets](https://docs.docker.com/engine/swarm/secrets/), except that they are not encrypted at rest and are mounted directly into the container's filesystem without the use of RAM disks. Configs can be added or removed from a service at any time, and services can share a config. You can even use configs in conjunction with environment variables or labels, for maximum flexibility. Config values can be generic strings or binary content (up to 500 kb in size).
+Configs operate in a similar way to [secrets]({{< ref "/manuals/DockerEngine/Swarmmode/ManagesensitivedatawithDockersecrets" >}}), except that they are not encrypted at rest and are mounted directly into the container's filesystem without the use of RAM disks. Configs can be added or removed from a service at any time, and services can share a config. You can even use configs in conjunction with environment variables or labels, for maximum flexibility. Config values can be generic strings or binary content (up to 500 kb in size).
 
 > **Note**
 >
@@ -28,7 +28,7 @@ Configs operate in a similar way to [secrets](https://docs.docker.com/engine/swa
 
 Configs are supported on both Linux and Windows services.
 
-### [Windows support](https://docs.docker.com/engine/swarm/configs/#windows-support)
+### Windows support
 
 Docker includes support for configs on Windows containers, but there are differences in the implementations, which are called out in the examples below. Keep the following notable differences in mind:
 
@@ -36,7 +36,7 @@ Docker includes support for configs on Windows containers, but there are differe
 - When creating a service which uses Windows containers, the options to specify UID, GID, and mode are not supported for configs. Configs are currently only accessible by administrators and users with `system` access within the container.
 - On Windows, create or update a service using `--credential-spec` with the `config://<config-name>` format. This passes the gMSA credentials file directly to nodes before a container starts. No gMSA credentials are written to disk on worker nodes. For more information, refer to [Deploy services to a swarm](https://docs.docker.com/engine/swarm/services/#gmsa-for-swarm).
 
-## [How Docker manages configs](https://docs.docker.com/engine/swarm/configs/#how-docker-manages-configs)
+## How Docker manages configs
 
 When you add a config to the swarm, Docker sends the config to the swarm manager over a mutual TLS connection. The config is stored in the Raft log, which is encrypted. The entire Raft log is replicated across the other managers, ensuring the same high availability guarantees for configs as for the rest of the swarm management data.
 
@@ -61,16 +61,16 @@ To update a stack, make changes to your Compose file, then re-run `docker stack 
 
 You can run `docker stack rm` to stop the app and take down the stack. This removes any config that was created by `docker stack deploy` with the same stack name. This removes *all* configs, including those not referenced by services and those remaining after a `docker service update --config-rm`.
 
-## [Read more about `docker config` commands](https://docs.docker.com/engine/swarm/configs/#read-more-about-docker-config-commands)
+## Read more about `docker config` commands
 
 Use these links to read about specific commands, or continue to the [example about using configs with a service](https://docs.docker.com/engine/swarm/configs/#advanced-example-use-configs-with-a-nginx-service).
 
-- [`docker config create`](https://docs.docker.com/reference/cli/docker/config/create/)
-- [`docker config inspect`](https://docs.docker.com/reference/cli/docker/config/inspect/)
-- [`docker config ls`](https://docs.docker.com/reference/cli/docker/config/ls/)
-- [`docker config rm`](https://docs.docker.com/reference/cli/docker/config/rm/)
+- [`docker config create`]({{< ref "/reference/CLIreference/docker/dockerconfig/dockerconfigcreate" >}})
+- [`docker config inspect`]({{< ref "/reference/CLIreference/docker/dockerconfig/dockerconfiginspect" >}})
+- [`docker config ls`]({{< ref "/reference/CLIreference/docker/dockerconfig/dockerconfigls" >}})
+- [`docker config rm`]({{< ref "/reference/CLIreference/docker/dockerconfig/dockerconfigrm" >}})
 
-## [Examples](https://docs.docker.com/engine/swarm/configs/#examples)
+## Examples
 
 This section includes graduated examples which illustrate how to use Docker configs.
 
@@ -80,11 +80,11 @@ This section includes graduated examples which illustrate how to use Docker conf
 >
 > These examples use a single-engine swarm and unscaled services for simplicity. The examples use Linux containers, but Windows containers also support configs.
 
-### [Defining and using configs in compose files](https://docs.docker.com/engine/swarm/configs/#defining-and-using-configs-in-compose-files)
+### Defining and using configs in compose files
 
-The `docker stack` command supports defining configs in a Compose file. However, the `configs` key is not supported for `docker compose`. See [the Compose file reference](https://docs.docker.com/reference/compose-file/legacy-versions/) for details.
+The `docker stack` command supports defining configs in a Compose file. However, the `configs` key is not supported for `docker compose`. See [the Compose file reference]({{< ref "/reference/Composefilereference/Legacyversions" >}}) for details.
 
-### [Simple example: Get started with configs](https://docs.docker.com/engine/swarm/configs/#simple-example-get-started-with-configs)
+### Simple example: Get started with configs
 
 This simple example shows how configs work in just a few commands. For a real-world example, continue to [Advanced example: Use configs with a Nginx service](https://docs.docker.com/engine/swarm/configs/#advanced-example-use-configs-with-a-nginx-service).
 
@@ -178,7 +178,7 @@ This simple example shows how configs work in just a few commands. For a real-wo
    $ docker config rm my-config
    ```
 
-### [Simple example: Use configs in a Windows service](https://docs.docker.com/engine/swarm/configs/#simple-example-use-configs-in-a-windows-service)
+### Simple example: Use configs in a Windows service
 
 This is a very simple example which shows how to use configs with a Microsoft IIS service running on Docker for Windows running Windows containers on Microsoft Windows 10. It is a naive example that stores the webpage in a config.
 
@@ -237,7 +237,7 @@ This example assumes that you have PowerShell installed.
    docker config rm homepage
    ```
 
-### [Example: Use a templated config](https://docs.docker.com/engine/swarm/configs/#example-use-a-templated-config)
+### Example: Use a templated config
 
 To create a configuration in which the content will be generated using a template engine, use the `--template-driver` parameter and specify the engine name as its argument. The template will be rendered when container is created.
 
@@ -290,11 +290,11 @@ To create a configuration in which the content will be generated using a templat
    </html>
    ```
 
-### [Advanced example: Use configs with a Nginx service](https://docs.docker.com/engine/swarm/configs/#advanced-example-use-configs-with-a-nginx-service)
+### Advanced example: Use configs with a Nginx service
 
 This example is divided into two parts. [The first part](https://docs.docker.com/engine/swarm/configs/#generate-the-site-certificate) is all about generating the site certificate and does not directly involve Docker configs at all, but it sets up [the second part](https://docs.docker.com/engine/swarm/configs/#configure-the-nginx-container), where you store and use the site certificate as a series of secrets and the Nginx configuration as a config. The example shows how to set options on the config, such as the target location within the container and the file permissions (`mode`).
 
-#### [Generate the site certificate](https://docs.docker.com/engine/swarm/configs/#generate-the-site-certificate)
+#### Generate the site certificate
 
 Generate a root CA and TLS certificate and key for your site. For production sites, you may want to use a service such as `Let’s Encrypt` to generate the TLS certificate and key, but this example uses command-line tools. This step is a little complicated, but is only a set-up step so that you have something to store as a Docker secret. If you want to skip these sub-steps, you can [use Let's Encrypt](https://letsencrypt.org/getting-started/) to generate the site key and certificate, name the files `site.key` and `site.crt`, and skip to [Configure the Nginx container](https://docs.docker.com/engine/swarm/configs/#configure-the-nginx-container).
 
@@ -382,7 +382,7 @@ Generate a root CA and TLS certificate and key for your site. For production sit
 
 9. The `site.csr` and `site.cnf` files are not needed by the Nginx service, but you need them if you want to generate a new site certificate. Protect the `root-ca.key` file.
 
-#### [Configure the Nginx container](https://docs.docker.com/engine/swarm/configs/#configure-the-nginx-container)
+#### Configure the Nginx container
 
 1. Produce a very basic Nginx configuration that serves static files over HTTPS. The TLS certificate and key are stored as Docker secrets so that they can be rotated easily.
 
@@ -561,7 +561,7 @@ Generate a root CA and TLS certificate and key for your site. For production sit
 
 You have now configured a Nginx service with its configuration decoupled from its image. You could run multiple sites with exactly the same image but separate configurations, without the need to build a custom image at all.
 
-### [Example: Rotate a config](https://docs.docker.com/engine/swarm/configs/#example-rotate-a-config)
+### Example: Rotate a config
 
 To rotate a config, you first save a new config with a different name than the one that is currently in use. You then redeploy the service, removing the old config and adding the new config at the same mount point within the container. This example builds upon the previous one by rotating the `site.conf` configuration file.
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/building/export/](https://docs.docker.com/build/building/export/)
+> 原文：[https://docs.docker.com/build/building/export/](https://docs.docker.com/build/building/export/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,9 +20,9 @@ The default output format for `docker build` is a container image. That image is
 
 To export your build results as files instead, you can use the `--output` flag, or `-o` for short. the `--output` flag lets you change the output format of your build.
 
-## [Export binaries from a build](https://docs.docker.com/build/building/export/#export-binaries-from-a-build)
+## Export binaries from a build
 
-If you specify a filepath to the `docker build --output` flag, Docker exports the contents of the build container at the end of the build to the specified location on your host's filesystem. This uses the `local` [exporter](https://docs.docker.com/build/exporters/local-tar/).
+If you specify a filepath to the `docker build --output` flag, Docker exports the contents of the build container at the end of the build to the specified location on your host's filesystem. This uses the `local` [exporter]({{< ref "/manuals/DockerBuild/Exporters/Localandtarexporters" >}}).
 
 The neat thing about this is that you can use Docker's powerful isolation and build features to create standalone binaries. This works well for Go, Rust, and other languages that can compile to a single binary.
 
@@ -73,9 +73,9 @@ The following example creates a simple Rust program that prints "Hello, World!",
 
    This command builds the Dockerfile and exports the binary to the current working directory. The binary is named `hello`, and it's created in the current working directory.
 
-## [Exporting multi-platform builds](https://docs.docker.com/build/building/export/#exporting-multi-platform-builds)
+## Exporting multi-platform builds
 
-You use the `local` exporter to export binaries in combination with [multi-platform builds](https://docs.docker.com/build/building/multi-platform/). This lets you compile multiple binaries at once, that can be run on any machine of any architecture, provided that the target platform is supported by the compiler you use.
+You use the `local` exporter to export binaries in combination with [multi-platform builds]({{< ref "/manuals/DockerBuild/Building/Multi-platform" >}}). This lets you compile multiple binaries at once, that can be run on any machine of any architecture, provided that the target platform is supported by the compiler you use.
 
 Continuing on the example Dockerfile in the [Export binaries from a build](https://docs.docker.com/build/building/export/#export-binaries-from-a-build) section:
 
@@ -115,6 +115,6 @@ out/
 3 directories, 2 files
 ```
 
-## [Additional information](https://docs.docker.com/build/building/export/#additional-information)
+## Additional information
 
-In addition to the `local` exporter, there are other exporters available. To learn more about the available exporters and how to use them, see the [exporters](https://docs.docker.com/build/exporters/) documentation.
+In addition to the `local` exporter, there are other exporters available. To learn more about the available exporters and how to use them, see the [exporters]({{< ref "/manuals/DockerBuild/Exporters" >}}) documentation.

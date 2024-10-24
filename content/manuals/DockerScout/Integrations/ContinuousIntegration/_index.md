@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/integrations/ci/](https://docs.docker.com/scout/integrations/ci/)
+> 原文：[https://docs.docker.com/scout/integrations/ci/](https://docs.docker.com/scout/integrations/ci/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,10 +18,10 @@ You can analyze Docker images in continuous integration pipelines as you build t
 
 Available integrations:
 
-- [GitHub Actions](https://docs.docker.com/scout/integrations/ci/gha/)
-- [GitLab](https://docs.docker.com/scout/integrations/ci/gitlab/)
-- [Microsoft Azure DevOps Pipelines](https://docs.docker.com/scout/integrations/ci/azure/)
-- [Circle CI](https://docs.docker.com/scout/integrations/ci/circle-ci/)
-- [Jenkins](https://docs.docker.com/scout/integrations/ci/jenkins/)
+- [GitHub Actions]({{< ref "/manuals/DockerScout/Integrations/ContinuousIntegration/GitHubActions" >}})
+- [GitLab]({{< ref "/manuals/DockerScout/Integrations/ContinuousIntegration/GitLabCICD" >}})
+- [Microsoft Azure DevOps Pipelines]({{< ref "/manuals/DockerScout/Integrations/ContinuousIntegration/AzureDevOpsPipelines" >}})
+- [Circle CI]({{< ref "/manuals/DockerScout/Integrations/ContinuousIntegration/CircleCI" >}})
+- [Jenkins]({{< ref "/manuals/DockerScout/Integrations/ContinuousIntegration/Jenkins" >}})
 
-You can also add runtime integration as part of your CI/CD pipeline, which lets you assign an image to an environment, such as `production` or `staging`, when you deploy it. For more information, see [Environment monitoring](https://docs.docker.com/scout/integrations/environment/).
+You can also add runtime integration as part of your CI/CD pipeline, which lets you assign an image to an environment, such as `production` or `staging`, when you deploy it. For more information, see [Environment monitoring]({{< ref "/manuals/DockerScout/Integrations/IntegratingDockerScoutwithenvironments" >}}).

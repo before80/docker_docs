@@ -8,31 +8,31 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/extend/legacy_plugins/](https://docs.docker.com/engine/extend/legacy_plugins/)
+> 原文：[https://docs.docker.com/engine/extend/legacy_plugins/](https://docs.docker.com/engine/extend/legacy_plugins/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Use Docker Engine plugins
 
-This document describes the Docker Engine plugins generally available in Docker Engine. To view information on plugins managed by Docker, refer to [Docker Engine plugin system](https://docs.docker.com/engine/extend/).
+This document describes the Docker Engine plugins generally available in Docker Engine. To view information on plugins managed by Docker, refer to [Docker Engine plugin system]({{< ref "/manuals/DockerEngine/DockerEngineplugins" >}}).
 
 You can extend the capabilities of the Docker Engine by loading third-party plugins. This page explains the types of plugins and provides links to several volume and network plugins for Docker.
 
-## [Types of plugins](https://docs.docker.com/engine/extend/legacy_plugins/#types-of-plugins)
+## Types of plugins
 
-Plugins extend Docker's functionality. They come in specific types. For example, a [volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) might enable Docker volumes to persist across multiple Docker hosts and a [network plugin](https://docs.docker.com/engine/extend/plugins_network/) might provide network plumbing.
+Plugins extend Docker's functionality. They come in specific types. For example, a [volume plugin]({{< ref "/manuals/DockerEngine/DockerEngineplugins/Dockervolumeplugins" >}}) might enable Docker volumes to persist across multiple Docker hosts and a [network plugin]({{< ref "/manuals/DockerEngine/DockerEngineplugins/Dockernetworkdriverplugins" >}}) might provide network plumbing.
 
 Currently Docker supports authorization, volume and network driver plugins. In the future it will support additional plugin types.
 
-## [Installing a plugin](https://docs.docker.com/engine/extend/legacy_plugins/#installing-a-plugin)
+## Installing a plugin
 
 Follow the instructions in the plugin's documentation.
 
-## [Finding a plugin](https://docs.docker.com/engine/extend/legacy_plugins/#finding-a-plugin)
+## Finding a plugin
 
 The sections below provide an overview of available third-party plugins.
 
-### [Network plugins](https://docs.docker.com/engine/extend/legacy_plugins/#network-plugins)
+### Network plugins
 
 | Plugin                                                       | Description                                                  |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
@@ -40,7 +40,7 @@ The sections below provide an overview of available third-party plugins.
 | [Kuryr Network Plugin](https://github.com/openstack/kuryr)   | A network plugin is developed as part of the OpenStack Kuryr project and implements the Docker networking (libnetwork) remote driver API by utilizing Neutron, the OpenStack networking service. It includes an IPAM driver as well. |
 | [Kathará Network Plugin](https://github.com/KatharaFramework/NetworkPlugin) | Docker Network Plugin used by Kathará, an open source container-based network emulation system for showing interactive demos/lessons, testing production networks in a sandbox environment, or developing new network protocols. |
 
-### [Volume plugins](https://docs.docker.com/engine/extend/legacy_plugins/#volume-plugins)
+### Volume plugins
 
 | Plugin                                                       | Description                                                  |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
@@ -72,7 +72,7 @@ The sections below provide an overview of available third-party plugins.
 | [Virtuozzo Storage and Ploop plugin](https://github.com/virtuozzo/docker-volume-ploop) | A volume plugin with support for Virtuozzo Storage distributed cloud file system as well as ploop devices. |
 | [VMware vSphere Storage Plugin](https://github.com/vmware/docker-volume-vsphere) | Docker Volume Driver for vSphere enables customers to address persistent storage requirements for Docker containers in vSphere environments. |
 
-### [Authorization plugins](https://docs.docker.com/engine/extend/legacy_plugins/#authorization-plugins)
+### Authorization plugins
 
 | Plugin                                                       | Description                                                  |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
@@ -80,13 +80,13 @@ The sections below provide an overview of available third-party plugins.
 | [HBM plugin](https://github.com/kassisol/hbm)                | An authorization plugin that prevents from executing commands with certains parameters. |
 | [Twistlock AuthZ Broker](https://github.com/twistlock/authz) | A basic extendable authorization plugin that runs directly on the host or inside a container. This plugin allows you to define user policies that it evaluates during authorization. Basic authorization is provided if Docker daemon is started with the --tlsverify flag (username is extracted from the certificate common name). |
 
-## [Troubleshooting a plugin](https://docs.docker.com/engine/extend/legacy_plugins/#troubleshooting-a-plugin)
+## Troubleshooting a plugin
 
 If you are having problems with Docker after loading a plugin, ask the authors of the plugin for help. The Docker team may not be able to assist you.
 
-## [Writing a plugin](https://docs.docker.com/engine/extend/legacy_plugins/#writing-a-plugin)
+## Writing a plugin
 
-If you are interested in writing a plugin for Docker, or seeing how they work under the hood, see the [Docker plugins reference](https://docs.docker.com/engine/extend/plugin_api/).
+If you are interested in writing a plugin for Docker, or seeing how they work under the hood, see the [Docker plugins reference]({{< ref "/manuals/DockerEngine/DockerEngineplugins/DockerPluginAPI" >}}).
 
 [Request changes](https://github.com/docker/docs/issues/new?template=doc_issue.yml&location=https%3a%2f%2fdocs.docker.com%2fengine%2fextend%2flegacy_plugins%2f&labels=status%2Ftriage)
 

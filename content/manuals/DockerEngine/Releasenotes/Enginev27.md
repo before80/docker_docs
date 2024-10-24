@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/27/](https://docs.docker.com/engine/release-notes/27/)
+> 原文：[https://docs.docker.com/engine/release-notes/27/](https://docs.docker.com/engine/release-notes/27/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,14 +18,14 @@ This page describes the latest changes, additions, known issues, and fixes for D
 
 For more information about:
 
-- Deprecated and removed features, see [Deprecated Engine Features](https://docs.docker.com/engine/deprecated/).
-- Changes to the Engine API, see [Engine API version history](https://docs.docker.com/reference/api/engine/version-history/).
+- Deprecated and removed features, see [Deprecated Engine Features]({{< ref "/manuals/DockerEngine/Deprecatedfeatures" >}}).
+- Changes to the Engine API, see [Engine API version history]({{< ref "/reference/APIreference/DockerEngineAPI/EngineAPIversionhistory" >}}).
 
-## [27.3](https://docs.docker.com/engine/release-notes/27/#273)
+## 27.3
 
 Release notes for Docker Engine version 27.3 releases.
 
-### [27.3.1](https://docs.docker.com/engine/release-notes/27/#2731)
+### 27.3.1
 
 *2024-09-20*
 
@@ -34,15 +34,15 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 27.3.1 milestone](https://github.com/docker/cli/issues?q=sort%3Aupdated-desc+is%3Aclosed+milestone%3A27.3.1)
 - [moby/moby, 27.3.1 milestone](https://github.com/moby/moby/issues?q=sort%3Aupdated-desc+is%3Aclosed+milestone%3A27.3.1)
 
-#### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/27/#bug-fixes-and-enhancements)
+#### Bug fixes and enhancements
 
 - CLI: Fix issue with command execution metrics not being exported correctly. [docker/cli#5457](https://github.com/docker/cli/pull/5457)
 
-#### [Packaging updates](https://docs.docker.com/engine/release-notes/27/#packaging-updates)
+#### Packaging updates
 
 - Update Compose to [v2.29.7](https://github.com/docker/compose/releases/tag/v2.29.7)
 
-### [27.3.0](https://docs.docker.com/engine/release-notes/27/#2730)
+### 27.3.0
 
 *2024-09-19*
 
@@ -51,7 +51,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 27.3.0 milestone](https://github.com/docker/cli/issues?q=sort%3Aupdated-desc+is%3Aclosed+milestone%3A27.3.0)
 - [moby/moby, 27.3.0 milestone](https://github.com/moby/moby/issues?q=sort%3Aupdated-desc+is%3Aclosed+milestone%3A27.3.0)
 
-#### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/27/#bug-fixes-and-enhancements-1)
+#### Bug fixes and enhancements
 
 - containerd image store: Fix `docker image prune -a` untagging images used by containers started from images referenced by a digested reference. [moby/moby#48488](https://github.com/moby/moby/pull/48488)
 - Add a `--feature` flag to the daemon options. [moby/moby#48487](https://github.com/moby/moby/pull/48487)
@@ -61,22 +61,22 @@ For a full list of pull requests and changes in this release, refer to the relev
 - CLI: Fix issue where `docker volume update` command would cause the CLI to panic if no argument/volume was passed. [docker/cli#5426](https://github.com/docker/cli/pull/5426)
 - CLI: Properly report metrics when run in WSL environment on Windows. [docker/cli#5432](https://github.com/docker/cli/pull/5432)
 
-#### [Packaging updates](https://docs.docker.com/engine/release-notes/27/#packaging-updates-1)
+#### Packaging updates
 
 - Update containerd (static binaries only) to [v1.7.22](https://github.com/containerd/containerd/releases/tag/v1.7.22) [moby/moby#48468](https://github.com/moby/moby/pull/48468)
 - Updated Buildkit to [v0.16.0](https://github.com/moby/buildkit/releases/tag/v0.16.0)
 - Update Compose to [v2.29.6](https://github.com/docker/compose/releases/tag/v2.29.6)
 - Update Buildx to [v0.17.1](https://github.com/docker/buildx/releases/tag/v0.17.1)
 
-## [27.2](https://docs.docker.com/engine/release-notes/27/#272)
+## 27.2
 
 Release notes for Docker Engine version 27.2 releases.
 
-### [27.2.1](https://docs.docker.com/engine/release-notes/27/#2721)
+### 27.2.1
 
 *2024-09-09*
 
-#### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/27/#bug-fixes-and-enhancements-2)
+#### Bug fixes and enhancements
 
 - containerd image store: Fix non-container images being hidden in the `docker image ls` output. [moby/moby#48402](https://github.com/moby/moby/pull/48402)
 - containerd image store: Improve `docker pull` error message when the image platform doesn't match. [moby/moby#48415](https://github.com/moby/moby/pull/48415)
@@ -84,12 +84,12 @@ Release notes for Docker Engine version 27.2 releases.
 - CLI: Fix issue that will sometimes cause the browser-login flow to fail if the CLI process is suspended and then resumed while waiting for the user to authenticate. [docker/cli#5376](https://github.com/docker/cli/pull/5376)
 - CLI: `docker login` now returns an error instead of hanging if called non-interactively with `--password` or `--password-stdin` but without `--user`. [docker/cli#5402](https://github.com/docker/cli/pull/5402)
 
-#### [Packaging updates](https://docs.docker.com/engine/release-notes/27/#packaging-updates-2)
+#### Packaging updates
 
 - Update runc to v1.1.14, which contains a fix for [CVE-2024-45310](https://github.com/opencontainers/runc/security/advisories/GHSA-jfvp-7x6p-h2pv). [moby/moby#48426](https://github.com/moby/moby/pull/48426)
 - Update Go runtime to 1.22.7. [moby/moby#48433](https://github.com/moby/moby/pull/48433), [docker/cli#5411](https://github.com/docker/cli/pull/5411), [docker/docker-ce-packaging#1068](https://github.com/docker/docker-ce-packaging/pull/1068)
 
-### [27.2.0](https://docs.docker.com/engine/release-notes/27/#2720)
+### 27.2.0
 
 *2024-08-27*
 
@@ -100,14 +100,14 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Deprecated and removed features, see [Deprecated Features](https://github.com/docker/cli/blob/v27.2.0/docs/deprecated.md).
 - Changes to the Engine API, see [API version history](https://github.com/moby/moby/blob/v27.2.0/docs/api/version-history.md).
 
-#### [New](https://docs.docker.com/engine/release-notes/27/#new)
+#### New
 
 The new features in this release are:
 
 - [Device code login](https://docs.docker.com/engine/release-notes/27/#device-code-login)
 - [Multi-platform support for `docker image ls`](https://docs.docker.com/engine/release-notes/27/#multi-platform-support-for-docker-image-ls)
 
-##### [Device code login](https://docs.docker.com/engine/release-notes/27/#device-code-login)
+##### Device code login
 
 This release adds support for using device code login when authenticating to Docker Hub.
 
@@ -117,7 +117,7 @@ You can still use the old method of logging in with a username and password or a
 
 To use the old method, use `docker login -u <username>`.
 
-##### [Multi-platform support for `docker image ls`](https://docs.docker.com/engine/release-notes/27/#multi-platform-support-for-docker-image-ls)
+##### Multi-platform support for `docker image ls`
 
 **Experimental**
 
@@ -127,7 +127,7 @@ With the containerd image store enabled, the `docker image ls` command (or `dock
 
 <iframe src="https://asciinema.org/a/PyE57rUPdNh7LvOMhULtE0Ek2/iframe?" id="asciicast-iframe-PyE57rUPdNh7LvOMhULtE0Ek2" name="asciicast-iframe-PyE57rUPdNh7LvOMhULtE0Ek2" scrolling="no" allowfullscreen="true" title="Terminal session recording" style="--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border: 0px; display: inline-block; vertical-align: middle; overflow: hidden; margin: 0px; width: 896px; visibility: visible; height: 563px;"></iframe>
 
-#### [API](https://docs.docker.com/engine/release-notes/27/#api)
+#### API
 
 - `GET /images/json` response now includes `Manifests` field, which contains information about the sub-manifests included in the image index. This includes things like platform-specific manifests and build attestations.
 
@@ -137,7 +137,7 @@ With the containerd image store enabled, the `docker image ls` command (or `dock
 
   This is experimental and may change at any time without any backward compatibility.
 
-#### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/27/#bug-fixes-and-enhancements-3)
+#### Bug fixes and enhancements
 
 - CLI: Fix issue with remote contexts over SSH where the CLI would allocate a pseudo-TTY when connecting to the remote host, which causes issues in rare situations. [docker/cli#5351](https://github.com/docker/cli/pull/5351)
 - Fix an issue that prevented network creation with a `--ip-range` ending on a 64-bit boundary. [moby/moby#48326](https://github.com/moby/moby/pull/48326)
@@ -145,13 +145,13 @@ With the containerd image store enabled, the `docker image ls` command (or `dock
 - containerd image store: Fix early error exit from `docker load` in cases where unpacking the image would fail. [moby/moby#48376](https://github.com/moby/moby/pull/48376)
 - containerd image store: Fix the previous image not being persisted as dangling after `docker pull`. [moby/moby#48380](https://github.com/moby/moby/pull/48380)
 
-#### [Packaging updates](https://docs.docker.com/engine/release-notes/27/#packaging-updates-3)
+#### Packaging updates
 
 - Update BuildKit to [v0.15.2](https://github.com/moby/buildkit/releases/tag/v0.15.2). [moby/moby#48341](https://github.com/moby/moby/pull/48341)
 - Update Compose to [v2.29.2](https://github.com/docker/compose/releases/tag/v2.29.2). [docker/docker-ce-packaging#1050](https://github.com/docker/docker-ce-packaging/pull/1050)
 - Update containerd to [v1.7.21](https://github.com/containerd/containerd/releases/tag/v1.7.21). [moby/moby#48383](https://github.com/moby/moby/pull/48383), [docker/containerd-packaging#389](https://github.com/docker/containerd-packaging/pull/389)
 
-### [Known Issues](https://docs.docker.com/engine/release-notes/27/#known-issues)
+### Known Issues
 
 - There is a known issue when authenticating against a registry in the Docker CLI (
 
@@ -193,11 +193,11 @@ With the containerd image store enabled, the `docker image ls` command (or `dock
   >
   > Using `docker login` with an address that includes URL path segments is not a documented use case and is considered unsupported. The recommended usage is to specify only a registry hostname, and optionally a port, as the address for `docker login`.
 
-## [27.1](https://docs.docker.com/engine/release-notes/27/#271)
+## 27.1
 
 Release notes for Docker Engine version 27.1 releases.
 
-### [27.1.2](https://docs.docker.com/engine/release-notes/27/#2712)
+### 27.1.2
 
 *2024-08-13*
 
@@ -208,7 +208,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Deprecated and removed features, see [Deprecated Features](https://github.com/docker/cli/blob/v27.1.2/docs/deprecated.md).
 - Changes to the Engine API, see [API version history](https://github.com/moby/moby/blob/v27.1.2/docs/api/version-history.md).
 
-#### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/27/#bug-fixes-and-enhancements-4)
+#### Bug fixes and enhancements
 
 - Fix a regression that could result in a `ResourceExhausted desc = grpc: received message larger than max` error when building from a large Dockerfile. [moby/moby#48245](https://github.com/moby/moby/pull/48245)
 - CLI: Fix `docker attach` printing a spurious `context cancelled` error message. [docker/cli#5296](https://github.com/docker/cli/pull/5296)
@@ -216,26 +216,26 @@ For a full list of pull requests and changes in this release, refer to the relev
 - CLI: Fix `--device-read-bps` and `--device-write-bps` options not taking effect. [docker/cli#5339](https://github.com/docker/cli/pull/5339)
 - CLI: Fix a panic happening in some cases while running a plugin. [docker/cli#5337](https://github.com/docker/cli/pull/5337)
 
-#### [Packaging updates](https://docs.docker.com/engine/release-notes/27/#packaging-updates-4)
+#### Packaging updates
 
 - Update BuildKit to [v0.15.1](https://github.com/moby/buildkit/releases/tag/v0.15.1). [moby/moby#48246](https://github.com/moby/moby/pull/48246)
 - Update Buildx to [v0.16.2](https://github.com/docker/buildx/releases/tag/v0.16.2). [docker/docker-ce-packaging#1043](https://github.com/docker/docker-ce-packaging/pull/1043)
 - Update Go runtime to 1.21.13. [moby/moby#48301](https://github.com/moby/moby/pull/48301), [docker/cli#5325](https://github.com/docker/cli/pull/5325), [docker/docker-ce-packaging#1046](https://github.com/docker/docker-ce-packaging/pull/1046)
 - Remove unused `docker-proxy.exe` binary from Windows packages. [docker/docker-ce-packaging#1045](https://github.com/docker/docker-ce-packaging/pull/1045)
 
-### [27.1.1](https://docs.docker.com/engine/release-notes/27/#2711)
+### 27.1.1
 
 *2024-07-23*
 
-#### [Security](https://docs.docker.com/engine/release-notes/27/#security)
+#### Security
 
-This release contains a fix for [CVE-2024-41110](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41110) / [GHSA-v23v-6jw2-98fq](https://github.com/moby/moby/security/advisories/GHSA-v23v-6jw2-98fq) that impacted setups using [authorization plugins (AuthZ)](https://docs.docker.com/engine/extend/plugins_authorization/) for access control. No other changes are included in this release, and this release is otherwise identical for users not using AuthZ plugins.
+This release contains a fix for [CVE-2024-41110](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41110) / [GHSA-v23v-6jw2-98fq](https://github.com/moby/moby/security/advisories/GHSA-v23v-6jw2-98fq) that impacted setups using [authorization plugins (AuthZ)]({{< ref "/manuals/DockerEngine/DockerEngineplugins/Accessauthorizationplugin" >}}) for access control. No other changes are included in this release, and this release is otherwise identical for users not using AuthZ plugins.
 
-#### [Packaging updates](https://docs.docker.com/engine/release-notes/27/#packaging-updates-5)
+#### Packaging updates
 
 - Update Compose to [v2.29.1](https://github.com/docker/compose/releases/tag/v2.29.1). [moby/docker-ce-packaging#1041](https://github.com/docker/docker-ce-packaging/pull/1041)
 
-### [27.1.0](https://docs.docker.com/engine/release-notes/27/#2710)
+### 27.1.0
 
 *2024-07-22*
 
@@ -246,7 +246,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Deprecated and removed features, see [Deprecated Features](https://github.com/docker/cli/blob/v27.1.0/docs/deprecated.md).
 - Changes to the Engine API, see [API version history](https://github.com/moby/moby/blob/v27.1.0/docs/api/version-history.md).
 
-#### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/27/#bug-fixes-and-enhancements-5)
+#### Bug fixes and enhancements
 
 - rootless: add `Requires=dbus.socket` to prevent errors when starting the daemon on a cgroup v2 host with systemd [moby/moby#48141](https://github.com/moby/moby/pull/48141)
 - containerd integration: `image tag` event is now properly emitted when building images with BuildKit [moby/moby#48182](https://github.com/moby/moby/pull/48182)
@@ -258,14 +258,14 @@ For a full list of pull requests and changes in this release, refer to the relev
 - CLI: fix: context cancellation on `login` prompt [docker/cli#5260](https://github.com/docker/cli/pull/5260)
 - CLI: fix: wait for the container to exit before closing the stream when sending a termination request to the CLI while attached to a container [docker/cli#5250](https://github.com/docker/cli/pull/5250)
 
-#### [Deprecated](https://docs.docker.com/engine/release-notes/27/#deprecated)
+#### Deprecated
 
 - The `pkg/rootless/specconv` package is deprecated, and will be removed in the next release [moby/moby#48185](https://github.com/moby/moby/pull/48185)
 - The `pkg/containerfs` package is deprecated, and will be removed in the next release [moby/moby#48185](https://github.com/moby/moby/pull/48185)
 - The `pkg/directory` package is deprecated, and will be removed in the next release [moby/moby#48185](https://github.com/moby/moby/pull/48185)
 - `api/types/system`: remove deprecated `Info.ExecutionDriver` [moby/moby#48184](https://github.com/moby/moby/pull/48184)
 
-#### [Packaging updates](https://docs.docker.com/engine/release-notes/27/#packaging-updates-6)
+#### Packaging updates
 
 - Update Buildx to [v0.16.1](https://github.com/docker/buildx/releases/tag/v0.16.1). [moby/docker-ce-packaging#1039](https://github.com/docker/docker-ce-packaging/pull/1039)
 - Update Compose to [v2.29.0](https://github.com/docker/compose/releases/tag/v2.29.0). [moby/docker-ce-packaging#1038](https://github.com/docker/docker-ce-packaging/pull/1038)
@@ -273,11 +273,11 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Update BuildKit to [v0.15.0](https://github.com/moby/buildkit/releases/tag/v0.15.0). [moby/moby#48175](https://github.com/moby/moby/pull/48175)
 - Update Go runtime to 1.21.12, which contains security fixes for [CVE-2024-24791](https://github.com/advisories/GHSA-hw49-2p59-3mhj) [moby/moby#48120](https://github.com/moby/moby/pull/48120)
 
-## [27.0](https://docs.docker.com/engine/release-notes/27/#270)
+## 27.0
 
 Release notes for Docker Engine 27.0.
 
-### [27.0.3](https://docs.docker.com/engine/release-notes/27/#2703)
+### 27.0.3
 
 *2024-07-01*
 
@@ -288,13 +288,13 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Deprecated and removed features, see [Deprecated Features](https://github.com/docker/cli/blob/v27.0.3/docs/deprecated.md).
 - Changes to the Engine API, see [API version history](https://github.com/moby/moby/blob/v27.0.3/docs/api/version-history.md).
 
-#### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/27/#bug-fixes-and-enhancements-6)
+#### Bug fixes and enhancements
 
 - Fix a regression that incorrectly reported a port mapping from a host IPv6 address to an IPv4-only container as an error. [moby/moby#48090](https://github.com/moby/moby/pull/48090)
 - Fix a regression that caused duplicate subnet allocations when creating networks. [moby/moby#48089](https://github.com/moby/moby/pull/48089)
 - Fix a regression resulting in `fail to register layer: failed to Lchown` errors when trying to pull an image with rootless enabled on a system that supports native overlay with user-namespaces. [moby/moby#48086](https://github.com/moby/moby/pull/48086)
 
-### [27.0.2](https://docs.docker.com/engine/release-notes/27/#2702)
+### 27.0.2
 
 *2024-06-27*
 
@@ -305,15 +305,15 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Deprecated and removed features, see [Deprecated Features](https://github.com/docker/cli/blob/v27.0.2/docs/deprecated.md).
 - Changes to the Engine API, see [API version history](https://github.com/moby/moby/blob/v27.0.2/docs/api/version-history.md).
 
-#### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/27/#bug-fixes-and-enhancements-7)
+#### Bug fixes and enhancements
 
 - Fix a regression that caused port numbers to be ignored when parsing a Docker registry URL. [docker/cli#5197](https://github.com/docker/cli/pull/5197), [docker/cli#5198](https://github.com/docker/cli/pull/5198)
 
-#### [Removed](https://docs.docker.com/engine/release-notes/27/#removed)
+#### Removed
 
 - api/types: deprecate `ContainerJSONBase.Node` field and `ContainerNode` type. These definitions were used by the standalone ("classic") Swarm API, but never implemented in the Docker Engine itself. [moby/moby#48055](https://github.com/moby/moby/pull/48055)
 
-### [27.0.1](https://docs.docker.com/engine/release-notes/27/#2701)
+### 27.0.1
 
 *2024-06-24*
 
@@ -324,13 +324,13 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Deprecated and removed features, see [Deprecated Features](https://github.com/docker/cli/blob/v27.0.1/docs/deprecated.md).
 - Changes to the Engine API, see [API version history](https://github.com/moby/moby/blob/v27.0.1/docs/api/version-history.md).
 
-#### [New](https://docs.docker.com/engine/release-notes/27/#new-1)
+#### New
 
 - containerd image store: Add `--platform` flag to `docker image push` and improve the default behavior when not all platforms of the multi-platform image are available locally. [docker/cli#4984](https://github.com/docker/cli/pull/4984), [moby/moby#47679](https://github.com/moby/moby/pull/47679)
 - Add support to `docker stack deploy` for `driver_opts` in a service's networks. [docker/cli#5125](https://github.com/docker/cli/pull/5125)
 - Consider additional `/usr/local/libexec` and `/usr/libexec` paths when looking up the userland proxy binaries by a name with a `docker-` prefix. [moby/moby#47804](https://github.com/moby/moby/pull/47804)
 
-#### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/27/#bug-fixes-and-enhancements-8)
+#### Bug fixes and enhancements
 
 - `*client.Client` instances are now always safe for concurrent use by multiple goroutines. Previously, this could lead to data races when the `WithAPIVersionNegotiation()` option is used. [moby/moby#47961](https://github.com/moby/moby/pull/47961)
 - Fix a bug causing the Docker CLI to leak Unix sockets in `$TMPDIR` in some cases. [docker/cli#5146](https://github.com/docker/cli/pull/5146)
@@ -347,7 +347,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Allow multiple macvlan networks with the same parent. [moby/moby#47318](https://github.com/moby/moby/pull/47318)
 - Allow BuildKit to be used on Windows daemons that advertise it. [docker/cli#5178](https://github.com/docker/cli/pull/5178)
 
-#### [Networking](https://docs.docker.com/engine/release-notes/27/#networking)
+#### Networking
 
 - Allow sysctls to be set per-interface during container creation and network connection.
 
@@ -357,7 +357,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 
   - In a future release, this will be the only way to set per-interface sysctl options. For example, on the command line in a `docker run` command,`--network mynet --sysctl net.ipv4.conf.eth0.log_martians=1` will be rejected. Instead, you must use `--network name=mynet,driver-opt=com.docker.network.endpoint.sysctls=net.ipv4.conf.IFNAME.log_martians=1`.
 
-##### [IPv6](https://docs.docker.com/engine/release-notes/27/#ipv6)
+##### IPv6
 
 - `ip6tables` is no longer experimental. You may remove the `experimental` configuration option and continue to use IPv6, if it is not required by any other features.
 
@@ -379,7 +379,7 @@ For a full list of pull requests and changes in this release, refer to the relev
   - To restore the behavior of earlier releases, no `ip6tables` at all, set `"ip6tables": false` in `daemon.json`, or use the CLI option `--ip6tables=false`. Alternatively, leave `ip6tables` enabled, publish ports, and enable direct routing.
   - With `ip6tables` enabled, if `ip6tables` is not functional on your host, Docker Engine will start but it will not be possible to create an IPv6-enabled network.
 
-##### [IPv6 network configuration improvements](https://docs.docker.com/engine/release-notes/27/#ipv6-network-configuration-improvements)
+##### IPv6 network configuration improvements
 
 - A Unique Local Address (ULA) base prefix is automatically added to
 
@@ -459,7 +459,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 
 - For IPv6-enabled bridge networks, do not attempt to replace the bridge's kernel-assigned link local address with `fe80::1`. [moby/moby#47787](https://github.com/moby/moby/pull/47787)
 
-#### [Removed](https://docs.docker.com/engine/release-notes/27/#removed-1)
+#### Removed
 
 - Deprecate experimental GraphDriver plugins. [moby/moby#48050](https://github.com/moby/moby/pull/48050), [docker/cli#5172](https://github.com/docker/cli/pull/5172)
 - pkg/archive: deprecate `NewTempArchive` and `TempArchive`. These types were only used in tests and will be removed in the next release. [moby/moby#48002](https://github.com/moby/moby/pull/48002)
@@ -471,7 +471,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - runconfig: deprecate `opts.ConvertKVStringsToMap`. This utility is no longer used, and will be removed in the next release. [moby/moby#48016](https://github.com/moby/moby/pull/48016)
 - runconfig: deprecate `IsPreDefinedNetwork`. [moby/moby#48011](https://github.com/moby/moby/pull/48011)
 
-#### [API](https://docs.docker.com/engine/release-notes/27/#api-1)
+#### API
 
 - containerd image store: `POST /images/{name}/push` now supports a `platform` parameter (JSON encoded OCI Platform type) that allows selecting a specific platform-manifest from the multi-platform image. This is experimental and may change in future API versions. [moby/moby#47679](https://github.com/moby/moby/pull/47679)
 - `POST /services/create` and `POST /services/{id}/update` now support `OomScoreAdj`. [moby/moby#47950](https://github.com/moby/moby/pull/47950)
@@ -498,7 +498,7 @@ The following deprecated fields are currently included in the API response, but 
 - `MacAddress` (already omitted unless set)
 - `StopTimeout` (already omitted unless set)
 
-#### [Go SDK changes](https://docs.docker.com/engine/release-notes/27/#go-sdk-changes)
+#### Go SDK changes
 
 - Client API callback for the following functions now require a context parameter.
 
@@ -610,13 +610,13 @@ Move and rename types, changing their import paths and exported names. [moby/mob
 
 - Move `NetworkResource` to `api/types/network`.
 
-#### [Packaging updates](https://docs.docker.com/engine/release-notes/27/#packaging-updates-7)
+#### Packaging updates
 
 - Update Buildx to [v0.15.1](https://github.com/docker/buildx/releases/tag/v0.15.1). [docker/docker-ce-packaging#1029](https://github.com/docker/docker-ce-packaging/pull/1029)
 - Update BuildKit to [v0.14.1](https://github.com/moby/buildkit/releases/tag/v0.14.1). [moby/moby#48028](https://github.com/moby/moby/pull/48028)
 - Update runc to [v1.1.13](https://github.com/opencontainers/runc/releases/tag/v1.1.13) [moby/moby#47976](https://github.com/moby/moby/pull/47976)
 - Update Compose to [v2.28.1](https://github.com/docker/compose/releases/tag/v2.28.1). [moby/docker-ce-packaging#1032](https://github.com/docker/docker-ce-packaging/pull/1032)
 
-### [27.0.0](https://docs.docker.com/engine/release-notes/27/#2700)
+### 27.0.0
 
 There's no 27.0.0 release due to a mistake during the pre-release of 27.0.0-rc.1 on GitHub which resulted in the v27.0.0 tag being created. Unfortunately the tag was already picked up by the [Go Module Mirror](https://sum.golang.org/) so it's not possible to cleanly change the v27.0.0. To workaround this, the 27.0.1 will be the first release of the 27.0.

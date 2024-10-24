@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/compose-file/networks/](https://docs.docker.com/reference/compose-file/networks/)
+> 原文：[https://docs.docker.com/reference/compose-file/networks/](https://docs.docker.com/reference/compose-file/networks/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -16,11 +16,11 @@ draft = false
 
 Networks let services communicate with each other. By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by the service's name. The top-level `networks` element lets you configure named networks that can be reused across multiple services.
 
-To use a network across multiple services, you must explicitly grant each service access by using the [networks](https://docs.docker.com/reference/compose-file/services/) attribute within the `services` top-level element. The `networks` top-level element has additional syntax that provides more granular control.
+To use a network across multiple services, you must explicitly grant each service access by using the [networks]({{< ref "/reference/Composefilereference/Servicestop-levelelements" >}}) attribute within the `services` top-level element. The `networks` top-level element has additional syntax that provides more granular control.
 
-## [Examples](https://docs.docker.com/reference/compose-file/networks/#examples)
+## Examples
 
-### [Basic example](https://docs.docker.com/reference/compose-file/networks/#basic-example)
+### Basic example
 
 In the following example, at runtime, networks `front-tier` and `back-tier` are created and the `frontend` service is connected to `front-tier` and `back-tier` networks.
 
@@ -39,7 +39,7 @@ networks:
   back-tier:
 ```
 
-### [Advanced example](https://docs.docker.com/reference/compose-file/networks/#advanced-example)
+### Advanced example
 
 
 
@@ -72,9 +72,9 @@ networks:
 
 The advanced example shows a Compose file which defines two custom networks. The `proxy` service is isolated from the `db` service, because they do not share a network in common. Only `app` can talk to both.
 
-## [Attributes](https://docs.docker.com/reference/compose-file/networks/#attributes)
+## Attributes
 
-### [driver](https://docs.docker.com/reference/compose-file/networks/#driver)
+### driver
 
 `driver` specifies which driver should be used for this network. Compose returns an error if the driver is not available on the platform.
 
@@ -86,9 +86,9 @@ networks:
     driver: bridge
 ```
 
-For more information on drivers and available options, see [Network drivers](https://docs.docker.com/engine/network/drivers/).
+For more information on drivers and available options, see [Network drivers]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers" >}}).
 
-### [driver_opts](https://docs.docker.com/reference/compose-file/networks/#driver_opts)
+### driver_opts
 
 `driver_opts` specifies a list of options as key-value pairs to pass to the driver. These options are driver-dependent.
 
@@ -102,9 +102,9 @@ networks:
       com.docker.network.bridge.host_binding_ipv4: "127.0.0.1"
 ```
 
-Consult the [network drivers documentation](https://docs.docker.com/engine/network/) for more information.
+Consult the [network drivers documentation]({{< ref "/manuals/DockerEngine/Networking" >}}) for more information.
 
-### [attachable](https://docs.docker.com/reference/compose-file/networks/#attachable)
+### attachable
 
 If `attachable` is set to `true`, then standalone containers should be able to attach to this network, in addition to services. If a standalone container attaches to the network, it can communicate with services and other standalone containers that are also attached to the network.
 
@@ -117,11 +117,11 @@ networks:
     attachable: true
 ```
 
-### [enable_ipv6](https://docs.docker.com/reference/compose-file/networks/#enable_ipv6)
+### enable_ipv6
 
-`enable_ipv6` enables IPv6 networking. For an example, see step four of [Create an IPv6 network](https://docs.docker.com/engine/daemon/ipv6/).
+`enable_ipv6` enables IPv6 networking. For an example, see step four of [Create an IPv6 network]({{< ref "/manuals/DockerEngine/Daemon/UseIPv6networking" >}}).
 
-### [external](https://docs.docker.com/reference/compose-file/networks/#external)
+### external
 
 If set to `true`:
 
@@ -149,7 +149,7 @@ networks:
     external: true
 ```
 
-### [ipam](https://docs.docker.com/reference/compose-file/networks/#ipam)
+### ipam
 
 `ipam` specifies a custom IPAM configuration. This is an object with several properties, each of which is optional:
 
@@ -188,11 +188,11 @@ networks:
         baz: "0"
 ```
 
-### [internal](https://docs.docker.com/reference/compose-file/networks/#internal)
+### internal
 
 By default, Compose provides external connectivity to networks. `internal`, when set to `true`, allows you to create an externally isolated network.
 
-### [labels](https://docs.docker.com/reference/compose-file/networks/#labels)
+### labels
 
 Add metadata to containers using `labels`. You can use either an array or a dictionary.
 
@@ -222,7 +222,7 @@ networks:
 
 Compose sets `com.docker.compose.project` and `com.docker.compose.network` labels.
 
-### [name](https://docs.docker.com/reference/compose-file/networks/#name)
+### name
 
 `name` sets a custom name for the network. The name field can be used to reference networks which contain special characters. The name is used as is and is not scoped with the project name.
 
@@ -245,6 +245,6 @@ networks:
     name: "${NETWORK_ID}"
 ```
 
-## [Additional resources](https://docs.docker.com/reference/compose-file/networks/#additional-resources)
+## Additional resources
 
-For more examples, see [Networking in Compose](https://docs.docker.com/compose/how-tos/networking/).
+For more examples, see [Networking in Compose]({{< ref "/manuals/DockerCompose/How-tos/Networking" >}}).

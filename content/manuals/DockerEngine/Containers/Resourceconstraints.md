@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/containers/resource_constraints/](https://docs.docker.com/engine/containers/resource_constraints/)
+> 原文：[https://docs.docker.com/engine/containers/resource_constraints/](https://docs.docker.com/engine/containers/resource_constraints/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 By default, a container has no resource constraints and can use as much of a given resource as the host's kernel scheduler allows. Docker provides ways to control how much memory, or CPU a container can use, setting runtime configuration flags of the `docker run` command. This section provides details on when you should set such limits and the possible implications of setting them.
 
-Many of these features require your kernel to support Linux capabilities. To check for support, you can use the [`docker info`](https://docs.docker.com/reference/cli/docker/system/info/) command. If a capability is disabled in your kernel, you may see a warning at the end of the output like the following:
+Many of these features require your kernel to support Linux capabilities. To check for support, you can use the [`docker info`]({{< ref "/reference/CLIreference/docker/dockersystem/dockerinfo" >}}) command. If a capability is disabled in your kernel, you may see a warning at the end of the output like the following:
 
 
 
@@ -26,9 +26,9 @@ WARNING: No swap limit support
 
 Consult your operating system's documentation for enabling them. See also the [Docker Engine troubleshooting guide](https://docs.docker.com/engine/daemon/troubleshoot/#kernel-cgroup-swap-limit-capabilities) for more information.
 
-## [Memory](https://docs.docker.com/engine/containers/resource_constraints/#memory)
+## Memory
 
-## [Understand the risks of running out of memory](https://docs.docker.com/engine/containers/resource_constraints/#understand-the-risks-of-running-out-of-memory)
+## Understand the risks of running out of memory
 
 It's important not to allow a running container to consume too much of the host machine's memory. On Linux hosts, if the kernel detects that there isn't enough memory to perform important system functions, it throws an `OOME`, or `Out Of Memory Exception`, and starts killing processes to free up memory. Any process is subject to killing, including Docker and other important applications. This can effectively bring the entire system down if the wrong process is killed.
 
@@ -42,9 +42,9 @@ You can mitigate the risk of system instability due to OOME by:
 - Ensure that your application runs only on hosts with adequate resources.
 - Limit the amount of memory your container can use, as described below.
 - Be mindful when configuring swap on your Docker hosts. Swap is slower than memory but can provide a buffer against running out of system memory.
-- Consider converting your container to a [service](https://docs.docker.com/engine/swarm/services/), and using service-level constraints and node labels to ensure that the application runs only on hosts with enough memory
+- Consider converting your container to a [service]({{< ref "/manuals/DockerEngine/Swarmmode/Deployservicestoaswarm" >}}), and using service-level constraints and node labels to ensure that the application runs only on hosts with enough memory
 
-### [Limit a container's access to memory](https://docs.docker.com/engine/containers/resource_constraints/#limit-a-containers-access-to-memory)
+### Limit a container's access to memory
 
 Docker can enforce hard or soft memory limits.
 
@@ -66,7 +66,7 @@ Most of these options take a positive integer, followed by a suffix of `b`, `k`,
 
 For more information about cgroups and memory in general, see the documentation for [Memory Resource Controller](https://www.kernel.org/doc/Documentation/cgroup-v1/memory.txt).
 
-### [`--memory-swap` details](https://docs.docker.com/engine/containers/resource_constraints/#--memory-swap-details)
+### `--memory-swap` details
 
 `--memory-swap` is a modifier flag that only has meaning if `--memory` is also set. Using swap allows the container to write excess memory requirements to disk when the container has exhausted all the RAM that's available to it. There is a performance penalty for applications that swap memory to disk often.
 
@@ -79,17 +79,17 @@ Its setting can have complicated effects:
 - If `--memory-swap` is explicitly set to `-1`, the container is allowed to use unlimited swap, up to the amount available on the host system.
 - Inside the container, tools like `free` report the host's available swap, not what's available inside the container. Don't rely on the output of `free` or similar tools to determine whether swap is present.
 
-#### [Prevent a container from using swap](https://docs.docker.com/engine/containers/resource_constraints/#prevent-a-container-from-using-swap)
+#### Prevent a container from using swap
 
 If `--memory` and `--memory-swap` are set to the same value, this prevents containers from using any swap. This is because `--memory-swap` is the amount of combined memory and swap that can be used, while `--memory` is only the amount of physical memory that can be used.
 
-### [`--memory-swappiness` details](https://docs.docker.com/engine/containers/resource_constraints/#--memory-swappiness-details)
+### `--memory-swappiness` details
 
 - A value of 0 turns off anonymous page swapping.
 - A value of 100 sets all anonymous pages as swappable.
 - By default, if you don't set `--memory-swappiness`, the value is inherited from the host machine.
 
-### [`--kernel-memory` details](https://docs.docker.com/engine/containers/resource_constraints/#--kernel-memory-details)
+### `--kernel-memory` details
 
 Kernel memory limits are expressed in terms of the overall memory allocated to a container. Consider the following scenarios:
 
@@ -100,11 +100,11 @@ Kernel memory limits are expressed in terms of the overall memory allocated to a
 
 When you enable kernel memory limits, the host machine tracks "high water mark" statistics on a per-process basis, so you can track which processes (in this case, containers) are using excess memory. This can be seen per process by viewing `/proc/<PID>/status` on the host machine.
 
-## [CPU](https://docs.docker.com/engine/containers/resource_constraints/#cpu)
+## CPU
 
 By default, each container's access to the host machine's CPU cycles is unlimited. You can set various constraints to limit a given container's access to the host machine's CPU cycles. Most users use and configure the [default CFS scheduler](https://docs.docker.com/engine/containers/resource_constraints/#configure-the-default-cfs-scheduler). You can also configure the [real-time scheduler](https://docs.docker.com/engine/containers/resource_constraints/#configure-the-real-time-scheduler).
 
-### [Configure the default CFS scheduler](https://docs.docker.com/engine/containers/resource_constraints/#configure-the-default-cfs-scheduler)
+### Configure the default CFS scheduler
 
 The CFS is the Linux kernel CPU scheduler for normal Linux processes. Several runtime flags let you configure the amount of access to CPU resources your container has. When you use these settings, Docker modifies the settings for the container's cgroup on the host machine.
 
@@ -132,7 +132,7 @@ Which is the equivalent to manually specifying `--cpu-period` and `--cpu-quota`;
 $ docker run -it --cpu-period=100000 --cpu-quota=50000 ubuntu /bin/bash
 ```
 
-### [Configure the real-time scheduler](https://docs.docker.com/engine/containers/resource_constraints/#configure-the-real-time-scheduler)
+### Configure the real-time scheduler
 
 You can configure your container to use the real-time scheduler, for tasks which can't use the CFS scheduler. You need to [make sure the host machine's kernel is configured correctly](https://docs.docker.com/engine/containers/resource_constraints/#configure-the-host-machines-kernel) before you can [configure the Docker daemon](https://docs.docker.com/engine/containers/resource_constraints/#configure-the-docker-daemon) or [configure individual containers](https://docs.docker.com/engine/containers/resource_constraints/#configure-individual-containers).
 
@@ -142,15 +142,15 @@ You can configure your container to use the real-time scheduler, for tasks which
 >
 > CPU scheduling and prioritization are advanced kernel-level features. Most users don't need to change these values from their defaults. Setting these values incorrectly can cause your host system to become unstable or unusable.
 
-#### [Configure the host machine's kernel](https://docs.docker.com/engine/containers/resource_constraints/#configure-the-host-machines-kernel)
+#### Configure the host machine's kernel
 
 Verify that `CONFIG_RT_GROUP_SCHED` is enabled in the Linux kernel by running `zcat /proc/config.gz | grep CONFIG_RT_GROUP_SCHED` or by checking for the existence of the file `/sys/fs/cgroup/cpu.rt_runtime_us`. For guidance on configuring the kernel real-time scheduler, consult the documentation for your operating system.
 
-#### [Configure the Docker daemon](https://docs.docker.com/engine/containers/resource_constraints/#configure-the-docker-daemon)
+#### Configure the Docker daemon
 
 To run containers using the real-time scheduler, run the Docker daemon with the `--cpu-rt-runtime` flag set to the maximum number of microseconds reserved for real-time tasks per runtime period. For instance, with the default period of 1000000 microseconds (1 second), setting `--cpu-rt-runtime=950000` ensures that containers using the real-time scheduler can run for 950000 microseconds for every 1000000-microsecond period, leaving at least 50000 microseconds available for non-real-time tasks. To make this configuration permanent on systems which use `systemd`, create a systemd unit file for the `docker` service. For an example, see the instruction on how to configure the daemon to use a proxy with a [systemd unit file](https://docs.docker.com/engine/daemon/proxy/#systemd-unit-file).
 
-#### [Configure individual containers](https://docs.docker.com/engine/containers/resource_constraints/#configure-individual-containers)
+#### Configure individual containers
 
 You can pass several flags to control a container's CPU priority when you start the container using `docker run`. Consult your operating system's documentation or the `ulimit` command for information on appropriate values.
 
@@ -174,21 +174,21 @@ $ docker run -it \
 
 If the kernel or Docker daemon isn't configured correctly, an error occurs.
 
-## [GPU](https://docs.docker.com/engine/containers/resource_constraints/#gpu)
+## GPU
 
-### [Access an NVIDIA GPU](https://docs.docker.com/engine/containers/resource_constraints/#access-an-nvidia-gpu)
+### Access an NVIDIA GPU
 
-#### [Prerequisites](https://docs.docker.com/engine/containers/resource_constraints/#prerequisites)
+#### Prerequisites
 
 Visit the official [NVIDIA drivers page](https://www.nvidia.com/Download/index.aspx) to download and install the proper drivers. Reboot your system once you have done so.
 
 Verify that your GPU is running and accessible.
 
-#### [Install nvidia-container-toolkit](https://docs.docker.com/engine/containers/resource_constraints/#install-nvidia-container-toolkit)
+#### Install nvidia-container-toolkit
 
 Follow the official NVIDIA Container Toolkit [installation instructions](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
-#### [Expose GPUs for use](https://docs.docker.com/engine/containers/resource_constraints/#expose-gpus-for-use)
+#### Expose GPUs for use
 
 Include the `--gpus` flag when you start a container to access GPU resources. Specify how many GPUs to use. For example:
 
@@ -244,7 +244,7 @@ Exposes the first and third GPUs.
 >
 > NVIDIA GPUs can only be accessed by systems running a single engine.
 
-#### [Set NVIDIA capabilities](https://docs.docker.com/engine/containers/resource_constraints/#set-nvidia-capabilities)
+#### Set NVIDIA capabilities
 
 You can set capabilities manually. For example, on Ubuntu you can run the following:
 

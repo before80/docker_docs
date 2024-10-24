@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/storage/drivers/btrfs-driver/](https://docs.docker.com/engine/storage/drivers/btrfs-driver/)
+> 原文：[https://docs.docker.com/engine/storage/drivers/btrfs-driver/](https://docs.docker.com/engine/storage/drivers/btrfs-driver/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -26,7 +26,7 @@ This page refers to Docker's Btrfs storage driver as `btrfs` and the overall Btr
 >
 > The `btrfs` storage driver is only supported with Docker Engine CE on SLES, Ubuntu, and Debian systems.
 
-## [Prerequisites](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#prerequisites)
+## Prerequisites
 
 `btrfs` is supported if you meet the following prerequisites:
 
@@ -48,7 +48,7 @@ This page refers to Docker's Btrfs storage driver as `btrfs` and the overall Btr
 
 - To manage Btrfs filesystems at the level of the operating system, you need the `btrfs` command. If you don't have this command, install the `btrfsprogs` package (SLES) or `btrfs-tools` package (Ubuntu).
 
-## [Configure Docker to use the btrfs storage driver](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#configure-docker-to-use-the-btrfs-storage-driver)
+## Configure Docker to use the btrfs storage driver
 
 This procedure is essentially identical on SLES and Ubuntu.
 
@@ -128,7 +128,7 @@ This procedure is essentially identical on SLES and Ubuntu.
 
 8. When you are ready, remove the `/var/lib/docker.bk` directory.
 
-## [Manage a Btrfs volume](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#manage-a-btrfs-volume)
+## Manage a Btrfs volume
 
 One of the benefits of Btrfs is the ease of managing Btrfs filesystems without the need to unmount the filesystem or restart Docker.
 
@@ -150,11 +150,11 @@ $ sudo btrfs filesystem balance /var/lib/docker
 >
 > While you can do these operations with Docker running, performance suffers. It might be best to plan an outage window to balance the Btrfs filesystem.
 
-## [How the `btrfs` storage driver works](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#how-the-btrfs-storage-driver-works)
+## How the `btrfs` storage driver works
 
 The `btrfs` storage driver works differently from other storage drivers in that your entire `/var/lib/docker/` directory is stored on a Btrfs volume.
 
-### [Image and container layers on-disk](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#image-and-container-layers-on-disk)
+### Image and container layers on-disk
 
 Information about image layers and writable container layers is stored in `/var/lib/docker/btrfs/subvolumes/`. This subdirectory contains one directory per image or container layer, with the unified filesystem built from a layer plus all its parent layers. Subvolumes are natively copy-on-write and have space allocated to them on-demand from an underlying storage pool. They can also be nested and snapshotted. The diagram below shows 4 subvolumes. 'Subvolume 2' and 'Subvolume 3' are nested, whereas 'Subvolume 4' shows its own internal directory tree.
 
@@ -180,31 +180,31 @@ The high level process for creating images and containers on Docker hosts runnin
 2. Subsequent image layers are stored as a Btrfs *snapshot* of the parent layer's subvolume or snapshot, but with the changes introduced by this layer. These differences are stored at the block level.
 3. The container's writable layer is a Btrfs snapshot of the final image layer, with the differences introduced by the running container. These differences are stored at the block level.
 
-## [How container reads and writes work with `btrfs`](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#how-container-reads-and-writes-work-with-btrfs)
+## How container reads and writes work with `btrfs`
 
-### [Reading files](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#reading-files)
+### Reading files
 
 A container is a space-efficient snapshot of an image. Metadata in the snapshot points to the actual data blocks in the storage pool. This is the same as with a subvolume. Therefore, reads performed against a snapshot are essentially the same as reads performed against a subvolume.
 
-### [Writing files](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#writing-files)
+### Writing files
 
 As a general caution, writing and updating a large number of small files with Btrfs can result in slow performance.
 
 Consider three scenarios where a container opens a file for write access with Btrfs.
 
-#### [Writing new files](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#writing-new-files)
+#### Writing new files
 
 Writing a new file to a container invokes an allocate-on-demand operation to allocate new data block to the container's snapshot. The file is then written to this new space. The allocate-on-demand operation is native to all writes with Btrfs and is the same as writing new data to a subvolume. As a result, writing new files to a container's snapshot operates at native Btrfs speeds.
 
-#### [Modifying existing files](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#modifying-existing-files)
+#### Modifying existing files
 
 Updating an existing file in a container is a copy-on-write operation (redirect-on-write is the Btrfs terminology). The original data is read from the layer where the file currently exists, and only the modified blocks are written into the container's writable layer. Next, the Btrfs driver updates the filesystem metadata in the snapshot to point to this new data. This behavior incurs minor overhead.
 
-#### [Deleting files or directories](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#deleting-files-or-directories)
+#### Deleting files or directories
 
 If a container deletes a file or directory that exists in a lower layer, Btrfs masks the existence of the file or directory in the lower layer. If a container creates a file and then deletes it, this operation is performed in the Btrfs filesystem itself and the space is reclaimed.
 
-## [Btrfs and Docker performance](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#btrfs-and-docker-performance)
+## Btrfs and Docker performance
 
 There are several factors that influence Docker's performance under the `btrfs` storage driver.
 
@@ -214,44 +214,44 @@ There are several factors that influence Docker's performance under the `btrfs` 
 >
 > Many of these factors are mitigated by using Docker volumes for write-heavy workloads, rather than relying on storing data in the container's writable layer. However, in the case of Btrfs, Docker volumes still suffer from these draw-backs unless `/var/lib/docker/volumes/` isn't backed by Btrfs.
 
-### [Page caching](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#page-caching)
+### Page caching
 
 Btrfs doesn't support page cache sharing. This means that each process accessing the same file copies the file into the Docker host's memory. As a result, the `btrfs` driver may not be the best choice for high-density use cases such as PaaS.
 
-### [Small writes](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#small-writes)
+### Small writes
 
 Containers performing lots of small writes (this usage pattern matches what happens when you start and stop many containers in a short period of time, as well) can lead to poor use of Btrfs chunks. This can prematurely fill the Btrfs filesystem and lead to out-of-space conditions on your Docker host. Use `btrfs filesys show` to closely monitor the amount of free space on your Btrfs device.
 
-### [Sequential writes](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#sequential-writes)
+### Sequential writes
 
 Btrfs uses a journaling technique when writing to disk. This can impact the performance of sequential writes, reducing performance by up to 50%.
 
-### [Fragmentation](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#fragmentation)
+### Fragmentation
 
 Fragmentation is a natural byproduct of copy-on-write filesystems like Btrfs. Many small random writes can compound this issue. Fragmentation can manifest as CPU spikes when using SSDs or head thrashing when using spinning disks. Either of these issues can harm performance.
 
 If your Linux kernel version is 3.9 or higher, you can enable the `autodefrag` feature when mounting a Btrfs volume. Test this feature on your own workloads before deploying it into production, as some tests have shown a negative impact on performance.
 
-### [SSD performance](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#ssd-performance)
+### SSD performance
 
 Btrfs includes native optimizations for SSD media. To enable these features, mount the Btrfs filesystem with the `-o ssd` mount option. These optimizations include enhanced SSD write performance by avoiding optimization such as seek optimizations that don't apply to solid-state media.
 
-### [Balance Btrfs filesystems often](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#balance-btrfs-filesystems-often)
+### Balance Btrfs filesystems often
 
 Use operating system utilities such as a `cron` job to balance the Btrfs filesystem regularly, during non-peak hours. This reclaims unallocated blocks and helps to prevent the filesystem from filling up unnecessarily. You can't rebalance a totally full Btrfs filesystem unless you add additional physical block devices to the filesystem.
 
 See the [Btrfs Wiki](https://btrfs.wiki.kernel.org/index.php/Balance_Filters#Balancing_to_fix_filesystem_full_errors).
 
-### [Use fast storage](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#use-fast-storage)
+### Use fast storage
 
 Solid-state drives (SSDs) provide faster reads and writes than spinning disks.
 
-### [Use volumes for write-heavy workloads](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#use-volumes-for-write-heavy-workloads)
+### Use volumes for write-heavy workloads
 
 Volumes provide the best and most predictable performance for write-heavy workloads. This is because they bypass the storage driver and don't incur any of the potential overheads introduced by thin provisioning and copy-on-write. Volumes have other benefits, such as allowing you to share data among containers and persisting even when no running container is using them.
 
-## [Related Information](https://docs.docker.com/engine/storage/drivers/btrfs-driver/#related-information)
+## Related Information
 
-- [Volumes](https://docs.docker.com/engine/storage/volumes/)
-- [Understand images, containers, and storage drivers](https://docs.docker.com/engine/storage/drivers/)
-- [Select a storage driver](https://docs.docker.com/engine/storage/drivers/select-storage-driver/)
+- [Volumes]({{< ref "/manuals/DockerEngine/Storage/Volumes" >}})
+- [Understand images, containers, and storage drivers]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers" >}})
+- [Select a storage driver]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers/Selectastoragedriver" >}})

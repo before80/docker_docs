@@ -8,23 +8,23 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/ci/github-actions/attestations/](https://docs.docker.com/build/ci/github-actions/attestations/)
+> 原文：[https://docs.docker.com/build/ci/github-actions/attestations/](https://docs.docker.com/build/ci/github-actions/attestations/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Add SBOM and provenance attestations with GitHub Actions
 
-Software Bill of Material (SBOM) and provenance [attestations](https://docs.docker.com/build/metadata/attestations/) add metadata about the contents of your image, and how it was built.
+Software Bill of Material (SBOM) and provenance [attestations]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations" >}}) add metadata about the contents of your image, and how it was built.
 
 Attestations are supported with version 4 and later of the `docker/build-push-action`.
 
-## [Default provenance](https://docs.docker.com/build/ci/github-actions/attestations/#default-provenance)
+## Default provenance
 
 The `docker/build-push-action` GitHub Action automatically adds provenance attestations to your image, with the following conditions:
 
 - If the GitHub repository is public, provenance attestations with `mode=max` are automatically added to the image.
 - If the GitHub repository is private, provenance attestations with `mode=min` are automatically added to the image.
-- If you're using the [`docker` exporter](https://docs.docker.com/build/exporters/oci-docker/), or you're loading the build results to the runner with `load: true`, no attestations are added to the image. These output formats don't support attestations.
+- If you're using the [`docker` exporter]({{< ref "/manuals/DockerBuild/Exporters/OCIandDockerexporters" >}}), or you're loading the build results to the runner with `load: true`, no attestations are added to the image. These output formats don't support attestations.
 
 > **Warning**
 >
@@ -32,7 +32,7 @@ The `docker/build-push-action` GitHub Action automatically adds provenance attes
 >
 > If you're using `docker/build-push-action` to build images for code in a public GitHub repository, the provenance attestations attached to your image by default contains the values of build arguments. If you're misusing build arguments to pass secrets to your build, such as user credentials or authentication tokens, those secrets are exposed in the provenance attestation. Refactor your build to pass those secrets using [secret mounts](https://docs.docker.com/reference/cli/docker/buildx/build/#secret) instead. Also remember to rotate any secrets you may have exposed.
 
-## [Max-level provenance](https://docs.docker.com/build/ci/github-actions/attestations/#max-level-provenance)
+## Max-level provenance
 
 It's recommended that you build your images with max-level provenance attestations. Private repositories only add min-level provenance by default, but you can manually override the provenance level by setting the `provenance` input on the `docker/build-push-action` GitHub Action to `mode=max`.
 
@@ -76,7 +76,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
 ```
 
-## [SBOM](https://docs.docker.com/build/ci/github-actions/attestations/#sbom)
+## SBOM
 
 SBOM attestations aren't automatically added to the image. To add SBOM attestations, set the `sbom` input of the `docker/build-push-action` to true.
 

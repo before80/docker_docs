@@ -8,21 +8,21 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/cache/garbage-collection/](https://docs.docker.com/build/cache/garbage-collection/)
+> 原文：[https://docs.docker.com/build/cache/garbage-collection/](https://docs.docker.com/build/cache/garbage-collection/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Build garbage collection
 
-While [`docker builder prune`](https://docs.docker.com/reference/cli/docker/builder/prune/) or [`docker buildx prune`](https://docs.docker.com/reference/cli/docker/buildx/prune/) commands run at once, garbage collection runs periodically and follows an ordered list of prune policies.
+While [`docker builder prune`]({{< ref "/reference/CLIreference/docker/dockerbuilder/dockerbuilderprune" >}}) or [`docker buildx prune`]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildxprune" >}}) commands run at once, garbage collection runs periodically and follows an ordered list of prune policies.
 
 Garbage collection runs in the BuildKit daemon. The daemon clears the build cache when the cache size becomes too big, or when the cache age expires. The following sections describe how you can configure both the size and age parameters by defining garbage collection policies.
 
-## [Configuration](https://docs.docker.com/build/cache/garbage-collection/#configuration)
+## Configuration
 
-Depending on the [driver](https://docs.docker.com/build/builders/drivers/) used by your builder instance, the garbage collection will use a different configuration file.
+Depending on the [driver]({{< ref "/manuals/DockerBuild/Builders/Builddrivers" >}}) used by your builder instance, the garbage collection will use a different configuration file.
 
-If you're using the [`docker` driver](https://docs.docker.com/build/builders/drivers/docker/), garbage collection can be configured in the [Docker Daemon configuration](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file). file:
+If you're using the [`docker` driver]({{< ref "/manuals/DockerBuild/Builders/Builddrivers/Dockerdriver" >}}), garbage collection can be configured in the [Docker Daemon configuration](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file). file:
 
 
 
@@ -42,7 +42,7 @@ If you're using the [`docker` driver](https://docs.docker.com/build/builders/dri
 }
 ```
 
-For other drivers, garbage collection can be configured using the [BuildKit configuration](https://docs.docker.com/build/buildkit/toml-configuration/) file:
+For other drivers, garbage collection can be configured using the [BuildKit configuration]({{< ref "/manuals/DockerBuild/BuildKit/buildkitd_toml" >}}) file:
 
 
 
@@ -59,7 +59,7 @@ For other drivers, garbage collection can be configured using the [BuildKit conf
     keepBytes = 1024000000
 ```
 
-## [Default policies](https://docs.docker.com/build/cache/garbage-collection/#default-policies)
+## Default policies
 
 Default garbage collection policies apply to all builders if not set:
 

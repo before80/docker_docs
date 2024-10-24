@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/install/standalone/](https://docs.docker.com/compose/install/standalone/)
+> 原文：[https://docs.docker.com/compose/install/standalone/](https://docs.docker.com/compose/install/standalone/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 On this page you can find instructions on how to install Compose standalone on Linux or Windows Server, from the command line.
 
-### [On Linux](https://docs.docker.com/compose/install/standalone/#on-linux)
+### On Linux
 
 > **Warning**
 >
@@ -49,7 +49,7 @@ On this page you can find instructions on how to install Compose standalone on L
    > $ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
    > ```
 
-### [On Windows Server](https://docs.docker.com/compose/install/standalone/#on-windows-server)
+### On Windows Server
 
 Follow these instructions if you are running the Docker daemon and client directly on Microsoft Windows Server and want to install Docker Compose.
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/daemon/proxy/](https://docs.docker.com/engine/daemon/proxy/)
+> 原文：[https://docs.docker.com/engine/daemon/proxy/](https://docs.docker.com/engine/daemon/proxy/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 
 If your organization uses a proxy server to connect to the internet, you may need to configure the Docker daemon to use the proxy server. The daemon uses a proxy server to access images stored on Docker Hub and other registries, and to reach other nodes in a Docker swarm.
 
-This page describes how to configure a proxy for the Docker daemon. For instructions on configuring proxy settings for the Docker CLI, see [Configure Docker CLI to use a proxy server](https://docs.docker.com/engine/cli/proxy/).
+This page describes how to configure a proxy for the Docker daemon. For instructions on configuring proxy settings for the Docker CLI, see [Configure Docker CLI to use a proxy server]({{< ref "/manuals/DockerEngine/CLI/Proxyconfiguration" >}}).
 
 There are two ways you can configure these settings:
 
@@ -27,7 +27,7 @@ There are two ways you can configure these settings:
 
 Configuring the daemon directly takes precedence over environment variables.
 
-## [Daemon configuration](https://docs.docker.com/engine/daemon/proxy/#daemon-configuration)
+## Daemon configuration
 
 You may configure proxy behavior for the daemon in the `daemon.json` file, or using CLI flags for the `--http-proxy` or `--https-proxy` flags for the `dockerd` command. Configuration using `daemon.json` is recommended.
 
@@ -51,7 +51,7 @@ After changing the configuration file, restart the daemon for the proxy configur
 $ sudo systemctl restart docker
 ```
 
-## [Environment variables](https://docs.docker.com/engine/daemon/proxy/#environment-variables)
+## Environment variables
 
 The Docker daemon checks the following environment variables in its start-up environment to configure HTTP or HTTPS proxy behavior:
 
@@ -62,13 +62,13 @@ The Docker daemon checks the following environment variables in its start-up env
 - `NO_PROXY`
 - `no_proxy`
 
-### [systemd unit file](https://docs.docker.com/engine/daemon/proxy/#systemd-unit-file)
+### systemd unit file
 
 If you're running the Docker daemon as a systemd service, you can create a systemd drop-in file that sets the variables for the `docker` service.
 
 > **Note for rootless mode**
 >
-> The location of systemd configuration files are different when running Docker in [rootless mode](https://docs.docker.com/engine/security/rootless/). When running in rootless mode, Docker is started as a user-mode systemd service, and uses files stored in each users' home directory in `~/.config/systemd/<user>/docker.service.d/`. In addition, `systemctl` must be executed without `sudo` and with the `--user` flag. Select the "Rootless mode" tab if you are running Docker in rootless mode.
+> The location of systemd configuration files are different when running Docker in [rootless mode]({{< ref "/manuals/DockerEngine/Security/Rootlessmode" >}}). When running in rootless mode, Docker is started as a user-mode systemd service, and uses files stored in each users' home directory in `~/.config/systemd/<user>/docker.service.d/`. In addition, `systemctl` must be executed without `sudo` and with the `--user` flag. Select the "Rootless mode" tab if you are running Docker in rootless mode.
 
 Regular install Rootless mode
 

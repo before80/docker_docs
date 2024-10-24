@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/buildx/prune/](https://docs.docker.com/reference/cli/docker/buildx/prune/)
+> 原文：[https://docs.docker.com/reference/cli/docker/buildx/prune/](https://docs.docker.com/reference/cli/docker/buildx/prune/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 | :---------- | --------------------- |
 | Usage       | `docker buildx prune` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/buildx/prune/#description)
+## Description
 
 Clears the build cache of the selected builder.
 
@@ -34,7 +34,7 @@ You can finely control what cache data is kept using:
 
 - The `--all` flag to allow clearing internal helper images and frontend images set using the `#syntax=` directive or the `BUILDKIT_SYNTAX` build argument.
 
-## [Options](https://docs.docker.com/reference/cli/docker/buildx/prune/#options)
+## Options
 
 | Option           | Default | Description                               |
 | ---------------- | ------- | ----------------------------------------- |
@@ -44,8 +44,8 @@ You can finely control what cache data is kept using:
 | `--keep-storage` |         | Amount of disk space to keep for cache    |
 | `--verbose`      |         | Provide a more verbose output             |
 
-## [Examples](https://docs.docker.com/reference/cli/docker/buildx/prune/#examples)
+## Examples
 
-### [Override the configured builder instance (--builder)](https://docs.docker.com/reference/cli/docker/buildx/prune/#builder)
+### Override the configured builder instance (--builder)
 
 Same as [`buildx --builder`](https://docs.docker.com/reference/cli/docker/buildx/#builder).

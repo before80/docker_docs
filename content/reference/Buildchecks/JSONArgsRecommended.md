@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/build-checks/json-args-recommended/](https://docs.docker.com/reference/build-checks/json-args-recommended/)
+> 原文：[https://docs.docker.com/reference/build-checks/json-args-recommended/](https://docs.docker.com/reference/build-checks/json-args-recommended/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
 # JSONArgsRecommended
 
-## [Output](https://docs.docker.com/reference/build-checks/json-args-recommended/#output)
+## Output
 
 
 
@@ -22,7 +22,7 @@ draft = false
 JSON arguments recommended for ENTRYPOINT/CMD to prevent unintended behavior related to OS signals
 ```
 
-## [Description](https://docs.docker.com/reference/build-checks/json-args-recommended/#description)
+## Description
 
 `ENTRYPOINT` and `CMD` instructions both support two different syntaxes for arguments:
 
@@ -31,7 +31,7 @@ JSON arguments recommended for ENTRYPOINT/CMD to prevent unintended behavior rel
 
 When you use shell form, the executable runs as a child process to a shell, which doesn't pass signals. This means that the program running in the container can't detect OS signals like `SIGTERM` and `SIGKILL` and respond to them correctly.
 
-## [Examples](https://docs.docker.com/reference/build-checks/json-args-recommended/#examples)
+## Examples
 
 ❌ Bad: the `ENTRYPOINT` command doesn't receive OS signals.
 

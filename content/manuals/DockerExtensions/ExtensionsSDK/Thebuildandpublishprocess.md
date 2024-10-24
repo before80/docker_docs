@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/process/](https://docs.docker.com/extensions/extensions-sdk/process/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/process/](https://docs.docker.com/extensions/extensions-sdk/process/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -29,7 +29,7 @@ There are two main parts to creating a Docker extension:
 >
 > There is also no constraint on how each extension should be licensed, this is up to you to decide when creating a new extension.
 
-## [Part one: Build the foundations](https://docs.docker.com/extensions/extensions-sdk/process/#part-one-build-the-foundations)
+## Part one: Build the foundations
 
 The build process consists of:
 
@@ -45,21 +45,21 @@ For further inspiration, see the other examples in the [samples folder](https://
 >
 > 
 >
-> Whilst creating your extension, make sure you follow the [design](https://docs.docker.com/extensions/extensions-sdk/design/design-guidelines/) and [UI styling](https://docs.docker.com/extensions/extensions-sdk/design/) guidelines to ensure visual consistency and [level AA accessibility standards](https://www.w3.org/WAI/WCAG2AA-Conformance).
+> Whilst creating your extension, make sure you follow the [design]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DesignandUIstyling/Guidelines" >}}) and [UI styling]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DesignandUIstyling" >}}) guidelines to ensure visual consistency and [level AA accessibility standards](https://www.w3.org/WAI/WCAG2AA-Conformance).
 
-## [Part two: Publish and distribute your extension](https://docs.docker.com/extensions/extensions-sdk/process/#part-two-publish-and-distribute-your-extension)
+## Part two: Publish and distribute your extension
 
 Docker Desktop displays published extensions in the Extensions Marketplace. The Extensions Marketplace is a curated space where developers can discover extensions to improve their developer experience and upload their own extension to share with the world.
 
-If you want your extension published in the Marketplace, read the [publish documentation](https://docs.docker.com/extensions/extensions-sdk/extensions/publish/).
+If you want your extension published in the Marketplace, read the [publish documentation]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish/PublishintheMarketplace" >}}).
 
 > Already built an extension?
 >
 > Let us know about your experience using the [feedback form](https://survey.alchemer.com/s3/7184948/Publishers-Feedback-Form).
 
-## [What’s next?](https://docs.docker.com/extensions/extensions-sdk/process/#whats-next)
+## What’s next?
 
-If you want to get up and running with creating a Docker Extension, see the [Quickstart guide](https://docs.docker.com/extensions/extensions-sdk/quickstart/).
+If you want to get up and running with creating a Docker Extension, see the [Quickstart guide]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/Quickstart" >}}).
 
 Alternatively, get started with reading the "Part one: Build" section for more in-depth information about each step of the extension creation process.
 

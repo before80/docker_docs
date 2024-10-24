@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/debug/opentelemetry/](https://docs.docker.com/build/debug/opentelemetry/)
+> 原文：[https://docs.docker.com/build/debug/opentelemetry/](https://docs.docker.com/build/debug/opentelemetry/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -26,7 +26,7 @@ First create a Jaeger container:
 $ docker run -d --name jaeger -p "6831:6831/udp" -p "16686:16686" --restart unless-stopped jaegertracing/all-in-one
 ```
 
-Then [create a `docker-container` builder](https://docs.docker.com/build/builders/drivers/docker-container/) that will use the Jaeger instance via the `JAEGER_TRACE` environment variable:
+Then [create a `docker-container` builder]({{< ref "/manuals/DockerBuild/Builders/Builddrivers/Dockercontainerbuilddriver" >}}) that will use the Jaeger instance via the `JAEGER_TRACE` environment variable:
 
 
 
@@ -38,7 +38,7 @@ $ docker buildx create --use \
   --driver-opt "env.JAEGER_TRACE=localhost:6831"
 ```
 
-Boot and [inspect `mybuilder`](https://docs.docker.com/reference/cli/docker/buildx/inspect/):
+Boot and [inspect `mybuilder`]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildxinspect" >}}):
 
 
 

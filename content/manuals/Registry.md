@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/registry/](https://docs.docker.com/registry/)
+> 原文：[https://docs.docker.com/registry/](https://docs.docker.com/registry/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,7 +24,7 @@ Registry, the open source implementation for storing and distributing container 
 
 The Docker Hub registry implementation is based on Distribution. Docker Hub implements version 1.0.1 OCI distribution [specification](https://github.com/opencontainers/distribution-spec/blob/v1.0.1/spec.md). For reference documentation on the API protocol that Docker Hub implements, refer to the OCI distribution specification.
 
-## [Supported media types](https://docs.docker.com/registry/#supported-media-types)
+## Supported media types
 
 Docker Hub supports the following image manifest formats for pulling images:
 
@@ -38,9 +38,9 @@ You can push images with the following formats:
 - [OCI image manifest](https://github.com/opencontainers/image-spec/blob/main/manifest.md)
 - [Docker image manifest version 2, schema 2](https://distribution.github.io/distribution/spec/manifest-v2-2/)
 
-Docker Hub also supports OCI artifacts. See [OCI artifacts](https://docs.docker.com/docker-hub/oci-artifacts/).
+Docker Hub also supports OCI artifacts. See [OCI artifacts]({{< ref "/manuals/DockerHub/OCIartifacts" >}}).
 
-## [Authentication](https://docs.docker.com/registry/#authentication)
+## Authentication
 
 For documentation related to authentication to the Docker Hub registry, see:
 

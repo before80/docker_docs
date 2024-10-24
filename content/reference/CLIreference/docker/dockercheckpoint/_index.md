@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/checkpoint/](https://docs.docker.com/reference/cli/docker/checkpoint/)
+> 原文：[https://docs.docker.com/reference/cli/docker/checkpoint/](https://docs.docker.com/reference/cli/docker/checkpoint/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -24,13 +24,13 @@ draft = false
 
 Experimental features are intended for testing and feedback as their functionality or design may change between releases without warning or can be removed entirely in a future release.
 
-## [Description](https://docs.docker.com/reference/cli/docker/checkpoint/#description)
+## Description
 
 Checkpoint and Restore is an experimental feature that allows you to freeze a running container by specifying a checkpoint, which turns the container state into a collection of files on disk. Later, the container can be restored from the point it was frozen.
 
 This is accomplished using a tool called [CRIU](https://criu.org/), which is an external dependency of this feature. A good overview of the history of checkpoint and restore in Docker is available in this [Kubernetes blog post](https://kubernetes.io/blog/2015/07/how-did-quake-demo-from-dockercon-work/).
 
-### [Installing CRIU](https://docs.docker.com/reference/cli/docker/checkpoint/#installing-criu)
+### Installing CRIU
 
 If you use a Debian system, you can add the CRIU PPA and install with `apt-get` [from the CRIU launchpad](https://launchpad.net/~criu/+archive/ubuntu/ppa).
 
@@ -38,7 +38,7 @@ Alternatively, you can [build CRIU from source](https://criu.org/Installation).
 
 You need at least version 2.0 of CRIU to run checkpoint and restore in Docker.
 
-### [Use cases for checkpoint and restore](https://docs.docker.com/reference/cli/docker/checkpoint/#use-cases-for-checkpoint-and-restore)
+### Use cases for checkpoint and restore
 
 This feature is currently focused on single-host use cases for checkpoint and restore. Here are a few:
 
@@ -49,7 +49,7 @@ This feature is currently focused on single-host use cases for checkpoint and re
 
 Another primary use case of checkpoint and restore outside of Docker is the live migration of a server from one machine to another. This is possible with the current implementation, but not currently a priority (and so the workflow is not optimized for the task).
 
-### [Using checkpoint and restore](https://docs.docker.com/reference/cli/docker/checkpoint/#using-checkpoint-and-restore)
+### Using checkpoint and restore
 
 A new top level command `docker checkpoint` is introduced, with three subcommands:
 
@@ -97,7 +97,7 @@ abc0123
 
 This process just logs an incrementing counter to stdout. If you run `docker logs` in-between running/checkpoint/restoring, you should see that the counter increases while the process is running, stops while it's frozen, and resumes from the point it left off once you restore.
 
-### [Known limitations](https://docs.docker.com/reference/cli/docker/checkpoint/#known-limitations)
+### Known limitations
 
 `seccomp` is only supported by CRIU in very up-to-date kernels.
 
@@ -113,10 +113,10 @@ $ cat /var/lib/docker/containers/eb62ebdbf237ce1a8736d2ae3c7d88601fc0a50235b0ba7
 Error (mount.c:740): mnt: 126:./dev/console doesn't have a proper root mount
 ```
 
-## [Subcommands](https://docs.docker.com/reference/cli/docker/checkpoint/#subcommands)
+## Subcommands
 
 | Command                                                      | Description                                  |
 | :----------------------------------------------------------- | :------------------------------------------- |
-| [`docker checkpoint create`](https://docs.docker.com/reference/cli/docker/checkpoint/create/) | Create a checkpoint from a running container |
-| [`docker checkpoint ls`](https://docs.docker.com/reference/cli/docker/checkpoint/ls/) | List checkpoints for a container             |
-| [`docker checkpoint rm`](https://docs.docker.com/reference/cli/docker/checkpoint/rm/) | Remove a checkpoint                          |
+| [`docker checkpoint create`]({{< ref "/reference/CLIreference/docker/dockercheckpoint/dockercheckpointcreate" >}}) | Create a checkpoint from a running container |
+| [`docker checkpoint ls`]({{< ref "/reference/CLIreference/docker/dockercheckpoint/dockercheckpointls" >}}) | List checkpoints for a container             |
+| [`docker checkpoint rm`]({{< ref "/reference/CLIreference/docker/dockercheckpoint/dockercheckpointrm" >}}) | Remove a checkpoint                          |

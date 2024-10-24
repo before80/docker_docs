@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/building/variables/](https://docs.docker.com/build/building/variables/)
+> 原文：[https://docs.docker.com/build/building/variables/](https://docs.docker.com/build/building/variables/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,13 +22,13 @@ In Docker Build, build arguments (`ARG`) and environment variables (`ENV`) both 
 >
 > Build arguments and environment variables are inappropriate for passing secrets to your build, because they're exposed in the final image. Instead, use secret mounts or SSH mounts, which expose secrets to your builds securely.
 >
-> See [Build secrets](https://docs.docker.com/build/building/secrets/) for more information.
+> See [Build secrets]({{< ref "/manuals/DockerBuild/Building/Secrets" >}}) for more information.
 
-## [Similarities and differences](https://docs.docker.com/build/building/variables/#similarities-and-differences)
+## Similarities and differences
 
 Build arguments and environment variables are similar. They're both declared in the Dockerfile and can be set using flags for the `docker build` command. Both can be used to parameterize the build. But they each serve a distinct purpose.
 
-### [Build arguments](https://docs.docker.com/build/building/variables/#build-arguments)
+### Build arguments
 
 Build arguments are variables for the Dockerfile itself. Use them to parameterize values of Dockerfile instructions. For example, you might use a build argument to specify the version of a dependency to install.
 
@@ -38,7 +38,7 @@ They make Dockerfiles more flexible, and easier to maintain.
 
 For an example on how you can use build arguments, see [`ARG` usage example](https://docs.docker.com/build/building/variables/#arg-usage-example).
 
-### [Environment variables](https://docs.docker.com/build/building/variables/#environment-variables)
+### Environment variables
 
 Environment variables are passed through to the build execution environment, and persist in containers instantiated from the image.
 
@@ -53,7 +53,7 @@ You can't override or set an environment variable at build-time. Values for envi
 
 For an example on how to use environment variables for configuring builds, see [`ENV` usage example](https://docs.docker.com/build/building/variables/#env-usage-example).
 
-## [`ARG` usage example](https://docs.docker.com/build/building/variables/#arg-usage-example)
+## `ARG` usage example
 
 Build arguments are commonly used to specify versions of components, such as image variants or package versions, used in a build.
 
@@ -103,7 +103,7 @@ For more information on how to use build arguments, refer to:
 - [`ARG` Dockerfile reference](https://docs.docker.com/reference/dockerfile/#arg)
 - [`docker build --build-arg` reference](https://docs.docker.com/reference/cli/docker/buildx/build/#build-arg)
 
-## [`ENV` usage example](https://docs.docker.com/build/building/variables/#env-usage-example)
+## `ENV` usage example
 
 Declaring an environment variable with `ENV` makes the variable available to all subsequent instructions in the build stage. The following example shows an example setting `NODE_ENV` to `production` before installing JavaScript dependencies with `npm`. Setting the variable makes `npm` omits packages needed only for local development.
 
@@ -152,7 +152,7 @@ For more information on how to use environment variables in builds, refer to:
 
 - [`ENV` Dockerfile reference](https://docs.docker.com/reference/dockerfile/#env)
 
-## [Scoping](https://docs.docker.com/build/building/variables/#scoping)
+## Scoping
 
 Build arguments declared in the global scope of a Dockerfile aren't automatically inherited into the build stages. They're only accessible in the global scope.
 
@@ -205,13 +205,13 @@ RUN echo "hello $NAME!"
 
 The following diagram further exemplifies how build argument and environment variable inheritance works for multi-stage builds.
 
-![img](Variables_img/build-variables.svg+xml)
+![img](Variables_img/build-variables.svg)
 
-## [Pre-defined build arguments](https://docs.docker.com/build/building/variables/#pre-defined-build-arguments)
+## Pre-defined build arguments
 
 This section describes pre-defined build arguments available to all builds by default.
 
-### [Multi-platform build arguments](https://docs.docker.com/build/building/variables/#multi-platform-build-arguments)
+### Multi-platform build arguments
 
 Multi-platform build arguments describe the build and target platforms for the build.
 
@@ -245,7 +245,7 @@ RUN GOOS=$TARGETOS go build -o ./exe .
 
 For more information about multi-platform build arguments, refer to [Multi-platform arguments](https://docs.docker.com/reference/dockerfile/#automatic-platform-args-in-the-global-scope)
 
-### [Proxy arguments](https://docs.docker.com/build/building/variables/#proxy-arguments)
+### Proxy arguments
 
 Proxy build arguments let you specify proxies to use for your build. You don't need to declare or reference these arguments in the Dockerfile. Specifying a proxy with `--build-arg` is enough to make your build use the proxy.
 
@@ -269,7 +269,7 @@ $ docker build --build-arg HTTP_PROXY=https://my-proxy.example.com .
 
 For more information about proxy build arguments, refer to [Proxy arguments](https://docs.docker.com/reference/dockerfile/#predefined-args).
 
-## [Build tool configuration variables](https://docs.docker.com/build/building/variables/#build-tool-configuration-variables)
+## Build tool configuration variables
 
 The following environment variables enable, disable, or change the behavior of Buildx and BuildKit. Note that these variables aren't used to configure the build container; they aren't available inside the build and they have no relation to the `ENV` instruction. They're used to configure the Buildx client, or the BuildKit daemon.
 
@@ -296,7 +296,7 @@ BuildKit also supports a few additional configuration parameters. Refer to [Buil
 
 You can express Boolean values for environment variables in different ways. For example, `true`, `1`, and `T` all evaluate to true. Evaluation is done using the `strconv.ParseBool` function in the Go standard library. See the [reference documentation](https://pkg.go.dev/strconv#ParseBool) for details.
 
-### [BUILDKIT_COLORS](https://docs.docker.com/build/building/variables/#buildkit_colors)
+### BUILDKIT_COLORS
 
 Changes the colors of the terminal output. Set `BUILDKIT_COLORS` to a CSV string in the following format:
 
@@ -310,7 +310,7 @@ Color values can be any valid RGB hex code, or one of the [BuildKit predefined c
 
 Setting `NO_COLOR` to anything turns off colorized output, as recommended by [no-color.org](https://no-color.org/).
 
-### [BUILDKIT_HOST](https://docs.docker.com/build/building/variables/#buildkit_host)
+### BUILDKIT_HOST
 
 You use the `BUILDKIT_HOST` to specify the address of a BuildKit daemon to use as a remote builder. This is the same as specifying the address as a positional argument to `docker buildx create`.
 
@@ -325,7 +325,7 @@ $ docker buildx create --name=remote --driver=remote
 
 If you specify both the `BUILDKIT_HOST` environment variable and a positional argument, the argument takes priority.
 
-### [BUILDKIT_PROGRESS](https://docs.docker.com/build/building/variables/#buildkit_progress)
+### BUILDKIT_PROGRESS
 
 Sets the type of the BuildKit progress output. Valid values are:
 
@@ -342,7 +342,7 @@ Usage:
 $ export BUILDKIT_PROGRESS=plain
 ```
 
-### [BUILDKIT_TTY_LOG_LINES](https://docs.docker.com/build/building/variables/#buildkit_tty_log_lines)
+### BUILDKIT_TTY_LOG_LINES
 
 You can change how many log lines are visible for active steps in TTY mode by setting `BUILDKIT_TTY_LOG_LINES` to a number (default to `6`).
 
@@ -352,7 +352,7 @@ You can change how many log lines are visible for active steps in TTY mode by se
 $ export BUILDKIT_TTY_LOG_LINES=8
 ```
 
-### [EXPERIMENTAL_BUILDKIT_SOURCE_POLICY](https://docs.docker.com/build/building/variables/#experimental_buildkit_source_policy)
+### EXPERIMENTAL_BUILDKIT_SOURCE_POLICY
 
 Lets you specify a [BuildKit source policy](https://github.com/moby/buildkit/blob/master/docs/build-repro.md#reproducing-the-pinned-dependencies) file for creating reproducible builds with pinned dependencies.
 
@@ -397,7 +397,7 @@ Example:
 }
 ```
 
-### [BUILDX_BAKE_GIT_AUTH_HEADER](https://docs.docker.com/build/building/variables/#buildx_bake_git_auth_header)
+### BUILDX_BAKE_GIT_AUTH_HEADER
 
 Introduced in Buildx version 0.14.0
 
@@ -411,7 +411,7 @@ Usage:
 $ export BUILDX_BAKE_GIT_AUTH_HEADER=basic
 ```
 
-### [BUILDX_BAKE_GIT_AUTH_TOKEN](https://docs.docker.com/build/building/variables/#buildx_bake_git_auth_token)
+### BUILDX_BAKE_GIT_AUTH_TOKEN
 
 Introduced in Buildx version 0.14.0
 
@@ -425,7 +425,7 @@ Usage:
 $ export BUILDX_BAKE_GIT_AUTH_TOKEN=$(cat git-token.txt)
 ```
 
-### [BUILDX_BAKE_GIT_SSH](https://docs.docker.com/build/building/variables/#buildx_bake_git_ssh)
+### BUILDX_BAKE_GIT_SSH
 
 Introduced in Buildx version 0.14.0
 
@@ -441,7 +441,7 @@ Usage:
 $ export BUILDX_BAKE_GIT_SSH=/run/foo/listener.sock,~/.creds/ssh.sock
 ```
 
-### [BUILDX_BUILDER](https://docs.docker.com/build/building/variables/#buildx_builder)
+### BUILDX_BUILDER
 
 Overrides the configured builder instance. Same as the `docker buildx --builder` CLI flag.
 
@@ -453,7 +453,7 @@ Usage:
 $ export BUILDX_BUILDER=my-builder
 ```
 
-### [BUILDX_CONFIG](https://docs.docker.com/build/building/variables/#buildx_config)
+### BUILDX_CONFIG
 
 You can use `BUILDX_CONFIG` to specify the directory to use for build configuration, state, and logs. The lookup order for this directory is as follows:
 
@@ -469,7 +469,7 @@ Usage:
 $ export BUILDX_CONFIG=/usr/local/etc
 ```
 
-### [BUILDX_EXPERIMENTAL](https://docs.docker.com/build/building/variables/#buildx_experimental)
+### BUILDX_EXPERIMENTAL
 
 Enables experimental build features.
 
@@ -481,11 +481,11 @@ Usage:
 $ export BUILDX_EXPERIMENTAL=1
 ```
 
-### [BUILDX_GIT_CHECK_DIRTY](https://docs.docker.com/build/building/variables/#buildx_git_check_dirty)
+### BUILDX_GIT_CHECK_DIRTY
 
 Introduced in Buildx version [0.10.4](https://docs.docker.com/build/release-notes/#0104)
 
-When set to true, checks for dirty state in source control information for [provenance attestations](https://docs.docker.com/build/metadata/attestations/slsa-provenance/).
+When set to true, checks for dirty state in source control information for [provenance attestations]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations/Provenanceattestations" >}}).
 
 Usage:
 
@@ -495,11 +495,11 @@ Usage:
 $ export BUILDX_GIT_CHECK_DIRTY=1
 ```
 
-### [BUILDX_GIT_INFO](https://docs.docker.com/build/building/variables/#buildx_git_info)
+### BUILDX_GIT_INFO
 
 Introduced in Buildx version [0.10.0](https://docs.docker.com/build/release-notes/#0100)
 
-When set to false, removes source control information from [provenance attestations](https://docs.docker.com/build/metadata/attestations/slsa-provenance/).
+When set to false, removes source control information from [provenance attestations]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations/Provenanceattestations" >}}).
 
 Usage:
 
@@ -509,7 +509,7 @@ Usage:
 $ export BUILDX_GIT_INFO=0
 ```
 
-### [BUILDX_GIT_LABELS](https://docs.docker.com/build/building/variables/#buildx_git_labels)
+### BUILDX_GIT_LABELS
 
 Introduced in Buildx version [0.10.0](https://docs.docker.com/build/release-notes/#0100)
 
@@ -538,11 +538,11 @@ Usage:
 
 If the repository is in a dirty state, the `revision` gets a `-dirty` suffix.
 
-### [BUILDX_NO_DEFAULT_ATTESTATIONS](https://docs.docker.com/build/building/variables/#buildx_no_default_attestations)
+### BUILDX_NO_DEFAULT_ATTESTATIONS
 
 Introduced in Buildx version [0.10.4](https://docs.docker.com/build/release-notes/#0104)
 
-By default, BuildKit v0.11 and later adds [provenance attestations](https://docs.docker.com/build/metadata/attestations/slsa-provenance/) to images you build. Set `BUILDX_NO_DEFAULT_ATTESTATIONS=1` to disable the default provenance attestations.
+By default, BuildKit v0.11 and later adds [provenance attestations]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations/Provenanceattestations" >}}) to images you build. Set `BUILDX_NO_DEFAULT_ATTESTATIONS=1` to disable the default provenance attestations.
 
 Usage:
 
@@ -552,7 +552,7 @@ Usage:
 $ export BUILDX_NO_DEFAULT_ATTESTATIONS=1
 ```
 
-### [BUILDX_NO_DEFAULT_LOAD](https://docs.docker.com/build/building/variables/#buildx_no_default_load)
+### BUILDX_NO_DEFAULT_LOAD
 
 When you build an image using the `docker` driver, the image is automatically loaded to the image store when the build finishes. Set `BUILDX_NO_DEFAULT_LOAD` to disable automatic loading of images to the local container store.
 

@@ -8,15 +8,15 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/storage/bind-mounts/](https://docs.docker.com/engine/storage/bind-mounts/)
+> 原文：[https://docs.docker.com/engine/storage/bind-mounts/](https://docs.docker.com/engine/storage/bind-mounts/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Bind mounts
 
-Bind mounts have been around since the early days of Docker. Bind mounts have limited functionality compared to [volumes](https://docs.docker.com/engine/storage/volumes/). When you use a bind mount, a file or directory on the host machine is mounted into a container. The file or directory is referenced by its absolute path on the host machine. By contrast, when you use a volume, a new directory is created within Docker's storage directory on the host machine, and Docker manages that directory's contents.
+Bind mounts have been around since the early days of Docker. Bind mounts have limited functionality compared to [volumes]({{< ref "/manuals/DockerEngine/Storage/Volumes" >}}). When you use a bind mount, a file or directory on the host machine is mounted into a container. The file or directory is referenced by its absolute path on the host machine. By contrast, when you use a volume, a new directory is created within Docker's storage directory on the host machine, and Docker manages that directory's contents.
 
-The file or directory does not need to exist on the Docker host already. It is created on demand if it does not yet exist. Bind mounts are very performant, but they rely on the host machine's filesystem having a specific directory structure available. If you are developing new Docker applications, consider using [named volumes](https://docs.docker.com/engine/storage/volumes/) instead. You can't use Docker CLI commands to directly manage bind mounts.
+The file or directory does not need to exist on the Docker host already. It is created on demand if it does not yet exist. Bind mounts are very performant, but they rely on the host machine's filesystem having a specific directory structure available. If you are developing new Docker applications, consider using [named volumes]({{< ref "/manuals/DockerEngine/Storage/Volumes" >}}) instead. You can't use Docker CLI commands to directly manage bind mounts.
 
 ![Bind mounts on the Docker host](Bindmounts_img/types-of-mounts-bind.webp)
 
@@ -24,9 +24,9 @@ The file or directory does not need to exist on the Docker host already. It is c
 >
 > 
 >
-> Working with large repositories or monorepos, or with virtual file systems that are no longer scaling with your codebase? Check out [Synchronized file shares](https://docs.docker.com/desktop/synchronized-file-sharing/). It provides fast and flexible host-to-VM file sharing by enhancing bind mount performance through the use of synchronized filesystem caches.
+> Working with large repositories or monorepos, or with virtual file systems that are no longer scaling with your codebase? Check out [Synchronized file shares]({{< ref "/manuals/DockerDesktop/Synchronizedfileshares" >}}). It provides fast and flexible host-to-VM file sharing by enhancing bind mount performance through the use of synchronized filesystem caches.
 
-## [Choose the -v or --mount flag](https://docs.docker.com/engine/storage/bind-mounts/#choose-the--v-or---mount-flag)
+## Choose the -v or --mount flag
 
 In general, `--mount` is more explicit and verbose. The biggest difference is that the `-v` syntax combines all the options together in one field, while the `--mount` syntax separates them. Here is a comparison of the syntax for each flag.
 
@@ -48,7 +48,7 @@ In general, `--mount` is more explicit and verbose. The biggest difference is th
 
 The examples below show both the `--mount` and `-v` syntax where possible, and `--mount` is presented first.
 
-### [Differences between `-v` and `--mount` behavior](https://docs.docker.com/engine/storage/bind-mounts/#differences-between--v-and---mount-behavior)
+### Differences between `-v` and `--mount` behavior
 
 Because the `-v` and `--volume` flags have been a part of Docker for a long time, their behavior cannot be changed. This means that there is one behavior that is different between `-v` and `--mount`.
 
@@ -56,27 +56,41 @@ If you use `-v` or `--volume` to bind-mount a file or directory that does not ye
 
 If you use `--mount` to bind-mount a file or directory that does not yet exist on the Docker host, Docker does not automatically create it for you, but generates an error.
 
-## [Start a container with a bind mount](https://docs.docker.com/engine/storage/bind-mounts/#start-a-container-with-a-bind-mount)
+## Start a container with a bind mount
 
-Consider a case where you have a directory `source` and that when you build the source code, the artifacts are saved into another directory, `source/target/`. You want the artifacts to be available to the container at `/app/`, and you want the container to get access to a new build each time you build the source on your development host. Use the following command to bind-mount the `target/` directory into your container at `/app/`. Run the command from within the `source` directory. The `$(pwd)` sub-command expands to the current working directory on Linux or macOS hosts. If you're on Windows, see also [Path conversions on Windows](https://docs.docker.com/desktop/troubleshoot/topics/).
+Consider a case where you have a directory `source` and that when you build the source code, the artifacts are saved into another directory, `source/target/`. You want the artifacts to be available to the container at `/app/`, and you want the container to get access to a new build each time you build the source on your development host. Use the following command to bind-mount the `target/` directory into your container at `/app/`. Run the command from within the `source` directory. The `$(pwd)` sub-command expands to the current working directory on Linux or macOS hosts. If you're on Windows, see also [Path conversions on Windows]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Commontopics" >}}).
 
 The `--mount` and `-v` examples below produce the same result. You can't run them both unless you remove the `devtest` container after running the first one.
 
-```
---mount` `-v
-```
+{{< tabpane text=true persist=disabled >}}
 
-------
-
-
+{{% tab header="`--mount`" %}}
 
 ```console
-$ docker run -d \
+ docker run -d \
   -it \
   --name devtest \
   --mount type=bind,source="$(pwd)"/target,target=/app \
   nginx:latest
 ```
+
+{{% /tab  %}}
+
+{{% tab header="`-v`" %}}
+
+```console
+ docker run -d \
+  -it \
+  --name devtest \
+  -v "$(pwd)"/target:/app \
+  nginx:latest
+```
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+
 
 ------
 
@@ -109,24 +123,20 @@ $ docker container stop devtest
 $ docker container rm devtest
 ```
 
-### [Mount into a non-empty directory on the container](https://docs.docker.com/engine/storage/bind-mounts/#mount-into-a-non-empty-directory-on-the-container)
+### Mount into a non-empty directory on the container
 
-If you bind-mount a directory into a non-empty directory on the container, the directory's existing contents are obscured by the bind mount. This can be beneficial, such as when you want to test a new version of your application without building a new image. However, it can also be surprising and this behavior differs from that of [docker volumes](https://docs.docker.com/engine/storage/volumes/).
+If you bind-mount a directory into a non-empty directory on the container, the directory's existing contents are obscured by the bind mount. This can be beneficial, such as when you want to test a new version of your application without building a new image. However, it can also be surprising and this behavior differs from that of [docker volumes]({{< ref "/manuals/DockerEngine/Storage/Volumes" >}}).
 
 This example is contrived to be extreme, but replaces the contents of the container's `/usr/` directory with the `/tmp/` directory on the host machine. In most cases, this would result in a non-functioning container.
 
 The `--mount` and `-v` examples have the same end result.
 
-```
---mount` `-v
-```
+{{< tabpane text=true persist=disabled >}}
 
-------
-
-
+{{% tab header="`--mount`" %}}
 
 ```console
-$ docker run -d \
+ docker run -d \
   -it \
   --name broken-container \
   --mount type=bind,source=/tmp,target=/usr \
@@ -135,6 +145,27 @@ $ docker run -d \
 docker: Error response from daemon: oci runtime error: container_linux.go:262:
 starting container process caused "exec: \"nginx\": executable file not found in $PATH".
 ```
+
+{{% /tab  %}}
+
+{{% tab header="`-v`" %}}
+
+```console
+ docker run -d \
+  -it \
+  --name broken-container \
+  -v /tmp:/usr \
+  nginx:latest
+
+docker: Error response from daemon: oci runtime error: container_linux.go:262:
+starting container process caused "exec: \"nginx\": executable file not found in $PATH".
+```
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+
 
 ------
 
@@ -146,7 +177,7 @@ The container is created but does not start. Remove it:
 $ docker container rm broken-container
 ```
 
-## [Use a read-only bind mount](https://docs.docker.com/engine/storage/bind-mounts/#use-a-read-only-bind-mount)
+## Use a read-only bind mount
 
 For some development applications, the container needs to write into the bind mount, so changes are propagated back to the Docker host. At other times, the container only needs read access.
 
@@ -154,21 +185,35 @@ This example modifies the one above but mounts the directory as a read-only bind
 
 The `--mount` and `-v` examples have the same result.
 
-```
---mount` `-v
-```
+{{< tabpane text=true persist=disabled >}}
 
-------
-
-
+{{% tab header="`--mount`" %}}
 
 ```console
-$ docker run -d \
+ docker run -d \
   -it \
   --name devtest \
   --mount type=bind,source="$(pwd)"/target,target=/app,readonly \
   nginx:latest
 ```
+
+{{% /tab  %}}
+
+{{% tab header="`-v`" %}}
+
+```console
+ docker run -d \
+  -it \
+  --name devtest \
+  -v "$(pwd)"/target:/app:ro \
+  nginx:latest
+```
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+
 
 ------
 
@@ -199,7 +244,7 @@ $ docker container stop devtest
 $ docker container rm devtest
 ```
 
-## [Recursive mounts](https://docs.docker.com/engine/storage/bind-mounts/#recursive-mounts)
+## Recursive mounts
 
 When you bind mount a path that itself contains mounts, those submounts are also included in the bind mount by default. This behavior is configurable, using the `bind-recursive` option for `--mount`. This option is only supported with the `--mount` flag, not with `-v` or `--volume`.
 
@@ -214,7 +259,7 @@ Supported values for the `bind-recursive` option are:
 | `writable`          | Submounts are read-write.                                    |
 | `readonly`          | Submounts are read-only. Requires kernel v5.12 or later.     |
 
-## [Configure bind propagation](https://docs.docker.com/engine/storage/bind-mounts/#configure-bind-propagation)
+## Configure bind propagation
 
 Bind propagation defaults to `rprivate` for both bind mounts and volumes. It is only configurable for bind mounts, and only on Linux host machines. Bind propagation is an advanced topic and many users never need to configure it.
 
@@ -243,16 +288,12 @@ The following example mounts the `target/` directory into the container twice, a
 
 The `--mount` and `-v` examples have the same result.
 
-```
---mount` `-v
-```
+{{< tabpane text=true persist=disabled >}}
 
-------
-
-
+{{% tab header="`--mount`" %}}
 
 ```console
-$ docker run -d \
+ docker run -d \
   -it \
   --name devtest \
   --mount type=bind,source="$(pwd)"/target,target=/app \
@@ -260,11 +301,30 @@ $ docker run -d \
   nginx:latest
 ```
 
+{{% /tab  %}}
+
+{{% tab header="`-v`" %}}
+
+```console
+ docker run -d \
+  -it \
+  --name devtest \
+  -v "$(pwd)"/target:/app \
+  -v "$(pwd)"/target:/app2:ro,rslave \
+  nginx:latest
+```
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+
+
 ------
 
 Now if you create `/app/foo/`, `/app2/foo/` also exists.
 
-## [Configure the selinux label](https://docs.docker.com/engine/storage/bind-mounts/#configure-the-selinux-label)
+## Configure the selinux label
 
 If you use `selinux` you can add the `z` or `Z` options to modify the selinux label of the host file or directory being mounted into the container. This affects the file or directory on the host machine itself and can have consequences outside of the scope of Docker.
 
@@ -293,7 +353,7 @@ $ docker run -d \
   nginx:latest
 ```
 
-## [Use a bind mount with compose](https://docs.docker.com/engine/storage/bind-mounts/#use-a-bind-mount-with-compose)
+## Use a bind mount with compose
 
 A single Docker Compose service with a bind mount looks like this:
 
@@ -313,8 +373,8 @@ volumes:
 
 For more information about using volumes of the `bind` type with Compose, see [Compose reference on volumes](https://docs.docker.com/reference/compose-file/services/#volumes). and [Compose reference on volume configuration](https://docs.docker.com/reference/compose-file/services/#volumes).
 
-## [Next steps](https://docs.docker.com/engine/storage/bind-mounts/#next-steps)
+## Next steps
 
-- Learn about [volumes](https://docs.docker.com/engine/storage/volumes/).
-- Learn about [tmpfs mounts](https://docs.docker.com/engine/storage/tmpfs/).
-- Learn about [storage drivers](https://docs.docker.com/engine/storage/drivers/).
+- Learn about [volumes]({{< ref "/manuals/DockerEngine/Storage/Volumes" >}}).
+- Learn about [tmpfs mounts]({{< ref "/manuals/DockerEngine/Storage/tmpfsmounts" >}}).
+- Learn about [storage drivers]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers" >}}).

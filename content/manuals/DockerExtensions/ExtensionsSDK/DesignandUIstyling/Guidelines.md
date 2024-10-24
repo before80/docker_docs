@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/design/design-guidelines/](https://docs.docker.com/extensions/extensions-sdk/design/design-guidelines/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/design/design-guidelines/](https://docs.docker.com/extensions/extensions-sdk/design/design-guidelines/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,7 +22,7 @@ Here is a simple checklist to go through when creating your extension:
 - Is it easy to use?
 - Is it easy to get help when needed?
 
-## [Create a consistent experience with Docker Desktop](https://docs.docker.com/extensions/extensions-sdk/design/design-guidelines/#create-a-consistent-experience-with-docker-desktop)
+## Create a consistent experience with Docker Desktop
 
 Use the [Docker Material UI Theme](https://www.npmjs.com/package/@docker/docker-mui-theme) and the [Docker Extensions Styleguide](https://www.figma.com/file/U7pLWfEf6IQKUHLhdateBI/Docker-Design-Guidelines?node-id=1%3A28771) to ensure that your extension feels like it is part of Docker Desktop to create a seamless experience for users.
 
@@ -44,7 +44,7 @@ Use the [Docker Material UI Theme](https://www.npmjs.com/package/@docker/docker-
 
   ![Terminal window used correctly](Guidelines_img/terminal_window_do.webp)
 
-## [Build features natively](https://docs.docker.com/extensions/extensions-sdk/design/design-guidelines/#build-features-natively)
+## Build features natively
 
 - In order not to disrupt the flow of users, avoid scenarios where the user has to navigate outside Docker Desktop, to the CLI or a webpage for example, in order to carry out certain functionalities. Instead, build features that are native to Docker Desktop.
 
@@ -52,7 +52,7 @@ Use the [Docker Material UI Theme](https://www.npmjs.com/package/@docker/docker-
 
   ![Correct way to switch context](Guidelines_img/switch_context_do.webp)
 
-## [Break down complicated user flows](https://docs.docker.com/extensions/extensions-sdk/design/design-guidelines/#break-down-complicated-user-flows)
+## Break down complicated user flows
 
 - If a flow is too complicated or the concept is abstract, break down the flow into multiple steps with one simple call-to-action in each step. This helps when onboarding novice users to your extension
 
@@ -62,7 +62,7 @@ Use the [Docker Material UI Theme](https://www.npmjs.com/package/@docker/docker-
 
   ![Call to action](Guidelines_img/cta.webp)
 
-## [Onboarding new users](https://docs.docker.com/extensions/extensions-sdk/design/design-guidelines/#onboarding-new-users)
+## Onboarding new users
 
 When creating your extension, ensure that first time users of the extension and your product can understand its value-add and adopt it easily. Ensure you include contextual help within the extension.
 
@@ -76,8 +76,8 @@ When creating your extension, ensure that first time users of the extension and 
 
   ![start page](Guidelines_img/start_page.webp)
 
-## [What's next?](https://docs.docker.com/extensions/extensions-sdk/design/design-guidelines/#whats-next)
+## What's next?
 
-- Explore our [design principles](https://docs.docker.com/extensions/extensions-sdk/design/design-principles/).
-- Take a look at our [UI styling guidelines](https://docs.docker.com/extensions/extensions-sdk/design/).
-- Learn how to [publish your extension](https://docs.docker.com/extensions/extensions-sdk/extensions/).
+- Explore our [design principles]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DesignandUIstyling/Dockerdesignprinciples" >}}).
+- Take a look at our [UI styling guidelines]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DesignandUIstyling" >}}).
+- Learn how to [publish your extension]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish" >}}).

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/](https://docs.docker.com/extensions/)
+> 原文：[https://docs.docker.com/extensions/](https://docs.docker.com/extensions/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,13 +16,13 @@ draft = false
 
 Docker Extensions let you use third-party tools within Docker Desktop to extend its functionality.
 
-You can seamlessly connect your favorite development tools to your application development and deployment workflows. Augment Docker Desktop with debugging, testing, security, and networking functionalities, and create custom add-ons using the Extensions [SDK](https://docs.docker.com/extensions/extensions-sdk/).
+You can seamlessly connect your favorite development tools to your application development and deployment workflows. Augment Docker Desktop with debugging, testing, security, and networking functionalities, and create custom add-ons using the Extensions [SDK]({{< ref "/manuals/DockerExtensions/ExtensionsSDK" >}}).
 
 Anyone can use Docker Extensions and there is no limit to the number of extensions you can install.
 
 ![Extensions Marketplace](_index_img/extensions.webp)
 
-## [What extensions are available?](https://docs.docker.com/extensions/#what-extensions-are-available)
+## What extensions are available?
 
 There is a mix of partner and community-built extensions and Docker-built extensions. You can explore the list of available extensions in [Docker Hub](https://hub.docker.com/search?q=&type=extension) or in the Extensions Marketplace within Docker Desktop.
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/integrations/source-code-management/github/](https://docs.docker.com/scout/integrations/source-code-management/github/)
+> 原文：[https://docs.docker.com/scout/integrations/source-code-management/github/](https://docs.docker.com/scout/integrations/source-code-management/github/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,17 +20,17 @@ The GitHub integration is currently in [Beta](https://docs.docker.com/release-li
 
 The GitHub app integration for Docker Scout grants Docker Scout access to your source code repository on GitHub. This improved visibility into how your image gets created means Docker Scout can give you automated and contextual remediation advice.
 
-## [How it works](https://docs.docker.com/scout/integrations/source-code-management/github/#how-it-works)
+## How it works
 
 When you enable the GitHub integration, Docker Scout can make a direct link between the image analysis results and the source.
 
-When analyzing your image, Docker Scout checks for [provenance attestations](https://docs.docker.com/build/metadata/attestations/slsa-provenance/) to detect the location of the source code repository for the image. If the source location is found, and you've enabled the GitHub app, Docker Scout parses the Dockerfile used to create the image.
+When analyzing your image, Docker Scout checks for [provenance attestations]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations/Provenanceattestations" >}}) to detect the location of the source code repository for the image. If the source location is found, and you've enabled the GitHub app, Docker Scout parses the Dockerfile used to create the image.
 
 Parsing the Dockerfile reveals the base image tag used to build the image. By knowing the base image tags used, Docker Scout can detect whether the tag is outdated, meaning it's been changed to a different image digest. For example, say you're using `alpine:3.18` as your base image, and at a later point in time, the image maintainers release a patch version for version `3.18`, containing security fixes. The `alpine:3.18` tag you've been using becomes out-of-date; the `alpine:3.18` you're using is no longer the latest.
 
-When this happens, Docker Scout detects the discrepancy and surfaces it through the [Up-to-Date Base Images policy](https://docs.docker.com/scout/policy/#up-to-date-base-images-policy). When the GitHub integration's enabled, you'll also get automated suggestions on how to update your base image. For more information about how Docker Scout can help you automatically improve your supply chain conduct and security posture, see [Remediation](https://docs.docker.com/scout/policy/remediation/).
+When this happens, Docker Scout detects the discrepancy and surfaces it through the [Up-to-Date Base Images policy](https://docs.docker.com/scout/policy/#up-to-date-base-images-policy). When the GitHub integration's enabled, you'll also get automated suggestions on how to update your base image. For more information about how Docker Scout can help you automatically improve your supply chain conduct and security posture, see [Remediation]({{< ref "/manuals/DockerScout/PolicyEvaluation/RemediationwithDockerScout" >}}).
 
-## [Setup](https://docs.docker.com/scout/integrations/source-code-management/github/#setup)
+## Setup
 
 To integrate Docker Scout with your GitHub organization:
 

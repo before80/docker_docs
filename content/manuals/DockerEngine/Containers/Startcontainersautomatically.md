@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/containers/start-containers-automatically/](https://docs.docker.com/engine/containers/start-containers-automatically/)
+> 原文：[https://docs.docker.com/engine/containers/start-containers-automatically/](https://docs.docker.com/engine/containers/start-containers-automatically/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ Docker provides [restart policies](https://docs.docker.com/engine/containers/run
 
 Restart policies are different from the `--live-restore` flag of the `dockerd` command. Using `--live-restore` lets you to keep your containers running during a Docker upgrade, though networking and user input are interrupted.
 
-## [Use a restart policy](https://docs.docker.com/engine/containers/start-containers-automatically/#use-a-restart-policy)
+## Use a restart policy
 
 To configure the restart policy for a container, use the `--restart` flag when using the `docker run` command. The value of the `--restart` flag can be any of the following:
 
@@ -53,15 +53,15 @@ The following command ensures all running containers restart.
 $ docker update --restart unless-stopped $(docker ps -q)
 ```
 
-### [Restart policy details](https://docs.docker.com/engine/containers/start-containers-automatically/#restart-policy-details)
+### Restart policy details
 
 Keep the following in mind when using restart policies:
 
 - A restart policy only takes effect after a container starts successfully. In this case, starting successfully means that the container is up for at least 10 seconds and Docker has started monitoring it. This prevents a container which doesn't start at all from going into a restart loop.
 - If you manually stop a container, the restart policy is ignored until the Docker daemon restarts or the container is manually restarted. This prevents a restart loop.
-- Restart policies only apply to containers. To configure restart policies for Swarm services, see [flags related to service restart](https://docs.docker.com/reference/cli/docker/service/create/).
+- Restart policies only apply to containers. To configure restart policies for Swarm services, see [flags related to service restart]({{< ref "/reference/CLIreference/docker/dockerservice/dockerservicecreate" >}}).
 
-### [Restarting foreground containers](https://docs.docker.com/engine/containers/start-containers-automatically/#restarting-foreground-containers)
+### Restarting foreground containers
 
 When you run a container in the foreground, stopping a container causes the attached CLI to exit as well, regardless of the restart policy of the container. This behavior is illustrated in the following example.
 
@@ -131,7 +131,7 @@ When you run a container in the foreground, stopping a container causes the atta
    $
    ```
 
-## [Use a process manager](https://docs.docker.com/engine/containers/start-containers-automatically/#use-a-process-manager)
+## Use a process manager
 
 If restart policies don't suit your needs, such as when processes outside Docker depend on Docker containers, you can use a process manager such as [systemd](https://systemd.io/) or [supervisor](http://supervisord.org/) instead.
 
@@ -143,7 +143,7 @@ If restart policies don't suit your needs, such as when processes outside Docker
 
 To use a process manager, configure it to start your container or service using the same `docker start` or `docker service` command you would normally use to start the container manually. Consult the documentation for the specific process manager for more details.
 
-### [Using a process manager inside containers](https://docs.docker.com/engine/containers/start-containers-automatically/#using-a-process-manager-inside-containers)
+### Using a process manager inside containers
 
 Process managers can also run within the container to check whether a process is running and starts/restart it if not.
 

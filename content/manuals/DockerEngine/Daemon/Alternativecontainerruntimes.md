@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/daemon/alternative-runtimes/](https://docs.docker.com/engine/daemon/alternative-runtimes/)
+> 原文：[https://docs.docker.com/engine/daemon/alternative-runtimes/](https://docs.docker.com/engine/daemon/alternative-runtimes/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 Docker Engine uses containerd for managing the container lifecycle, which includes creating, starting, and stopping containers. By default, containerd uses runc as its container runtime.
 
-## [What runtimes can I use?](https://docs.docker.com/engine/daemon/alternative-runtimes/#what-runtimes-can-i-use)
+## What runtimes can I use?
 
 You can use any runtime that implements the containerd [shim API](https://github.com/containerd/containerd/blob/main/core/runtime/v2/README.md). Such runtimes ship with a containerd shim, and you can use them without any additional configuration. See [Use containerd shims](https://docs.docker.com/engine/daemon/alternative-runtimes/#use-containerd-shims).
 
@@ -30,7 +30,7 @@ You can also use runtimes designed as drop-in replacements for runc. Such runtim
 
 [youki](https://github.com/containers/youki) is one example of a runtime that can function as a runc drop-in replacement. Refer to the [youki example](https://docs.docker.com/engine/daemon/alternative-runtimes/#youki) explaining the setup.
 
-## [Use containerd shims](https://docs.docker.com/engine/daemon/alternative-runtimes/#use-containerd-shims)
+## Use containerd shims
 
 containerd shims let you use alternative runtimes without having to change the configuration of the Docker daemon. To use a containerd shim, install the shim binary on `PATH` on the system where the Docker daemon is running.
 
@@ -42,7 +42,7 @@ To use a shim with `docker run`, specify the fully qualified name of the runtime
 $ docker run --runtime io.containerd.kata.v2 hello-world
 ```
 
-### [Use a containerd shim without installing on PATH](https://docs.docker.com/engine/daemon/alternative-runtimes/#use-a-containerd-shim-without-installing-on-path)
+### Use a containerd shim without installing on PATH
 
 You can use a shim without installing it on `PATH`, in which case you need to register the shim in the daemon configuration as follows:
 
@@ -66,7 +66,7 @@ To use the shim, specify the name that you assigned to it:
 $ docker run --runtime foo hello-world
 ```
 
-### [Configure shims](https://docs.docker.com/engine/daemon/alternative-runtimes/#configure-shims)
+### Configure shims
 
 If you need to pass additional configuration for a containerd shim, you can use the `runtimes` option in the daemon configuration file.
 
@@ -109,14 +109,14 @@ If you need to pass additional configuration for a containerd shim, you can use 
 
 For more information about the configuration options for containerd shims, see [Configure containerd shims](https://docs.docker.com/reference/cli/dockerd/#configure-containerd-shims).
 
-## [Examples](https://docs.docker.com/engine/daemon/alternative-runtimes/#examples)
+## Examples
 
 The following examples show you how to set up and use alternative container runtimes with Docker Engine.
 
 - [youki](https://docs.docker.com/engine/daemon/alternative-runtimes/#youki)
 - [Wasmtime](https://docs.docker.com/engine/daemon/alternative-runtimes/#wasmtime)
 
-### [youki](https://docs.docker.com/engine/daemon/alternative-runtimes/#youki)
+### youki
 
 youki is a container runtime written in Rust. youki claims to be faster and use less memory than runc, making it a good choice for resource-constrained environments.
 
@@ -162,13 +162,13 @@ Now you can run containers that use youki as a runtime.
 $ docker run --rm --runtime youki hello-world
 ```
 
-### [Wasmtime](https://docs.docker.com/engine/daemon/alternative-runtimes/#wasmtime)
+### Wasmtime
 
 Wasmtime is a [Bytecode Alliance](https://bytecodealliance.org/) project, and a Wasm runtime that lets you run Wasm containers. Running Wasm containers with Docker provides two layers of security. You get all the benefits from container isolation, plus the added sandboxing provided by the Wasm runtime environment.
 
 To add Wasmtime as a container runtime, follow these steps:
 
-1. Turn on the [containerd image store](https://docs.docker.com/engine/storage/containerd/) feature in the daemon configuration file.
+1. Turn on the [containerd image store]({{< ref "/manuals/DockerEngine/Storage/containerdimagestore" >}}) feature in the daemon configuration file.
 
    > **Note**
    >
@@ -232,7 +232,7 @@ $ docker run --rm \
  michaelirwin244/wasm-example
 ```
 
-## [Related information](https://docs.docker.com/engine/daemon/alternative-runtimes/#related-information)
+## Related information
 
 - To learn more about the configuration options for container runtimes, see [Configure container runtimes](https://docs.docker.com/reference/cli/dockerd/#configure-container-runtimes).
 - You can configure which runtime that the daemon should use as its default. Refer to [Configure the default container runtime](https://docs.docker.com/reference/cli/dockerd/#configure-the-default-container-runtime).

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/alpha/viz/](https://docs.docker.com/reference/cli/docker/compose/alpha/viz/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/alpha/viz/](https://docs.docker.com/reference/cli/docker/compose/alpha/viz/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -24,11 +24,11 @@ draft = false
 
 Experimental features are intended for testing and feedback as their functionality or design may change between releases without warning or can be removed entirely in a future release.
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/alpha/viz/#description)
+## Description
 
 EXPERIMENTAL - Generate a graphviz graph from your compose file
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/alpha/viz/#options)
+## Options
 
 | Option               | Default | Description                                                  |
 | -------------------- | ------- | ------------------------------------------------------------ |

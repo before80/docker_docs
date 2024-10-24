@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/subscription/core-subscription/remove-seats/](https://docs.docker.com/subscription/core-subscription/remove-seats/)
+> 原文：[https://docs.docker.com/subscription/core-subscription/remove-seats/](https://docs.docker.com/subscription/core-subscription/remove-seats/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ If you remove seats in the middle of the billing cycle, changes apply in the nex
 
 For example, if you receive your billing on the 8th of every month for 10 seats and you want to remove 2 seats on the 15th of the month, the 2 seats will be removed from your subscription the next month. Your payment for 8 seats begins on the next billing cycle. If you're on the annual subscription, the 2 seats are still available until the next year, and your payment for the 8 seats begins on the next billing cycle.
 
-## [Remove seats from a monthly or an annual subscription](https://docs.docker.com/subscription/core-subscription/remove-seats/#remove-seats-from-a-monthly-or-an-annual-subscription)
+## Remove seats from a monthly or an annual subscription
 
 > **Important**
 >

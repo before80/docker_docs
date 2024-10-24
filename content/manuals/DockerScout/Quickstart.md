@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/quickstart/](https://docs.docker.com/scout/quickstart/)
+> 原文：[https://docs.docker.com/scout/quickstart/](https://docs.docker.com/scout/quickstart/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ Docker Scout analyzes image contents and generates a detailed report of packages
 
 This guide takes a vulnerable container image and shows you how to use Docker Scout to identify and fix the vulnerabilities, compare image versions over time, and share the results with your team.
 
-## [Step 1: Setup](https://docs.docker.com/scout/quickstart/#step-1-setup)
+## Step 1: Setup
 
 [This example project](https://github.com/docker/scout-demo-service) contains a vulnerable Node.js application that you can use to follow along.
 
@@ -48,9 +48,9 @@ This guide takes a vulnerable container image and shows you how to use Docker Sc
    $ docker build --push -t ORG_NAME/scout-demo:v1 .
    ```
 
-## [Step 2: Enable Docker Scout](https://docs.docker.com/scout/quickstart/#step-2-enable-docker-scout)
+## Step 2: Enable Docker Scout
 
-Docker Scout analyzes all local images by default. To analyze images in remote repositories, you need to enable it first. You can do this from Docker Hub, the Docker Scout Dashboard, and CLI. [Find out how in the overview guide](https://docs.docker.com/scout).
+Docker Scout analyzes all local images by default. To analyze images in remote repositories, you need to enable it first. You can do this from Docker Hub, the Docker Scout Dashboard, and CLI. [Find out how in the overview guide]({{< ref "/manuals/DockerScout" >}}).
 
 1. Sign in to your Docker account with the `docker login` command or use the **Sign in** button in Docker Desktop.
 
@@ -71,7 +71,7 @@ Docker Scout analyzes all local images by default. To analyze images in remote r
    $ docker scout repo enable --org ORG_NAME ORG_NAME/scout-demo
    ```
 
-## [Step 3: Analyze image vulnerabilities](https://docs.docker.com/scout/quickstart/#step-3-analyze-image-vulnerabilities)
+## Step 3: Analyze image vulnerabilities
 
 After building, use the `docker scout` CLI command to see vulnerabilities detected by Docker Scout.
 
@@ -85,9 +85,9 @@ $ docker scout cves --only-package express
 
 Docker Scout analyzes the image you built most recently by default, so there's no need to specify the name of the image in this case.
 
-Learn more about the `docker scout cves` command in the [`CLI reference documentation`](https://docs.docker.com/reference/cli/docker/scout/cves).
+Learn more about the `docker scout cves` command in the [`CLI reference documentation`]({{< ref "/reference/CLIreference/docker/dockerscout/dockerscoutcves" >}}).
 
-## [Step 4: Fix application vulnerabilities](https://docs.docker.com/scout/quickstart/#step-4-fix-application-vulnerabilities)
+## Step 4: Fix application vulnerabilities
 
 The fix suggested by Docker Scout is to update the underlying vulnerable express version to 4.17.3 or later.
 
@@ -141,7 +141,7 @@ $ docker scout cves --only-package express
   No vulnerable packages detected
 ```
 
-## [Step 5: Evaluate policy compliance](https://docs.docker.com/scout/quickstart/#step-5-evaluate-policy-compliance)
+## Step 5: Evaluate policy compliance
 
 While inspecting vulnerabilities based on specific packages can be useful, it isn't the most effective way to improve your supply chain conduct.
 
@@ -178,7 +178,7 @@ Policy status  FAILED  (2/6 policies met, 2 missing data)
 
 Exclamation marks in the status column indicate a violated policy. Question marks indicate that there isn't enough metadata to complete the evaluation. A check mark indicates compliance.
 
-## [Step 6: Improve compliance](https://docs.docker.com/scout/quickstart/#step-6-improve-compliance)
+## Step 6: Improve compliance
 
 The output of the `quickview` command shows that there's room for improvement. Some of the policies couldn't evaluate successfully (`No data`) because the image lacks provenance and SBOM attestations. The image also failed the check on a few of the evaluations.
 
@@ -196,7 +196,7 @@ To address this policy violation, edit the Dockerfile by adding a `USER` instruc
 
 Additionally, to get a more complete policy evaluation result, your image should have SBOM and provenance attestations attached to it. Docker Scout uses the provenance attestations to determine how the image was built so that it can provide a better evaluation result.
 
-Before you can build an image with attestations, you must enable the [containerd image store](https://docs.docker.com/desktop/containerd/) (or create a custom builder using the `docker-container` driver). The classic image store doesn't support manifest lists, which is how the provenance attestations are attached to an image.
+Before you can build an image with attestations, you must enable the [containerd image store]({{< ref "/manuals/DockerDesktop/containerdimagestore" >}}) (or create a custom builder using the `docker-container` driver). The classic image store doesn't support manifest lists, which is how the provenance attestations are attached to an image.
 
 Open **Settings** in Docker Desktop. Under the **General** section, make sure that the **Use containerd for pulling and storing images** option is checked. Note that changing image stores temporarily hides images and containers of the inactive image store until you switch back.
 
@@ -208,7 +208,7 @@ With the containerd image store enabled, rebuild the image with a new `v3` tag. 
 $ docker build --provenance=true --sbom=true --push -t ORG_NAME/scout-demo:v3 .
 ```
 
-## [Step 7: View in Dashboard](https://docs.docker.com/scout/quickstart/#step-7-view-in-dashboard)
+## Step 7: View in Dashboard
 
 After pushing the updated image with attestations, it's time to view the results through a different lens: the Docker Scout Dashboard.
 
@@ -226,7 +226,7 @@ The images page lists your Scout-enabled repositories. Select the image in the l
 
 Inspect the **Up-to-Date Base Images** policy. This policy checks whether base images you use are up-to-date. It currently has a non-compliant status, because the example image uses an old version `alpine` as a base image.
 
-Select the **View fix** button next to the policy name for details about the violation, and recommendations on how to address it. In this case, the recommended action is to enable [Docker Scout's GitHub integration](https://docs.docker.com/scout/integrations/source-code-management/github/), which helps keep your base images up-to-date automatically.
+Select the **View fix** button next to the policy name for details about the violation, and recommendations on how to address it. In this case, the recommended action is to enable [Docker Scout's GitHub integration]({{< ref "/manuals/DockerScout/Integrations/Sourcecodemanagement/GitHub" >}}), which helps keep your base images up-to-date automatically.
 
 > **Tip**
 >
@@ -234,7 +234,7 @@ Select the **View fix** button next to the policy name for details about the vio
 >
 > You can't enable this integration for the demo app used in this guide. Feel free to push the code to a GitHub repository that you own, and try out the integration there!
 
-## [Summary](https://docs.docker.com/scout/quickstart/#summary)
+## Summary
 
 This quickstart guide has scratched the surface on some of the ways Docker Scout can support software supply chain management:
 
@@ -243,14 +243,14 @@ This quickstart guide has scratched the surface on some of the ways Docker Scout
 - Policy and compliance
 - Fixing vulnerabilities and improving compliance
 
-## [What's next?](https://docs.docker.com/scout/quickstart/#whats-next)
+## What's next?
 
 There's lots more to discover, from third-party integrations, to policy customization, and runtime environment monitoring in real-time.
 
 Check out the following sections:
 
-- [Image analysis](https://docs.docker.com/scout/explore/analysis/)
+- [Image analysis]({{< ref "/manuals/DockerScout/Explore/DockerScoutimageanalysis" >}})
 - [Data sources](https://docs.docker.com/scout/advisory-db-sources)
 - [Docker Scout Dashboard](https://docs.docker.com/scout/dashboard)
-- [Integrations](https://docs.docker.com/scout/integrations/)
-- [Policy evaluation](https://docs.docker.com/scout/policy/)
+- [Integrations]({{< ref "/manuals/DockerScout/Integrations" >}})
+- [Policy evaluation]({{< ref "/manuals/DockerScout/PolicyEvaluation" >}})

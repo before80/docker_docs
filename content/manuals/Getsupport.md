@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/support/](https://docs.docker.com/support/)
+> 原文：[https://docs.docker.com/support/](https://docs.docker.com/support/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 Find information on how to get support, and the scope of support.
 
-## [How do I get support?](https://docs.docker.com/support/#how-do-i-get-support)
+## How do I get support?
 
 If you have a paid Docker subscription, you can [contact the Support team](https://hub.docker.com/support/contact/).
 
@@ -28,7 +28,7 @@ All Docker users can seek support through the following resources, where Docker 
 - [Docker Community Forums](https://forums.docker.com/)
 - [Docker Community Slack](http://dockr.ly/comm-slack)
 
-## [What support can I get?](https://docs.docker.com/support/#what-support-can-i-get)
+## What support can I get?
 
 If you have a paid Docker subscription, you can get support for the following types of issues:
 
@@ -51,9 +51,9 @@ For Windows users, you can also request support on:
 
 - Turning on virtualization in BIOS
 - Turning on Windows features
-- Running inside [certain VM or VDI environments](https://docs.docker.com/desktop/vm-vdi/) (Docker Business customers only)
+- Running inside [certain VM or VDI environments]({{< ref "/manuals/DockerDesktop/RunDockerDesktopforWindowsinaVMorVDIenvironment" >}}) (Docker Business customers only)
 
-## [What is not supported?](https://docs.docker.com/support/#what-is-not-supported)
+## What is not supported?
 
 Docker excludes support for the following types of issues:
 
@@ -75,17 +75,17 @@ Docker excludes support for the following types of issues:
 - Use on or in conjunction with hardware or software other than that specified in the applicable documentation
 - Running multiple instances of Docker Desktop on a single machine
 
-## [What Docker Desktop versions are supported?](https://docs.docker.com/support/#what-docker-desktop-versions-are-supported)
+## What Docker Desktop versions are supported?
 
 For Docker Business customers, Docker offers support for versions up to six months older than the latest version, although any fixes will be on the latest version.
 
 For Pro and Team customers, Docker only offers support for the latest version of Docker Desktop. If you are running an older version, Docker may ask you to update before investigating your support request.
 
-## [How many machines can I get support for Docker Desktop on?](https://docs.docker.com/support/#how-many-machines-can-i-get-support-for-docker-desktop-on)
+## How many machines can I get support for Docker Desktop on?
 
 As a Pro user you can get support for Docker Desktop on a single machine. As a Team user, you can get support for Docker Desktop for the number of machines equal to the number of seats as part of your plan.
 
-## [What OS’s are supported?](https://docs.docker.com/support/#what-oss-are-supported)
+## What OS’s are supported?
 
 Docker Desktop is available for Mac, Linux, and Windows. The supported version information can be found on the following pages:
 
@@ -93,7 +93,7 @@ Docker Desktop is available for Mac, Linux, and Windows. The supported version i
 - [Windows system requirements](https://docs.docker.com/desktop/install/windows-install/#system-requirements)
 - [Linux system requirements](https://docs.docker.com/desktop/install/linux/#system-requirements)
 
-## [How is personal diagnostic data handled in Docker Desktop?](https://docs.docker.com/support/#how-is-personal-diagnostic-data-handled-in-docker-desktop)
+## How is personal diagnostic data handled in Docker Desktop?
 
 When uploading diagnostics to help Docker with investigating issues, the uploaded diagnostics bundle may contain personal data such as usernames and IP addresses. The diagnostics bundles are only accessible to Docker, Inc. employees who are directly involved in diagnosing Docker Desktop issues.
 
@@ -101,8 +101,8 @@ By default, Docker, Inc. will delete uploaded diagnostics bundles after 30 days.
 
 For more information, see [Docker Data Processing Agreement](https://www.docker.com/legal/data-processing-agreement).
 
-## [What can I do before seeking support?](https://docs.docker.com/support/#what-can-i-do-before-seeking-support)
+## What can I do before seeking support?
 
-Before seeking support, you can perform basic troubleshooting. See [Diagnose and troubleshooting](https://docs.docker.com/desktop/troubleshoot/) for more information.
+Before seeking support, you can perform basic troubleshooting. See [Diagnose and troubleshooting]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose" >}}) for more information.
 
 You can also see if an answer already exists in the [FAQs](https://docs.docker.com/tags/faq/).

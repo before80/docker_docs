@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/storage/](https://docs.docker.com/engine/storage/)
+> 原文：[https://docs.docker.com/engine/storage/](https://docs.docker.com/engine/storage/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,13 +18,13 @@ By default all files created inside a container are stored on a writable contain
 
 - The data doesn't persist when that container no longer exists, and it can be difficult to get the data out of the container if another process needs it.
 - A container's writable layer is tightly coupled to the host machine where the container is running. You can't easily move the data somewhere else.
-- Writing into a container's writable layer requires a [storage driver](https://docs.docker.com/engine/storage/drivers/) to manage the filesystem. The storage driver provides a union filesystem, using the Linux kernel. This extra abstraction reduces performance as compared to using *data volumes*, which write directly to the host filesystem.
+- Writing into a container's writable layer requires a [storage driver]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers" >}}) to manage the filesystem. The storage driver provides a union filesystem, using the Linux kernel. This extra abstraction reduces performance as compared to using *data volumes*, which write directly to the host filesystem.
 
 Docker has two options for containers to store files on the host machine, so that the files are persisted even after the container stops: volumes, and bind mounts.
 
 Docker also supports containers storing files in-memory on the host machine. Such files are not persisted. If you're running Docker on Linux, `tmpfs` mount is used to store files in the host's system memory. If you're running Docker on Windows, named pipe is used to store files in the host's system memory.
 
-## [Choose the right type of mount](https://docs.docker.com/engine/storage/#choose-the-right-type-of-mount)
+## Choose the right type of mount
 
 No matter which type of mount you choose to use, the data looks the same from within the container. It is exposed as either a directory or an individual file in the container's filesystem.
 
@@ -38,7 +38,7 @@ An easy way to visualize the difference among volumes, bind mounts, and `tmpfs` 
 
 Bind mounts and volumes can both be mounted into containers using the `-v` or `--volume` flag, but the syntax for each is slightly different. For `tmpfs` mounts, you can use the `--tmpfs` flag. We recommend using the `--mount` flag for both containers and services, for bind mounts, volumes, or `tmpfs` mounts, as the syntax is more clear.
 
-### [Volumes](https://docs.docker.com/engine/storage/#volumes)
+### Volumes
 
 Volumes are created and managed by Docker. You can create a volume explicitly using the `docker volume create` command, or Docker can create a volume during container or service creation.
 
@@ -50,7 +50,7 @@ When you mount a volume, it may be named or anonymous. Anonymous volumes are giv
 
 Volumes also support the use of volume drivers, which allow you to store your data on remote hosts or cloud providers, among other possibilities.
 
-### [Bind mounts](https://docs.docker.com/engine/storage/#bind-mounts)
+### Bind mounts
 
 Bind mounts have limited functionality compared to volumes. When you use a bind mount, a file or directory on the host machine is mounted into a container. The file or directory is referenced by its full path on the host machine. The file or directory doesn't need to exist on the Docker host already. It is created on demand if it doesn't yet exist. Bind mounts are fast, but they rely on the host machine's filesystem having a specific directory structure available. If you are developing new Docker applications, consider using named volumes instead. You can't use Docker CLI commands to directly manage bind mounts.
 
@@ -66,17 +66,17 @@ Bind mounts have limited functionality compared to volumes. When you use a bind 
 >
 > 
 >
-> Working with large repositories or monorepos, or with virtual file systems that are no longer scaling with your codebase? Check out [Synchronized file shares](https://docs.docker.com/desktop/synchronized-file-sharing/). It provides fast and flexible host-to-VM file sharing by enhancing bind mount performance through the use of synchronized filesystem caches.
+> Working with large repositories or monorepos, or with virtual file systems that are no longer scaling with your codebase? Check out [Synchronized file shares]({{< ref "/manuals/DockerDesktop/Synchronizedfileshares" >}}). It provides fast and flexible host-to-VM file sharing by enhancing bind mount performance through the use of synchronized filesystem caches.
 
-### [tmpfs](https://docs.docker.com/engine/storage/#tmpfs)
+### tmpfs
 
-A `tmpfs` mount isn't persisted on disk, either on the Docker host or within a container. It can be used by a container during the lifetime of the container, to store non-persistent state or sensitive information. For instance, internally, Swarm services use `tmpfs` mounts to mount [secrets](https://docs.docker.com/engine/swarm/secrets/) into a service's containers.
+A `tmpfs` mount isn't persisted on disk, either on the Docker host or within a container. It can be used by a container during the lifetime of the container, to store non-persistent state or sensitive information. For instance, internally, Swarm services use `tmpfs` mounts to mount [secrets]({{< ref "/manuals/DockerEngine/Swarmmode/ManagesensitivedatawithDockersecrets" >}}) into a service's containers.
 
-### [Named pipes](https://docs.docker.com/engine/storage/#named-pipes)
+### Named pipes
 
 [Named pipes](https://docs.microsoft.com/en-us/windows/desktop/ipc/named-pipes) can be used for communication between the Docker host and a container. Common use case is to run a third-party tool inside of a container and connect to the Docker Engine API using a named pipe.
 
-## [Good use cases for volumes](https://docs.docker.com/engine/storage/#good-use-cases-for-volumes)
+## Good use cases for volumes
 
 Volumes are the preferred way to persist data in Docker containers and services. Some use cases for volumes include:
 
@@ -87,7 +87,7 @@ Volumes are the preferred way to persist data in Docker containers and services.
 - When your application requires high-performance I/O on Docker Desktop. Volumes are stored in the Linux VM rather than the host, which means that the reads and writes have much lower latency and higher throughput.
 - When your application requires fully native file system behavior on Docker Desktop. For example, a database engine requires precise control over disk flushing to guarantee transaction durability. Volumes are stored in the Linux VM and can make these guarantees, whereas bind mounts are remoted to macOS or Windows, where the file systems behave slightly differently.
 
-## [Good use cases for bind mounts](https://docs.docker.com/engine/storage/#good-use-cases-for-bind-mounts)
+## Good use cases for bind mounts
 
 In general, you should use volumes where possible. Bind mounts are appropriate for the following types of use case:
 
@@ -99,20 +99,20 @@ In general, you should use volumes where possible. Bind mounts are appropriate f
 
 - When the file or directory structure of the Docker host is guaranteed to be consistent with the bind mounts the containers require.
 
-## [Good use cases for tmpfs mounts](https://docs.docker.com/engine/storage/#good-use-cases-for-tmpfs-mounts)
+## Good use cases for tmpfs mounts
 
 `tmpfs` mounts are best used for cases when you do not want the data to persist either on the host machine or within the container. This may be for security reasons or to protect the performance of the container when your application needs to write a large volume of non-persistent state data.
 
-## [Tips for using bind mounts or volumes](https://docs.docker.com/engine/storage/#tips-for-using-bind-mounts-or-volumes)
+## Tips for using bind mounts or volumes
 
 If you use either bind mounts or volumes, keep the following in mind:
 
 - If you mount an **empty volume** into a directory in the container in which files or directories exist, these files or directories are propagated (copied) into the volume. Similarly, if you start a container and specify a volume which does not already exist, an empty volume is created for you. This is a good way to pre-populate data that another container needs.
 - If you mount a **bind mount or non-empty volume** into a directory in the container in which some files or directories exist, these files or directories are obscured by the mount, just as if you saved files into `/mnt` on a Linux host and then mounted a USB drive into `/mnt`. The contents of `/mnt` would be obscured by the contents of the USB drive until the USB drive was unmounted. The obscured files are not removed or altered, but are not accessible while the bind mount or volume is mounted.
 
-## [Next steps](https://docs.docker.com/engine/storage/#next-steps)
+## Next steps
 
-- Learn more about [volumes](https://docs.docker.com/engine/storage/volumes/).
-- Learn more about [bind mounts](https://docs.docker.com/engine/storage/bind-mounts/).
-- Learn more about [tmpfs mounts](https://docs.docker.com/engine/storage/tmpfs/).
-- Learn more about [storage drivers](https://docs.docker.com/engine/storage/drivers/), which are not related to bind mounts or volumes, but allow you to store data in a container's writable layer.
+- Learn more about [volumes]({{< ref "/manuals/DockerEngine/Storage/Volumes" >}}).
+- Learn more about [bind mounts]({{< ref "/manuals/DockerEngine/Storage/Bindmounts" >}}).
+- Learn more about [tmpfs mounts]({{< ref "/manuals/DockerEngine/Storage/tmpfsmounts" >}}).
+- Learn more about [storage drivers]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers" >}}), which are not related to bind mounts or volumes, but allow you to store data in a container's writable layer.

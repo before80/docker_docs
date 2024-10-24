@@ -8,15 +8,15 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/design/mui-best-practices/](https://docs.docker.com/extensions/extensions-sdk/design/mui-best-practices/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/design/mui-best-practices/](https://docs.docker.com/extensions/extensions-sdk/design/mui-best-practices/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # MUI best practices
 
-This article assumes you're following our recommended practice by using our [Material UI theme](https://www.npmjs.com/package/@docker/docker-mui-theme). Following the steps below maximises compatibility with Docker Desktop and minimises the work you need to do as an extension author. They should be considered supplementary to the non-MUI-specific guidelines found in the [UI Styling overview](https://docs.docker.com/extensions/extensions-sdk/design/).
+This article assumes you're following our recommended practice by using our [Material UI theme](https://www.npmjs.com/package/@docker/docker-mui-theme). Following the steps below maximises compatibility with Docker Desktop and minimises the work you need to do as an extension author. They should be considered supplementary to the non-MUI-specific guidelines found in the [UI Styling overview]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DesignandUIstyling" >}}).
 
-## [Assume the theme can change at any time](https://docs.docker.com/extensions/extensions-sdk/design/mui-best-practices/#assume-the-theme-can-change-at-any-time)
+## Assume the theme can change at any time
 
 Resist the temptation to fine-tune your UI with precise colors, offsets and font sizings to make it look as attractive as possible. Any specializations you make today will be relative to the current MUI theme, and may look worse when the theme changes. Any part of the theme might change without warning, including (but not limited to):
 
@@ -39,7 +39,7 @@ The best way to build your UI, so that it’s robust against future theming chan
 - Write as little CSS as possible. Write semantic markup instead. For example, if you want to space out paragraphs of text, use the `paragraph` prop on your `Typography` instances. If you want to space out something else, use a `Stack` or `Grid` with the default spacing.
 - Use visual idioms you’ve seen in the Docker Desktop UI, since these are the main ones we’ll test any theme changes against.
 
-## [When you go custom, centralize it](https://docs.docker.com/extensions/extensions-sdk/design/mui-best-practices/#when-you-go-custom-centralize-it)
+## When you go custom, centralize it
 
 Sometimes you’ll need a piece of UI that doesn’t exist in our design system. If so, we recommend that you first reach out to us. We may already have something in our internal design system, or we may be able to expand our design system to accommodate your use case.
 
@@ -51,7 +51,7 @@ If you still decide to build it yourself after contacting us, try and define the
 
 Some of the above options require you to extend our MUI theme. See the MUI documentation on [theme composition](https://mui.com/material-ui/customization/theming/#nesting-the-theme).
 
-## [What's next?](https://docs.docker.com/extensions/extensions-sdk/design/mui-best-practices/#whats-next)
+## What's next?
 
-- Take a look at our [UI styling guide](https://docs.docker.com/extensions/extensions-sdk/design/).
-- Learn how to [publish your extension](https://docs.docker.com/extensions/extensions-sdk/extensions/).
+- Take a look at our [UI styling guide]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DesignandUIstyling" >}}).
+- Learn how to [publish your extension]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish" >}}).

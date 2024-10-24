@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/bake/overrides/](https://docs.docker.com/build/bake/overrides/)
+> 原文：[https://docs.docker.com/build/bake/overrides/](https://docs.docker.com/build/bake/overrides/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -39,11 +39,11 @@ To override these attributes, you can use the following methods:
 - [CLI overrides](https://docs.docker.com/build/bake/overrides/#command-line)
 - [Environment variable overrides](https://docs.docker.com/build/bake/overrides/#environment-variables)
 
-## [File overrides](https://docs.docker.com/build/bake/overrides/#file-overrides)
+## File overrides
 
 You can load multiple Bake files that define build configurations for your targets. This is useful when you want to separate configurations into different files for better organization, or to conditionally override configurations based on which files are loaded.
 
-### [Default file lookup](https://docs.docker.com/build/bake/overrides/#default-file-lookup)
+### Default file lookup
 
 You can use the `--file` or `-f` flag to specify which files to load. If you don't specify any files, Bake will use the following lookup order:
 
@@ -116,7 +116,7 @@ $ docker buildx bake --print
 }
 ```
 
-### [Manual file overrides](https://docs.docker.com/build/bake/overrides/#manual-file-overrides)
+### Manual file overrides
 
 You can use the `--file` flag to explicitly specify which files to load, and use this as a way to conditionally apply override files.
 
@@ -184,7 +184,7 @@ $ docker buildx bake -f docker-bake.hcl -f overrides.hcl --print
 }
 ```
 
-## [Command line](https://docs.docker.com/build/bake/overrides/#command-line)
+## Command line
 
 You can also override target configurations from the command line with the [`--set` flag](https://docs.docker.com/reference/cli/docker/buildx/bake/#set):
 
@@ -254,7 +254,7 @@ Complete list of attributes that can be overridden with `--set` are:
 - `tags`
 - `target`
 
-## [Environment variables](https://docs.docker.com/build/bake/overrides/#environment-variables)
+## Environment variables
 
 You can also use environment variables to override configurations.
 
@@ -304,7 +304,7 @@ The `TAG` variable is overridden with the value of the environment variable, whi
 }
 ```
 
-### [Type coercion](https://docs.docker.com/build/bake/overrides/#type-coercion)
+### Type coercion
 
 Overriding non-string variables with environment variables is supported. Values passed as environment variables are coerced into suitable types first.
 

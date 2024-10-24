@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/kill/](https://docs.docker.com/reference/cli/docker/compose/kill/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/kill/](https://docs.docker.com/reference/cli/docker/compose/kill/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 | :---------- | -------------------------------------------- |
 | Usage       | `docker compose kill [OPTIONS] [SERVICE...]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/kill/#description)
+## Description
 
 Forces running containers to stop by sending a `SIGKILL` signal. Optionally the signal can be passed, for example:
 
@@ -28,7 +28,7 @@ Forces running containers to stop by sending a `SIGKILL` signal. Optionally the 
 $ docker compose kill -s SIGINT
 ```
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/kill/#options)
+## Options
 
 | Option             | Default   | Description                                                  |
 | ------------------ | --------- | ------------------------------------------------------------ |

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/storage/containerd/](https://docs.docker.com/engine/storage/containerd/)
+> 原文：[https://docs.docker.com/engine/storage/containerd/](https://docs.docker.com/engine/storage/containerd/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,13 +18,13 @@ draft = false
 >
 > 
 >
-> The containerd image store is an experimental feature of Docker Engine. If you're using Docker Desktop, refer to the instructions on the [containerd image store with Docker Desktop page](https://docs.docker.com/desktop/containerd/).
+> The containerd image store is an experimental feature of Docker Engine. If you're using Docker Desktop, refer to the instructions on the [containerd image store with Docker Desktop page]({{< ref "/manuals/DockerDesktop/containerdimagestore" >}}).
 
 containerd, the industry-standard container runtime, uses snapshotters instead of the classic storage drivers for storing image and container data. While the `overlay2` driver still remains the default driver for Docker Engine, you can opt in to using containerd snapshotters as an experimental feature.
 
-To learn more about the containerd image store and its benefits, refer to [containerd image store on Docker Desktop](https://docs.docker.com/desktop/containerd/).
+To learn more about the containerd image store and its benefits, refer to [containerd image store on Docker Desktop]({{< ref "/manuals/DockerDesktop/containerdimagestore" >}}).
 
-## [Enable containerd image store on Docker Engine](https://docs.docker.com/engine/storage/containerd/#enable-containerd-image-store-on-docker-engine)
+## Enable containerd image store on Docker Engine
 
 Switching to containerd snapshotters causes you to temporarily lose images and containers created using the classic storage drivers. Those resources still exist on your filesystem, and you can retrieve them by turning off the containerd snapshotters feature.
 

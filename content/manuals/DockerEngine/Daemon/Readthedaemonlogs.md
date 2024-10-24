@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/daemon/logs/](https://docs.docker.com/engine/daemon/logs/)
+> 原文：[https://docs.docker.com/engine/daemon/logs/](https://docs.docker.com/engine/daemon/logs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -41,7 +41,7 @@ $ tail -f ~/Library/Containers/com.docker.docker/Data/log/vm/dockerd.log
 ^C
 ```
 
-## [Enable debugging](https://docs.docker.com/engine/daemon/logs/#enable-debugging)
+## Enable debugging
 
 There are two ways to enable debugging. The recommended approach is to set the `debug` key to `true` in the `daemon.json` file. This method works for every Docker platform.
 
@@ -71,7 +71,7 @@ There are two ways to enable debugging. The recommended approach is to set the `
 
 Instead of following this procedure, you can also stop the Docker daemon and restart it manually with the debug flag `-D`. However, this may result in Docker restarting with a different environment than the one the hosts' startup scripts create, and this may make debugging more difficult.
 
-## [Force a stack trace to be logged](https://docs.docker.com/engine/daemon/logs/#force-a-stack-trace-to-be-logged)
+## Force a stack trace to be logged
 
 If the daemon is unresponsive, you can force a full stack trace to be logged by sending a `SIGUSR1` signal to the daemon.
 
@@ -95,7 +95,7 @@ This forces a stack trace to be logged but doesn't stop the daemon. Daemon logs 
 
 The daemon continues operating after handling the `SIGUSR1` signal and dumping the stack traces to the log. The stack traces can be used to determine the state of all goroutines and threads within the daemon.
 
-## [View stack traces](https://docs.docker.com/engine/daemon/logs/#view-stack-traces)
+## View stack traces
 
 The Docker daemon log can be viewed by using one of the following methods:
 

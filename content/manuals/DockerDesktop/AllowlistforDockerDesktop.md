@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/allow-list/](https://docs.docker.com/desktop/allow-list/)
+> 原文：[https://docs.docker.com/desktop/allow-list/](https://docs.docker.com/desktop/allow-list/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 This page contains the domain URLs that you need to add to a firewall allowlist to ensure Docker Desktop works properly within your organization.
 
-## [Domain URLs to allow](https://docs.docker.com/desktop/allow-list/#domain-urls-to-allow)
+## Domain URLs to allow
 
 | Domains                                                      | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/install/linux/](https://docs.docker.com/desktop/install/linux/)
+> 原文：[https://docs.docker.com/desktop/install/linux/](https://docs.docker.com/desktop/install/linux/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -28,22 +28,22 @@ This page contains information about general system requirements, supported plat
 >
 > This means images and containers deployed on the Linux Docker Engine (before installation) are not available in Docker Desktop for Linux.
 
-## [Supported platforms](https://docs.docker.com/desktop/install/linux/#supported-platforms)
+## Supported platforms
 
 Docker provides `.deb` and `.rpm` packages from the following Linux distributions and architectures:
 
 | Platform                                                     | x86_64 / amd64 |
 | :----------------------------------------------------------- | :------------: |
-| [Ubuntu](https://docs.docker.com/desktop/install/linux/ubuntu/) |       ✅        |
-| [Debian](https://docs.docker.com/desktop/install/linux/debian/) |       ✅        |
+| [Ubuntu]({{< ref "/manuals/DockerDesktop/Install/Linux/Ubuntu" >}}) |       ✅        |
+| [Debian]({{< ref "/manuals/DockerDesktop/Install/Linux/Debian" >}}) |       ✅        |
 | [Red Hat Enterprise Linux (RHEL)](https://docs.docker.com/desktop/install/linux/rhel/) |       ✅        |
-| [Fedora](https://docs.docker.com/desktop/install/linux/fedora/) |       ✅        |
+| [Fedora]({{< ref "/manuals/DockerDesktop/Install/Linux/Fedora" >}}) |       ✅        |
 
-An experimental package is available for [Arch](https://docs.docker.com/desktop/install/linux/archlinux/)-based distributions. Docker has not tested or verified the installation.
+An experimental package is available for [Arch]({{< ref "/manuals/DockerDesktop/Install/Linux/Arch" >}})-based distributions. Docker has not tested or verified the installation.
 
 Docker supports Docker Desktop on the current LTS release of the aforementioned distributions and the most recent version. As new versions are made available, Docker stops supporting the oldest version and supports the newest version.
 
-## [General system requirements](https://docs.docker.com/desktop/install/linux/#general-system-requirements)
+## General system requirements
 
 To install Docker Desktop successfully, your Linux host must meet the following general requirements:
 
@@ -65,7 +65,7 @@ Docker Desktop for Linux runs a Virtual Machine (VM). For more information on wh
 >
 > Docker does not provide support for running Docker Desktop for Linux in nested virtualization scenarios. We recommend that you run Docker Desktop for Linux natively on supported distributions.
 
-### [KVM virtualization support](https://docs.docker.com/desktop/install/linux/#kvm-virtualization-support)
+### KVM virtualization support
 
 Docker Desktop runs a VM that requires [KVM support](https://www.linux-kvm.org/).
 
@@ -107,7 +107,7 @@ kvm                  1089536  1 kvm_amd
 irqbypass              16384  1 kvm
 ```
 
-#### [Set up KVM device user permissions](https://docs.docker.com/desktop/install/linux/#set-up-kvm-device-user-permissions)
+#### Set up KVM device user permissions
 
 To check ownership of `/dev/kvm`, run :
 
@@ -127,11 +127,11 @@ $ sudo usermod -aG kvm $USER
 
 Sign out and sign back in so that your group membership is re-evaluated.
 
-## [Where to go next](https://docs.docker.com/desktop/install/linux/#where-to-go-next)
+## Where to go next
 
 - Install Docker Desktop for Linux for your specific Linux distribution:
-  - [Install on Ubuntu](https://docs.docker.com/desktop/install/linux/ubuntu/)
-  - [Install on Debian](https://docs.docker.com/desktop/install/linux/debian/)
+  - [Install on Ubuntu]({{< ref "/manuals/DockerDesktop/Install/Linux/Ubuntu" >}})
+  - [Install on Debian]({{< ref "/manuals/DockerDesktop/Install/Linux/Debian" >}})
   - [Install on Red Hat Enterprise Linux (RHEL)](https://docs.docker.com/desktop/install/linux/rhel/)
-  - [Install on Fedora](https://docs.docker.com/desktop/install/linux/fedora/)
-  - [Install on Arch](https://docs.docker.com/desktop/install/linux/archlinux/)
+  - [Install on Fedora]({{< ref "/manuals/DockerDesktop/Install/Linux/Fedora" >}})
+  - [Install on Arch]({{< ref "/manuals/DockerDesktop/Install/Linux/Arch" >}})

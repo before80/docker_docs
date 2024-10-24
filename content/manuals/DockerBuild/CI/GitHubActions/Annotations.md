@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/ci/github-actions/annotations/](https://docs.docker.com/build/ci/github-actions/annotations/)
+> 原文：[https://docs.docker.com/build/ci/github-actions/annotations/](https://docs.docker.com/build/ci/github-actions/annotations/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -113,7 +113,7 @@ jobs:
 
 ------
 
-## [Configure annotation level](https://docs.docker.com/build/ci/github-actions/annotations/#configure-annotation-level)
+## Configure annotation level
 
 By default, annotations are placed on image manifests. To configure the [annotation level](https://docs.docker.com/build/metadata/annotations/#specify-annotation-level), set the `DOCKER_METADATA_ANNOTATIONS_LEVELS` environment variable on the `metadata-action` step to a comma-separated list of all the levels that you want to annotate. For example, setting `DOCKER_METADATA_ANNOTATIONS_LEVELS` to `index` results in annotations on the image index instead of the manifests.
 

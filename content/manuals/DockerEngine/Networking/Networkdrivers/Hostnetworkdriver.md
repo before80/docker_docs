@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/network/drivers/host/](https://docs.docker.com/engine/network/drivers/host/)
+> 原文：[https://docs.docker.com/engine/network/drivers/host/](https://docs.docker.com/engine/network/drivers/host/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -39,7 +39,7 @@ The host networking driver is supported on Docker Engine (Linux only) and Docker
 
 You can also use a `host` network for a swarm service, by passing `--network host` to the `docker service create` command. In this case, control traffic (traffic related to managing the swarm and the service) is still sent across an overlay network, but the individual swarm service containers send data using the Docker daemon's host network and ports. This creates some extra limitations. For instance, if a service container binds to port 80, only one service container can run on a given swarm node.
 
-## [Docker Desktop](https://docs.docker.com/engine/network/drivers/host/#docker-desktop)
+## Docker Desktop
 
 Host networking is supported on Docker Desktop version 4.34 and later. To enable this feature:
 
@@ -51,7 +51,7 @@ Host networking is supported on Docker Desktop version 4.34 and later. To enable
 
 This feature works in both directions. This means you can access a server that is running in a container from your host and you can access servers running on your host from any container that is started with host networking enabled. TCP as well as UDP are supported as communication protocols.
 
-### [Examples](https://docs.docker.com/engine/network/drivers/host/#examples)
+### Examples
 
 The following command starts netcat in a container that listens on port `8000`:
 
@@ -87,17 +87,17 @@ If you then want to access a service on your host from the container (in this ex
 $ nc localhost 80
 ```
 
-### [Limitations](https://docs.docker.com/engine/network/drivers/host/#limitations)
+### Limitations
 
 - Processes inside the container cannot bind to the IP addresses of the host because the container has no direct access to the interfaces of the host.
 - The host network feature of Docker Desktop works on layer 4. This means that unlike with Docker on Linux, network protocols that operate below TCP or UDP are not supported.
 - This feature doesn't work with Enhanced Container Isolation enabled, since isolating your containers from the host and allowing them access to the host network contradict each other.
 - Only Linux containers are supported. Host networking does not work with Windows containers.
 
-## [Next steps](https://docs.docker.com/engine/network/drivers/host/#next-steps)
+## Next steps
 
-- Go through the [host networking tutorial](https://docs.docker.com/engine/network/tutorials/host/)
-- Learn about [networking from the container's point of view](https://docs.docker.com/engine/network/)
-- Learn about [bridge networks](https://docs.docker.com/engine/network/drivers/bridge/)
-- Learn about [overlay networks](https://docs.docker.com/engine/network/drivers/overlay/)
-- Learn about [Macvlan networks](https://docs.docker.com/engine/network/drivers/macvlan/)
+- Go through the [host networking tutorial]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingusingthehostnetwork" >}})
+- Learn about [networking from the container's point of view]({{< ref "/manuals/DockerEngine/Networking" >}})
+- Learn about [bridge networks]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Bridgenetworkdriver" >}})
+- Learn about [overlay networks]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Overlaynetworkdriver" >}})
+- Learn about [Macvlan networks]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Macvlannetworkdriver" >}})

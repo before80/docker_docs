@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/secrets/](https://docs.docker.com/engine/swarm/secrets/)
+> 原文：[https://docs.docker.com/engine/swarm/secrets/](https://docs.docker.com/engine/swarm/secrets/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Manage sensitive data with Docker secrets
 
-## [About secrets](https://docs.docker.com/engine/swarm/secrets/#about-secrets)
+## About secrets
 
 In terms of Docker Swarm services, a *secret* is a blob of data, such as a password, SSH private key, SSL certificate, or another piece of data that should not be transmitted over a network or stored unencrypted in a Dockerfile or in your application's source code. You can use Docker *secrets* to centrally manage this data and securely transmit it to only those containers that need access to it. Secrets are encrypted during transit and at rest in a Docker swarm. A given secret is only accessible to those services which have been granted explicit access to it, and only while those service tasks are running.
 
@@ -34,9 +34,9 @@ You can use secrets to manage any sensitive data which a container needs at runt
 
 Another use case for using secrets is to provide a layer of abstraction between the container and a set of credentials. Consider a scenario where you have separate development, test, and production environments for your application. Each of these environments can have different credentials, stored in the development, test, and production swarms with the same secret name. Your containers only need to know the name of the secret to function in all three environments.
 
-You can also use secrets to manage non-sensitive data, such as configuration files. However, Docker supports the use of [configs](https://docs.docker.com/engine/swarm/configs/) for storing non-sensitive data. Configs are mounted into the container's filesystem directly, without the use of a RAM disk.
+You can also use secrets to manage non-sensitive data, such as configuration files. However, Docker supports the use of [configs]({{< ref "/manuals/DockerEngine/Swarmmode/StoreconfigurationdatausingDockerConfigs" >}}) for storing non-sensitive data. Configs are mounted into the container's filesystem directly, without the use of a RAM disk.
 
-### [Windows support](https://docs.docker.com/engine/swarm/secrets/#windows-support)
+### Windows support
 
 Docker includes support for secrets on Windows containers. Where there are differences in the implementations, they are called out in the examples below. Keep the following notable differences in mind:
 
@@ -45,7 +45,7 @@ Docker includes support for secrets on Windows containers. Where there are diffe
 - Secret files with custom targets are not directly bind-mounted into Windows containers, since Windows does not support non-directory file bind-mounts. Instead, secrets for a container are all mounted in `C:\ProgramData\Docker\internal\secrets` (an implementation detail which should not be relied upon by applications) within the container. Symbolic links are used to point from there to the desired target of the secret within the container. The default target is `C:\ProgramData\Docker\secrets`.
 - When creating a service which uses Windows containers, the options to specify UID, GID, and mode are not supported for secrets. Secrets are currently only accessible by administrators and users with `system` access within the container.
 
-## [How Docker manages secrets](https://docs.docker.com/engine/swarm/secrets/#how-docker-manages-secrets)
+## How Docker manages secrets
 
 When you add a secret to the swarm, Docker sends the secret to the swarm manager over a mutual TLS connection. The secret is stored in the Raft log, which is encrypted. The entire Raft log is replicated across the other managers, ensuring the same high availability guarantees for secrets as for the rest of the swarm management data.
 
@@ -61,18 +61,18 @@ You can add or inspect an individual secret at any time, or list all secrets. Yo
 
 To update or roll back secrets more easily, consider adding a version number or date to the secret name. This is made easier by the ability to control the mount point of the secret within a given container.
 
-## [Read more about `docker secret` commands](https://docs.docker.com/engine/swarm/secrets/#read-more-about-docker-secret-commands)
+## Read more about `docker secret` commands
 
 Use these links to read about specific commands, or continue to the [example about using secrets with a service](https://docs.docker.com/engine/swarm/secrets/#simple-example-get-started-with-secrets).
 
-- [`docker secret create`](https://docs.docker.com/reference/cli/docker/secret/create/)
-- [`docker secret inspect`](https://docs.docker.com/reference/cli/docker/secret/inspect/)
-- [`docker secret ls`](https://docs.docker.com/reference/cli/docker/secret/ls/)
-- [`docker secret rm`](https://docs.docker.com/reference/cli/docker/secret/rm/)
+- [`docker secret create`]({{< ref "/reference/CLIreference/docker/dockersecret/dockersecretcreate" >}})
+- [`docker secret inspect`]({{< ref "/reference/CLIreference/docker/dockersecret/dockersecretinspect" >}})
+- [`docker secret ls`]({{< ref "/reference/CLIreference/docker/dockersecret/dockersecretls" >}})
+- [`docker secret rm`]({{< ref "/reference/CLIreference/docker/dockersecret/dockersecretrm" >}})
 - [`--secret`](https://docs.docker.com/reference/cli/docker/service/create/#secret) flag for `docker service create`
 - [`--secret-add` and `--secret-rm`](https://docs.docker.com/reference/cli/docker/service/update/#secret-add) flags for `docker service update`
 
-## [Examples](https://docs.docker.com/engine/swarm/secrets/#examples)
+## Examples
 
 This section includes three graduated examples which illustrate how to use Docker secrets. The images used in these examples have been updated to make it easier to use Docker secrets. To find out how to modify your own images in a similar way, see [Build support for Docker Secrets into your images](https://docs.docker.com/engine/swarm/secrets/#build-support-for-docker-secrets-into-your-images).
 
@@ -82,11 +82,11 @@ This section includes three graduated examples which illustrate how to use Docke
 >
 > These examples use a single-Engine swarm and unscaled services for simplicity. The examples use Linux containers, but Windows containers also support secrets. See [Windows support](https://docs.docker.com/engine/swarm/secrets/#windows-support).
 
-### [Defining and using secrets in compose files](https://docs.docker.com/engine/swarm/secrets/#defining-and-using-secrets-in-compose-files)
+### Defining and using secrets in compose files
 
-Both the `docker-compose` and `docker stack` commands support defining secrets in a compose file. See [the Compose file reference](https://docs.docker.com/reference/compose-file/legacy-versions/) for details.
+Both the `docker-compose` and `docker stack` commands support defining secrets in a compose file. See [the Compose file reference]({{< ref "/reference/Composefilereference/Legacyversions" >}}) for details.
 
-### [Simple example: Get started with secrets](https://docs.docker.com/engine/swarm/secrets/#simple-example-get-started-with-secrets)
+### Simple example: Get started with secrets
 
 This simple example shows how secrets work in just a few commands. For a real-world example, continue to [Intermediate example: Use secrets with a Nginx service](https://docs.docker.com/engine/swarm/secrets/#intermediate-example-use-secrets-with-a-nginx-service).
 
@@ -208,7 +208,7 @@ This simple example shows how secrets work in just a few commands. For a real-wo
    $ docker secret rm my_secret_data
    ```
 
-### [Simple example: Use secrets in a Windows service](https://docs.docker.com/engine/swarm/secrets/#simple-example-use-secrets-in-a-windows-service)
+### Simple example: Use secrets in a Windows service
 
 This is a very simple example which shows how to use secrets with a Microsoft IIS service running on Docker for Windows running Windows containers on Microsoft Windows 10. It is a naive example that stores the webpage in a secret.
 
@@ -259,7 +259,7 @@ This example assumes that you have PowerShell installed.
    >
    > 
    >
-   > There is technically no reason to use secrets for this example; [configs](https://docs.docker.com/engine/swarm/configs/) are a better fit. This example is for illustration only.
+   > There is technically no reason to use secrets for this example; [configs]({{< ref "/manuals/DockerEngine/Swarmmode/StoreconfigurationdatausingDockerConfigs" >}}) are a better fit. This example is for illustration only.
 
 5. Access the IIS service at `http://localhost:8000/`. It should serve the HTML content from the first step.
 
@@ -273,11 +273,11 @@ This example assumes that you have PowerShell installed.
    > docker image remove secret-test
    ```
 
-### [Intermediate example: Use secrets with a Nginx service](https://docs.docker.com/engine/swarm/secrets/#intermediate-example-use-secrets-with-a-nginx-service)
+### Intermediate example: Use secrets with a Nginx service
 
 This example is divided into two parts. [The first part](https://docs.docker.com/engine/swarm/secrets/#generate-the-site-certificate) is all about generating the site certificate and does not directly involve Docker secrets at all, but it sets up [the second part](https://docs.docker.com/engine/swarm/secrets/#configure-the-nginx-container), where you store and use the site certificate and Nginx configuration as secrets.
 
-#### [Generate the site certificate](https://docs.docker.com/engine/swarm/secrets/#generate-the-site-certificate)
+#### Generate the site certificate
 
 Generate a root CA and TLS certificate and key for your site. For production sites, you may want to use a service such as `Let’s Encrypt` to generate the TLS certificate and key, but this example uses command-line tools. This step is a little complicated, but is only a set-up step so that you have something to store as a Docker secret. If you want to skip these sub-steps, you can [use Let's Encrypt](https://letsencrypt.org/getting-started/) to generate the site key and certificate, name the files `site.key` and `site.crt`, and skip to [Configure the Nginx container](https://docs.docker.com/engine/swarm/secrets/#configure-the-nginx-container).
 
@@ -365,7 +365,7 @@ Generate a root CA and TLS certificate and key for your site. For production sit
 
 9. The `site.csr` and `site.cnf` files are not needed by the Nginx service, but you need them if you want to generate a new site certificate. Protect the `root-ca.key` file.
 
-#### [Configure the Nginx container](https://docs.docker.com/engine/swarm/secrets/#configure-the-nginx-container)
+#### Configure the Nginx container
 
 1. Produce a very basic Nginx configuration that serves static files over HTTPS. The TLS certificate and key are stored as Docker secrets so that they can be rotated easily.
 
@@ -557,7 +557,7 @@ Generate a root CA and TLS certificate and key for your site. For production sit
    $ docker secret rm site.crt site.key site.conf
    ```
 
-### [Advanced example: Use secrets with a WordPress service](https://docs.docker.com/engine/swarm/secrets/#advanced-example-use-secrets-with-a-wordpress-service)
+### Advanced example: Use secrets with a WordPress service
 
 In this example, you create a single-node MySQL service with a custom root password, add the credentials as secrets, and create a single-node WordPress service which uses these credentials to connect to MySQL. The [next example](https://docs.docker.com/engine/swarm/secrets/#example-rotate-a-secret) builds on this one and shows you how to rotate the MySQL password and update the services so that the WordPress service can still connect to MySQL.
 
@@ -719,7 +719,7 @@ This example illustrates some techniques to use Docker secrets to avoid saving s
 
 8. Do not clean up any services or secrets if you intend to proceed to the next example, which demonstrates how to rotate the MySQL root password.
 
-### [Example: Rotate a secret](https://docs.docker.com/engine/swarm/secrets/#example-rotate-a-secret)
+### Example: Rotate a secret
 
 This example builds upon the previous one. In this scenario, you create a new secret with a new MySQL password, update the `mysql` and `wordpress` services to use it, then remove the old secret.
 
@@ -832,7 +832,7 @@ This example builds upon the previous one. In this scenario, you create a new se
    $ docker secret rm mysql_password_v2 mysql_root_password
    ```
 
-## [Build support for Docker Secrets into your images](https://docs.docker.com/engine/swarm/secrets/#build-support-for-docker-secrets-into-your-images)
+## Build support for Docker Secrets into your images
 
 If you develop a container that can be deployed as a service and requires sensitive data, such as a credential, as an environment variable, consider adapting your image to take advantage of Docker secrets. One way to do this is to ensure that each parameter you pass to the image when creating the container can also be read from a file.
 
@@ -846,7 +846,7 @@ When you start a WordPress container, you provide it with the parameters it need
 >
 > Docker secrets do not set environment variables directly. This was a conscious decision, because environment variables can unintentionally be leaked between containers (for instance, if you use `--link`).
 
-## [Use Secrets in Compose](https://docs.docker.com/engine/swarm/secrets/#use-secrets-in-compose)
+## Use Secrets in Compose
 
 
 
@@ -901,4 +901,4 @@ When you deploy, Docker mounts a file under `/run/secrets/<secret_name>` in the 
 
 Each service uses environment variables to specify where the service should look for that secret data.
 
-More information on short and long syntax for secrets can be found in the [Compose Specification](https://docs.docker.com/reference/compose-file/secrets/).
+More information on short and long syntax for secrets can be found in the [Compose Specification]({{< ref "/reference/Composefilereference/Secretstop-levelelements" >}}).

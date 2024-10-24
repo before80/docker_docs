@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/use-desktop/](https://docs.docker.com/desktop/use-desktop/)
+> 原文：[https://docs.docker.com/desktop/use-desktop/](https://docs.docker.com/desktop/use-desktop/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,13 +18,13 @@ When you open Docker Desktop, the Docker Dashboard displays.
 
 ![Docker Dashboard on Containers view](_index_img/dashboard.webp)
 
-The **Containers** view provides a runtime view of all your containers and applications. It allows you to interact with containers and applications, and manage the lifecycle of your applications directly from your machine. This view also provides an intuitive interface to perform common actions to inspect, interact with, and manage your Docker objects including containers and Docker Compose-based applications. For more information, see [Explore running containers and applications](https://docs.docker.com/desktop/use-desktop/container/).
+The **Containers** view provides a runtime view of all your containers and applications. It allows you to interact with containers and applications, and manage the lifecycle of your applications directly from your machine. This view also provides an intuitive interface to perform common actions to inspect, interact with, and manage your Docker objects including containers and Docker Compose-based applications. For more information, see [Explore running containers and applications]({{< ref "/manuals/DockerDesktop/ExploreDockerDesktop/Containers" >}}).
 
-The **Images** view displays a list of your Docker images and allows you to run an image as a container, pull the latest version of an image from Docker Hub, and inspect images. It also displays a summary of image vulnerabilities. In addition, the **Images** view contains clean-up options to remove unwanted images from the disk to reclaim space. If you are logged in, you can also see the images you and your organization have shared on Docker Hub. For more information, see [Explore your images](https://docs.docker.com/desktop/use-desktop/images/).
+The **Images** view displays a list of your Docker images and allows you to run an image as a container, pull the latest version of an image from Docker Hub, and inspect images. It also displays a summary of image vulnerabilities. In addition, the **Images** view contains clean-up options to remove unwanted images from the disk to reclaim space. If you are logged in, you can also see the images you and your organization have shared on Docker Hub. For more information, see [Explore your images]({{< ref "/manuals/DockerDesktop/ExploreDockerDesktop/Images" >}}).
 
-The **Volumes** view displays a list of volumes and allows you to easily create and delete volumes and see which ones are being used. For more information, see [Explore volumes](https://docs.docker.com/desktop/use-desktop/volumes/).
+The **Volumes** view displays a list of volumes and allows you to easily create and delete volumes and see which ones are being used. For more information, see [Explore volumes]({{< ref "/manuals/DockerDesktop/ExploreDockerDesktop/Volumes" >}}).
 
-The **Builds** view lets you inspect your build history and manage builders. By default, it displays a list of all your ongoing and completed builds. [Explore builds](https://docs.docker.com/desktop/use-desktop/builds/).
+The **Builds** view lets you inspect your build history and manage builders. By default, it displays a list of all your ongoing and completed builds. [Explore builds]({{< ref "/manuals/DockerDesktop/ExploreDockerDesktop/Builds" >}}).
 
 In addition, the Docker Dashboard allows you to:
 
@@ -36,13 +36,13 @@ In addition, the Docker Dashboard allows you to:
 
 - Access the **Learning center** from the Dashboard header. It helps you get started with quick in-app walkthroughs and provides other resources for learning about Docker.
 
-  For a more detailed guide about getting started, see [Get started](https://docs.docker.com/get-started/introduction/).
+  For a more detailed guide about getting started, see [Get started]({{< ref "/get-started/Introduction" >}}).
 
-- Get to the [Docker Scout](https://docs.docker.com/scout/) dashboard.
+- Get to the [Docker Scout]({{< ref "/manuals/DockerScout" >}}) dashboard.
 
 - Check the status of Docker services.
 
-## [Quick search](https://docs.docker.com/desktop/use-desktop/#quick-search)
+## Quick search
 
 From the Docker Dashboard you can use Quick Search, which is located in the Dashboard header, to search for:
 
@@ -52,11 +52,11 @@ From the Docker Dashboard you can use Quick Search, which is located in the Dash
 - Any volume. From here you can view the associated container.
 - Docs. Find help from Docker's official documentation straight from Docker Desktop.
 
-## [The Docker menu](https://docs.docker.com/desktop/use-desktop/#the-docker-menu)
+## The Docker menu
 
-Docker Desktop also provides an easy-access tray icon that appears in the taskbar and is referred to as the Docker menu ![whale menu](_index_img/whale-x.svg+xml) .
+Docker Desktop also provides an easy-access tray icon that appears in the taskbar and is referred to as the Docker menu ![whale menu](_index_img/whale-x.svg) .
 
-To display the Docker menu, select the ![whale menu](_index_img/whale-x.svg+xml) icon. It displays the following options:
+To display the Docker menu, select the ![whale menu](_index_img/whale-x.svg) icon. It displays the following options:
 
 - **Dashboard**. This takes you to the Docker Dashboard.
 - **Sign in/Sign up**

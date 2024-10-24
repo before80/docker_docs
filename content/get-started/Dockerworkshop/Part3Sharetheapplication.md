@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/workshop/04_sharing_app/](https://docs.docker.com/get-started/workshop/04_sharing_app/)
+> 原文：[https://docs.docker.com/get-started/workshop/04_sharing_app/](https://docs.docker.com/get-started/workshop/04_sharing_app/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
@@ -20,7 +20,7 @@ Now that you've built an image, you can share it. To share Docker images, you ha
 >
 > A Docker ID lets you access Docker Hub, which is the world's largest library and community for container images. Create a [Docker ID](https://hub.docker.com/signup) for free if you don't have one.
 
-## [Create a repository](https://docs.docker.com/get-started/workshop/04_sharing_app/#create-a-repository)
+## Create a repository
 
 To push an image, you first need to create a repository on Docker Hub.
 
@@ -33,7 +33,7 @@ In the following image, you can see an example Docker command from Docker Hub. T
 
 ![Docker command with push example](Part3Sharetheapplication_img/push-command.webp)
 
-## [Push the image](https://docs.docker.com/get-started/workshop/04_sharing_app/#push-the-image)
+## Push the image
 
 1. In the command line, run the `docker push` command that you see on Docker Hub. Note that your command will have your Docker ID, not "docker". For example, `docker push YOUR-USER-NAME/getting-started`.
 
@@ -67,7 +67,7 @@ In the following image, you can see an example Docker command from Docker Hub. T
    $ docker push YOUR-USER-NAME/getting-started
    ```
 
-## [Run the image on a new instance](https://docs.docker.com/get-started/workshop/04_sharing_app/#run-the-image-on-a-new-instance)
+## Run the image on a new instance
 
 Now that your image has been built and pushed into a registry, try running your app on a brand new instance that has never seen this container image. To do this, you will use Play with Docker.
 
@@ -85,7 +85,7 @@ Now that your image has been built and pushed into a registry, try running your 
 > $ docker build --platform linux/amd64 -t YOUR-USER-NAME/getting-started .
 > ```
 >
-> Docker buildx also supports building multi-platform images. To learn more, see [Multi-platform images](https://docs.docker.com/build/building/multi-platform/).
+> Docker buildx also supports building multi-platform images. To learn more, see [Multi-platform images]({{< ref "/manuals/DockerBuild/Building/Multi-platform" >}}).
 
 1. Open your browser to [Play with Docker](https://labs.play-with-docker.com/).
 
@@ -121,18 +121,18 @@ Now that your image has been built and pushed into a registry, try running your 
 
    If the 3000 badge doesn't appear, you can select **Open Port** and specify `3000`.
 
-## [Summary](https://docs.docker.com/get-started/workshop/04_sharing_app/#summary)
+## Summary
 
 In this section, you learned how to share your images by pushing them to a registry. You then went to a brand new instance and were able to run the freshly pushed image. This is quite common in CI pipelines, where the pipeline will create the image and push it to a registry and then the production environment can use the latest version of the image.
 
 Related information:
 
-- [docker CLI reference](https://docs.docker.com/reference/cli/docker/)
-- [Multi-platform images](https://docs.docker.com/build/building/multi-platform/)
-- [Docker Hub overview](https://docs.docker.com/docker-hub/)
+- [docker CLI reference]({{< ref "/reference/CLIreference/docker" >}})
+- [Multi-platform images]({{< ref "/manuals/DockerBuild/Building/Multi-platform" >}})
+- [Docker Hub overview]({{< ref "/manuals/DockerHub" >}})
 
-## [Next steps](https://docs.docker.com/get-started/workshop/04_sharing_app/#next-steps)
+## Next steps
 
 In the next section, you'll learn how to persist data in your containerized application.
 
-[Persist the DB](https://docs.docker.com/get-started/workshop/05_persisting_data/)
+[Persist the DB]({{< ref "/get-started/Dockerworkshop/Part4PersisttheDB" >}})

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/dev/test-debug/](https://docs.docker.com/extensions/extensions-sdk/dev/test-debug/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/dev/test-debug/](https://docs.docker.com/extensions/extensions-sdk/dev/test-debug/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 In order to improve the developer experience, Docker Desktop provides a set of tools to help you test and debug your extension.
 
-### [Open Chrome DevTools](https://docs.docker.com/extensions/extensions-sdk/dev/test-debug/#open-chrome-devtools)
+### Open Chrome DevTools
 
 In order to open the Chrome DevTools for your extension when you select the **Extensions** tab, run:
 
@@ -36,7 +36,7 @@ $ docker extension dev reset <name-of-your-extensions>
 
 After an extension is deployed, it is also possible to open Chrome DevTools from the UI extension part using a variation of the [Konami Code](https://en.wikipedia.org/wiki/Konami_Code). Select the **Extensions** tab, and then hit the key sequence `up, up, down, down, left, right, left, right, p, d, t`.
 
-### [Hot reloading whilst developing the UI](https://docs.docker.com/extensions/extensions-sdk/dev/test-debug/#hot-reloading-whilst-developing-the-ui)
+### Hot reloading whilst developing the UI
 
 During UI development, it’s helpful to use hot reloading to test your changes without rebuilding your entire extension. To do this, you can configure Docker Desktop to load your UI from a development server, such as the one [Vite](https://vitejs.dev/) starts when invoked with `npm start`.
 
@@ -69,14 +69,14 @@ Once finished, you can reset the extension configuration to the original setting
 $ docker extension dev reset <name-of-your-extensions>
 ```
 
-## [Show the extension containers](https://docs.docker.com/extensions/extensions-sdk/dev/test-debug/#show-the-extension-containers)
+## Show the extension containers
 
 If your extension is composed of one or more services running as containers in the Docker Desktop VM, you can access them easily from the dashboard in Docker Desktop.
 
 1. In Docker Desktop, navigate to **Settings**.
 2. Under the **Extensions** tab, select the **Show Docker Desktop Extensions system containers** option. You can now view your extension containers and their logs.
 
-## [Clean up](https://docs.docker.com/extensions/extensions-sdk/dev/test-debug/#clean-up)
+## Clean up
 
 To remove the extension, run:
 
@@ -86,10 +86,10 @@ To remove the extension, run:
 $ docker extension rm <name-of-your-extension>
 ```
 
-## [What's next](https://docs.docker.com/extensions/extensions-sdk/dev/test-debug/#whats-next)
+## What's next
 
-- Build an [advanced frontend](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/) extension.
-- Learn more about extensions [architecture](https://docs.docker.com/extensions/extensions-sdk/architecture/).
-- Explore our [design principles](https://docs.docker.com/extensions/extensions-sdk/design/design-principles/).
-- Take a look at our [UI styling guidelines](https://docs.docker.com/extensions/extensions-sdk/design/).
-- Learn how to [setup CI for your extension](https://docs.docker.com/extensions/extensions-sdk/dev/continuous-integration/).
+- Build an [advanced frontend]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/PartoneBuild/Createanadvancedfrontendextension" >}}) extension.
+- Learn more about extensions [architecture]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/Architecture" >}}).
+- Explore our [design principles]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DesignandUIstyling/Dockerdesignprinciples" >}}).
+- Take a look at our [UI styling guidelines]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DesignandUIstyling" >}}).
+- Learn how to [setup CI for your extension]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DeveloperSDKtools/ContinuousIntegrationCI" >}}).

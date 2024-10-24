@@ -8,21 +8,21 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/18.04/](https://docs.docker.com/engine/release-notes/18.04/)
+> 原文：[https://docs.docker.com/engine/release-notes/18.04/](https://docs.docker.com/engine/release-notes/18.04/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Engine 18.04 release notes
 
-## [18.04.0-ce](https://docs.docker.com/engine/release-notes/18.04/#18040-ce)
+## 18.04.0-ce
 
 2018-04-10
 
-### [Builder](https://docs.docker.com/engine/release-notes/18.04/#builder)
+### Builder
 
 - Fix typos in builder and client. [moby/moby#36424](https://github.com/moby/moby/pull/36424)
 
-### [Client](https://docs.docker.com/engine/release-notes/18.04/#client)
+### Client
 
 - Print Stack API and Kubernetes versions in version command. [docker/cli#898](https://github.com/docker/cli/pull/898)
 
@@ -39,7 +39,7 @@ draft = false
 
 - Fix compose network name. [docker/cli#941](https://github.com/docker/cli/pull/941)
 
-### [Logging](https://docs.docker.com/engine/release-notes/18.04/#logging)
+### Logging
 
 - Silent login: use credentials from cred store to login. [docker/cli#139](https://github.com/docker/cli/pull/139)
 
@@ -47,11 +47,11 @@ draft = false
 
 - Fix empty LogPath with non-blocking logging mode. [moby/moby#36272](https://github.com/moby/moby/pull/36272)
 
-### [Networking](https://docs.docker.com/engine/release-notes/18.04/#networking)
+### Networking
 
 - Prevent explicit removal of ingress network. [moby/moby#36538](https://github.com/moby/moby/pull/36538)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/18.04/#runtime)
+### Runtime
 
 - Devmapper cleanup improvements. [moby/moby#36307](https://github.com/moby/moby/pull/36307)
 - Devmapper.Mounted: remove. [moby/moby#36437](https://github.com/moby/moby/pull/36437)
@@ -97,7 +97,7 @@ draft = false
 - Bump to containerd 1.0.3. [moby/moby#36749](https://github.com/moby/moby/pull/36749)
 - Don't sort plugin mount slice. [moby/moby#36711](https://github.com/moby/moby/pull/36711)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/18.04/#swarm-mode)
+### Swarm Mode
 
 - Fixes for synchronizing the dispatcher shutdown with in-progress rpcs. [moby/moby#36371](https://github.com/moby/moby/pull/36371)
 - Increase raft ElectionTick to 10xHeartbeatTick. [moby/moby#36672](https://github.com/moby/moby/pull/36672)

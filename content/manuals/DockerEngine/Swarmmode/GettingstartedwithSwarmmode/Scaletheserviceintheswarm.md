@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/swarm-tutorial/scale-service/](https://docs.docker.com/engine/swarm/swarm-tutorial/scale-service/)
+> 原文：[https://docs.docker.com/engine/swarm/swarm-tutorial/scale-service/](https://docs.docker.com/engine/swarm/swarm-tutorial/scale-service/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Scale the service in the swarm
 
-Once you have [deployed a service](https://docs.docker.com/engine/swarm/swarm-tutorial/deploy-service/) to a swarm, you are ready to use the Docker CLI to scale the number of containers in the service. Containers running in a service are called tasks.
+Once you have [deployed a service]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode/Deployaservicetotheswarm" >}}) to a swarm, you are ready to use the Docker CLI to scale the number of containers in the service. Containers running in a service are called tasks.
 
 1. If you haven't already, open a terminal and ssh into the machine where you run your manager node. For example, the tutorial uses a machine named `manager1`.
 
@@ -66,8 +66,8 @@ Once you have [deployed a service](https://docs.docker.com/engine/swarm/swarm-tu
 
    If you want to see the containers running on other nodes, ssh into those nodes and run the `docker ps` command.
 
-## [Next steps](https://docs.docker.com/engine/swarm/swarm-tutorial/scale-service/#next-steps)
+## Next steps
 
 At this point in the tutorial, you're finished with the `helloworld` service. Next, you'll delete the service
 
-[Delete the service](https://docs.docker.com/engine/swarm/swarm-tutorial/delete-service/)
+[Delete the service]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode/Deletetheservicerunningontheswarm" >}})

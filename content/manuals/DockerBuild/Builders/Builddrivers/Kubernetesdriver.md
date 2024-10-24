@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/builders/drivers/kubernetes/](https://docs.docker.com/build/builders/drivers/kubernetes/)
+> 原文：[https://docs.docker.com/build/builders/drivers/kubernetes/](https://docs.docker.com/build/builders/drivers/kubernetes/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 The Kubernetes driver lets you connect your local development or CI environments to builders in a Kubernetes cluster to allow access to more powerful compute resources, optionally on multiple native architectures.
 
-## [Synopsis](https://docs.docker.com/build/builders/drivers/kubernetes/#synopsis)
+## Synopsis
 
 Run the following command to create a new builder, named `kube`, that uses the Kubernetes driver:
 
@@ -56,7 +56,7 @@ The following table describes the available driver-specific options that you can
 | `qemu.install`               | Boolean      | `false`                                 | Install QEMU emulation for multi platforms support. See [QEMU](https://docs.docker.com/build/builders/drivers/kubernetes/#qemu). |
 | `qemu.image`                 | String       | `tonistiigi/binfmt:latest`              | Sets the QEMU emulation image. See [QEMU](https://docs.docker.com/build/builders/drivers/kubernetes/#qemu). |
 
-## [Scaling BuildKit](https://docs.docker.com/build/builders/drivers/kubernetes/#scaling-buildkit)
+## Scaling BuildKit
 
 One of the main advantages of the Kubernetes driver is that you can scale the number of builder replicas up and down to handle increased build load. Scaling is configurable using the following driver options:
 
@@ -101,7 +101,7 @@ Additionally, you can use the `loadbalance=(sticky|random)` option to control th
 
 For more information on scalability, see the options for [`docker buildx create`](https://docs.docker.com/reference/cli/docker/buildx/create/#driver-opt).
 
-## [Node assignment](https://docs.docker.com/build/builders/drivers/kubernetes/#node-assignment)
+## Node assignment
 
 The Kubernetes driver allows you to control the scheduling of BuildKit pods using the `nodeSelector` and `tolerations` driver options. You can also set the `schedulername` option if you want to use a custom scheduler altogether.
 
@@ -123,11 +123,11 @@ $ docker buildx create \
   '--driver-opt="nodeselector=label1=value1,label2=value2","tolerations=key=key1,value=value1"'
 ```
 
-## [Multi-platform builds](https://docs.docker.com/build/builders/drivers/kubernetes/#multi-platform-builds)
+## Multi-platform builds
 
-The Kubernetes driver has support for creating [multi-platform images](https://docs.docker.com/build/building/multi-platform/), either using QEMU or by leveraging the native architecture of nodes.
+The Kubernetes driver has support for creating [multi-platform images]({{< ref "/manuals/DockerBuild/Building/Multi-platform" >}}), either using QEMU or by leveraging the native architecture of nodes.
 
-### [QEMU](https://docs.docker.com/build/builders/drivers/kubernetes/#qemu)
+### QEMU
 
 Like the `docker-container` driver, the Kubernetes driver also supports using [QEMU](https://www.qemu.org/) (user mode) to build images for non-native platforms. Include the `--platform` flag and specify which platforms you want to output to.
 
@@ -161,7 +161,7 @@ $ docker buildx create \
   --driver-opt=namespace=buildkit,qemu.install=true
 ```
 
-### [Native](https://docs.docker.com/build/builders/drivers/kubernetes/#native)
+### Native
 
 If you have access to cluster nodes of different architectures, the Kubernetes driver can take advantage of these for native builds. To do this, use the `--append` flag of `docker buildx create`.
 
@@ -220,7 +220,7 @@ $ docker buildx build --builder=kube --platform=linux/amd64,linux/arm64 -t <user
 
 You can repeat the `buildx create --append` command for as many architectures that you want to support.
 
-## [Rootless mode](https://docs.docker.com/build/builders/drivers/kubernetes/#rootless-mode)
+## Rootless mode
 
 The Kubernetes driver supports rootless mode. For more information on how rootless mode works, and it's requirements, see [here](https://github.com/moby/buildkit/blob/master/docs/rootless.md).
 
@@ -239,7 +239,7 @@ This will create your pods without `securityContext.privileged`.
 
 Requires Kubernetes version 1.19 or later. Using Ubuntu as the host kernel is recommended.
 
-## [Example: Creating a Buildx builder in Kubernetes](https://docs.docker.com/build/builders/drivers/kubernetes/#example-creating-a-buildx-builder-in-kubernetes)
+## Example: Creating a Buildx builder in Kubernetes
 
 This guide shows you how to:
 
@@ -326,6 +326,6 @@ Prerequisites:
 
 That's it: you've now built an image from a Kubernetes pod, using Buildx.
 
-## [Further reading](https://docs.docker.com/build/builders/drivers/kubernetes/#further-reading)
+## Further reading
 
 For more information on the Kubernetes driver, see the [buildx reference](https://docs.docker.com/reference/cli/docker/buildx/create/#driver).

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/policy/ci/](https://docs.docker.com/scout/policy/ci/)
+> 原文：[https://docs.docker.com/scout/policy/ci/](https://docs.docker.com/scout/policy/ci/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,13 +20,13 @@ The recommended strategy for Policy Evaluation in a CI setting involves evaluati
 
 This comparison is relative, meaning that it's only concerned with whether your CI image is better or worse than your baseline. It's not an absolute check to pass or fail all policies. By measuring relative to a baseline that you define, you can quickly see if a change has a positive or negative impact on policy compliance.
 
-## [How it works](https://docs.docker.com/scout/policy/ci/#how-it-works)
+## How it works
 
 When you do Policy Evaluation in CI, you run a local policy evaluation on the image you build in your CI pipeline. To run a local evaluation, the image that you evaluate must exist in the image store where your CI workflow is being run. Either build or pull the image, and then run the evaluation.
 
-To run policy evaluation and trigger failure if compliance for your local image is worse than your comparison baseline, you need to specify the image version to use as a baseline. You can hard-code a specific image reference, but a better solution is to use [environments](https://docs.docker.com/scout/integrations/environment/) to automatically infer the image version from an environment. The example that follows uses environments to compare the CI image with the image in the `production` environment.
+To run policy evaluation and trigger failure if compliance for your local image is worse than your comparison baseline, you need to specify the image version to use as a baseline. You can hard-code a specific image reference, but a better solution is to use [environments]({{< ref "/manuals/DockerScout/Integrations/IntegratingDockerScoutwithenvironments" >}}) to automatically infer the image version from an environment. The example that follows uses environments to compare the CI image with the image in the `production` environment.
 
-## [Example](https://docs.docker.com/scout/policy/ci/#example)
+## Example
 
 The following example on how to run policy evaluation in CI uses the [Docker Scout GitHub Action](https://github.com/marketplace/actions/docker-scout) to execute the `compare` command on an image built in CI. The compare command has a `to-env` input, which will run the comparison against an environment called `production`. The `exit-on` input is set to `policy`, meaning that the comparison fails only if policy compliance has worsened.
 

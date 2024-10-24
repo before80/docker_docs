@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/integrations/environment/cli/](https://docs.docker.com/scout/integrations/environment/cli/)
+> 原文：[https://docs.docker.com/scout/integrations/environment/cli/](https://docs.docker.com/scout/integrations/environment/cli/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,9 +16,9 @@ draft = false
 
 You can create a generic environment integration by running the Docker Scout CLI client in your CI workflows. The CLI client is available as a binary on GitHub and as a container image on Docker Hub. Use the client to invoke the `docker scout environment` command to assign your images to environments.
 
-For more information about how to use the `docker scout environment` command, refer to the [CLI reference](https://docs.docker.com/reference/cli/docker/scout/environment/).
+For more information about how to use the `docker scout environment` command, refer to the [CLI reference]({{< ref "/reference/CLIreference/docker/dockerscout/dockerscoutenvironment" >}}).
 
-## [Examples](https://docs.docker.com/scout/integrations/environment/cli/#examples)
+## Examples
 
 Before you start, set the following environment variables in your CI system:
 

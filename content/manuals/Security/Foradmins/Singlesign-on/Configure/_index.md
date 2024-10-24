@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/single-sign-on/configure/](https://docs.docker.com/security/for-admins/single-sign-on/configure/)
+> 原文：[https://docs.docker.com/security/for-admins/single-sign-on/configure/](https://docs.docker.com/security/for-admins/single-sign-on/configure/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,12 +20,12 @@ The steps to set up your SSO configuration are:
 
 1. [Add and verify the domain or domains](https://docs.docker.com/security/for-admins/single-sign-on/configure/#step-one-add-and-verify-your-domain) that your members use to sign in to Docker.
 2. [Create your SSO connection](https://docs.docker.com/security/for-admins/single-sign-on/configure/#step-two-create-an-sso-connection-in-docker) in Docker.
-3. [Configure your IdP](https://docs.docker.com/security/for-admins/single-sign-on/configure/configure-idp/) to work with Docker.
-4. [Complete your SSO connection](https://docs.docker.com/security/for-admins/single-sign-on/connect/) in Docker.
+3. [Configure your IdP]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Configure/ConfigureyourIdP" >}}) to work with Docker.
+4. [Complete your SSO connection]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Connect" >}}) in Docker.
 
 This page walks through steps 1 and 2 using Docker Hub or the Admin Console. To configure SSO for a company, use the Admin Console.
 
-## [Step one: Add and verify your domain](https://docs.docker.com/security/for-admins/single-sign-on/configure/#step-one-add-and-verify-your-domain)
+## Step one: Add and verify your domain
 
 Admin Console Docker Hub
 
@@ -33,7 +33,7 @@ Admin Console Docker Hub
 
 **Early Access**
 
-The Docker Admin Console is an [early access](https://docs.docker.com/release-lifecycle#early-access-ea) product.
+The Docker Admin Console is an [early access]({{< ref "/manuals/Releaselifecycle#early-access-ea" >}}) product.
 
 It's available to all company owners and organization owners. You can still manage organizations in Docker Hub, but the Admin Console includes company-level management and enhanced features for organization management.
 
@@ -61,7 +61,7 @@ It's available to all company owners and organization owners. You can still mana
 
 ------
 
-## [Step two: Create an SSO connection in Docker](https://docs.docker.com/security/for-admins/single-sign-on/configure/#step-two-create-an-sso-connection-in-docker)
+## Step two: Create an SSO connection in Docker
 
 Admin Console Docker Hub
 
@@ -69,7 +69,7 @@ Admin Console Docker Hub
 
 **Early Access**
 
-The Docker Admin Console is an [early access](https://docs.docker.com/release-lifecycle#early-access-ea) product.
+The Docker Admin Console is an [early access]({{< ref "/manuals/Releaselifecycle#early-access-ea" >}}) product.
 
 It's available to all company owners and organization owners. You can still manage organizations in Docker Hub, but the Admin Console includes company-level management and enhanced features for organization management.
 
@@ -106,13 +106,13 @@ After your domain is verified, create an SSO connection.
 
 ------
 
-## [More resources](https://docs.docker.com/security/for-admins/single-sign-on/configure/#more-resources)
+## More resources
 
 The following videos walk through verifying your domain to create your SSO connection in Docker.
 
 - [Video: Verify your domain for SSO with Okta](https://youtu.be/c56YECO4YP4?feature=shared&t=529)
 - [Video: Verify your domain for SSO with Azure AD (OIDC)](https://youtu.be/bGquA8qR9jU?feature=shared&t=496)
 
-## [What's next?](https://docs.docker.com/security/for-admins/single-sign-on/configure/#whats-next)
+## What's next?
 
-[Continue configuration in your IdP](https://docs.docker.com/security/for-admins/single-sign-on/configure/configure-idp/).
+[Continue configuration in your IdP]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Configure/ConfigureyourIdP" >}}).

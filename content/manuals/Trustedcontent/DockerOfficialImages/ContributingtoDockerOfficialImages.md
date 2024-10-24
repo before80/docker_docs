@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/trusted-content/official-images/contributing/](https://docs.docker.com/trusted-content/official-images/contributing/)
+> 原文：[https://docs.docker.com/trusted-content/official-images/contributing/](https://docs.docker.com/trusted-content/official-images/contributing/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ Docker, Inc. sponsors a dedicated team that's responsible for reviewing and publ
 
 While it's preferable to have upstream software authors maintaining their Docker Official Images, this isn't a strict requirement. Creating and maintaining images for Docker Official Images is a collaborative process. It takes place [openly on GitHub](https://github.com/docker-library/official-images) where participation is encouraged. Anyone can provide feedback, contribute code, suggest process changes, or even propose a new Official Image.
 
-## [Creating a Docker Official Image](https://docs.docker.com/trusted-content/official-images/contributing/#creating-a-docker-official-image)
+## Creating a Docker Official Image
 
 From a high level, an Official Image starts out as a proposal in the form of a set of GitHub pull requests. The following GitHub repositories detail the proposal requirements:
 
@@ -31,7 +31,7 @@ There are subjective considerations during the review process. These subjective 
 
 Once a new proposal is accepted, the author is responsible for keeping their images and documentation up-to-date and responding to user feedback. Docker is responsible for building and publishing the images on Docker Hub. Updates to Docker Official Images follow the same pull request process as for new images, although the review process for updates is more streamlined. The Docker Official Images team ultimately acts as a gatekeeper for all changes, which helps ensures consistency, quality, and security.
 
-## [Submitting feedback for Docker Official Images](https://docs.docker.com/trusted-content/official-images/contributing/#submitting-feedback-for-docker-official-images)
+## Submitting feedback for Docker Official Images
 
 All Docker Official Images contain a **User Feedback** section in their documentation which covers the details for that specific repository. In most cases, the GitHub repository which contains the Dockerfiles for an Official Image also has an active issue tracker.
 

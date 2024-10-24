@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/provisioning/group-mapping/](https://docs.docker.com/security/for-admins/provisioning/group-mapping/)
+> 原文：[https://docs.docker.com/security/for-admins/provisioning/group-mapping/](https://docs.docker.com/security/for-admins/provisioning/group-mapping/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Group mapping
 
-With directory group-to-team provisioning from your IdP, user updates will automatically sync with your Docker organizations and teams. You can use group mapping once you have configured [single sign-on (SSO)](https://docs.docker.com/security/for-admins/single-sign-on/).
+With directory group-to-team provisioning from your IdP, user updates will automatically sync with your Docker organizations and teams. You can use group mapping once you have configured [single sign-on (SSO)]({{< ref "/manuals/Security/Foradmins/Singlesign-on" >}}).
 
 > **Tip**
 >
@@ -22,13 +22,13 @@ With directory group-to-team provisioning from your IdP, user updates will autom
 >
 > Group mapping is ideal for adding a user to multiple organizations or multiple teams within one organization. If you don't need to set up multi-organization or multi-team assignment, you can use [user-level attributes](https://docs.docker.com/security/for-admins/provisioning/scim/#set-up-role-mapping).
 
-## [How group mapping works](https://docs.docker.com/security/for-admins/provisioning/group-mapping/#how-group-mapping-works)
+## How group mapping works
 
 IdPs share with Docker the main attributes of every authorized user through SSO, such as email address, name, surname, and groups. Just-in-Time (JIT) Provisioning uses these attributes to create or update the user’s Docker profile and their associations with organizations and teams on Docker Hub.
 
 Docker uses the email address of the user to identify them on the platform. Every Docker account must have a unique email address at all times.
 
-## [Use group mapping](https://docs.docker.com/security/for-admins/provisioning/group-mapping/#use-group-mapping)
+## Use group mapping
 
 To correctly assign your users to Docker teams, you must create groups in your IdP following the naming pattern `organization:team`. For example, if you want to manage provisioning for the team "developers", and your organization name is "moby", you must create a group in your IdP with the name `moby:developers`.
 
@@ -59,7 +59,7 @@ The general steps to use group mapping are:
 
 The exact configuration may vary depending on your IdP. You can use [group mapping with SSO](https://docs.docker.com/security/for-admins/provisioning/group-mapping/#use-group-mapping-with-sso), or with SSO and [SCIM enabled](https://docs.docker.com/security/for-admins/provisioning/group-mapping/#use-group-mapping-with-scim).
 
-### [Use group mapping with SSO](https://docs.docker.com/security/for-admins/provisioning/group-mapping/#use-group-mapping-with-sso)
+### Use group mapping with SSO
 
 The following steps describe how to set up and use group mapping with SSO connections that use the SAML authentication method. Note that group mapping with SSO isn't supported with the Azure AD (OIDC) authentication method. Additionally, SCIM isn't required for these configurations.
 
@@ -99,7 +99,7 @@ The next time you sync your groups with Docker, your users will map to the Docke
 
 ------
 
-### [Use group mapping with SCIM](https://docs.docker.com/security/for-admins/provisioning/group-mapping/#use-group-mapping-with-scim)
+### Use group mapping with SCIM
 
 The following steps describe how to set up and use group mapping with SCIM. Before you begin, make sure you [set up SCIM](https://docs.docker.com/security/for-admins/provisioning/scim/#enable-scim) first.
 
@@ -141,9 +141,9 @@ Once complete, a user who signs in to Docker through SSO is automatically added 
 >
 > 
 >
-> [Enable SCIM](https://docs.docker.com/security/for-admins/provisioning/scim/) to take advantage of automatic user provisioning and de-provisioning. If you don't enable SCIM users are only automatically provisioned. You have to de-provision them manually.
+> [Enable SCIM]({{< ref "/manuals/Security/Foradmins/Provisioning/SCIM" >}}) to take advantage of automatic user provisioning and de-provisioning. If you don't enable SCIM users are only automatically provisioned. You have to de-provision them manually.
 
-## [More resources](https://docs.docker.com/security/for-admins/provisioning/group-mapping/#more-resources)
+## More resources
 
 The following videos demonstrate how to use group mapping with your IdP with SCIM enabled.
 

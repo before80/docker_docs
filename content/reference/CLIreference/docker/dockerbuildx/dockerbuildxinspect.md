@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/buildx/inspect/](https://docs.docker.com/reference/cli/docker/buildx/inspect/)
+> 原文：[https://docs.docker.com/reference/cli/docker/buildx/inspect/](https://docs.docker.com/reference/cli/docker/buildx/inspect/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,27 +18,27 @@ draft = false
 | :---------- | -------------------------------- |
 | Usage       | `docker buildx inspect [NAME]`   |
 
-## [Description](https://docs.docker.com/reference/cli/docker/buildx/inspect/#description)
+## Description
 
 Shows information about the current or specified builder.
 
-## [Options](https://docs.docker.com/reference/cli/docker/buildx/inspect/#options)
+## Options
 
 | Option                                                       | Default | Description                                 |
 | ------------------------------------------------------------ | ------- | ------------------------------------------- |
 | [`--bootstrap`](https://docs.docker.com/reference/cli/docker/buildx/inspect/#bootstrap) |         | Ensure builder has booted before inspecting |
 
-## [Examples](https://docs.docker.com/reference/cli/docker/buildx/inspect/#examples)
+## Examples
 
-### [Ensure that the builder is running before inspecting (--bootstrap)](https://docs.docker.com/reference/cli/docker/buildx/inspect/#bootstrap)
+### Ensure that the builder is running before inspecting (--bootstrap)
 
 Use the `--bootstrap` option to ensure that the builder is running before inspecting it. If the driver is `docker-container`, then `--bootstrap` starts the BuildKit container and waits until it's operational. Bootstrapping is automatically done during build, and therefore not necessary. The same BuildKit container is used during the lifetime of the associated builder node (as displayed in `buildx ls`).
 
-### [Override the configured builder instance (--builder)](https://docs.docker.com/reference/cli/docker/buildx/inspect/#builder)
+### Override the configured builder instance (--builder)
 
 Same as [`buildx --builder`](https://docs.docker.com/reference/cli/docker/buildx/#builder).
 
-### [Get information about a builder instance](https://docs.docker.com/reference/cli/docker/buildx/inspect/#get-information-about-a-builder-instance)
+### Get information about a builder instance
 
 By default, `inspect` shows information about the current builder. Specify the name of the builder to inspect to get information about that builder. The following example shows information about a builder instance named `elated_tesla`:
 

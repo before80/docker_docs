@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/)
+> 原文：[https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 <iframe id="youtube-player-chiiGLlYRlY" data-video-id="chiiGLlYRlY" class="youtube-video aspect-video h-fit w-full py-2" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Docker concepts - Build, tag, and publish an image" width="100%" height="100%" src="https://www.youtube.com/embed/chiiGLlYRlY?rel=0&amp;iv_load_policy=3&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fdocs.docker.com&amp;widgetid=1" data-gtm-yt-inspected-24="true" style="--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border-width: 0px; border-style: solid; border-color: initial; display: block; vertical-align: middle; aspect-ratio: 16 / 9; height: fit-content; width: 634.672px; padding-top: 0.5rem; padding-bottom: 0.5rem; color: rgb(0, 0, 0); font-family: &quot;Roboto Flex&quot;, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"></iframe>
 
-## [Explanation](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#explanation)
+## Explanation
 
 In this guide, you will learn the following:
 
@@ -24,7 +24,7 @@ In this guide, you will learn the following:
 - Tagging images - the process of giving an image a name, which also determines where the image can be distributed
 - Publishing images - the process to distribute or share the newly created image using a container registry
 
-### [Building images](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#building-images)
+### Building images
 
 Most often, images are built using a Dockerfile. The most basic `docker build` command might look like the following:
 
@@ -73,7 +73,7 @@ docker run sha256:9924dfd9350407b3df01d1a0e1033b1e543523ce7d5d5e2c83a724480ebe8f
 
 That name certainly isn't memorable, which is where tagging becomes useful.
 
-### [Tagging images](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#tagging-images)
+### Tagging images
 
 Tagging images is the method to provide an image with a memorable name. However, there is a structure to the name of an image. A full image name has the following structure:
 
@@ -110,7 +110,7 @@ If you've already built an image, you can add another tag to the image by using 
 docker image tag my-username/my-image another-username/another-image:v1
 ```
 
-### [Publishing images](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#publishing-images)
+### Publishing images
 
 Once you have an image built and tagged, you're ready to push it to a registry. To do so, use the [`docker push`](https://docs.docker.com/engine/reference/commandline/image_push/) command:
 
@@ -126,11 +126,11 @@ Within a few seconds, all of the layers for your image will be pushed to the reg
 >
 > Before you're able to push an image to a repository, you will need to be authenticated. To do so, simply use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command.
 
-## [Try it out](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#try-it-out)
+## Try it out
 
 In this hands-on guide, you will build a simple image using a provided Dockerfile and push it to Docker Hub.
 
-### [Set up](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#set-up)
+### Set up
 
 1. Get the sample application.
 
@@ -166,7 +166,7 @@ In this hands-on guide, you will build a simple image using a provided Dockerfil
 
 3. If you don't have a Docker account yet, [create one now](https://hub.docker.com/). Once you've done that, sign in to Docker Desktop using that account.
 
-### [Build an image](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#build-an-image)
+### Build an image
 
 Now that you have a repository on Docker Hub, it's time for you to build an image and push it to the repository.
 
@@ -203,7 +203,7 @@ Now that you have a repository on Docker Hub, it's time for you to build an imag
    mobywhale/concepts-build-image-demo    latest    746c7e06537f   24 seconds ago   354MB
    ```
 
-3. You can actually view the history (or how the image was created) by using the [docker image history](https://docs.docker.com/reference/cli/docker/image/history/) command:
+3. You can actually view the history (or how the image was created) by using the [docker image history]({{< ref "/reference/CLIreference/docker/dockerimage/dockerimagehistory" >}}) command:
 
    
 
@@ -233,11 +233,11 @@ Now that you have a repository on Docker Hub, it's time for you to build an imag
 
    This output shows the layers of the image, highlighting the layers you added and those that were inherited from your base image.
 
-### [Push the image](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#push-the-image)
+### Push the image
 
 Now that you have an image built, it's time to push the image to a registry.
 
-1. Push the image using the [docker push](https://docs.docker.com/reference/cli/docker/image/push/) command:
+1. Push the image using the [docker push]({{< ref "/reference/CLIreference/docker/dockerimage/dockerpush" >}}) command:
 
    
 
@@ -249,7 +249,7 @@ Now that you have an image built, it's time to push the image to a registry.
 
    After a moment, your image should be pushed to Docker Hub.
 
-## [Additional resources](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#additional-resources)
+## Additional resources
 
 To learn more about building, tagging, and publishing images, visit the following resources:
 
@@ -257,10 +257,10 @@ To learn more about building, tagging, and publishing images, visit the followin
 - [docker build reference](https://docs.docker.com/engine/reference/commandline/image_build/)
 - [docker image tag reference](https://docs.docker.com/engine/reference/commandline/image_tag/)
 - [docker push reference](https://docs.docker.com/engine/reference/commandline/image_push/)
-- [What is a registry?](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-registry/)
+- [What is a registry?]({{< ref "/get-started/Dockerconcepts/Thebasics/Whatisaregistry" >}})
 
-## [Next steps](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#next-steps)
+## Next steps
 
 Now that you have learned about building and publishing images, it's time to learn how to speed up the build process using the Docker build cache.
 
-[Using the build cache](https://docs.docker.com/get-started/docker-concepts/building-images/using-the-build-cache/)
+[Using the build cache]({{< ref "/get-started/Dockerconcepts/Buildingimages/Usingthebuildcache" >}})

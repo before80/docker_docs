@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/kubernetes/](https://docs.docker.com/desktop/kubernetes/)
+> 原文：[https://docs.docker.com/desktop/kubernetes/](https://docs.docker.com/desktop/kubernetes/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ The Kubernetes server runs locally within your Docker instance, is not configura
 
 Turning on Kubernetes allows you to deploy your workloads in parallel, on Kubernetes, Swarm, and as standalone containers. Turning on or off the Kubernetes server does not affect your other workloads.
 
-## [Install and turn on Kubernetes](https://docs.docker.com/desktop/kubernetes/#install-and-turn-on-kubernetes)
+## Install and turn on Kubernetes
 
 1. From the Docker Dashboard, select the **Settings**.
 
@@ -46,7 +46,7 @@ When Kubernetes is turned on and running, an additional status bar in the Docker
 >
 > Docker Desktop does not upgrade your Kubernetes cluster automatically after a new update. To upgrade your Kubernetes cluster to the latest version, select **Reset Kubernetes Cluster**.
 
-## [Use the kubectl command](https://docs.docker.com/desktop/kubernetes/#use-the-kubectl-command)
+## Use the kubectl command
 
 Kubernetes integration provides the Kubernetes CLI command at `/usr/local/bin/kubectl` on Mac and at `C:\Program Files\Docker\Docker\Resources\bin\kubectl.exe` on Windows. This location may not be in your shell's `PATH` variable, so you may need to type the full path of the command or add it to the `PATH`.
 
@@ -82,7 +82,7 @@ docker-desktop       Ready     control-plane    3h        v1.29.1
 
 For more information about `kubectl`, see the [`kubectl` documentation](https://kubernetes.io/docs/reference/kubectl/overview/).
 
-## [Turn off and uninstall Kubernetes](https://docs.docker.com/desktop/kubernetes/#turn-off-and-uninstall-kubernetes)
+## Turn off and uninstall Kubernetes
 
 To turn off Kubernetes in Docker Desktop:
 

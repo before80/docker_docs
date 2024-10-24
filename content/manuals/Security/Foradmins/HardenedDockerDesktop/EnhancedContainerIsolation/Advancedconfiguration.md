@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/config/](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/config/)
+> 原文：[https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/config/](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/config/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,7 +22,7 @@ draft = false
 
 This page describes optional, advanced configurations for ECI, once ECI is enabled.
 
-## [Docker socket mount permissions](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/config/#docker-socket-mount-permissions)
+## Docker socket mount permissions
 
 By default, when ECI is enabled, Docker Desktop does not allow bind-mounting the Docker Engine socket into containers:
 
@@ -39,7 +39,7 @@ However, some legitimate use cases require containers to have access to the Dock
 
 Starting with Docker Desktop 4.27, admins can optionally configure ECI to allow bind mounting the Docker Engine socket into containers, but in a controlled way.
 
-This can be done via the Docker Socket mount permissions section in the [admin-settings.json](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/configure/) file. For example:
+This can be done via the Docker Socket mount permissions section in the [admin-settings.json]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/SettingsManagement/Configure" >}}) file. For example:
 
 
 
@@ -68,7 +68,7 @@ This can be done via the Docker Socket mount permissions section in the [admin-s
 
 As shown above, there are two configurations for bind-mounting the Docker socket into containers: the `imageList` and the `commandList`. These are described below.
 
-### [Image list](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/config/#image-list)
+### Image list
 
 The `imageList` is a list of container images that are allowed to bind-mount the Docker socket. By default the list is empty (i.e., no containers are allowed to bind-mount the Docker socket when ECI is enabled). However, an admin can add images to the list, using either of these formats:
 
@@ -124,7 +124,7 @@ $ docker run -v /var/run/docker.sock:/var/run/docker.sock <allowed_image>
 
 then the tag operation succeeds, but the `docker run` command fails because the image digest of the disallowed image won't match that of the allowed ones in the repository.
 
-### [Docker Socket Mount Permissions for derived images](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/config/#docker-socket-mount-permissions-for-derived-images)
+### Docker Socket Mount Permissions for derived images
 
 > **Note**
 >
@@ -163,7 +163,7 @@ A couple of caveats:
 - For derived image checking to work, the parent image (i.e., the image in the `imageList`) must be present locally (i.e., must have been explicitly pulled from a repository). This is usually not a problem as the tools that need this feature (e.g., Paketo buildpacks) will do the pre-pull of the parent image.
 - The `allowDerivedImages` setting applies to all images in the `imageList` specified with an explicit tag (e.g., `<name>:<tag>`). It does not apply to images specified using the tag wildcard (e.g., `<name>:*`) described in the prior section, because Docker Desktop needs to know the tag in order to perform ancestor-descendant image checks. Therefore, if you want Docker socket mounts to be allowed for images derived from a parent image in the `imageList`, make sure the parent image is listed with name and tag.
 
-### [Command list](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/config/#command-list)
+### Command list
 
 In addition to the `imageList` described in the prior sections, ECI can further restrict the commands that a container can issue via a bind mounted Docker socket. This is done via the Docker socket mount permission `commandList`, and acts as a complementary security mechanism to the `imageList` (i.e., like a second line of defense).
 
@@ -222,14 +222,14 @@ Error response from daemon: enhanced container isolation: docker command "/v1.43
 
 Note that if the `commandList` had been configured as an "allow" list, then the effect would be the opposite: only the listed commands would have been allowed. Whether to configure the list as an allow or deny list depends on the use case.
 
-### [Recommendations](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/config/#recommendations)
+### Recommendations
 
 - Be restrictive on the list of container images for which you allow bind-mounting of the Docker socket (i.e., the `imageList`). Generally, only allow this for images that are absolutely needed and that you trust.
 - Use the tag wildcard format if possible in the `imageList` (e.g., `<image_name>:*`), as this eliminates the need to update the `admin-settings.json` file due to image tag changes.
 - In the `commandList`, block commands that you don't expect the container to execute. For example, for local testing (e.g., Testcontainers), containers that bind-mount the Docker socket typically create / run / remove containers, volumes, and networks, but don't typically build images or push them into repositories (though some may legitimately do this). What commands to allow or block depends on the use case.
   - Note that all "docker" commands issued by the container via the bind-mounted Docker socket will also execute under enhanced container isolation (i.e., the resulting container uses a the Linux user-namespace, sensitive system calls are vetted, etc.)
 
-### [Caveats and limitations](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/config/#caveats-and-limitations)
+### Caveats and limitations
 
 - When Docker Desktop is restarted, it's possible that an image that is allowed to mount the Docker socket is unexpectedly blocked from doing so. This can happen when the image digest changes in the remote repository (e.g., a ":latest" image was updated) and the local copy of that image (e.g., from a prior `docker pull`) no longer matches the digest in the remote repository. In this case, remove the local image and pull it again (e.g., `docker rm <image>` and `docker pull <image>`).
 - It's not possible to allow Docker socket bind-mounts on local images (i.e., images that are not on a registry) unless they are [derived from an allowed image](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/config/#docker-socket-mount-permissions-for-derived-images). That's because Docker Desktop pulls the digests for the allowed images from the registry, and then uses that to compare against the local copy of the image.

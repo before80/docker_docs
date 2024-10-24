@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/storage/tmpfs/](https://docs.docker.com/engine/storage/tmpfs/)
+> 原文：[https://docs.docker.com/engine/storage/tmpfs/](https://docs.docker.com/engine/storage/tmpfs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # tmpfs mounts
 
-[Volumes](https://docs.docker.com/engine/storage/volumes/) and [bind mounts](https://docs.docker.com/engine/storage/bind-mounts/) let you share files between the host machine and container so that you can persist data even after the container is stopped.
+[Volumes]({{< ref "/manuals/DockerEngine/Storage/Volumes" >}}) and [bind mounts]({{< ref "/manuals/DockerEngine/Storage/Bindmounts" >}}) let you share files between the host machine and container so that you can persist data even after the container is stopped.
 
 If you're running Docker on Linux, you have a third option: `tmpfs` mounts. When you create a container with a `tmpfs` mount, the container can create files outside the container's writable layer.
 
@@ -24,48 +24,60 @@ As opposed to volumes and bind mounts, a `tmpfs` mount is temporary, and only pe
 
 This is useful to temporarily store sensitive files that you don't want to persist in either the host or the container writable layer.
 
-## [Limitations of tmpfs mounts](https://docs.docker.com/engine/storage/tmpfs/#limitations-of-tmpfs-mounts)
+## Limitations of tmpfs mounts
 
 - Unlike volumes and bind mounts, you can't share `tmpfs` mounts between containers.
 - This functionality is only available if you're running Docker on Linux.
 - Setting permissions on tmpfs may cause them to [reset after container restart](https://github.com/docker/for-linux/issues/138). In some cases [setting the uid/gid](https://github.com/docker/compose/issues/3425#issuecomment-423091370) can serve as a workaround.
 
-## [Choose the --tmpfs or --mount flag](https://docs.docker.com/engine/storage/tmpfs/#choose-the---tmpfs-or---mount-flag)
+## Choose the --tmpfs or --mount flag
 
 In general, `--mount` is more explicit and verbose. The biggest difference is that the `--tmpfs` flag does not support any configurable options.
 
 - `--tmpfs`: Mounts a `tmpfs` mount without allowing you to specify any configurable options, and can only be used with standalone containers.
 - `--mount`: Consists of multiple key-value pairs, separated by commas and each consisting of a `<key>=<value>` tuple. The `--mount` syntax is more verbose than `--tmpfs`:
-  - The `type` of the mount, which can be [`bind`](https://docs.docker.com/engine/storage/bind-mounts/), `volume`, or [`tmpfs`](https://docs.docker.com/engine/storage/tmpfs/). This topic discusses `tmpfs`, so the type is always `tmpfs`.
+  - The `type` of the mount, which can be [`bind`]({{< ref "/manuals/DockerEngine/Storage/Bindmounts" >}}), `volume`, or [`tmpfs`]({{< ref "/manuals/DockerEngine/Storage/tmpfsmounts" >}}). This topic discusses `tmpfs`, so the type is always `tmpfs`.
   - The `destination` takes as its value the path where the `tmpfs` mount is mounted in the container. May be specified as `destination`, `dst`, or `target`.
   - The `tmpfs-size` and `tmpfs-mode` options. See [tmpfs options](https://docs.docker.com/engine/storage/tmpfs/#specify-tmpfs-options).
 
 The examples below show both the `--mount` and `--tmpfs` syntax where possible, and `--mount` is presented first.
 
-### [Differences between `--tmpfs` and `--mount` behavior](https://docs.docker.com/engine/storage/tmpfs/#differences-between---tmpfs-and---mount-behavior)
+### Differences between `--tmpfs` and `--mount` behavior
 
 - The `--tmpfs` flag does not allow you to specify any configurable options.
 - The `--tmpfs` flag cannot be used with swarm services. You must use `--mount`.
 
-## [Use a tmpfs mount in a container](https://docs.docker.com/engine/storage/tmpfs/#use-a-tmpfs-mount-in-a-container)
+## Use a tmpfs mount in a container
 
 To use a `tmpfs` mount in a container, use the `--tmpfs` flag, or use the `--mount` flag with `type=tmpfs` and `destination` options. There is no `source` for `tmpfs` mounts. The following example creates a `tmpfs` mount at `/app` in a Nginx container. The first example uses the `--mount` flag and the second uses the `--tmpfs` flag.
 
-```
---mount` `--tmpfs
-```
+{{< tabpane text=true persist=disabled >}}
 
-------
-
-
+{{% tab header="`--mount`" %}}
 
 ```console
-$ docker run -d \
+ docker run -d \
   -it \
   --name tmptest \
   --mount type=tmpfs,destination=/app \
   nginx:latest
 ```
+
+{{% /tab  %}}
+
+{{% tab header="`--tmpfs`" %}}
+
+```console
+ docker run -d \
+  -it \
+  --name tmptest \
+  --tmpfs /app \
+  nginx:latest
+```
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
 
 ------
 
@@ -87,7 +99,7 @@ $ docker stop tmptest
 $ docker rm tmptest
 ```
 
-### [Specify tmpfs options](https://docs.docker.com/engine/storage/tmpfs/#specify-tmpfs-options)
+### Specify tmpfs options
 
 `tmpfs` mounts allow for two configuration options, neither of which is required. If you need to specify these options, you must use the `--mount` flag, as the `--tmpfs` flag does not support them.
 
@@ -108,8 +120,8 @@ docker run -d \
   nginx:latest
 ```
 
-## [Next steps](https://docs.docker.com/engine/storage/tmpfs/#next-steps)
+## Next steps
 
-- Learn about [volumes](https://docs.docker.com/engine/storage/volumes/)
-- Learn about [bind mounts](https://docs.docker.com/engine/storage/bind-mounts/)
-- Learn about [storage drivers](https://docs.docker.com/engine/storage/drivers/)
+- Learn about [volumes]({{< ref "/manuals/DockerEngine/Storage/Volumes" >}})
+- Learn about [bind mounts]({{< ref "/manuals/DockerEngine/Storage/Bindmounts" >}})
+- Learn about [storage drivers]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers" >}})

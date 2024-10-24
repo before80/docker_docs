@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/containers/run/](https://docs.docker.com/engine/containers/run/)
+> 原文：[https://docs.docker.com/engine/containers/run/](https://docs.docker.com/engine/containers/run/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ Docker runs processes in isolated containers. A container is a process which run
 
 This page details how to use the `docker run` command to run containers.
 
-## [General form](https://docs.docker.com/engine/containers/run/#general-form)
+## General form
 
 A `docker run` command takes the following form:
 
@@ -30,7 +30,7 @@ $ docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
 
 The `docker run` command must specify an [image reference](https://docs.docker.com/engine/containers/run/#image-references) to create the container from.
 
-### [Image references](https://docs.docker.com/engine/containers/run/#image-references)
+### Image references
 
 The image reference is the name and version of the image. You can use the image reference to create or run a container based on an image.
 
@@ -39,7 +39,7 @@ The image reference is the name and version of the image. You can use the image 
 
 An image tag is the image version, which defaults to `latest` when omitted. Use the tag to run a container from specific version of an image. For example, to run version `24.04` of the `ubuntu` image: `docker run ubuntu:24.04`.
 
-#### [Image digests](https://docs.docker.com/engine/containers/run/#image-digests)
+#### Image digests
 
 Images using the v2 or later image format have a content-addressable identifier called a digest. As long as the input used to generate the image is unchanged, the digest value is predictable.
 
@@ -51,11 +51,11 @@ The following example runs a container from the `alpine` image with the `sha256:
 $ docker run alpine@sha256:9cacb71397b640eca97488cf08582ae4e4068513101088e9f96c9814bfda95e0 date
 ```
 
-### [Options](https://docs.docker.com/engine/containers/run/#options)
+### Options
 
 `[OPTIONS]` let you configure options for the container. For example, you can give the container a name (`--name`), or run it as a background process (`-d`). You can also set options to control things like resource constraints and networking.
 
-### [Commands and arguments](https://docs.docker.com/engine/containers/run/#commands-and-arguments)
+### Commands and arguments
 
 You can use the `[COMMAND]` and `[ARG...]` positional arguments to specify commands and arguments for the container to run when it starts up. For example, you can specify `sh` as the `[COMMAND]`, combined with the `-i` and `-t` flags, to start an interactive shell in the container (if the image you select has an `sh` executable on `PATH`).
 
@@ -69,7 +69,7 @@ $ docker run -it IMAGE sh
 >
 > Depending on your Docker system configuration, you may be required to preface the `docker run` command with `sudo`. To avoid having to use `sudo` with the `docker` command, your system administrator can create a Unix group called `docker` and add users to it. For more information about this configuration, refer to the Docker installation documentation for your operating system.
 
-## [Foreground and background](https://docs.docker.com/engine/containers/run/#foreground-and-background)
+## Foreground and background
 
 When you start a container, the container runs in the foreground by default. If you want to run the container in the background instead, you can use the `--detach` (or `-d`) flag. This starts the container without occupying your terminal window.
 
@@ -108,9 +108,9 @@ For more information about `docker run` flags related to foreground and backgrou
 - [`docker run --tty`](https://docs.docker.com/reference/cli/docker/container/run/#tty): allocate a pseudo-tty
 - [`docker run --interactive`](https://docs.docker.com/reference/cli/docker/container/run/#interactive): keep `stdin` open even if not attached
 
-For more information about re-attaching to a background container, see [`docker attach`](https://docs.docker.com/reference/cli/docker/container/attach/).
+For more information about re-attaching to a background container, see [`docker attach`]({{< ref "/reference/CLIreference/docker/dockercontainer/dockercontainerattach" >}}).
 
-## [Container identification](https://docs.docker.com/engine/containers/run/#container-identification)
+## Container identification
 
 You can identify a container in three ways:
 
@@ -136,7 +136,7 @@ $ docker ps -q --filter ancestor=nginx:alpine
 
 For more information about using filters, see [Filtering](https://docs.docker.com/config/filter/).
 
-## [Container networking](https://docs.docker.com/engine/containers/run/#container-networking)
+## Container networking
 
 Containers have networking enabled by default, and they can make outgoing connections. If you're running multiple containers that need to communicate with each other, you can create a custom network and attach the containers to the network.
 
@@ -161,7 +161,7 @@ round-trip min/avg/max = 0.257/0.288/0.326 ms
 
 For more information about container networking, see [Networking overview](https://docs.docker.com/network/)
 
-## [Filesystem mounts](https://docs.docker.com/engine/containers/run/#filesystem-mounts)
+## Filesystem mounts
 
 By default, the data in a container is stored in an ephemeral, writable container layer. Removing the container also removes its data. If you want to use persistent data with containers, you can use filesystem mounts to store the data persistently on the host system. Filesystem mounts can also let you share data between containers and the host.
 
@@ -176,7 +176,7 @@ You can add a filesystem mount to a container using the `--mount` flag for the `
 
 The following sections show basic examples of how to create volumes and bind mounts. For more in-depth examples and descriptions, refer to the section of the [storage section](https://docs.docker.com/storage/) in the documentation.
 
-### [Volume mounts](https://docs.docker.com/engine/containers/run/#volume-mounts)
+### Volume mounts
 
 To create a volume mount:
 
@@ -200,7 +200,7 @@ hello, volume!
 
 The `target` must always be an absolute path, such as `/src/docs`. An absolute path starts with a `/` (forward slash). Volume names must start with an alphanumeric character, followed by `a-z0-9`, `_` (underscore), `.` (period) or `-` (hyphen).
 
-### [Bind mounts](https://docs.docker.com/engine/containers/run/#bind-mounts)
+### Bind mounts
 
 To create a bind mount:
 
@@ -224,11 +224,11 @@ $ cat hello.txt
 hello from container
 ```
 
-## [Exit status](https://docs.docker.com/engine/containers/run/#exit-status)
+## Exit status
 
 The exit code from `docker run` gives information about why the container failed to run or why it exited. The following sections describe the meanings of different container exit codes values.
 
-### [125](https://docs.docker.com/engine/containers/run/#125)
+### 125
 
 Exit code `125` indicates that the error is with Docker daemon itself.
 
@@ -242,7 +242,7 @@ See 'docker run --help'.
 125
 ```
 
-### [126](https://docs.docker.com/engine/containers/run/#126)
+### 126
 
 Exit code `126` indicates that the specified contained command can't be invoked. The container command in the following example is: `/etc; echo $?`.
 
@@ -255,7 +255,7 @@ docker: Error response from daemon: Container command '/etc' could not be invoke
 126
 ```
 
-### [127](https://docs.docker.com/engine/containers/run/#127)
+### 127
 
 Exit code `127` indicates that the contained command can't be found.
 
@@ -268,7 +268,7 @@ docker: Error response from daemon: Container command 'foo' not found or does no
 127
 ```
 
-### [Other exit codes](https://docs.docker.com/engine/containers/run/#other-exit-codes)
+### Other exit codes
 
 Any exit code other than `125`, `126`, and `127` represent the exit code of the provided container command.
 
@@ -280,7 +280,7 @@ $ echo $?
 3
 ```
 
-## [Runtime constraints on resources](https://docs.docker.com/engine/containers/run/#runtime-constraints-on-resources)
+## Runtime constraints on resources
 
 The operator can also adjust the performance parameters of the container:
 
@@ -309,7 +309,7 @@ The operator can also adjust the performance parameters of the container:
 | `--memory-swappiness=""`   | Tune a container's memory swappiness behavior. Accepts an integer between 0 and 100. |
 | `--shm-size=""`            | Size of `/dev/shm`. The format is `<number><unit>`. `number` must be greater than `0`. Unit is optional and can be `b` (bytes), `k` (kilobytes), `m` (megabytes), or `g` (gigabytes). If you omit the unit, the system uses bytes. If you omit the size entirely, the system uses `64m`. |
 
-### [User memory constraints](https://docs.docker.com/engine/containers/run/#user-memory-constraints)
+### User memory constraints
 
 We have four ways to set user memory usage:
 
@@ -400,7 +400,7 @@ $ docker run -it --oom-kill-disable ubuntu:24.04 /bin/bash
 
 The container has unlimited memory which can cause the host to run out memory and require killing system processes to free memory. The `--oom-score-adj` parameter can be changed to select the priority of which containers will be killed when the system is out of memory, with negative scores making them less likely to be killed, and positive scores more likely.
 
-### [Kernel memory constraints](https://docs.docker.com/engine/containers/run/#kernel-memory-constraints)
+### Kernel memory constraints
 
 Kernel memory is fundamentally different than user memory as kernel memory can't be swapped out. The inability to swap makes it possible for the container to block system services by consuming too much kernel memory. Kernel memory includes：
 
@@ -437,7 +437,7 @@ $ docker run -it --kernel-memory 50M ubuntu:24.04 /bin/bash
 
 We set kernel memory without **-m**, so the processes in the container can use as much memory as they want, but they can only use 50M kernel memory.
 
-### [Swappiness constraint](https://docs.docker.com/engine/containers/run/#swappiness-constraint)
+### Swappiness constraint
 
 By default, a container's kernel can swap out a percentage of anonymous pages. To set this percentage for a container, specify a `--memory-swappiness` value between 0 and 100. A value of 0 turns off anonymous page swapping. A value of 100 sets all anonymous pages as swappable. By default, if you are not using `--memory-swappiness`, memory swappiness value will be inherited from the parent.
 
@@ -451,7 +451,7 @@ $ docker run -it --memory-swappiness=0 ubuntu:24.04 /bin/bash
 
 Setting the `--memory-swappiness` option is helpful when you want to retain the container's working set and to avoid swapping performance penalties.
 
-### [CPU share constraint](https://docs.docker.com/engine/containers/run/#cpu-share-constraint)
+### CPU share constraint
 
 By default, all containers get the same proportion of CPU cycles. This proportion can be modified by changing the container's CPU share weighting relative to the weighting of all other running containers.
 
@@ -472,7 +472,7 @@ PID    container	CPU	CPU share
 102    {C1}		2	100% of CPU2
 ```
 
-### [CPU period constraint](https://docs.docker.com/engine/containers/run/#cpu-period-constraint)
+### CPU period constraint
 
 The default CPU CFS (Completely Fair Scheduler) period is 100ms. We can use `--cpu-period` to set the period of CPUs to limit the container's CPU usage. And usually `--cpu-period` should work with `--cpu-quota`.
 
@@ -492,7 +492,7 @@ The default value for `--cpus` is `0.000`, which means there is no limit.
 
 For more information, see the [CFS documentation on bandwidth limiting](https://www.kernel.org/doc/Documentation/scheduler/sched-bwc.txt).
 
-### [Cpuset constraint](https://docs.docker.com/engine/containers/run/#cpuset-constraint)
+### Cpuset constraint
 
 We can set cpus in which to allow execution for containers.
 
@@ -534,11 +534,11 @@ $ docker run -it --cpuset-mems="0-2" ubuntu:24.04 /bin/bash
 
 This example restricts the processes in the container to only use memory from memory nodes 0, 1 and 2.
 
-### [CPU quota constraint](https://docs.docker.com/engine/containers/run/#cpu-quota-constraint)
+### CPU quota constraint
 
 The `--cpu-quota` flag limits the container's CPU usage. The default 0 value allows the container to take 100% of a CPU resource (1 CPU). The CFS (Completely Fair Scheduler) handles resource allocation for executing processes and is default Linux Scheduler used by the kernel. Set this value to 50000 to limit the container to 50% of a CPU resource. For multiple CPUs, adjust the `--cpu-quota` as necessary. For more information, see the [CFS documentation on bandwidth limiting](https://www.kernel.org/doc/Documentation/scheduler/sched-bwc.txt).
 
-### [Block IO bandwidth (Blkio) constraint](https://docs.docker.com/engine/containers/run/#block-io-bandwidth-blkio-constraint)
+### Block IO bandwidth (Blkio) constraint
 
 By default, all containers get the same proportion of block IO bandwidth (blkio). This proportion is 500. To modify this proportion, change the container's blkio weight relative to the weighting of all other running containers using the `--blkio-weight` flag.
 
@@ -622,7 +622,7 @@ $ docker run -it --device-write-iops /dev/sda:1000 ubuntu
 
 Both flags take limits in the `<device-path>:<limit>` format. Both read and write rates must be a positive integer.
 
-## [Additional groups](https://docs.docker.com/engine/containers/run/#additional-groups)
+## Additional groups
 
 
 
@@ -640,7 +640,7 @@ $ docker run --rm --group-add audio --group-add nogroup --group-add 777 busybox 
 uid=0(root) gid=0(root) groups=10(wheel),29(audio),99(nogroup),777
 ```
 
-## [Runtime privilege and Linux capabilities](https://docs.docker.com/engine/containers/run/#runtime-privilege-and-linux-capabilities)
+## Runtime privilege and Linux capabilities
 
 | Option         | Description                                                  |
 | :------------- | :----------------------------------------------------------- |
@@ -798,9 +798,9 @@ drwxrwxr-x 1 1000 1000   4096 Dec  4 06:11 .git
 
 The default seccomp profile will adjust to the selected capabilities, in order to allow use of facilities allowed by the capabilities, so you should not have to adjust this.
 
-## [Overriding image defaults](https://docs.docker.com/engine/containers/run/#overriding-image-defaults)
+## Overriding image defaults
 
-When you build an image from a [Dockerfile](https://docs.docker.com/reference/dockerfile/), or when committing it, you can set a number of default parameters that take effect when the image starts up as a container. When you run an image, you can override those defaults using flags for the `docker run` command.
+When you build an image from a [Dockerfile]({{< ref "/reference/Dockerfilereference" >}}), or when committing it, you can set a number of default parameters that take effect when the image starts up as a container. When you run an image, you can override those defaults using flags for the `docker run` command.
 
 - [Default entrypoint](https://docs.docker.com/engine/containers/run/#default-entrypoint)
 - [Default command and options](https://docs.docker.com/engine/containers/run/#default-command-and-options)
@@ -810,7 +810,7 @@ When you build an image from a [Dockerfile](https://docs.docker.com/reference/do
 - [User](https://docs.docker.com/engine/containers/run/#user)
 - [Working directory](https://docs.docker.com/engine/containers/run/#working-directory)
 
-### [Default command and options](https://docs.docker.com/engine/containers/run/#default-command-and-options)
+### Default command and options
 
 The command syntax for `docker run` supports optionally specifying commands and arguments to the container's entrypoint, represented as `[COMMAND]` and `[ARG...]` in the following synopsis example:
 
@@ -824,7 +824,7 @@ This command is optional because whoever created the `IMAGE` may have already pr
 
 If the image also specifies an `ENTRYPOINT` then the `CMD` or `COMMAND` get appended as arguments to the `ENTRYPOINT`.
 
-### [Default entrypoint](https://docs.docker.com/engine/containers/run/#default-entrypoint)
+### Default entrypoint
 
 
 
@@ -863,7 +863,7 @@ $ docker run -it --entrypoint="" mysql bash
 >
 > Passing `--entrypoint` clears out any default command set on the image. That is, any `CMD` instruction in the Dockerfile used to build it.
 
-### [Exposed ports](https://docs.docker.com/engine/containers/run/#exposed-ports)
+### Exposed ports
 
 By default, when you run a container, none of the container's ports are exposed to the host. This means you won't be able to access any ports that the container might be listening on. To make a container's ports accessible from the host, you need to publish the ports.
 
@@ -877,7 +877,7 @@ You can start the container with the `-P` or `-p` flags to expose its ports:
 
 The port number inside the container (where the service listens) doesn't need to match the port number published on the outside of the container (where clients connect). For example, inside the container an HTTP service might be listening on port 80. At runtime, the port might be bound to 42800 on the host. To find the mapping between the host ports and the exposed ports, use the `docker port` command.
 
-### [Environment variables](https://docs.docker.com/engine/containers/run/#environment-variables)
+### Environment variables
 
 Docker automatically sets some environment variables when creating a Linux container. Docker doesn't set any environment variables when creating a Windows container.
 
@@ -944,7 +944,7 @@ USERPROFILE=C:\Users\ContainerAdministrator
 windir=C:\Windows
 ```
 
-### [Healthchecks](https://docs.docker.com/engine/containers/run/#healthchecks)
+### Healthchecks
 
 The following flags for the `docker run` command let you control the parameters for container healthchecks:
 
@@ -1011,7 +1011,7 @@ $ sleep 2; docker inspect --format='{{json .State.Health}}' test
 
 The health status is also displayed in the `docker ps` output.
 
-### [User](https://docs.docker.com/engine/containers/run/#user)
+### User
 
 The default user within a container is `root` (uid = 0). You can set a default user to run the first process with the Dockerfile `USER` instruction. When starting a container, you can override the `USER` instruction by passing the `-u` option.
 
@@ -1033,7 +1033,7 @@ The followings examples are all valid:
 >
 > If you pass a numeric user ID, it must be in the range of 0-2147483647. If you pass a username, the user must exist in the container.
 
-### [Working directory](https://docs.docker.com/engine/containers/run/#working-directory)
+### Working directory
 
 The default working directory for running binaries within a container is the root directory (`/`). The default working directory of an image is set using the Dockerfile `WORKDIR` command. You can override the default working directory for an image using the `-w` (or `--workdir`) flag for the `docker run` command:
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/exporters/](https://docs.docker.com/build/exporters/)
+> 原文：[https://docs.docker.com/build/exporters/](https://docs.docker.com/build/exporters/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,7 +24,7 @@ Exporters save your build results to a specified output type. You specify the ex
 - `docker`: exports the build result to the local filesystem in the [Docker Image Specification v1.2.0](https://github.com/moby/moby/blob/v25.0.0/image/spec/v1.2.md) format.
 - `cacheonly`: doesn't export a build output, but runs the build and creates a cache.
 
-## [Using exporters](https://docs.docker.com/build/exporters/#using-exporters)
+## Using exporters
 
 To specify an exporter, use the following command syntax:
 
@@ -41,11 +41,11 @@ For example, if you use the `--push` option in combination with `--tag`, Buildx 
 
 To get the full flexibility out of the various exporters BuildKit has to offer, you use the `--output` flag that lets you configure exporter options.
 
-## [Use cases](https://docs.docker.com/build/exporters/#use-cases)
+## Use cases
 
 Each exporter type is designed for different use cases. The following sections describe some common scenarios, and how you can use exporters to generate the output that you need.
 
-### [Load to image store](https://docs.docker.com/build/exporters/#load-to-image-store)
+### Load to image store
 
 Buildx is often used to build container images that can be loaded to an image store. That's where the `docker` exporter comes in. The following example shows how to build an image using the `docker` exporter, and have that image loaded to the local image store, using the `--output` option:
 
@@ -68,7 +68,7 @@ Building images using the `docker` driver are automatically loaded to the local 
 
 Images loaded to the image store are available to `docker run` immediately after the build finishes, and you'll see them in the list of images when you run the `docker images` command.
 
-### [Push to registry](https://docs.docker.com/build/exporters/#push-to-registry)
+### Push to registry
 
 To push a built image to a container registry, you can use the `registry` or `image` exporters.
 
@@ -98,7 +98,7 @@ $ docker buildx build \
   --output type=registry,name=<registry>/<image> .
 ```
 
-### [Export image layout to file](https://docs.docker.com/build/exporters/#export-image-layout-to-file)
+### Export image layout to file
 
 You can use either the `oci` or `docker` exporters to save the build results to image layout on your local filesystem. Both of these exporters generate a tar archive file containing the corresponding image layout. The `dest` parameter defines the target output path for the tarball.
 
@@ -128,7 +128,7 @@ out
 └── oci-layout
 ```
 
-### [Export filesystem](https://docs.docker.com/build/exporters/#export-filesystem)
+### Export filesystem
 
 If you don't want to build an image from your build results, but instead export the filesystem that was built, you can use the `local` and `tar` exporters.
 
@@ -140,9 +140,9 @@ The `local` exporter unpacks the filesystem into a directory structure in the sp
 $ docker buildx build --output type=tar,dest=<path/to/output> .
 ```
 
-The `local` exporter is useful in [multi-stage builds](https://docs.docker.com/build/building/multi-stage/) since it allows you to export only a minimal number of build artifacts, such as self-contained binaries.
+The `local` exporter is useful in [multi-stage builds]({{< ref "/manuals/DockerBuild/Building/Multi-stage" >}}) since it allows you to export only a minimal number of build artifacts, such as self-contained binaries.
 
-### [Cache-only export](https://docs.docker.com/build/exporters/#cache-only-export)
+### Cache-only export
 
 The `cacheonly` exporter can be used if you just want to run a build, without exporting any output. This can be useful if, for example, you want to run a test build. Or, if you want to run the build first, and create exports using subsequent commands. The `cacheonly` exporter creates a build cache, so any successive builds are instant.
 
@@ -166,7 +166,7 @@ WARNING: No output specified with docker-container driver.
          to load image into docker use --load
 ```
 
-## [Multiple exporters](https://docs.docker.com/build/exporters/#multiple-exporters)
+## Multiple exporters
 
 Introduced in Buildx version 0.13.0
 
@@ -187,7 +187,7 @@ $ docker buildx build \
   --load .
 ```
 
-## [Configuration options](https://docs.docker.com/build/exporters/#configuration-options)
+## Configuration options
 
 This section describes some configuration options available for exporters.
 
@@ -198,7 +198,7 @@ The common parameters described here are:
 - [Compression](https://docs.docker.com/build/exporters/#compression)
 - [OCI media type](https://docs.docker.com/build/exporters/#oci-media-types)
 
-### [Compression](https://docs.docker.com/build/exporters/#compression)
+### Compression
 
 When you export a compressed output, you can configure the exact compression algorithm and level to use. While the default values provide a good out-of-the-box experience, you may wish to tweak the parameters to optimize for storage vs compute costs. Changing the compression parameters can reduce storage space required, and improve image download times, but will increase build times.
 
@@ -226,7 +226,7 @@ Use the `force-compression=true` option to force re-compressing layers imported 
 >
 > The `gzip` and `estargz` compression methods use the [`compress/gzip` package](https://pkg.go.dev/compress/gzip), while `zstd` uses the [`github.com/klauspost/compress/zstd` package](https://github.com/klauspost/compress/tree/master/zstd).
 
-### [OCI media types](https://docs.docker.com/build/exporters/#oci-media-types)
+### OCI media types
 
 The `image`, `registry`, `oci` and `docker` exporters create container images. These exporters support both Docker media types (default) and OCI media types
 
@@ -239,10 +239,10 @@ $ docker buildx build \
   --output type=image,name=<registry>/<image>,push=true,oci-mediatypes=true .
 ```
 
-## [What's next](https://docs.docker.com/build/exporters/#whats-next)
+## What's next
 
 Read about each of the exporters to learn about how they work and how to use them:
 
-- [Image and registry exporters](https://docs.docker.com/build/exporters/image-registry/)
-- [OCI and Docker exporters](https://docs.docker.com/build/exporters/oci-docker/).
-- [Local and tar exporters](https://docs.docker.com/build/exporters/local-tar/)
+- [Image and registry exporters]({{< ref "/manuals/DockerBuild/Exporters/Imageandregistryexporters" >}})
+- [OCI and Docker exporters]({{< ref "/manuals/DockerBuild/Exporters/OCIandDockerexporters" >}}).
+- [Local and tar exporters]({{< ref "/manuals/DockerBuild/Exporters/Localandtarexporters" >}})

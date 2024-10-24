@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/bake/contexts/](https://docs.docker.com/build/bake/contexts/)
+> 原文：[https://docs.docker.com/build/bake/contexts/](https://docs.docker.com/build/bake/contexts/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -26,7 +26,7 @@ Supported context values are:
 - HTTP URLs
 - Name of another target in the Bake file
 
-## [Pinning alpine image](https://docs.docker.com/build/bake/contexts/#pinning-alpine-image)
+## Pinning alpine image
 
 
 
@@ -47,7 +47,7 @@ target "app" {
 }
 ```
 
-## [Using a secondary source directory](https://docs.docker.com/build/bake/contexts/#using-a-secondary-source-directory)
+## Using a secondary source directory
 
 
 
@@ -70,7 +70,7 @@ target "app" {
 }
 ```
 
-## [Using a target as a build context](https://docs.docker.com/build/bake/contexts/#using-a-target-as-a-build-context)
+## Using a target as a build context
 
 To use a result of one target as a build context of another, specify the target name with `target:` prefix.
 
@@ -99,7 +99,7 @@ target "app" {
 
 In most cases you should just use a single multi-stage Dockerfile with multiple targets for similar behavior. This case is only recommended when you have multiple Dockerfiles that can't be easily merged into one.
 
-## [Deduplicate context transfer](https://docs.docker.com/build/bake/contexts/#deduplicate-context-transfer)
+## Deduplicate context transfer
 
 > **Note**
 >

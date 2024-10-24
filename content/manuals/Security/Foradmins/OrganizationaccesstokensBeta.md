@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/access-tokens/](https://docs.docker.com/security/for-admins/access-tokens/)
+> 原文：[https://docs.docker.com/security/for-admins/access-tokens/](https://docs.docker.com/security/for-admins/access-tokens/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -29,7 +29,7 @@ The organization access tokens feature is currently in [Beta](https://docs.docke
 >
 > If you use these services, you must use personal access tokens instead.
 
-An organization access token (OAT) is like a [personal access token (PAT)](https://docs.docker.com/security/for-developers/access-tokens/), but an OAT is associated with an organization and not a single user account. Use an OAT instead of a PAT to let business-critical tasks access Docker Hub repositories without connecting the token to single user. You must have a [Docker Team or Business subscription](https://docs.docker.com/subscription/core-subscription/details/) to use OATs.
+An organization access token (OAT) is like a [personal access token (PAT)]({{< ref "/manuals/Security/Fordevelopers/Accesstokens" >}}), but an OAT is associated with an organization and not a single user account. Use an OAT instead of a PAT to let business-critical tasks access Docker Hub repositories without connecting the token to single user. You must have a [Docker Team or Business subscription]({{< ref "/manuals/Subscription/DockerCore/Subscriptionsandfeatures" >}}) to use OATs.
 
 OATs provide the following advantages:
 
@@ -38,13 +38,13 @@ OATs provide the following advantages:
 - All organization owners can manage OATs. If one owner leaves the organization, the remaining owners can still manage the OATs.
 - OATs have their own Docker Hub usage limits that don't count towards your personal account's limits.
 
-If you have existing [service accounts](https://docs.docker.com/docker-hub/service-accounts/), Docker recommends that you replace the service accounts with OATs. OATs offer the following advantages over service accounts:
+If you have existing [service accounts]({{< ref "/manuals/DockerHub/Serviceaccounts" >}}), Docker recommends that you replace the service accounts with OATs. OATs offer the following advantages over service accounts:
 
 - Access permissions are easier to manage with OATs. You can assign access permissions to OATs, while service accounts require using teams for access permissions.
 - OATs are easier to manage. OATs are centrally managed in the Admin Console. For service accounts, you may need to sign in to that service account to manage it. If using single sign-on enforcement and the service account is not in your IdP, you may not be able to sign in to the service account to manage it.
 - OATs are not associated with a single user. If a user with access to the service account leaves your organization, you may lose access to the service account. OATs can be managed by any organization owner.
 
-## [Create an organization access token](https://docs.docker.com/security/for-admins/access-tokens/#create-an-organization-access-token)
+## Create an organization access token
 
 > **Important**
 >
@@ -78,7 +78,7 @@ To create an OAT:
 
 8. Select **Generate token** and then copy the token that appears on the screen and save it. You won't be able to retrieve the token once you exit the screen.
 
-## [Use an organization access token](https://docs.docker.com/security/for-admins/access-tokens/#use-an-organization-access-token)
+## Use an organization access token
 
 You can use an organization access token when you sign in using Docker CLI.
 
@@ -92,7 +92,7 @@ $ docker login --username YOUR_ORG
 
 When prompted for a password, enter your organization access token instead of a password.
 
-## [Modify existing tokens](https://docs.docker.com/security/for-admins/access-tokens/#modify-existing-tokens)
+## Modify existing tokens
 
 You can rename, update the description, update the repository access, deactivate, or delete a token as needed.
 

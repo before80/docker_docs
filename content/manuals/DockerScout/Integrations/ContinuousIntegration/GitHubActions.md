@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/integrations/ci/gha/](https://docs.docker.com/scout/integrations/ci/gha/)
+> 原文：[https://docs.docker.com/scout/integrations/ci/gha/](https://docs.docker.com/scout/integrations/ci/gha/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,12 +18,12 @@ The following example shows how to set up a Docker Scout workflow with GitHub Ac
 
 This workflow uses the [docker/scout-action](https://github.com/docker/scout-action) GitHub Action to run the `docker scout compare` command to visualize how images for pull request stack up against the image you run in production.
 
-## [Prerequisites](https://docs.docker.com/scout/integrations/ci/gha/#prerequisites)
+## Prerequisites
 
 - This example assumes that you have an existing image repository, in Docker Hub or in another registry, where you've enabled Docker Scout.
-- This example makes use of [environments](https://docs.docker.com/scout/integrations/environment/), to compare the image built in the pull request with a different version of the same image in an environment called `production`.
+- This example makes use of [environments]({{< ref "/manuals/DockerScout/Integrations/IntegratingDockerScoutwithenvironments" >}}), to compare the image built in the pull request with a different version of the same image in an environment called `production`.
 
-## [Steps](https://docs.docker.com/scout/integrations/ci/gha/#steps)
+## Steps
 
 First, set up the GitHub Action workflow to build an image. This isn't specific to Docker Scout here, but you'll need to build an image to have something to compare with.
 

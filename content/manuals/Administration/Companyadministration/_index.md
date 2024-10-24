@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/admin/company/](https://docs.docker.com/admin/company/)
+> 原文：[https://docs.docker.com/admin/company/](https://docs.docker.com/admin/company/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ The following diagram depicts the setup of a company and how it relates to assoc
 
 ![company-hierarchy](_index_img/docker-admin-structure.webp)
 
-## [Key features](https://docs.docker.com/admin/company/#key-features)
+## Key features
 
 With a company, administrators can:
 
@@ -30,7 +30,7 @@ With a company, administrators can:
 - Configure SSO and SCIM for all nested organizations.
 - Enforce SSO for all users in the company.
 
-## [Prerequisites](https://docs.docker.com/admin/company/#prerequisites)
+## Prerequisites
 
 Before you create a company, verify the following:
 

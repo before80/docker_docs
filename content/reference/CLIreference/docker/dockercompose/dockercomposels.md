@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/ls/](https://docs.docker.com/reference/cli/docker/compose/ls/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/ls/](https://docs.docker.com/reference/cli/docker/compose/ls/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,11 +18,11 @@ draft = false
 | :---------- | ----------------------------- |
 | Usage       | `docker compose ls [OPTIONS]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/ls/#description)
+## Description
 
 Lists running Compose projects
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/ls/#options)
+## Options
 
 | Option        | Default | Description                                |
 | ------------- | ------- | ------------------------------------------ |

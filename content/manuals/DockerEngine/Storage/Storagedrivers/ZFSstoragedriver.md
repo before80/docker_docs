@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/storage/drivers/zfs-driver/](https://docs.docker.com/engine/storage/drivers/zfs-driver/)
+> 原文：[https://docs.docker.com/engine/storage/drivers/zfs-driver/](https://docs.docker.com/engine/storage/drivers/zfs-driver/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,7 +22,7 @@ The ZFS on Linux (ZoL) port is healthy and maturing. However, at this point in t
 
 > ***Note***: There is also a FUSE implementation of ZFS on the Linux platform. This is not recommended. The native ZFS driver (ZoL) is more tested, more performant, and is more widely used. The remainder of this document refers to the native ZoL port.
 
-## [Prerequisites](https://docs.docker.com/engine/storage/drivers/zfs-driver/#prerequisites)
+## Prerequisites
 
 - ZFS requires one or more dedicated block devices, preferably solid-state drives (SSDs).
 - The `/var/lib/docker/` directory must be mounted on a ZFS-formatted filesystem.
@@ -34,7 +34,7 @@ The ZFS on Linux (ZoL) port is healthy and maturing. However, at this point in t
 >
 > There is no need to use `MountFlags=slave` because `dockerd` and `containerd` are in different mount namespaces.
 
-## [Configure Docker with the `zfs` storage driver](https://docs.docker.com/engine/storage/drivers/zfs-driver/#configure-docker-with-the-zfs-storage-driver)
+## Configure Docker with the `zfs` storage driver
 
 1. Stop Docker.
 
@@ -102,9 +102,9 @@ The ZFS on Linux (ZoL) port is healthy and maturing. However, at this point in t
    <...>
    ```
 
-## [Manage `zfs`](https://docs.docker.com/engine/storage/drivers/zfs-driver/#manage-zfs)
+## Manage `zfs`
 
-### [Increase capacity on a running device](https://docs.docker.com/engine/storage/drivers/zfs-driver/#increase-capacity-on-a-running-device)
+### Increase capacity on a running device
 
 To increase the size of the `zpool`, you need to add a dedicated block device to the Docker host, and then add it to the `zpool` using the `zpool add` command:
 
@@ -114,7 +114,7 @@ To increase the size of the `zpool`, you need to add a dedicated block device to
 $ sudo zpool add zpool-docker /dev/xvdh
 ```
 
-### [Limit a container's writable storage quota](https://docs.docker.com/engine/storage/drivers/zfs-driver/#limit-a-containers-writable-storage-quota)
+### Limit a container's writable storage quota
 
 If you want to implement a quota on a per-image/dataset basis, you can set the `size` storage option to limit the amount of space a single container can use for its writable layer.
 
@@ -133,7 +133,7 @@ See all storage options for each storage driver in the [daemon reference documen
 
 Save and close the file, and restart Docker.
 
-## [How the `zfs` storage driver works](https://docs.docker.com/engine/storage/drivers/zfs-driver/#how-the-zfs-storage-driver-works)
+## How the `zfs` storage driver works
 
 ZFS uses the following objects:
 
@@ -150,11 +150,11 @@ The process of creating a clone:
 
 Filesystems, snapshots, and clones all allocate space from the underlying `zpool`.
 
-### [Image and container layers on-disk](https://docs.docker.com/engine/storage/drivers/zfs-driver/#image-and-container-layers-on-disk)
+### Image and container layers on-disk
 
 Each running container's unified filesystem is mounted on a mount point in `/var/lib/docker/zfs/graph/`. Continue reading for an explanation of how the unified filesystem is composed.
 
-### [Image layering and sharing](https://docs.docker.com/engine/storage/drivers/zfs-driver/#image-layering-and-sharing)
+### Image layering and sharing
 
 The base layer of an image is a ZFS filesystem. Each child layer is a ZFS clone based on a ZFS snapshot of the layer below it. A container is a ZFS clone based on a ZFS Snapshot of the top layer of the image it's created from.
 
@@ -176,15 +176,15 @@ When you start a container, the following steps happen in order:
 
 4. As the container modifies the contents of its writable layer, space is allocated for the blocks that are changed. By default, these blocks are 128k.
 
-## [How container reads and writes work with `zfs`](https://docs.docker.com/engine/storage/drivers/zfs-driver/#how-container-reads-and-writes-work-with-zfs)
+## How container reads and writes work with `zfs`
 
-### [Reading files](https://docs.docker.com/engine/storage/drivers/zfs-driver/#reading-files)
+### Reading files
 
 Each container's writable layer is a ZFS clone which shares all its data with the dataset it was created from (the snapshots of its parent layers). Read operations are fast, even if the data being read is from a deep layer. This diagram illustrates how block sharing works:
 
 ![ZFS block sharing](ZFSstoragedriver_img/zpool_blocks.webp)
 
-### [Writing files](https://docs.docker.com/engine/storage/drivers/zfs-driver/#writing-files)
+### Writing files
 
 **Writing a new file**: space is allocated on demand from the underlying `zpool` and the blocks are written directly into the container's writable layer.
 
@@ -195,7 +195,7 @@ Each container's writable layer is a ZFS clone which shares all its data with th
 - When you delete a file or directory that exists in a lower layer, the ZFS driver masks the existence of the file or directory in the container's writable layer, even though the file or directory still exists in the lower read-only layers.
 - If you create and then delete a file or directory within the container's writable layer, the blocks are reclaimed by the `zpool`.
 
-## [ZFS and Docker performance](https://docs.docker.com/engine/storage/drivers/zfs-driver/#zfs-and-docker-performance)
+## ZFS and Docker performance
 
 There are several factors that influence the performance of Docker using the `zfs` storage driver.
 
@@ -205,7 +205,7 @@ There are several factors that influence the performance of Docker using the `zf
 - **Fragmentation**: Fragmentation is a natural byproduct of copy-on-write filesystems like ZFS. ZFS mitigates this by using a small block size of 128k. The ZFS intent log (ZIL) and the coalescing of writes (delayed writes) also help to reduce fragmentation. You can monitor fragmentation using `zpool status`. However, there is no way to defragment ZFS without reformatting and restoring the filesystem.
 - **Use the native ZFS driver for Linux**: The ZFS FUSE implementation is not recommended, due to poor performance.
 
-### [Performance best practices](https://docs.docker.com/engine/storage/drivers/zfs-driver/#performance-best-practices)
+### Performance best practices
 
 - **Use fast storage**: Solid-state drives (SSDs) provide faster reads and writes than spinning disks.
 - **Use volumes for write-heavy workloads**: Volumes provide the best and most predictable performance for write-heavy workloads. This is because they bypass the storage driver and do not incur any of the potential overheads introduced by thin provisioning and copy-on-write. Volumes have other benefits, such as allowing you to share data among containers and persisting even when no running container is using them.

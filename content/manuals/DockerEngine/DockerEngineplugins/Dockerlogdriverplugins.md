@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/extend/plugins_logging/](https://docs.docker.com/engine/extend/plugins_logging/)
+> 原文：[https://docs.docker.com/engine/extend/plugins_logging/](https://docs.docker.com/engine/extend/plugins_logging/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,19 +16,19 @@ draft = false
 
 This document describes logging driver plugins for Docker.
 
-Logging drivers enables users to forward container logs to another service for processing. Docker includes several logging drivers as built-ins, however can never hope to support all use-cases with built-in drivers. Plugins allow Docker to support a wide range of logging services without requiring to embed client libraries for these services in the main Docker codebase. See the [plugin documentation](https://docs.docker.com/engine/extend/legacy_plugins/) for more information.
+Logging drivers enables users to forward container logs to another service for processing. Docker includes several logging drivers as built-ins, however can never hope to support all use-cases with built-in drivers. Plugins allow Docker to support a wide range of logging services without requiring to embed client libraries for these services in the main Docker codebase. See the [plugin documentation]({{< ref "/manuals/DockerEngine/DockerEngineplugins/UseDockerEngineplugins" >}}) for more information.
 
-## [Create a logging plugin](https://docs.docker.com/engine/extend/plugins_logging/#create-a-logging-plugin)
+## Create a logging plugin
 
 The main interface for logging plugins uses the same JSON+HTTP RPC protocol used by other plugin types. See the [example](https://github.com/cpuguy83/docker-log-driver-test) plugin for a reference implementation of a logging plugin. The example wraps the built-in `jsonfilelog` log driver.
 
-## [LogDriver protocol](https://docs.docker.com/engine/extend/plugins_logging/#logdriver-protocol)
+## LogDriver protocol
 
 Logging plugins must register as a `LogDriver` during plugin activation. Once activated users can specify the plugin as a log driver.
 
 There are two HTTP endpoints that logging plugins must implement:
 
-### [`/LogDriver.StartLogging`](https://docs.docker.com/engine/extend/plugins_logging/#logdriverstartlogging)
+### `/LogDriver.StartLogging`
 
 Signals to the plugin that a container is starting that the plugin should start receiving logs for.
 
@@ -100,7 +100,7 @@ Where `size` is a 4-byte big endian binary encoded uint32. `size` in this case d
 
 A reference golang implementation of a stream encoder/decoder can be found [here](https://github.com/docker/docker/blob/master/api/types/plugins/logdriver/io.go)
 
-### [`/LogDriver.StopLogging`](https://docs.docker.com/engine/extend/plugins_logging/#logdriverstoplogging)
+### `/LogDriver.StopLogging`
 
 Signals to the plugin to stop collecting logs from the defined file. Once a response is received, the file will be removed by Docker. You must make sure to collect all logs on the stream before responding to this request or risk losing log data.
 
@@ -128,11 +128,11 @@ Response:
 
 If an error occurred during this request, add an error message to the `Err` field in the response. If no error then you can either send an empty response (`{}`) or an empty value for the `Err` field.
 
-## [Optional endpoints](https://docs.docker.com/engine/extend/plugins_logging/#optional-endpoints)
+## Optional endpoints
 
 Logging plugins can implement two extra logging endpoints:
 
-### [`/LogDriver.Capabilities`](https://docs.docker.com/engine/extend/plugins_logging/#logdrivercapabilities)
+### `/LogDriver.Capabilities`
 
 Defines the capabilities of the log driver. You must implement this endpoint for Docker to be able to take advantage of any of the defined capabilities.
 
@@ -158,7 +158,7 @@ Supported capabilities:
 
 - `ReadLogs` - this tells Docker that the plugin is capable of reading back logs to clients. Plugins that report that they support `ReadLogs` must implement the `/LogDriver.ReadLogs` endpoint
 
-### [`/LogDriver.ReadLogs`](https://docs.docker.com/engine/extend/plugins_logging/#logdriverreadlogs)
+### `/LogDriver.ReadLogs`
 
 Reads back logs to the client. This is used when `docker logs <container>` is called.
 

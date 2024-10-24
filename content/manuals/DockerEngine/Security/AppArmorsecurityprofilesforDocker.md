@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/security/apparmor/](https://docs.docker.com/engine/security/apparmor/)
+> 原文：[https://docs.docker.com/engine/security/apparmor/](https://docs.docker.com/engine/security/apparmor/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -26,7 +26,7 @@ Docker automatically generates and loads a default profile for containers named 
 
 A profile for the Docker Engine daemon exists but it is not currently installed with the `deb` packages. If you are interested in the source for the daemon profile, it is located in [contrib/apparmor](https://github.com/moby/moby/tree/master/contrib/apparmor) in the Docker Engine source repository.
 
-## [Understand the policies](https://docs.docker.com/engine/security/apparmor/#understand-the-policies)
+## Understand the policies
 
 The `docker-default` profile is the default for running containers. It is moderately protective while providing wide application compatibility. The profile is generated from the following [template](https://github.com/moby/moby/blob/master/profiles/apparmor/template.go).
 
@@ -38,7 +38,7 @@ When you run a container, it uses the `docker-default` policy unless you overrid
 $ docker run --rm -it --security-opt apparmor=docker-default hello-world
 ```
 
-## [Load and unload profiles](https://docs.docker.com/engine/security/apparmor/#load-and-unload-profiles)
+## Load and unload profiles
 
 To load a new profile into AppArmor for use with containers:
 
@@ -65,14 +65,14 @@ To unload a profile from AppArmor:
 $ apparmor_parser -R /path/to/profile
 ```
 
-### [Resources for writing profiles](https://docs.docker.com/engine/security/apparmor/#resources-for-writing-profiles)
+### Resources for writing profiles
 
 The syntax for file globbing in AppArmor is a bit different than some other globbing implementations. It is highly suggested you take a look at some of the below resources with regard to AppArmor profile syntax.
 
 - [Quick Profile Language](https://gitlab.com/apparmor/apparmor/wikis/QuickProfileLanguage)
 - [Globbing Syntax](https://gitlab.com/apparmor/apparmor/wikis/AppArmor_Core_Policy_Reference#AppArmor_globbing_syntax)
 
-## [Nginx example profile](https://docs.docker.com/engine/security/apparmor/#nginx-example-profile)
+## Nginx example profile
 
 In this example, you create a custom AppArmor profile for Nginx. Below is the custom profile.
 
@@ -207,11 +207,11 @@ profile docker-nginx flags=(attach_disconnected,mediate_deleted) {
 
 You just deployed a container secured with a custom apparmor profile.
 
-## [Debug AppArmor](https://docs.docker.com/engine/security/apparmor/#debug-apparmor)
+## Debug AppArmor
 
 You can use `dmesg` to debug problems and `aa-status` check the loaded profiles.
 
-### [Use dmesg](https://docs.docker.com/engine/security/apparmor/#use-dmesg)
+### Use dmesg
 
 Here are some helpful tips for debugging any problems you might be facing with regard to AppArmor.
 
@@ -235,7 +235,7 @@ Look at another log line:
 
 This time the profile is `docker-default`, which is run on containers by default unless in `privileged` mode. This line shows that apparmor has denied `ptrace` in the container. This is exactly as expected.
 
-### [Use aa-status](https://docs.docker.com/engine/security/apparmor/#use-aa-status)
+### Use aa-status
 
 If you need to check which profiles are loaded, you can use `aa-status`. The output looks like:
 
@@ -275,7 +275,7 @@ The above output shows that the `docker-default` profile running on various cont
 
 The output above also shows the `/usr/bin/docker` (Docker Engine daemon) profile is running in `complain` mode. This means AppArmor only logs to `dmesg` activity outside the bounds of the profile. (Except in the case of Ubuntu Trusty, where some interesting behaviors are enforced.)
 
-## [Contribute to Docker's AppArmor code](https://docs.docker.com/engine/security/apparmor/#contribute-to-dockers-apparmor-code)
+## Contribute to Docker's AppArmor code
 
 Advanced users and package managers can find a profile for `/usr/bin/docker` (Docker Engine daemon) underneath [contrib/apparmor](https://github.com/moby/moby/tree/master/contrib/apparmor) in the Docker Engine source repository.
 

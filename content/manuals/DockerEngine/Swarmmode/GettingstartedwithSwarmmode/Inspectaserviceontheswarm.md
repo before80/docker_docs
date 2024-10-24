@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/swarm-tutorial/inspect-service/](https://docs.docker.com/engine/swarm/swarm-tutorial/inspect-service/)
+> 原文：[https://docs.docker.com/engine/swarm/swarm-tutorial/inspect-service/](https://docs.docker.com/engine/swarm/swarm-tutorial/inspect-service/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Inspect a service on the swarm
 
-When you have [deployed a service](https://docs.docker.com/engine/swarm/swarm-tutorial/deploy-service/) to your swarm, you can use the Docker CLI to see details about the service running in the swarm.
+When you have [deployed a service]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode/Deployaservicetotheswarm" >}}) to your swarm, you can use the Docker CLI to see details about the service running in the swarm.
 
 1. If you haven't already, open a terminal and ssh into the machine where you run your manager node. For example, the tutorial uses a machine named `manager1`.
 
@@ -126,8 +126,8 @@ When you have [deployed a service](https://docs.docker.com/engine/swarm/swarm-tu
    e609dde94e47        alpine:latest       "ping docker.com"   3 minutes ago       Up 3 minutes                            helloworld.1.8p1vev3fq5zm0mi8g0as41w35
    ```
 
-## [Next steps](https://docs.docker.com/engine/swarm/swarm-tutorial/inspect-service/#next-steps)
+## Next steps
 
 Next, you'll change the scale for the service running in the swarm.
 
-[Change the scale](https://docs.docker.com/engine/swarm/swarm-tutorial/scale-service/)
+[Change the scale]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode/Scaletheserviceintheswarm" >}})

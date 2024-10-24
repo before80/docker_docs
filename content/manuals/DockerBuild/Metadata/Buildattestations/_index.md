@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/metadata/attestations/](https://docs.docker.com/build/metadata/attestations/)
+> 原文：[https://docs.docker.com/build/metadata/attestations/](https://docs.docker.com/build/metadata/attestations/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -23,7 +23,7 @@ Two types of build annotations are available:
 - Software Bill of Material (SBOM): list of software artifacts that an image contains, or that were used to build the image.
 - Provenance: how an image was built.
 
-## [Purpose of attestations](https://docs.docker.com/build/metadata/attestations/#purpose-of-attestations)
+## Purpose of attestations
 
 The use of open source and third-party packages is more widespread than ever before. Developers share and reuse code because it helps increase productivity, allowing teams to create better products, faster.
 
@@ -31,7 +31,7 @@ Importing and using code created elsewhere without vetting it introduces a sever
 
 Build attestations make it easier to see the contents of an image, and where it comes from. Use attestations to analyze and decide whether to use an image, or to see if images you are already using are exposed to vulnerabilities.
 
-## [Creating attestations](https://docs.docker.com/build/metadata/attestations/#creating-attestations)
+## Creating attestations
 
 When you build an image with `docker buildx build`, you can add attestation records to the resulting image using the `--provenance` and `--sbom` options. You can opt in to add either the SBOM or provenance attestation type, or both.
 
@@ -50,7 +50,7 @@ $ docker buildx build --sbom=true --provenance=true .
 > To make sure the attestations are preserved, you can:
 >
 > - Use a `docker-container` driver with the `--push` flag to push the image to a registry directly.
-> - Enable the [containerd image store](https://docs.docker.com/desktop/containerd/).
+> - Enable the [containerd image store]({{< ref "/manuals/DockerDesktop/containerdimagestore" >}}).
 
 > **Note**
 >
@@ -58,11 +58,11 @@ $ docker buildx build --sbom=true --provenance=true .
 >
 > Provenance attestations are enabled by default, with the `mode=min` option. You can disable provenance attestations using the `--provenance=false` flag, or by setting the [`BUILDX_NO_DEFAULT_ATTESTATIONS`](https://docs.docker.com/build/building/variables/#buildx_no_default_attestations) environment variable.
 >
-> Using the `--provenance=true` flag attaches provenance attestations with `mode=max` by default. See [Provenance attestation](https://docs.docker.com/build/metadata/attestations/slsa-provenance/) for more details.
+> Using the `--provenance=true` flag attaches provenance attestations with `mode=max` by default. See [Provenance attestation]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations/Provenanceattestations" >}}) for more details.
 
 BuildKit generates the attestations when building the image. The attestation records are wrapped in the in-toto JSON format and attached to the image index in a manifest for the final image.
 
-## [Storage](https://docs.docker.com/build/metadata/attestations/#storage)
+## Storage
 
 BuildKit produces attestations in the [in-toto format](https://github.com/in-toto/attestation), as defined by the [in-toto framework](https://in-toto.io/), a standard supported by the Linux Foundation.
 
@@ -138,9 +138,9 @@ The following example shows a truncated in-toto JSON representation of an SBOM a
 
 To deep-dive into the specifics about how attestations are stored, see [Image Attestation Storage (BuildKit)](https://docs.docker.com/build/metadata/attestations/attestation-storage/).
 
-## [What's next](https://docs.docker.com/build/metadata/attestations/#whats-next)
+## What's next
 
 Learn more about the available attestation types and how to use them:
 
-- [Provenance](https://docs.docker.com/build/metadata/attestations/slsa-provenance/)
-- [SBOM](https://docs.docker.com/build/metadata/attestations/sbom/)
+- [Provenance]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations/Provenanceattestations" >}})
+- [SBOM]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations/SBOMattestations" >}})

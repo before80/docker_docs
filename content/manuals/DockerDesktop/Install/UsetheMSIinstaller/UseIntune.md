@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/install/msi/use-intune/](https://docs.docker.com/desktop/install/msi/use-intune/)
+> 原文：[https://docs.docker.com/desktop/install/msi/use-intune/](https://docs.docker.com/desktop/install/msi/use-intune/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -26,7 +26,7 @@ Learn how to deploy Docker Desktop using Intune, Microsoft's cloud-based device 
 
 5. Complete any relevant details such as the description, publisher, or app version and then select **Next**.
 
-6. Optional: On the **Program** tab, you can update the **Install command** field to suit your needs. The field is pre-populated with `msiexec /i "DockerDesktop.msi" /qn`. See the [Common installation scenarios](https://docs.docker.com/desktop/install/msi/install-and-configure/) for examples on the changes you can make.
+6. Optional: On the **Program** tab, you can update the **Install command** field to suit your needs. The field is pre-populated with `msiexec /i "DockerDesktop.msi" /qn`. See the [Common installation scenarios]({{< ref "/manuals/DockerDesktop/Install/UsetheMSIinstaller/Installandconfigure" >}}) for examples on the changes you can make.
 
    > **Tip**
    >
@@ -40,6 +40,6 @@ Learn how to deploy Docker Desktop using Intune, Microsoft's cloud-based device 
 
 7. Complete the rest of the tabs and then review and create the app.
 
-## [Additional resources](https://docs.docker.com/desktop/install/msi/use-intune/#additional-resources)
+## Additional resources
 
-- [Explore the FAQs](https://docs.docker.com/desktop/install/msi/faq/).
+- [Explore the FAQs]({{< ref "/manuals/DockerDesktop/Install/UsetheMSIinstaller/MSIFAQs" >}}).

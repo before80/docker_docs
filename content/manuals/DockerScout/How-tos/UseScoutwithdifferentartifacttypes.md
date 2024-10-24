@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/how-tos/artifact-types/](https://docs.docker.com/scout/how-tos/artifact-types/)
+> 原文：[https://docs.docker.com/scout/how-tos/artifact-types/](https://docs.docker.com/scout/how-tos/artifact-types/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -34,7 +34,7 @@ By adding a `registry://` prefix to the image reference, you can force Docker Sc
 $ docker scout cves registry://<image>
 ```
 
-## [Supported prefixes](https://docs.docker.com/scout/how-tos/artifact-types/#supported-prefixes)
+## Supported prefixes
 
 The supported prefixes are:
 
@@ -55,11 +55,11 @@ You can use prefixes with the following commands:
 - `docker scout recommendations`
 - `docker scout sbom`
 
-## [Examples](https://docs.docker.com/scout/how-tos/artifact-types/#examples)
+## Examples
 
 This section contains a few examples showing how you can use prefixes to specify artifacts for `docker scout` commands.
 
-## [Analyze a local project](https://docs.docker.com/scout/how-tos/artifact-types/#analyze-a-local-project)
+## Analyze a local project
 
 The `fs://` prefix lets you analyze local source code directly, without having to build it into a container image. The following `docker scout quickview` command gives you an at-a-glance vulnerability summary of the source code in the current working directory:
 
@@ -113,7 +113,7 @@ pkg:npm/fastify@3.29.0
   CRITICAL  0
 ```
 
-## [Compare a local project to an image](https://docs.docker.com/scout/how-tos/artifact-types/#compare-a-local-project-to-an-image)
+## Compare a local project to an image
 
 With `docker scout compare`, you can compare the analysis of source code on your local filesystem with the analysis of a container image. The following example compares local source code (`fs://.`) with a registry image `registry://docker/scout-cli:latest`. In this case, both the baseline and target for the comparison use prefixes.
 
@@ -153,7 +153,7 @@ WARN 'docker scout compare' is experimental and its behaviour might change in th
 
 The previous example is truncated for brevity.
 
-### [View the SBOM of an image tarball](https://docs.docker.com/scout/how-tos/artifact-types/#view-the-sbom-of-an-image-tarball)
+### View the SBOM of an image tarball
 
 The following example shows how you can use the `archive://` prefix to get the SBOM of an image tarball, created with `docker save`. The image in this case is `docker/scout-cli:latest`, and the SBOM is exported to file `sbom.spdx.json` in SPDX format.
 
@@ -170,10 +170,10 @@ $ docker save docker/scout-cli:latest -o scout-cli.tar
 $ docker scout sbom --format spdx -o sbom.spdx.json archive://scout-cli.tar
 ```
 
-## [Learn more](https://docs.docker.com/scout/how-tos/artifact-types/#learn-more)
+## Learn more
 
 Read about the commands and supported flags in the CLI reference documentation:
 
-- [`docker scout quickview`](https://docs.docker.com/reference/cli/docker/scout/quickview/)
-- [`docker scout cves`](https://docs.docker.com/reference/cli/docker/scout/cves/)
-- [`docker scout compare`](https://docs.docker.com/reference/cli/docker/scout/compare/)
+- [`docker scout quickview`]({{< ref "/reference/CLIreference/docker/dockerscout/dockerscoutquickview" >}})
+- [`docker scout cves`]({{< ref "/reference/CLIreference/docker/dockerscout/dockerscoutcves" >}})
+- [`docker scout compare`]({{< ref "/reference/CLIreference/docker/dockerscout/dockerscoutcompare" >}})

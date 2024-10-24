@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/billing/core-billing/payment-method/](https://docs.docker.com/billing/core-billing/payment-method/)
+> 原文：[https://docs.docker.com/billing/core-billing/payment-method/](https://docs.docker.com/billing/core-billing/payment-method/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,7 +22,7 @@ You can add a payment method or update your account's existing payment method at
 >
 > 
 >
-> If you want to remove all payment methods, you must first downgrade your subscription to a free plan. See [Downgrade](https://docs.docker.com/subscription/core-subscription/downgrade/).
+> If you want to remove all payment methods, you must first downgrade your subscription to a free plan. See [Downgrade]({{< ref "/manuals/Subscription/DockerCore/Downgrade" >}}).
 
 The following payment methods are supported:
 
@@ -42,11 +42,11 @@ All currency, for example the amount listed on your billing invoice, is in Unite
 >
 > Starting July 1, 2024, Docker will begin collecting sales tax on subscription fees in compliance with state regulations for customers in the United States. For our global customers subject to VAT, the implementation will start rolling out on July 1, 2024. Note that while the rollout begins on this date, VAT charges may not apply to all applicable subscriptions immediately.
 >
-> To ensure that tax assessments are correct, make sure that your [billing information](https://docs.docker.com/billing/core-billing/details/) and VAT/Tax ID, if applicable, are updated. If you're exempt from sales tax, see [Register a tax certificate](https://docs.docker.com/billing/tax-certificate/).
+> To ensure that tax assessments are correct, make sure that your [billing information]({{< ref "/manuals/Billing/DockerCore/Updatethebillinginformation" >}}) and VAT/Tax ID, if applicable, are updated. If you're exempt from sales tax, see [Register a tax certificate]({{< ref "/manuals/Billing/Registerataxcertificate" >}}).
 
-## [Manage payment method](https://docs.docker.com/billing/core-billing/payment-method/#manage-payment-method)
+## Manage payment method
 
-### [Personal account](https://docs.docker.com/billing/core-billing/payment-method/#personal-account)
+### Personal account
 
 1. Select your avatar in the top-right corner of Docker Hub.
 2. From the drop-down menu select **Billing**.
@@ -56,7 +56,7 @@ All currency, for example the amount listed on your billing invoice, is in Unite
 6. Select the **Actions** icon, then select **Make default** to ensure that your new payment method applies to all purchases and subscriptions.
 7. Optional. You can remove non-default payment methods by selecting the **Actions** icon. Then, select **Delete**.
 
-### [Organization](https://docs.docker.com/billing/core-billing/payment-method/#organization)
+### Organization
 
 > **Note**
 >
@@ -73,7 +73,7 @@ All currency, for example the amount listed on your billing invoice, is in Unite
 7. Select the **Actions** icon, then select **Make default** to ensure that your new payment method applies to all purchases and subscriptions.
 8. Optional. You can remove non-default payment methods by selecting the **Actions** icon. Then, select **Delete**.
 
-## [Failed payments](https://docs.docker.com/billing/core-billing/payment-method/#failed-payments)
+## Failed payments
 
 If your subscription payment fails, there is a grace period of 15 days, including the due date. Docker retries to collect the payment 3 times using the following schedule:
 
@@ -85,7 +85,7 @@ Docker also sends an email notification `Action Required - Credit Card Payment F
 
 Once the grace period is over and the invoice is still not paid, the subscription downgrades to a free plan and all paid features are disabled.
 
-## [Redeem a coupon](https://docs.docker.com/billing/core-billing/payment-method/#redeem-a-coupon)
+## Redeem a coupon
 
 You can redeem a coupon for any paid Docker subscription.
 

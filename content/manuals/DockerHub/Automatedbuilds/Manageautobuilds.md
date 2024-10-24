@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/docker-hub/builds/manage-builds/](https://docs.docker.com/docker-hub/builds/manage-builds/)
+> 原文：[https://docs.docker.com/docker-hub/builds/manage-builds/](https://docs.docker.com/docker-hub/builds/manage-builds/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,15 +18,15 @@ draft = false
 >
 > 
 >
-> Automated builds require a [Docker Pro, Team, or Business subscription](https://docs.docker.com/subscription/).
+> Automated builds require a [Docker Pro, Team, or Business subscription]({{< ref "/manuals/Subscription" >}}).
 
-## [Cancel or retry a build](https://docs.docker.com/docker-hub/builds/manage-builds/#cancel-or-retry-a-build)
+## Cancel or retry a build
 
 While a build is in queue or running, a **Cancel** icon appears next to its build report link on the **General** tab and on the **Builds** tab. You can also select **Cancel** on the **Build report** page, or from the **Timeline** tab's logs display for the build.
 
 ![List of builds showing the cancel icon](Manageautobuilds_img/build-cancelicon.png)
 
-## [Check your active builds](https://docs.docker.com/docker-hub/builds/manage-builds/#check-your-active-builds)
+## Check your active builds
 
 A summary of a repository's builds appears both on the repository **General** tab, and in the **Builds** tab. The **Builds** tab also displays a color coded bar chart of the build queue times and durations. Both views display the pending, in progress, successful, and failed builds for any tag of the repository.
 
@@ -40,9 +40,9 @@ From either location, you can select a build job to view its build report. The b
 
 ![Build report](Manageautobuilds_img/index-report.png)
 
-## [Disable an automated build](https://docs.docker.com/docker-hub/builds/manage-builds/#disable-an-automated-build)
+## Disable an automated build
 
-Automated builds are enabled per branch or tag, and can be disabled and re-enabled. You might do this when you want to only build manually for a while, for example when you are doing major refactoring in your code. Disabling autobuilds doesn't disable [autotests](https://docs.docker.com/docker-hub/builds/automated-testing/).
+Automated builds are enabled per branch or tag, and can be disabled and re-enabled. You might do this when you want to only build manually for a while, for example when you are doing major refactoring in your code. Disabling autobuilds doesn't disable [autotests]({{< ref "/manuals/DockerHub/Automatedbuilds/Automatedrepositorytests" >}}).
 
 To disable an automated build:
 

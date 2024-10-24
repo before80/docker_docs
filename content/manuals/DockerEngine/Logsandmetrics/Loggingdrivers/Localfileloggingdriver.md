@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/logging/drivers/local/](https://docs.docker.com/engine/logging/drivers/local/)
+> 原文：[https://docs.docker.com/engine/logging/drivers/local/](https://docs.docker.com/engine/logging/drivers/local/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,7 +24,7 @@ By default, the `local` driver preserves 100MB of log messages per container and
 >
 > The `local` logging driver uses file-based storage. These files are designed to be exclusively accessed by the Docker daemon. Interacting with these files with external tools may interfere with Docker's logging system and result in unexpected behavior, and should be avoided.
 
-## [Usage](https://docs.docker.com/engine/logging/drivers/local/#usage)
+## Usage
 
 To use the `local` driver as the default logging driver, set the `log-driver` and `log-opt` keys to appropriate values in the `daemon.json` file, which is located in `/etc/docker/` on Linux hosts or `C:\ProgramData\docker\config\daemon.json` on Windows Server. For more about configuring Docker using `daemon.json`, see [daemon.json](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file).
 
@@ -55,7 +55,7 @@ $ docker run \
 
 Note that `local` is a bash reserved keyword, so you may need to quote it in scripts.
 
-### [Options](https://docs.docker.com/engine/logging/drivers/local/#options)
+### Options
 
 The `local` logging driver supports the following logging options:
 
@@ -65,7 +65,7 @@ The `local` logging driver supports the following logging options:
 | `max-file` | The maximum number of log files that can be present. If rolling the logs creates excess files, the oldest file is removed. A positive integer. Defaults to 5. | `--log-opt max-file=3`     |
 | `compress` | Toggle compression of rotated log files. Enabled by default. | `--log-opt compress=false` |
 
-### [Examples](https://docs.docker.com/engine/logging/drivers/local/#examples)
+### Examples
 
 This example starts an `alpine` container which can have a maximum of 3 log files no larger than 10 megabytes each.
 

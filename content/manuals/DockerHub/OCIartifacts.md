@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/docker-hub/oci-artifacts/](https://docs.docker.com/docker-hub/oci-artifacts/)
+> 原文：[https://docs.docker.com/docker-hub/oci-artifacts/](https://docs.docker.com/docker-hub/oci-artifacts/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 You can use Docker Hub to store any kind of software artifact, not just container images. Docker Hub supports OCI artifacts by leveraging the config property on the image manifest.
 
-## [What are OCI artifacts?](https://docs.docker.com/docker-hub/oci-artifacts/#what-are-oci-artifacts)
+## What are OCI artifacts?
 
 OCI artifacts are any arbitrary files related to a software application. Some examples include:
 
@@ -31,7 +31,7 @@ Docker Hub supporting OCI artifacts means you can use one repository for storing
 
 A common use case for OCI artifacts is [Helm charts](https://helm.sh/docs/topics/charts/). Helm charts is a packaging format that defines a Kubernetes deployment for an application. Since Kubernetes is a popular runtime for containers, it makes sense to host application images and deployment templates all in one place.
 
-## [Using OCI artifacts with Docker Hub](https://docs.docker.com/docker-hub/oci-artifacts/#using-oci-artifacts-with-docker-hub)
+## Using OCI artifacts with Docker Hub
 
 You manage OCI artifacts on Docker Hub in a similar way you would container images.
 
@@ -39,11 +39,11 @@ Pushing and pulling OCI artifacts to and from a registry is done using a registr
 
 Registry clients invoke HTTP requests to the Docker Hub registry API. The registry API conforms to a standard protocol defined in the [OCI distribution specification](https://github.com/opencontainers/distribution-spec).
 
-## [Examples](https://docs.docker.com/docker-hub/oci-artifacts/#examples)
+## Examples
 
 This section shows some examples on using OCI artifacts with Docker Hub.
 
-### [Push a Helm chart](https://docs.docker.com/docker-hub/oci-artifacts/#push-a-helm-chart)
+### Push a Helm chart
 
 The following procedure shows how to push a Helm chart as an OCI artifact to Docker Hub.
 
@@ -100,7 +100,7 @@ Steps:
 
    ![Tag page of a Helm chart artifact](OCIartifacts_img/oci-helm-tagview.png)
 
-### [Push a volume](https://docs.docker.com/docker-hub/oci-artifacts/#push-a-volume)
+### Push a volume
 
 The following procedure shows how to push container volume as an OCI artifact to Docker Hub.
 
@@ -142,7 +142,7 @@ Steps:
 
    ![Repository page showing a volume in the tag list](OCIartifacts_img/oci-volume.png)
 
-### [Push a generic artifact file](https://docs.docker.com/docker-hub/oci-artifacts/#push-a-generic-artifact-file)
+### Push a generic artifact file
 
 The following procedure shows how to push a generic OCI artifact to Docker Hub.
 

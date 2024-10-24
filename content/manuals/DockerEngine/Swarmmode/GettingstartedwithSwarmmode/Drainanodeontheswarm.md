@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/swarm-tutorial/drain-node/](https://docs.docker.com/engine/swarm/swarm-tutorial/drain-node/)
+> 原文：[https://docs.docker.com/engine/swarm/swarm-tutorial/drain-node/](https://docs.docker.com/engine/swarm/swarm-tutorial/drain-node/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -39,7 +39,7 @@ Sometimes, such as planned maintenance times, you need to set a node to `Drain` 
    e216jshn25ckzbvmwlnh5jr3g *  manager1  Ready   Active        Leader
    ```
 
-3. If you aren't still running the `redis` service from the [rolling update](https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/) tutorial, start it now:
+3. If you aren't still running the `redis` service from the [rolling update]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode/Applyrollingupdatestoaservice" >}}) tutorial, start it now:
 
    
 
@@ -139,8 +139,8 @@ Sometimes, such as planned maintenance times, you need to set a node to `Drain` 
    - when you set another node to `Drain` availability
    - when a task fails on another active node
 
-## [Next steps](https://docs.docker.com/engine/swarm/swarm-tutorial/drain-node/#next-steps)
+## Next steps
 
 Next, you'll learn how to use a Swarm mode routing mesh
 
-[Use a Swarm mode routing mesh](https://docs.docker.com/engine/swarm/ingress/)
+[Use a Swarm mode routing mesh]({{< ref "/manuals/DockerEngine/Swarmmode/UseSwarmmoderoutingmesh" >}})

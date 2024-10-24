@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/workshop/07_multi_container/](https://docs.docker.com/get-started/workshop/07_multi_container/)
+> 原文：[https://docs.docker.com/get-started/workshop/07_multi_container/](https://docs.docker.com/get-started/workshop/07_multi_container/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
@@ -25,11 +25,11 @@ And there are more reasons. So, like the following diagram, it's best to run you
 
 ![Todo App connected to MySQL container](Part6Multi-containerapps_img/multi-container.webp)
 
-## [Container networking](https://docs.docker.com/get-started/workshop/07_multi_container/#container-networking)
+## Container networking
 
 Remember that containers, by default, run in isolation and don't know anything about other processes or containers on the same machine. So, how do you allow one container to talk to another? The answer is networking. If you place the two containers on the same network, they can talk to each other.
 
-## [Start MySQL](https://docs.docker.com/get-started/workshop/07_multi_container/#start-mysql)
+## Start MySQL
 
 There are two ways to put a container on a network:
 
@@ -146,7 +146,7 @@ In the following steps, you'll create the network first and then attach the MySQ
 
    You now have a `todos` database and it's ready for you to use.
 
-## [Connect to MySQL](https://docs.docker.com/get-started/workshop/07_multi_container/#connect-to-mysql)
+## Connect to MySQL
 
 Now that you know MySQL is up and running, you can use it. But, how do you use it? If you run another container on the same network, how do you find the container? Remember that each container has its own IP address.
 
@@ -195,7 +195,7 @@ To answer the questions above and better understand container networking, you're
 
    What this means is that your app only simply needs to connect to a host named `mysql` and it'll talk to the database.
 
-## [Run your app with MySQL](https://docs.docker.com/get-started/workshop/07_multi_container/#run-your-app-with-mysql)
+## Run your app with MySQL
 
 The todo app supports the setting of a few environment variables to specify MySQL connection settings. They are:
 
@@ -338,19 +338,19 @@ You can now start your dev-ready container.
 
    Your table will look different because it has your items. But, you should see them stored there.
 
-## [Summary](https://docs.docker.com/get-started/workshop/07_multi_container/#summary)
+## Summary
 
 At this point, you have an application that now stores its data in an external database running in a separate container. You learned a little bit about container networking and service discovery using DNS.
 
 Related information:
 
-- [docker CLI reference](https://docs.docker.com/reference/cli/docker/)
-- [Networking overview](https://docs.docker.com/engine/network/)
+- [docker CLI reference]({{< ref "/reference/CLIreference/docker" >}})
+- [Networking overview]({{< ref "/manuals/DockerEngine/Networking" >}})
 
-## [Next steps](https://docs.docker.com/get-started/workshop/07_multi_container/#next-steps)
+## Next steps
 
 There's a good chance you are starting to feel a little overwhelmed with everything you need to do to start up this application. You have to create a network, start containers, specify all of the environment variables, expose ports, and more. That's a lot to remember and it's certainly making things harder to pass along to someone else.
 
 In the next section, you'll learn about Docker Compose. With Docker Compose, you can share your application stacks in a much easier way and let others spin them up with a single, simple command.
 
-[Use Docker Compose](https://docs.docker.com/get-started/workshop/08_using_compose/)
+[Use Docker Compose]({{< ref "/get-started/Dockerworkshop/Part7UseDockerCompose" >}})

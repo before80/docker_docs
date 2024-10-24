@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/admin/organization/members/](https://docs.docker.com/admin/organization/members/)
+> 原文：[https://docs.docker.com/admin/organization/members/](https://docs.docker.com/admin/organization/members/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,11 +20,11 @@ Learn how to manage members for your organization in Docker Hub and the Docker A
 
 {{% tab header="Docker Hub" %}}
 
-## [Invite members](https://docs.docker.com/admin/organization/members/#invite-members)
+## Invite members
 
 Owners can invite new members to an organization via Docker ID, email address, or via a CSV file containing email addresses. If an invitee does not have a Docker account, they must create an account and verify their email address before they can accept the invitation to join the organization. When inviting members, their pending invitation occupies a seat.
 
-### [Invite members via Docker ID or email address](https://docs.docker.com/admin/organization/members/#invite-members-via-docker-id-or-email-address)
+### Invite members via Docker ID or email address
 
 Use the following steps to invite members to your organization via Docker ID or email address. To invite a large amount of members to your organization via CSV file, see the next section.
 
@@ -40,11 +40,11 @@ Use the following steps to invite members to your organization via Docker ID or 
 
    > **Note**
    >
-   > When you invite members, you assign them a role. See [Roles and permissions](https://docs.docker.com/security/for-admins/roles-and-permissions/) for details about the access permissions for each role.
+   > When you invite members, you assign them a role. See [Roles and permissions]({{< ref "/manuals/Security/Foradmins/Rolesandpermissions" >}}) for details about the access permissions for each role.
 
    Pending invitations appear in the table. The invitees receive an email with a link to Docker Hub where they can accept or decline the invitation.
 
-### [Invite members via CSV file](https://docs.docker.com/admin/organization/members/#invite-members-via-csv-file)
+### Invite members via CSV file
 
 To invite multiple members to an organization via a CSV file containing email addresses:
 
@@ -95,11 +95,11 @@ To invite multiple members to an organization via a CSV file containing email ad
 
    > **Note**
    >
-   > When you invite members, you assign them a role. See [Roles and permissions](https://docs.docker.com/security/for-admins/roles-and-permissions/) for details about the access permissions for each role.
+   > When you invite members, you assign them a role. See [Roles and permissions]({{< ref "/manuals/Security/Foradmins/Rolesandpermissions" >}}) for details about the access permissions for each role.
 
 Pending invitations appear in the table. The invitees receive an email with a link to Docker Hub where they can accept or decline the invitation.
 
-## [Resend invitations](https://docs.docker.com/admin/organization/members/#resend-invitations)
+## Resend invitations
 
 To resend an invitation if the invite is pending or declined:
 
@@ -108,7 +108,7 @@ To resend an invitation if the invite is pending or declined:
 3. In the table, locate the invitee, select the **Action** icon, and then select **Resend invitation**.
 4. Select **Invite** to confirm.
 
-## [Remove a member or invitee](https://docs.docker.com/admin/organization/members/#remove-a-member-or-invitee)
+## Remove a member or invitee
 
 To remove a member from an organization:
 
@@ -117,9 +117,9 @@ To remove a member from an organization:
 3. In the table, select the **Action** icon, and then select **Remove member** or **Remove invitee**.
 4. Follow the on-screen instructions to remove the member or invitee.
 
-## [Update a member role](https://docs.docker.com/admin/organization/members/#update-a-member-role)
+## Update a member role
 
-Organization owners can manage [roles](https://docs.docker.com/security/for-admins/roles-and-permissions/) within an organization. If an organization is part of a company, the company owner can also manage that organization's roles. If you have SSO enabled, you can use [SCIM for role mapping](https://docs.docker.com/security/for-admins/provisioning/scim/).
+Organization owners can manage [roles]({{< ref "/manuals/Security/Foradmins/Rolesandpermissions" >}}) within an organization. If an organization is part of a company, the company owner can also manage that organization's roles. If you have SSO enabled, you can use [SCIM for role mapping]({{< ref "/manuals/Security/Foradmins/Provisioning/SCIM" >}}).
 
 > **Note**
 >
@@ -133,7 +133,7 @@ To update a member role:
 4. Select **Edit role**.
 5. Select the role you want to assign, then select **Save**.
 
-## [Export members](https://docs.docker.com/admin/organization/members/#export-members)
+## Export members
 
 Owners can export a CSV file containing all members. The CSV file for an organization contains the following fields:
 
@@ -157,15 +157,15 @@ To export a CSV file of the members:
 
 **Early Access**
 
-The Docker Admin Console is an [early access](https://docs.docker.com/release-lifecycle#early-access-ea) product.
+The Docker Admin Console is an [early access]({{< ref "/manuals/Releaselifecycle#early-access-ea" >}}) product.
 
 It's available to all company owners and organization owners. You can still manage organizations in Docker Hub, but the Admin Console includes company-level management and enhanced features for organization management.
 
-## [Invite members](https://docs.docker.com/admin/organization/members/#invite-members)
+## Invite members
 
 Owners can invite new members to an organization via Docker ID, email address, or via a CSV file containing email addresses. If an invitee does not have a Docker account, they must create an account and verify their email address before they can accept the invitation to join the organization. When inviting members, their pending invitation occupies a seat.
 
-### [Invite members via Docker ID or email address](https://docs.docker.com/admin/organization/members/#invite-members-via-docker-id-or-email-address)
+### Invite members via Docker ID or email address
 
 Use the following steps to invite members to your organization via Docker ID or email address. To invite a large amount of members to your organization via CSV file, see the next section.
 
@@ -181,11 +181,11 @@ Use the following steps to invite members to your organization via Docker ID or 
 
    > **Note**
    >
-   > When you invite members, you assign them a role. See [Roles and permissions](https://docs.docker.com/security/for-admins/roles-and-permissions/) for details about the access permissions for each role.
+   > When you invite members, you assign them a role. See [Roles and permissions]({{< ref "/manuals/Security/Foradmins/Rolesandpermissions" >}}) for details about the access permissions for each role.
 
    Pending invitations appear in the table. The invitees receive an email with a link to Docker Hub where they can accept or decline the invitation.
 
-### [Invite members via CSV file](https://docs.docker.com/admin/organization/members/#invite-members-via-csv-file)
+### Invite members via CSV file
 
 To invite multiple members to an organization via a CSV file containing email addresses:
 
@@ -236,11 +236,11 @@ To invite multiple members to an organization via a CSV file containing email ad
 
    > **Note**
    >
-   > When you invite members, you assign them a role. See [Roles and permissions](https://docs.docker.com/security/for-admins/roles-and-permissions/) for details about the access permissions for each role.
+   > When you invite members, you assign them a role. See [Roles and permissions]({{< ref "/manuals/Security/Foradmins/Rolesandpermissions" >}}) for details about the access permissions for each role.
 
 Pending invitations appear in the table. The invitees receive an email with a link to Docker Hub where they can accept or decline the invitation.
 
-## [Resend invitations](https://docs.docker.com/admin/organization/members/#resend-invitations)
+## Resend invitations
 
 To resend an invitation if the invite is pending or declined:
 
@@ -249,7 +249,7 @@ To resend an invitation if the invite is pending or declined:
 3. In the table, locate the invitee, select the **Action** icon, and then select **Resend invitation**.
 4. Select **Invite** to confirm.
 
-## [Remove a member or invitee](https://docs.docker.com/admin/organization/members/#remove-a-member-or-invitee)
+## Remove a member or invitee
 
 To remove a member from an organization:
 
@@ -258,9 +258,9 @@ To remove a member from an organization:
 3. In the table, select the **Action** icon, and then select **Remove member** or **Remove invitee**.
 4. Follow the on-screen instructions to remove the member or invitee.
 
-## [Update a member role](https://docs.docker.com/admin/organization/members/#update-a-member-role)
+## Update a member role
 
-Organization owners can manage [roles](https://docs.docker.com/security/for-admins/roles-and-permissions/) within an organization. If an organization is part of a company, the company owner can also manage that organization's roles. If you have SSO enabled, you can use [SCIM for role mapping](https://docs.docker.com/security/for-admins/provisioning/scim/).
+Organization owners can manage [roles]({{< ref "/manuals/Security/Foradmins/Rolesandpermissions" >}}) within an organization. If an organization is part of a company, the company owner can also manage that organization's roles. If you have SSO enabled, you can use [SCIM for role mapping]({{< ref "/manuals/Security/Foradmins/Provisioning/SCIM" >}}).
 
 > **Note**
 >
@@ -274,7 +274,7 @@ To update a member role:
 4. Select **Edit role**.
 5. Select the role you want to assign, then select **Save**.
 
-## [Export members](https://docs.docker.com/admin/organization/members/#export-members)
+## Export members
 
 Owners can export a CSV file containing all members. The CSV file for an organization contains the following fields:
 
@@ -300,11 +300,11 @@ To export a CSV file of the members:
 
 ------
 
-## [Manage members on a team](https://docs.docker.com/admin/organization/members/#manage-members-on-a-team)
+## Manage members on a team
 
 Use Docker Hub to add a member to a team or remove a member from a team.
 
-### [Add a member to a team](https://docs.docker.com/admin/organization/members/#add-a-member-to-a-team)
+### Add a member to a team
 
 Organization owners can add a member to one or more teams within an organization.
 
@@ -340,7 +340,7 @@ To add a member to a team:
 
 **Early Access**
 
-The Docker Admin Console is an [early access](https://docs.docker.com/release-lifecycle#early-access-ea) product.
+The Docker Admin Console is an [early access]({{< ref "/manuals/Releaselifecycle#early-access-ea" >}}) product.
 
 It's available to all company owners and organization owners. You can still manage organizations in Docker Hub, but the Admin Console includes company-level management and enhanced features for organization management.
 
@@ -366,7 +366,7 @@ To add a member to a team:
 
 ------
 
-### [Remove a member from a team](https://docs.docker.com/admin/organization/members/#remove-a-member-from-a-team)
+### Remove a member from a team
 
 Organization owners can remove a member from a team in Docker Hub or Admin Console. Removing the member from the team will revoke their access to the permitted resources.
 
@@ -389,7 +389,7 @@ To remove a member from a specific team:
 
 **Early Access**
 
-The Docker Admin Console is an [early access](https://docs.docker.com/release-lifecycle#early-access-ea) product.
+The Docker Admin Console is an [early access]({{< ref "/manuals/Releaselifecycle#early-access-ea" >}}) product.
 
 It's available to all company owners and organization owners. You can still manage organizations in Docker Hub, but the Admin Console includes company-level management and enhanced features for organization management.
 

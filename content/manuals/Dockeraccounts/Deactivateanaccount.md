@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/accounts/deactivate-user-account/](https://docs.docker.com/accounts/deactivate-user-account/)
+> 原文：[https://docs.docker.com/accounts/deactivate-user-account/](https://docs.docker.com/accounts/deactivate-user-account/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Deactivate an account
 
-You can deactivate an account at any time. This section describes the prerequisites and steps to deactivate a user account. For information on deactivating an organization, see [Deactivating an organization](https://docs.docker.com/admin/deactivate-account/).
+You can deactivate an account at any time. This section describes the prerequisites and steps to deactivate a user account. For information on deactivating an organization, see [Deactivating an organization]({{< ref "/manuals/Administration/Deactivatinganorganization" >}}).
 
 > **Warning**
 >
@@ -22,7 +22,7 @@ You can deactivate an account at any time. This section describes the prerequisi
 >
 > All Docker products and services that use your Docker account will be inaccessible after deactivating your account.
 
-## [Prerequisites](https://docs.docker.com/accounts/deactivate-user-account/#prerequisites)
+## Prerequisites
 
 Before deactivating your Docker account, ensure that you meet the following requirements:
 
@@ -32,13 +32,13 @@ Before deactivating your Docker account, ensure that you meet the following requ
   3. Find your username in the **Members** tab.
   4. Select the **More options** menu and then select **Leave organization**.
 - If you are the sole owner of an organization, you must assign the owner role to another member of the organization and then remove yourself from the organization, or deactivate the organization. Similarly, if you are the sole owner of a company, either add someone else as a company owner and then remove yourself, or deactivate the company.
-- If you have an active Docker subscription, [downgrade it to a Docker Personal subscription](https://docs.docker.com/subscription/core-subscription/downgrade/).
+- If you have an active Docker subscription, [downgrade it to a Docker Personal subscription]({{< ref "/manuals/Subscription/DockerCore/Downgrade" >}}).
 - If you have an active Docker Build Cloud Paid subscription, [downgrade it to a Docker Build Cloud Starter subscription](https://docs.docker.com/billing/build-billing/#downgrade-your-subscription).
 - If you have an active Docker Scout subscription, [downgrade it to a Docker Scout Free subscription](https://docs.docker.com/billing/scout-billing/#downgrade-your-subscription).
 - Download any images and tags you want to keep. Use `docker pull -a <image>:<tag>`.
 - Unlink your [GitHub and Bitbucket accounts](https://docs.docker.com/docker-hub/builds/link-source/#unlink-a-github-user-account).
 
-## [Deactivate](https://docs.docker.com/accounts/deactivate-user-account/#deactivate)
+## Deactivate
 
 Once you have completed all the previous steps, you can deactivate your account.
 

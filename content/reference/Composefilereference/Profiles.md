@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/compose-file/profiles/](https://docs.docker.com/reference/compose-file/profiles/)
+> 原文：[https://docs.docker.com/reference/compose-file/profiles/](https://docs.docker.com/reference/compose-file/profiles/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 With profiles you can define a set of active profiles so your Compose application model is adjusted for various usages and environments.
 
-The [services](https://docs.docker.com/reference/compose-file/services/) top-level element supports a `profiles` attribute to define a list of named profiles. Services without a `profiles` attribute are always enabled.
+The [services]({{< ref "/reference/Composefilereference/Servicestop-levelelements" >}}) top-level element supports a `profiles` attribute to define a list of named profiles. Services without a `profiles` attribute are always enabled.
 
 A service is ignored by Compose when none of the listed `profiles` match the active ones, unless the service is explicitly targeted by a command. In that case its profile is added to the set of active profiles.
 
@@ -28,7 +28,7 @@ A service is ignored by Compose when none of the listed `profiles` match the act
 
 References to other services (by `links`, `extends` or shared resource syntax `service:xxx`) do not automatically enable a component that would otherwise have been ignored by active profiles. Instead Compose returns an error.
 
-## [Illustrative example](https://docs.docker.com/reference/compose-file/profiles/#illustrative-example)
+## Illustrative example
 
 
 
@@ -68,4 +68,4 @@ In the above example:
 - If Compose is executed with `debug_lib` as the explicit service to run, again the model is invalid regarding the `depends_on` constraint of `debug_lib`, since `debug_lib` and `test_lib` have no common `profiles` listed.
 - If Compose is executed with `debug_lib` as the explicit service to run and profile `test` is enabled, profile `debug` is automatically enabled and service `test_lib` is pulled in as a dependency starting both services `debug_lib` and `test_lib`.
 
-See how you can use `profiles` in [Docker Compose](https://docs.docker.com/compose/how-tos/profiles/).
+See how you can use `profiles` in [Docker Compose]({{< ref "/manuals/DockerCompose/How-tos/Useserviceprofiles" >}}).

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/join-nodes/](https://docs.docker.com/engine/swarm/join-nodes/)
+> 原文：[https://docs.docker.com/engine/swarm/join-nodes/](https://docs.docker.com/engine/swarm/join-nodes/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -21,7 +21,7 @@ When you first create a swarm, you place a single Docker Engine into Swarm mode.
 
 Docker Engine joins the swarm depending on the **join-token** you provide to the `docker swarm join` command. The node only uses the token at join time. If you subsequently rotate the token, it doesn't affect existing swarm nodes. Refer to [Run Docker Engine in swarm mode](https://docs.docker.com/engine/swarm/swarm-mode/#view-the-join-command-or-update-a-swarm-join-token).
 
-## [Join as a worker node](https://docs.docker.com/engine/swarm/join-nodes/#join-as-a-worker-node)
+## Join as a worker node
 
 To retrieve the join command including the join token for worker nodes, run the following command on a manager node:
 
@@ -58,13 +58,13 @@ The `docker swarm join` command does the following:
 - Sets the current node to `Active` availability, meaning it can receive tasks from the scheduler.
 - Extends the `ingress` overlay network to the current node.
 
-## [Join as a manager node](https://docs.docker.com/engine/swarm/join-nodes/#join-as-a-manager-node)
+## Join as a manager node
 
 When you run `docker swarm join` and pass the manager token, Docker Engine switches into Swarm mode the same as for workers. Manager nodes also participate in the raft consensus. The new nodes should be `Reachable`, but the existing manager remains the swarm `Leader`.
 
 Docker recommends three or five manager nodes per cluster to implement high availability. Because Swarm-mode manager nodes share data using Raft, there must be an odd number of managers. The swarm can continue to function after as long as a quorum of more than half of the manager nodes are available.
 
-For more detail about swarm managers and administering a swarm, see [Administer and maintain a swarm of Docker Engines](https://docs.docker.com/engine/swarm/admin_guide/).
+For more detail about swarm managers and administering a swarm, see [Administer and maintain a swarm of Docker Engines]({{< ref "/manuals/DockerEngine/Swarmmode/AdministerandmaintainaswarmofDockerEngines" >}}).
 
 To retrieve the join command including the join token for manager nodes, run the following command on a manager node:
 
@@ -92,7 +92,7 @@ $ docker swarm join \
 This node joined a swarm as a manager.
 ```
 
-## [Learn More](https://docs.docker.com/engine/swarm/join-nodes/#learn-more)
+## Learn More
 
-- `swarm join` [command line reference](https://docs.docker.com/reference/cli/docker/swarm/join/)
-- [Swarm mode tutorial](https://docs.docker.com/engine/swarm/swarm-tutorial/)
+- `swarm join` [command line reference]({{< ref "/reference/CLIreference/docker/dockerswarm/dockerswarmjoin" >}})
+- [Swarm mode tutorial]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode" >}})

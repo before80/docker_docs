@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: []()
+> 原文：[]()
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,23 +16,23 @@ draft = false
 
 With Docker Compose you use a YAML configuration file, known as the [Compose file](https://docs.docker.com/compose/intro/compose-application-model/#the-compose-file), to configure your application’s services, and then you create and start all the services from your configuration with the [Compose CLI](https://docs.docker.com/compose/intro/compose-application-model/#cli).
 
-The Compose file, or `compose.yaml` file, follows the rules provided by the [Compose Specification](https://docs.docker.com/reference/compose-file/) in how to define multi-container applications. This is the Docker Compose implementation of the formal [Compose Specification](https://github.com/compose-spec/compose-spec).
+The Compose file, or `compose.yaml` file, follows the rules provided by the [Compose Specification]({{< ref "/reference/Composefilereference" >}}) in how to define multi-container applications. This is the Docker Compose implementation of the formal [Compose Specification](https://github.com/compose-spec/compose-spec).
 
-## [The Compose file](https://docs.docker.com/compose/intro/compose-application-model/#the-compose-file)
+## The Compose file
 
 The default path for a Compose file is `compose.yaml` (preferred) or `compose.yml` that is placed in the working directory. Compose also supports `docker-compose.yaml` and `docker-compose.yml` for backwards compatibility of earlier versions. If both files exist, Compose prefers the canonical `compose.yaml`.
 
-You can use [fragments](https://docs.docker.com/reference/compose-file/fragments/) and [extensions](https://docs.docker.com/reference/compose-file/extension/) to keep your Compose file efficient and easy to maintain.
+You can use [fragments]({{< ref "/reference/Composefilereference/Fragments" >}}) and [extensions]({{< ref "/reference/Composefilereference/Extensions" >}}) to keep your Compose file efficient and easy to maintain.
 
-Multiple Compose files can be [merged](https://docs.docker.com/reference/compose-file/merge/) together to define the application model. The combination of YAML files is implemented by appending or overriding YAML elements based on the Compose file order you set. Simple attributes and maps get overridden by the highest order Compose file, lists get merged by appending. Relative paths are resolved based on the first Compose file's parent folder, whenever complimentary files being merged are hosted in other folders. As some Compose file elements can both be expressed as single strings or complex objects, merges apply to the expanded form. For more information, see [Working with multiple Compose files](https://docs.docker.com/compose/how-tos/multiple-compose-files/).
+Multiple Compose files can be [merged]({{< ref "/reference/Composefilereference/Merge" >}}) together to define the application model. The combination of YAML files is implemented by appending or overriding YAML elements based on the Compose file order you set. Simple attributes and maps get overridden by the highest order Compose file, lists get merged by appending. Relative paths are resolved based on the first Compose file's parent folder, whenever complimentary files being merged are hosted in other folders. As some Compose file elements can both be expressed as single strings or complex objects, merges apply to the expanded form. For more information, see [Working with multiple Compose files]({{< ref "/manuals/DockerCompose/How-tos/UsemultipleComposefiles" >}}).
 
-If you want to reuse other Compose files, or factor out parts of your application model into separate Compose files, you can also use [`include`](https://docs.docker.com/reference/compose-file/include/). This is useful if your Compose application is dependent on another application which is managed by a different team, or needs to be shared with others.
+If you want to reuse other Compose files, or factor out parts of your application model into separate Compose files, you can also use [`include`]({{< ref "/reference/Composefilereference/Include" >}}). This is useful if your Compose application is dependent on another application which is managed by a different team, or needs to be shared with others.
 
-## [CLI](https://docs.docker.com/compose/intro/compose-application-model/#cli)
+## CLI
 
 The Docker CLI lets you interact with your Docker Compose applications through the `docker compose` command, and its subcommands. Using the CLI, you can manage the lifecycle of your multi-container applications defined in the `compose.yaml` file. The CLI commands enable you to start, stop, and configure your applications effortlessly.
 
-### [Key commands](https://docs.docker.com/compose/intro/compose-application-model/#key-commands)
+### Key commands
 
 To start all the services defined in your `compose.yaml` file:
 
@@ -66,9 +66,9 @@ To lists all the services along with their current status:
 $ docker compose ps
 ```
 
-For a full list of all the Compose CLI commands, see the [reference documentation](https://docs.docker.com/reference/cli/docker/compose/).
+For a full list of all the Compose CLI commands, see the [reference documentation]({{< ref "/reference/CLIreference/docker/dockercompose" >}}).
 
-## [Illustrative example](https://docs.docker.com/compose/intro/compose-application-model/#illustrative-example)
+## Illustrative example
 
 The following example illustrates the Compose concepts outlined above. The example is non-normative.
 
@@ -147,8 +147,8 @@ example-frontend-1  example/webapp       "nginx -g 'daemon of…"   frontend    
 example-backend-1   example/database     "docker-entrypoint.s…"   backend             2 minutes ago       Up 2 minutes
 ```
 
-## [What's next](https://docs.docker.com/compose/intro/compose-application-model/#whats-next)
+## What's next
 
-- [Quickstart](https://docs.docker.com/compose/gettingstarted/)
-- [Explore some sample applications](https://docs.docker.com/compose/support-and-feedback/samples-for-compose/)
-- [Familiarize yourself with the Compose Specification](https://docs.docker.com/reference/compose-file/)
+- [Quickstart]({{< ref "/manuals/DockerCompose/Quickstart" >}})
+- [Explore some sample applications]({{< ref "/manuals/DockerCompose/Supportandfeedback/Sampleapps" >}})
+- [Familiarize yourself with the Compose Specification]({{< ref "/reference/Composefilereference" >}})

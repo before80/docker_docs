@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/security/](https://docs.docker.com/engine/security/)
+> 原文：[https://docs.docker.com/engine/security/](https://docs.docker.com/engine/security/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -21,17 +21,17 @@ There are four major areas to consider when reviewing Docker security:
 - Loopholes in the container configuration profile, either by default, or when customized by users.
 - The "hardening" security features of the kernel and how they interact with containers.
 
-## [Kernel namespaces](https://docs.docker.com/engine/security/#kernel-namespaces)
+## Kernel namespaces
 
 Docker containers are very similar to LXC containers, and they have similar security features. When you start a container with `docker run`, behind the scenes Docker creates a set of namespaces and control groups for the container.
 
 Namespaces provide the first and most straightforward form of isolation. Processes running within a container cannot see, and even less affect, processes running in another container, or in the host system.
 
-Each container also gets its own network stack, meaning that a container doesn't get privileged access to the sockets or interfaces of another container. Of course, if the host system is setup accordingly, containers can interact with each other through their respective network interfaces — just like they can interact with external hosts. When you specify public ports for your containers or use [links](https://docs.docker.com/engine/network/links/) then IP traffic is allowed between containers. They can ping each other, send/receive UDP packets, and establish TCP connections, but that can be restricted if necessary. From a network architecture point of view, all containers on a given Docker host are sitting on bridge interfaces. This means that they are just like physical machines connected through a common Ethernet switch; no more, no less.
+Each container also gets its own network stack, meaning that a container doesn't get privileged access to the sockets or interfaces of another container. Of course, if the host system is setup accordingly, containers can interact with each other through their respective network interfaces — just like they can interact with external hosts. When you specify public ports for your containers or use [links]({{< ref "/manuals/DockerEngine/Networking/Legacycontainerlinks" >}}) then IP traffic is allowed between containers. They can ping each other, send/receive UDP packets, and establish TCP connections, but that can be restricted if necessary. From a network architecture point of view, all containers on a given Docker host are sitting on bridge interfaces. This means that they are just like physical machines connected through a common Ethernet switch; no more, no less.
 
 How mature is the code providing kernel namespaces and private networking? Kernel namespaces were introduced [between kernel version 2.6.15 and 2.6.26](https://man7.org/linux/man-pages/man7/namespaces.7.html). This means that since July 2008 (date of the 2.6.26 release ), namespace code has been exercised and scrutinized on a large number of production systems. And there is more: the design and inspiration for the namespaces code are even older. Namespaces are actually an effort to reimplement the features of [OpenVZ](https://en.wikipedia.org/wiki/OpenVZ) in such a way that they could be merged within the mainstream kernel. And OpenVZ was initially released in 2005, so both the design and the implementation are pretty mature.
 
-## [Control groups](https://docs.docker.com/engine/security/#control-groups)
+## Control groups
 
 Control Groups are another key component of Linux containers. They implement resource accounting and limiting. They provide many useful metrics, but they also help ensure that each container gets its fair share of memory, CPU, disk I/O; and, more importantly, that a single container cannot bring the system down by exhausting one of those resources.
 
@@ -39,9 +39,9 @@ So while they do not play a role in preventing one container from accessing or a
 
 Control Groups have been around for a while as well: the code was started in 2006, and initially merged in kernel 2.6.24.
 
-## [Docker daemon attack surface](https://docs.docker.com/engine/security/#docker-daemon-attack-surface)
+## Docker daemon attack surface
 
-Running containers (and applications) with Docker implies running the Docker daemon. This daemon requires `root` privileges unless you opt-in to [Rootless mode](https://docs.docker.com/engine/security/rootless/), and you should therefore be aware of some important details.
+Running containers (and applications) with Docker implies running the Docker daemon. This daemon requires `root` privileges unless you opt-in to [Rootless mode]({{< ref "/manuals/DockerEngine/Security/Rootlessmode" >}}), and you should therefore be aware of some important details.
 
 First of all, only trusted users should be allowed to control your Docker daemon. This is a direct consequence of some powerful Docker features. Specifically, Docker allows you to share a directory between the Docker host and a guest container; and it allows you to do so without limiting the access rights of the container. This means that you can start a container where the `/host` directory is the `/` directory on your host; and the container can alter your host filesystem without any restriction. This is similar to how virtualization systems allow filesystem resource sharing. Nothing prevents you from sharing your root filesystem (or even your root block device) with a virtual machine.
 
@@ -49,7 +49,7 @@ This has a strong security implication: for example, if you instrument Docker fr
 
 For this reason, the REST API endpoint (used by the Docker CLI to communicate with the Docker daemon) changed in Docker 0.5.2, and now uses a Unix socket instead of a TCP socket bound on 127.0.0.1 (the latter being prone to cross-site request forgery attacks if you happen to run Docker directly on your local machine, outside of a VM). You can then use traditional Unix permission checks to limit access to the control socket.
 
-You can also expose the REST API over HTTP if you explicitly decide to do so. However, if you do that, be aware of the above mentioned security implications. Note that even if you have a firewall to limit accesses to the REST API endpoint from other hosts in the network, the endpoint can be still accessible from containers, and it can easily result in the privilege escalation. Therefore it is *mandatory* to secure API endpoints with [HTTPS and certificates](https://docs.docker.com/engine/security/protect-access/). Exposing the daemon API over HTTP without TLS is not permitted, and such a configuration causes the daemon to fail early on startup, see [Unauthenticated TCP connections](https://docs.docker.com/engine/deprecated/#unauthenticated-tcp-connections). It is also recommended to ensure that it is reachable only from a trusted network or VPN.
+You can also expose the REST API over HTTP if you explicitly decide to do so. However, if you do that, be aware of the above mentioned security implications. Note that even if you have a firewall to limit accesses to the REST API endpoint from other hosts in the network, the endpoint can be still accessible from containers, and it can easily result in the privilege escalation. Therefore it is *mandatory* to secure API endpoints with [HTTPS and certificates]({{< ref "/manuals/DockerEngine/Security/ProtecttheDockerdaemonsocket" >}}). Exposing the daemon API over HTTP without TLS is not permitted, and such a configuration causes the daemon to fail early on startup, see [Unauthenticated TCP connections](https://docs.docker.com/engine/deprecated/#unauthenticated-tcp-connections). It is also recommended to ensure that it is reachable only from a trusted network or VPN.
 
 You can also use `DOCKER_HOST=ssh://USER@HOST` or `ssh -L /path/to/docker.sock:/var/run/docker.sock` instead if you prefer SSH over TLS.
 
@@ -57,7 +57,7 @@ The daemon is also potentially vulnerable to other inputs, such as image loading
 
 Finally, if you run Docker on a server, it is recommended to run exclusively Docker on the server, and move all other services within containers controlled by Docker. Of course, it is fine to keep your favorite admin tools (probably at least an SSH server), as well as existing monitoring/supervision processes, such as NRPE and collectd.
 
-## [Linux kernel capabilities](https://docs.docker.com/engine/security/#linux-kernel-capabilities)
+## Linux kernel capabilities
 
 By default, Docker starts containers with a restricted set of capabilities. What does that mean?
 
@@ -86,7 +86,7 @@ One primary risk with running Docker containers is that the default set of capab
 
 Docker supports the addition and removal of capabilities, allowing use of a non-default profile. This may make Docker more secure through capability removal, or less secure through the addition of capabilities. The best practice for users would be to remove all capabilities except those explicitly required for their processes.
 
-## [Docker Content Trust signature verification](https://docs.docker.com/engine/security/#docker-content-trust-signature-verification)
+## Docker Content Trust signature verification
 
 Docker Engine can be configured to only run signed images. The Docker Content Trust signature verification feature is built directly into the `dockerd` binary.
 This is configured in the Dockerd configuration file.
@@ -95,9 +95,9 @@ To enable this feature, trustpinning can be configured in `daemon.json`, whereby
 
 This feature provides more insight to administrators than previously available with the CLI for enforcing and performing image signature verification.
 
-For more information on configuring Docker Content Trust Signature Verification, go to [Content trust in Docker](https://docs.docker.com/engine/security/trust/).
+For more information on configuring Docker Content Trust Signature Verification, go to [Content trust in Docker]({{< ref "/manuals/DockerEngine/Security/ContenttrustinDocker" >}}).
 
-## [Other kernel security features](https://docs.docker.com/engine/security/#other-kernel-security-features)
+## Other kernel security features
 
 Capabilities are just one of the many security features provided by modern Linux kernels. It is also possible to leverage existing, well-known systems like TOMOYO, AppArmor, SELinux, GRSEC, etc. with Docker.
 
@@ -113,7 +113,7 @@ As of Docker 1.10 User Namespaces are supported directly by the docker daemon. T
 
 Refer to the [daemon command](https://docs.docker.com/reference/cli/dockerd/#daemon-user-namespace-options) in the command line reference for more information on this feature. Additional information on the implementation of User Namespaces in Docker can be found in [this blog post](https://integratedcode.us/2015/10/13/user-namespaces-have-arrived-in-docker/).
 
-## [Conclusions](https://docs.docker.com/engine/security/#conclusions)
+## Conclusions
 
 Docker containers are, by default, quite secure; especially if you run your processes as non-privileged users inside the container.
 
@@ -121,10 +121,10 @@ You can add an extra layer of safety by enabling AppArmor, SELinux, GRSEC, or an
 
 If you think of ways to make docker more secure, we welcome feature requests, pull requests, or comments on the Docker community forums.
 
-## [Related information](https://docs.docker.com/engine/security/#related-information)
+## Related information
 
-- [Use trusted images](https://docs.docker.com/engine/security/trust/)
-- [Seccomp security profiles for Docker](https://docs.docker.com/engine/security/seccomp/)
-- [AppArmor security profiles for Docker](https://docs.docker.com/engine/security/apparmor/)
+- [Use trusted images]({{< ref "/manuals/DockerEngine/Security/ContenttrustinDocker" >}})
+- [Seccomp security profiles for Docker]({{< ref "/manuals/DockerEngine/Security/SeccompsecurityprofilesforDocker" >}})
+- [AppArmor security profiles for Docker]({{< ref "/manuals/DockerEngine/Security/AppArmorsecurityprofilesforDocker" >}})
 - [On the Security of Containers (2014)](https://medium.com/@ewindisch/on-the-security-of-containers-2c60ffe25a9e)
-- [Docker swarm mode overlay network security model](https://docs.docker.com/engine/network/drivers/overlay/)
+- [Docker swarm mode overlay network security model]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Overlaynetworkdriver" >}})

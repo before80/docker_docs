@@ -8,22 +8,22 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/17.04/](https://docs.docker.com/engine/release-notes/17.04/)
+> 原文：[https://docs.docker.com/engine/release-notes/17.04/](https://docs.docker.com/engine/release-notes/17.04/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Engine 17.04 release notes
 
-## [17.04.0-ce](https://docs.docker.com/engine/release-notes/17.04/#17040-ce)
+## 17.04.0-ce
 
 2017-04-05
 
-### [Builder](https://docs.docker.com/engine/release-notes/17.04/#builder)
+### Builder
 
 - Disable container logging for build containers [#29552](https://github.com/docker/docker/pull/29552)
 - Fix use of `**/` in `.dockerignore` [#29043](https://github.com/docker/docker/pull/29043)
 
-### [Client](https://docs.docker.com/engine/release-notes/17.04/#client)
+### Client
 
 - Sort `docker stack ls` by name [#31085](https://github.com/docker/docker/pull/31085)
 - Flags for specifying bind mount consistency [#31047](https://github.com/docker/docker/pull/31047)
@@ -53,14 +53,14 @@ draft = false
 
 - Docker inspect now shows "docker-default" when AppArmor is enabled and no other profile was defined [#27083](https://github.com/docker/docker/pull/27083)
 
-### [Logging](https://docs.docker.com/engine/release-notes/17.04/#logging)
+### Logging
 
 - Implement optional ring buffer for container logs [#28762](https://github.com/docker/docker/pull/28762)
 - Add `--log-opt awslogs-create-group=<true|false>` for awslogs (CloudWatch) to support creation of log groups as needed [#29504](https://github.com/docker/docker/pull/29504)
 
 - Fix segfault when using the gcplogs logging driver with a "static" binary [#29478](https://github.com/docker/docker/pull/29478)
 
-### [Networking](https://docs.docker.com/engine/release-notes/17.04/#networking)
+### Networking
 
 - Check parameter `--ip`, `--ip6` and `--link-local-ip` in `docker network connect` [#30807](https://github.com/docker/docker/pull/30807)
 
@@ -77,7 +77,7 @@ draft = false
 - Support for `com.docker.network.container_iface_prefix` driver label [docker/libnetwork#1667](https://github.com/docker/libnetwork/pull/1667)
 - Improve network list performance by omitting network details that are not used [#30673](https://github.com/docker/docker/pull/30673)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/17.04/#runtime)
+### Runtime
 
 - Handle paused container when restoring without live-restore set [#31704](https://github.com/docker/docker/pull/31704)
 
@@ -101,7 +101,7 @@ draft = false
 
 - Fix `cpu.cfs_quota_us` being reset when running `systemd daemon-reload` [#31736](https://github.com/docker/docker/pull/31736)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/17.04/#swarm-mode)
+### Swarm Mode
 
 - Topology-aware scheduling [#30725](https://github.com/docker/docker/pull/30725)
 - Automatic service rollback on failure [#31108](https://github.com/docker/docker/pull/31108)
@@ -122,6 +122,6 @@ draft = false
 - (experimental) Add `--tail` and `--since` options to `docker service logs` [#31500](https://github.com/docker/docker/pull/31500)
 - (experimental) Add `--no-task-ids` and `--no-trunc` options to `docker service logs` [#31672](https://github.com/docker/docker/pull/31672)
 
-### [Windows](https://docs.docker.com/engine/release-notes/17.04/#windows)
+### Windows
 
 - Block pulling Windows images on non-Windows daemons [#29001](https://github.com/docker/docker/pull/29001)

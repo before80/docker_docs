@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/](https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/)
+> 原文：[https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/](https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,15 +20,15 @@ There are two types of nodes: [managers](https://docs.docker.com/engine/swarm/ho
 
 ![Swarm mode cluster](Hownodeswork_img/swarm-diagram.webp)
 
-If you haven't already, read through the [Swarm mode overview](https://docs.docker.com/engine/swarm/) and [key concepts](https://docs.docker.com/engine/swarm/key-concepts/).
+If you haven't already, read through the [Swarm mode overview]({{< ref "/manuals/DockerEngine/Swarmmode" >}}) and [key concepts]({{< ref "/manuals/DockerEngine/Swarmmode/Swarmmodekeyconcepts" >}}).
 
-## [Manager nodes](https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/#manager-nodes)
+## Manager nodes
 
 Manager nodes handle cluster management tasks:
 
 - Maintaining cluster state
 - Scheduling services
-- Serving Swarm mode [HTTP API endpoints](https://docs.docker.com/reference/api/engine/)
+- Serving Swarm mode [HTTP API endpoints]({{< ref "/reference/APIreference/DockerEngineAPI" >}})
 
 Using a [Raft](https://raft.github.io/raft.pdf) implementation, the managers maintain a consistent internal state of the entire swarm and all the services running on it. For testing purposes it is OK to run a swarm with a single manager. If the manager in a single-manager swarm fails, your services continue to run, but you need to create a new cluster to recover.
 
@@ -44,7 +44,7 @@ To take advantage of Swarm mode's fault-tolerance features, we recommend you imp
   >
   > Adding more managers does NOT mean increased scalability or higher performance. In general, the opposite is true.
 
-## [Worker nodes](https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/#worker-nodes)
+## Worker nodes
 
 Worker nodes are also instances of Docker Engine whose sole purpose is to execute containers. Worker nodes don't participate in the Raft distributed state, make scheduling decisions, or serve the swarm mode HTTP API.
 
@@ -52,15 +52,15 @@ You can create a swarm of one manager node, but you cannot have a worker node wi
 
 To prevent the scheduler from placing tasks on a manager node in a multi-node swarm, set the availability for the manager node to `Drain`. The scheduler gracefully stops tasks on nodes in `Drain` mode and schedules the tasks on an `Active` node. The scheduler does not assign new tasks to nodes with `Drain` availability.
 
-Refer to the [`docker node update`](https://docs.docker.com/reference/cli/docker/node/update/) command line reference to see how to change node availability.
+Refer to the [`docker node update`]({{< ref "/reference/CLIreference/docker/dockernode/dockernodeupdate" >}}) command line reference to see how to change node availability.
 
-## [Change roles](https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/#change-roles)
+## Change roles
 
-You can promote a worker node to be a manager by running `docker node promote`. For example, you may want to promote a worker node when you take a manager node offline for maintenance. See [node promote](https://docs.docker.com/reference/cli/docker/node/promote/).
+You can promote a worker node to be a manager by running `docker node promote`. For example, you may want to promote a worker node when you take a manager node offline for maintenance. See [node promote]({{< ref "/reference/CLIreference/docker/dockernode/dockernodepromote" >}}).
 
-You can also demote a manager node to a worker node. See [node demote](https://docs.docker.com/reference/cli/docker/node/demote/).
+You can also demote a manager node to a worker node. See [node demote]({{< ref "/reference/CLIreference/docker/dockernode/dockernodedemote" >}}).
 
-## [Learn more](https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/#learn-more)
+## Learn more
 
-- Read about how Swarm mode [services](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/) work.
-- Learn how [PKI](https://docs.docker.com/engine/swarm/how-swarm-mode-works/pki/) works in Swarm mode.
+- Read about how Swarm mode [services]({{< ref "/manuals/DockerEngine/Swarmmode/Howswarmworks/Howserviceswork" >}}) work.
+- Learn how [PKI]({{< ref "/manuals/DockerEngine/Swarmmode/Howswarmworks/ManageswarmsecuritywithpublickeyinfrastructurePKI" >}}) works in Swarm mode.

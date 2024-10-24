@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/docker-hub/builds/](https://docs.docker.com/docker-hub/builds/)
+> 原文：[https://docs.docker.com/docker-hub/builds/](https://docs.docker.com/docker-hub/builds/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 >
 > 
 >
-> Automated builds require a [Docker Pro, Team, or Business subscription](https://docs.docker.com/subscription/).
+> Automated builds require a [Docker Pro, Team, or Business subscription]({{< ref "/manuals/Subscription" >}}).
 
 This page contains information on:
 
@@ -26,9 +26,9 @@ This page contains information on:
 - [Advanced Automated build options](https://docs.docker.com/docker-hub/builds/#advanced-automated-build-options)
 - [Automated builds for teams](https://docs.docker.com/docker-hub/builds/#autobuild-for-teams)
 
-## [Configure Automated builds](https://docs.docker.com/docker-hub/builds/#configure-automated-builds)
+## Configure Automated builds
 
-You can configure repositories in Docker Hub so that they automatically build an image each time you push new code to your source provider. If you have [automated tests](https://docs.docker.com/docker-hub/builds/automated-testing/) configured, the new image is only pushed when the tests succeed.
+You can configure repositories in Docker Hub so that they automatically build an image each time you push new code to your source provider. If you have [automated tests]({{< ref "/manuals/DockerHub/Automatedbuilds/Automatedrepositorytests" >}}) configured, the new image is only pushed when the tests succeed.
 
 1. From the **Repositories** section, select a repository to view its details.
 
@@ -38,7 +38,7 @@ You can configure repositories in Docker Hub so that they automatically build an
 
    > Note
    >
-   > You may be redirected to the settings page to [link](https://docs.docker.com/docker-hub/builds/link-source/) the code repository service. Otherwise, if you are editing the build settings for an existing automated build, click **Configure automated builds**.
+   > You may be redirected to the settings page to [link]({{< ref "/manuals/DockerHub/Automatedbuilds/ConfigureautomatedbuildsfromGitHubandBitBucket" >}}) the code repository service. Otherwise, if you are editing the build settings for an existing automated build, click **Configure automated builds**.
 
 4. Select the **source repository** to build the Docker images from.
 
@@ -70,7 +70,7 @@ You can configure repositories in Docker Hub so that they automatically build an
     >
     > A webhook is automatically added to your source code repository to notify Docker Hub on every push. Only pushes to branches that are listed as the source for one or more tags, trigger a build.
 
-### [Set up build rules](https://docs.docker.com/docker-hub/builds/#set-up-build-rules)
+### Set up build rules
 
 By default when you set up Automated builds, a basic build rule is created for you. This default rule watches for changes to the `master` or `main` branch in your source code repository, and builds the `master` or `main` branch into a Docker image tagged with `latest`.
 
@@ -98,7 +98,7 @@ For each source:
 >
 > When Docker Hub pulls a branch from a source code repository, it performs a shallow clone - only the tip of the specified branch. Refer to [Advanced options for Autobuild and Autotest](https://docs.docker.com/docker-hub/builds/advanced/#source-repository-or-branch-clones) for more information.
 
-### [Environment variables for builds](https://docs.docker.com/docker-hub/builds/#environment-variables-for-builds)
+### Environment variables for builds
 
 You can set the values for environment variables used in your build processes when you configure an automated build. Add your build environment variables by selecting the **plus** icon next to the **Build environment variables** section, and then entering a variable name and the value.
 
@@ -110,7 +110,7 @@ When you set variable values from the Docker Hub UI, you can use them by the com
 >
 > The variables set on the build configuration screen are used during the build processes only and shouldn't get confused with the environment values used by your service, for example to create service links.
 
-## [Advanced automated build options](https://docs.docker.com/docker-hub/builds/#advanced-automated-build-options)
+## Advanced automated build options
 
 At the minimum you need a build rule composed of a source branch, or tag, and a destination Docker tag to set up an automated build. You can also:
 
@@ -121,7 +121,7 @@ At the minimum you need a build rule composed of a source branch, or tag, and a 
 
 All of these options are available from the **Build configuration** screen for each repository. Select **Repositories** from the left navigation, and select the name of the repository you want to edit. Select the **Builds** tab, and then select **Configure Automated builds**.
 
-### [Tag and branch builds](https://docs.docker.com/docker-hub/builds/#tag-and-branch-builds)
+### Tag and branch builds
 
 You can configure your automated builds so that pushes to specific branches or tags triggers a build.
 
@@ -147,7 +147,7 @@ You can configure your automated builds so that pushes to specific branches or t
 
 5. Repeat steps 2 through 4 for each new build rule you set up.
 
-### [Set the build context and Dockerfile location](https://docs.docker.com/docker-hub/builds/#set-the-build-context-and-dockerfile-location)
+### Set the build context and Dockerfile location
 
 Depending on how you arrange the files in your source code repository, the files required to build your images may not be at the repository root. If that's the case, you can specify a path where the build looks for the files.
 
@@ -161,17 +161,17 @@ The build context is the path to the files needed for the build, relative to the
 
 You can specify the **Dockerfile location** as a path relative to the build context. If the Dockerfile is at the root of the build context path, leave the Dockerfile path set to `/`. If the build context field is blank, set the path to the Dockerfile from the root of the source repository.
 
-### [Regexes and Automated builds](https://docs.docker.com/docker-hub/builds/#regexes-and-automated-builds)
+### Regexes and Automated builds
 
 You can specify a regular expression (regex) so that only matching branches or tags are built. You can also use the results of the regex to create the Docker tag that's applied to the built image.
 
 You can use up to nine regular expression capture groups, or expressions enclosed in parentheses, to select a source to build, and reference these in the **Docker Tag** field using `{\1}` through `{\9}`.
 
-### [Build images with BuildKit](https://docs.docker.com/docker-hub/builds/#build-images-with-buildkit)
+### Build images with BuildKit
 
-Autobuilds use the BuildKit build system by default. If you want to use the legacy Docker build system, add the [environment variable](https://docs.docker.com/docker-hub/builds/#environment-variables-for-builds) `DOCKER_BUILDKIT=0`. Refer to the [BuildKit](https://docs.docker.com/build/buildkit/) page for more information on BuildKit.
+Autobuilds use the BuildKit build system by default. If you want to use the legacy Docker build system, add the [environment variable](https://docs.docker.com/docker-hub/builds/#environment-variables-for-builds) `DOCKER_BUILDKIT=0`. Refer to the [BuildKit]({{< ref "/manuals/DockerBuild/BuildKit" >}}) page for more information on BuildKit.
 
-## [Autobuild for teams](https://docs.docker.com/docker-hub/builds/#autobuild-for-teams)
+## Autobuild for teams
 
 When you create an automated build repository in your own user account, you can start, cancel, and retry builds, and edit and delete your own repositories.
 
@@ -184,7 +184,7 @@ These same actions are also available for team repositories from Docker Hub if y
 | edit build settings  |      |       | x     | x     |
 | delete build         |      |       |       | x     |
 
-### [Service users for team autobuilds](https://docs.docker.com/docker-hub/builds/#service-users-for-team-autobuilds)
+### Service users for team autobuilds
 
 > **Note**
 >
@@ -210,7 +210,7 @@ If you are building repositories with linked private submodules (private depende
 
 4. Add the service user to the "build" team on the source provider.
 
-5. Sign in to Docker Hub as an owner, switch to the organization, and follow the instructions to [link to source code repository](https://docs.docker.com/docker-hub/builds/link-source/) using the service account.
+5. Sign in to Docker Hub as an owner, switch to the organization, and follow the instructions to [link to source code repository]({{< ref "/manuals/DockerHub/Automatedbuilds/ConfigureautomatedbuildsfromGitHubandBitBucket" >}}) using the service account.
 
    > **Note**
    >
@@ -220,9 +220,9 @@ If you are building repositories with linked private submodules (private depende
 
 6. Optional: Use the SSH keys you generated to set up any builds with private submodules, using the service account and [the instructions above](https://docs.docker.com/docker-hub/builds/troubleshoot/#build-repositories-with-linked-private-submodules).
 
-## [What's Next?](https://docs.docker.com/docker-hub/builds/#whats-next)
+## What's Next?
 
-- [Customize your build process](https://docs.docker.com/docker-hub/builds/advanced/) with environment variables, hooks, and more
-- [Add automated tests](https://docs.docker.com/docker-hub/builds/automated-testing/)
-- [Manage your builds](https://docs.docker.com/docker-hub/builds/manage-builds/)
-- [Troubleshoot](https://docs.docker.com/docker-hub/builds/troubleshoot/)
+- [Customize your build process]({{< ref "/manuals/DockerHub/Automatedbuilds/AdvancedoptionsforAutobuildandAutotest" >}}) with environment variables, hooks, and more
+- [Add automated tests]({{< ref "/manuals/DockerHub/Automatedbuilds/Automatedrepositorytests" >}})
+- [Manage your builds]({{< ref "/manuals/DockerHub/Automatedbuilds/Manageautobuilds" >}})
+- [Troubleshoot]({{< ref "/manuals/DockerHub/Automatedbuilds/Troubleshootyourautobuilds" >}})

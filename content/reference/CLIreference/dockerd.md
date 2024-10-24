@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/dockerd/](https://docs.docker.com/reference/cli/dockerd/)
+> 原文：[https://docs.docker.com/reference/cli/dockerd/](https://docs.docker.com/reference/cli/dockerd/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
 # dockerd
 
-# [daemon](https://docs.docker.com/reference/cli/dockerd/#daemon)
+# daemon
 
 
 
@@ -118,7 +118,7 @@ Options:
 
 Options with [] may be specified multiple times.
 
-## [Description](https://docs.docker.com/reference/cli/dockerd/#description)
+## Description
 
 `dockerd` is the persistent process that manages containers. Docker uses different binaries for the daemon and client. To run the daemon you type `dockerd`.
 
@@ -130,29 +130,29 @@ To run the daemon with debug output, use `dockerd --debug` or add `"debug": true
 >
 > Enable experimental features by starting `dockerd` with the `--experimental` flag or adding `"experimental": true` to the `daemon.json` file.
 
-### [Environment variables](https://docs.docker.com/reference/cli/dockerd/#environment-variables)
+### Environment variables
 
 The following list of environment variables are supported by the `dockerd` daemon. Some of these environment variables are supported both by the Docker Daemon and the `docker` CLI. Refer to [Environment variables](https://docs.docker.com/reference/cli/docker/#environment-variables) to learn about environment variables supported by the `docker` CLI.
 
 | Variable            | Description                                                  |
 | :------------------ | :----------------------------------------------------------- |
-| `DOCKER_CERT_PATH`  | Location of your authentication keys. This variable is used both by the [`docker` CLI](https://docs.docker.com/reference/cli/docker/) and the `dockerd` daemon. |
+| `DOCKER_CERT_PATH`  | Location of your authentication keys. This variable is used both by the [`docker` CLI]({{< ref "/reference/CLIreference/docker" >}}) and the `dockerd` daemon. |
 | `DOCKER_DRIVER`     | The storage driver to use.                                   |
 | `DOCKER_RAMDISK`    | If set this disables `pivot_root`.                           |
-| `DOCKER_TLS_VERIFY` | When set Docker uses TLS and verifies the remote. This variable is used both by the [`docker` CLI](https://docs.docker.com/reference/cli/docker/) and the `dockerd` daemon. |
+| `DOCKER_TLS_VERIFY` | When set Docker uses TLS and verifies the remote. This variable is used both by the [`docker` CLI]({{< ref "/reference/CLIreference/docker" >}}) and the `dockerd` daemon. |
 | `DOCKER_TMPDIR`     | Location for temporary files created by the daemon.          |
 | `HTTP_PROXY`        | Proxy URL for HTTP requests unless overridden by NoProxy. See the [Go specification](https://pkg.go.dev/golang.org/x/net/http/httpproxy#Config) for details. |
 | `HTTPS_PROXY`       | Proxy URL for HTTPS requests unless overridden by NoProxy. See the [Go specification](https://pkg.go.dev/golang.org/x/net/http/httpproxy#Config) for details. |
 | `MOBY_DISABLE_PIGZ` | Disables the use of [`unpigz`](https://linux.die.net/man/1/pigz) to decompress layers in parallel when pulling images, even if it is installed. |
 | `NO_PROXY`          | Comma-separated values specifying hosts that should be excluded from proxying. See the [Go specification](https://pkg.go.dev/golang.org/x/net/http/httpproxy#Config) for details. |
 
-## [Examples](https://docs.docker.com/reference/cli/dockerd/#examples)
+## Examples
 
-### [Proxy configuration](https://docs.docker.com/reference/cli/dockerd/#proxy-configuration)
+### Proxy configuration
 
 > **Note**
 >
-> Refer to the [Docker Desktop manual](https://docs.docker.com/desktop/networking/#httphttps-proxy-support) if you are running [Docker Desktop](https://docs.docker.com/desktop/).
+> Refer to the [Docker Desktop manual](https://docs.docker.com/desktop/networking/#httphttps-proxy-support) if you are running [Docker Desktop]({{< ref "/manuals/DockerDesktop" >}}).
 
 If you are behind an HTTP proxy server, for example in corporate settings, you may have to configure the Docker daemon to use the proxy server for operations such as pulling and pushing images. The daemon can be configured in three ways:
 
@@ -160,15 +160,15 @@ If you are behind an HTTP proxy server, for example in corporate settings, you m
 2. Using the `http-proxy`, `https-proxy`, and `no-proxy` fields in the [daemon configuration file](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file) (Docker Engine version 23.0 or later).
 3. Using the `--http-proxy`, `--https-proxy`, and `--no-proxy` command-line options. (Docker Engine version 23.0 or later).
 
-The command-line and configuration file options take precedence over environment variables. Refer to [control and configure Docker with systemd](https://docs.docker.com/engine/daemon/proxy/) to set these environment variables on a host using `systemd`.
+The command-line and configuration file options take precedence over environment variables. Refer to [control and configure Docker with systemd]({{< ref "/manuals/DockerEngine/Daemon/Daemonproxyconfiguration" >}}) to set these environment variables on a host using `systemd`.
 
-### [Daemon socket option](https://docs.docker.com/reference/cli/dockerd/#daemon-socket-option)
+### Daemon socket option
 
 The Docker daemon can listen for [Docker Engine API](https://docs.docker.com/engine/api/) requests via three different types of Socket: `unix`, `tcp`, and `fd`.
 
 By default, a `unix` domain socket (or IPC socket) is created at `/var/run/docker.sock`, requiring either `root` permission, or `docker` group membership.
 
-If you need to access the Docker daemon remotely, you need to enable the tcp Socket. When using a TCP socket, the Docker daemon provides un-encrypted and un-authenticated direct access to the Docker daemon by default. You should secure the daemon either using the [built in HTTPS encrypted socket](https://docs.docker.com/engine/security/protect-access/), or by putting a secure web proxy in front of it. You can listen on port `2375` on all network interfaces with `-H tcp://0.0.0.0:2375`, or on a particular network interface using its IP address: `-H tcp://192.168.59.103:2375`. It is conventional to use port `2375` for un-encrypted, and port `2376` for encrypted communication with the daemon.
+If you need to access the Docker daemon remotely, you need to enable the tcp Socket. When using a TCP socket, the Docker daemon provides un-encrypted and un-authenticated direct access to the Docker daemon by default. You should secure the daemon either using the [built in HTTPS encrypted socket]({{< ref "/manuals/DockerEngine/Security/ProtecttheDockerdaemonsocket" >}}), or by putting a secure web proxy in front of it. You can listen on port `2375` on all network interfaces with `-H tcp://0.0.0.0:2375`, or on a particular network interface using its IP address: `-H tcp://192.168.59.103:2375`. It is conventional to use port `2375` for un-encrypted, and port `2376` for encrypted communication with the daemon.
 
 > **Note**
 >
@@ -228,7 +228,7 @@ $ docker -H ssh://example.com ps
 
 To use SSH connection, you need to set up `ssh` so that it can reach the remote host with public key authentication. Password authentication is not supported. If your key is protected with passphrase, you need to set up `ssh-agent`.
 
-#### [Bind Docker to another host/port or a Unix socket](https://docs.docker.com/reference/cli/dockerd/#bind-docker-to-another-hostport-or-a-unix-socket)
+#### Bind Docker to another host/port or a Unix socket
 
 > **Warning**
 >
@@ -287,27 +287,27 @@ $ docker pull ubuntu
 $ docker -H tcp://127.0.0.1:2375 pull ubuntu
 ```
 
-### [Daemon storage-driver](https://docs.docker.com/reference/cli/dockerd/#daemon-storage-driver)
+### Daemon storage-driver
 
 On Linux, the Docker daemon has support for several different image layer storage drivers: `overlay2`, `fuse-overlayfs`, `btrfs`, and `zfs`.
 
 `overlay2` is the preferred storage driver for all currently supported Linux distributions, and is selected by default. Unless users have a strong reason to prefer another storage driver, `overlay2` should be used.
 
-You can find out more about storage drivers and how to select one in [Select a storage driver](https://docs.docker.com/engine/storage/drivers/select-storage-driver/).
+You can find out more about storage drivers and how to select one in [Select a storage driver]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers/Selectastoragedriver" >}}).
 
 On Windows, the Docker daemon only supports the `windowsfilter` storage driver.
 
-### [Options per storage driver](https://docs.docker.com/reference/cli/dockerd/#options-per-storage-driver)
+### Options per storage driver
 
 Particular storage-driver can be configured with options specified with `--storage-opt` flags. Options for `zfs` start with `zfs`, and options for `btrfs` start with `btrfs`.
 
-#### [ZFS options](https://docs.docker.com/reference/cli/dockerd/#zfs-options)
+#### ZFS options
 
-##### [`zfs.fsname`](https://docs.docker.com/reference/cli/dockerd/#zfsfsname)
+##### `zfs.fsname`
 
 Specifies the ZFS filesystem that the daemon should use to create its datasets. By default, the ZFS filesystem in `/var/lib/docker` is used.
 
-###### [Example](https://docs.docker.com/reference/cli/dockerd/#example)
+###### Example
 
 
 
@@ -315,13 +315,13 @@ Specifies the ZFS filesystem that the daemon should use to create its datasets. 
 $ sudo dockerd -s zfs --storage-opt zfs.fsname=zroot/docker
 ```
 
-#### [Btrfs options](https://docs.docker.com/reference/cli/dockerd/#btrfs-options)
+#### Btrfs options
 
-##### [`btrfs.min_space`](https://docs.docker.com/reference/cli/dockerd/#btrfsmin_space)
+##### `btrfs.min_space`
 
 Specifies the minimum size to use when creating the subvolume which is used for containers. If user uses disk quota for btrfs when creating or running a container with **--storage-opt size** option, Docker should ensure the **size** can't be smaller than **btrfs.min_space**.
 
-###### [Example](https://docs.docker.com/reference/cli/dockerd/#example-1)
+###### Example
 
 
 
@@ -329,13 +329,13 @@ Specifies the minimum size to use when creating the subvolume which is used for 
 $ sudo dockerd -s btrfs --storage-opt btrfs.min_space=10G
 ```
 
-#### [Overlay2 options](https://docs.docker.com/reference/cli/dockerd/#overlay2-options)
+#### Overlay2 options
 
-##### [`overlay2.size`](https://docs.docker.com/reference/cli/dockerd/#overlay2size)
+##### `overlay2.size`
 
 Sets the default max size of the container. It is supported only when the backing filesystem is `xfs` and mounted with `pquota` mount option. Under these conditions the user can pass any size less than the backing filesystem size.
 
-###### [Example](https://docs.docker.com/reference/cli/dockerd/#example-2)
+###### Example
 
 
 
@@ -343,13 +343,13 @@ Sets the default max size of the container. It is supported only when the backin
 $ sudo dockerd -s overlay2 --storage-opt overlay2.size=1G
 ```
 
-#### [Windowsfilter options](https://docs.docker.com/reference/cli/dockerd/#windowsfilter-options)
+#### Windowsfilter options
 
-##### [`size`](https://docs.docker.com/reference/cli/dockerd/#size)
+##### `size`
 
 Specifies the size to use when creating the sandbox which is used for containers. Defaults to 20G.
 
-###### [Example](https://docs.docker.com/reference/cli/dockerd/#example-3)
+###### Example
 
 
 
@@ -357,11 +357,11 @@ Specifies the size to use when creating the sandbox which is used for containers
 C:\> dockerd --storage-opt size=40G
 ```
 
-### [Runtime options](https://docs.docker.com/reference/cli/dockerd/#runtime-options)
+### Runtime options
 
 The Docker daemon relies on a [OCI](https://github.com/opencontainers/runtime-spec) compliant runtime (invoked via the `containerd` daemon) as its interface to the Linux kernel `namespaces`, `cgroups`, and `SELinux`.
 
-#### [Configure container runtimes](https://docs.docker.com/reference/cli/dockerd/#configure-container-runtimes)
+#### Configure container runtimes
 
 By default, the Docker daemon uses runc as a container runtime. You can configure the daemon to add additional runtimes.
 
@@ -375,9 +375,9 @@ $ docker run --runtime io.containerd.kata.v2
 
 Container runtimes that don't implement containerd shims, or containerd shims installed outside of `PATH`, must be registered with the daemon, either via the configuration file or using the `--add-runtime` command line flag.
 
-For examples on how to use other container runtimes, see [Alternative container runtimes](https://docs.docker.com/engine/daemon/alternative-runtimes/)
+For examples on how to use other container runtimes, see [Alternative container runtimes]({{< ref "/manuals/DockerEngine/Daemon/Alternativecontainerruntimes" >}})
 
-##### [Configure runtimes using `daemon.json`](https://docs.docker.com/reference/cli/dockerd/#configure-runtimes-using-daemonjson)
+##### Configure runtimes using `daemon.json`
 
 To register and configure container runtimes using the daemon's configuration file, add the runtimes as entries under `runtimes`:
 
@@ -437,7 +437,7 @@ After changing the runtimes configuration in the configuration file, you must re
 $ sudo systemctl reload dockerd
 ```
 
-##### [Configure containerd shims](https://docs.docker.com/reference/cli/dockerd/#configure-containerd-shims)
+##### Configure containerd shims
 
 If the runtime that you want to register implements a containerd shim, or if you want to register a runtime which uses the runc shim, use the following format for the runtime entry:
 
@@ -509,7 +509,7 @@ You can configure multiple runtimes using the same runtimeType. For example:
 
 The `options` field takes a special set of configuration parameters when used with `"runtimeType": "io.containerd.runc.v2"`. For more information about runc parameters, refer to the runc configuration section in [CRI Plugin Config Guide](https://github.com/containerd/containerd/blob/v1.7.2/docs/cri/config.md#full-configuration).
 
-##### [Configure runc drop-in replacements](https://docs.docker.com/reference/cli/dockerd/#configure-runc-drop-in-replacements)
+##### Configure runc drop-in replacements
 
 If the runtime that you want to register can act as a drop-in replacement for runc, you can register the runtime either using the daemon configuration file, or using the `--add-runtime` flag for the `dockerd` cli.
 
@@ -556,7 +556,7 @@ Defining runtime arguments via the command line is not supported.
 
 For an example configuration for a runc drop-in replacment, see [Alternative container runtimes > youki](https://docs.docker.com/engine/daemon/alternative-runtimes/#youki)
 
-##### [Configure the default container runtime](https://docs.docker.com/reference/cli/dockerd/#configure-the-default-container-runtime)
+##### Configure the default container runtime
 
 You can specify either the name of a fully qualified containerd runtime shim, or the name of a registered runtime. You can specify the default runtime either using the daemon configuration file, or using the `--default-runtime` flag for the `dockerd` cli.
 
@@ -578,7 +578,7 @@ When you use the `--default-runtime` CLI flag, use the following format:
 $ dockerd --default-runtime io.containerd.runsc.v1
 ```
 
-#### [Run containerd standalone](https://docs.docker.com/reference/cli/dockerd/#run-containerd-standalone)
+#### Run containerd standalone
 
 By default, the Docker daemon automatically starts `containerd`. If you want to control `containerd` startup, manually start `containerd` and pass the path to the `containerd` socket using the `--containerd` flag. For example:
 
@@ -588,7 +588,7 @@ By default, the Docker daemon automatically starts `containerd`. If you want to 
 $ sudo dockerd --containerd /run/containerd/containerd.sock
 ```
 
-#### [Configure cgroup driver](https://docs.docker.com/reference/cli/dockerd/#configure-cgroup-driver)
+#### Configure cgroup driver
 
 You can configure how the runtime should manage container cgroups, using the `--exec-opt native.cgroupdriver` CLI flag.
 
@@ -604,7 +604,7 @@ $ sudo dockerd --exec-opt native.cgroupdriver=systemd
 
 Setting this option applies to all containers the daemon launches.
 
-#### [Configure container isolation technology (Windows)](https://docs.docker.com/reference/cli/dockerd/#configure-container-isolation-technology-windows)
+#### Configure container isolation technology (Windows)
 
 For Windows containers, you can specify the default container isolation technology to use, using the `--exec-opt isolation` flag.
 
@@ -618,7 +618,7 @@ The following example makes `hyperv` the default isolation technology:
 
 If no isolation value is specified on daemon start, on Windows client, the default is `hyperv`, and on Windows server, the default is `process`.
 
-### [Daemon DNS options](https://docs.docker.com/reference/cli/dockerd/#daemon-dns-options)
+### Daemon DNS options
 
 To set the DNS server for all Docker containers, use:
 
@@ -636,7 +636,7 @@ To set the DNS search domain for all Docker containers, use:
 $ sudo dockerd --dns-search example.com
 ```
 
-### [Allow push of non-distributable artifacts](https://docs.docker.com/reference/cli/dockerd/#allow-push-of-non-distributable-artifacts)
+### Allow push of non-distributable artifacts
 
 Some images (e.g., Windows base images) contain artifacts whose distribution is restricted by license. When these images are pushed to a registry, restricted artifacts are not included.
 
@@ -653,7 +653,7 @@ This option is useful when pushing images containing non-distributable artifacts
 >
 > Non-distributable artifacts typically have restrictions on how and where they can be distributed and shared. Only use this feature to push artifacts to private registries and ensure that you are in compliance with any terms that cover redistributing non-distributable artifacts.
 
-### [Insecure registries](https://docs.docker.com/reference/cli/dockerd/#insecure-registries)
+### Insecure registries
 
 In this section, "registry" refers to a private registry, and `myregistry:5000` is a placeholder example of a private registry.
 
@@ -672,11 +672,11 @@ Local registries, whose IP address falls in the 127.0.0.0/8 range, are automatic
 
 Enabling `--insecure-registry`, i.e., allowing un-encrypted and/or untrusted communication, can be useful when running a local registry. However, because its use creates security vulnerabilities it should only be enabled for testing purposes. For increased security, users should add their CA to their system's list of trusted CAs instead of enabling `--insecure-registry`.
 
-#### [Legacy Registries](https://docs.docker.com/reference/cli/dockerd/#legacy-registries)
+#### Legacy Registries
 
 Operations against registries supporting only the legacy v1 protocol are no longer supported. Specifically, the daemon doesn't attempt to push, pull or sign in to v1 registries. The exception to this is `search` which can still be performed on v1 registries.
 
-### [Running a Docker daemon behind an HTTPS_PROXY](https://docs.docker.com/reference/cli/dockerd/#running-a-docker-daemon-behind-an-https_proxy)
+### Running a Docker daemon behind an HTTPS_PROXY
 
 When running inside a LAN that uses an `HTTPS` proxy, the proxy's certificates replace Docker Hub's certificates. These certificates must be added to your Docker host's configuration:
 
@@ -684,15 +684,15 @@ When running inside a LAN that uses an `HTTPS` proxy, the proxy's certificates r
 2. Ask your network admin for the proxy's CA certificate and append them to `/etc/pki/tls/certs/ca-bundle.crt`
 3. Then start your Docker daemon with `HTTPS_PROXY=http://username:password@proxy:port/ dockerd`. The `username:` and `password@` are optional - and are only needed if your proxy is set up to require authentication.
 
-This only adds the proxy and authentication to the Docker daemon's requests. To use the proxy when building images and running containers, see [Configure Docker to use a proxy server](https://docs.docker.com/engine/cli/proxy/)
+This only adds the proxy and authentication to the Docker daemon's requests. To use the proxy when building images and running containers, see [Configure Docker to use a proxy server]({{< ref "/manuals/DockerEngine/CLI/Proxyconfiguration" >}})
 
-### [Default `ulimit` settings](https://docs.docker.com/reference/cli/dockerd/#default-ulimit-settings)
+### Default `ulimit` settings
 
 The `--default-ulimit` flag lets you set the default `ulimit` options to use for all containers. It takes the same options as `--ulimit` for `docker run`. If these defaults aren't set, `ulimit` settings are inherited from the Docker daemon. Any `--ulimit` options passed to `docker run` override the daemon defaults.
 
 Be careful setting `nproc` with the `ulimit` flag, as `nproc` is designed by Linux to set the maximum number of processes available to a user, not to a container. For details, see [`docker run` reference](https://docs.docker.com/reference/cli/docker/container/run/#ulimit).
 
-### [Access authorization](https://docs.docker.com/reference/cli/dockerd/#access-authorization)
+### Access authorization
 
 Docker's access authorization can be extended by authorization plugins that your organization can purchase or build themselves. You can install one or more authorization plugins when you start the Docker `daemon` using the `--authorization-plugin=PLUGIN_ID` option.
 
@@ -706,15 +706,15 @@ The `PLUGIN_ID` value is either the plugin's name or a path to its specification
 
 Once a plugin is installed, requests made to the `daemon` through the command line or Docker's Engine API are allowed or denied by the plugin. If you have multiple plugins installed, each plugin, in order, must allow the request for it to complete.
 
-For information about how to create an authorization plugin, refer to the [authorization plugin](https://docs.docker.com/engine/extend/plugins_authorization/) section.
+For information about how to create an authorization plugin, refer to the [authorization plugin]({{< ref "/manuals/DockerEngine/DockerEngineplugins/Accessauthorizationplugin" >}}) section.
 
-### [Daemon user namespace options](https://docs.docker.com/reference/cli/dockerd/#daemon-user-namespace-options)
+### Daemon user namespace options
 
 The Linux kernel [user namespace support](https://man7.org/linux/man-pages/man7/user_namespaces.7.html) provides additional security by enabling a process, and therefore a container, to have a unique range of user and group IDs which are outside the traditional user and group range utilized by the host system. One of the most important security improvements is that, by default, container processes running as the `root` user have expected administrative privileges it expects (with some restrictions) inside the container, but are effectively mapped to an unprivileged `uid` on the host.
 
-For details about how to use this feature, as well as limitations, see [Isolate containers with a user namespace](https://docs.docker.com/engine/security/userns-remap/).
+For details about how to use this feature, as well as limitations, see [Isolate containers with a user namespace]({{< ref "/manuals/DockerEngine/Security/Isolatecontainerswithausernamespace" >}}).
 
-### [Configure host gateway IP](https://docs.docker.com/reference/cli/dockerd/#configure-host-gateway-ip)
+### Configure host gateway IP
 
 The Docker daemon supports a special `host-gateway` value for the `--add-host` flag for the `docker run` and `docker build` commands. This value resolves to the host's gateway IP and lets containers connect to services running on the host.
 
@@ -731,7 +731,7 @@ $ docker run -it --add-host host.docker.internal:host-gateway \
 PING host.docker.internal (192.0.2.0): 56 data bytes
 ```
 
-### [Enable CDI devices](https://docs.docker.com/reference/cli/dockerd/#enable-cdi-devices)
+### Enable CDI devices
 
 > **Note**
 >
@@ -787,7 +787,7 @@ The following example shows a `daemon.json` configuration file with the "log-for
 }
 ```
 
-### [Miscellaneous options](https://docs.docker.com/reference/cli/dockerd/#miscellaneous-options)
+### Miscellaneous options
 
 IP masquerading uses address translation to allow containers without a public IP to talk to other machines on the internet. This may interfere with some network topologies, and can be disabled with `--ip-masq=false`.
 
@@ -800,7 +800,7 @@ $ export DOCKER_TMPDIR=/mnt/disk2/tmp
 $ sudo -E dockerd --data-root /var/lib/docker -H unix://
 ```
 
-#### [Default cgroup parent](https://docs.docker.com/reference/cli/dockerd/#default-cgroup-parent)
+#### Default cgroup parent
 
 The `--cgroup-parent` option lets you set the default cgroup parent for containers. If this option isn't set, it defaults to `/docker` for the cgroupfs driver, and `system.slice` for the systemd cgroup driver.
 
@@ -812,7 +812,7 @@ The systemd cgroup driver has different rules for `--cgroup-parent`. systemd rep
 
 This setting can also be set per container, using the `--cgroup-parent` option on `docker create` and `docker run`, and takes precedence over the `--cgroup-parent` option on the daemon.
 
-#### [Daemon metrics](https://docs.docker.com/reference/cli/dockerd/#daemon-metrics)
+#### Daemon metrics
 
 The `--metrics-addr` option takes a TCP address to serve the metrics API. This feature is still experimental, therefore, the daemon must be running in experimental mode for this feature to work.
 
@@ -820,9 +820,9 @@ To serve the metrics API on `localhost:9323` you would specify `--metrics-addr 1
 
 Port `9323` is the [default port associated with Docker metrics](https://github.com/prometheus/prometheus/wiki/Default-port-allocations) to avoid collisions with other Prometheus exporters and services.
 
-If you are running a Prometheus server you can add this address to your scrape configs to have Prometheus collect metrics on Docker. For more information, see [Collect Docker metrics with Prometheus](https://docs.docker.com/engine/daemon/prometheus/).
+If you are running a Prometheus server you can add this address to your scrape configs to have Prometheus collect metrics on Docker. For more information, see [Collect Docker metrics with Prometheus]({{< ref "/manuals/DockerEngine/Daemon/CollectDockermetricswithPrometheus" >}}).
 
-#### [Node generic resources](https://docs.docker.com/reference/cli/dockerd/#node-generic-resources)
+#### Node generic resources
 
 The `--node-generic-resources` option takes a list of key-value pair (`key=value`) that allows you to advertise user defined resources in a Swarm cluster.
 
@@ -866,7 +866,7 @@ The following example is the equivalent using the `daemon.json` configuration fi
 }
 ```
 
-### [Daemon configuration file](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file)
+### Daemon configuration file
 
 The `--config-file` option allows you to set any configuration option for the daemon in a JSON format. This file uses the same flag names as keys, except for flags that allow several entries, where it uses the plural of the flag name, e.g., `labels` for the `label` flag.
 
@@ -890,7 +890,7 @@ $ echo $?
 1
 ```
 
-##### [On Linux](https://docs.docker.com/reference/cli/dockerd/#on-linux)
+##### On Linux
 
 The default location of the configuration file on Linux is `/etc/docker/daemon.json`. Use the `--config-file` flag to specify a non-default location.
 
@@ -1035,7 +1035,7 @@ The following is a full example of the allowed configuration options on Linux:
 >
 > You can't set options in `daemon.json` that have already been set on daemon startup as a flag. On systems that use systemd to start the Docker daemon, `-H` is already set, so you can't use the `hosts` key in `daemon.json` to add listening addresses. See [custom Docker daemon options](https://docs.docker.com/engine/daemon/proxy/#systemd-unit-file) for an example on how to configure the daemon using systemd drop-in files.
 
-##### [On Windows](https://docs.docker.com/reference/cli/dockerd/#on-windows)
+##### On Windows
 
 The default location of the configuration file on Windows is `%programdata%\docker\config\daemon.json`. Use the `--config-file` flag to specify a non-default location.
 
@@ -1096,7 +1096,7 @@ Accepted values:
 - `com.docker.hcsshim.v1` - This is the built-in runtime that Docker has used since Windows supported was first added and uses the v1 HCS API's in Windows.
 - `io.containerd.runhcs.v1` - This is uses the containerd `runhcs` shim to run the container and uses the v2 HCS API's in Windows.
 
-#### [Feature options](https://docs.docker.com/reference/cli/dockerd/#feature-options)
+#### Feature options
 
 The optional field `features` in `daemon.json` lets you enable or disable specific daemon features.
 
@@ -1113,7 +1113,7 @@ The optional field `features` in `daemon.json` lets you enable or disable specif
 
 The list of feature options include:
 
-- `containerd-snapshotter`: when set to `true`, the daemon uses containerd snapshotters instead of the classic storage drivers for storing image and container data. For more information, see [containerd storage](https://docs.docker.com/engine/storage/containerd/).
+- `containerd-snapshotter`: when set to `true`, the daemon uses containerd snapshotters instead of the classic storage drivers for storing image and container data. For more information, see [containerd storage]({{< ref "/manuals/DockerEngine/Storage/containerdimagestore" >}}).
 
 - `windows-dns-proxy`: when set to `true`, the daemon's internal DNS resolver will forward requests to external servers. Without this, most applications running in the container will still be able to use secondary DNS servers configured in the container itself, but `nslookup` won't be able to resolve external names. The current default is `false`, it will change to `true` in a future release. This option is only allowed on Windows.
 
@@ -1121,7 +1121,7 @@ The list of feature options include:
   >
   > The `windows-dns-proxy` feature flag will be removed in a future release.
 
-#### [Configuration reload behavior](https://docs.docker.com/reference/cli/dockerd/#configuration-reload-behavior)
+#### Configuration reload behavior
 
 Some options can be reconfigured when the daemon is running without requiring to restart the process. The daemon uses the `SIGHUP` signal in Linux to reload, and a global event in Windows with the key `Global\docker-daemon-config-$PID`. You can modify the options in the configuration file, but the daemon still checks for conflicting settings with the specified CLI flags. The daemon fails to reconfigure itself if there are conflicts, but it won't stop execution.
 
@@ -1144,7 +1144,7 @@ The list of currently supported options that can be reconfigured is this:
 | `shutdown-timeout`                 | Configures the daemon's existing configuration timeout with a new timeout for shutting down all containers. |
 | `features`                         | Enables or disables specific features.                       |
 
-### [Run multiple daemons](https://docs.docker.com/reference/cli/dockerd/#run-multiple-daemons)
+### Run multiple daemons
 
 > **Note**
 >
@@ -1195,7 +1195,7 @@ $ sudo dockerd \
         --exec-root=/var/run/docker-bootstrap
 ```
 
-### [Default network options](https://docs.docker.com/reference/cli/dockerd/#default-network-options)
+### Default network options
 
 The `default-network-opts` key in the `daemon.json` configuration file, and the equivalent `--default-network-opt` CLI flag, let you specify default values for driver network driver options for new networks.
 

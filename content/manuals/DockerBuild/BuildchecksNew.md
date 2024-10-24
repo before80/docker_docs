@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/checks/](https://docs.docker.com/build/checks/)
+> 原文：[https://docs.docker.com/build/checks/](https://docs.docker.com/build/checks/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,9 +18,9 @@ Introduced in Buildx version 0.15.0
 
 Build checks are a feature introduced in Dockerfile 1.8. It lets you validate your build configuration and conduct a series of checks prior to executing your build. Think of it as an advanced form of linting for your Dockerfile and build options, or a dry-run mode for builds.
 
-You can find the list of checks available, and a description of each, in the [Build checks reference](https://docs.docker.com/reference/build-checks/).
+You can find the list of checks available, and a description of each, in the [Build checks reference]({{< ref "/reference/Buildchecks" >}}).
 
-## [How build checks work](https://docs.docker.com/build/checks/#how-build-checks-work)
+## How build checks work
 
 Typically, when you run a build, Docker executes the build steps in your Dockerfile and build options as specified. With build checks, rather than executing the build steps, Docker checks the Dockerfile and options you provide and reports any issues it detects.
 
@@ -30,7 +30,7 @@ Build checks are useful for:
 - Ensuring that your Dockerfile and build options are up-to-date with the latest best practices.
 - Identifying potential issues or anti-patterns in your Dockerfile and build options.
 
-## [Build with checks](https://docs.docker.com/build/checks/#build-with-checks)
+## Build with checks
 
 Build checks are supported in:
 
@@ -51,7 +51,7 @@ $ docker build .
   - Lint Rule 'JSONArgsRecommended': JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 7)
 ```
 
-In this example, the build ran successfully, but a [JSONArgsRecommended](https://docs.docker.com/reference/build-checks/json-args-recommended/) warning was reported, because `CMD` instructions should use JSON array syntax.
+In this example, the build ran successfully, but a [JSONArgsRecommended]({{< ref "/reference/Buildchecks/JSONArgsRecommended" >}}) warning was reported, because `CMD` instructions should use JSON array syntax.
 
 With the GitHub Actions, the checks display in the diff view of pull requests.
 
@@ -72,7 +72,7 @@ jobs:
 
 ![GitHub Actions build check annotations](BuildchecksNew_img/gha-check-annotations.png)
 
-### [More verbose output](https://docs.docker.com/build/checks/#more-verbose-output)
+### More verbose output
 
 Check warnings for a regular `docker build` display a concise message containing the rule name, the message, and the line number of where in the Dockerfile the issue originated. If you want to see more detailed information about the checks, you can use the `--debug` flag. For example:
 
@@ -98,7 +98,7 @@ Dockerfile:4
 
 With the `--debug` flag, the output includes a link to the documentation for the check, and a snippet of the Dockerfile where the issue was found.
 
-## [Check a build without building](https://docs.docker.com/build/checks/#check-a-build-without-building)
+## Check a build without building
 
 To run build checks without actually building, you can use the `docker build` command as you typically would, but with the addition of the `--check` flag. Here's an example:
 
@@ -138,7 +138,7 @@ This output with `--check` shows the [verbose message](https://docs.docker.com/b
 
 Unlike a regular build, if any violations are reported when using the `--check` flag, the command exits with a non-zero status code.
 
-## [Fail build on check violations](https://docs.docker.com/build/checks/#fail-build-on-check-violations)
+## Fail build on check violations
 
 Check violations for builds are reported as warnings, with exit code 0, by default. You can configure Docker to fail the build when violations are reported, using a `check=error=true` directive in your Dockerfile. This will cause the build to error out when after the build checks are run, before the actual build gets executed.
 
@@ -180,7 +180,7 @@ You can also set the error directive on the CLI by passing the `BUILDKIT_DOCKERF
 $ docker build --check --build-arg "BUILDKIT_DOCKERFILE_CHECK=error=true" .
 ```
 
-## [Skip checks](https://docs.docker.com/build/checks/#skip-checks)
+## Skip checks
 
 By default, all checks are run when you build an image. If you want to skip specific checks, you can use the `check=skip` directive in your Dockerfile. The `skip` parameter takes a CSV string of the check IDs you want to skip. For example:
 
@@ -217,7 +217,7 @@ Dockerfile
 # check=skip=all
 ```
 
-## [Combine error and skip parameters for check directives](https://docs.docker.com/build/checks/#combine-error-and-skip-parameters-for-check-directives)
+## Combine error and skip parameters for check directives
 
 To both skip specific checks and error on check violations, pass both the `skip` and `error` parameters separated by a semi-colon (`;`) to the `check` directive in your Dockerfile or in a build argument. For example:
 
@@ -238,9 +238,9 @@ Build argument
 $ docker build --check --build-arg "BUILDKIT_DOCKERFILE_CHECK=skip=JSONArgsRecommended,StageNameCasing;error=true" .
 ```
 
-## [Experimental checks](https://docs.docker.com/build/checks/#experimental-checks)
+## Experimental checks
 
-Before checks are promoted to stable, they may be available as experimental checks. Experimental checks are disabled by default. To see the list of experimental checks available, refer to the [Build checks reference](https://docs.docker.com/reference/build-checks/).
+Before checks are promoted to stable, they may be available as experimental checks. Experimental checks are disabled by default. To see the list of experimental checks available, refer to the [Build checks reference]({{< ref "/reference/Buildchecks" >}}).
 
 To enable all experimental checks, set the `BUILDKIT_DOCKERFILE_CHECK` build argument to `experimental=all`:
 

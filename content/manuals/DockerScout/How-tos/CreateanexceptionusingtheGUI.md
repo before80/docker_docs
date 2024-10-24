@@ -8,19 +8,19 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/how-tos/create-exceptions-gui/](https://docs.docker.com/scout/how-tos/create-exceptions-gui/)
+> 原文：[https://docs.docker.com/scout/how-tos/create-exceptions-gui/](https://docs.docker.com/scout/how-tos/create-exceptions-gui/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Create an exception using the GUI
 
-The Docker Scout Dashboard provides a user-friendly interface for creating [exceptions](https://docs.docker.com/scout/explore/exceptions/) for vulnerabilities found in container images. Exceptions let you acknowledge accepted risks or address false positives in image analysis.
+The Docker Scout Dashboard provides a user-friendly interface for creating [exceptions]({{< ref "/manuals/DockerScout/Explore/Managevulnerabilityexceptions" >}}) for vulnerabilities found in container images. Exceptions let you acknowledge accepted risks or address false positives in image analysis.
 
-## [Prerequisites](https://docs.docker.com/scout/how-tos/create-exceptions-gui/#prerequisites)
+## Prerequisites
 
 To create an in the Docker Scout Dashboard, you need a Docker account with **Editor** or **Owner** permissions for the Docker organization that owns the image.
 
-## [Steps](https://docs.docker.com/scout/how-tos/create-exceptions-gui/#steps)
+## Steps
 
 To create an exception for a vulnerability in an image using the Docker Scout Dashboard:
 

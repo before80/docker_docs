@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/install/msi/install-and-configure/](https://docs.docker.com/desktop/install/msi/install-and-configure/)
+> 原文：[https://docs.docker.com/desktop/install/msi/install-and-configure/](https://docs.docker.com/desktop/install/msi/install-and-configure/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Install and configure
 
-## [Install interactively](https://docs.docker.com/desktop/install/msi/install-and-configure/#install-interactively)
+## Install interactively
 
 1. In the [Docker Admin Console](http://admin.docker.com/), navigate to your organization.
 2. Under **Security and access**, select the **Deploy Docker Desktop** page.
@@ -44,9 +44,9 @@ If your administrator account is different to your user account, you must add th
 >
 > Docker Desktop notifies you when an update is available. To update Docker Desktop, download the latest installer from the Docker Admin Console. Navigate to the **Deploy Docker Desktop** page > under **Security and access**.
 >
-> To keep up to date with new releases, check the [release notes](https://docs.docker.com/desktop/release-notes/) page.
+> To keep up to date with new releases, check the [release notes]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}) page.
 
-## [Install from the command line](https://docs.docker.com/desktop/install/msi/install-and-configure/#install-from-the-command-line)
+## Install from the command line
 
 This section covers command line installations of Docker Desktop using PowerShell. It provides common installation commands that you can run. You can also add additional arguments which are outlined in [configuration options](https://docs.docker.com/desktop/install/msi/install-and-configure/#configuration-options).
 
@@ -64,7 +64,7 @@ When installing via the user interface it's possible to:
 
 Non-interactive installations are silent and any additional configuration must be passed as arguments.
 
-### [Common installation commands](https://docs.docker.com/desktop/install/msi/install-and-configure/#common-installation-commands)
+### Common installation commands
 
 > **Important**
 >
@@ -72,7 +72,7 @@ Non-interactive installations are silent and any additional configuration must b
 >
 > Admin rights are required to run any of the following commands.
 
-#### [Installing interactively with verbose logging](https://docs.docker.com/desktop/install/msi/install-and-configure/#installing-interactively-with-verbose-logging)
+#### Installing interactively with verbose logging
 
 
 
@@ -80,7 +80,7 @@ Non-interactive installations are silent and any additional configuration must b
 msiexec /i "DockerDesktop.msi" /L*V ".\msi.log"
 ```
 
-#### [Installing interactively without verbose logging](https://docs.docker.com/desktop/install/msi/install-and-configure/#installing-interactively-without-verbose-logging)
+#### Installing interactively without verbose logging
 
 
 
@@ -88,7 +88,7 @@ msiexec /i "DockerDesktop.msi" /L*V ".\msi.log"
 msiexec /i "DockerDesktop.msi"
 ```
 
-#### [Installing non-interactively with verbose logging](https://docs.docker.com/desktop/install/msi/install-and-configure/#installing-non-interactively-with-verbose-logging)
+#### Installing non-interactively with verbose logging
 
 
 
@@ -96,7 +96,7 @@ msiexec /i "DockerDesktop.msi"
 msiexec /i "DockerDesktop.msi" /L*V ".\msi.log" /quiet
 ```
 
-#### [Installing non-interactively and suppressing reboots](https://docs.docker.com/desktop/install/msi/install-and-configure/#installing-non-interactively-and-suppressing-reboots)
+#### Installing non-interactively and suppressing reboots
 
 
 
@@ -104,7 +104,7 @@ msiexec /i "DockerDesktop.msi" /L*V ".\msi.log" /quiet
 msiexec /i "DockerDesktop.msi" /L*V ".\msi.log" /quiet /norestart
 ```
 
-#### [Installing non-interactively with admin settings](https://docs.docker.com/desktop/install/msi/install-and-configure/#installing-non-interactively-with-admin-settings)
+#### Installing non-interactively with admin settings
 
 
 
@@ -112,7 +112,7 @@ msiexec /i "DockerDesktop.msi" /L*V ".\msi.log" /quiet /norestart
 msiexec /i "DockerDesktop.msi" /L*V ".\msi.log" /quiet /norestart ADMINSETTINGS="{"configurationFileVersion":2,"enhancedContainerIsolation":{"value":true,"locked":false}}" ALLOWEDORG="docker"
 ```
 
-#### [Installing with the passive display option](https://docs.docker.com/desktop/install/msi/install-and-configure/#installing-with-the-passive-display-option)
+#### Installing with the passive display option
 
 You can use the `/passive` display option instead of `/quiet` when you want to perform a non-interactive installation but show a progress dialog.
 
@@ -137,7 +137,7 @@ msiexec /i "DockerDesktop.msi" /L*V ".\msi.log" /passive /norestart
 > - The string shouldn't contain any whitespace
 > - Property names are expected to be in double quotes
 
-### [Common uninstall commands](https://docs.docker.com/desktop/install/msi/install-and-configure/#common-uninstall-commands)
+### Common uninstall commands
 
 When uninstalling Docker Desktop, you need to use the same `.msi` file that was originally used to install the application.
 
@@ -173,7 +173,7 @@ IdentifyingNumber                      Name
 msiexec /x {10FC87E2-9145-4D7D-B493-2E99E8D8E103} /L*V ".\msi.log" /quiet
 ```
 
-#### [Uninstalling interactively with verbose logging](https://docs.docker.com/desktop/install/msi/install-and-configure/#uninstalling-interactively-with-verbose-logging)
+#### Uninstalling interactively with verbose logging
 
 
 
@@ -181,7 +181,7 @@ msiexec /x {10FC87E2-9145-4D7D-B493-2E99E8D8E103} /L*V ".\msi.log" /quiet
 msiexec /x "DockerDesktop.msi" /L*V ".\msi.log"
 ```
 
-#### [Uninstalling interactively without verbose logging](https://docs.docker.com/desktop/install/msi/install-and-configure/#uninstalling-interactively-without-verbose-logging)
+#### Uninstalling interactively without verbose logging
 
 
 
@@ -189,7 +189,7 @@ msiexec /x "DockerDesktop.msi" /L*V ".\msi.log"
 msiexec /x "DockerDesktop.msi"
 ```
 
-#### [Uninstalling non-interactively with verbose logging](https://docs.docker.com/desktop/install/msi/install-and-configure/#uninstalling-non-interactively-with-verbose-logging)
+#### Uninstalling non-interactively with verbose logging
 
 
 
@@ -197,7 +197,7 @@ msiexec /x "DockerDesktop.msi"
 msiexec /x "DockerDesktop.msi" /L*V ".\msi.log" /quiet
 ```
 
-#### [Uninstalling non-interactively without verbose logging](https://docs.docker.com/desktop/install/msi/install-and-configure/#uninstalling-non-interactively-without-verbose-logging)
+#### Uninstalling non-interactively without verbose logging
 
 
 
@@ -205,7 +205,7 @@ msiexec /x "DockerDesktop.msi" /L*V ".\msi.log" /quiet
 msiexec /x "DockerDesktop.msi" /quiet
 ```
 
-### [Configuration options](https://docs.docker.com/desktop/install/msi/install-and-configure/#configuration-options)
+### Configuration options
 
 > **Important**
 >
@@ -217,7 +217,7 @@ msiexec /x "DockerDesktop.msi" /quiet
 | :--------------------------------- | :----------------------------------------------------------- | :---------------------- |
 | `ENABLEDESKTOPSHORTCUT`            | Creates a desktop shortcut.                                  | 1                       |
 | `INSTALLFOLDER`                    | Specifies a custom location where Docker Desktop will be installed. | C:\Program Files\Docker |
-| `ADMINSETTINGS`                    | Automatically creates an `admin-settings.json` file which is used to [control certain Docker Desktop settings](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/) on client machines within organizations. It must be used together with the `ALLOWEDORG` property. | None                    |
+| `ADMINSETTINGS`                    | Automatically creates an `admin-settings.json` file which is used to [control certain Docker Desktop settings]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/SettingsManagement" >}}) on client machines within organizations. It must be used together with the `ALLOWEDORG` property. | None                    |
 | `ALLOWEDORG`                       | Requires the user to sign in and be part of the specified Docker Hub organization when running the application. This creates a registry key called `allowedOrgs` in `HKLM\Software\Policies\Docker\Docker Desktop`. | None                    |
 | `ALWAYSRUNSERVICE`                 | Lets users switch to Windows containers without needing admin rights | 0                       |
 | `DISABLEWINDOWSCONTAINERS`         | Disables the Windows containers integration                  | 0                       |
@@ -236,21 +236,39 @@ Additionally, you can also use `/norestart` or `/forcerestart` to control reboot
 
 By default, the installer reboots the machine after a successful installation. When ran silently, the reboot is automatic and the user is not prompted.
 
-## [Analytics](https://docs.docker.com/desktop/install/msi/install-and-configure/#analytics)
+## Analytics
 
 The MSI installer collects anonymous usage statistics to better understand user behaviour and to improve the user experience by identifying and addressing issues or optimizing popular features.
 
-### [How to opt-out](https://docs.docker.com/desktop/install/msi/install-and-configure/#how-to-opt-out)
+### How to opt-out
 
-From the GUI From the command line
+{{< tabpane text=true persist=disabled >}}
 
-------
+{{% tab header="From the GUI" %}}
 
 When you install Docker Desktop from the default installer GUI, select the **Disable analytics** checkbox located on the bottom-left corner of the **Welcome** dialog.
 
+{{% /tab  %}}
+
+{{% tab header="From the command line" %}}
+
+When you install Docker Desktop from the command line, use the `DISABLEANALYTICS` property.
+
+
+
+```powershell
+msiexec /i "win\msi\bin\en-US\DockerDesktop.msi" /L*V ".\msi.log" DISABLEANALYTICS=1
+```
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+
+
 ------
 
-### [Persistence](https://docs.docker.com/desktop/install/msi/install-and-configure/#persistence)
+### Persistence
 
 If you decide to disable analytics for an installation, your choice is persisted in the registry and honoured across future upgrades and uninstalls.
 
@@ -266,6 +284,6 @@ SOFTWARE\Docker Inc.\Docker Desktop\DisableMsiAnalytics
 
 When analytics is disabled, this key has a value of `1`.
 
-## [Additional resources](https://docs.docker.com/desktop/install/msi/install-and-configure/#additional-resources)
+## Additional resources
 
-- [Explore the FAQs](https://docs.docker.com/desktop/install/msi/faq/)
+- [Explore the FAQs]({{< ref "/manuals/DockerDesktop/Install/UsetheMSIinstaller/MSIFAQs" >}})

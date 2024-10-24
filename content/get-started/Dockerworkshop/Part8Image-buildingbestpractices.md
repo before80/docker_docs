@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/workshop/09_image_best/](https://docs.docker.com/get-started/workshop/09_image_best/)
+> 原文：[https://docs.docker.com/get-started/workshop/09_image_best/](https://docs.docker.com/get-started/workshop/09_image_best/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
 # Image-building best practices
 
-## [Image layering](https://docs.docker.com/get-started/workshop/09_image_best/#image-layering)
+## Image layering
 
 Using the `docker image history` command, you can see the command that was used to create each layer within an image.
 
@@ -57,7 +57,7 @@ Using the `docker image history` command, you can see the command that was used 
    $ docker image history --no-trunc getting-started
    ```
 
-## [Layer caching](https://docs.docker.com/get-started/workshop/09_image_best/#layer-caching)
+## Layer caching
 
 Now that you've seen the layering in action, there's an important lesson to learn to help decrease build times for your container images. Once a layer changes, all downstream layers have to be recreated as well.
 
@@ -152,14 +152,14 @@ To fix it, you need to restructure your Dockerfile to help support the caching o
 
    First off, you should notice that the build was much faster. And, you'll see that several steps are using previously cached layers. Pushing and pulling this image and updates to it will be much faster as well.
 
-## [Multi-stage builds](https://docs.docker.com/get-started/workshop/09_image_best/#multi-stage-builds)
+## Multi-stage builds
 
 Multi-stage builds are an incredibly powerful tool to help use multiple stages to create an image. There are several advantages for them:
 
 - Separate build-time dependencies from runtime dependencies
 - Reduce overall image size by shipping only what your app needs to run
 
-### [Maven/Tomcat example](https://docs.docker.com/get-started/workshop/09_image_best/#maventomcat-example)
+### Maven/Tomcat example
 
 When building Java-based applications, you need a JDK to compile the source code to Java bytecode. However, that JDK isn't needed in production. Also, you might be using tools like Maven or Gradle to help build the app. Those also aren't needed in your final image. Multi-stage builds help.
 
@@ -178,7 +178,7 @@ COPY --from=build /app/target/file.war /usr/local/tomcat/webapps
 
 In this example, you use one stage (called `build`) to perform the actual Java build using Maven. In the second stage (starting at `FROM tomcat`), you copy in files from the `build` stage. The final image is only the last stage being created, which can be overridden using the `--target` flag.
 
-### [React example](https://docs.docker.com/get-started/workshop/09_image_best/#react-example)
+### React example
 
 When building React applications, you need a Node environment to compile the JS code (typically JSX), SASS stylesheets, and more into static HTML, JS, and CSS. If you aren't doing server-side rendering, you don't even need a Node environment for your production build. You can ship the static resources in a static nginx container.
 
@@ -200,17 +200,17 @@ COPY --from=build /app/build /usr/share/nginx/html
 
 In the previous Dockerfile example, it uses the `node:18` image to perform the build (maximizing layer caching) and then copies the output into an nginx container.
 
-## [Summary](https://docs.docker.com/get-started/workshop/09_image_best/#summary)
+## Summary
 
 In this section, you learned a few image building best practices, including layer caching and multi-stage builds.
 
 Related information:
 
-- [Dockerfile reference](https://docs.docker.com/reference/dockerfile/)
-- [Dockerfile best practices](https://docs.docker.com/build/building/best-practices/)
+- [Dockerfile reference]({{< ref "/reference/Dockerfilereference" >}})
+- [Dockerfile best practices]({{< ref "/manuals/DockerBuild/Building/Bestpractices" >}})
 
-## [Next steps](https://docs.docker.com/get-started/workshop/09_image_best/#next-steps)
+## Next steps
 
 In the next section, you'll learn about additional resources you can use to continue learning about containers.
 
-[What next](https://docs.docker.com/get-started/workshop/10_what_next/)
+[What next]({{< ref "/get-started/Dockerworkshop/Part9Whatnext" >}})

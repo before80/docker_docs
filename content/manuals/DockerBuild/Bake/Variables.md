@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/bake/variables/](https://docs.docker.com/build/bake/variables/)
+> 原文：[https://docs.docker.com/build/bake/variables/](https://docs.docker.com/build/bake/variables/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 You can define and use variables in a Bake file to set attribute values, interpolate them into other values, and perform arithmetic operations. Variables can be defined with default values, and can be overridden with environment variables.
 
-## [Using variables as attribute values](https://docs.docker.com/build/bake/variables/#using-variables-as-attribute-values)
+## Using variables as attribute values
 
 Use the `variable` block to define a variable.
 
@@ -40,7 +40,7 @@ target "default" {
 }
 ```
 
-## [Interpolate variables into values](https://docs.docker.com/build/bake/variables/#interpolate-variables-into-values)
+## Interpolate variables into values
 
 Bake supports string interpolation of variables into values. You can use the `${}` syntax to interpolate a variable into a value. The following example defines a `TAG` variable with a value of `latest`.
 
@@ -91,7 +91,7 @@ $ docker buildx bake --print
 }
 ```
 
-## [Escape variable interpolation](https://docs.docker.com/build/bake/variables/#escape-variable-interpolation)
+## Escape variable interpolation
 
 If you want to bypass variable interpolation when parsing the Bake definition, use double dollar signs (`$${VARIABLE}`).
 
@@ -123,7 +123,7 @@ $ docker buildx bake --progress=plain
 ...
 ```
 
-## [Using variables in variables across files](https://docs.docker.com/build/bake/variables/#using-variables-in-variables-across-files)
+## Using variables in variables across files
 
 When multiple files are specified, one file can use variables defined in another file. In the following example, the `vars.hcl` file defines a `BASE_IMAGE` variable with a default value of `docker.io/library/alpine`.
 
@@ -179,7 +179,7 @@ $ docker buildx bake -f vars.hcl -f docker-bake.hcl --print app
 }
 ```
 
-## [Additional resources](https://docs.docker.com/build/bake/variables/#additional-resources)
+## Additional resources
 
 Here are some additional resources that show how you can use variables in Bake:
 

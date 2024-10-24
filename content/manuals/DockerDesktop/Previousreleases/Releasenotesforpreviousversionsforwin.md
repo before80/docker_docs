@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/previous-versions/archive-windows/](https://docs.docker.com/desktop/previous-versions/archive-windows/)
+> 原文：[https://docs.docker.com/desktop/previous-versions/archive-windows/](https://docs.docker.com/desktop/previous-versions/archive-windows/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,9 +16,9 @@ draft = false
 
 This page contains release notes for older versions of Docker Desktop for Windows.
 
-## [Stable Releases of 2018](https://docs.docker.com/desktop/previous-versions/archive-windows/#stable-releases-of-2018)
+## Stable Releases of 2018
 
-### [Docker Community Edition 18.06.1-ce-win73 2018-08-29](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-18061-ce-win73-2018-08-29)
+### Docker Community Edition 18.06.1-ce-win73 2018-08-29
 
 - Upgrades
   - [Docker 18.06.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.06.1-ce)
@@ -33,14 +33,14 @@ This page contains release notes for older versions of Docker Desktop for Window
   - Changed the samba default file permission to avoid an issue with too open rights. Fixes [docker/for-win#2170](https://github.com/docker/for-win/issues/2170)
   - On RS5 insider, fixed wrong detection of missing feature "Containers" requiring you to install the feature and then reboot.
 
-### [Docker Community Edition 18.06.0-ce-win72 2018-07-26](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-18060-ce-win72-2018-07-26)
+### Docker Community Edition 18.06.0-ce-win72 2018-07-26
 
 - New
   - Renewed signing certificate. The installer may show a Windows Defender popup until the renewed certificate is allowlisted. Click "More info" to view the app is published by "Docker Inc" and run it.
 - Bug fixes and minor changes
   - Fix bug in automatic feature enabling if "Hyper-V" and "Containers" Windows features are not enabled already when starting Docker Desktop.
 
-### [Docker Community Edition 18.06.0-ce-win70 2018-07-25](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-18060-ce-win70-2018-07-25)
+### Docker Community Edition 18.06.0-ce-win70 2018-07-25
 
 - Upgrades
   - [Docker 18.06.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.06.0-ce)
@@ -49,7 +49,7 @@ This page contains release notes for older versions of Docker Desktop for Window
   - [LinuxKit v0.4](https://github.com/linuxkit/linuxkit/releases/tag/v0.4)
   - Linux Kernel 4.9.93 with CEPH, DRBD, RBD, MPLS_ROUTING and MPLS_IPTUNNEL enabled
 - New
-  - Kubernetes Support. You can now run a single-node Kubernetes cluster from the "Kubernetes" Pane in Docker for Windows settings and use kubectl commands as well as Docker commands. See [the Kubernetes section](https://docs.docker.com/desktop/kubernetes/)
+  - Kubernetes Support. You can now run a single-node Kubernetes cluster from the "Kubernetes" Pane in Docker for Windows settings and use kubectl commands as well as Docker commands. See [the Kubernetes section]({{< ref "/manuals/DockerDesktop/DeployonKuberneteswithDockerDesktop" >}})
 - Bug fixes and minor changes
   - AUFS storage driver is deprecated in Docker Desktop and AUFS support will be removed in the next major release. You can continue with AUFS in Docker Desktop 18.06.x, but you will need to reset the disk image (in Settings > Reset menu) before updating to the next major update. You can check documentation to [save images](https://docs.docker.com/reference/cli/docker/image/save/#examples) and [backup volumes](https://docs.docker.com/engine/storage/volumes/#back-up-restore-or-migrate-data-volumes)
   - Fix bug which would in some cases cause virtual machine logs to be written to RAM rather than disk, and the virtual machine to hang.
@@ -61,7 +61,7 @@ This page contains release notes for older versions of Docker Desktop for Window
   - Added log rotation for docker-ce logs inside the virtual machine.
   - Changed smb permission to avoid issue when trying to manipulate files with different users in containers. Fixes [docker/for-win#2170](https://github.com/docker/for-win/issues/2170)
 
-### [Docker Community Edition 18.03.1-ce-win65 2018-04-30](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-18031-ce-win65-2018-04-30)
+### Docker Community Edition 18.03.1-ce-win65 2018-04-30
 
 - Upgrades
   - [Docker 18.03.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.1-ce)
@@ -71,7 +71,7 @@ This page contains release notes for older versions of Docker Desktop for Window
   - Fix startup failure when the HOME environment variable is already defined (typically started from the command line). Fixes [docker/for-win#1880](https://github.com/docker/for-win/issues/1880)
   - Fix startup failure due to incompatibility with other programs (like Razer Synapse 3). Fixes [docker/for-win#1723](https://github.com/docker/for-win/issues/1723)
 
-### [Docker Community Edition 18.03.1-ce-win64 2018-04-26](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-18031-ce-win64-2018-04-26)
+### Docker Community Edition 18.03.1-ce-win64 2018-04-26
 
 - Upgrades
   - [Docker 18.03.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.1-ce)
@@ -81,7 +81,7 @@ This page contains release notes for older versions of Docker Desktop for Window
   - Fix startup failure when the HOME environment variable is already defined (typically started from the command line). Fixes [docker/for-win#1880](https://github.com/docker/for-win/issues/1880)
   - Fix startup failure due to incompatibility with other programs (like Razer Synapse 3). Fixes [docker/for-win#1723](https://github.com/docker/for-win/issues/1723)
 
-### [Docker Community Edition 18.03.0-ce-win59 2018-03-26](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-18030-ce-win59-2018-03-26)
+### Docker Community Edition 18.03.0-ce-win59 2018-03-26
 
 - Upgrades
   - [Docker 18.03.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.0-ce)
@@ -109,7 +109,7 @@ This page contains release notes for older versions of Docker Desktop for Window
   - Better cleanup for Windows containers and images on reset/uninstall. Fixes [docker/for-win#1580](https://github.com/docker/for-win/issues/1580), [docker/for-win#1544](https://github.com/docker/for-win/issues/1544), [docker/for-win#191](https://github.com/docker/for-win/issues/191)
   - Desktop icon creation is optional in installer; do not recreate Desktop icon on upgrade (effective on next upgrade). Fixes [docker/for-win#246](https://github.com/docker/for-win/issues/246), [docker/for-win#925](https://github.com/docker/for-win/issues/925), [docker/for-win#1551](https://github.com/docker/for-win/issues/1551)
 
-### [Docker Community Edition 17.12.0-ce-win47 2018-01-12](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-17120-ce-win47-2018-01-12)
+### Docker Community Edition 17.12.0-ce-win47 2018-01-12
 
 - Bug fixes and minor changes
   - Fix linuxkit port-forwarder sometimes not being able to start. Fixes [docker/for-win#1506](https://github.com/docker/for-win/issues/1506)
@@ -117,7 +117,7 @@ This page contains release notes for older versions of Docker Desktop for Window
   - Fix Mount compatibility when mounting drives with `-v //c/...`, now mounted in /host_mnt/c in the linuxkit virtual machine. Fixes [docker/for-win#1509](https://github.com/docker/for-win/issues/1509), [docker/for-win#1516](https://github.com/docker/for-win/issues/1516), [docker/for-win#1497](https://github.com/docker/for-win/issues/1497)
   - Fix icon displaying edge. Fixes [docker/for-win#1508](https://github.com/docker/for-win/issues/1508)
 
-### [Docker Community Edition 17.12.0-ce-win46 2018-01-09](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-17120-ce-win46-2018-01-09)
+### Docker Community Edition 17.12.0-ce-win46 2018-01-09
 
 - Upgrades
   - [Docker 17.12.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.12.0-ce)
@@ -135,9 +135,9 @@ This page contains release notes for older versions of Docker Desktop for Window
   - Fix a class of startup failures where the database fails to start. See [docker/for-win#498](https://github.com/docker/for-win/issues/498)
   - Links in update changelog now open the default browser instead of IE. (fixes [docker/for-win#1311](https://github.com/docker/for-win/issues/1311))
 
-## [Stable Releases of 2017](https://docs.docker.com/desktop/previous-versions/archive-windows/#stable-releases-of-2017)
+## Stable Releases of 2017
 
-### [Docker Community Edition 17.09.1-ce-win42 2017-12-11](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-17091-ce-win42-2017-12-11)
+### Docker Community Edition 17.09.1-ce-win42 2017-12-11
 
 - Upgrades
   - [Docker 17.09.1-ce](https://github.com/docker/docker-ce/releases/tag/v17.09.1-ce)
@@ -150,12 +150,12 @@ This page contains release notes for older versions of Docker Desktop for Window
   - Fix `docker.for.win.localhost` not working in proxy settings. Fixes [for-win/#1130](https://github.com/docker/for-win/issues/1130)
   - Increased timeout for virtual machine boot startup to 2 minutes.
 
-### [Docker Community Edition 17.09.0-ce-win33 2017-10-06](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-17090-ce-win33-2017-10-06)
+### Docker Community Edition 17.09.0-ce-win33 2017-10-06
 
 - Bug fixes
   - Fix Docker For Windows unable to start in some cases: removed use of libgmp sometimes causing the vpnkit process to die.
 
-### [Docker Community Edition 17.09.0-ce-win32 2017-10-02](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-17090-ce-win32-2017-10-02)
+### Docker Community Edition 17.09.0-ce-win32 2017-10-02
 
 - Upgrades
   - [Docker 17.09.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.09.0-ce)
@@ -188,13 +188,13 @@ This page contains release notes for older versions of Docker Desktop for Window
   - VPNKit: automatically trim whitespace from int or bool database keys
   - Do not move credentials into the credential store at startup
 
-### [Docker Community Edition 17.06.2-ce-win27 2017-09-06](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-17062-ce-win27-2017-09-06)
+### Docker Community Edition 17.06.2-ce-win27 2017-09-06
 
 - Upgrades
   - [Docker 17.06.2-ce](https://github.com/docker/docker-ce/releases/tag/v17.06.2-ce)
   - [Docker Machine 0.12.2](https://github.com/docker/machine/releases/tag/v0.12.2)
 
-### [Docker Community Edition 17.06.1-ce-rc1-win24 2017-08-24](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-17061-ce-rc1-win24-2017-08-24)
+### Docker Community Edition 17.06.1-ce-rc1-win24 2017-08-24
 
 **Upgrades**
 
@@ -207,7 +207,7 @@ This page contains release notes for older versions of Docker Desktop for Window
 - Fix locked container id file (Fixes [docker/for-win#818](https://github.com/docker/for-win/issues/818))
 - Avoid expanding variables in PATH env variable (Fixes [docker/for-win#859](https://github.com/docker/for-win/issues/859))
 
-### [Docker Community Edition 17.06.0-ce-win18 2017-06-28](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-17060-ce-win18-2017-06-28)
+### Docker Community Edition 17.06.0-ce-win18 2017-06-28
 
 **Upgrades**
 
@@ -245,13 +245,13 @@ This page contains release notes for older versions of Docker Desktop for Window
 - Named pipe client connection should not trigger dead locks on `docker run` with data in stdin any more
 - Buffered data should be treated correctly when docker client requests are upgraded to raw streams
 
-### [Docker Community Edition 17.03.1-ce-win12 2017-05-12](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-17031-ce-win12--2017-05-12)
+### Docker Community Edition 17.03.1-ce-win12 2017-05-12
 
 **Upgrades**
 
 - Security fix for CVE-2017-7308
 
-### [Docker Community Edition 17.03.0, 2017-03-02](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-community-edition-17030-2017-03-02)
+### Docker Community Edition 17.03.0, 2017-03-02
 
 **New**
 
@@ -283,7 +283,7 @@ This page contains release notes for older versions of Docker Desktop for Window
 - VPNKit: fix a source of occasional packet loss (truncation) on the virtual ethernet link
 - Fixed negotiation of TimeSync protocol version (through kernel update)
 
-### [Docker for Windows 1.13.1, 2017-02-09](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-for-windows-1131-2017-02-09)
+### Docker for Windows 1.13.1, 2017-02-09
 
 - [Docker 1.13.1](https://github.com/docker/docker/releases/tag/v1.13.1)
 - [Docker Compose 1.11.1](https://github.com/docker/compose/releases/tag/1.11.1)
@@ -296,7 +296,7 @@ This page contains release notes for older versions of Docker Desktop for Window
 - Various typos fixes
 - Fix in Hyper-V VM setup (should fix `ObjectNotFound` errors)
 
-### [Docker for Windows 1.13.0, 2017-01-19](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-for-windows-1130-2017-01-19)
+### Docker for Windows 1.13.0, 2017-01-19
 
 - [Docker 1.13.0](https://github.com/docker/docker/releases/tag/v1.13.0)
 - [Docker Compose 1.10](https://github.com/docker/compose/releases/tag/1.10.0)
@@ -330,18 +330,18 @@ This page contains release notes for older versions of Docker Desktop for Window
 - VPNKit: Fix bug which could cause the connection tracking to underestimate the number of active connections
 - VPNKit: add a local cache of DNS responses
 
-## [Stable Releases of 2016](https://docs.docker.com/desktop/previous-versions/archive-windows/#stable-releases-of-2016)
+## Stable Releases of 2016
 
-### [Docker for Windows 1.12.5, 2016-12-20](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-for-windows-1125-2016-12-20)
+### Docker for Windows 1.12.5, 2016-12-20
 
 - Docker 1.12.5
 - Docker Compose 1.9.0
 
-### [Skipped Docker for Windows 1.12.4](https://docs.docker.com/desktop/previous-versions/archive-windows/#skipped-docker-for-windows-1124)
+### Skipped Docker for Windows 1.12.4
 
 We did not distribute a 1.12.4 stable release
 
-### [Docker for Windows 1.12.3, 2016-11-09](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-for-windows-1123-2016-11-09)
+### Docker for Windows 1.12.3, 2016-11-09
 
 **New**
 
@@ -401,7 +401,7 @@ We did not distribute a 1.12.4 stable release
 
 - Increase default ulimit for memlock (fixes https://github.com/docker/for-mac/issues/801)
 
-### [Docker for Windows 1.12.1, 2016-09-16](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-for-windows-1121-2016-09-16)
+### Docker for Windows 1.12.1, 2016-09-16
 
 **New**
 
@@ -464,7 +464,7 @@ We did not distribute a 1.12.4 stable release
 
 - Docker automatically disables lingering net adapters. The only way to remove them is manually using `devmgmt.msc`.
 
-### [Docker for Windows 1.12.0, 2016-07-28](https://docs.docker.com/desktop/previous-versions/archive-windows/#docker-for-windows-1120-2016-07-28)
+### Docker for Windows 1.12.0, 2016-07-28
 
 - First stable release
 

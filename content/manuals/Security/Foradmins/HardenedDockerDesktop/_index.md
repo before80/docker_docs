@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/hardened-desktop/](https://docs.docker.com/security/for-admins/hardened-desktop/)
+> 原文：[https://docs.docker.com/security/for-admins/hardened-desktop/](https://docs.docker.com/security/for-admins/hardened-desktop/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -32,7 +32,7 @@ It is for security conscious organizations who:
 - Would like Docker Desktop to be within their organization’s centralized control
 - Have certain compliance obligations
 
-### [How does it help my organization?](https://docs.docker.com/security/for-admins/hardened-desktop/#how-does-it-help-my-organization)
+### How does it help my organization?
 
 Hardened Desktop features work independently but collectively to create a defense-in-depth strategy, safeguarding developer workstations against potential attacks across various functional layers, such as configuring Docker Desktop, pulling container images, and running container images. This multi-layered defense approach ensures comprehensive security. It helps mitigate against threats such as:
 

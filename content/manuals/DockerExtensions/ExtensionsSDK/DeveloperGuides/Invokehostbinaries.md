@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/guides/invoke-host-binaries/](https://docs.docker.com/extensions/extensions-sdk/guides/invoke-host-binaries/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/guides/invoke-host-binaries/](https://docs.docker.com/extensions/extensions-sdk/guides/invoke-host-binaries/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ You could do that by executing the CLI from a container with the extension SDK. 
 
 However host binaries invoke from the extension executables (as binaries, shell scripts) shipped as part of your extension and deployed to the host. As extensions can run on multiple platforms, this means that you need to ship the executables for all the platforms you want to support.
 
-Learn more about extensions [architecture](https://docs.docker.com/extensions/extensions-sdk/architecture/).
+Learn more about extensions [architecture]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/Architecture" >}}).
 
 > **Note**
 >
@@ -30,7 +30,7 @@ Learn more about extensions [architecture](https://docs.docker.com/extensions/ex
 
 In this example, the CLI is a simple `Hello world` script that must be invoked with a parameter and returns a string.
 
-## [Add the executables to the extension](https://docs.docker.com/extensions/extensions-sdk/guides/invoke-host-binaries/#add-the-executables-to-the-extension)
+## Add the executables to the extension
 
 Mac and Linux Windows
 
@@ -58,7 +58,7 @@ COPY --chmod=0755 binaries/unix/hello.sh /linux/hello.sh
 COPY --chmod=0755 binaries/unix/hello.sh /darwin/hello.sh
 ```
 
-## [Invoke the executable from the UI](https://docs.docker.com/extensions/extensions-sdk/guides/invoke-host-binaries/#invoke-the-executable-from-the-ui)
+## Invoke the executable from the UI
 
 In your extension, use the Docker Desktop Client object to [invoke the shell script](https://docs.docker.com/extensions/extensions-sdk/dev/api/backend/#invoke-an-extension-binary-on-the-host) provided by the extension with the `ddClient.extension.host.cli.exec()` function. In this example, the binary returns a string as result, obtained by `result?.stdout`, as soon as the extension view is rendered.
 
@@ -97,7 +97,7 @@ export function App() {
 
 ------
 
-## [Configure the metadata file](https://docs.docker.com/extensions/extensions-sdk/guides/invoke-host-binaries/#configure-the-metadata-file)
+## Configure the metadata file
 
 The host binaries must be specified in the `metadata.json` file so that Docker Desktop copies them on to the host when installing the extension. Once the extension is uninstalled, the binaries that were copied are removed as well.
 

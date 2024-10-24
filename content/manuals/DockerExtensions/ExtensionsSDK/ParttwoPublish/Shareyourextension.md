@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/extensions/share/](https://docs.docker.com/extensions/extensions-sdk/extensions/share/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/extensions/share/](https://docs.docker.com/extensions/extensions-sdk/extensions/share/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ People can install your extension by typing `docker extension install my/awesome
 
 However, this option doesn't provide a preview of the extension before it's installed.
 
-## [Createa a share URL](https://docs.docker.com/extensions/extensions-sdk/extensions/share/#createa-a-share-url)
+## Createa a share URL
 
 Docker lets you share your extensions using a URL.
 
@@ -46,4 +46,4 @@ To generate this link you can either:
 >
 > 
 >
-> Previews of the extension description or screenshots, for example, are created using [extension labels](https://docs.docker.com/extensions/extensions-sdk/extensions/labels/).
+> Previews of the extension description or screenshots, for example, are created using [extension labels]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish/Addlabels" >}}).

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/cli/formatting/](https://docs.docker.com/engine/cli/formatting/)
+> 原文：[https://docs.docker.com/engine/cli/formatting/](https://docs.docker.com/engine/cli/formatting/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -38,7 +38,7 @@ Docker provides a set of basic functions to manipulate template elements. All of
 > $ docker inspect --format '{{join .Args \" , \"}}'
 > ```
 
-## [join](https://docs.docker.com/engine/cli/formatting/#join)
+## join
 
 `join` concatenates a list of strings to create a single string. It puts a separator between each element in the list.
 
@@ -48,7 +48,7 @@ Docker provides a set of basic functions to manipulate template elements. All of
 $ docker inspect --format '{{join .Args " , "}}' container
 ```
 
-## [table](https://docs.docker.com/engine/cli/formatting/#table)
+## table
 
 `table` specifies which fields you want to see its output.
 
@@ -58,7 +58,7 @@ $ docker inspect --format '{{join .Args " , "}}' container
 $ docker image list --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.Size}}"
 ```
 
-## [json](https://docs.docker.com/engine/cli/formatting/#json)
+## json
 
 `json` encodes an element as a json string.
 
@@ -68,7 +68,7 @@ $ docker image list --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.Size}
 $ docker inspect --format '{{json .Mounts}}' container
 ```
 
-## [lower](https://docs.docker.com/engine/cli/formatting/#lower)
+## lower
 
 `lower` transforms a string into its lowercase representation.
 
@@ -78,7 +78,7 @@ $ docker inspect --format '{{json .Mounts}}' container
 $ docker inspect --format "{{lower .Name}}" container
 ```
 
-## [split](https://docs.docker.com/engine/cli/formatting/#split)
+## split
 
 `split` slices a string into a list of strings separated by a separator.
 
@@ -88,7 +88,7 @@ $ docker inspect --format "{{lower .Name}}" container
 $ docker inspect --format '{{split .Image ":"}}' container
 ```
 
-## [title](https://docs.docker.com/engine/cli/formatting/#title)
+## title
 
 `title` capitalizes the first character of a string.
 
@@ -98,7 +98,7 @@ $ docker inspect --format '{{split .Image ":"}}' container
 $ docker inspect --format "{{title .Name}}" container
 ```
 
-## [upper](https://docs.docker.com/engine/cli/formatting/#upper)
+## upper
 
 `upper` transforms a string into its uppercase representation.
 
@@ -108,7 +108,7 @@ $ docker inspect --format "{{title .Name}}" container
 $ docker inspect --format "{{upper .Name}}" container
 ```
 
-## [println](https://docs.docker.com/engine/cli/formatting/#println)
+## println
 
 `println` prints each value on a new line.
 
@@ -118,7 +118,7 @@ $ docker inspect --format "{{upper .Name}}" container
 $ docker inspect --format='{{range .NetworkSettings.Networks}}{{println .IPAddress}}{{end}}' container
 ```
 
-## [Hint](https://docs.docker.com/engine/cli/formatting/#hint)
+## Hint
 
 To find out what data can be printed, show all content as json:
 

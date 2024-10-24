@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/integrations/registry/acr/](https://docs.docker.com/scout/integrations/registry/acr/)
+> 原文：[https://docs.docker.com/scout/integrations/registry/acr/](https://docs.docker.com/scout/integrations/registry/acr/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 Integrating Docker Scout with Azure Container Registry (ACR) lets you view image insights for images hosted in ACR repositories. After integrating Docker Scout with ACR and activating Docker Scout for a repository, pushing an image to the repository automatically triggers image analysis. You can view image insights using the Docker Scout Dashboard, or the `docker scout` CLI commands.
 
-## [How it works](https://docs.docker.com/scout/integrations/registry/acr/#how-it-works)
+## How it works
 
 To help you integrate your Azure Container Registry with Docker Scout, you can use a custom Azure Resource Manager (ARM) template that automatically creates the necessary infrastructure in Azure for you:
 
@@ -27,7 +27,7 @@ When the resources have been created in Azure, you can enable the integration fo
 
 If you enable the integration on a repository that already contains images, Docker Scout pulls and analyzes the latest image version automatically.
 
-### [ARM template](https://docs.docker.com/scout/integrations/registry/acr/#arm-template)
+### ARM template
 
 The following table describes the configuration resources.
 
@@ -47,7 +47,7 @@ The following table describes the configuration resources.
 
 The following JSON document shows the ARM template Docker Scout uses to create the Azure resources.
 
-## [Integrate a registry](https://docs.docker.com/scout/integrations/registry/acr/#integrate-a-registry)
+## Integrate a registry
 
 1. Go to [ACR integration page](https://scout.docker.com/settings/integrations/azure/) on the Docker Scout Dashboard.
 
@@ -84,7 +84,7 @@ Next, activate Docker Scout for the repositories that you want to analyze in [Re
 
 After activating repositories, images that you push are analyzed by Docker Scout. The analysis results appear in the Docker Scout Dashboard. If your repository already contains images, Docker Scout pulls and analyzes the latest image version automatically.
 
-## [Remove an integration](https://docs.docker.com/scout/integrations/registry/acr/#remove-an-integration)
+## Remove an integration
 
 > **Important**
 >

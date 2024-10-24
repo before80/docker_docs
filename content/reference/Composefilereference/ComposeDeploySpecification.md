@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/compose-file/deploy/](https://docs.docker.com/reference/compose-file/deploy/)
+> 原文：[https://docs.docker.com/reference/compose-file/deploy/](https://docs.docker.com/reference/compose-file/deploy/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -16,9 +16,9 @@ draft = false
 
 Deploy is an optional part of the Compose Specification. It provides a set of deployment specifications for managing the behavior of containers across different environments.
 
-## [Attributes](https://docs.docker.com/reference/compose-file/deploy/#attributes)
+## Attributes
 
-### [endpoint_mode](https://docs.docker.com/reference/compose-file/deploy/#endpoint_mode)
+### endpoint_mode
 
 `endpoint_mode` specifies a service discovery method for external clients connecting to a service. The Compose Deploy Specification defines two canonical values:
 
@@ -39,7 +39,7 @@ services:
       endpoint_mode: vip
 ```
 
-### [labels](https://docs.docker.com/reference/compose-file/deploy/#labels)
+### labels
 
 `labels` specifies metadata for the service. These labels are only set on the service and not on any containers for the service. This assumes the platform has some native concept of "service" that can match the Compose application model.
 
@@ -54,7 +54,7 @@ services:
         com.example.description: "This label will appear on the web service"
 ```
 
-### [mode](https://docs.docker.com/reference/compose-file/deploy/#mode)
+### mode
 
 `mode` defines the replication model used to run the service on the platform. Either `global`, exactly one container per physical node, or `replicated`, a specified number of containers. The default is `replicated`.
 
@@ -68,11 +68,11 @@ services:
       mode: global
 ```
 
-### [placement](https://docs.docker.com/reference/compose-file/deploy/#placement)
+### placement
 
 `placement` specifies constraints and preferences for the platform to select a physical node to run service containers.
 
-#### [constraints](https://docs.docker.com/reference/compose-file/deploy/#constraints)
+#### constraints
 
 `constraints` defines a required property the platform's node must fulfill to run the service container. For a further example, see the [CLI reference docs](https://docs.docker.com/reference/cli/docker/service/create/#constraint).
 
@@ -85,7 +85,7 @@ deploy:
       - disktype=ssd
 ```
 
-#### [preferences](https://docs.docker.com/reference/compose-file/deploy/#preferences)
+#### preferences
 
 `preferences` defines a strategy (currently `spread` is the only supported strategy) to spread tasks evenly over the values of the datacenter node label. For a further example, see the [CLI reference docs](https://docs.docker.com/reference/cli/docker/service/create/#placement-pref)
 
@@ -98,7 +98,7 @@ deploy:
       - spread: node.labels.zone
 ```
 
-### [replicas](https://docs.docker.com/reference/compose-file/deploy/#replicas)
+### replicas
 
 If the service is `replicated` (which is the default), `replicas` specifies the number of containers that should be running at any given time.
 
@@ -113,7 +113,7 @@ services:
       replicas: 6
 ```
 
-### [resources](https://docs.docker.com/reference/compose-file/deploy/#resources)
+### resources
 
 `resources` configures physical resource constraints for container to run on platform. Those constraints can be configured as:
 
@@ -137,25 +137,25 @@ services:
           memory: 20M
 ```
 
-#### [cpus](https://docs.docker.com/reference/compose-file/deploy/#cpus)
+#### cpus
 
 `cpus` configures a limit or reservation for how much of the available CPU resources, as number of cores, a container can use.
 
-#### [memory](https://docs.docker.com/reference/compose-file/deploy/#memory)
+#### memory
 
 `memory` configures a limit or reservation on the amount of memory a container can allocate, set as a string expressing a [byte value](https://docs.docker.com/reference/compose-file/extension/#specifying-byte-values).
 
-#### [pids](https://docs.docker.com/reference/compose-file/deploy/#pids)
+#### pids
 
 `pids` tunes a container’s PIDs limit, set as an integer.
 
-#### [devices](https://docs.docker.com/reference/compose-file/deploy/#devices)
+#### devices
 
 `devices` configures reservations of the devices a container can use. It contains a list of reservations, each set as an object with the following parameters: `capabilities`, `driver`, `count`, `device_ids` and `options`.
 
 Devices are reserved using a list of capabilities, making `capabilities` the only required field. A device must satisfy all the requested capabilities for a successful reservation.
 
-##### [capabilities](https://docs.docker.com/reference/compose-file/deploy/#capabilities)
+##### capabilities
 
 `capabilities` are set as a list of strings, expressing both generic and driver specific capabilities. The following generic capabilities are recognized today:
 
@@ -174,7 +174,7 @@ deploy:
         - capabilities: ["nvidia-compute"]
 ```
 
-##### [driver](https://docs.docker.com/reference/compose-file/deploy/#driver)
+##### driver
 
 A different driver for the reserved device(s) can be requested using `driver` field. The value is specified as a string.
 
@@ -189,7 +189,7 @@ deploy:
           driver: nvidia
 ```
 
-##### [count](https://docs.docker.com/reference/compose-file/deploy/#count)
+##### count
 
 If `count` is set to `all` or not specified, Compose reserves all devices that satisfy the requested capabilities. Otherwise, Compose reserves at least the number of devices specified. The value is specified as an integer.
 
@@ -206,7 +206,7 @@ deploy:
 
 `count` and `device_ids` fields are exclusive. Compose returns an error if both are specified.
 
-##### [device_ids](https://docs.docker.com/reference/compose-file/deploy/#device_ids)
+##### device_ids
 
 If `device_ids` is set, Compose reserves devices with the specified IDs provided they satisfy the requested capabilities. The value is specified as a list of strings.
 
@@ -223,7 +223,7 @@ deploy:
 
 `count` and `device_ids` fields are exclusive. Compose returns an error if both are specified.
 
-##### [options](https://docs.docker.com/reference/compose-file/deploy/#options)
+##### options
 
 Driver specific options can be set with `options` as key-value pairs.
 
@@ -240,7 +240,7 @@ deploy:
             virtualization: false
 ```
 
-### [restart_policy](https://docs.docker.com/reference/compose-file/deploy/#restart_policy)
+### restart_policy
 
 `restart_policy` configures if and how to restart containers when they exit. If `restart_policy` is not set, Compose considers the `restart` field set by the service configuration.
 
@@ -271,7 +271,7 @@ deploy:
     window: 120s
 ```
 
-### [rollback_config](https://docs.docker.com/reference/compose-file/deploy/#rollback_config)
+### rollback_config
 
 `rollback_config` configures how the service should be rollbacked in case of a failing update.
 
@@ -282,7 +282,7 @@ deploy:
 - `max_failure_ratio`: Failure rate to tolerate during a rollback (default 0).
 - `order`: Order of operations during rollbacks. One of `stop-first` (old task is stopped before starting new one), or `start-first` (new task is started first, and the running tasks briefly overlap) (default `stop-first`).
 
-### [update_config](https://docs.docker.com/reference/compose-file/deploy/#update_config)
+### update_config
 
 `update_config` configures how the service should be updated. Useful for configuring rolling updates.
 

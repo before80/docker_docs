@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/ci/github-actions/reproducible-builds/](https://docs.docker.com/build/ci/github-actions/reproducible-builds/)
+> 原文：[https://docs.docker.com/build/ci/github-actions/reproducible-builds/](https://docs.docker.com/build/ci/github-actions/reproducible-builds/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 
 To set the environment variable in GitHub Actions, use the built-in `env` property on the build step.
 
-## [Unix epoch timestamps](https://docs.docker.com/build/ci/github-actions/reproducible-builds/#unix-epoch-timestamps)
+## Unix epoch timestamps
 
 The following example sets the `SOURCE_DATE_EPOCH` variable to 0, Unix epoch.
 
@@ -79,7 +79,7 @@ jobs:
 
 
 
-## [Git commit timestamps](https://docs.docker.com/build/ci/github-actions/reproducible-builds/#git-commit-timestamps)
+## Git commit timestamps
 
 The following example sets `SOURCE_DATE_EPOCH` to the Git commit timestamp.
 
@@ -149,6 +149,6 @@ jobs:
 
 ------
 
-## [Additional information](https://docs.docker.com/build/ci/github-actions/reproducible-builds/#additional-information)
+## Additional information
 
 For more information about the `SOURCE_DATE_EPOCH` support in BuildKit, see [BuildKit documentation](https://github.com/moby/buildkit/blob/master/docs/build-repro.md#source_date_epoch).

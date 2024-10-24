@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/push/](https://docs.docker.com/reference/cli/docker/compose/push/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/push/](https://docs.docker.com/reference/cli/docker/compose/push/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 | :---------- | -------------------------------------------- |
 | Usage       | `docker compose push [OPTIONS] [SERVICE...]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/push/#description)
+## Description
 
 Pushes images for services to their respective registry/repository.
 
@@ -42,7 +42,7 @@ services:
     image: your-dockerid/yourimage  ## goes to your repository on Docker Hub
 ```
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/push/#options)
+## Options
 
 | Option                   | Default | Description                                            |
 | ------------------------ | ------- | ------------------------------------------------------ |

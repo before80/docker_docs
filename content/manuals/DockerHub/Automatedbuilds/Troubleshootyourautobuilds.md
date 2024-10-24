@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/docker-hub/builds/troubleshoot/](https://docs.docker.com/docker-hub/builds/troubleshoot/)
+> 原文：[https://docs.docker.com/docker-hub/builds/troubleshoot/](https://docs.docker.com/docker-hub/builds/troubleshoot/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,9 +18,9 @@ draft = false
 >
 > 
 >
-> Automated builds require a [Docker Pro, Team, or Business subscription](https://docs.docker.com/subscription/).
+> Automated builds require a [Docker Pro, Team, or Business subscription]({{< ref "/manuals/Subscription" >}}).
 
-## [Failing builds](https://docs.docker.com/docker-hub/builds/troubleshoot/#failing-builds)
+## Failing builds
 
 If a build fails, a **Retry** icon appears next to the build report line on the **General** and **Builds** tabs. The **Build report** page and **Timeline logs** also display a **Retry** button.
 
@@ -42,7 +42,7 @@ Automated builds have a 4-hour execution time limit. If a build reaches this tim
 
 This log message is the same as when you actively cancel a build. To identify whether a build was automatically cancelled, check the build duration.
 
-## [Build repositories with linked private submodules](https://docs.docker.com/docker-hub/builds/troubleshoot/#build-repositories-with-linked-private-submodules)
+## Build repositories with linked private submodules
 
 Docker Hub sets up a deploy key in your source code repository that allows it to clone the repository and build it. This key only works for a single, specific code repository. If your source code repository uses private Git submodules, or requires that you clone other private repositories to build, Docker Hub cannot access these additional repositories, your build cannot complete, and an error is logged in your build timeline.
 

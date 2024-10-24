@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/logging/drivers/journald/](https://docs.docker.com/engine/logging/drivers/journald/)
+> 原文：[https://docs.docker.com/engine/logging/drivers/journald/](https://docs.docker.com/engine/logging/drivers/journald/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -23,11 +23,11 @@ In addition to the text of the log message itself, the `journald` log driver sto
 | `CONTAINER_ID`                       | The container ID truncated to 12 characters.                 |
 | `CONTAINER_ID_FULL`                  | The full 64-character container ID.                          |
 | `CONTAINER_NAME`                     | The container name at the time it was started. If you use `docker rename` to rename a container, the new name isn't reflected in the journal entries. |
-| `CONTAINER_TAG`, `SYSLOG_IDENTIFIER` | The container tag ( [log tag option documentation](https://docs.docker.com/engine/logging/log_tags/)). |
+| `CONTAINER_TAG`, `SYSLOG_IDENTIFIER` | The container tag ( [log tag option documentation]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}})). |
 | `CONTAINER_PARTIAL_MESSAGE`          | A field that flags log integrity. Improve logging of long log lines. |
 | `IMAGE_NAME`                         | The name of the container image.                             |
 
-## [Usage](https://docs.docker.com/engine/logging/drivers/journald/#usage)
+## Usage
 
 To use the `journald` driver as the default logging driver, set the `log-driver` and `log-opts` keys to appropriate values in the `daemon.json` file, which is located in `/etc/docker/` on Linux hosts or `C:\ProgramData\docker\config\daemon.json` on Windows Server. For more about configuring Docker using `daemon.json`, see [daemon.json](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file).
 
@@ -51,17 +51,17 @@ To configure the logging driver for a specific container, use the `--log-driver`
 $ docker run --log-driver=journald ...
 ```
 
-## [Options](https://docs.docker.com/engine/logging/drivers/journald/#options)
+## Options
 
 Use the `--log-opt NAME=VALUE` flag to specify additional `journald` logging driver options.
 
 | Option         | Required | Description                                                  |
 | :------------- | :------- | :----------------------------------------------------------- |
-| `tag`          | optional | Specify template to set `CONTAINER_TAG` and `SYSLOG_IDENTIFIER` value in journald logs. Refer to [log tag option documentation](https://docs.docker.com/engine/logging/log_tags/) to customize the log tag format. |
+| `tag`          | optional | Specify template to set `CONTAINER_TAG` and `SYSLOG_IDENTIFIER` value in journald logs. Refer to [log tag option documentation]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}) to customize the log tag format. |
 | `labels`       | optional | Comma-separated list of keys of labels, which should be included in message, if these labels are specified for the container. |
-| `labels-regex` | optional | Similar to and compatible with labels. A regular expression to match logging-related labels. Used for advanced [log tag options](https://docs.docker.com/engine/logging/log_tags/). |
+| `labels-regex` | optional | Similar to and compatible with labels. A regular expression to match logging-related labels. Used for advanced [log tag options]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}). |
 | `env`          | optional | Comma-separated list of keys of environment variables, which should be included in message, if these variables are specified for the container. |
-| `env-regex`    | optional | Similar to and compatible with `env`. A regular expression to match logging-related environment variables. Used for advanced [log tag options](https://docs.docker.com/engine/logging/log_tags/). |
+| `env-regex`    | optional | Similar to and compatible with `env`. A regular expression to match logging-related environment variables. Used for advanced [log tag options]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}). |
 
 If a collision occurs between `label` and `env` options, the value of the `env` takes precedence. Each option adds additional fields to the attributes of a logging message.
 
@@ -81,11 +81,11 @@ $ docker run \
 
 This configuration also directs the driver to include in the payload the label location, and the environment variable `TEST`. If the `--env "TEST=false"` or `--label location=west` arguments were omitted, the corresponding key would not be set in the journald log.
 
-## [Note regarding container names](https://docs.docker.com/engine/logging/drivers/journald/#note-regarding-container-names)
+## Note regarding container names
 
 The value logged in the `CONTAINER_NAME` field is the name of the container that was set at startup. If you use `docker rename` to rename a container, the new name isn't reflected in the journal entries. Journal entries continue to use the original name.
 
-## [Retrieve log messages with `journalctl`](https://docs.docker.com/engine/logging/drivers/journald/#retrieve-log-messages-with-journalctl)
+## Retrieve log messages with `journalctl`
 
 Use the `journalctl` command to retrieve log messages. You can apply filter expressions to limit the retrieved messages to those associated with a specific container:
 
@@ -111,7 +111,7 @@ The `-o` flag specifies the format for the retrieved log messages. Use `-o json`
 $ sudo journalctl -o json CONTAINER_NAME=webserver
 ```
 
-### [View logs for a container with a TTY enabled](https://docs.docker.com/engine/logging/drivers/journald/#view-logs-for-a-container-with-a-tty-enabled)
+### View logs for a container with a TTY enabled
 
 If TTY is enabled on a container you may see `[10B blob data]` in the output when retrieving log messages. The reason for that is that `\r` is appended to the end of the line and `journalctl` doesn't strip it automatically unless `--all` is set:
 
@@ -121,7 +121,7 @@ If TTY is enabled on a container you may see `[10B blob data]` in the output whe
 $ sudo journalctl -b CONTAINER_NAME=webserver --all
 ```
 
-## [Retrieve log messages with the `journal` API](https://docs.docker.com/engine/logging/drivers/journald/#retrieve-log-messages-with-the-journal-api)
+## Retrieve log messages with the `journal` API
 
 This example uses the `systemd` Python module to retrieve container logs:
 

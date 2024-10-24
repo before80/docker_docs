@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/network/](https://docs.docker.com/engine/network/)
+> 原文：[https://docs.docker.com/engine/network/](https://docs.docker.com/engine/network/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,9 +18,9 @@ Container networking refers to the ability for containers to connect to and comm
 
 Containers have networking enabled by default, and they can make outgoing connections. A container has no information about what kind of network it's attached to, or whether their peers are also Docker workloads or not. A container only sees a network interface with an IP address, a gateway, a routing table, DNS services, and other networking details. That is, unless the container uses the `none` network driver.
 
-This page describes networking from the point of view of the container, and the concepts around container networking. This page doesn't describe OS-specific details about how Docker networks work. For information about how Docker manipulates `iptables` rules on Linux, see [Packet filtering and firewalls](https://docs.docker.com/engine/network/packet-filtering-firewalls/).
+This page describes networking from the point of view of the container, and the concepts around container networking. This page doesn't describe OS-specific details about how Docker networks work. For information about how Docker manipulates `iptables` rules on Linux, see [Packet filtering and firewalls]({{< ref "/manuals/DockerEngine/Networking/Packetfilteringandfirewalls" >}}).
 
-## [User-defined networks](https://docs.docker.com/engine/network/#user-defined-networks)
+## User-defined networks
 
 You can create custom, user-defined networks, and connect multiple containers to the same network. Once connected to a user-defined network, containers can communicate with each other using container IP addresses or container names.
 
@@ -33,7 +33,7 @@ $ docker network create -d bridge my-net
 $ docker run --network=my-net -itd --name=container3 busybox
 ```
 
-### [Drivers](https://docs.docker.com/engine/network/#drivers)
+### Drivers
 
 The following network drivers are available by default, and provide core networking functionality:
 
@@ -46,9 +46,9 @@ The following network drivers are available by default, and provide core network
 | `ipvlan`  | IPvlan networks provide full control over both IPv4 and IPv6 addressing. |
 | `macvlan` | Assign a MAC address to a container.                         |
 
-For more information about the different drivers, see [Network drivers overview](https://docs.docker.com/engine/network/drivers/).
+For more information about the different drivers, see [Network drivers overview]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers" >}}).
 
-## [Container networks](https://docs.docker.com/engine/network/#container-networks)
+## Container networks
 
 In addition to user-defined networks, you can attach a container to another container's networking stack directly, using the `--network container:<name|id>` flag format.
 
@@ -73,7 +73,7 @@ $ docker run -d --name redis example/redis --bind 127.0.0.1
 $ docker run --rm -it --network container:redis example/redis-cli -h 127.0.0.1
 ```
 
-## [Published ports](https://docs.docker.com/engine/network/#published-ports)
+## Published ports
 
 By default, when you create or run a container using `docker create` or `docker run`, containers on bridge networks don't expose any ports to the outside world. Use the `--publish` or `-p` flag to make a port available to services outside the bridge network. This creates a firewall rule in the host, mapping a container port to a port on the Docker host to the outside world. Here are some examples:
 
@@ -104,13 +104,13 @@ By default, when you create or run a container using `docker create` or `docker 
 > >
 > > Hosts within the same L2 segment (for example, hosts connected to the same network switch) can reach ports published to localhost. For more information, see [moby/moby#45610](https://github.com/moby/moby/issues/45610)
 
-If you want to make a container accessible to other containers, it isn't necessary to publish the container's ports. You can enable inter-container communication by connecting the containers to the same network, usually a [bridge network](https://docs.docker.com/engine/network/drivers/bridge/).
+If you want to make a container accessible to other containers, it isn't necessary to publish the container's ports. You can enable inter-container communication by connecting the containers to the same network, usually a [bridge network]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Bridgenetworkdriver" >}}).
 
 Ports on the host's IPv6 addresses will map to the container's IPv4 address if no host IP is given in a port mapping, the bridge network is IPv4-only, and `--userland-proxy=true` (default).
 
-For more information about port mapping, including how to disable it and use direct routing to containers, see [packet filtering and firewalls](https://docs.docker.com/engine/network/packet-filtering-firewalls/).
+For more information about port mapping, including how to disable it and use direct routing to containers, see [packet filtering and firewalls]({{< ref "/manuals/DockerEngine/Networking/Packetfilteringandfirewalls" >}}).
 
-## [IP address and hostname](https://docs.docker.com/engine/network/#ip-address-and-hostname)
+## IP address and hostname
 
 By default, the container gets an IP address for every Docker network it attaches to. A container receives an IP address out of the IP subnet of the network. The Docker daemon performs dynamic subnetting and IP address allocation for containers. Each network also has a default subnet mask and gateway.
 
@@ -118,7 +118,7 @@ You can connect a running container to multiple networks, either by passing the 
 
 In the same way, a container's hostname defaults to be the container's ID in Docker. You can override the hostname using `--hostname`. When connecting to an existing network using `docker network connect`, you can use the `--alias` flag to specify an additional network alias for the container on that network.
 
-## [DNS services](https://docs.docker.com/engine/network/#dns-services)
+## DNS services
 
 Containers use the same DNS servers as the host by default, but you can override this with `--dns`.
 
@@ -133,10 +133,10 @@ You can configure DNS resolution on a per-container basis, using flags for the `
 | `--dns-opt`    | A key-value pair representing a DNS option and its value. See your operating system's documentation for `resolv.conf` for valid options. |
 | `--hostname`   | The hostname a container uses for itself. Defaults to the container's ID if not specified. |
 
-### [Custom hosts](https://docs.docker.com/engine/network/#custom-hosts)
+### Custom hosts
 
 Your container will have lines in `/etc/hosts` which define the hostname of the container itself, as well as `localhost` and a few other common things. Custom hosts, defined in `/etc/hosts` on the host machine, aren't inherited by containers. To pass additional hosts into a container, refer to [add entries to container hosts file](https://docs.docker.com/reference/cli/docker/container/run/#add-host) in the `docker run` reference documentation.
 
-## [Proxy server](https://docs.docker.com/engine/network/#proxy-server)
+## Proxy server
 
-If your container needs to use a proxy server, see [Use a proxy server](https://docs.docker.com/engine/daemon/proxy/).
+If your container needs to use a proxy server, see [Use a proxy server]({{< ref "/manuals/DockerEngine/Daemon/Daemonproxyconfiguration" >}}).

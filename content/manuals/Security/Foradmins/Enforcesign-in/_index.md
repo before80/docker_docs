@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/enforce-sign-in/](https://docs.docker.com/security/for-admins/enforce-sign-in/)
+> 原文：[https://docs.docker.com/security/for-admins/enforce-sign-in/](https://docs.docker.com/security/for-admins/enforce-sign-in/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Enforce sign-in for Docker Desktop
 
-By default, members of your organization can use Docker Desktop without signing in. When users don’t sign in as a member of your organization, they don’t receive the [benefits of your organization’s subscription](https://docs.docker.com/subscription/core-subscription/details/) and they can circumvent [Docker’s security features](https://docs.docker.com/security/for-admins/hardened-desktop/) for your organization.
+By default, members of your organization can use Docker Desktop without signing in. When users don’t sign in as a member of your organization, they don’t receive the [benefits of your organization’s subscription]({{< ref "/manuals/Subscription/DockerCore/Subscriptionsandfeatures" >}}) and they can circumvent [Docker’s security features]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop" >}}) for your organization.
 
 There are multiple ways you can enforce sign-in, depending on your companies' set up and preferences:
 
@@ -22,7 +22,7 @@ There are multiple ways you can enforce sign-in, depending on your companies' se
 - [`.plist` method (Mac only)](https://docs.docker.com/security/for-admins/enforce-sign-in/methods/#plist-method-mac-only) New
 - [`registry.json` method (All)](https://docs.docker.com/security/for-admins/enforce-sign-in/methods/#registryjson-method-all)
 
-## [How is sign-in enforced?](https://docs.docker.com/security/for-admins/enforce-sign-in/#how-is-sign-in-enforced)
+## How is sign-in enforced?
 
 When Docker Desktop starts and it detects a registry key, a `.plist` file or `registry.json` file, the following occurs:
 
@@ -36,9 +36,9 @@ When Docker Desktop starts and it detects a registry key, a `.plist` file or `re
 
 - When a user signs out, the **Sign in required!** prompt appears and they can no longer use Docker Desktop.
 
-## [Enforcing sign-in versus enforcing single sign-on (SSO)](https://docs.docker.com/security/for-admins/enforce-sign-in/#enforcing-sign-in-versus-enforcing-single-sign-on-sso)
+## Enforcing sign-in versus enforcing single sign-on (SSO)
 
-[Enforcing SSO](https://docs.docker.com/security/for-admins/single-sign-on/connect#optional-enforce-sso) and enforcing sign-in are different features. The following table provides a description and benefits when using each feature.
+[Enforcing SSO]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Connect#optional-enforce-sso" >}}) and enforcing sign-in are different features. The following table provides a description and benefits when using each feature.
 
 | Enforcement                       | Description                                                  | Benefits                                                     |
 | :-------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |

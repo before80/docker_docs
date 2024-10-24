@@ -8,15 +8,15 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/cache/invalidation/](https://docs.docker.com/build/cache/invalidation/)
+> 原文：[https://docs.docker.com/build/cache/invalidation/](https://docs.docker.com/build/cache/invalidation/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Build cache invalidation
 
-When building an image, Docker steps through the instructions in your Dockerfile, executing each in the order specified. For each instruction, the [builder](https://docs.docker.com/build/builders/) checks whether it can reuse the instruction from the build cache.
+When building an image, Docker steps through the instructions in your Dockerfile, executing each in the order specified. For each instruction, the [builder]({{< ref "/manuals/DockerBuild/Builders" >}}) checks whether it can reuse the instruction from the build cache.
 
-## [General rules](https://docs.docker.com/build/cache/invalidation/#general-rules)
+## General rules
 
 The basic rules of build cache invalidation are as follows:
 
@@ -34,7 +34,7 @@ Once the cache is invalidated, all subsequent Dockerfile commands generate new i
 
 If your build contains several layers and you want to ensure the build cache is reusable, order the instructions from less frequently changed to more frequently changed where possible.
 
-## [RUN instructions](https://docs.docker.com/build/cache/invalidation/#run-instructions)
+## RUN instructions
 
 The cache for `RUN` instructions isn't invalidated automatically between builds. Suppose you have a step in your Dockerfile to install `curl`:
 
@@ -48,7 +48,7 @@ RUN apk add curl
 This doesn't mean that the version of `curl` in your image is always up-to-date. Rebuilding the image one week later will still get you the same packages as before. To force a re-execution of the `RUN` instruction, you can:
 
 - Make sure that a layer before it has changed
-- Clear the build cache ahead of the build using [`docker builder prune`](https://docs.docker.com/reference/cli/docker/builder/prune/)
+- Clear the build cache ahead of the build using [`docker builder prune`]({{< ref "/reference/CLIreference/docker/dockerbuilder/dockerbuilderprune" >}})
 - Use the `--no-cache` or `--no-cache-filter` options
 
 The `--no-cache-filter` option lets you specify a specific build stage to invalidate the cache for:
@@ -59,7 +59,7 @@ The `--no-cache-filter` option lets you specify a specific build stage to invali
 $ docker build --no-cache-filter install .
 ```
 
-## [Build secrets](https://docs.docker.com/build/cache/invalidation/#build-secrets)
+## Build secrets
 
 The contents of build secrets are not part of the build cache. Changing the value of a secret doesn't result in cache invalidation.
 

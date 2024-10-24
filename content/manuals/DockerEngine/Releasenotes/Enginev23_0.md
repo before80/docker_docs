@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/23.0/](https://docs.docker.com/engine/release-notes/23.0/)
+> 原文：[https://docs.docker.com/engine/release-notes/23.0/](https://docs.docker.com/engine/release-notes/23.0/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -26,18 +26,18 @@ draft = false
 > $ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 > ```
 >
-> Refer to the [Docker Engine installation instructions](https://docs.docker.com/engine/install/) for your operating system for more details on upgrading Docker Engine.
+> Refer to the [Docker Engine installation instructions]({{< ref "/manuals/DockerEngine/Install" >}}) for your operating system for more details on upgrading Docker Engine.
 
 This page describes the latest changes, additions, known issues, and fixes for Docker Engine version 23.0.
 
 For more information about:
 
-- Deprecated and removed features, see [Deprecated Engine Features](https://docs.docker.com/engine/deprecated/).
-- Changes to the Engine API, see [Engine API version history](https://docs.docker.com/reference/api/engine/version-history/).
+- Deprecated and removed features, see [Deprecated Engine Features]({{< ref "/manuals/DockerEngine/Deprecatedfeatures" >}}).
+- Changes to the Engine API, see [Engine API version history]({{< ref "/reference/APIreference/DockerEngineAPI/EngineAPIversionhistory" >}}).
 
 Starting with the 23.0.0 release, Docker Engine moves away from using CalVer versioning, and starts using the [SemVer versioning format](https://semver.org/). Changing the version format is a stepping-stone towards Go module compatibility, but the repository doesn't yet use Go modules, and still requires using a "+incompatible" version. Work continues towards Go module compatibility in a future release.
 
-## [23.0.6](https://docs.docker.com/engine/release-notes/23.0/#2306)
+## 23.0.6
 
 *2023-05-08*
 
@@ -46,17 +46,17 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 23.0.6 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A23.0.6)
 - [moby/moby, 23.0.6 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A23.0.6)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/23.0/#bug-fixes-and-enhancements)
+### Bug fixes and enhancements
 
 - Fix vfs storage driver not working on NFS. [moby/moby#45465](https://github.com/moby/moby/pull/45465)
 
-### [Packaging Updates](https://docs.docker.com/engine/release-notes/23.0/#packaging-updates)
+### Packaging Updates
 
 - Upgrade Go to `1.19.9`. [docker/docker-ce-packaging#889](https://github.com/docker/docker-ce-packaging/pull/889), [docker/cli#4254](https://github.com/docker/cli/pull/4254), [moby/moby#45455](https://github.com/moby/moby/pull/45455)
 - Upgrade `containerd` to [v1.6.21](https://github.com/containerd/containerd/releases/tag/v1.6.21)
 - Upgrade `runc` to [v1.1.7](https://github.com/opencontainers/runc/releases/tag/v1.1.7)
 
-## [23.0.5](https://docs.docker.com/engine/release-notes/23.0/#2305)
+## 23.0.5
 
 *2023-04-26*
 
@@ -65,7 +65,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 23.0.5 milestone](https://github.com/docker/cli/milestone/79?closed=1)
 - [moby/moby, 23.0.5 milestone](https://github.com/moby/moby/milestone/118?closed=1)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/23.0/#bug-fixes-and-enhancements-1)
+### Bug fixes and enhancements
 
 - Add the `--all` / `-a` option when pruning volumes. [docker/cli#4229](https://github.com/docker/cli/pull/4229)
 - Add `--format=json` for `docker info`. [docker/cli#4320](https://github.com/docker/cli/pull/4230)
@@ -74,11 +74,11 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Fix a panic in libnetwork during daemon start [moby/moby#45376](https://github.com/moby/moby/pull/45376)
 - Fix "tag" event not being sent when an image is built with `buildx`. [moby/moby#45410](https://github.com/moby/moby/pull/45410)
 
-### [Packaging Updates](https://docs.docker.com/engine/release-notes/23.0/#packaging-updates-1)
+### Packaging Updates
 
 - Upgrade Compose to `2.17.3`. [docker/docker-ce-packaging#883](https://github.com/docker/docker-ce-packaging/pull/883)
 
-## [23.0.4](https://docs.docker.com/engine/release-notes/23.0/#2304)
+## 23.0.4
 
 *2023-04-17*
 
@@ -87,19 +87,19 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 23.0.4 milestone](https://github.com/docker/cli/milestone/77?closed=1)
 - [moby/moby, 23.0.4 milestone](https://github.com/moby/moby/milestone/117?closed=1)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/23.0/#bug-fixes-and-enhancements-2)
+### Bug fixes and enhancements
 
 - Fix a performance regression in Docker CLI 23.0.0 [docker/cli#4141](https://github.com/docker/cli/pull/4141).
 - Fix progress indicator on `docker cp` not functioning as intended [docker/cli#4157](https://github.com/docker/cli/pull/4157).
 - Fix shell completion for `docker compose --file` [docker/cli#4177](https://github.com/docker/cli/pull/4177).
 - Fix an error caused by incorrect handling of "default-address-pools" in `daemon.json` [moby/moby#45246](https://github.com/moby/moby/pull/45246).
 
-### [Packaging Updates](https://docs.docker.com/engine/release-notes/23.0/#packaging-updates-2)
+### Packaging Updates
 
 - Fix missing packages for CentOS 9 Stream.
 - Upgrade Go to `1.19.8`. [docker/docker-ce-packaging#878](https://github.com/docker/docker-ce-packaging/pull/878), [docker/cli#4164](https://github.com/docker/cli/pull/4164), [moby/moby#45277](https://github.com/moby/moby/pull/45277), which contains fixes for [CVE-2023-24537](https://github.com/advisories/GHSA-fp86-2355-v99r), [CVE-2023-24538](https://github.com/advisories/GHSA-v4m2-x4rp-hv22), [CVE-2023-24534](https://github.com/advisories/GHSA-8v5j-pwr7-w5f8), and [CVE-2023-24536](https://github.com/advisories/GHSA-9f7g-gqwh-jpf5)
 
-## [23.0.3](https://docs.docker.com/engine/release-notes/23.0/#2303)
+## 23.0.3
 
 *2023-04-04*
 
@@ -109,7 +109,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 >
 > Due to an issue with CentOS 9 Stream's package repositories, packages for CentOS 9 are currently unavailable. Packages for CentOS 9 may be added later, or as part of the next (23.0.4) patch release.
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/23.0/#bug-fixes-and-enhancements-3)
+### Bug fixes and enhancements
 
 - Fixed a number of issues that can cause Swarm encrypted overlay networks to fail to uphold their guarantees, addressing
 
@@ -136,12 +136,12 @@ For a full list of pull requests and changes in this release, refer to the relev
   - Encrypted overlay networks are now usable on Red Hat Enterprise Linux 9 through the use of the `xt_bpf` kernel module.
   - Users of Swarm overlay networks should review [GHSA-vwm3-crmr-xfxw](https://github.com/moby/moby/security/advisories/GHSA-vwm3-crmr-xfxw) to ensure that unintentional exposure has not occurred.
 
-### [Packaging Updates](https://docs.docker.com/engine/release-notes/23.0/#packaging-updates-3)
+### Packaging Updates
 
 - Upgrade `containerd` to [v1.6.20](https://github.com/containerd/containerd/releases/tag/v1.6.20).
 - Upgrade `runc` to [v1.1.5](https://github.com/opencontainers/runc/releases/tag/v1.1.5).
 
-## [23.0.2](https://docs.docker.com/engine/release-notes/23.0/#2302)
+## 23.0.2
 
 *2023-03-28*
 
@@ -150,7 +150,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 23.0.2 milestone](https://github.com/docker/cli/milestone/75?closed=1)
 - [moby/moby, 23.0.2 milestone](https://github.com/moby/moby/milestone/114?closed=1)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/23.0/#bug-fixes-and-enhancements-4)
+### Bug fixes and enhancements
 
 - Fully resolve missing checks for `apparmor_parser` when an AppArmor enabled kernel is detected. [containerd/containerd#8087](https://github.com/containerd/containerd/pull/8087), [moby/moby#45043](https://github.com/moby/moby/pull/45043)
 - Ensure that credentials are redacted from Git URLs when generating BuildKit buildinfo. Fixes [CVE-2023-26054](https://github.com/moby/buildkit/security/advisories/GHSA-gc89-7gcr-jxqc). [moby/moby#45110](https://github.com/moby/moby/pull/45110)
@@ -170,14 +170,14 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Add forward compatibility for future API versions by considering empty image tags to be the same as `<none>`. [docker/cli#4065](https://github.com/docker/cli/pull/4065)
 - Atomically write context files to greatly reduce the probability of corruption, and improve the error message for a corrupt context. [docker/cli#4063](https://github.com/docker/cli/pull/4063)
 
-### [Packaging](https://docs.docker.com/engine/release-notes/23.0/#packaging)
+### Packaging
 
 - Upgrade Go to `1.19.7`. [docker/docker-ce-packaging#857](https://github.com/docker/docker-ce-packaging/pull/857), [docker/cli#4086](https://github.com/docker/cli/pull/4086), [moby/moby#45137](https://github.com/moby/moby/pull/45137)
 - Upgrade `containerd` to `v1.6.19`. [moby/moby#45084](https://github.com/moby/moby/pull/45084), [moby/moby#45099](https://github.com/moby/moby/pull/45099)
 - Upgrade Buildx to `v0.10.4`. [docker/docker-ce-packaging#855](https://github.com/docker/docker-ce-packaging/pull/855)
 - Upgrade Compose to `v2.17.2`. [docker/docker-ce-packaging#867](https://github.com/docker/docker-ce-packaging/pull/867)
 
-## [23.0.1](https://docs.docker.com/engine/release-notes/23.0/#2301)
+## 23.0.1
 
 *2023-02-09*
 
@@ -186,7 +186,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 23.0.1 milestone](https://github.com/docker/cli/milestone/73?closed=1)
 - [moby/moby, 23.0.1 milestone](https://github.com/moby/moby/milestone/113?closed=1)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/23.0/#bug-fixes-and-enhancements-5)
+### Bug fixes and enhancements
 
 - Fix containers not starting if the kernel has AppArmor enabled, but `apparmor_parser` is not available. [moby/moby#44942](https://github.com/moby/moby/pull/44942)
 - Fix BuildKit-enabled builds with inline caching causing the daemon to crash. [moby/moby#44944](https://github.com/moby/moby/pull/44944)
@@ -198,7 +198,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Fix an incorrect CLI exit code when attempting to execute a directory with a `runc` compiled using Go 1.20. [docker/cli#4004](https://github.com/docker/cli/pull/4004)
 - Fix mishandling the size argument to `--device-write-bps` as a path. [docker/cli#4004](https://github.com/docker/cli/pull/4004)
 
-### [Packaging](https://docs.docker.com/engine/release-notes/23.0/#packaging-1)
+### Packaging
 
 - Add
 
@@ -220,7 +220,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 
 - Upgrade Compose to `v2.16.0`. [docker/docker-ce-packaging#844](https://github.com/docker/docker-ce-packaging/pull/844)
 
-## [23.0.0](https://docs.docker.com/engine/release-notes/23.0/#2300)
+## 23.0.0
 
 *2023-02-01*
 
@@ -229,7 +229,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 23.0.0 milestone](https://github.com/docker/cli/milestone/51?closed=1)
 - [moby/moby, 23.0.0 milestone](https://github.com/moby/moby/milestone/91?closed=1)
 
-### [New](https://docs.docker.com/engine/release-notes/23.0/#new)
+### New
 
 - Set Buildx and BuildKit as the default builder on Linux.
 
@@ -330,7 +330,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 
 - systemd: Start `docker.service` after `time-set.target`. [moby/moby#43107](https://github.com/moby/moby/pull/43107)
 
-### [Removed](https://docs.docker.com/engine/release-notes/23.0/#removed)
+### Removed
 
 - Remove support for reading configuration from
 
@@ -577,14 +577,14 @@ For a full list of pull requests and changes in this release, refer to the relev
 
   - [Deprecation notice](https://docs.docker.com/engine/deprecated/#kernel-memory-limit)
 
-### [Deprecated](https://docs.docker.com/engine/release-notes/23.0/#deprecated)
+### Deprecated
 
 - Require Windows Server RS5 / LTSC 2019 (build 17763) as the minimum to run the daemon. [moby/moby#43254](https://github.com/moby/moby/pull/43254)
 - Deprecate `BuilderSize` on API version >= 1.42. [moby/moby#42608](https://github.com/moby/moby/pull/42608)
 - Deprecate `BuildCache.Parent` in favor of the newly introduced `BuildCache.Parents` on API version >= 1.42. [moby/moby#43908](https://github.com/moby/moby/pull/43908)
 - Deprecate `pkg/urlutil`, moving the implementation to `builder/remotecontext/urlutil`. [moby/moby#43477](https://github.com/moby/moby/pull/43477)
 
-### [Upgrades](https://docs.docker.com/engine/release-notes/23.0/#upgrades)
+### Upgrades
 
 - Upgrade Go to `1.19.5`. [docker/cli#3958](https://github.com/docker/cli/pull/3958), [moby/moby#44794](https://github.com/moby/moby/pull/44794)
 - Upgrade `rootlesskit` to `v0.14.4`. [moby/moby#42708](https://github.com/moby/moby/pull/42708)
@@ -596,7 +596,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Upgrade `hcsshim` `v0.9.6`. [moby/moby#44658](https://github.com/moby/moby/pull/44658)
 - The `btrfs` storage driver now depends on Linux kernel headers (>= 4.12) instead of headers from btrfs-progs. [moby/moby#44776](https://github.com/moby/moby/pull/44776)
 
-### [Security](https://docs.docker.com/engine/release-notes/23.0/#security)
+### Security
 
 - Change permissions on container `hostconfig.json` files to `0600` (was `0644`). [moby/moby#41620](https://github.com/moby/moby/pull/41620)
 - Fix `--seccomp-profile` not accepting `unconfined` and renamed the default seccomp profile to `builtin`. [moby/moby#42481](https://github.com/moby/moby/pull/42481)
@@ -613,7 +613,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Allow `bpf` with `CAP_BPF` and `perf_event_open` with `CAP_PERFMON`. [moby/moby#43988](https://github.com/moby/moby/pull/43988)
 - Explicitly set the `clone3` syscall to return `ENOSYS` in the default seccomp profile, in order to ensure `glibc` will correctly fallback to using `clone`. [moby/moby#42681](https://github.com/moby/moby/pull/42681)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/23.0/#bug-fixes-and-enhancements-6)
+### Bug fixes and enhancements
 
 - Promote `overlay2` to be the default storage driver (`btrfs` and `zfs` are now opt-in). [moby/moby#42661](https://github.com/moby/moby/pull/42661)
 - Add a loading spinner to the `docker cp` command. [docker/cli#2708](https://github.com/docker/cli/pull/2708)
@@ -680,9 +680,9 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Remove ANSI decoration of CLI help annotations when the output isn't a TTY, and added a newline for readability. [docker/cli#3973](https://github.com/docker/cli/pull/3973)
 - Add `docker container remove` as an alias for `docker container rm`. [docker/cli#3986](https://github.com/docker/cli/pull/3986)
 
-### [Known issues](https://docs.docker.com/engine/release-notes/23.0/#known-issues)
+### Known issues
 
-#### [apparmor_parser ( ](https://docs.docker.com/engine/release-notes/23.0/#apparmor_parser-tracking-issuehttpsgithubcommobymobyissues44900)[tracking issue](https://github.com/moby/moby/issues/44900))
+#### apparmor_parser ( ](https://docs.docker.com/engine/release-notes/23.0/#apparmor_parser-tracking-issuehttpsgithubcommobymobyissues44900)[tracking issue
 
 Some Debian users have reported issues with containers failing to start after upgrading to the 23.0 branch. The error message indicates that the issue is due to a missing `apparmor_parser` binary:
 
@@ -702,7 +702,7 @@ The workaround to this issue is to install the `apparmor` package manually:
 apt-get install apparmor
 ```
 
-#### [BuildKit inline cache ( ](https://docs.docker.com/engine/release-notes/23.0/#buildkit-inline-cache-tracking-issuehttpsgithubcommobymobyissues44918)[tracking issue](https://github.com/moby/moby/issues/44918))
+#### BuildKit inline cache ( ](https://docs.docker.com/engine/release-notes/23.0/#buildkit-inline-cache-tracking-issuehttpsgithubcommobymobyissues44918)[tracking issue
 
 Attempting to build an image with BuildKit's inline cache feature (e.g. `docker build --build-arg BUILDKIT_INLINE_CACHE=1 .`, `docker buildx build --cache-to type=inline .`) will result in the daemon unexpectedly exiting:
 
@@ -726,7 +726,7 @@ created by github.com/docker/docker/vendor/github.com/moby/buildkit/util/flightc
 
 The daemon will restart if configured to do so (e.g. via systemd) after such a crash. The only available mitigation in this release is to avoid performing builds with the inline cache feature enabled.
 
-#### [BuildKit with warm cache ( ](https://docs.docker.com/engine/release-notes/23.0/#buildkit-with-warm-cache-tracking-issuehttpsgithubcommobymobyissues44943)[tracking issue](https://github.com/moby/moby/issues/44943))
+#### BuildKit with warm cache ( ](https://docs.docker.com/engine/release-notes/23.0/#buildkit-with-warm-cache-tracking-issuehttpsgithubcommobymobyissues44943)[tracking issue
 
 If an image was built with BuildKit on a previous version of the daemon, and is built with a 23.0 daemon, previously cached layers will not be restored correctly. The image may appear to build correctly if no lines are changed in the Dockerfile; however, if partial cache invalidation occurs due to changing some lines in the Dockerfile, the still valid and previously cached layers will not be loaded correctly.
 
@@ -760,9 +760,9 @@ ERROR: failed to solve: process "/bin/sh -c uname -a" did not complete successfu
 
 To mitigate this, the previous build cache must be discarded. `docker builder prune -a` will completely empty the build cache, and allow the affected builds to proceed again by removing the mishandled cache layers.
 
-#### [ipvlan networks ( ](https://docs.docker.com/engine/release-notes/23.0/#ipvlan-networks-tracking-issuehttpsgithubcommobymobyissues44925)[tracking issue](https://github.com/moby/moby/issues/44925))
+#### ipvlan networks ( ](https://docs.docker.com/engine/release-notes/23.0/#ipvlan-networks-tracking-issuehttpsgithubcommobymobyissues44925)[tracking issue
 
-When upgrading to the 23.0 branch, the existence of any [ipvlan](https://docs.docker.com/engine/network/drivers/ipvlan/) networks will prevent the daemon from starting:
+When upgrading to the 23.0 branch, the existence of any [ipvlan]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/IPvlannetworkdriver" >}}) networks will prevent the daemon from starting:
 
 
 
@@ -786,7 +786,7 @@ github.com/docker/docker/libnetwork/drivers/ipvlan.(*configuration).SetValue(0x4
 
 To mitigate this, affected users can downgrade and remove the network, then upgrade again. Alternatively, the entire network store can be removed, and networks can be recreated after the upgrade. The network store is located at `/var/lib/docker/network/files/local-kv.db`. If the daemon is using an alternate `--data-root`, substitute `/var/lib/docker` for the alternate path.
 
-#### [Kata Containers ( ](https://docs.docker.com/engine/release-notes/23.0/#kata-containers-tracking-issuehttpsgithubcomkata-containerskata-containersissues6154)[tracking issue](https://github.com/kata-containers/kata-containers/issues/6154))
+#### Kata Containers ( ](https://docs.docker.com/engine/release-notes/23.0/#kata-containers-tracking-issuehttpsgithubcomkata-containerskata-containersissues6154)[tracking issue
 
 The 23.0 branch brings support for alternate containerd shims, such as `io.containerd.runsc.v1` (gVisor) and `io.containerd.kata.v2` (Kata Containers).
 

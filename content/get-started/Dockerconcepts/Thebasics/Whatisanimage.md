@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/)
+> 原文：[https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
@@ -16,9 +16,9 @@ draft = false
 
 <iframe id="youtube-player-NyvT9REqLe4" data-video-id="NyvT9REqLe4" class="youtube-video aspect-video h-fit w-full py-2" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Docker concepts - What is an image?" width="100%" height="100%" src="https://www.youtube.com/embed/NyvT9REqLe4?rel=0&amp;iv_load_policy=3&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fdocs.docker.com&amp;widgetid=1" data-gtm-yt-inspected-24="true" style="--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border-width: 0px; border-style: solid; border-color: initial; display: block; vertical-align: middle; aspect-ratio: 16 / 9; height: fit-content; width: 634.672px; padding-top: 0.5rem; padding-bottom: 0.5rem; color: rgb(0, 0, 0); font-family: &quot;Roboto Flex&quot;, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"></iframe>
 
-## [Explanation](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/#explanation)
+## Explanation
 
-Seeing a [container](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/) is an isolated process, where does it get its files and configuration? How do you share those environments?
+Seeing a [container]({{< ref "/get-started/Dockerconcepts/Thebasics/Whatisacontainer" >}}) is an isolated process, where does it get its files and configuration? How do you share those environments?
 
 That's where container images come in!
 
@@ -33,7 +33,7 @@ There are two important principles of images:
 
 These two principles let you to extend or add to existing images. For example, if you are building a Python app, you can start from the [Python image](https://hub.docker.com/_/python) and add additional layers to install your app's dependencies and add your code. This lets you focus on your app, rather than Python itself.
 
-### [Finding images](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/#finding-images)
+### Finding images
 
 [Docker Hub](https://hub.docker.com/) is the default global marketplace for storing and distributing images. It has over 100,000 images created by developers that you can run locally. You can search for Docker Hub images and run them directly from Docker Desktop.
 
@@ -45,7 +45,7 @@ Docker Hub provides a variety of Docker-supported and endorsed images known as D
 
 For example, [Redis](https://hub.docker.com/_/redis) and [Memcached](https://hub.docker.com/_/memcached) are a few popular ready-to-go Docker Official Images. You can download these images and have these services up and running in a matter of seconds. There are also base images, like the [Node.js](https://hub.docker.com/_/node) Docker image, that you can use as a starting point and add your own files and configurations.
 
-## [Try it out](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/#try-it-out)
+## Try it out
 
 {{< tabpane text=true persist=disabled >}}
 
@@ -53,7 +53,7 @@ For example, [Redis](https://hub.docker.com/_/redis) and [Memcached](https://hub
 
 In this hands-on, you will learn how to search and pull a container image using the Docker Desktop GUI.
 
-### [Search for and download an image](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/#search-for-and-download-an-image)
+### Search for and download an image
 
 1. Open the Docker Dashboard and select the **Images** view in the left-hand navigation menu.
 
@@ -75,9 +75,9 @@ In this hands-on, you will learn how to search and pull a container image using 
 
 Follow the instructions to search and pull a Docker image using CLI to view its layers.
 
-### [Search for and download an image](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/#search-for-and-download-an-image)
+### Search for and download an image
 
-1. Open a terminal and search for images using the [`docker search`](https://docs.docker.com/reference/cli/docker/search/) command:
+1. Open a terminal and search for images using the [`docker search`]({{< ref "/reference/CLIreference/docker/dockersearch" >}}) command:
 
    
 
@@ -96,7 +96,7 @@ Follow the instructions to search and pull a Docker image using CLI to view its 
 
    This output shows you information about relevant images available on Docker Hub.
 
-2. Pull the image using the [`docker pull`](https://docs.docker.com/reference/cli/docker/image/pull/) command.
+2. Pull the image using the [`docker pull`]({{< ref "/reference/CLIreference/docker/dockerimage/dockerpull" >}}) command.
 
    
 
@@ -130,7 +130,7 @@ Follow the instructions to search and pull a Docker image using CLI to view its 
 
 {{< /tabpane >}}
 
-### [Learn about the image](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/#learn-about-the-image)
+### Learn about the image
 
 Once you have an image downloaded, you can learn quite a few details about the image either through the GUI or the CLI.
 
@@ -148,20 +148,20 @@ Once you have an image downloaded, you can learn quite a few details about the i
 
 In this walkthrough, you searched and pulled a Docker image. In addition to pulling a Docker image, you also learned about the layers of a Docker Image.
 
-## [Additional resources](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/#additional-resources)
+## Additional resources
 
 The following resources will help you learn more about exploring, finding, and building images:
 
 - Docker Trusted Content
-  - [Docker Official Images docs](https://docs.docker.com/trusted-content/official-images/)
-  - [Docker Verified Publisher docs](https://docs.docker.com/trusted-content/dvp-program/)
-  - [Docker-Sponsored Open Source Program docs](https://docs.docker.com/trusted-content/dsos-program/)
-- [Explore the Image view in Docker Desktop](https://docs.docker.com/desktop/use-desktop/images/)
+  - [Docker Official Images docs]({{< ref "/manuals/Trustedcontent/DockerOfficialImages" >}})
+  - [Docker Verified Publisher docs]({{< ref "/manuals/Trustedcontent/DockerVerifiedPublisherProgram" >}})
+  - [Docker-Sponsored Open Source Program docs]({{< ref "/manuals/Trustedcontent/Docker-SponsoredOpenSourceProgram" >}})
+- [Explore the Image view in Docker Desktop]({{< ref "/manuals/DockerDesktop/ExploreDockerDesktop/Images" >}})
 - [Packaging your software](https://docs.docker.com/build/building/packaging/)
 - [Docker Hub](https://hub.docker.com/)
 
-## [Next steps](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/#next-steps)
+## Next steps
 
 Now that you have learned the basics of images, it's time to learn about distributing images through registries.
 
-[What is a registry?](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-registry/)
+[What is a registry?]({{< ref "/get-started/Dockerconcepts/Thebasics/Whatisaregistry" >}})

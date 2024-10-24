@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/daemon/](https://docs.docker.com/engine/daemon/)
+> 原文：[https://docs.docker.com/engine/daemon/](https://docs.docker.com/engine/daemon/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,7 +22,7 @@ This page shows you how to customize the Docker daemon, `dockerd`.
 >
 > This page is for users who've installed Docker Engine manually. If you're using Docker Desktop, refer to the [settings page](https://docs.docker.com/desktop/settings/#docker-engine).
 
-## [Configure the Docker daemon](https://docs.docker.com/engine/daemon/#configure-the-docker-daemon)
+## Configure the Docker daemon
 
 There are two ways to configure the Docker daemon:
 
@@ -31,7 +31,7 @@ There are two ways to configure the Docker daemon:
 
 You can use both of these options together as long as you don't specify the same option both as a flag and in the JSON file. If that happens, the Docker daemon won't start and prints an error message.
 
-### [Configuration file](https://docs.docker.com/engine/daemon/#configuration-file)
+### Configuration file
 
 The following table shows the location where the Docker daemon expects to find the configuration file by default, depending on your system and how you're running the daemon.
 
@@ -47,7 +47,7 @@ You can also explicitly specify the location of the configuration file on startu
 
 Learn about the available configuration options in the [dockerd reference docs](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file)
 
-### [Configuration using flags](https://docs.docker.com/engine/daemon/#configuration-using-flags)
+### Configuration using flags
 
 You can also start the Docker daemon manually and configure it using flags. This can be useful for troubleshooting problems.
 
@@ -63,7 +63,7 @@ $ dockerd --debug \
   --host tcp://192.168.59.3:2376
 ```
 
-Learn about the available configuration options in the [dockerd reference docs](https://docs.docker.com/reference/cli/dockerd/), or by running:
+Learn about the available configuration options in the [dockerd reference docs]({{< ref "/reference/CLIreference/dockerd" >}}), or by running:
 
 
 
@@ -71,7 +71,7 @@ Learn about the available configuration options in the [dockerd reference docs](
 $ dockerd --help
 ```
 
-## [Daemon data directory](https://docs.docker.com/engine/daemon/#daemon-data-directory)
+## Daemon data directory
 
 The Docker daemon persists all data in a single directory. This tracks everything related to Docker, including containers, images, volumes, service definition, and secrets.
 
@@ -92,12 +92,12 @@ You can configure the Docker daemon to use a different directory, using the `dat
 
 Since the state of a Docker daemon is kept on this directory, make sure you use a dedicated directory for each daemon. If two daemons share the same directory, for example, an NFS share, you are going to experience errors that are difficult to troubleshoot.
 
-## [Next steps](https://docs.docker.com/engine/daemon/#next-steps)
+## Next steps
 
 Many specific configuration options are discussed throughout the Docker documentation. Some places to go next include:
 
-- [Automatically start containers](https://docs.docker.com/engine/containers/start-containers-automatically/)
-- [Limit a container's resources](https://docs.docker.com/engine/containers/resource_constraints/)
-- [Configure storage drivers](https://docs.docker.com/engine/storage/drivers/select-storage-driver/)
-- [Container security](https://docs.docker.com/engine/security/)
-- [Configure the Docker daemon to use a proxy](https://docs.docker.com/engine/daemon/proxy/)
+- [Automatically start containers]({{< ref "/manuals/DockerEngine/Containers/Startcontainersautomatically" >}})
+- [Limit a container's resources]({{< ref "/manuals/DockerEngine/Containers/Resourceconstraints" >}})
+- [Configure storage drivers]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers/Selectastoragedriver" >}})
+- [Container security]({{< ref "/manuals/DockerEngine/Security" >}})
+- [Configure the Docker daemon to use a proxy]({{< ref "/manuals/DockerEngine/Daemon/Daemonproxyconfiguration" >}})

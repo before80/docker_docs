@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/extensions/](https://docs.docker.com/extensions/extensions-sdk/extensions/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/extensions/](https://docs.docker.com/extensions/extensions-sdk/extensions/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,39 +16,39 @@ draft = false
 
 This section describes how to make your extension available and more visible, so users can discover it and install it with a single click.
 
-## [Release your extension](https://docs.docker.com/extensions/extensions-sdk/extensions/#release-your-extension)
+## Release your extension
 
 After you have developed your extension and tested it locally, you are ready to release the extension and make it available for others to install and use (either internally with your team, or more publicly).
 
 Releasing your extension consists of:
 
 - Providing information about your extension: description, screenshots, etc. so users can decide to install your extension
-- [Validating](https://docs.docker.com/extensions/extensions-sdk/extensions/validate/) that the extension is built in the right format and includes the required information
+- [Validating]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish/Validate" >}}) that the extension is built in the right format and includes the required information
 - Making the extension image available on [Docker Hub](https://hub.docker.com/)
 
-See [Package and release your extension](https://docs.docker.com/extensions/extensions-sdk/extensions/DISTRIBUTION/) for more details about the release process.
+See [Package and release your extension]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish/Packageandreleaseyourextension" >}}) for more details about the release process.
 
-## [Promote your extension](https://docs.docker.com/extensions/extensions-sdk/extensions/#promote-your-extension)
+## Promote your extension
 
 Once your extension is available on Docker Hub, users who have access to the extension image can install it using the Docker CLI.
 
-### [Use a share extension link](https://docs.docker.com/extensions/extensions-sdk/extensions/#use-a-share-extension-link)
+### Use a share extension link
 
-You can also [generate a share URL](https://docs.docker.com/extensions/extensions-sdk/extensions/share/) in order to share your extension within your team, or promote your extension on the internet. The share link lets users view the extension description and screenshots.
+You can also [generate a share URL]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish/Shareyourextension" >}}) in order to share your extension within your team, or promote your extension on the internet. The share link lets users view the extension description and screenshots.
 
-### [Publish your extension in the Marketplace](https://docs.docker.com/extensions/extensions-sdk/extensions/#publish-your-extension-in-the-marketplace)
+### Publish your extension in the Marketplace
 
-You can publish your extension in the Extensions Marketplace to make it more discoverable. You must [submit your extension](https://docs.docker.com/extensions/extensions-sdk/extensions/publish/) if you want to have it published in the Marketplace.
+You can publish your extension in the Extensions Marketplace to make it more discoverable. You must [submit your extension]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish/PublishintheMarketplace" >}}) if you want to have it published in the Marketplace.
 
-## [What happens next](https://docs.docker.com/extensions/extensions-sdk/extensions/#what-happens-next)
+## What happens next
 
-### [New releases](https://docs.docker.com/extensions/extensions-sdk/extensions/#new-releases)
+### New releases
 
 Once you have released your extension, you can push a new release just by pushing a new version of the extension image, with an incremented tag (still using `semver` conventions). Extensions published in the Marketplace benefit from update notifications to all Desktop users that have installed the extension. For more details, see [new releases and updates](https://docs.docker.com/extensions/extensions-sdk/extensions/DISTRIBUTION/#new-releases-and-updates).
 
-### [Extension support and user feedback](https://docs.docker.com/extensions/extensions-sdk/extensions/#extension-support-and-user-feedback)
+### Extension support and user feedback
 
-In addition to providing a description of your extension's features and screenshots, you should also specify additional URLs using [extension labels](https://docs.docker.com/extensions/extensions-sdk/extensions/labels/). This direct users to your website for reporting bugs and feedback, and accessing documentation and support.
+In addition to providing a description of your extension's features and screenshots, you should also specify additional URLs using [extension labels]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish/Addlabels" >}}). This direct users to your website for reporting bugs and feedback, and accessing documentation and support.
 
 > Already built an extension?
 >

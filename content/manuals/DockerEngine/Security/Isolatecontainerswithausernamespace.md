@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/security/userns-remap/](https://docs.docker.com/engine/security/userns-remap/)
+> 原文：[https://docs.docker.com/engine/security/userns-remap/](https://docs.docker.com/engine/security/userns-remap/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ Linux namespaces provide isolation for running processes, limiting their access 
 
 The best way to prevent privilege-escalation attacks from within a container is to configure your container's applications to run as unprivileged users. For containers whose processes must run as the `root` user within the container, you can re-map this user to a less-privileged user on the Docker host. The mapped user is assigned a range of UIDs which function within the namespace as normal UIDs from 0 to 65536, but have no privileges on the host machine itself.
 
-## [About remapping and subordinate user and group IDs](https://docs.docker.com/engine/security/userns-remap/#about-remapping-and-subordinate-user-and-group-ids)
+## About remapping and subordinate user and group IDs
 
 The remapping itself is handled by two files: `/etc/subuid` and `/etc/subgid`. Each file works the same, but one is concerned with the user ID range, and the other with the group ID range. Consider the following entry in `/etc/subuid`:
 
@@ -48,7 +48,7 @@ It is very important that the ranges do not overlap, so that a process cannot ga
 
 This re-mapping is transparent to the container, but introduces some configuration complexity in situations where the container needs access to resources on the Docker host, such as bind mounts into areas of the filesystem that the system user cannot write to. From a security standpoint, it is best to avoid these situations.
 
-## [Prerequisites](https://docs.docker.com/engine/security/userns-remap/#prerequisites)
+## Prerequisites
 
 1. The subordinate UID and GID ranges must be associated with an existing user, even though the association is an implementation detail. The user owns the namespaced storage directories under `/var/lib/docker/`. If you don't want to use an existing user, Docker can create one for you and use that. If you want to use an existing username or user ID, it must already exist. Typically, this means that the relevant entries need to be in `/etc/passwd` and `/etc/group`, but if you are using a different authentication back-end, this requirement may translate differently.
 
@@ -86,7 +86,7 @@ This re-mapping is transparent to the container, but introduces some configurati
 
 5. Check the [limitations](https://docs.docker.com/engine/security/userns-remap/#user-namespace-known-limitations) on user namespaces to be sure your use case is possible.
 
-## [Enable userns-remap on the daemon](https://docs.docker.com/engine/security/userns-remap/#enable-userns-remap-on-the-daemon)
+## Enable userns-remap on the daemon
 
 You can start `dockerd` with the `--userns-remap` flag or follow this procedure to configure the daemon using the `daemon.json` configuration file. The `daemon.json` method is recommended. If you use the flag, use the following command as a model:
 
@@ -184,7 +184,7 @@ $ dockerd --userns-remap="testuser:testuser"
 
    The directories which are owned by the remapped user are used instead of the same directories directly beneath `/var/lib/docker/` and the unused versions (such as `/var/lib/docker/tmp/` in the example here) can be removed. Docker does not use them while `userns-remap` is enabled.
 
-## [Disable namespace remapping for a container](https://docs.docker.com/engine/security/userns-remap/#disable-namespace-remapping-for-a-container)
+## Disable namespace remapping for a container
 
 If you enable user namespaces on the daemon, all containers are started with user namespaces enabled by default. In some situations, such as privileged containers, you may need to disable user namespaces for a specific container. See [user namespace known limitations](https://docs.docker.com/engine/security/userns-remap/#user-namespace-known-limitations) for some of these limitations.
 
@@ -194,7 +194,7 @@ There is a side effect when using this flag: user remapping will not be enabled 
 
 What this means is that the whole container filesystem will belong to the user specified in the `--userns-remap` daemon config (`231072` in the example above). This can lead to unexpected behavior of programs inside the container. For instance `sudo` (which checks that its binaries belong to user `0`) or binaries with a `setuid` flag.
 
-## [User namespace known limitations](https://docs.docker.com/engine/security/userns-remap/#user-namespace-known-limitations)
+## User namespace known limitations
 
 The following standard Docker features are incompatible with running a Docker daemon with user namespaces enabled:
 

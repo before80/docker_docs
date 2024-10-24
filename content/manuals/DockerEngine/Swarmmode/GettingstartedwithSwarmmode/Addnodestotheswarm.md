@@ -8,17 +8,17 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/swarm-tutorial/add-nodes/](https://docs.docker.com/engine/swarm/swarm-tutorial/add-nodes/)
+> 原文：[https://docs.docker.com/engine/swarm/swarm-tutorial/add-nodes/](https://docs.docker.com/engine/swarm/swarm-tutorial/add-nodes/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Add nodes to the swarm
 
-Once you've [created a swarm](https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/) with a manager node, you're ready to add worker nodes.
+Once you've [created a swarm]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode/Createaswarm" >}}) with a manager node, you're ready to add worker nodes.
 
 1. Open a terminal and ssh into the machine where you want to run a worker node. This tutorial uses the name `worker1`.
 
-2. Run the command produced by the `docker swarm init` output from the [Create a swarm](https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/) tutorial step to create a worker node joined to the existing swarm:
+2. Run the command produced by the `docker swarm init` output from the [Create a swarm]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode/Createaswarm" >}}) tutorial step to create a worker node joined to the existing swarm:
 
    
 
@@ -46,7 +46,7 @@ Once you've [created a swarm](https://docs.docker.com/engine/swarm/swarm-tutoria
 
 3. Open a terminal and ssh into the machine where you want to run a second worker node. This tutorial uses the name `worker2`.
 
-4. Run the command produced by the `docker swarm init` output from the [Create a swarm](https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/) tutorial step to create a second worker node joined to the existing swarm:
+4. Run the command produced by the `docker swarm init` output from the [Create a swarm]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode/Createaswarm" >}}) tutorial step to create a second worker node joined to the existing swarm:
 
    
 
@@ -74,8 +74,8 @@ Once you've [created a swarm](https://docs.docker.com/engine/swarm/swarm-tutoria
 
    Swarm management commands like `docker node ls` only work on manager nodes.
 
-## [What's next?](https://docs.docker.com/engine/swarm/swarm-tutorial/add-nodes/#whats-next)
+## What's next?
 
 Now your swarm consists of a manager and two worker nodes. Next, you'll deploy a service.
 
-[Deploy a service](https://docs.docker.com/engine/swarm/swarm-tutorial/deploy-service/)
+[Deploy a service]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode/Deployaservicetotheswarm" >}})

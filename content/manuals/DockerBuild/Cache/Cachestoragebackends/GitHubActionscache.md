@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/cache/backends/gha/](https://docs.docker.com/build/cache/backends/gha/)
+> 原文：[https://docs.docker.com/build/cache/backends/gha/](https://docs.docker.com/build/cache/backends/gha/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,9 +20,9 @@ This is an experimental feature. The interface and behavior are unstable and may
 
 The GitHub Actions cache utilizes the [GitHub-provided Action's cache](https://github.com/actions/cache) or other cache services supporting the GitHub Actions cache protocol. This is the recommended cache to use inside your GitHub Actions workflows, as long as your use case falls within the [size and usage limits set by GitHub](https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy).
 
-This cache storage backend is not supported with the default `docker` driver. To use this feature, create a new builder using a different driver. See [Build drivers](https://docs.docker.com/build/builders/drivers/) for more information.
+This cache storage backend is not supported with the default `docker` driver. To use this feature, create a new builder using a different driver. See [Build drivers]({{< ref "/manuals/DockerBuild/Builders/Builddrivers" >}}) for more information.
 
-## [Synopsis](https://docs.docker.com/build/cache/backends/gha/#synopsis)
+## Synopsis
 
 
 
@@ -45,11 +45,11 @@ The following table describes the available CSV parameters that you can pass to 
 | `repository`   | `cache-to`              | String      |                          | GitHub repository used for cache storage.                    |
 | `ghtoken`      | `cache-to`              | String      |                          | GitHub token required for accessing the GitHub API.          |
 
-## [Authentication](https://docs.docker.com/build/cache/backends/gha/#authentication)
+## Authentication
 
 If the `url` or `token` parameters are left unspecified, the `gha` cache backend will fall back to using environment variables. If you invoke the `docker buildx` command manually from an inline step, then the variables must be manually exposed. Consider using the [`crazy-max/ghaction-github-runtime`](https://github.com/crazy-max/ghaction-github-runtime), GitHub Action as a helper for exposing the variables.
 
-## [Scope](https://docs.docker.com/build/cache/backends/gha/#scope)
+## Scope
 
 Scope is a key used to identify the cache object. By default, it is set to `buildkit`. If you build multiple images, each build will overwrite the cache of the previous, leaving only the final cache.
 
@@ -68,7 +68,7 @@ $ docker buildx build --push -t <registry>/<image2> \
 
 GitHub's [cache access restrictions](https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows#restrictions-for-accessing-a-cache), still apply. Only the cache for the current branch, the base branch and the default branch is accessible by a workflow.
 
-### [Using `docker/build-push-action`](https://docs.docker.com/build/cache/backends/gha/#using-dockerbuild-push-action)
+### Using `docker/build-push-action`
 
 When using the [`docker/build-push-action`](https://github.com/docker/build-push-action), the `url` and `token` parameters are automatically populated. No need to manually specify them, or include any additional workarounds.
 
@@ -87,7 +87,7 @@ For example:
     cache-to: type=gha,mode=max
 ```
 
-## [Avoid GitHub Actions cache API throttling](https://docs.docker.com/build/cache/backends/gha/#avoid-github-actions-cache-api-throttling)
+## Avoid GitHub Actions cache API throttling
 
 GitHub's [usage limits and eviction policy](https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy) causes stale cache entries to be removed after a certain period of time. By default, the `gha` cache backend uses the GitHub Actions cache API to check the status of cache entries.
 
@@ -128,10 +128,10 @@ The `ghtoken` parameter is automatically set to the value of `secrets.GITHUB_TOK
     github-token: ${{ secrets.MY_CUSTOM_TOKEN }}
 ```
 
-## [Further reading](https://docs.docker.com/build/cache/backends/gha/#further-reading)
+## Further reading
 
-For an introduction to caching see [Docker build cache](https://docs.docker.com/build/cache/).
+For an introduction to caching see [Docker build cache]({{< ref "/manuals/DockerBuild/Cache" >}}).
 
 For more information on the `gha` cache backend, see the [BuildKit README](https://github.com/moby/buildkit#github-actions-cache-experimental).
 
-For more information about using GitHub Actions with Docker, see [Introduction to GitHub Actions](https://docs.docker.com/build/ci/github-actions/)
+For more information about using GitHub Actions with Docker, see [Introduction to GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions" >}})

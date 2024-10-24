@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/bake/compose-file/](https://docs.docker.com/build/bake/compose-file/)
+> 原文：[https://docs.docker.com/build/bake/compose-file/](https://docs.docker.com/build/bake/compose-file/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Building with Bake from a Compose file
 
-Bake supports the [Compose file format](https://docs.docker.com/reference/compose-file/) to parse a Compose file and translate each service to a [target](https://docs.docker.com/build/bake/reference/#target).
+Bake supports the [Compose file format]({{< ref "/reference/Composefilereference" >}}) to parse a Compose file and translate each service to a [target](https://docs.docker.com/build/bake/reference/#target).
 
 
 
@@ -88,9 +88,9 @@ $ docker buildx bake --print
 The compose format has some limitations compared to the HCL format:
 
 - Specifying variables or global scope attributes is not yet supported
-- `inherits` service field is not supported, but you can use [YAML anchors](https://docs.docker.com/reference/compose-file/fragments/) to reference other services, as demonstrated in the previous example with `&build-dev`.
+- `inherits` service field is not supported, but you can use [YAML anchors]({{< ref "/reference/Composefilereference/Fragments" >}}) to reference other services, as demonstrated in the previous example with `&build-dev`.
 
-## [`.env` file](https://docs.docker.com/build/bake/compose-file/#env-file)
+## `.env` file
 
 You can declare default environment variables in an environment file named `.env`. This file will be loaded from the current working directory, where the command is executed and applied to compose definitions passed with `-f`.
 
@@ -143,9 +143,9 @@ $ docker buildx bake --print
 >
 > System environment variables take precedence over environment variables in `.env` file.
 
-## [Extension field with `x-bake`](https://docs.docker.com/build/bake/compose-file/#extension-field-with-x-bake)
+## Extension field with `x-bake`
 
-Where some fields are not available in the compose specification, you can use the [special extension](https://docs.docker.com/reference/compose-file/extension/) field `x-bake` in your compose file to evaluate extra fields:
+Where some fields are not available in the compose specification, you can use the [special extension]({{< ref "/reference/Composefilereference/Extensions" >}}) field `x-bake` in your compose file to evaluate extra fields:
 
 
 

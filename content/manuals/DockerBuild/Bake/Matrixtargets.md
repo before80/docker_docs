@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/bake/matrices/](https://docs.docker.com/build/bake/matrices/)
+> 原文：[https://docs.docker.com/build/bake/matrices/](https://docs.docker.com/build/bake/matrices/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -68,7 +68,7 @@ $ docker buildx bake --print app
 }
 ```
 
-## [Multiple axes](https://docs.docker.com/build/bake/matrices/#multiple-axes)
+## Multiple axes
 
 You can specify multiple keys in your matrix to fork a target on multiple axes. When using multiple matrix keys, Bake builds every possible variant.
 
@@ -95,7 +95,7 @@ target "app" {
 }
 ```
 
-## [Multiple values per matrix target](https://docs.docker.com/build/bake/matrices/#multiple-values-per-matrix-target)
+## Multiple values per matrix target
 
 If you want to differentiate the matrix on more than just a single value, you can use maps as matrix values. Bake creates a target for each map, and you can access the nested values using dot notation.
 

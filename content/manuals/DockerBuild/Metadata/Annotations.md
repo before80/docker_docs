@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/metadata/annotations/](https://docs.docker.com/build/metadata/annotations/)
+> 原文：[https://docs.docker.com/build/metadata/annotations/](https://docs.docker.com/build/metadata/annotations/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,19 +16,19 @@ draft = false
 
 Annotations provide descriptive metadata for images. Use annotations to record arbitrary information and attach it to your image, which helps consumers and tools understand the origin, contents, and how to use the image.
 
-Annotations are similar to, and in some sense overlap with, [labels](https://docs.docker.com/engine/manage-resources/labels/). Both serve the same purpose: attach metadata to a resource. As a general principle, you can think of the difference between annotations and labels as follows:
+Annotations are similar to, and in some sense overlap with, [labels]({{< ref "/manuals/DockerEngine/Manageresources/Dockerobjectlabels" >}}). Both serve the same purpose: attach metadata to a resource. As a general principle, you can think of the difference between annotations and labels as follows:
 
 - Annotations describe OCI image components, such as [manifests](https://github.com/opencontainers/image-spec/blob/main/manifest.md), [indexes](https://github.com/opencontainers/image-spec/blob/main/image-index.md), and [descriptors](https://github.com/opencontainers/image-spec/blob/main/descriptor.md).
 - Labels describe Docker resources, such as images, containers, networks, and volumes.
 
 The OCI image [specification](https://github.com/opencontainers/image-spec/blob/main/annotations.md) defines the format of annotations, as well as a set of pre-defined annotation keys. Adhering to the specified standards ensures that metadata about images can be surfaced automatically and consistently, by tools like Docker Scout.
 
-Annotations are not to be confused with [attestations](https://docs.docker.com/build/metadata/attestations/):
+Annotations are not to be confused with [attestations]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations" >}}):
 
 - Attestations contain information about how an image was built and what it contains. An attestation is attached as a separate manifest on the image index. Attestations are not standardized by the Open Container Initiative.
 - Annotations contain arbitrary metadata about an image. Annotations attach to the image [config](https://github.com/opencontainers/image-spec/blob/main/config.md) as labels, or on the image index or manifest as properties.
 
-## [Add annotations](https://docs.docker.com/build/metadata/annotations/#add-annotations)
+## Add annotations
 
 You can add annotations to an image at build-time, or when creating the image manifest or index.
 
@@ -36,7 +36,7 @@ You can add annotations to an image at build-time, or when creating the image ma
 >
 > 
 >
-> The Docker Engine image store doesn't support loading images with annotations. To build with annotations, make sure to push the image directly to a registry, using the `--push` CLI flag or the [registry exporter](https://docs.docker.com/build/exporters/image-registry/).
+> The Docker Engine image store doesn't support loading images with annotations. To build with annotations, make sure to push the image directly to a registry, using the `--push` CLI flag or the [registry exporter]({{< ref "/manuals/DockerBuild/Exporters/Imageandregistryexporters" >}}).
 
 To specify annotations on the command line, use the `--annotation` flag for the `docker build` command:
 
@@ -46,7 +46,7 @@ To specify annotations on the command line, use the `--annotation` flag for the 
 $ docker build --push --annotation "foo=bar" .
 ```
 
-If you're using [Bake](https://docs.docker.com/build/bake/), you can use the `annotations` attribute to specify annotations for a given target:
+If you're using [Bake]({{< ref "/manuals/DockerBuild/Bake" >}}), you can use the `annotations` attribute to specify annotations for a given target:
 
 
 
@@ -57,11 +57,11 @@ target "default" {
 }
 ```
 
-For examples on how to add annotations to images built with GitHub Actions, see [Add image annotations with GitHub Actions](https://docs.docker.com/build/ci/github-actions/annotations/)
+For examples on how to add annotations to images built with GitHub Actions, see [Add image annotations with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Annotations" >}})
 
 You can also add annotations to an image created using `docker buildx imagetools create`. This command only supports adding annotations to an index or manifest descriptors, see [CLI reference](https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/#annotations).
 
-## [Inspect annotations](https://docs.docker.com/build/metadata/annotations/#inspect-annotations)
+## Inspect annotations
 
 To view annotations on an **image index**, use the `docker buildx imagetools inspect` command. This shows you any annotations for the index and descriptors (references to manifests) that the index contains. The following example shows an `org.opencontainers.image.documentation` annotation on a descriptor, and an `org.opencontainers.image.authors` annotation on the index.
 
@@ -125,7 +125,7 @@ $ docker buildx imagetools inspect IMAGE@sha256:d20246ef744b1d05a1dd69d0b3fa907d
 }
 ```
 
-## [Specify annotation level](https://docs.docker.com/build/metadata/annotations/#specify-annotation-level)
+## Specify annotation level
 
 By default, annotations are added to the image manifest. You can specify which level (OCI image component) to attach the annotation to by prefixing the annotation string with a special type declaration:
 
@@ -182,11 +182,11 @@ You can also specify a platform qualifier within square brackets in the type pre
 $ docker build --tag IMAGE --push --annotation "manifest[linux/amd64]:foo=bar" .
 ```
 
-## [Related information](https://docs.docker.com/build/metadata/annotations/#related-information)
+## Related information
 
 Related articles:
 
-- [Add image annotations with GitHub Actions](https://docs.docker.com/build/ci/github-actions/annotations/)
+- [Add image annotations with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Annotations" >}})
 - [Annotations OCI specification](https://github.com/opencontainers/image-spec/blob/main/annotations.md)
 
 Reference information:

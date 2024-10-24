@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/how-tos/multiple-compose-files/include/](https://docs.docker.com/compose/how-tos/multiple-compose-files/include/)
+> 原文：[https://docs.docker.com/compose/how-tos/multiple-compose-files/include/](https://docs.docker.com/compose/how-tos/multiple-compose-files/include/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ Introduced in Docker Compose version [2.20.3](https://docs.docker.com/compose/re
 
 With `include`, you can incorporate a separate `compose.yaml` file directly in your current `compose.yaml` file. This makes it easy to modularize complex applications into sub-Compose files, which in turn enables application configurations to be made simpler and more explicit.
 
-The [`include` top-level element](https://docs.docker.com/reference/compose-file/include/) helps to reflect the engineering team responsible for the code directly in the config file's organization. It also solves the relative path problem that [`extends`](https://docs.docker.com/compose/how-tos/multiple-compose-files/extends/) and [merge](https://docs.docker.com/compose/how-tos/multiple-compose-files/merge/) present.
+The [`include` top-level element]({{< ref "/reference/Composefilereference/Include" >}}) helps to reflect the engineering team responsible for the code directly in the config file's organization. It also solves the relative path problem that [`extends`]({{< ref "/manuals/DockerCompose/How-tos/UsemultipleComposefiles/Extend" >}}) and [merge]({{< ref "/manuals/DockerCompose/How-tos/UsemultipleComposefiles/Merge" >}}) present.
 
 Each path listed in the `include` section loads as an individual Compose application model, with its own project directory, in order to resolve relative paths.
 
@@ -30,7 +30,7 @@ Once the included Compose application loads, all resources are copied into the c
 >
 > `include` applies recursively so an included Compose file which declares its own `include` section, results in those other files being included as well.
 
-## [Example](https://docs.docker.com/compose/how-tos/multiple-compose-files/include/#example)
+## Example
 
 
 
@@ -48,7 +48,7 @@ services:
 
 This means the team managing `serviceB` can refactor its own database component to introduce additional services without impacting any dependent teams. It also means that the dependent teams don't need to include additional flags on each Compose command they run.
 
-## [Include and overrides](https://docs.docker.com/compose/how-tos/multiple-compose-files/include/#include-and-overrides)
+## Include and overrides
 
 Compose reports an error if any resource from `include` conflicts with resources from the included Compose file. This rule prevents unexpected conflicts with resources defined by the included compose file author. However, there may be some circumstances where you might want to tweak the included model. This can be achieved by adding an override file to the include directive:
 
@@ -94,6 +94,6 @@ services:
 
 Combined together, this allows you to benefit from third-party reusable components, and adjust the Compose model for your needs.
 
-## [Reference information](https://docs.docker.com/compose/how-tos/multiple-compose-files/include/#reference-information)
+## Reference information
 
-[`include` top-level element](https://docs.docker.com/reference/compose-file/include/)
+[`include` top-level element]({{< ref "/reference/Composefilereference/Include" >}})

@@ -8,6 +8,50 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/plugin/enable/](https://docs.docker.com/reference/cli/docker/plugin/enable/)
+> 原文：[https://docs.docker.com/reference/cli/docker/plugin/enable/](https://docs.docker.com/reference/cli/docker/plugin/enable/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
+
+# docker plugin enable
+
+| Description | Enable a plugin                         |
+| :---------- | --------------------------------------- |
+| Usage       | `docker plugin enable [OPTIONS] PLUGIN` |
+
+## Description
+
+Enables a plugin. The plugin must be installed before it can be enabled, see [`docker plugin install`]({{< ref "/reference/CLIreference/docker/dockerplugin/dockerplugininstall" >}}).
+
+## Options
+
+| Option      | Default | Description                      |
+| ----------- | ------- | -------------------------------- |
+| `--timeout` | `30`    | HTTP client timeout (in seconds) |
+
+## Examples
+
+The following example shows that the `sample-volume-plugin` plugin is installed, but disabled:
+
+
+
+```console
+$ docker plugin ls
+
+ID            NAME                                    DESCRIPTION                ENABLED
+69553ca1d123  tiborvass/sample-volume-plugin:latest   A test plugin for Docker   false
+```
+
+To enable the plugin, use the following command:
+
+
+
+```console
+$ docker plugin enable tiborvass/sample-volume-plugin
+
+tiborvass/sample-volume-plugin
+
+$ docker plugin ls
+
+ID            NAME                                    DESCRIPTION                ENABLED
+69553ca1d123  tiborvass/sample-volume-plugin:latest   A test plugin for Docker   true
+```

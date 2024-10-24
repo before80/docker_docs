@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/policy/view/](https://docs.docker.com/scout/policy/view/)
+> 原文：[https://docs.docker.com/scout/policy/view/](https://docs.docker.com/scout/policy/view/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,13 +16,13 @@ draft = false
 
 You can track policy status for your artifacts from the [Docker Scout Dashboard](https://docs.docker.com/scout/policy/view/#dashboard), or using the [CLI](https://docs.docker.com/scout/policy/view/#cli).
 
-## [Dashboard](https://docs.docker.com/scout/policy/view/#dashboard)
+## Dashboard
 
 The **Overview** tab of the [Docker Scout Dashboard](https://scout.docker.com/) displays a summary of recent changes in policy for your repositories. This summary shows images that have seen the most change in their policy evaluation between the most recent image and the previous image.
 
 ![Policy overview](ViewDockerScoutpolicystatus_img/policy-overview.webp)
 
-### [Policy status per repository](https://docs.docker.com/scout/policy/view/#policy-status-per-repository)
+### Policy status per repository
 
 The **Images** tab shows the current policy status, and recent policy trend, for all images in the selected environment. The **Policy status** column in the list shows:
 
@@ -39,7 +39,7 @@ The policy trend, denoted by the directional arrows, indicates whether an image 
 
 If you select a repository, you can open the **Policy** tab for a detailed description of the policy delta for the most recently analyzed image and its predecessor.
 
-### [Detailed results and remediation](https://docs.docker.com/scout/policy/view/#detailed-results-and-remediation)
+### Detailed results and remediation
 
 To view the full evaluation results for an image, navigate to the image tag in the Docker Scout Dashboard and open the **Policy** tab. This shows a breakdown for all policy violations for the current image.
 
@@ -53,7 +53,7 @@ For vulnerability-related policies, the policy details view displays the fix ver
 
 For licensing-related policies, the list shows all packages whose license doesn't meet the policy criteria. To fix the issue, find a way to remove the dependency to the violating package, for example by looking for an alternative package distributed under a more appropriate license.
 
-## [CLI](https://docs.docker.com/scout/policy/view/#cli)
+## CLI
 
 To view policy status for an image from the CLI, use the `docker scout policy` command.
 
@@ -98,4 +98,4 @@ Policy status  FAILED  (2/8 policies met, 3 missing data)
 ...
 ```
 
-For more information about the command, refer to the [CLI reference](https://docs.docker.com/reference/cli/docker/scout/policy/).
+For more information about the command, refer to the [CLI reference]({{< ref "/reference/CLIreference/docker/dockerscout/dockerscoutpolicy" >}}).

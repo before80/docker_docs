@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/building/multi-stage/](https://docs.docker.com/build/building/multi-stage/)
+> 原文：[https://docs.docker.com/build/building/multi-stage/](https://docs.docker.com/build/building/multi-stage/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 Multi-stage builds are useful to anyone who has struggled to optimize Dockerfiles while keeping them easy to read and maintain.
 
-## [Use multi-stage builds](https://docs.docker.com/build/building/multi-stage/#use-multi-stage-builds)
+## Use multi-stage builds
 
 With multi-stage builds, you use multiple `FROM` statements in your Dockerfile. Each `FROM` instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don't want in the final image.
 
@@ -56,7 +56,7 @@ The end result is a tiny production image with nothing but the binary inside. No
 
 How does it work? The second `FROM` instruction starts a new build stage with the `scratch` image as its base. The `COPY --from=0` line copies just the built artifact from the previous stage into this new stage. The Go SDK and any intermediate artifacts are left behind, and not saved in the final image.
 
-## [Name your build stages](https://docs.docker.com/build/building/multi-stage/#name-your-build-stages)
+## Name your build stages
 
 By default, the stages aren't named, and you refer to them by their integer number, starting with 0 for the first `FROM` instruction. However, you can name your stages, by adding an `AS <NAME>` to the `FROM` instruction. This example improves the previous one by naming the stages and using the name in the `COPY` instruction. This means that even if the instructions in your Dockerfile are re-ordered later, the `COPY` doesn't break.
 
@@ -82,7 +82,7 @@ COPY --from=build /bin/hello /bin/hello
 CMD ["/bin/hello"]
 ```
 
-## [Stop at a specific build stage](https://docs.docker.com/build/building/multi-stage/#stop-at-a-specific-build-stage)
+## Stop at a specific build stage
 
 When you build your image, you don't necessarily need to build the entire Dockerfile including every stage. You can specify a target build stage. The following command assumes you are using the previous `Dockerfile` but stops at the stage named `build`:
 
@@ -98,7 +98,7 @@ A few scenarios where this might be useful are:
 - Using a `debug` stage with all debugging symbols or tools enabled, and a lean `production` stage
 - Using a `testing` stage in which your app gets populated with test data, but building for production using a different stage which uses real data
 
-## [Use an external image as a stage](https://docs.docker.com/build/building/multi-stage/#use-an-external-image-as-a-stage)
+## Use an external image as a stage
 
 When using multi-stage builds, you aren't limited to copying from stages you created earlier in your Dockerfile. You can use the `COPY --from` instruction to copy from a separate image, either using the local image name, a tag available locally or on a Docker registry, or a tag ID. The Docker client pulls the image if necessary and copies the artifact from there. The syntax is:
 
@@ -108,7 +108,7 @@ When using multi-stage builds, you aren't limited to copying from stages you cre
 COPY --from=nginx:latest /etc/nginx/nginx.conf /nginx.conf
 ```
 
-## [Use a previous stage as a new stage](https://docs.docker.com/build/building/multi-stage/#use-a-previous-stage-as-a-new-stage)
+## Use a previous stage as a new stage
 
 You can pick up where a previous stage left off by referring to it when using the `FROM` directive. For example:
 
@@ -129,11 +129,11 @@ COPY source2.cpp source.cpp
 RUN g++ -o /binary source.cpp
 ```
 
-## [Differences between legacy builder and BuildKit](https://docs.docker.com/build/building/multi-stage/#differences-between-legacy-builder-and-buildkit)
+## Differences between legacy builder and BuildKit
 
 The legacy Docker Engine builder processes all stages of a Dockerfile leading up to the selected `--target`. It will build a stage even if the selected target doesn't depend on that stage.
 
-[BuildKit](https://docs.docker.com/build/buildkit/) only builds the stages that the target stage depends on.
+[BuildKit]({{< ref "/manuals/DockerBuild/BuildKit" >}}) only builds the stages that the target stage depends on.
 
 For example, given the following Dockerfile:
 

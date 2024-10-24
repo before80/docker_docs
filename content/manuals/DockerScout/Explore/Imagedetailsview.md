@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/explore/image-details-view/](https://docs.docker.com/scout/explore/image-details-view/)
+> 原文：[https://docs.docker.com/scout/explore/image-details-view/](https://docs.docker.com/scout/explore/image-details-view/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,9 +18,9 @@ The image details view shows a breakdown of the Docker Scout analysis. You can a
 
 ![The image details view in Docker Desktop](Imagedetailsview_img/dd-image-view.png)
 
-Docker Desktop first analyzes images locally, where it generates a software bill of materials (SBOM). Docker Desktop, Docker Hub, and the Docker Scout Dashboard and CLI all use the [package URL (PURL) links](https://github.com/package-url/purl-spec) in this SBOM to query for matching Common Vulnerabilities and Exposures (CVEs) in [Docker Scout's advisory database](https://docs.docker.com/scout/deep-dive/advisory-db-sources/).
+Docker Desktop first analyzes images locally, where it generates a software bill of materials (SBOM). Docker Desktop, Docker Hub, and the Docker Scout Dashboard and CLI all use the [package URL (PURL) links](https://github.com/package-url/purl-spec) in this SBOM to query for matching Common Vulnerabilities and Exposures (CVEs) in [Docker Scout's advisory database]({{< ref "/manuals/DockerScout/Deepdive/Advisorydatabasesourcesandmatchingservice" >}}).
 
-## [Image hierarchy](https://docs.docker.com/scout/explore/image-details-view/#image-hierarchy)
+## Image hierarchy
 
 The image you inspect may have one or more base images represented under **Image hierarchy**. This means the author of the image used other images as starting points when building the image. Often these base images are either operating system images such as Debian, Ubuntu, and Alpine, or programming language images such as PHP, Python, and Java.
 
@@ -28,23 +28,23 @@ Selecting each image in the chain lets you see which layers originate from each 
 
 One or more of the base images may have updates available, which may include updated security patches that remove vulnerabilities from your image. Any base images with available updates are noted to the right of **Image hierarchy**.
 
-## [Layers](https://docs.docker.com/scout/explore/image-details-view/#layers)
+## Layers
 
 A Docker image consists of layers. Image layers are listed from top to bottom, with the earliest layer at the top and the most recent layer at the bottom. Often, the layers at the top of the list originate from a base image, and the layers towards the bottom added by the image author, often using commands in a Dockerfile. Selecting a base image under **Image hierarchy** highlights with layers originate from a base image.
 
 Selecting individual or multiple layers filters the packages and vulnerabilities on the right-hand side to show what the selected layers added.
 
-## [Vulnerabilities](https://docs.docker.com/scout/explore/image-details-view/#vulnerabilities)
+## Vulnerabilities
 
 The **Vulnerabilities** tab displays a list of vulnerabilities and exploits detected in the image. The list is grouped by package, and sorted in order of severity.
 
 You can find further information on the vulnerability or exploit, including if a fix is available, by expanding the list item.
 
-## [Remediation recommendations](https://docs.docker.com/scout/explore/image-details-view/#remediation-recommendations)
+## Remediation recommendations
 
 When you inspect an image in Docker Desktop or Docker Hub, Docker Scout can provide recommendations for improving the security of that image.
 
-### [Recommendations in Docker Desktop](https://docs.docker.com/scout/explore/image-details-view/#recommendations-in-docker-desktop)
+### Recommendations in Docker Desktop
 
 To view security recommendations for an image in Docker Desktop:
 
@@ -59,7 +59,7 @@ The drop-down menu lets you choose whether you want to see recommendations for t
 
 If the image you're viewing has no associated base images, the drop-down menu only shows the option to view recommendations for the current image.
 
-### [Recommendations in Docker Hub](https://docs.docker.com/scout/explore/image-details-view/#recommendations-in-docker-hub)
+### Recommendations in Docker Hub
 
 To view security recommendations for an image in Docker Hub:
 
@@ -73,13 +73,13 @@ To view security recommendations for an image in Docker Hub:
 
    This opens a window which gives you recommendations for you can improve the security of your image by using better base images. See [Recommendations for base image](https://docs.docker.com/scout/explore/image-details-view/#recommendations-for-base-image) for more details.
 
-### [Recommendations for current image](https://docs.docker.com/scout/explore/image-details-view/#recommendations-for-current-image)
+### Recommendations for current image
 
 The recommendations for the current image view helps you determine whether the image version that you're using is out of date. If the tag you're using is referencing an old digest, the view shows a recommendation to update the tag by pulling the latest version.
 
 Select the **Pull new image** button to get the updated version. Check the checkbox to remove the old version after pulling the latest.
 
-### [Recommendations for base image](https://docs.docker.com/scout/explore/image-details-view/#recommendations-for-base-image)
+### Recommendations for base image
 
 The base image recommendations view contains two tabs for toggling between different types of recommendations:
 
@@ -88,7 +88,7 @@ The base image recommendations view contains two tabs for toggling between diffe
 
 These base image recommendations are only actionable if you're the author of the image you're inspecting. This is because changing the base image for an image requires you to update the Dockerfile and re-build the image.
 
-#### [Refresh base image](https://docs.docker.com/scout/explore/image-details-view/#refresh-base-image)
+#### Refresh base image
 
 This tab shows if the selected base image tag is the latest available version, or if it's outdated.
 
@@ -101,7 +101,7 @@ If the base image tag used to build the current image isn't the latest, then the
 
 At the bottom of the window, you also receive command snippets that you can run to re-build the image using the latest version.
 
-#### [Change base image](https://docs.docker.com/scout/explore/image-details-view/#change-base-image)
+#### Change base image
 
 This tab shows different alternative tags that you can use, and outlines the benefits and disadvantages of each tag version. Selecting the base image shows recommended options for that tag.
 

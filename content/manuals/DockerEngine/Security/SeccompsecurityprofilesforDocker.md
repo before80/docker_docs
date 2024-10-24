@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/security/seccomp/](https://docs.docker.com/engine/security/seccomp/)
+> 原文：[https://docs.docker.com/engine/security/seccomp/](https://docs.docker.com/engine/security/seccomp/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -25,7 +25,7 @@ $ grep CONFIG_SECCOMP= /boot/config-$(uname -r)
 CONFIG_SECCOMP=y
 ```
 
-## [Pass a profile for a container](https://docs.docker.com/engine/security/seccomp/#pass-a-profile-for-a-container)
+## Pass a profile for a container
 
 The default `seccomp` profile provides a sane default for running containers with seccomp and disables around 44 system calls out of 300+. It is moderately protective while providing wide application compatibility. The default Docker profile can be found [here](https://github.com/moby/moby/blob/master/profiles/seccomp/default.json).
 
@@ -44,7 +44,7 @@ $ docker run --rm \
              hello-world
 ```
 
-### [Significant syscalls blocked by the default profile](https://docs.docker.com/engine/security/seccomp/#significant-syscalls-blocked-by-the-default-profile)
+### Significant syscalls blocked by the default profile
 
 Docker's default seccomp profile is an allowlist which specifies the calls that are allowed. The table below lists the significant (but not all) syscalls that are effectively blocked because they are not on the Allowlist. The table includes the reason each syscall is blocked rather than white-listed.
 
@@ -101,7 +101,7 @@ Docker's default seccomp profile is an allowlist which specifies the calls that 
 | `vm86`              | In kernel x86 real mode virtual machine. Also gated by `CAP_SYS_ADMIN`. |
 | `vm86old`           | In kernel x86 real mode virtual machine. Also gated by `CAP_SYS_ADMIN`. |
 
-## [Run without the default seccomp profile](https://docs.docker.com/engine/security/seccomp/#run-without-the-default-seccomp-profile)
+## Run without the default seccomp profile
 
 You can pass `unconfined` to run a container without the default seccomp profile.
 

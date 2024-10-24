@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/network/drivers/bridge/](https://docs.docker.com/engine/network/drivers/bridge/)
+> 原文：[https://docs.docker.com/engine/network/drivers/bridge/](https://docs.docker.com/engine/network/drivers/bridge/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,15 +18,15 @@ In terms of networking, a bridge network is a Link Layer device which forwards t
 
 In terms of Docker, a bridge network uses a software bridge which lets containers connected to the same bridge network communicate, while providing isolation from containers that aren't connected to that bridge network. The Docker bridge driver automatically installs rules in the host machine so that containers on different bridge networks can't communicate directly with each other.
 
-Bridge networks apply to containers running on the same Docker daemon host. For communication among containers running on different Docker daemon hosts, you can either manage routing at the OS level, or you can use an [overlay network](https://docs.docker.com/engine/network/drivers/overlay/).
+Bridge networks apply to containers running on the same Docker daemon host. For communication among containers running on different Docker daemon hosts, you can either manage routing at the OS level, or you can use an [overlay network]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Overlaynetworkdriver" >}}).
 
 When you start Docker, a [default bridge network](https://docs.docker.com/engine/network/drivers/bridge/#use-the-default-bridge-network) (also called `bridge`) is created automatically, and newly-started containers connect to it unless otherwise specified. You can also create user-defined custom bridge networks. **User-defined bridge networks are superior to the default `bridge` network.**
 
-## [Differences between user-defined bridges and the default bridge](https://docs.docker.com/engine/network/drivers/bridge/#differences-between-user-defined-bridges-and-the-default-bridge)
+## Differences between user-defined bridges and the default bridge
 
 - **User-defined bridges provide automatic DNS resolution between containers**.
 
-  Containers on the default bridge network can only access each other by IP addresses, unless you use the [`--link` option](https://docs.docker.com/engine/network/links/), which is considered legacy. On a user-defined bridge network, containers can resolve each other by name or alias.
+  Containers on the default bridge network can only access each other by IP addresses, unless you use the [`--link` option]({{< ref "/manuals/DockerEngine/Networking/Legacycontainerlinks" >}}), which is considered legacy. On a user-defined bridge network, containers can resolve each other by name or alias.
 
   Imagine an application with a web front-end and a database back-end. If you call your containers `web` and `db`, the web container can connect to the db container at `db`, no matter which Docker host the application stack is running on.
 
@@ -50,15 +50,15 @@ When you start Docker, a [default bridge network](https://docs.docker.com/engine
 
 - **Linked containers on the default bridge network share environment variables**.
 
-  Originally, the only way to share environment variables between two containers was to link them using the [`--link` flag](https://docs.docker.com/engine/network/links/). This type of variable sharing isn't possible with user-defined networks. However, there are superior ways to share environment variables. A few ideas:
+  Originally, the only way to share environment variables between two containers was to link them using the [`--link` flag]({{< ref "/manuals/DockerEngine/Networking/Legacycontainerlinks" >}}). This type of variable sharing isn't possible with user-defined networks. However, there are superior ways to share environment variables. A few ideas:
 
   - Multiple containers can mount a file or directory containing the shared information, using a Docker volume.
   - Multiple containers can be started together using `docker-compose` and the compose file can define the shared variables.
-  - You can use swarm services instead of standalone containers, and take advantage of shared [secrets](https://docs.docker.com/engine/swarm/secrets/) and [configs](https://docs.docker.com/engine/swarm/configs/).
+  - You can use swarm services instead of standalone containers, and take advantage of shared [secrets]({{< ref "/manuals/DockerEngine/Swarmmode/ManagesensitivedatawithDockersecrets" >}}) and [configs]({{< ref "/manuals/DockerEngine/Swarmmode/StoreconfigurationdatausingDockerConfigs" >}}).
 
 Containers connected to the same user-defined bridge network effectively expose all ports to each other. For a port to be accessible to containers or non-Docker hosts on different networks, that port must be *published* using the `-p` or `--publish` flag.
 
-## [Options](https://docs.docker.com/engine/network/drivers/bridge/#options)
+## Options
 
 The following table describes the driver-specific options that you can pass to `--option` when creating a custom network using the `bridge` driver.
 
@@ -86,7 +86,7 @@ Some of these options are also available as flags to the `dockerd` CLI, and you 
 
 The Docker daemon supports a `--bridge` flag, which you can use to define your own `docker0` bridge. Use this option if you want to run multiple daemon instances on the same host. For details, see [Run multiple daemons](https://docs.docker.com/reference/cli/dockerd/#run-multiple-daemons).
 
-### [Default host binding address](https://docs.docker.com/engine/network/drivers/bridge/#default-host-binding-address)
+### Default host binding address
 
 When no host address is given in port publishing options like `-p 80` or `-p 8080:80`, the default is to make the container's port 80 available on all host addresses, IPv4 and IPv6.
 
@@ -100,7 +100,7 @@ Setting the default binding address to `::` means published ports will only be a
 
 To restrict a published port to IPv4 only, the address must be included in the container's publishing options. For example, `-p 0.0.0.0:8080:80`.
 
-## [Manage a user-defined bridge](https://docs.docker.com/engine/network/drivers/bridge/#manage-a-user-defined-bridge)
+## Manage a user-defined bridge
 
 Use the `docker network create` command to create a user-defined bridge network.
 
@@ -124,7 +124,7 @@ $ docker network rm my-net
 >
 > When you create or remove a user-defined bridge or connect or disconnect a container from a user-defined bridge, Docker uses tools specific to the operating system to manage the underlying network infrastructure (such as adding or removing bridge devices or configuring `iptables` rules on Linux). These details should be considered implementation details. Let Docker manage your user-defined networks for you.
 
-## [Connect a container to a user-defined bridge](https://docs.docker.com/engine/network/drivers/bridge/#connect-a-container-to-a-user-defined-bridge)
+## Connect a container to a user-defined bridge
 
 When you create a new container, you can specify one or more `--network` flags. This example connects an Nginx container to the `my-net` network. It also publishes port 80 in the container to port 8080 on the Docker host, so external clients can access that port. Any other container connected to the `my-net` network has access to all ports on the `my-nginx` container, and vice versa.
 
@@ -145,7 +145,7 @@ To connect a **running** container to an existing user-defined bridge, use the `
 $ docker network connect my-net my-nginx
 ```
 
-## [Disconnect a container from a user-defined bridge](https://docs.docker.com/engine/network/drivers/bridge/#disconnect-a-container-from-a-user-defined-bridge)
+## Disconnect a container from a user-defined bridge
 
 To disconnect a running container from a user-defined bridge, use the `docker network disconnect` command. The following command disconnects the `my-nginx` container from the `my-net` network.
 
@@ -155,7 +155,7 @@ To disconnect a running container from a user-defined bridge, use the `docker ne
 $ docker network disconnect my-net my-nginx
 ```
 
-## [Use IPv6 in a user-defined bridge network](https://docs.docker.com/engine/network/drivers/bridge/#use-ipv6-in-a-user-defined-bridge-network)
+## Use IPv6 in a user-defined bridge network
 
 When you create your network, you can specify the `--ipv6` flag to enable IPv6.
 
@@ -165,15 +165,15 @@ When you create your network, you can specify the `--ipv6` flag to enable IPv6.
 $ docker network create --ipv6 --subnet 2001:db8:1234::/64 my-net
 ```
 
-## [Use the default bridge network](https://docs.docker.com/engine/network/drivers/bridge/#use-the-default-bridge-network)
+## Use the default bridge network
 
 The default `bridge` network is considered a legacy detail of Docker and is not recommended for production use. Configuring it is a manual operation, and it has [technical shortcomings](https://docs.docker.com/engine/network/drivers/bridge/#differences-between-user-defined-bridges-and-the-default-bridge).
 
-### [Connect a container to the default bridge network](https://docs.docker.com/engine/network/drivers/bridge/#connect-a-container-to-the-default-bridge-network)
+### Connect a container to the default bridge network
 
-If you do not specify a network using the `--network` flag, and you do specify a network driver, your container is connected to the default `bridge` network by default. Containers connected to the default `bridge` network can communicate, but only by IP address, unless they're linked using the [legacy `--link` flag](https://docs.docker.com/engine/network/links/).
+If you do not specify a network using the `--network` flag, and you do specify a network driver, your container is connected to the default `bridge` network by default. Containers connected to the default `bridge` network can communicate, but only by IP address, unless they're linked using the [legacy `--link` flag]({{< ref "/manuals/DockerEngine/Networking/Legacycontainerlinks" >}}).
 
-### [Configure the default bridge network](https://docs.docker.com/engine/network/drivers/bridge/#configure-the-default-bridge-network)
+### Configure the default bridge network
 
 To configure the default `bridge` network, you specify options in `daemon.json`. Here is an example `daemon.json` with several options specified. Only specify the settings you need to customize.
 
@@ -191,7 +191,7 @@ To configure the default `bridge` network, you specify options in `daemon.json`.
 
 Restart Docker for the changes to take effect.
 
-### [Use IPv6 with the default bridge network](https://docs.docker.com/engine/network/drivers/bridge/#use-ipv6-with-the-default-bridge-network)
+### Use IPv6 with the default bridge network
 
 IPv6 can be enabled for the default bridge using the following options in `daemon.json`, or their command line equivalents.
 
@@ -226,13 +226,13 @@ These three options only affect the default bridge, they are not used by user-de
 }
 ```
 
-## [Connection limit for bridge networks](https://docs.docker.com/engine/network/drivers/bridge/#connection-limit-for-bridge-networks)
+## Connection limit for bridge networks
 
 Due to limitations set by the Linux kernel, bridge networks become unstable and inter-container communications may break when 1000 containers or more connect to a single network.
 
 For more information about this limitation, see [moby/moby#44973](https://github.com/moby/moby/issues/44973#issuecomment-1543747718).
 
-## [Skip IP address configuration](https://docs.docker.com/engine/network/drivers/bridge/#skip-ip-address-configuration)
+## Skip IP address configuration
 
 The `com.docker.network.bridge.inhibit_ipv4` option lets you create a network that uses an existing bridge and have Docker skip configuring the IPv4 address on the bridge. This is useful if you want to configure the IP address for the bridge manually. For instance if you add a physical interface to your bridge, and need to move its IP address to the bridge interface.
 
@@ -240,9 +240,9 @@ To use this option, you should first configure the Docker daemon to use a self-m
 
 With this configuration, north-south traffic won't work unless you've manually configured the IP address for the bridge.
 
-## [Next steps](https://docs.docker.com/engine/network/drivers/bridge/#next-steps)
+## Next steps
 
-- Go through the [standalone networking tutorial](https://docs.docker.com/engine/network/tutorials/standalone/)
-- Learn about [networking from the container's point of view](https://docs.docker.com/engine/network/)
-- Learn about [overlay networks](https://docs.docker.com/engine/network/drivers/overlay/)
-- Learn about [Macvlan networks](https://docs.docker.com/engine/network/drivers/macvlan/)
+- Go through the [standalone networking tutorial]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithstandalonecontainers" >}})
+- Learn about [networking from the container's point of view]({{< ref "/manuals/DockerEngine/Networking" >}})
+- Learn about [overlay networks]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Overlaynetworkdriver" >}})
+- Learn about [Macvlan networks]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Macvlannetworkdriver" >}})

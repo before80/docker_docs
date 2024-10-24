@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/security/trust/trust_automation/](https://docs.docker.com/engine/security/trust/trust_automation/)
+> 原文：[https://docs.docker.com/engine/security/trust/trust_automation/](https://docs.docker.com/engine/security/trust/trust_automation/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ This guide follows the steps as described in [Signing images with Docker Content
 
 When working directly with the Notary client, it uses its [own set of environment variables](https://github.com/theupdateframework/notary/blob/master/docs/reference/client-config.md#environment-variables-optional).
 
-## [Add a delegation private key](https://docs.docker.com/engine/security/trust/trust_automation/#add-a-delegation-private-key)
+## Add a delegation private key
 
 To automate importing a delegation private key to the local Docker trust store, we need to pass a passphrase for the new key. This passphrase will be required everytime that delegation signs a tag.
 
@@ -34,7 +34,7 @@ Loading key from "delegation.key"...
 Successfully imported key from delegation.key
 ```
 
-## [Add a delegation public key](https://docs.docker.com/engine/security/trust/trust_automation/#add-a-delegation-public-key)
+## Add a delegation public key
 
 If you initialize a repository at the same time as adding a delegation public key, then you will need to use the local Notary Canonical Root Key's passphrase to create the repositories trust data. If the repository has already been initiated then you only need the repositories passphrase.
 
@@ -55,7 +55,7 @@ Successfully initialized "registry.example.com/admin/demo"
 Successfully added signer: registry.example.com/admin/demo
 ```
 
-## [Sign an image](https://docs.docker.com/engine/security/trust/trust_automation/#sign-an-image)
+## Sign an image
 
 Finally when signing an image, we will need to export the passphrase of the signing key. This was created when the key was loaded into the local Docker trust store with `$ docker trust key load`.
 
@@ -73,7 +73,7 @@ Signing and pushing trust metadata
 Successfully signed registry.example.com/admin/demo:1
 ```
 
-## [Build with content trust](https://docs.docker.com/engine/security/trust/trust_automation/#build-with-content-trust)
+## Build with content trust
 
 You can also build with content trust. Before running the `docker build` command, you should set the environment variable `DOCKER_CONTENT_TRUST` either manually or in a scripted fashion. Consider the simple Dockerfile below.
 
@@ -108,9 +108,9 @@ $  docker build -t docker/trusttest:testing .
 unable to process Dockerfile: No trust data for notrust
 ```
 
-## [Related information](https://docs.docker.com/engine/security/trust/trust_automation/#related-information)
+## Related information
 
-- [Delegations for content trust](https://docs.docker.com/engine/security/trust/trust_delegation/)
-- [Content trust in Docker](https://docs.docker.com/engine/security/trust/)
-- [Manage keys for content trust](https://docs.docker.com/engine/security/trust/trust_key_mng/)
-- [Play in a content trust sandbox](https://docs.docker.com/engine/security/trust/trust_sandbox/)
+- [Delegations for content trust]({{< ref "/manuals/DockerEngine/Security/ContenttrustinDocker/Delegationsforcontenttrust" >}})
+- [Content trust in Docker]({{< ref "/manuals/DockerEngine/Security/ContenttrustinDocker" >}})
+- [Manage keys for content trust]({{< ref "/manuals/DockerEngine/Security/ContenttrustinDocker/Managekeysforcontenttrust" >}})
+- [Play in a content trust sandbox]({{< ref "/manuals/DockerEngine/Security/ContenttrustinDocker/Playinacontenttrustsandbox" >}})

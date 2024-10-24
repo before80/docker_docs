@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/up/](https://docs.docker.com/reference/cli/docker/compose/up/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/up/](https://docs.docker.com/reference/cli/docker/compose/up/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 | :---------- | ------------------------------------------ |
 | Usage       | `docker compose up [OPTIONS] [SERVICE...]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/up/#description)
+## Description
 
 Builds, (re)creates, starts, and attaches to containers for a service.
 
@@ -34,7 +34,7 @@ If you want to force Compose to stop and recreate all containers, use the `--for
 
 If the process encounters an error, the exit code for this command is `1`. If the process is interrupted using `SIGINT` (ctrl + C) or `SIGTERM`, the containers are stopped, and the exit code is `0`.
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/up/#options)
+## Options
 
 | Option                         | Default  | Description                                                  |
 | ------------------------------ | -------- | ------------------------------------------------------------ |

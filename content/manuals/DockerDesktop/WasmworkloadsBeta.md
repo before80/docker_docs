@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/wasm/](https://docs.docker.com/desktop/wasm/)
+> 原文：[https://docs.docker.com/desktop/wasm/](https://docs.docker.com/desktop/wasm/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,9 +22,9 @@ Wasm (short for WebAssembly) is a fast, light alternative to the Linux and Windo
 
 This page provides information about the new ability to run Wasm applications alongside your Linux containers in Docker.
 
-## [Turn on Wasm workloads](https://docs.docker.com/desktop/wasm/#turn-on-wasm-workloads)
+## Turn on Wasm workloads
 
-Wasm workloads require the [containerd image store](https://docs.docker.com/desktop/containerd/) feature to be turned on. If you’re not already using the containerd image store, then pre-existing images and containers will be inaccessible.
+Wasm workloads require the [containerd image store]({{< ref "/manuals/DockerDesktop/containerdimagestore" >}}) feature to be turned on. If you’re not already using the containerd image store, then pre-existing images and containers will be inaccessible.
 
 1. Navigate to **Settings** in Docker Desktop.
 2. In the **General** tab, check **Use containerd for pulling and storing images**.
@@ -42,9 +42,9 @@ Docker Desktop downloads and installs the following runtimes that you can use to
 - `io.containerd.wws.v1`
 - `io.containerd.wasmer.v1`
 
-## [Usage examples](https://docs.docker.com/desktop/wasm/#usage-examples)
+## Usage examples
 
-### [Running a Wasm application with `docker run`](https://docs.docker.com/desktop/wasm/#running-a-wasm-application-with-docker-run)
+### Running a Wasm application with `docker run`
 
 The following `docker run` command starts a Wasm container on your system:
 
@@ -66,7 +66,7 @@ Note the `--runtime` and `--platform` flags used in this command:
 - `--runtime=io.containerd.wasmedge.v1`: Informs the Docker engine that you want to use the Wasm containerd shim instead of the standard Linux container runtime
 - `--platform=wasi/wasm`: Specifies the architecture of the image you want to use. By leveraging a Wasm architecture, you don’t need to build separate images for the different machine architectures. The Wasm runtime takes care of the final step of converting the Wasm binary to machine instructions.
 
-### [Running a Wasm application with Docker Compose](https://docs.docker.com/desktop/wasm/#running-a-wasm-application-with-docker-compose)
+### Running a Wasm application with Docker Compose
 
 The same application can be run using the following Docker Compose file:
 
@@ -88,7 +88,7 @@ Start the application using the normal Docker Compose commands:
 $ docker compose up
 ```
 
-### [Running a multi-service application with Wasm](https://docs.docker.com/desktop/wasm/#running-a-multi-service-application-with-wasm)
+### Running a multi-service application with Wasm
 
 Networking works the same as you expect with Linux containers, giving you the flexibility to combine Wasm applications with other containerized workloads, such as a database, in a single application stack.
 
@@ -150,7 +150,7 @@ In the following example, the Wasm application leverages a MariaDB database runn
 
 4. When you're all done, tear everything down by hitting `Ctrl+C` in the terminal you launched the application.
 
-### [Building and pushing a Wasm module](https://docs.docker.com/desktop/wasm/#building-and-pushing-a-wasm-module)
+### Building and pushing a Wasm module
 
 1. Create a Dockerfile that builds your Wasm application.
 
@@ -183,13 +183,13 @@ In the following example, the Wasm application leverages a MariaDB database runn
    $ docker push username/hello-world
    ```
 
-## [Troubleshooting](https://docs.docker.com/desktop/wasm/#troubleshooting)
+## Troubleshooting
 
 This section contains instructions on how to resolve common issues.
 
-### [Unknown runtime specified](https://docs.docker.com/desktop/wasm/#unknown-runtime-specified)
+### Unknown runtime specified
 
-If you try to run a Wasm container without the [containerd image store](https://docs.docker.com/desktop/containerd/), an error similar to the following displays:
+If you try to run a Wasm container without the [containerd image store]({{< ref "/manuals/DockerDesktop/containerdimagestore" >}}), an error similar to the following displays:
 
 
 
@@ -199,7 +199,7 @@ docker: Error response from daemon: Unknown runtime specified io.containerd.wasm
 
 [Turn on the containerd feature](https://docs.docker.com/desktop/containerd/#enable-the-containerd-image-store) in Docker Desktop settings and try again.
 
-### [Failed to start shim: failed to resolve runtime path](https://docs.docker.com/desktop/wasm/#failed-to-start-shim-failed-to-resolve-runtime-path)
+### Failed to start shim: failed to resolve runtime path
 
 If you use an older version of Docker Desktop that doesn't support running Wasm workloads, you will see an error message similar to the following:
 
@@ -211,7 +211,7 @@ docker: Error response from daemon: failed to start shim: failed to resolve runt
 
 Update your Docker Desktop to the latest version and try again.
 
-## [Known issues](https://docs.docker.com/desktop/wasm/#known-issues)
+## Known issues
 
 - Docker Compose may not exit cleanly when interrupted
 
@@ -229,6 +229,6 @@ Update your Docker Desktop to the latest version and try again.
 
   - Workaround: Run `docker login` in the CLI
 
-## [Feedback](https://docs.docker.com/desktop/wasm/#feedback)
+## Feedback
 
 Thanks for trying out Wasm workloads with Docker. Give feedback or report any bugs you may find through the issues tracker on the [public roadmap item](https://github.com/docker/roadmap/issues/426).

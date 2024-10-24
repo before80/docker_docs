@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/rm/](https://docs.docker.com/reference/cli/docker/compose/rm/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/rm/](https://docs.docker.com/reference/cli/docker/compose/rm/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 | :---------- | ------------------------------------------ |
 | Usage       | `docker compose rm [OPTIONS] [SERVICE...]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/rm/#description)
+## Description
 
 Removes stopped service containers.
 
@@ -37,7 +37,7 @@ Are you sure? [yN] y
 Removing djangoquickstart_web_run_1 ... done
 ```
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/rm/#options)
+## Options
 
 | Option          | Default | Description                                         |
 | --------------- | ------- | --------------------------------------------------- |

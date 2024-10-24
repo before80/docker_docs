@@ -8,15 +8,15 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/use-desktop/volumes/](https://docs.docker.com/desktop/use-desktop/volumes/)
+> 原文：[https://docs.docker.com/desktop/use-desktop/volumes/](https://docs.docker.com/desktop/use-desktop/volumes/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Explore the Volumes view in Docker Desktop
 
-The **Volumes** view in Docker Dashboard lets you create, delete, and perform other actions on your [volumes](https://docs.docker.com/engine/storage/volumes/). You can also see which volumes are being used as well as inspect the files and folders in your volumes.
+The **Volumes** view in Docker Dashboard lets you create, delete, and perform other actions on your [volumes]({{< ref "/manuals/DockerEngine/Storage/Volumes" >}}). You can also see which volumes are being used as well as inspect the files and folders in your volumes.
 
-## [View your volumes](https://docs.docker.com/desktop/use-desktop/volumes/#view-your-volumes)
+## View your volumes
 
 You can view the following information about your volumes:
 
@@ -35,7 +35,7 @@ You can filter and sort volumes as well as modify which columns are displayed by
 - Sort volumes: Select a column name to sort the volumes.
 - Customize columns: To the right of the search bar, choose what volume information to display.
 
-## [Create a volume](https://docs.docker.com/desktop/use-desktop/volumes/#create-a-volume)
+## Create a volume
 
 You use the following steps to create an empty volume. Alternatively, if you [start a container with a volume](https://docs.docker.com/engine/storage/volumes/#start-a-container-with-a-volume) that doesn't yet exist, Docker creates the volume for you.
 
@@ -46,7 +46,7 @@ To create a volume:
 
 To use the volume with a container, see [Use volumes](https://docs.docker.com/engine/storage/volumes/#start-a-container-with-a-volume).
 
-## [Inspect a volume](https://docs.docker.com/desktop/use-desktop/volumes/#inspect-a-volume)
+## Inspect a volume
 
 To explore the details of a specific volume, select a volume from the list. This opens the detailed view.
 
@@ -58,7 +58,7 @@ To delete a file or a folder from the volume, right-click on the file or folder 
 
 The **Exports** tab lets you [export the volume](https://docs.docker.com/desktop/use-desktop/volumes/#export-a-volume).
 
-## [Clone a volume](https://docs.docker.com/desktop/use-desktop/volumes/#clone-a-volume)
+## Clone a volume
 
 Cloning a volume creates a new volume with a copy of all of the data from the cloned volume. When cloning a volume used by one or more running containers, the containers are temporarily stopped while Docker clones the data, and then restarted when the cloning process is completed.
 
@@ -68,7 +68,7 @@ To clone a volume:
 2. In the **Volumes** view, select the **Clone** icon in the **Actions** column for the volume you want to clone.
 3. In the **Clone a volume** modal, specify a **Volume name**, and then select **Clone**.
 
-## [Delete one or more volumes](https://docs.docker.com/desktop/use-desktop/volumes/#delete-one-or-more-volumes)
+## Delete one or more volumes
 
 Deleting a volume deletes the volume and all its data. When a container is using a volume, you can't delete the volume, even if the container is stopped. You must first stop and remove any containers using the volume before you can delete the volume.
 
@@ -83,7 +83,7 @@ To delete multiple volumes:
 2. Select **Delete**.
 3. In the **Delete volumes?** modal, select **Delete forever**.
 
-## [Empty a volume](https://docs.docker.com/desktop/use-desktop/volumes/#empty-a-volume)
+## Empty a volume
 
 Emptying a volume deletes all a volume's data, but doesn't delete the volume. When emptying a volume used by one or more running containers, the containers are temporarily stopped while Docker empties the data, and then restarted when the emptying process is completed.
 
@@ -94,7 +94,7 @@ To empty a volume:
 3. Next to **Import**, select the **More volume actions** icon, and then select **Empty volume**.
 4. In the **Empty a volume?** modal, select **Empty**.
 
-## [Export a volume](https://docs.docker.com/desktop/use-desktop/volumes/#export-a-volume)
+## Export a volume
 
 **Beta feature**
 
@@ -104,7 +104,7 @@ You can export the content of a volume to a local file, a local image, an to an 
 
 You can either [export a volume now](https://docs.docker.com/desktop/use-desktop/volumes/#export-a-volume-now) or [schedule a recurring export](https://docs.docker.com/desktop/use-desktop/volumes/#schedule-a-volume-export).
 
-### [Export a volume now](https://docs.docker.com/desktop/use-desktop/volumes/#export-a-volume-now)
+### Export a volume now
 
 1. Sign in to Docker Desktop. You must be signed in to export a volume.
 
@@ -129,9 +129,9 @@ You can either [export a volume now](https://docs.docker.com/desktop/use-desktop
 
 6. Select **Save**.
 
-### [Schedule a volume export](https://docs.docker.com/desktop/use-desktop/volumes/#schedule-a-volume-export)
+### Schedule a volume export
 
-1. Sign in to Docker Desktop. You must be signed in and have a paid [Docker subscription](https://docs.docker.com/subscription/core-subscription/details/) to schedule a volume export.
+1. Sign in to Docker Desktop. You must be signed in and have a paid [Docker subscription]({{< ref "/manuals/Subscription/DockerCore/Subscriptionsandfeatures" >}}) to schedule a volume export.
 
 2. In the **Volumes** view, select the volume you want to export.
 
@@ -160,7 +160,7 @@ You can either [export a volume now](https://docs.docker.com/desktop/use-desktop
 
 7. Select **Save**.
 
-## [Import a volume](https://docs.docker.com/desktop/use-desktop/volumes/#import-a-volume)
+## Import a volume
 
 You can import a local file, a local image, or an image from Docker Hub. Any existing data in the volume is replaced by the imported content. When importing content to a volume used by one or more running containers, the containers are temporarily stopped while Docker imports the content, and then restarted when the import process is completed.
 
@@ -176,7 +176,7 @@ To import a volume:
    - **Registry**: Specify the image from Docker Hub that contains the content.
 6. Select **Import**.
 
-## [Additional resources](https://docs.docker.com/desktop/use-desktop/volumes/#additional-resources)
+## Additional resources
 
-- [Persisting container data](https://docs.docker.com/get-started/docker-concepts/running-containers/persisting-container-data/)
-- [Use volumes](https://docs.docker.com/engine/storage/volumes/)
+- [Persisting container data]({{< ref "/get-started/Dockerconcepts/Runningcontainers/Persistingcontainerdata" >}})
+- [Use volumes]({{< ref "/manuals/DockerEngine/Storage/Volumes" >}})

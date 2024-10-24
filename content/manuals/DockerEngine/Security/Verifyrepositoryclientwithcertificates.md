@@ -8,19 +8,19 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/security/certificates/](https://docs.docker.com/engine/security/certificates/)
+> 原文：[https://docs.docker.com/engine/security/certificates/](https://docs.docker.com/engine/security/certificates/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Verify repository client with certificates
 
-In [Running Docker with HTTPS](https://docs.docker.com/engine/security/protect-access/), you learned that, by default, Docker runs via a non-networked Unix socket and TLS must be enabled in order to have the Docker client and the daemon communicate securely over HTTPS. TLS ensures authenticity of the registry endpoint and that traffic to/from registry is encrypted.
+In [Running Docker with HTTPS]({{< ref "/manuals/DockerEngine/Security/ProtecttheDockerdaemonsocket" >}}), you learned that, by default, Docker runs via a non-networked Unix socket and TLS must be enabled in order to have the Docker client and the daemon communicate securely over HTTPS. TLS ensures authenticity of the registry endpoint and that traffic to/from registry is encrypted.
 
 This article demonstrates how to ensure the traffic between the Docker registry server and the Docker daemon (a client of the registry server) is encrypted and properly authenticated using certificate-based client-server authentication.
 
 We show you how to install a Certificate Authority (CA) root certificate for the registry and how to set the client TLS certificate for verification.
 
-## [Understand the configuration](https://docs.docker.com/engine/security/certificates/#understand-the-configuration)
+## Understand the configuration
 
 A custom certificate is configured by creating a directory under `/etc/docker/certs.d` using the same name as the registry's hostname, such as `localhost`. All `*.crt` files are added to this directory as CA roots.
 
@@ -53,7 +53,7 @@ The following illustrates a configuration with custom certificates:
 
 The preceding example is operating-system specific and is for illustrative purposes only. You should consult your operating system documentation for creating an os-provided bundled certificate chain.
 
-## [Create the client certificates](https://docs.docker.com/engine/security/certificates/#create-the-client-certificates)
+## Create the client certificates
 
 Use OpenSSL's `genrsa` and `req` commands to first generate an RSA key and then use the key to create the certificate.
 
@@ -70,7 +70,7 @@ $ openssl req -new -x509 -text -key client.key -out client.cert
 >
 > These TLS commands only generate a working set of certificates on Linux. The version of OpenSSL in macOS is incompatible with the type of certificate Docker requires.
 
-## [Troubleshooting tips](https://docs.docker.com/engine/security/certificates/#troubleshooting-tips)
+## Troubleshooting tips
 
 The Docker daemon interprets `.crt` files as CA certificates and `.cert` files as client certificates. If a CA certificate is accidentally given the extension `.cert` instead of the correct `.crt` extension, the Docker daemon logs the following error message:
 
@@ -92,7 +92,7 @@ If the Docker registry is accessed without a port number, do not add the port to
        └── ca.crt
 ```
 
-## [Related information](https://docs.docker.com/engine/security/certificates/#related-information)
+## Related information
 
-- [Use trusted images](https://docs.docker.com/engine/security/trust/)
-- [Protect the Docker daemon socket](https://docs.docker.com/engine/security/protect-access/)
+- [Use trusted images]({{< ref "/manuals/DockerEngine/Security/ContenttrustinDocker" >}})
+- [Protect the Docker daemon socket]({{< ref "/manuals/DockerEngine/Security/ProtecttheDockerdaemonsocket" >}})

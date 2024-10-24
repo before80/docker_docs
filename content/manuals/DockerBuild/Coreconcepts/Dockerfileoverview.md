@@ -8,17 +8,17 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/concepts/dockerfile/](https://docs.docker.com/build/concepts/dockerfile/)
+> 原文：[https://docs.docker.com/build/concepts/dockerfile/](https://docs.docker.com/build/concepts/dockerfile/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Dockerfile overview
 
-## [Dockerfile](https://docs.docker.com/build/concepts/dockerfile/#dockerfile)
+## Dockerfile
 
 It all starts with a Dockerfile.
 
-Docker builds images by reading the instructions from a Dockerfile. A Dockerfile is a text file containing instructions for building your source code. The Dockerfile instruction syntax is defined by the specification reference in the [Dockerfile reference](https://docs.docker.com/reference/dockerfile/).
+Docker builds images by reading the instructions from a Dockerfile. A Dockerfile is a text file containing instructions for building your source code. The Dockerfile instruction syntax is defined by the specification reference in the [Dockerfile reference]({{< ref "/reference/Dockerfilereference" >}}).
 
 Here are the most common types of instructions:
 
@@ -32,7 +32,7 @@ Here are the most common types of instructions:
 
 Dockerfiles are crucial inputs for image builds and can facilitate automated, multi-layer image builds based on your unique configurations. Dockerfiles can start simple and grow with your needs to support more complex scenarios.
 
-### [Filename](https://docs.docker.com/build/concepts/dockerfile/#filename)
+### Filename
 
 The default filename to use for a Dockerfile is `Dockerfile`, without a file extension. Using the default name allows you to run the `docker build` command without having to specify additional command flags.
 
@@ -44,11 +44,11 @@ Some projects may need distinct Dockerfiles for specific purposes. A common conv
 >
 > We recommend using the default (`Dockerfile`) for your project's primary Dockerfile.
 
-## [Docker images](https://docs.docker.com/build/concepts/dockerfile/#docker-images)
+## Docker images
 
 Docker images consist of layers. Each layer is the result of a build instruction in the Dockerfile. Layers are stacked sequentially, and each one is a delta representing the changes applied to the previous layer.
 
-### [Example](https://docs.docker.com/build/concepts/dockerfile/#example)
+### Example
 
 Here's what a typical workflow for building applications with Docker looks like.
 
@@ -104,9 +104,9 @@ Here's a breakdown of what this Dockerfile does:
 - [Exposed ports](https://docs.docker.com/build/concepts/dockerfile/#exposed-ports)
 - [Starting the application](https://docs.docker.com/build/concepts/dockerfile/#starting-the-application)
 
-### [Dockerfile syntax](https://docs.docker.com/build/concepts/dockerfile/#dockerfile-syntax)
+### Dockerfile syntax
 
-The first line to add to a Dockerfile is a [`# syntax` parser directive](https://docs.docker.com/reference/dockerfile/#syntax). While optional, this directive instructs the Docker builder what syntax to use when parsing the Dockerfile, and allows older Docker versions with [BuildKit enabled](https://docs.docker.com/build/buildkit/#getting-started) to use a specific [Dockerfile frontend](https://docs.docker.com/build/buildkit/frontend/) before starting the build. [Parser directives](https://docs.docker.com/reference/dockerfile/#parser-directives) must appear before any other comment, whitespace, or Dockerfile instruction in your Dockerfile, and should be the first line in Dockerfiles.
+The first line to add to a Dockerfile is a [`# syntax` parser directive](https://docs.docker.com/reference/dockerfile/#syntax). While optional, this directive instructs the Docker builder what syntax to use when parsing the Dockerfile, and allows older Docker versions with [BuildKit enabled](https://docs.docker.com/build/buildkit/#getting-started) to use a specific [Dockerfile frontend]({{< ref "/manuals/DockerBuild/BuildKit/CustomDockerfilesyntax" >}}) before starting the build. [Parser directives](https://docs.docker.com/reference/dockerfile/#parser-directives) must appear before any other comment, whitespace, or Dockerfile instruction in your Dockerfile, and should be the first line in Dockerfiles.
 
 
 
@@ -120,7 +120,7 @@ The first line to add to a Dockerfile is a [`# syntax` parser directive](https:/
 >
 > We recommend using `docker/dockerfile:1`, which always points to the latest release of the version 1 syntax. BuildKit automatically checks for updates of the syntax before building, making sure you are using the most current version.
 
-### [Base image](https://docs.docker.com/build/concepts/dockerfile/#base-image)
+### Base image
 
 The line following the syntax directive defines what base image to use:
 
@@ -134,7 +134,7 @@ The [`FROM` instruction](https://docs.docker.com/reference/dockerfile/#from) set
 
 [Docker Hub](https://hub.docker.com/search?image_filter=official&q=&type=image) contains a large set of official images that you can use for this purpose.
 
-### [Environment setup](https://docs.docker.com/build/concepts/dockerfile/#environment-setup)
+### Environment setup
 
 The following line executes a build command inside the base image.
 
@@ -147,7 +147,7 @@ RUN apt-get update && apt-get install -y python3 python3-pip
 
 This [`RUN` instruction](https://docs.docker.com/reference/dockerfile/#run) executes a shell in Ubuntu that updates the APT package index and installs Python tools in the container.
 
-### [Comments](https://docs.docker.com/build/concepts/dockerfile/#comments)
+### Comments
 
 Note the `# install app dependencies` line. This is a comment. Comments in Dockerfiles begin with the `#` symbol. As your Dockerfile evolves, comments can be instrumental to document how your Dockerfile works for any future readers and editors of the file, including your future self!
 
@@ -157,7 +157,7 @@ Note the `# install app dependencies` line. This is a comment. Comments in Docke
 >
 > You might've noticed that comments are denoted using the same symbol as the [syntax directive](https://docs.docker.com/build/concepts/dockerfile/#dockerfile-syntax) on the first line of the file. The symbol is only interpreted as a directive if the pattern matches a directive and appears at the beginning of the Dockerfile. Otherwise, it's treated as a comment.
 
-### [Installing dependencies](https://docs.docker.com/build/concepts/dockerfile/#installing-dependencies)
+### Installing dependencies
 
 The second `RUN` instruction installs the `flask` dependency required by the Python application.
 
@@ -169,7 +169,7 @@ RUN pip install flask==3.0.*
 
 A prerequisite for this instruction is that `pip` is installed into the build container. The first `RUN` command installs `pip`, which ensures that we can use the command to install the flask web framework.
 
-### [Copying files](https://docs.docker.com/build/concepts/dockerfile/#copying-files)
+### Copying files
 
 The next instruction uses the [`COPY` instruction](https://docs.docker.com/reference/dockerfile/#copy) to copy the `hello.py` file from the local build context into the root directory of our image.
 
@@ -179,11 +179,11 @@ The next instruction uses the [`COPY` instruction](https://docs.docker.com/refer
 COPY hello.py /
 ```
 
-A [build context](https://docs.docker.com/build/concepts/context/) is the set of files that you can access in Dockerfile instructions such as `COPY` and `ADD`.
+A [build context]({{< ref "/manuals/DockerBuild/Coreconcepts/Buildcontext" >}}) is the set of files that you can access in Dockerfile instructions such as `COPY` and `ADD`.
 
 After the `COPY` instruction, the `hello.py` file is added to the filesystem of the build container.
 
-### [Setting environment variables](https://docs.docker.com/build/concepts/dockerfile/#setting-environment-variables)
+### Setting environment variables
 
 If your application uses environment variables, you can set environment variables in your Docker build using the [`ENV` instruction](https://docs.docker.com/reference/dockerfile/#env).
 
@@ -195,7 +195,7 @@ ENV FLASK_APP=hello
 
 This sets a Linux environment variable we'll need later. Flask, the framework used in this example, uses this variable to start the application. Without this, flask wouldn't know where to find our application to be able to run it.
 
-### [Exposed ports](https://docs.docker.com/build/concepts/dockerfile/#exposed-ports)
+### Exposed ports
 
 The [`EXPOSE` instruction](https://docs.docker.com/reference/dockerfile/#expose) marks that our final image has a service listening on port `8000`.
 
@@ -207,7 +207,7 @@ EXPOSE 8000
 
 This instruction isn't required, but it is a good practice and helps tools and team members understand what this application is doing.
 
-### [Starting the application](https://docs.docker.com/build/concepts/dockerfile/#starting-the-application)
+### Starting the application
 
 Finally, [`CMD` instruction](https://docs.docker.com/reference/dockerfile/#cmd) sets the command that is run when the user starts a container based on this image.
 
@@ -227,7 +227,7 @@ CMD flask run --host 0.0.0.0 --port 8000
 
 There are subtle differences between these two versions, for example in how they trap signals like `SIGTERM` and `SIGKILL`. For more information about these differences, see [Shell and exec form](https://docs.docker.com/reference/dockerfile/#shell-and-exec-form)
 
-## [Building](https://docs.docker.com/build/concepts/dockerfile/#building)
+## Building
 
 To build a container image using the Dockerfile example from the [previous section](https://docs.docker.com/build/concepts/dockerfile/#example), you use the `docker build` command:
 
@@ -239,7 +239,7 @@ $ docker build -t test:latest .
 
 The `-t test:latest` option specifies the name and tag of the image.
 
-The single dot (`.`) at the end of the command sets the [build context](https://docs.docker.com/build/concepts/context/) to the current directory. This means that the build expects to find the Dockerfile and the `hello.py` file in the directory where the command is invoked. If those files aren't there, the build fails.
+The single dot (`.`) at the end of the command sets the [build context]({{< ref "/manuals/DockerBuild/Coreconcepts/Buildcontext" >}}) to the current directory. This means that the build expects to find the Dockerfile and the `hello.py` file in the directory where the command is invoked. If those files aren't there, the build fails.
 
 After the image has been built, you can run the application as a container with `docker run`, specifying the image name:
 

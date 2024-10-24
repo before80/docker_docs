@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/builder/prune/](https://docs.docker.com/reference/cli/docker/builder/prune/)
+> 原文：[https://docs.docker.com/reference/cli/docker/builder/prune/](https://docs.docker.com/reference/cli/docker/builder/prune/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,12 +18,12 @@ draft = false
 | :---------- | ---------------- |
 | Usage       | `docker builder` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/builder/#description)
+## Description
 
 Manage builds
 
-## [Subcommands](https://docs.docker.com/reference/cli/docker/builder/#subcommands)
+## Subcommands
 
 | Command                                                      | Description        |
 | :----------------------------------------------------------- | :----------------- |
-| [`docker builder prune`](https://docs.docker.com/reference/cli/docker/builder/prune/) | Remove build cache |
+| [`docker builder prune`]({{< ref "/reference/CLIreference/docker/dockerbuilder/dockerbuilderprune" >}}) | Remove build cache |

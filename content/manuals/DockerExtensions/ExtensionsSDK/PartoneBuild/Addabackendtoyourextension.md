@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/build/backend-extension-tutorial/](https://docs.docker.com/extensions/extensions-sdk/build/backend-extension-tutorial/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/build/backend-extension-tutorial/](https://docs.docker.com/extensions/extensions-sdk/build/backend-extension-tutorial/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,9 +20,9 @@ Before you start, make sure you have installed the latest version of [Docker Des
 
 > Tip
 >
-> Check the [Quickstart guide](https://docs.docker.com/extensions/extensions-sdk/quickstart/) and `docker extension init <my-extension>`. They provide a better base for your extension as it's more up-to-date and related to your install of Docker Desktop.
+> Check the [Quickstart guide]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/Quickstart" >}}) and `docker extension init <my-extension>`. They provide a better base for your extension as it's more up-to-date and related to your install of Docker Desktop.
 
-## [Why add a backend?](https://docs.docker.com/extensions/extensions-sdk/build/backend-extension-tutorial/#why-add-a-backend)
+## Why add a backend?
 
 Thanks to the Docker Extensions SDK, most of the time you should be able to do what you need from the Docker CLI directly from [the frontend](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/#use-the-extension-apis-client).
 
@@ -33,7 +33,7 @@ Nonetheless, there are some cases where you might need to add a backend to your 
 
 For more information about extension backends, see [Architecture](https://docs.docker.com/extensions/extensions-sdk/architecture/#the-backend).
 
-## [Add a backend to the extension](https://docs.docker.com/extensions/extensions-sdk/build/backend-extension-tutorial/#add-a-backend-to-the-extension)
+## Add a backend to the extension
 
 If you created your extension using the `docker extension init` command, you already have a backend setup. Otherwise, you have to first create a `vm` directory that contains the code and updates the Dockerfile to containerize it.
 
@@ -137,7 +137,7 @@ type HTTPMessageBody struct {
 
 ------
 
-## [Adapt the Dockerfile](https://docs.docker.com/extensions/extensions-sdk/build/backend-extension-tutorial/#adapt-the-dockerfile)
+## Adapt the Dockerfile
 
 > **Note**
 >
@@ -190,7 +190,7 @@ CMD /service -socket /run/guest-services/extension-allthethings-extension.sock
 
 ------
 
-## [Configure the metadata file](https://docs.docker.com/extensions/extensions-sdk/build/backend-extension-tutorial/#configure-the-metadata-file)
+## Configure the metadata file
 
 To start the backend service of your extension inside the VM of Docker Desktop, you have to configure the image name in the `vm` section of the `metadata.json` file.
 
@@ -208,7 +208,7 @@ To start the backend service of your extension inside the VM of Docker Desktop, 
 }
 ```
 
-For more information on the `vm` section of the `metadata.json`, see [Metadata](https://docs.docker.com/extensions/extensions-sdk/architecture/metadata/).
+For more information on the `vm` section of the `metadata.json`, see [Metadata]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/Architecture/Metadata" >}}).
 
 > **Warning**
 >
@@ -216,9 +216,9 @@ For more information on the `vm` section of the `metadata.json`, see [Metadata](
 >
 > Do not replace the `${DESKTOP_PLUGIN_IMAGE}` placeholder in the `metadata.json` file. The placeholder is replaced automatically with the correct image name when the extension is installed.
 
-## [Invoke the extension backend from your frontend](https://docs.docker.com/extensions/extensions-sdk/build/backend-extension-tutorial/#invoke-the-extension-backend-from-your-frontend)
+## Invoke the extension backend from your frontend
 
-Using the [advanced frontend extension example](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/), we can invoke our extension backend.
+Using the [advanced frontend extension example]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/PartoneBuild/Createanadvancedfrontendextension" >}}), we can invoke our extension backend.
 
 Use the Docker Desktop Client object and then invoke the `/hello` route from the backend service with `ddClient. extension.vm.service.get` that returns the body of the response.
 
@@ -258,7 +258,7 @@ export function App() {
 
 ------
 
-## [Re-build the extension and update it](https://docs.docker.com/extensions/extensions-sdk/build/backend-extension-tutorial/#re-build-the-extension-and-update-it)
+## Re-build the extension and update it
 
 Since you have modified the configuration of the extension and added a stage in the Dockerfile, you must re-build the extension.
 
@@ -286,7 +286,7 @@ Now you can see the backend service running in the **Containers8* tab of the Doc
 
 Open Docker Dashboard and select the **Containers** tab. You should see the response from the backend service call displayed.
 
-## [What's next?](https://docs.docker.com/extensions/extensions-sdk/build/backend-extension-tutorial/#whats-next)
+## What's next?
 
-- Learn how to [share and publish your extension](https://docs.docker.com/extensions/extensions-sdk/extensions/).
-- Learn more about extensions [architecture](https://docs.docker.com/extensions/extensions-sdk/architecture/).
+- Learn how to [share and publish your extension]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish" >}}).
+- Learn more about extensions [architecture]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/Architecture" >}}).

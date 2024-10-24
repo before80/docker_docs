@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/previous-versions/edge-releases-windows/](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/)
+> 原文：[https://docs.docker.com/desktop/previous-versions/edge-releases-windows/](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,69 +18,69 @@ This page contains information about Docker Desktop Edge releases. Edge releases
 
 For Docker Desktop system requirements, see [What to know before you install](https://docs.docker.com/desktop/install/windows-install/#system-requirements).
 
-## [Docker Desktop Community 2.5.4](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-254)
+## Docker Desktop Community 2.5.4
 
 2020-12-07
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades)
+### Upgrades
 
 - [Docker Engine 20.10.0-rc2](https://github.com/docker/docker-ce/blob/master/CHANGELOG.md#20100)
 - [Go 1.15.6](https://github.com/golang/go/issues?q=milestone%3AGo1.15.6+label%3ACherryPickApproved+)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes)
+### Bug fixes and minor changes
 
 - Fixed an issue causing the background update to fail when the current user is not an administrator.
 - Downgraded the kernel to [4.19.121](https://hub.docker.com/layers/docker/for-desktop-kernel/4.19.121-2a1dbedf3f998dac347c499808d7c7e029fbc4d3-amd64/images/sha256-4e7d94522be4f25f1fbb626d5a0142cbb6e785f37e437f6fd4285e64a199883a?context=repo) to reduce the CPU usage of hyperkit. Fixes [docker/for-mac#5044](https://github.com/docker/for-mac/issues/5044)
 
-## [Docker Desktop Community 2.5.3](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-253)
+## Docker Desktop Community 2.5.3
 
 2020-11-30
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-1)
+### Upgrades
 
 - [Compose CLI v1.0.3](https://github.com/docker/compose-cli/releases/tag/v1.0.3)
 
-## [Docker Desktop Community 2.5.2](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-252)
+## Docker Desktop Community 2.5.2
 
 2020-11-26
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#new)
+### New
 
 - Use of three digit version number.
 - Starting with Docker Desktop 2.5.2, updates will be much smaller as they will be applied using delta patches.
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-1)
+### Bug fixes and minor changes
 
 - Fixed an unexpected EOF error when trying to start a non-existing container with `-v /var/run/docker.sock:`. See [docker/for-mac#5025](https://github.com/docker/for-mac/issues/5025).
 
-## [Docker Desktop Community 2.5.1.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2510)
+## Docker Desktop Community 2.5.1.0
 
 2020-11-18
 
 This release contains a Kubernetes upgrade. Note that your local Kubernetes cluster will be reset after installing Docker Desktop.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-2)
+### Upgrades
 
 - [Docker Engine 20.10.0-rc1](https://github.com/docker/docker-ce/blob/master/CHANGELOG.md#20100)
 - [Compose CLI v1.0.2](https://github.com/docker/compose-cli/releases/tag/v1.0.2)
 - [Snyk v1.424.4](https://github.com/snyk/snyk/releases/tag/v1.424.4)
 - [Kubernetes 1.19.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.19.3)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-2)
+### Bug fixes and minor changes
 
 - Renamed 'Run Diagnostics' to 'Get support'.
 - Fixed an issue with the WSL 2 backend where some network plugins may fail to load, provoking a crash of the Docker daemon.
 - Fixed an unexpected EOF error when trying to start a non-existing container. See [docker/for-mac#5025](https://github.com/docker/for-mac/issues/5025).
 
-## [Docker Desktop Community 2.4.2.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2420)
+## Docker Desktop Community 2.4.2.0
 
 2020-10-19
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#new-1)
+### New
 
-- If you have enabled [Vulnerability Scanning](https://docs.docker.com/docker-hub/vulnerability-scanning/) in Docker Hub, the scan results will now appear in Docker Desktop.
+- If you have enabled [Vulnerability Scanning]({{< ref "/manuals/DockerHub/Staticvulnerabilityscanning" >}}) in Docker Hub, the scan results will now appear in Docker Desktop.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-3)
+### Upgrades
 
 - [Docker Engine 20.10.0 beta1](https://github.com/docker/docker-ce/blob/0fc7084265b3786a5867ec311d3f916af7bf7a23/CHANGELOG.md)
 - [Docker Compose CLI - 0.1.22](https://github.com/docker/compose-cli/releases/tag/v0.1.22)
@@ -91,7 +91,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Deprecation
   - Docker Desktop cannot be installed on Windows 1703 (build 15063) anymore.
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-3)
+### Bug fixes and minor changes
 
 - Fixed an issue that can intermittently cause the WSL 2 backend to fail to start.
 - Fixed an issue related to NFS mounting. See [docker/for-mac#4958](https://github.com/docker/for-mac/issues/4958).
@@ -102,35 +102,35 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - When sharing a file into a container (e.g. `docker run -v ~/.gitconfig`) Docker Desktop does not watch the parent directory. Fixes [docker/for-mac#4981](https://github.com/docker/for-mac/issues/4981).
 - Always flush file system caches synchronously on container start. See [docker/for-mac#4943](https://github.com/docker/for-mac/issues/4943).
 
-## [Docker Desktop Community 2.4.1.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2410)
+## Docker Desktop Community 2.4.1.0
 
 2020-10-01
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-4)
+### Upgrades
 
 - [Docker Compose CLI - 0.1.18](https://github.com/docker/compose-cli)
 - [Docker Compose 1.27.4](https://github.com/docker/compose/releases/tag/1.27.4)
 - [Snyk v1.399.1](https://github.com/snyk/snyk/releases/tag/v1.399.1)
 - [Docker Engine 19.03.13](https://github.com/docker/docker-ce/releases/tag/v19.03.13)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-4)
+### Bug fixes and minor changes
 
 - Fixed the path to the installer log file default location when the username contains a space. Fixes [docker/for-win#7941](https://github.com/docker/for-win/issues/7941).
 
-## [Docker Desktop Community 2.3.7.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2370)
+## Docker Desktop Community 2.3.7.0
 
 2020-09-17
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#new-2)
+### New
 
 - [Amazon ECR Credential Helper](https://github.com/awslabs/amazon-ecr-credential-helper/releases/tag/v0.4.0)
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-5)
+### Upgrades
 
 - [Docker ACI integration 0.1.15](https://github.com/docker/aci-integration-beta/releases/tag/v0.1.15)
 - [Snyk v0.393.0](https://github.com/snyk/snyk/releases/tag/v1.393.0)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-5)
+### Bug fixes and minor changes
 
 **WSL 2**
 
@@ -146,27 +146,27 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Avoid exposing `/host_mnt` paths in `docker container inspect` and `docker volume inspect`. Fixes [docker/for-mac#4859](https://github.com/docker/for-mac/issues/4859).
 - Fixed container logs lagging under heavy load. See [docker/for-win#8216](https://github.com/docker/for-win/issues/8216).
 
-### [Known issues](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#known-issues)
+### Known issues
 
 - The `clock_gettime64` system call returns `EPERM` rather than `ENOSYS` in i386 images. To work around this issue, disable `seccomp` by using the `--privileged` flag. See [docker/for-win#8326](https://github.com/docker/for-win/issues/8326).
 
-## [Docker Desktop Community 2.3.6.2](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2362)
+## Docker Desktop Community 2.3.6.2
 
 2020-09-09
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-6)
+### Upgrades
 
 - [Docker Compose 1.27.0](https://github.com/docker/compose/releases/tag/1.27.0)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-6)
+### Bug fixes and minor changes
 
 - Fixed an issue with mount shadowing in WSL 2. See [docker/for-win#8183](https://github.com/docker/for-win/issues/8183) and [docker/for-win#8316](https://github.com/docker/for-win/issues/8316).
 
-## [Docker Desktop Community 2.3.6.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2360)
+## Docker Desktop Community 2.3.6.0
 
 2020-09-01
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#new-3)
+### New
 
 - In partnership with Snyk, Docker Desktop launches vulnerability scanning for Docker local images.
 - Docker ECS plugin has been replaced by ECS cloud integration
@@ -174,119 +174,119 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - The Images view now has search and filter options.
   - You can now push an image to Docker Hub using the Remote repositories drop-down menu.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-7)
+### Upgrades
 
 - [Alpine 3.12](https://alpinelinux.org/posts/Alpine-3.12.0-released.html)
 - [Kubernetes 1.18.8](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.8)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-7)
+### Bug fixes and minor changes
 
 - Fixed an issue with Docker Desktop integration with other WSL 2 distros. See [docker/for-win#6894](https://github.com/docker/for-win/issues/6894)
 - Fixed DNS resolution of short names. See [docker/for-win#4425](https://github.com/docker/for-win/issues/4425)
 
-## [Docker Desktop Community 2.3.5.1](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2351)
+## Docker Desktop Community 2.3.5.1
 
 2020-08-25
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-8)
+### Bug fixes and minor changes
 
 - Fixed an issue which broke WSL 2 integration when stopping Docker Desktop while containers with bind mounts are present. See [docker/for-win#8164](https://github.com/docker/for-win/issues/8164)
 
-## [Docker Desktop Community 2.3.5.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2350)
+## Docker Desktop Community 2.3.5.0
 
 2020-08-20
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#new-4)
+### New
 
 - The **Images** view on the Dashboard now allows you to interact with images on Docker Hub. You can now pull a remote repository with specific tags from Docker Hub, or view the details of the repository on the Docker Hub page. To access the new Images view, from the Docker menu, select **Dashboard** > **Images**.
 - Docker Desktop now enables BuildKit by default after a reset to factory defaults. To revert to the old docker build experience, go to **Preferences** > **Docker Engine** and then disable the BuildKit feature.
 - Docker Desktop now supports running on WSL 2 on the latest updates of Windows 10 versions 1903 and 1909 (in addition to the existing support for version 2004). This also means that Docker Desktop can be installed on those builds of Windows 10 Home.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-8)
+### Upgrades
 
 - [Go 1.14.7](https://github.com/golang/go/issues?q=milestone:Go1.14.7+label:CherryPickApproved)
 - [Docker ECS integration v1.0.0-beta.5](https://github.com/docker/ecs-plugin/releases/tag/v1.0.0-beta.5)
 - [Docker Engine 19.03.13-beta2](https://github.com/docker/docker-ce/releases/tag/v19.03.13-beta2)
 - [Docker ACI integration 0.1.12](https://github.com/docker/aci-integration-beta/releases/tag/v0.1.12)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-9)
+### Bug fixes and minor changes
 
 - Moved **Dashboard** to the top of the whale menu.
 - The systray icon now responds to dark or light mode. See [docker/for-win#4113](https://github.com/docker/for-win/issues/4113)
 - Improved the error handling when `dockerd` crashes.
 - Fixed minor bugs in the **Images** view.
 
-## [Docker Desktop Community 2.3.4.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2340)
+## Docker Desktop Community 2.3.4.0
 
 2020-07-28
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#new-5)
+### New
 
 - Docker Desktop introduces the new **Images** view to the Docker Dashboard. The Images view allows users to view a list of Docker images on the disk, run an image as a container, pull the latest version of an image from Docker Hub, inspect images, and remove any unwanted images from the disk.
 
   To access the new Images view, from the Docker menu, select **Dashboard** > **Images**.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-9)
+### Upgrades
 
 - [Docker ECS integration v1.0.0-beta.4](https://github.com/docker/ecs-plugin/releases/tag/v1.0.0-beta.4)
 - [Kubernetes 1.18.6](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.6)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-10)
+### Bug fixes and minor changes
 
 - UI changes to dark or light theme depending on Windows default app mode.
 - Copying the container logs from the dashboard does not copy the ANSI color codes to the clipboard anymore.
 
-## [Docker Desktop Community 2.3.3.2](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2332)
+## Docker Desktop Community 2.3.3.2
 
 2020-07-21
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-10)
+### Upgrades
 
 - [Docker ECS integration v1.0.0-beta.2](https://github.com/docker/ecs-plugin/releases/tag/v1.0.0-beta.2)
 - [Docker ACI integration 0.1.10](https://github.com/docker/aci-integration-beta/releases/tag/v0.1.10)
 
-## [Docker Desktop Community 2.3.3.1](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2331)
+## Docker Desktop Community 2.3.3.1
 
 2020-07-10
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-11)
+### Bug fixes and minor changes
 
 - Fixed a bug where the ECS plugin was not visible from WSL 2.
 
-## [Docker Desktop Community 2.3.3.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2330)
+## Docker Desktop Community 2.3.3.0
 
 2020-07-09
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-11)
+### Upgrades
 
 - Beta release of Docker ECS integration v1.0.0-beta.1.
 - [Docker ACI integration v0.1.7](https://github.com/docker/aci-integration-beta/releases/tag/v0.1.7)
 - [Docker Compose 1.26.2](https://github.com/docker/compose/releases/tag/1.26.2)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-12)
+### Bug fixes and minor changes
 
 - Compose-on-Kubernetes is no longer included in the Docker Desktop installer. You can download it separately from the compose-on-kubernetes [release page](https://github.com/docker/compose-on-kubernetes/releases).
 
-## [Docker Desktop Community 2.3.2.1](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2321)
+## Docker Desktop Community 2.3.2.1
 
 2020-06-29
 
-### [Security](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#security)
+### Security
 
 - Fixed a regression in Docker Desktop Edge 2.3.2.0 on Windows where the Docker API was exposed by default on a random port on all interfaces.
 
-## [Docker Desktop Community 2.3.2.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2320)
+## Docker Desktop Community 2.3.2.0
 
 2020-06-25
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-12)
+### Upgrades
 
 - [Docker 19.03.12](https://github.com/docker/docker-ce/releases/tag/v19.03.12)
 - [Docker Compose 1.26.0](https://github.com/docker/compose/releases/tag/1.26.0)
 - [Kubernetes 1.18.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.3)
 - Beta release of the [Docker ACI integration](https://docs.docker.com/engine/context/aci-integration/)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-13)
+### Bug fixes and minor changes
 
 - Fixed application startup if `hosts` is specified inside the Docker `daemon.json`. See [docker/for-win#6895](https://github.com/docker/for-win/issues/6895#issuecomment-637429117).
 - Fixed opening a CLI from the dashboard for Windows containers. See [docker/for-win#7079](https://github.com/docker/for-win/issues/7079).
@@ -302,16 +302,16 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fixed an issue when bind mounting a mounted host directory inside a container. See [docker/for-win#5089](https://github.com/docker/for-win/issues/5089).
 - Removed the legacy Kubernetes context `docker-for-desktop`. The context `docker-desktop` should be used instead. See [docker/for-win#5089](https://github.com/docker/for-win/issues/5089).
 
-## [Docker Desktop Community 2.3.1.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2310)
+## Docker Desktop Community 2.3.1.0
 
 2020-05-20
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-13)
+### Upgrades
 
 - [Docker Compose 1.26.0-rc4](https://github.com/docker/compose/releases/tag/1.26.0-rc4)
 - Upgrade to Qemu 4.2.0, add Risc-V support
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-14)
+### Bug fixes and minor changes
 
 **Hyper-V**
 
@@ -338,18 +338,18 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fixed a crash which sometimes occurred when Docker Desktop loads a corrupted Docker CLI configuration file. Fixes [docker/for-win#6657](https://github.com/docker/for-win/issues/6657).
 - Fixed a delay when opening the systray menu. Fixes [docker/for-win#1011](https://github.com/docker/for-win/issues/1011).
 
-### [Known issues](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#known-issues-1)
+### Known issues
 
 **WSL 2**
 
 - Swarm service bind mounts are not always restored correctly.
 - Bind mounts of files living outside of the root mount point (files within `/mnt/c`, `/tmp`, `/run...`) don't work correctly when multiple containers mount them.
 
-## [Docker Desktop Community 2.3.0.1](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2301)
+## Docker Desktop Community 2.3.0.1
 
 2020-04-28
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-15)
+### Bug fixes and minor changes
 
 - Fixed an upgrade bug where users on versions still using the PowerShell-based VM management experience a silent un-installation crash leading to Docker Desktop being uninstalled instead of upgraded.
 - Fixed a crash when failing to login due to no Internet connection.
@@ -358,18 +358,18 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fixed a bug in `ftruncate` which prevented [libgit2sharp](https://github.com/libgit2/libgit2sharp) from cloning repositories on shared volumes. See [docker/for-win#5808](https://github.com/docker/for-win/issues/5808#issuecomment-610996272).
 - Fixed a bug that caused starting and stopping of a Compose application from the UI to fail when the path contains whitespace.
 
-## [Docker Desktop Community 2.3.0.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2300)
+## Docker Desktop Community 2.3.0.0
 
 2020-04-20
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-14)
+### Upgrades
 
 - [Docker Compose 1.25.5](https://github.com/docker/compose/releases/tag/1.25.5)
 - [Go 1.13.10](https://github.com/golang/go/issues?q=milestone%3AGo1.13.10+label%3ACherryPickApproved)
 - [Linux kernel 4.19.76](https://hub.docker.com/layers/docker/for-desktop-kernel/4.19.76-ce15f646db9b062dc947cfc0c1deab019fa63f96-amd64/images/sha256-6c252199aee548e4bdc8457e0a068e7d8e81c2649d4c1e26e4150daa253a85d8?context=repo)
 - LinuxKit [init](https://hub.docker.com/layers/linuxkit/init/1a80a9907b35b9a808e7868ffb7b0da29ee64a95/images/sha256-64cc8fa50d63940dbaa9979a13c362c89ecb4439bcb3ab22c40d300b9c0b597e?context=explore), [runc](https://hub.docker.com/layers/linuxkit/runc/69b4a35eaa22eba4990ee52cccc8f48f6c08ed03/images/sha256-57e3c7cbd96790990cf87d7b0f30f459ea0b6f9768b03b32a89b832b73546280?context=explore), and [containerd](https://hub.docker.com/layers/linuxkit/containerd/09553963ed9da626c25cf8acdf6d62ec37645412/images/sha256-866be7edb0598430709f88d0e1c6ed7bfd4a397b5ed220e1f793ee9067255ff1?context=explore)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-16)
+### Bug fixes and minor changes
 
 > Docker Desktop Edge 2.3.0.0 fixes 10 issues reported on the [docker/for-win](https://github.com/docker/for-win/issues) GitHub repository.
 
@@ -401,21 +401,21 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fixed a bug which only respected the "expose on TCP" Docker engine API setting on application restart. Setting will now take effect when the Apply button is clicked.
 - Fixed a bug where diagnostic upload would fail if the username contained spaces.
 
-## [Docker Desktop Community 2.2.3.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2230)
+## Docker Desktop Community 2.2.3.0
 
 2020-04-02
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-15)
+### Upgrades
 
 - [Docker 19.03.8](https://github.com/docker/docker-ce/releases/tag/v19.03.8)
 - [Docker Compose 1.26.0-rc3](https://github.com/docker/compose/releases/tag/1.26.0-rc3)
 - [Linux 4.19.76](https://hub.docker.com/layers/docker/for-desktop-kernel/4.19.76-4e5d9e5f3bde0abf236f97e4a81b029ae0f5f6e7-amd64/images/sha256-11dc0f6ee3187088219ba1463ebb378f5093a7d98f176ddfd62dd6b741c2dd2d?context=repo)
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#new-6)
+### New
 
 - Docker Desktop introduces a new onboarding tutorial upon first startup. The Quick Start tutorial guides users to get started with Docker in a few easy steps. It includes a simple exercise to build an example Docker image, run it as a container, push and save the image to Docker Hub.
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-17)
+### Bug fixes and minor changes
 
 > Docker Desktop Edge 2.2.3.0 fixes 28 issues reported on the [docker/for-win](https://github.com/docker/for-win/issues) GitHub repository.
 
@@ -457,43 +457,43 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fixed an issue where a container port could not be exposed on a specific host IP. See [docker/for-win#5546](https://github.com/docker/for-mac/issues/5546).
 - Removed port probing from dashboard, just unconditionally showing links to ports that should be available. Fixes [docker/for-win#5903](https://github.com/docker/for-win/issues/5903).
 
-### [Known issues](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#known-issues-2)
+### Known issues
 
 - Loopback and unspecified IPv6 addresses (`::` and `::1`) within a container do not currently work. Some web servers and other programs may be using these addresses in their configuration files.
 
-## [Docker Desktop Community 2.2.2.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2220)
+## Docker Desktop Community 2.2.2.0
 
 2020-03-02
 
 This release contains a Kubernetes upgrade. Note that your local Kubernetes cluster will be reset after installing Docker Desktop.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-16)
+### Upgrades
 
 - [Kubernetes 1.16.5](https://github.com/kubernetes/kubernetes/releases/tag/v1.16.5)
 - [Go 1.13.8](https://golang.org/doc/devel/release.html#go1.13)
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#new-7)
+### New
 
 - Windows 10 Home users can now use Docker Desktop through the experimental WSL 2 support. This requires Windows Insider Preview Build 19018 or later.
 - Docker Desktop now allows sharing individual folders, rather than whole drives, giving more control to users over what is being shared.
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-18)
+### Bug fixes and minor changes
 
 - Added a prerequisite check in the installer for the `LanmanServer` service. Fixes [docker/for-win#5150](https://github.com/docker/for-win/issues/5150).
-- DockerNAT has been removed from Docker Desktop as using an IP address to communicate from the host to a container is not a supported feature. To communicate from a container to the host, you must use the special DNS name `host.docker.internal`. We also recommend using ports to communicate from the host to a container. For more information, see [Networking](https://docs.docker.com/desktop/networking/).
+- DockerNAT has been removed from Docker Desktop as using an IP address to communicate from the host to a container is not a supported feature. To communicate from a container to the host, you must use the special DNS name `host.docker.internal`. We also recommend using ports to communicate from the host to a container. For more information, see [Networking]({{< ref "/manuals/DockerDesktop/ExplorenetworkingfeaturesonDockerDesktop" >}}).
 - Ceph support has been removed from Docker Desktop to save disk space.
 - Fixed an issue that caused the Windows log file archive to grow indefinitely. Fixes [docker/for-win#5113](https://github.com/docker/for-win/issues/5113).
 
-## [Docker Desktop Community 2.2.1.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2210)
+## Docker Desktop Community 2.2.1.0
 
 2020-02-12
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-17)
+### Upgrades
 
 - [Docker Compose 1.25.4](https://github.com/docker/compose/releases/tag/1.25.4)
 - [Go 1.12.16](https://golang.org/doc/devel/release.html#go1.12)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-19)
+### Bug fixes and minor changes
 
 - Fixed an issue that prevented users from creating files with special characters in the filenames within a shared volume. Fixes [docker/for-win#5520](https://github.com/docker/for-win/issues/5520).
 - Fixed handling of shared volumes with relative paths in `docker-compose.yml`. Fixes [docker/for-win#5516](https://github.com/docker/for-win/issues/5516).
@@ -513,9 +513,9 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fixed an issue where editing code inside a container resulted in an error. Fixes [docker/for-win#5528](https://github.com/docker/for-win/issues/5528).
 - Fixed a bug where running the command `DockerCli.exe -SharedDrives` failed to display a list of drives that are shared. Fixes [docker/for-win#5625](https://github.com/docker/for-win/issues/5625).
 
-### [Known issues](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#known-issues-3)
+### Known issues
 
-- DockerNAT has been removed from Docker Desktop 2.2.0.0 as using an IP address to communicate from the host to a container is not a supported feature. To communicate from a container to the host, you must use the special DNS name `host.docker.internal`. We also recommend using ports to communicate from the host to a container. For more information, see [Networking](https://docs.docker.com/desktop/networking/).
+- DockerNAT has been removed from Docker Desktop 2.2.0.0 as using an IP address to communicate from the host to a container is not a supported feature. To communicate from a container to the host, you must use the special DNS name `host.docker.internal`. We also recommend using ports to communicate from the host to a container. For more information, see [Networking]({{< ref "/manuals/DockerDesktop/ExplorenetworkingfeaturesonDockerDesktop" >}}).
 
   However, if your current setup relies on IP addresses for communication, you can use a temporary workaround to reinstate DockerNAT. To do this, open `C:\Program Files\Docker\Docker\resources\MobyLinux.ps1` and add `$SwitchName = "DockerNAT"` between line 175 and 176. Note that the temporary workaround to reinstate DockerNAT may be removed from future releases.
 
@@ -527,7 +527,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 
 - It is not possible to use `localhost` in the proxy settings. You can instead use `host.docker.internal` to work around this issue.
 
-## [Docker Desktop Community 2.1.7.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2170)
+## Docker Desktop Community 2.1.7.0
 
 2019-12-11
 
@@ -537,16 +537,16 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 >
 > Docker Desktop Edge 2.1.7.0 is the release candidate for the upcoming major Stable release. Please help us test this version before the wider release and report any issues in the [docker/for-win](https://github.com/docker/for-win/issues) GitHub repository.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-18)
+### Upgrades
 
 - [Docker Compose 1.25.1-rc1](https://github.com/docker/compose/releases/tag/1.25.1-rc1)
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#new-8)
+### New
 
 - Added the **WSL Integration** option in **Settings** > **Resources** to select WSL 2 distributions. This option will be visible only after enabling WSL 2 on your machine.
 - File sharing: The new gRPC FUSE system is no longer experimental and is enabled by default even when experimental features are turned off.
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-20)
+### Bug fixes and minor changes
 
 - The Docker Desktop Dashboard now displays port information inline with the container status.
 - Fixed an issue which caused the 'back' button on the Dashboard UI to behave inconsistently when repeatedly switching between container details and the Settings window.
@@ -557,38 +557,38 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fixed an issue that caused Docker Desktop to fail on startup when there is an incomplete Kubernetes config file.
 - Fixed various stability issues.
 
-### [Known issues](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#known-issues-4)
+### Known issues
 
 - The Dashboard stops updating when you switch the container mode between Linux and Windows. To work around this issue, close and reopen the Dashboard.
 - The new gRPC FUSE file sharing implementation does not support connecting to new drives after Docker Desktop starts (for example, a USB drive). If you would like to share the new drive in Docker Desktop, you must quit Docker Desktop and then start the application to refresh the list of drives in Settings.
 
-## [Docker Desktop Community 2.1.6.1](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2161)
+## Docker Desktop Community 2.1.6.1
 
 2019-11-20
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-21)
+### Bug fixes and minor changes
 
 - Fixed an issue that prevented Kubernetes to start with WSL 2 on machines with multiple CPU cores.
 - Fixed a rare issue that caused to Docker Desktop to crash with the error `Unable to stop Hyper-V VM: Cannot validate argument on parameter 'SwitchName'. The argument is null or empty.`
 
-### [Known issue](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#known-issue)
+### Known issue
 
 Windows Insider Preview Slow Ring users running OS builds older than 19025 cannot run WSL 2 following upgrade to Docker Desktop Edge 2.1.6.1. WSL 2 requires Windows 10 Insider Preview build 19018 or greater.
 
-### [Docker Desktop Community 2.1.6.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2160)
+### Docker Desktop Community 2.1.6.0
 
 2019-11-18
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-19)
+### Upgrades
 
 - [Docker 19.03.5](https://github.com/docker/docker-ce/releases/tag/v19.03.5)
 - [Go 1.12.13](https://golang.org/doc/devel/release.html#go1.12)
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#new-9)
+### New
 
 Added the ability to start and stop Compose-based applications and view combined logs in the Docker Desktop **Dashboard** UI.
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-22)
+### Bug fixes and minor changes
 
 - Docker Desktop now automatically restarts after an update.
 - Fixed an issue where Docker Desktop auto-start was not being disabled properly on some machines.
@@ -602,29 +602,29 @@ Added the ability to start and stop Compose-based applications and view combined
 - Fixed a handle leak when calling `Mknod` on a shared volume for Windows file sharing.
 - To make VM startup more reliable, Docker Desktop now avoids adding a Hyper-V NIC to the Windows VM when using Hypervisor sockets for Windows file sharing (rather than Samba).
 
-### [Known issue](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#known-issue-1)
+### Known issue
 
 Windows Insider Preview Slow Ring users running OS builds older than 19025 cannot run WSL 2 following upgrade to Docker Desktop Edge 2.1.6.0. WSL 2 requires Windows 10 Insider Preview build 19018 or greater.
 
-## [Docker Desktop Community 2.1.5.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2150)
+## Docker Desktop Community 2.1.5.0
 
 2019-11-04
 
 This release contains a Kubernetes upgrade. Note that your local Kubernetes cluster will be reset after installation.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-20)
+### Upgrades
 
 - [Kubernetes 1.15.5](https://github.com/kubernetes/kubernetes/releases/tag/v1.15.5)
 - [Docker Compose 1.25.0-rc4](https://github.com/docker/compose/releases/tag/1.25.0-rc4)
 - Linux kernel 4.19.76
 
-### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#new-10)
+### New
 
 - **Docker Desktop Dashboard:** The new Docker Desktop **Dashboard** provides a user-friendly interface which enables you to interact with containers and applications, and manage the lifecycle of your applications directly from the UI. In addition, it allows you to access the logs, view container details, and monitor resource utilization to explore the container behavior.
 
   To access the Dashboard UI, select the Docker menu from the system tray and then click **Dashboard**.
 
-- **WSL 2 backend:** The new Docker Desktop WSL 2 backend replaces the Docker Desktop WSL 2 Tech Preview. The WSL 2 backend architecture introduces support for Kubernetes, provides an updated Docker daemon, offers VPN-friendly networking, and additional features. For more information, see [Docker Desktop WSL 2 backend](https://docs.docker.com/desktop/wsl/).
+- **WSL 2 backend:** The new Docker Desktop WSL 2 backend replaces the Docker Desktop WSL 2 Tech Preview. The WSL 2 backend architecture introduces support for Kubernetes, provides an updated Docker daemon, offers VPN-friendly networking, and additional features. For more information, see [Docker Desktop WSL 2 backend]({{< ref "/manuals/DockerDesktop/WSL" >}}).
 
 - **New file sharing implementation:** Docker Desktop introduces a new file sharing implementation which uses gRPC, FUSE, and Hypervisor sockets instead of Samba, CIFS, and Hyper-V networking. The new implementation offers improved I/O performance. Additionally, when using the new file system:
 
@@ -635,42 +635,42 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   >
   > From the Docker menu, select **Settings** > **Command line**, and then clear the **Enable experimental features** check box. Alternatively, install a Docker Desktop Stable release.
 
-### [Known issues](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#known-issues-5)
+### Known issues
 
 - When you start a Docker Compose application and then start a Docker App which has the same name as the Compose application, Docker Desktop displays only one application on the Dashboard. However, when you expand the application, containers that belong to both applications are displayed on the Dashboard.
 - When you deploy a Docker App with multiple containers on Kubernetes, Docker Desktop displays each Pod as an application on the Dashboard.
 
-## [Docker Desktop Community 2.1.4.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2140)
+## Docker Desktop Community 2.1.4.0
 
 2019-10-15
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-21)
+### Upgrades
 
 - [Docker 19.03.3](https://github.com/docker/docker-ce/releases/tag/v19.03.3)
 - [Kubernetes 1.15.4](https://github.com/kubernetes/kubernetes/releases/tag/v1.15.4)
 - [Go 1.12.10](https://github.com/golang/go/issues?q=milestone%3AGo1.12.10+label%3ACherryPickApproved) for [CVE-2019-16276](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16276)
 - [Kitematic 0.17.9](https://github.com/docker/kitematic/releases/tag/v0.17.9)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-23)
+### Bug fixes and minor changes
 
 - Improved the navigation in **Settings** and **Troubleshoot** UI.
 - Fixed a bug that prevented users from accessing WSL 2 Tech Preview. Fixes [docker/for-win#4734](https://github.com/docker/for-win/issues/4734).
 - Docker Machine is no longer included in the Docker Desktop installer. You can download it separately from the [Docker Machine releases](https://github.com/docker/machine/releases) page.
 
-## [Docker Desktop Community 2.1.3.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2130)
+## Docker Desktop Community 2.1.3.0
 
 2019-09-16
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-24)
+### Bug fixes and minor changes
 
 - Added a loading overlay to the **Settings** and **Troubleshoot** windows to prevent editing conflicts.
 - Deactivated the **Reset Kubernetes** button when Kubernetes is not activated.
 
-## [Docker Desktop Community 2.1.2.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2120)
+## Docker Desktop Community 2.1.2.0
 
 2019-09-09
 
-#### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-22)
+#### Upgrades
 
 - [Docker 19.03.2](https://github.com/docker/docker-ce/releases/tag/v19.03.2)
 - [Kubernetes 1.14.6](https://github.com/kubernetes/kubernetes/releases/tag/v1.14.6)
@@ -679,24 +679,24 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - [Docker Machine 0.16.2](https://github.com/docker/machine/releases/tag/v0.16.2)
 - [Kitematic 0.17.8](https://github.com/docker/kitematic/releases/tag/v0.17.8)
 
-#### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-25)
+#### Bug fixes and minor changes
 
 - Reduced the Virtual Machine (VM) startup time.
 - Added support for `Expect: 100-continue` headers in the Docker API proxy. Some HTTP clients such as `curl` send this header when the payload is large, for example, when creating containers. Fixes [moby/moby#39693](https://github.com/moby/moby/issues/39693).
 
-## [Docker Desktop Community 2.1.1.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2110)
+## Docker Desktop Community 2.1.1.0
 
 2019-08-12
 
-#### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-23)
+#### Upgrades
 
 - Linux Kernel 4.14.131
 
-#### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#new-11)
+#### New
 
-- [Docker Desktop WSL 2 Tech Preview](https://docs.docker.com/desktop/wsl/)
+- [Docker Desktop WSL 2 Tech Preview]({{< ref "/manuals/DockerDesktop/WSL" >}})
 
-#### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-26)
+#### Bug fixes and minor changes
 
 - Fixed a PowerShell script signing issue that caused `AuthorizationManager check failed` errors on machines with strict group policies on PowerShell script signing. [docker/for-win#4376](https://github.com/docker/for-win/issues/4376)
 - Fixed an issue where attempts to upgrade Docker Desktop to version 2.1.0.0 sometimes failed with the error value cannot be null. [docker/for-win#3375](https://github.com/docker/for-win/issues/3375), [docker/for-win#4381](https://github.com/docker/for-win/issues/4381), [docker/for-win#4343](https://github.com/docker/for-win/issues/4343), [docker/for-win#4359](https://github.com/docker/for-win/issues/4359)
@@ -705,13 +705,13 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Docker Desktop now supports a configurable user timeout for VMs on slower machines. [docker/for-win#4393](https://github.com/docker/for-win/issues/4393)
 - Enabled Windows features such as Hyper-V and Containers during installation, thereby reducing the need for another restart after installation.
 
-## [Docker Desktop Community 2.1.0.0](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-desktop-community-2100)
+## Docker Desktop Community 2.1.0.0
 
 2019-07-30
 
 This release contains Kubernetes security improvements. Note that your local Kubernetes PKI and cluster will be reset after installation.
 
-#### [Upgrades](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#upgrades-24)
+#### Upgrades
 
 - [Docker 19.03.1](https://github.com/docker/docker-ce/releases/tag/v19.03.1)
 - [Docker Compose 1.24.1](https://github.com/docker/compose/releases/tag/1.24.1)
@@ -719,12 +719,12 @@ This release contains Kubernetes security improvements. Note that your local Kub
 - Linux Kernel 4.9.184
 - [Docker Credential Helpers 0.6.3](https://github.com/docker/docker-credential-helpers/releases/tag/v0.6.3)
 
-#### [New](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#new-12)
+#### New
 
 - Introduced a new user interface for the Docker Desktop **Settings** menu.
 - The **Restart** and **Reset** options are now available on the **Troubleshoot** menu.
 
-#### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#bug-fixes-and-minor-changes-27)
+#### Bug fixes and minor changes
 
 - Changed the host's kubernetes context to ensure `docker run -v .kube:kube ... kubectl` works.
 - Restricted the `cluster-admin` role on local Kubernetes cluster to `kube-system` namespace.
@@ -735,7 +735,7 @@ This release contains Kubernetes security improvements. Note that your local Kub
 - Fixed a bug which caused Docker Desktop to crash when a user cancels switching the version using Windows User Account Control (UAC) settings.
 - Fixed a bug where the process output was not redirected to stdout when gathering diagnostics on Windows, which sometimes resulted in a crash.
 
-## [Docker Community Edition 2.0.5.0 2019-06-12](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-2050-2019-06-12)
+## Docker Community Edition 2.0.5.0 2019-06-12
 
 This is the Edge channel, which gives you early access to our newest features. Be aware that some of them may be experimental, and some of them may not ever reach the Stable release.
 
@@ -762,12 +762,12 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Known issues
   - Windows containers networking does not work properly on Windows 1903.
 
-## [Docker Community Edition 2.0.4.1 2019-05-07](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-2041-2019-05-07)
+## Docker Community Edition 2.0.4.1 2019-05-07
 
 - Bug fixes and minor changes
   - Upgrade QEMU from 2.8.0 to 3.1.0 to fix an emulation issue when building and running Java applications on Arm64 devices.
 
-## [Docker Community Edition 2.0.4.0 2019-04-30](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-2040-2019-04-30)
+## Docker Community Edition 2.0.4.0 2019-04-30
 
 - Upgrades
   - [Docker 19.03.0-beta3](https://github.com/docker/docker-ce/releases/tag/v19.03.0-beta3)
@@ -793,7 +793,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix `Delete` of persistent volume claims
   - Truncate UDP DNS responses which are over 512 bytes in size
 
-## [Docker Community Edition 2.0.3.0 2019-03-05](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-2030-2019-03-05)
+## Docker Community Edition 2.0.3.0 2019-03-05
 
 - Upgrades
   - [Docker 18.09.3](https://github.com/docker/docker-ce/releases/tag/v18.09.3)
@@ -802,12 +802,12 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fixed port 8080 that was used on localhost when starting Kubernetes.
   - Fixed "create issue" link in diagnostics windows.
 
-## [Docker Community Edition 2.0.2.1 2019-02-15](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-2021-2019-02-15)
+## Docker Community Edition 2.0.2.1 2019-02-15
 
 - Upgrades
   - [Docker 18.09.2](https://github.com/docker/docker-ce/releases/tag/v18.09.2), fixes [CVE-2019-5736](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5736)
 
-## [Docker Community Edition 2.0.2.0 2019-02-06](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-2020-2019-02-06)
+## Docker Community Edition 2.0.2.0 2019-02-06
 
 - Upgrades
   - [Docker Compose 1.24.0-rc1](https://github.com/docker/compose/releases/tag/1.24.0-rc1)
@@ -818,7 +818,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Bug fixes and minor changes
   - Kubernetes: use default maximum number of pods for kubelet. [docker/for-mac#3453](https://github.com/docker/for-mac/issues/3453)
 
-## [Docker Community Edition 2.0.1.0 2019-01-11](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-2010-2019-01-11)
+## Docker Community Edition 2.0.1.0 2019-01-11
 
 - Upgrades
 
@@ -839,16 +839,16 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Quit will not check if service is running anymore
   - Fix UI lock when changing kubernetes state
 
-## [Edge Releases of 2018](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#edge-releases-of-2018)
+## Edge Releases of 2018
 
-### [Docker Community Edition 2.0.0.0-win82 2018-12-07](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-2000-win82-2018-12-07)
+### Docker Community Edition 2.0.0.0-win82 2018-12-07
 
 - Upgrades
   - [Docker compose 1.23.2](https://github.com/docker/compose/releases/tag/1.23.2)
 - Bug fixes and minor changes
   - Compose: Fixed a bug where build context URLs would fail to build on Windows. Fixes [docker/for-win#2918](https://github.com/docker/for-win/issues/2918)
 
-### [Docker Community Edition 2.0.0.0-win77 2018-11-14](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-2000-win77-2018-11-14)
+### Docker Community Edition 2.0.0.0-win77 2018-11-14
 
 - Upgrades
   - [Docker 18.09.0](https://github.com/docker/docker-ce-packaging/releases/tag/v18.09.0)
@@ -863,7 +863,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - VPNKit: Improved scalability of port forwarding.
   - VPNKit: Limit the size of the UDP NAT table. This ensures port forwarding and regular TCP traffic continue even when running very chatty UDP protocols.
 
-### [Docker Community Edition 2.0.0.0-beta1-win75 2018-09-14](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-2000-beta1-win75-2018-09-14)
+### Docker Community Edition 2.0.0.0-beta1-win75 2018-09-14
 
 - Upgrades
   - [Docker 18.09.0-ce-beta1](https://github.com/docker/docker-ce/releases/tag/v18.09.0-ce-beta1)
@@ -879,7 +879,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix dns update too verbose in logs
   - Fix panic in diagnose
 
-### [Docker Community Edition 18.06.1-ce-win74 2018-08-29](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18061-ce-win74-2018-08-29)
+### Docker Community Edition 18.06.1-ce-win74 2018-08-29
 
 - Upgrades
   - [Docker 18.06.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.06.1-ce)
@@ -894,17 +894,17 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Changed samba default file permissions back to avoid issue with too-open rights. Fixes [docker/for-win#2170](https://github.com/docker/for-win/issues/2170)
   - On RS5 insider, fix wrong detection of missing feature "Containers" requiring to install feature + reboot.
 
-### [Docker Community Edition 18.06.0-ce-win71 2018-07-27](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18060-ce-win71-2018-07-27)
+### Docker Community Edition 18.06.0-ce-win71 2018-07-27
 
 - Bug fixes and minor changes
   - Fix bug in automatic feature enabling if "Hyper-V" and "Containers" Windows features are not enabled already when starting Docker Desktop.
 
-### [Docker Community Edition 18.06.0-ce-win69 2018-07-25](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18060-ce-win69-2018-07-25)
+### Docker Community Edition 18.06.0-ce-win69 2018-07-25
 
 - Upgrades
   - [Docker 18.06.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.06.0-ce)
 
-### [Docker Community Edition 18.06.0-ce-rc3-win68 2018-07-19](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18060-ce-rc3-win68-2018-07-19)
+### Docker Community Edition 18.06.0-ce-rc3-win68 2018-07-19
 
 - Upgrades
   - [Docker 18.06.0-ce-rc3](https://github.com/docker/docker-ce/releases/tag/v18.06.0-ce-rc3)
@@ -919,7 +919,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix bug which would cause VM logs to be written to RAM rather than disk in some cases, and the VM to hang.
   - Fix security issue with named pipe connection to docker service.
 
-### [Docker Community Edition 18.05.0-ce-win67 2018-06-07](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18050-ce-win67-2018-06-07)
+### Docker Community Edition 18.05.0-ce-win67 2018-06-07
 
 - Upgrades
   - [LinuxKit v0.4](https://github.com/linuxkit/linuxkit/releases/tag/v0.4)
@@ -929,7 +929,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix VPNKit memory leak. Fixes [docker/for-win#2087](https://github.com/docker/for-win/issues/2087), [moby/vpnkit#371](https://github.com/moby/vpnkit/issues/371)
   - Fix potential loss of Kubernetes local cluster certificates on reboot.
 
-### [Docker Community Edition 18.05.0-ce-win66 2018-05-17](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18050-ce-win66-2018-05-17)
+### Docker Community Edition 18.05.0-ce-win66 2018-05-17
 
 - Upgrades
   - [Docker 18.05.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.05.0-ce)
@@ -941,7 +941,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - DNS name `host.docker.internal` can be used for host resolution from Windows containers. Fixes [docker/for-win#1976](https://github.com/docker/for-win/issues/1976)
   - Fix broken link in diagnostics window.
 
-### [Docker Community Edition 18.05.0-ce-rc1-win63 2018-04-26](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18050-ce-rc1-win63-2018-04-26)
+### Docker Community Edition 18.05.0-ce-rc1-win63 2018-04-26
 
 - Upgrades
   - [Docker 18.05.0-ce-rc1](https://github.com/docker/docker-ce/releases/tag/v18.05.0-ce-rc1)
@@ -951,13 +951,13 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix Kubernetes hostPath translation for PersistentVolumeClaim (PVC). Previously failing PVCs must be deleted and recreated. Fixes [docker/for-win#1758](https://github.com/docker/for-win/issues/1758)
   - Fix Kubernetes status when resetting to factory defaults.
 
-### [Docker Community Edition 18.04.0-ce-win62 2018-04-12](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18040-ce-win62-2018-04-12)
+### Docker Community Edition 18.04.0-ce-win62 2018-04-12
 
 - Upgrades
   - [Docker 18.04.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.04.0-ce)
   - [Docker compose 1.21.0](https://github.com/docker/compose/releases/tag/1.21.0)
 
-### [Docker Community Edition 18.04.0-ce-rc2-win61 2018-04-09](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18040-ce-rc2-win61-2018-04-09)
+### Docker Community Edition 18.04.0-ce-rc2-win61 2018-04-09
 
 - Upgrades
   - [Docker 18.04.0-ce-rc2](https://github.com/docker/docker-ce/releases/tag/v18.04.0-ce-rc2)
@@ -967,7 +967,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Bug fixes and minor changes
   - Fix ApyProxy not starting properly when Docker for Windows is started with the `HOME` environment variable already defined (typically started from the command line). Fixes [docker/for-win#1880](https://github.com/docker/for-win/issues/1880)
 
-### [Docker Community Edition 18.03.0-ce-win58 2018-03-26](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18030-ce-win58-2018-03-26)
+### Docker Community Edition 18.03.0-ce-win58 2018-03-26
 
 - Upgrades
   - [Docker 18.03.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.0-ce)
@@ -975,7 +975,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Bug fixes and minor changes
   - Adding Docker for Windows icon on desktop is optional in the installer. Fixes [docker/for-win#246](https://github.com/docker/for-win/issues/246)
 
-### [Docker Community Edition 18.03.0-ce-rc4-win57 2018-03-15](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18030-ce-rc4-win57-2018-03-15)
+### Docker Community Edition 18.03.0-ce-rc4-win57 2018-03-15
 
 - Upgrades
   - [Docker 18.03.0-ce-rc4](https://github.com/docker/docker-ce/releases/tag/v18.03.0-ce-rc4)
@@ -983,7 +983,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Bug fixes and minor changes
   - Fix support for AUFS. Fixes [docker/for-win#1831](https://github.com/docker/for-win/issues/1831)
 
-### [Docker Community Edition 18.03.0-ce-rc3-win56 2018-03-13](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18030-ce-rc3-win56-2018-03-13)
+### Docker Community Edition 18.03.0-ce-rc3-win56 2018-03-13
 
 - Upgrades
   - [Docker 18.03.0-ce-rc3](https://github.com/docker/docker-ce/releases/tag/v18.03.0-ce-rc3)
@@ -997,7 +997,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - If Kubernetes is enabled, switch CLI orchestrator option back to "swarm" when switching to Windows Containers.
   - Fix daemon not starting properly when setting TLS-related options.
 
-### [Docker Community Edition 18.03.0-ce-rc1-win54 2018-02-27](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18030-ce-rc1-win54-2018-02-27)
+### Docker Community Edition 18.03.0-ce-rc1-win54 2018-02-27
 
 - Upgrades
   - [Docker 18.03.0-ce-rc1](https://github.com/docker/docker-ce/releases/tag/v18.03.0-ce-rc1)
@@ -1014,13 +1014,13 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix hostPath mounts in Kubernetes.
   - Update Compose on Kubernetes to v0.3.0 rc4. Existing Kubernetes stacks will be removed during migration and need to be re-deployed on the cluster.
 
-### [Docker Community Edition 18.02.0-ce-win52 2018-02-08](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18020-ce-win52-2018-02-08)
+### Docker Community Edition 18.02.0-ce-win52 2018-02-08
 
 - Upgrades
   - [Docker 18.02.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.02.0-ce)
   - [Docker compose 1.19.0](https://github.com/docker/compose/releases/tag/1.19.0)
 
-### [Docker Community Edition 18.02.0-ce-rc2-win51 2018-02-02](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18020-ce-rc2-win51-2018-02-02)
+### Docker Community Edition 18.02.0-ce-rc2-win51 2018-02-02
 
 - Upgrades
   - [Docker 18.02.0-ce-rc2](https://github.com/docker/docker-ce/releases/tag/v18.02.0-ce-rc2)
@@ -1032,19 +1032,19 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Bug fixes and minor changes
   - Migration of Docker Toolbox images is not proposed anymore in Docker For Windows installer (still possible to migrate Toolbox images manually).
 
-### [Docker Community Edition 18.02.0-ce-rc1-win50 2018-01-26](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18020-ce-rc1-win50-2018-01-26)
+### Docker Community Edition 18.02.0-ce-rc1-win50 2018-01-26
 
 - Upgrades
   - [Docker 18.02.0-ce-rc1](https://github.com/docker/docker-ce/releases/tag/v18.02.0-ce-rc1)
 - New
-  - Experimental Kubernetes Support. You can now run a single-node Kubernetes cluster from the "Kubernetes" Pane in Docker for Windows settings and use kubectl commands as well as docker commands. See [the Kubernetes section](https://docs.docker.com/desktop/kubernetes/).
+  - Experimental Kubernetes Support. You can now run a single-node Kubernetes cluster from the "Kubernetes" Pane in Docker for Windows settings and use kubectl commands as well as docker commands. See [the Kubernetes section]({{< ref "/manuals/DockerDesktop/DeployonKuberneteswithDockerDesktop" >}}).
   - LCOW containers can now be run next to Windows containers (on Windows RS3 build 16299 and later). Use `--platform=linux` in Windows container mode to run Linux Containers On Windows. Note that LCOW is still experimental, and requires daemon `experimental` option.
 - Bug fixes and minor changes
   - Better cleanup for Windows containers and images on reset/uninstall. Fixes [docker/for-win#1580](https://github.com/docker/for-win/issues/1580), [docker/for-win#1544](https://github.com/docker/for-win/issues/1544), [docker/for-win#191](https://github.com/docker/for-win/issues/191)
   - Do not recreate Desktop icon on upgrade (effective on next upgrade). Fixes [docker/for-win#246](https://github.com/docker/for-win/issues/246), [docker/for-win#925](https://github.com/docker/for-win/issues/925), [docker/for-win#1551](https://github.com/docker/for-win/issues/1551)
   - Fix proxy for docker.for.win.localhost and docker.for.win.host.internal. Fixes [docker/for-win#1130](https://github.com/docker/for-win/issues/1130)
 
-### [Docker Community Edition 18.01.0-ce-win48 2018-01-19](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-18010-ce-win48-2018-01-19)
+### Docker Community Edition 18.01.0-ce-win48 2018-01-19
 
 - Upgrades
   - [Docker 18.01.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.01.0-ce)
@@ -1054,14 +1054,14 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix certificate management when connecting to a private registry. Fixes [docker/for-win#1512](https://github.com/docker/for-win/issues/1512)
   - Fix Mount compatibility when mounting drives with `-v //c/...`, now mounted in /host_mnt/c in the LinuxKit VM. Fixes [docker/for-win#1509](https://github.com/docker/for-win/issues/1509), [docker/for-win#1516](https://github.com/docker/for-win/issues/1516), [docker/for-win#1497](https://github.com/docker/for-win/issues/1497)
 
-### [Docker Community Edition 17.12.0-ce-win45 2018-01-05](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17120-ce-win45-2018-01-05)
+### Docker Community Edition 17.12.0-ce-win45 2018-01-05
 
 - Upgrades
   - [Docker 17.12.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.12.0-ce)
 
-## [Edge Releases of 2017](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#edge-releases-of-2017)
+## Edge Releases of 2017
 
-### [Docker Community Edition 17.12.0-ce-rc4-win44 2017-12-21](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17120-ce-rc4-win44-2017-12-21)
+### Docker Community Edition 17.12.0-ce-rc4-win44 2017-12-21
 
 - Upgrades
   - [Docker 17.12.0-ce-rc4](https://github.com/docker/docker-ce/releases/tag/v17.12.0-ce-rc4)
@@ -1071,14 +1071,14 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix VPNkit issue when username has spaces. See [docker/for-win#1429](https://github.com/docker/for-win/issues/1429).
   - Diagnostic improvements to get virtual machine logs before virtual machine shutdown.
 
-### [Docker Community Edition 17.12.0-ce-rc3-win43 2017-12-15](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17120-ce-rc3-win43-2017-12-15)
+### Docker Community Edition 17.12.0-ce-rc3-win43 2017-12-15
 
 - Upgrades
   - [Docker 17.12.0-ce-rc3](https://github.com/docker/docker-ce/releases/tag/v17.12.0-ce-rc3)
 - Bug fixes and minor changes
   - Fix installer check for not supported Windows `CoreCountrySpecific` Edition.
 
-### [Docker Community Edition 17.12.0-ce-rc2-win41 2017-12-13](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17120-ce-rc2-win41-2017-12-13)
+### Docker Community Edition 17.12.0-ce-rc2-win41 2017-12-13
 
 - Upgrades
   - [Docker 17.12.0-ce-rc2](https://github.com/docker/docker-ce/releases/tag/v17.12.0-ce-rc2)
@@ -1089,12 +1089,12 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Better removal of LCOW images and containers when uninstalling Docker
   - Links in update changelog open the default browser instead of IE (fixes [docker/for-win#1311](https://github.com/docker/for-win/issues/1311))
 
-### [Docker Community Edition 17.11.0-ce-win40 2017-11-22](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17110-ce-win40-2017-11-22)
+### Docker Community Edition 17.11.0-ce-win40 2017-11-22
 
 - Upgrades
   - [Docker 17.11.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.11.0-ce)
 
-### [Docker Community Edition 17.11.0-ce-rc4-win39 2017-11-17](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17110-ce-rc4-win39-2017-11-17)
+### Docker Community Edition 17.11.0-ce-rc4-win39 2017-11-17
 
 - Upgrades
   - [Docker 17.11.0-ce-rc4](https://github.com/docker/docker-ce/releases/tag/v17.11.0-ce-rc4)
@@ -1103,7 +1103,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Bug fixes and minor changes
   - Increased timeout for virtual machine boot startup to 2 minutes.
 
-### [Docker Community Edition 17.11.0-ce-rc3-win38 2017-11-09](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17110-ce-rc3-win38-2017-11-09)
+### Docker Community Edition 17.11.0-ce-rc3-win38 2017-11-09
 
 - Upgrades
   - [Docker 17.11.0-ce-rc3](https://github.com/docker/docker-ce/releases/tag/v17.11.0-ce-rc3)
@@ -1116,7 +1116,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Do not propose toolbox migration popup after clicking "Try LCOW" on first startup
   - Fix `docker.for.win.localhost` not working in proxy settings. Fixes [for-win/#1130](https://github.com/docker/for-win/issues/1130)
 
-### [Docker Community Edition 17.11.0-ce-rc2-win37 2017-11-02](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17110-ce-rc2-win37-2017-11-02)
+### Docker Community Edition 17.11.0-ce-rc2-win37 2017-11-02
 
 - Upgrades
   - [Docker 17.11.0-ce-rc2](https://github.com/docker/docker-ce/releases/tag/v17.11.0-ce-rc2)
@@ -1127,7 +1127,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Bug fixes and minor changes
   - Fix centos:5 and centos:6 images not starting properly with LinuxKit virtual machine (fixes [docker/for-win#1245](https://github.com/docker/for-win/issues/1245)).
 
-### [Docker Community Edition 17.10.0-ce-win36 2017-10-24](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17100-ce-win36-2017-10-24)
+### Docker Community Edition 17.10.0-ce-win36 2017-10-24
 
 - Upgrades
   - [Docker 17.10.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.10.0-ce)
@@ -1137,24 +1137,24 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Virtual machine entirely built with Linuxkit
   - Experimental support for Microsoft Linux Containers On Windows, on Windows 10 RS3.
 
-### [Docker Community Edition 17.09.0-ce-win34 2017-10-06](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17090-ce-win34-2017-10-06)
+### Docker Community Edition 17.09.0-ce-win34 2017-10-06
 
 - Bug fixes
   - Fix Docker For Windows unable to start in some cases: removed use of libgmp sometimes causing the VPNkit process to die.
 
-### [Docker Community Edition 17.09.0-ce-win31 2017-09-29](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17090-ce-win31-2017-09-29)
+### Docker Community Edition 17.09.0-ce-win31 2017-09-29
 
 - Upgrades
   - [Docker 17.09.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.09.0-ce)
 - Bug fixes and minor changes
   - VPNKit: security fix to reduce the risk of DNS cache poisoning attack (reported by Hannes Mehnert https://hannes.nqsb.io/)
 
-### [Docker Community Edition 17.09.0-ce-rc3-win30 2017-09-22](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17090-ce-rc3-win30-2017-09-22)
+### Docker Community Edition 17.09.0-ce-rc3-win30 2017-09-22
 
 - Upgrades
   - [Docker 17.09.0-ce-rc3](https://github.com/docker/docker-ce/releases/tag/v17.09.0-ce-rc3)
 
-### [Docker Community Edition 17.09.0-ce-rc2-win29 2017-09-19](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17090-ce-rc2-win29-2017-09-19)
+### Docker Community Edition 17.09.0-ce-rc2-win29 2017-09-19
 
 - Upgrades
   - [Docker 17.09.0-ce-rc2](https://github.com/docker/docker-ce/releases/tag/v17.09.0-ce-rc2)
@@ -1166,7 +1166,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - VPNkit: do not block startup when ICMP permission is denied. (Fixes docker/for-win#1036, docker/for-win#1035, docker/for-win#1040)
   - Fix minor bug on update checks
 
-### [Docker Community Edition 17.09.0-ce-rc1-win28 2017-09-07](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17090-ce-rc1-win28-2017-09-07)
+### Docker Community Edition 17.09.0-ce-rc1-win28 2017-09-07
 
 - Upgrades
   - [Docker 17.09.0-ce-rc1](https://github.com/docker/docker-ce/releases/tag/v17.09.0-ce-rc1)
@@ -1181,14 +1181,14 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
   - Fix auto updates checkbox, no need to restart the application
   - Fix check for updates menu when auto updates was disable
 
-### [Docker Community Edition 17.07.0-win26 Release Notes (2017-09-01 17.07.0-win26)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17070-win26-release-notes-2017-09-01-17070-win26)
+### Docker Community Edition 17.07.0-win26 Release Notes (2017-09-01 17.07.0-win26)
 
 - Upgrades
   - [Docker 17.07.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.07.0-ce)
   - [Docker compose 1.16.0](https://github.com/docker/compose/releases/tag/1.16.0)
   - [Docker Credential Helpers 0.6.0](https://github.com/docker/docker-credential-helpers/releases/tag/v0.6.0)
 
-### [Docker Community Edition 17.07.0-rc4-win25 Release Notes (2017-08-24 17.07.0-win25)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17070-rc4-win25-release-notes-2017-08-24-17070-win25)
+### Docker Community Edition 17.07.0-rc4-win25 Release Notes (2017-08-24 17.07.0-win25)
 
 **Upgrades**
 
@@ -1203,7 +1203,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 >
 > Mac user reported this problem, which applied to both Mac and Windows and was fixed on both.
 
-### [Docker Community Edition 17.07.0-rc3-win23 Release Notes (2017-08-21 17.07.0-win23)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17070-rc3-win23-release-notes-2017-08-21-17070-win23)
+### Docker Community Edition 17.07.0-rc3-win23 Release Notes (2017-08-21 17.07.0-win23)
 
 **Upgrades**
 
@@ -1222,14 +1222,14 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - VPNKit: Improved the logging around the UNIX domain socket connections
 - VPNKit: Automatically trim whitespace from `int` or `bool` database keys
 
-### [Docker Community Edition 17.07.0-ce-rc2-win22 Release Notes (2017-08-11 17.06.0-win22)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17070-ce-rc2-win22-release-notes-2017-08-11-17060-win22)
+### Docker Community Edition 17.07.0-ce-rc2-win22 Release Notes (2017-08-11 17.06.0-win22)
 
 **Upgrades**
 
 - [Docker 17.07.0-ce-rc2](https://github.com/docker/docker-ce/releases/tag/v17.07.0-ce-rc2)
 - Linux Kernel 4.9.41
 
-### [Docker Community Edition 17.07.0-ce-rc1-win21 Release Notes (2017-07-31 17.07.0-win21)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17070-ce-rc1-win21-release-notes-2017-07-31-17070-win21)
+### Docker Community Edition 17.07.0-ce-rc1-win21 Release Notes (2017-07-31 17.07.0-win21)
 
 **Upgrades**
 
@@ -1248,7 +1248,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fix `config.json` not being released properly (Fixes [docker/for-win#867](https://github.com/docker/for-win/issues/867))
 - Do not anymore move credentials in credential store at startup
 
-### [Docker Community Edition 17.06.1-ce-rc1-win20 Release Notes (2017-07-18 17.06.1-win20)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17061-ce-rc1-win20-release-notes-2017-07-18-17061-win20)
+### Docker Community Edition 17.06.1-ce-rc1-win20 Release Notes (2017-07-18 17.06.1-win20)
 
 **Upgrades**
 
@@ -1261,20 +1261,20 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fix locked container id file (Fixes [docker/for-win#818](https://github.com/docker/for-win/issues/818))
 - Avoid expanding variables in PATH env variable (Fixes [docker/for-win#859](https://github.com/docker/for-win/issues/859))
 
-### [Docker Community Edition 17.06.0-win17 Release Notes (2017-06-28 17.06.0-win17)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17060-win17-release-notes-2017-06-28-17060-win17)
+### Docker Community Edition 17.06.0-win17 Release Notes (2017-06-28 17.06.0-win17)
 
 **Upgrades**
 
 - [Docker 17.06.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.06.0-ce)
 
-### [Docker Community Edition 17.06.0-win16 Release Notes (2017-06-21 17.06.0-rc5-ce-win16)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17060-win16-release-notes-2017-06-21-17060-rc5-ce-win16)
+### Docker Community Edition 17.06.0-win16 Release Notes (2017-06-21 17.06.0-rc5-ce-win16)
 
 **Upgrades**
 
 - [Docker 17.06.0-ce-rc5](https://github.com/docker/docker-ce/releases/tag/v17.06.0-ce-rc5)
 - [Docker compose 1.14.0](https://github.com/docker/compose/releases/tag/1.14.0)
 
-### [Docker Community Edition 17.06.0-win15 Release Notes (2017-06-16 17.06.0-rc4-ce-win15)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17060-win15-release-notes-2017-06-16-17060-rc4-ce-win15)
+### Docker Community Edition 17.06.0-win15 Release Notes (2017-06-16 17.06.0-rc4-ce-win15)
 
 **Upgrades**
 
@@ -1282,7 +1282,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - [Docker Credential Helpers 0.5.2](https://github.com/docker/docker-credential-helpers/releases/tag/v0.5.2)
 - Linux Kernel 4.9.31
 
-### [Docker Community Edition 17.06.0-win14 Release Notes (2017-06-08 17.06.0-rc2-ce-win14)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17060-win14-release-notes-2017-06-08-17060-rc2-ce-win14)
+### Docker Community Edition 17.06.0-win14 Release Notes (2017-06-08 17.06.0-rc2-ce-win14)
 
 **Upgrades**
 
@@ -1300,7 +1300,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fixed group access check for users logged in with Active Directory (fixes [docker/for-win#785](https://github.com/docker/for-win/issues/785))
 - Check environment variables and add some warnings in logs if they can cause docker to fail
 
-### [Docker Community Edition 17.06.0-win13 Release Notes (2017-06-01 17.06.0-rc1-ce-win13)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17060-win13-release-notes-2017-06-01-17060-rc1-ce-win13)
+### Docker Community Edition 17.06.0-win13 Release Notes (2017-06-01 17.06.0-rc1-ce-win13)
 
 **Upgrades**
 
@@ -1321,13 +1321,13 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Named pipes are now created with more constrained security descriptors to improve security
 - Security fix: Users must be part of a specific group "docker-users" to run Docker for Windows
 
-### [Docker Community Edition 17.0.5-win11 Release Notes (2017-05-12 17.05.0-ce-win11)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-1705-win11-release-notes-2017-05-12-17050-ce-win11)
+### Docker Community Edition 17.0.5-win11 Release Notes (2017-05-12 17.05.0-ce-win11)
 
 **Upgrades**
 
 - Security fix for CVE-2017-7308
 
-### [Docker Community Edition 17.0.5-win9 Release Notes (2017-05-09 17.05.0-ce-win9)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-1705-win9-release-notes-2017-05-09-17050-ce-win9)
+### Docker Community Edition 17.0.5-win9 Release Notes (2017-05-09 17.05.0-ce-win9)
 
 **Upgrades**
 
@@ -1347,13 +1347,13 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fixed virtual machine not starting when machine had very long name
 - Fixed a bug where Windows daemon.json file was not written (fixes [docker/for-win#670](https://github.com/docker/for-win/issues/670))
 
-### [Docker Community Edition 17.0.5-win8 Release Notes (2017-04-13 17.05.0-ce-rc1-win8)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-1705-win8-release-notes-2017-04-13-17050-ce-rc1-win8)
+### Docker Community Edition 17.0.5-win8 Release Notes (2017-04-13 17.05.0-ce-rc1-win8)
 
 **Upgrades**
 
 - [Docker 17.05.0-ce-rc1](https://github.com/docker/docker/releases/tag/v17.05.0-ce-rc1)
 
-### [Docker Community Edition 17.0.4-win7 Release Notes (2017-04-06 17.04.0-ce-win7)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-1704-win7-release-notes-2017-04-06-17040-ce-win7)
+### Docker Community Edition 17.0.4-win7 Release Notes (2017-04-06 17.04.0-ce-win7)
 
 **New**
 
@@ -1370,7 +1370,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 
 - Added patches to the kernel to fix VMBus crash
 
-### [Docker Community Edition 17.04.0-ce-win6 Release Notes (2017-04-03 17.04.0-ce-rc2-win6)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17040-ce-win6-release-notes-2017-04-03-17040-ce-rc2-win6)
+### Docker Community Edition 17.04.0-ce-win6 Release Notes (2017-04-03 17.04.0-ce-rc2-win6)
 
 **Upgrades**
 
@@ -1383,7 +1383,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Named pipe client connection should not trigger dead locks on `docker run` with data in stdin anymore
 - Buffered data should be treated correctly when docker client requests are upgraded to raw streams
 
-### [Docker Community Edition 17.03.1 Release Notes (2017-03-28 17.03.1-ce-rc1-win3)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17031-release-notes-2017-03-28-17031-ce-rc1-win3)
+### Docker Community Edition 17.03.1 Release Notes (2017-03-28 17.03.1-ce-rc1-win3)
 
 **Upgrades**
 
@@ -1395,7 +1395,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 
 - VPNKit: capture up to 64KiB of NTP traffic for diagnostics, better handling of DNS
 
-### [Docker Community Edition 17.03.0 Release Notes (2017-03-06 17.03.0-ce-win1)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17030-release-notes-2017-03-06-17030-ce-win1)
+### Docker Community Edition 17.03.0 Release Notes (2017-03-06 17.03.0-ce-win1)
 
 **New**
 
@@ -1418,7 +1418,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Improved Firewall handling: stop listing the rules since it can take a lot of time
 - Don't rollback to the previous engine when the desired engine fails to start
 
-### [Docker Community Edition 17.03.0 Release Notes (2017-02-22 17.03.0-ce-rc1-win1)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#docker-community-edition-17030-release-notes-2017-02-22-17030-ce-rc1-win1)
+### Docker Community Edition 17.03.0 Release Notes (2017-02-22 17.03.0-ce-rc1-win1)
 
 **New**
 
@@ -1439,7 +1439,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Improved Firewall handling: stop listing the rules since it can take a lot of time
 - Don't rollback to the previous engine when the desired engine fails to start
 
-### [Beta 41 Release Notes (2017-02-07 1.13.1-rc2-beta41)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-41-release-notes-2017-02-07-1131-rc2-beta41)
+### Beta 41 Release Notes (2017-02-07 1.13.1-rc2-beta41)
 
 **Upgrades**
 
@@ -1452,7 +1452,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - VPNKit: set the Recursion Available bit on DNS responses from the cache
 - Don't use port 4222 inside the Linux VM
 
-### [Beta 40 Release Notes (2017-01-31 1.13.1-rc1-beta40)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-40-release-notes-2017-01-31-1131-rc1-beta40)
+### Beta 40 Release Notes (2017-01-31 1.13.1-rc1-beta40)
 
 **Upgrades**
 
@@ -1469,7 +1469,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - VPNKit: fix a source of occasional packet loss (truncation) on the virtual ethernet link
 - Fix negotiation of TimeSync protocol version (through kernel update)
 
-### [Beta 39 Release Notes (2017-01-26 1.13.0-beta39)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-39-release-notes-2017-01-26-1130-beta39)
+### Beta 39 Release Notes (2017-01-26 1.13.0-beta39)
 
 **Upgrades**
 
@@ -1488,7 +1488,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fix for swap not being mounted ( [docker/for-win#403](https://github.com/docker/for-win/issues/403))
 - Fix aufs xattr delete issue ( [docker/docker#30245](https://github.com/docker/docker/issues/30245))
 
-### [Beta 38 Release Notes (2017-01-20 1.13.0-beta38)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-38-release-notes-2017-01-20-1130-beta38)
+### Beta 38 Release Notes (2017-01-20 1.13.0-beta38)
 
 **Upgrades**
 
@@ -1535,7 +1535,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - VPNKit: If one request fails, allow other concurrent requests to succeed. For example this allows IPv4 servers to work even if IPv6 is broken.
 - VPNKit: Fixed bug which could cause the connection tracking to underestimate the number of active connections
 
-### [Beta 37 Release Notes (2017-01-16 1.13.0-rc7-beta37)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-37-release-notes-2017-01-16-1130-rc7-beta37)
+### Beta 37 Release Notes (2017-01-16 1.13.0-rc7-beta37)
 
 **Upgrades**
 
@@ -1543,7 +1543,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Notary 0.4.3
 - Linux kernel 4.9.3
 
-### [Beta 36 Release Notes (2017-01-12 1.13.0-rc6-beta36)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-36-release-notes-2017-01-12-1130-rc6-beta36)
+### Beta 36 Release Notes (2017-01-12 1.13.0-rc6-beta36)
 
 > **Important Note:** Plugins installed using the experimental "managed plugins" feature in Docker 1.12 must be removed/uninstalled before upgrading.
 
@@ -1557,7 +1557,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 
 - Uninstall should be more reliable
 
-### [Beta 35 Release Notes (2017-01-06 1.13.0-rc5-beta35)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-35-release-notes-2017-01-06-1130-rc5-beta35)
+### Beta 35 Release Notes (2017-01-06 1.13.0-rc5-beta35)
 
 > **Important Note:** Plugins installed using the experimental "managed plugins" feature in Docker 1.12 must be removed/uninstalled before upgrading.
 
@@ -1566,9 +1566,9 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Docker 1.13.0-rc5
 - Docker Compose 1.10-rc1
 
-## [Edge Releases of 2016](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#edge-releases-of-2016)
+## Edge Releases of 2016
 
-### [Beta 34 Release Notes (2016-12-20 1.13.0-rc4-beta34)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-34-release-notes-2016-12-20-1130-rc4-beta34)
+### Beta 34 Release Notes (2016-12-20 1.13.0-rc4-beta34)
 
 **New**
 
@@ -1587,7 +1587,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Windows Containers Reset to default script improvements
 - About Box is now Copy/Paste enabled
 
-### [Beta 33 Release Notes (2016-12-15 1.13.0-rc3-beta33)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-33-release-notes-2016-12-15-1130-rc3-beta33)
+### Beta 33 Release Notes (2016-12-15 1.13.0-rc3-beta33)
 
 > **Important Note:** Plugins installed using the experimental "managed plugins" feature in Docker 1.12 must be removed/uninstalled before upgrading.
 
@@ -1604,7 +1604,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Bugsnag reports should work again
 - Fixed a memory leak related to logs and Windows Containers
 
-### [Beta 32.1 Release Notes (2016-12-09 1.13.0-rc3-beta32.1)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-321-release-notes-2016-12-09-1130-rc3-beta321)
+### Beta 32.1 Release Notes (2016-12-09 1.13.0-rc3-beta32.1)
 
 > **Important Note:** Plugins installed using the experimental "managed plugins" feature in Docker 1.12 must be removed/uninstalled before upgrading.
 
@@ -1634,7 +1634,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Improvements in drive sharing code
 - Removed the legacy "Disable oplocks" trick for enabling Windows Containers on older insider previews
 
-### [Beta 32 Release Notes (2016-12-07 1.13.0-rc3-beta32)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-32-release-notes-2016-12-07-1130-rc3-beta32)
+### Beta 32 Release Notes (2016-12-07 1.13.0-rc3-beta32)
 
 > **Important Note**:
 >
@@ -1662,7 +1662,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Improvements in drive sharing code
 - Removed the legacy "Disable oplocks" trick for enabling Windows Containers on older insider previews
 
-### [Beta 31 Release Notes (2016-12-01 1.13.0-rc2-beta31)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-31-release-notes-2016-12-01-1130-rc2-beta31)
+### Beta 31 Release Notes (2016-12-01 1.13.0-rc2-beta31)
 
 **New**
 
@@ -1691,7 +1691,7 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Fixed the URL to the SMB/firewall documentation
 - Properly remove duplicate firewall rules
 
-### [Beta 30 Release Notes (2016-11-10 1.12.3-beta30)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-30-release-notes-2016-11-10-1123-beta30)
+### Beta 30 Release Notes (2016-11-10 1.12.3-beta30)
 
 **Upgrades**
 
@@ -1704,25 +1704,25 @@ This release contains a Kubernetes upgrade. Note that your local Kubernetes clus
 - Always remove the disk on factory reset
 - Improvements to Logging and Diagnostics
 
-### [Beta 29.3 Release Notes (2016-11-02 1.12.3-beta29.3)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-293-release-notes-2016-11-02-1123-beta293)
+### Beta 29.3 Release Notes (2016-11-02 1.12.3-beta29.3)
 
 **Upgrades**
 
 - Docker Compose 1.9.0-rc2
 
-### [Beta 29.2 Release Notes (2016-10-27 1.12.2-beta29.2)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-292-release-notes-2016-10-27-1122-beta292)
+### Beta 29.2 Release Notes (2016-10-27 1.12.2-beta29.2)
 
 **Hotfixes**
 
 - Upgrade to Docker 1.12.3
 
-### [Beta 29.1 Release Notes (2016-10-26 1.12.1-beta29.1)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-291-release-notes-2016-10-26-1121-beta291)
+### Beta 29.1 Release Notes (2016-10-26 1.12.1-beta29.1)
 
 **Hotfixes**
 
 - Fixed missing `/dev/pty/ptmx`
 
-### [Beta 29 Release Notes (2016-10-25 1.12.3-rc1-beta29)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-29-release-notes-2016-10-25-1123-rc1-beta29)
+### Beta 29 Release Notes (2016-10-25 1.12.3-rc1-beta29)
 
 Windows Container support relies on the Windows 10 container feature, which is **experimental** at this point. Windows 10 Pro (1607, build number 14393) requires update `KB3192366` (soon to be released through Windows Update) to fully work. Some insider builds may not work.
 
@@ -1746,7 +1746,7 @@ Windows Container support relies on the Windows 10 container feature, which is *
 - Increase default ulimit for memlock (fixes https://github.com/docker/for-mac/issues/801)
 - Make sure we don't use an older Nlog library from the GAC
 
-### [Beta 28 Release Notes (2016-10-13 1.12.2-rc3-beta28)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-28-release-notes-2016-10-13-1122-rc3-beta28)
+### Beta 28 Release Notes (2016-10-13 1.12.2-rc3-beta28)
 
 Windows Container support relies on the Windows 10 container feature, which is **experimental** at this point. Windows 10 Pro (1607, build number 14393) requires update `KB3192366` (soon to be released through Windows Update) to fully work. Some insider builds may not work.
 
@@ -1773,7 +1773,7 @@ Windows Container support relies on the Windows 10 container feature, which is *
 - Preserve the PowerShell stacktraces
 - Write OS and Application versions at the top of each log file
 
-### [Beta 27 Release Notes (2016-09-28 1.12.2-rc1-beta27)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-27-release-notes-2016-09-28-1122-rc1-beta27)
+### Beta 27 Release Notes (2016-09-28 1.12.2-rc1-beta27)
 
 **New**
 
@@ -1803,7 +1803,7 @@ Windows Container support relies on the Windows 10 container feature, which is *
 - VPNKit: reduce the number of file descriptors consumed by DNS
 - Improve debug information
 
-### [Beta 26 Release Notes (2016-09-14 1.12.1-beta26)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-26-release-notes-2016-09-14-1121-beta26)
+### Beta 26 Release Notes (2016-09-14 1.12.1-beta26)
 
 **New**
 
@@ -1823,7 +1823,7 @@ Windows Container support relies on the Windows 10 container feature, which is *
 - Fixed the lingering net adapters removal on Windows 10 Anniversary Update
 - Uploading a diagnostic now shows a proper status message in the Settings
 
-### [Beta 25 Release (2016-09-07 1.12.1-beta25)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-25-release-2016-09-07-1121-beta25)
+### Beta 25 Release (2016-09-07 1.12.1-beta25)
 
 **New**
 
@@ -1840,7 +1840,7 @@ Windows Container support relies on the Windows 10 container feature, which is *
 - Only UTF-8 passwords are supported for host filesystem sharing
 - Docker automatically disables lingering net adapters. The only way to remove them is manually using `devmgmt.msc`.
 
-### [Beta 24 Release (2016-08-23 1.12.1-beta24)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-24-release-2016-08-23-1121-beta24)
+### Beta 24 Release (2016-08-23 1.12.1-beta24)
 
 **Upgrades**
 
@@ -1858,7 +1858,7 @@ Windows Container support relies on the Windows 10 container feature, which is *
 - Only UTF-8 passwords are supported for host filesystem sharing.
 - Docker automatically disables lingering net adapters. The only way to remove them is manually using `devmgmt.msc`.
 
-### [Beta 23 Release (2016-08-16 1.12.1-rc1-beta23)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-23-release-2016-08-16-1121-rc1-beta23)
+### Beta 23 Release (2016-08-16 1.12.1-rc1-beta23)
 
 **New**
 
@@ -1895,21 +1895,21 @@ Windows Container support relies on the Windows 10 container feature, which is *
 **Known issues**
 
 - Only UTF-8 passwords are supported for host filesystem sharing
-- Docker automatically disables lingering net adapters. The only way to remove them is manually using `devmgmt.msc` as documented in [Troubleshooting](https://docs.docker.com/desktop/troubleshoot/known-issues/).
+- Docker automatically disables lingering net adapters. The only way to remove them is manually using `devmgmt.msc` as documented in [Troubleshooting]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}).
 
-### [Beta 22 Release (2016-08-11 1.12.0-beta22)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-22-release-2016-08-11-1120-beta22)
+### Beta 22 Release (2016-08-11 1.12.0-beta22)
 
 Unreleased. See Beta 23 for changes.
 
 **Known issues**
 
-- Docker automatically disables lingering net adapters. The only way to remove them is manually using `devmgmt.msc` as documented in [Troubleshooting](https://docs.docker.com/desktop/troubleshoot/known-issues/).
+- Docker automatically disables lingering net adapters. The only way to remove them is manually using `devmgmt.msc` as documented in [Troubleshooting]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}).
 
-### [Beta 21 Release (2016-07-28 1.12.0-beta21)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-21-release-2016-07-28-1120-beta21)
+### Beta 21 Release (2016-07-28 1.12.0-beta21)
 
 **New**
 
-- Docker for Windows is now available from two channels: **stable** and **beta**. New features and bug fixes go out first in auto-updates to users in the beta channel. Updates to the stable channel are much less frequent and happen in sync with major and minor releases of the Docker engine. Only features that are well-tested and ready for production are added to the stable channel releases. For downloads of both and more information, see [Install Docker Desktop on Windows](https://docs.docker.com/desktop/install/windows-install/).
+- Docker for Windows is now available from two channels: **stable** and **beta**. New features and bug fixes go out first in auto-updates to users in the beta channel. Updates to the stable channel are much less frequent and happen in sync with major and minor releases of the Docker engine. Only features that are well-tested and ready for production are added to the stable channel releases. For downloads of both and more information, see [Install Docker Desktop on Windows]({{< ref "/manuals/DockerDesktop/Install/Windows" >}}).
 - Removed the docker host name. Containers with exported ports are reachable via localhost.
 - The UI shows whether the user is on beta or stable channel
 
@@ -1934,7 +1934,7 @@ Unreleased. See Beta 23 for changes.
 
 - Older Kitematic versions are not compatible with Docker for Windows. You need to manually delete the `C:\Program Files\Docker\Kitematic` folder before you click **Open Kitematic...** systray link.
 
-### [Beta 20 Release (2016-07-19 1.12.0-rc4-beta20)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-20-release-2016-07-19-1120-rc4-beta20)
+### Beta 20 Release (2016-07-19 1.12.0-rc4-beta20)
 
 **New**
 
@@ -1949,7 +1949,7 @@ Unreleased. See Beta 23 for changes.
 - Limit the number of concurrent port forwards to avoid running out of resources
 - Store the database as a "bare" git repo to avoid corruption problems
 
-### [Beta 19 Release (2016-07-14 1.12.0-rc4-beta19)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-19-release-2016-07-14-1120-rc4-beta19)
+### Beta 19 Release (2016-07-14 1.12.0-rc4-beta19)
 
 **New**
 
@@ -1969,7 +1969,7 @@ Unreleased. See Beta 23 for changes.
 - `docker build/events/logs/stats...` won't leak when interrupted with Ctrl-C
 - Disable all buttons on Update Window when a version is downloading
 
-### [Beta 18.1 Release (2016-07-07 1.12.0-rc3-beta18.1)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-181-release-2016-07-07-1120-rc3-beta181)
+### Beta 18.1 Release (2016-07-07 1.12.0-rc3-beta18.1)
 
 > **Note**: Docker 1.12.0 RC3 release introduces a backward incompatible change from RC2. You can fix this by recreating or updating your containers.
 
@@ -2000,7 +2000,7 @@ Unreleased. See Beta 23 for changes.
 - Improve the connection to the database
 - Ignore when the shutdown service is not available
 
-### [Beta 18 Release (2016-07-06 1.12.0-rc3-beta18)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-18-release-2016-07-06-1120-rc3-beta18)
+### Beta 18 Release (2016-07-06 1.12.0-rc3-beta18)
 
 **New**
 
@@ -2026,7 +2026,7 @@ Unreleased. See Beta 23 for changes.
 - Improve the connection to the database
 - Ignore when the shutdown service is not available
 
-### [Beta 17 Release (2016-06-29 1.12.0-rc2-beta17)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-17-release-2016-06-29-1120-rc2-beta17)
+### Beta 17 Release (2016-06-29 1.12.0-rc2-beta17)
 
 **Upgrades**
 
@@ -2048,7 +2048,7 @@ Unreleased. See Beta 23 for changes.
 - Fixed errors with the firewall and the network switch
 - Fixed parsing errors in the PowerShell script
 
-### [Beta 16 Release (2016-06-17 1.12.0-rc2-beta16)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-16-release-2016-06-17-1120-rc2-beta16)
+### Beta 16 Release (2016-06-17 1.12.0-rc2-beta16)
 
 **Upgrades**
 
@@ -2065,7 +2065,7 @@ Unreleased. See Beta 23 for changes.
   - Changed the name of the application from "DockerforWindows" to "Docker for Windows"
   - Avoid multiple update windows being displayed at the same time
 
-### [Beta 15 Release (2016-06-10 1.11.2-beta15)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-15-release-2016-06-10-1112-beta15)
+### Beta 15 Release (2016-06-10 1.11.2-beta15)
 
 **New**
 
@@ -2092,7 +2092,7 @@ Unreleased. See Beta 23 for changes.
 - More responsive Settings Panel, with new whales also :-)
 - Improved logs and debug information
 
-### [Beta 14 Release(2016-06-02 1.11.1-beta14)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-14-release2016-06-02-1111-beta14)
+### Beta 14 Release(2016-06-02 1.11.1-beta14)
 
 **New**
 
@@ -2117,7 +2117,7 @@ Unreleased. See Beta 23 for changes.
 
 - Due to limitation in the Windows NAT implementation, co-existence with other NAT prefixes needs to be carefully managed.
 
-### [Beta 13 Release (2016-05-25 1.11.1-beta13)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-13-release-2016-05-25-1111-beta13)
+### Beta 13 Release (2016-05-25 1.11.1-beta13)
 
 **New**
 
@@ -2145,7 +2145,7 @@ This Beta release includes some significant changes:
 
 - Due to limitation in the Windows NAT implementation, co-existence with other NAT prefixes needs to be carefully managed.
 
-### [Beta 12 Release (2016-17-10 1.11.1-beta12)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-12-release-2016-17-10-1111-beta12)
+### Beta 12 Release (2016-17-10 1.11.1-beta12)
 
 **New**
 
@@ -2161,20 +2161,20 @@ This Beta release includes some significant changes:
 
 - Due to limitation in the Windows NAT implementation, co-existence with other NAT prefixes needs to be carefully managed.
 
-### [Beta 11b Release (2016-05-11 1.11.1-beta11b)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-11b-release-2016-05-11-1111-beta11b)
+### Beta 11b Release (2016-05-11 1.11.1-beta11b)
 
 **Hotfixes**
 
 - Fixed an issue with named pipe permissions that prevented Docker from starting
 
-### [Beta 11 Release (2016-05-10 1.11.1-beta11)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-11-release-2016-05-10-1111-beta11)
+### Beta 11 Release (2016-05-10 1.11.1-beta11)
 
 **New**
 
 - The GUI now runs in non-elevated mode and connects to an elevated Windows service
 - Allocate virtual machine memory by 256 MB increments, instead of 1 GB
 - Show a meaningful error when the user has an empty password
-- Improved [Troubleshooting](https://docs.docker.com/desktop/troubleshoot/) page
+- Improved [Troubleshooting]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose" >}}) page
 
 **Upgrades**
 
@@ -2198,10 +2198,10 @@ This Beta release includes some significant changes:
 
 **Known issues**
 
-- Due to limitation in the Windows NAT implementation, co-existence with other NAT prefixes needs to be carefully managed. See [Troubleshooting](https://docs.docker.com/desktop/troubleshoot/known-issues/) for more details.
+- Due to limitation in the Windows NAT implementation, co-existence with other NAT prefixes needs to be carefully managed. See [Troubleshooting]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}) for more details.
 - Logs for the windows service are not aggregated with logs from the GUI. This is expected to be fixed in future versions.
 
-### [Beta 10 Release (2016-05-03 1.11.0-beta10)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-10-release-2016-05-03-1110-beta10)
+### Beta 10 Release (2016-05-03 1.11.0-beta10)
 
 **New**
 
@@ -2224,9 +2224,9 @@ This Beta release includes some significant changes:
 
 **Known issues**
 
-- Due to limitation in the Windows NAT implementation, co-existence with other NAT prefixes needs to be carefully managed. See [Troubleshooting](https://docs.docker.com/desktop/troubleshoot/) for more details.
+- Due to limitation in the Windows NAT implementation, co-existence with other NAT prefixes needs to be carefully managed. See [Troubleshooting]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose" >}}) for more details.
 
-### [Beta 9 Release (2016-04-26 1.11.0-beta9)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-9-release-2016-04-26-1110-beta9)
+### Beta 9 Release (2016-04-26 1.11.0-beta9)
 
 **New**
 
@@ -2246,7 +2246,7 @@ This Beta release includes some significant changes:
 
 - If multiple internal Hyper-V switches exist the Moby virtual machine may not start correctly. We have identified the issue and are working on a solution.
 
-### [Beta 8 Release (2016-04-20 1.11.0-beta8)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-8-release-2016-04-20-1110-beta8)
+### Beta 8 Release (2016-04-20 1.11.0-beta8)
 
 **New**
 
@@ -2262,7 +2262,7 @@ This Beta release includes some significant changes:
 - User password is no longer stored on the host-side KVP
 - Uninstall shortcut is available in registry
 
-### [Beta 7 Release (2016-04-12 1.11.0-beta7)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-7-release-2016-04-12-1110-beta7)
+### Beta 7 Release (2016-04-12 1.11.0-beta7)
 
 **New**
 
@@ -2315,7 +2315,7 @@ This Beta release includes some significant changes:
 - Improved the build
 - Improved code quality
 
-### [Beta 6 Release (2016-04-05 1.11.0.1288)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-6-release-2016-04-05-11101288)
+### Beta 6 Release (2016-04-05 1.11.0.1288)
 
 **Enhancements**
 
@@ -2357,7 +2357,7 @@ This Beta release includes some significant changes:
 - Replaced `sha1` with actual version in the assemblies
 - Don't start the unused agent process
 
-### [Beta 5 Release (2016-03-29 1.10.6)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-5-release-2016-03-29-1106)
+### Beta 5 Release (2016-03-29 1.10.6)
 
 **Enhancements**
 
@@ -2375,7 +2375,7 @@ This Beta release includes some significant changes:
 
 > **Note**: Docker for Windows skipped from Beta 1 to Beta 5 at this point to synch up the version numbering with Docker for Mac, which went into beta cycles a little earlier.
 
-### [Beta 1 Release (2016-03-24 1.10.6)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#beta-1-release-2016-03-24-1106)
+### Beta 1 Release (2016-03-24 1.10.6)
 
 **Enhancements**
 
@@ -2401,7 +2401,7 @@ This Beta release includes some significant changes:
 - Properly unmount shares when the user un-selects the setting
 - Don't install on unsupported builds
 
-### [Alpha 4 Release (2016-03-10 1.10.4.0)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#alpha-4-release-2016-03-10-11040)
+### Alpha 4 Release (2016-03-10 1.10.4.0)
 
 - Faster Startup & Shutdown
 - Use host DNS parameters
@@ -2410,7 +2410,7 @@ This Beta release includes some significant changes:
 - More MixPanel Events
 - Various Bug Fixes
 
-### [Alpha 3 Release (2016-03-03 1.10.2.14)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#alpha-3-release-2016-03-03-110214)
+### Alpha 3 Release (2016-03-03 1.10.2.14)
 
 **File sharing**
 
@@ -2434,7 +2434,7 @@ This Beta release includes some significant changes:
 
 - Bug fixes
 
-### [Alpha 2 Release (2016-02-26 1.10.2.12)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#alpha-2-release-2016-02-26-110212)
+### Alpha 2 Release (2016-02-26 1.10.2.12)
 
 **Installer**
 
@@ -2446,7 +2446,7 @@ This Beta release includes some significant changes:
 
 - Bug fixes
 
-### [Alpha 1 Release (2016-02-22 1.10.1.42-1)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#alpha-1-release-2016-02-22-110142-1)
+### Alpha 1 Release (2016-02-22 1.10.1.42-1)
 
 **Hypervisor**
 
@@ -2466,7 +2466,7 @@ This Beta release includes some significant changes:
 - stability, logging
 - bugfixes, eye candies
 
-### [Alpha 0 Release (2016-02-09 1.10.0.0-0)](https://docs.docker.com/desktop/previous-versions/edge-releases-windows/#alpha-0-release-2016-02-09-11000-0)
+### Alpha 0 Release (2016-02-09 1.10.0.0-0)
 
 **Hypervision**
 

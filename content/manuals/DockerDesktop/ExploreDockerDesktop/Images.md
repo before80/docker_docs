@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/use-desktop/images/](https://docs.docker.com/desktop/use-desktop/images/)
+> 原文：[https://docs.docker.com/desktop/use-desktop/images/](https://docs.docker.com/desktop/use-desktop/images/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -31,7 +31,7 @@ An **In Use** tag displays next to images used by running and stopped containers
 
 The **Images on disk** status bar displays the number of images and the total disk space used by the images and when this information was last refreshed.
 
-## [Manage your images](https://docs.docker.com/desktop/use-desktop/images/#manage-your-images)
+## Manage your images
 
 Use the **Search** field to search for any specific image.
 
@@ -41,7 +41,7 @@ You can sort images by:
 - Unused
 - Dangling
 
-## [Run an image as a container](https://docs.docker.com/desktop/use-desktop/images/#run-an-image-as-a-container)
+## Run an image as a container
 
 From the **Images view**, hover over an image and select **Run**.
 
@@ -50,7 +50,7 @@ When prompted you can either:
 - Select the **Optional settings** drop-down to specify a name, port, volumes, environment variables and select **Run**
 - Select **Run** without specifying any optional settings.
 
-## [Inspect an image](https://docs.docker.com/desktop/use-desktop/images/#inspect-an-image)
+## Inspect an image
 
 To inspect an image, select the image row. Inspecting an image displays detailed information about the image such as the:
 
@@ -63,9 +63,9 @@ To inspect an image, select the image row. Inspecting an image displays detailed
 - Vulnerabilities found
 - Packages inside the image
 
-[Docker Scout](https://docs.docker.com/scout/) powers this vulnerability information. For more information about this view, see [Image details view](https://docs.docker.com/scout/explore/image-details-view/)
+[Docker Scout]({{< ref "/manuals/DockerScout" >}}) powers this vulnerability information. For more information about this view, see [Image details view]({{< ref "/manuals/DockerScout/Explore/Imagedetailsview" >}})
 
-## [Pull the latest image from Docker Hub](https://docs.docker.com/desktop/use-desktop/images/#pull-the-latest-image-from-docker-hub)
+## Pull the latest image from Docker Hub
 
 Select the image from the list, select the **More options** button and select **Pull**.
 
@@ -75,7 +75,7 @@ Select the image from the list, select the **More options** button and select **
 >
 > The repository must exist on Docker Hub in order to pull the latest version of an image. You must be signed in to pull private images.
 
-## [Push an image to Docker Hub](https://docs.docker.com/desktop/use-desktop/images/#push-an-image-to-docker-hub)
+## Push an image to Docker Hub
 
 Select the image from the list, select the **More options** button and select **Push to Hub**.
 
@@ -85,7 +85,7 @@ Select the image from the list, select the **More options** button and select **
 >
 > You can only push an image to Docker Hub if the image belongs to your Docker ID or your organization. That is, the image must contain the correct username/organization in its tag to be able to push it to Docker Hub.
 
-## [Remove an image](https://docs.docker.com/desktop/use-desktop/images/#remove-an-image)
+## Remove an image
 
 > **Note**
 >
@@ -97,7 +97,7 @@ An unused image is an image which is not used by any running or stopped containe
 
 To remove individual images, select the bin icon.
 
-## [Docker Hub repositories](https://docs.docker.com/desktop/use-desktop/images/#docker-hub-repositories)
+## Docker Hub repositories
 
 The **Images** view also allows you to manage and interact with images in Docker Hub repositories. By default, when you go to **Images** in Docker Desktop, you see a list of images that exist in your local image store. The **Local** and **Hub** tabs near the top toggles between viewing images in your local image store, and images in remote Docker Hub repositories that you have access to.
 
@@ -105,13 +105,13 @@ Switching to the **Hub** tab prompts you to sign in to your Docker Hub account, 
 
 Select an organization from the drop-down to view a list of repositories for that organization.
 
-If you have enabled [Docker Scout](https://docs.docker.com/scout/) on the repositories, image analysis results appear next to the image tags.
+If you have enabled [Docker Scout]({{< ref "/manuals/DockerScout" >}}) on the repositories, image analysis results appear next to the image tags.
 
 Hovering over an image tag reveals two options:
 
 - **Pull**: Pull the latest version of the image from Docker Hub.
 - **View in Hub**: Open the Docker Hub page and display detailed information about the image.
 
-## [Additional resources](https://docs.docker.com/desktop/use-desktop/images/#additional-resources)
+## Additional resources
 
-- [What is an image?](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/)
+- [What is an image?]({{< ref "/get-started/Dockerconcepts/Thebasics/Whatisanimage" >}})

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/networking/](https://docs.docker.com/desktop/networking/)
+> 原文：[https://docs.docker.com/desktop/networking/](https://docs.docker.com/desktop/networking/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,13 +16,13 @@ draft = false
 
 Docker Desktop provides several networking features to make it easier to use.
 
-## [Networking features for all platforms](https://docs.docker.com/desktop/networking/#networking-features-for-all-platforms)
+## Networking features for all platforms
 
-### [VPN Passthrough](https://docs.docker.com/desktop/networking/#vpn-passthrough)
+### VPN Passthrough
 
 Docker Desktop networking can work when attached to a VPN. To do this, Docker Desktop intercepts traffic from the containers and injects it into the host as if it originated from the Docker application.
 
-### [Port mapping](https://docs.docker.com/desktop/networking/#port-mapping)
+### Port mapping
 
 When you run a container with the `-p` argument, for example:
 
@@ -42,11 +42,11 @@ $ docker run -p 8000:80 -d nginx
 
 Now, connections to `localhost:8000` are sent to port 80 in the container. The syntax for `-p` is `HOST_PORT:CLIENT_PORT`.
 
-### [HTTP/HTTPS Proxy support](https://docs.docker.com/desktop/networking/#httphttps-proxy-support)
+### HTTP/HTTPS Proxy support
 
 See [Proxies](https://docs.docker.com/desktop/settings/#proxies)
 
-### [SOCKS5 proxy support](https://docs.docker.com/desktop/networking/#socks5-proxy-support)
+### SOCKS5 proxy support
 
 Introduced in Docker Desktop version [4.28.0](https://docs.docker.com/desktop/release-notes/#4280)
 
@@ -67,9 +67,9 @@ To enable and set up SOCKS proxy support:
 3. Switch on the **Manual proxy configuration** toggle.
 4. In the **Secure Web Server HTTPS** box, paste your `socks5://host:port` URL.
 
-## [Networking features for Mac and Linux](https://docs.docker.com/desktop/networking/#networking-features-for-mac-and-linux)
+## Networking features for Mac and Linux
 
-### [SSH agent forwarding](https://docs.docker.com/desktop/networking/#ssh-agent-forwarding)
+### SSH agent forwarding
 
 Docker Desktop on Mac and Linux allows you to use the host’s SSH agent inside a container. To do this:
 
@@ -105,27 +105,27 @@ services:
      - SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock
 ```
 
-## [Known limitations](https://docs.docker.com/desktop/networking/#known-limitations)
+## Known limitations
 
-### [Changing internal IP addresses](https://docs.docker.com/desktop/networking/#changing-internal-ip-addresses)
+### Changing internal IP addresses
 
 The internal IP addresses used by Docker can be changed from **Settings**. After changing IPs, it is necessary to reset the Kubernetes cluster and to leave any active Swarm.
 
-### [There is no docker0 bridge on the host](https://docs.docker.com/desktop/networking/#there-is-no-docker0-bridge-on-the-host)
+### There is no docker0 bridge on the host
 
 Because of the way networking is implemented in Docker Desktop, you cannot see a `docker0` interface on the host. This interface is actually within the virtual machine.
 
-### [I cannot ping my containers](https://docs.docker.com/desktop/networking/#i-cannot-ping-my-containers)
+### I cannot ping my containers
 
 Docker Desktop can't route traffic to Linux containers. However if you're a Windows user, you can ping the Windows containers.
 
-### [Per-container IP addressing is not possible](https://docs.docker.com/desktop/networking/#per-container-ip-addressing-is-not-possible)
+### Per-container IP addressing is not possible
 
 This is because the Docker `bridge` network is not reachable from the host. However if you are a Windows user, per-container IP addressing is possible with Windows containers.
 
-## [Use cases and workarounds](https://docs.docker.com/desktop/networking/#use-cases-and-workarounds)
+## Use cases and workarounds
 
-### [I want to connect from a container to a service on the host](https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host)
+### I want to connect from a container to a service on the host
 
 The host has a changing IP address, or none if you have no network access. We recommend that you connect to the special DNS name `host.docker.internal`, which resolves to the internal IP address used by the host.
 
@@ -150,7 +150,7 @@ If you have installed Python on your machine, use the following instructions as 
    # exit
    ```
 
-### [I want to connect to a container from the host](https://docs.docker.com/desktop/networking/#i-want-to-connect-to-a-container-from-the-host)
+### I want to connect to a container from the host
 
 Port forwarding works for `localhost`. `--publish`, `-p`, or `-P` all work. Ports exposed from Linux are forwarded to the host.
 
@@ -184,4 +184,4 @@ $ docker run -d -P --name webserver nginx
 
 Alternatively, you can also use [host networking](https://docs.docker.com/engine/network/drivers/host/#docker-desktop) to give the container direct access to the network stack of the host.
 
-See the [run command](https://docs.docker.com/reference/cli/docker/container/run/) for more details on publish options used with `docker run`.
+See the [run command]({{< ref "/reference/CLIreference/docker/dockercontainer/dockerrun" >}}) for more details on publish options used with `docker run`.

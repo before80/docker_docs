@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/container/attach/](https://docs.docker.com/reference/cli/docker/container/attach/)
+> 原文：[https://docs.docker.com/reference/cli/docker/container/attach/](https://docs.docker.com/reference/cli/docker/container/attach/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -19,7 +19,7 @@ draft = false
 | Usage       | `docker container attach [OPTIONS] CONTAINER`                |
 | Aliases     | `docker attach`                                              |
 
-## [Description](https://docs.docker.com/reference/cli/docker/container/attach/#description)
+## Description
 
 Use `docker attach` to attach your terminal's standard input, output, and error (or any combination of the three) to a running container using the container's ID or name. This lets you view its output or control it interactively, as though the commands were running directly in your terminal.
 
@@ -39,7 +39,7 @@ You can't redirect the standard input of a `docker attach` command while attachi
 
 While a client is connected to container's `stdio` using `docker attach`, Docker uses a ~1MB memory buffer to maximize the throughput of the application. Once this buffer is full, the speed of the API connection is affected, and so this impacts the output process' writing speed. This is similar to other applications like SSH. Because of this, it isn't recommended to run performance-critical applications that generate a lot of output in the foreground over a slow client connection. Instead, use the `docker logs` command to get access to the logs.
 
-## [Options](https://docs.docker.com/reference/cli/docker/container/attach/#options)
+## Options
 
 | Option                                                       | Default | Description                                         |
 | ------------------------------------------------------------ | ------- | --------------------------------------------------- |
@@ -47,9 +47,9 @@ While a client is connected to container's `stdio` using `docker attach`, Docker
 | `--no-stdin`                                                 |         | Do not attach STDIN                                 |
 | `--sig-proxy`                                                | `true`  | Proxy all received signals to the process           |
 
-## [Examples](https://docs.docker.com/reference/cli/docker/container/attach/#examples)
+## Examples
 
-### [Attach to and detach from a running container](https://docs.docker.com/reference/cli/docker/container/attach/#attach-to-and-detach-from-a-running-container)
+### Attach to and detach from a running container
 
 The following example starts an Alpine container running `top` in detached mode, then attaches to the container;
 
@@ -112,7 +112,7 @@ CONTAINER ID   IMAGE     COMMAND    CREATED          STATUS          PORTS     N
 fde88b83c2c2   alpine    "top -b"   22 seconds ago   Up 21 seconds             topdemo2
 ```
 
-### [Get the exit code of the container's command](https://docs.docker.com/reference/cli/docker/container/attach/#get-the-exit-code-of-the-containers-command)
+### Get the exit code of the container's command
 
 And in this second example, you can see the exit code returned by the `bash` process is returned by the `docker attach` command to its caller too:
 
@@ -134,7 +134,7 @@ CONTAINER ID   IMAGE     COMMAND     CREATED              STATUS                
 a2fe3fd886db   alpine    "/bin/sh"   About a minute ago   Exited (13) 40 seconds ago             test
 ```
 
-### [Override the detach sequence (--detach-keys)](https://docs.docker.com/reference/cli/docker/container/attach/#detach-keys)
+### Override the detach sequence (--detach-keys)
 
 Use the `--detach-keys` option to override the Docker key sequence for detach. This is useful if the Docker default sequence conflicts with key sequence you use for other applications. There are two ways to define your own detach key sequence, as a per-container override or as a configuration property on your entire configuration.
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/extend/](https://docs.docker.com/engine/extend/)
+> 原文：[https://docs.docker.com/engine/extend/](https://docs.docker.com/engine/extend/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,13 +20,13 @@ draft = false
 
 Docker Engine's plugin system lets you install, start, stop, and remove plugins using Docker Engine.
 
-For information about legacy (non-managed) plugins, refer to [Understand legacy Docker Engine plugins](https://docs.docker.com/engine/extend/legacy_plugins/).
+For information about legacy (non-managed) plugins, refer to [Understand legacy Docker Engine plugins]({{< ref "/manuals/DockerEngine/DockerEngineplugins/UseDockerEngineplugins" >}}).
 
 > **Note**
 >
 > Docker Engine managed plugins are currently not supported on Windows daemons.
 
-## [Installing and using a plugin](https://docs.docker.com/engine/extend/#installing-and-using-a-plugin)
+## Installing and using a plugin
 
 Plugins are distributed as Docker images and can be hosted on Docker Hub or on a private registry.
 
@@ -120,11 +120,11 @@ In the following example, you install the `sshfs` plugin, verify that it is enab
    sshvolume
    ```
 
-To disable a plugin, use the `docker plugin disable` command. To completely remove it, use the `docker plugin remove` command. For other available commands and options, see the [command line reference](https://docs.docker.com/reference/cli/docker/).
+To disable a plugin, use the `docker plugin disable` command. To completely remove it, use the `docker plugin remove` command. For other available commands and options, see the [command line reference]({{< ref "/reference/CLIreference/docker" >}}).
 
-## [Developing a plugin](https://docs.docker.com/engine/extend/#developing-a-plugin)
+## Developing a plugin
 
-#### [The rootfs directory](https://docs.docker.com/engine/extend/#the-rootfs-directory)
+#### The rootfs directory
 
 The `rootfs` directory represents the root filesystem of the plugin. In this example, it was created from a Dockerfile:
 
@@ -145,9 +145,9 @@ $ docker rm -vf "$id"
 $ docker rmi rootfsimage
 ```
 
-#### [The config.json file](https://docs.docker.com/engine/extend/#the-configjson-file)
+#### The config.json file
 
-The `config.json` file describes the plugin. See the [plugins config reference](https://docs.docker.com/engine/extend/config/).
+The `config.json` file describes the plugin. See the [plugins config reference]({{< ref "/manuals/DockerEngine/DockerEngineplugins/PluginConfigVersion1ofPluginV2" >}}).
 
 Consider the following `config.json` file.
 
@@ -173,13 +173,13 @@ Consider the following `config.json` file.
 
 This plugin is a volume driver. It requires a `host` network and the `CAP_SYS_ADMIN` capability. It depends upon the `/docker-volume-sshfs` entrypoint and uses the `/run/docker/plugins/sshfs.sock` socket to communicate with Docker Engine. This plugin has no runtime parameters.
 
-#### [Creating the plugin](https://docs.docker.com/engine/extend/#creating-the-plugin)
+#### Creating the plugin
 
 A new plugin can be created by running `docker plugin create <plugin-name> ./path/to/plugin/data` where the plugin data contains a plugin configuration file `config.json` and a root filesystem in subdirectory `rootfs`.
 
 After that the plugin `<plugin-name>` will show up in `docker plugin ls`. Plugins can be pushed to remote registries with `docker plugin push <plugin-name>`.
 
-## [Debugging plugins](https://docs.docker.com/engine/extend/#debugging-plugins)
+## Debugging plugins
 
 Stdout of a plugin is redirected to dockerd logs. Such entries have a `plugin=<ID>` suffix. Here are a few examples of commands for pluginID `f52a3df433b9aceee436eaada0752f5797aab1de47e5485f1690a073b860ff62` and their corresponding log entries in the docker daemon logs.
 
@@ -213,7 +213,7 @@ INFO[0421] Path Called...    Returned path /data/samplevol  plugin=f52a3df433b9a
 INFO[0421] Unmount Called... Unmounted samplevol            plugin=f52a3df433b9aceee436eaada0752f5797aab1de47e5485f1690a073b860ff62
 ```
 
-#### [Using runc to obtain logfiles and shell into the plugin.](https://docs.docker.com/engine/extend/#using-runc-to-obtain-logfiles-and-shell-into-the-plugin)
+#### Using runc to obtain logfiles and shell into the plugin.
 
 Use `runc`, the default docker container runtime, for debugging plugins by collecting plugin logs redirected to a file.
 
@@ -242,7 +242,7 @@ If the plugin has a built-in shell, then exec into the plugin can be done as fol
 $ sudo runc --root /run/docker/runtime-runc/plugins.moby exec -t 93f1e7dbfe11c938782c2993628c895cf28e2274072c4a346a6002446c949b25 sh
 ```
 
-#### [Using curl to debug plugin socket issues.](https://docs.docker.com/engine/extend/#using-curl-to-debug-plugin-socket-issues)
+#### Using curl to debug plugin socket issues.
 
 To verify if the plugin API socket that the docker daemon communicates with is responsive, use curl. In this example, we will make API calls from the docker host to volume and network plugins using curl 7.47.0 to ensure that the plugin is listening on the said socket. For a well functioning plugin, these basic requests should work. Note that plugin sockets are available on the host under `/var/run/docker/plugins/<pluginID>`
 

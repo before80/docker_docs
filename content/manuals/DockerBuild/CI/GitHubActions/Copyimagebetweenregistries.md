@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/ci/github-actions/copy-image-registries/](https://docs.docker.com/build/ci/github-actions/copy-image-registries/)
+> 原文：[https://docs.docker.com/build/ci/github-actions/copy-image-registries/](https://docs.docker.com/build/ci/github-actions/copy-image-registries/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Copy image between registries with GitHub Actions
 
-[Multi-platform images](https://docs.docker.com/build/building/multi-platform/) built using Buildx can be copied from one registry to another using the [`buildx imagetools create` command](https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/):
+[Multi-platform images]({{< ref "/manuals/DockerBuild/Building/Multi-platform" >}}) built using Buildx can be copied from one registry to another using the [`buildx imagetools create` command]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildximagetools/dockerbuildximagetoolscreate" >}}):
 
 
 

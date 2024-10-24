@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/compose-file/configs/](https://docs.docker.com/reference/compose-file/configs/)
+> 原文：[https://docs.docker.com/reference/compose-file/configs/](https://docs.docker.com/reference/compose-file/configs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -31,7 +31,7 @@ The top-level `configs` declaration defines or references configuration data tha
 - `external`: If set to true, `external` specifies that this config has already been created. Compose does not attempt to create it, and if it does not exist, an error occurs.
 - `name`: The name of the config object in the container engine to look up. This field can be used to reference configs that contain special characters. The name is used as is and will **not** be scoped with the project name.
 
-## [Example 1](https://docs.docker.com/reference/compose-file/configs/#example-1)
+## Example 1
 
 `<project_name>_http_config` is created when the application is deployed, by registering the content of the `httpd.conf` as the configuration data.
 
@@ -53,7 +53,7 @@ configs:
     external: true
 ```
 
-## [Example 2](https://docs.docker.com/reference/compose-file/configs/#example-2)
+## Example 2
 
 `<project_name>_app_config` is created when the application is deployed, by registering the inlined content as the configuration data. This means Compose infers variables when creating the config, which allows you to adjust content according to service configuration:
 
@@ -68,11 +68,11 @@ configs:
       spring.application.name=${COMPOSE_PROJECT_NAME}      
 ```
 
-## [Example 3](https://docs.docker.com/reference/compose-file/configs/#example-3)
+## Example 3
 
 External configs lookup can also use a distinct key by specifying a `name`.
 
-The following example modifies the previous one to look up a config using the parameter `HTTP_CONFIG_KEY`. The actual lookup key is set at deployment time by the [interpolation](https://docs.docker.com/reference/compose-file/interpolation/) of variables, but exposed to containers as hard-coded ID `http_config`.
+The following example modifies the previous one to look up a config using the parameter `HTTP_CONFIG_KEY`. The actual lookup key is set at deployment time by the [interpolation]({{< ref "/reference/Composefilereference/Interpolation" >}}) of variables, but exposed to containers as hard-coded ID `http_config`.
 
 
 

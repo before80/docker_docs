@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/install/](https://docs.docker.com/scout/install/)
+> 原文：[https://docs.docker.com/scout/install/](https://docs.docker.com/scout/install/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ The Docker Scout CLI plugin comes pre-installed with Docker Desktop.
 
 If you run Docker Engine without Docker Desktop, Docker Scout doesn't come pre-installed, but you can install it as a standalone binary.
 
-## [Installation script](https://docs.docker.com/scout/install/#installation-script)
+## Installation script
 
 To install the latest version of the plugin, run the following commands:
 
@@ -35,7 +35,7 @@ $ sh install-scout.sh
 >
 > Always examine scripts downloaded from the internet before running them locally. Before installing, make yourself familiar with potential risks and limitations of the convenience script.
 
-## [Manual installation](https://docs.docker.com/scout/install/#manual-installation)
+## Manual installation
 
 {{< tabpane text=true persist=disabled >}}
 
@@ -147,7 +147,7 @@ $ sh install-scout.sh
 
 ------
 
-## [Container image](https://docs.docker.com/scout/install/#container-image)
+## Container image
 
 The Docker Scout CLI plugin is also available as a [container image](https://hub.docker.com/r/docker/scout-cli). Use the `docker/scout-cli` to run `docker scout` commands without installing the CLI plugin on your host.
 
@@ -160,8 +160,8 @@ $ docker run -it \
   docker/scout-cli <command>
 ```
 
-## [GitHub Action](https://docs.docker.com/scout/install/#github-action)
+## GitHub Action
 
 The Docker Scout CLI plugin is also available as a [GitHub action](https://github.com/docker/scout-action). You can use it in your GitHub workflows to automatically analyze images and evaluate policy compliance with each push.
 
-Docker Scout also integrates with many more CI/CD tools, such as Jenkins, GitLab, and Azure DevOps. Learn more about the [integrations](https://docs.docker.com/scout/integrations/) available for Docker Scout.
+Docker Scout also integrates with many more CI/CD tools, such as Jenkins, GitLab, and Azure DevOps. Learn more about the [integrations]({{< ref "/manuals/DockerScout/Integrations" >}}) available for Docker Scout.

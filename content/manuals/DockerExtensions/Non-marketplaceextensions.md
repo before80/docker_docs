@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/non-marketplace/](https://docs.docker.com/extensions/non-marketplace/)
+> 原文：[https://docs.docker.com/extensions/non-marketplace/](https://docs.docker.com/extensions/non-marketplace/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Non-marketplace extensions
 
-## [Install an extension not available in the Marketplace](https://docs.docker.com/extensions/non-marketplace/#install-an-extension-not-available-in-the-marketplace)
+## Install an extension not available in the Marketplace
 
 > **Warning**
 >
@@ -38,7 +38,7 @@ In a terminal, type `docker extension install IMAGE[:TAG]` to install an extensi
 
 Go to the Docker Dashboard to see the new extension installed.
 
-## [List installed extensions](https://docs.docker.com/extensions/non-marketplace/#list-installed-extensions)
+## List installed extensions
 
 Regardless whether the extension was installed from the Marketplace or manually by using the Extensions CLI, you can use the `docker extension ls` command to display the list of extensions installed. As part of the output you'll see the extension ID, the provider, version, the title and whether it runs a backend container or has deployed binaries to the host, for example:
 
@@ -52,7 +52,7 @@ john/my-extension   John                latest              1 tab(My-Extension) 
 
 Go to the Docker Dashboard, click on **Add Extensions** and on the **Managed** tab to see the new extension installed. Notice that an `UNPUBLISHED` label displays which indicates that the extension has not been installed from the Marketplace.
 
-## [Update an extension](https://docs.docker.com/extensions/non-marketplace/#update-an-extension)
+## Update an extension
 
 To update an extension which isn't present in the Marketplace, in a terminal type `docker extension update IMAGE[:TAG]` where the `TAG` should be different from the extension that's already installed.
 
@@ -64,6 +64,6 @@ For instance, if you installed an extension with `docker extension install john/
 >
 > Extensions that aren't installed through the Marketplace don't receive update notifications from Docker Desktop.
 
-## [Uninstall an extension](https://docs.docker.com/extensions/non-marketplace/#uninstall-an-extension)
+## Uninstall an extension
 
 To uninstall an extension which is not present in the Marketplace, you can either navigate to the **Managed** tab in the Marketplace and select the **Uninstall** button, or from a terminal type `docker extension uninstall IMAGE[:TAG]`.

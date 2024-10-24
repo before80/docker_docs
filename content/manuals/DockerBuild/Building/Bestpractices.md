@@ -8,33 +8,33 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/building/best-practices/](https://docs.docker.com/build/building/best-practices/)
+> 原文：[https://docs.docker.com/build/building/best-practices/](https://docs.docker.com/build/building/best-practices/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Building best practices
 
-## [Use multi-stage builds](https://docs.docker.com/build/building/best-practices/#use-multi-stage-builds)
+## Use multi-stage builds
 
 Multi-stage builds let you reduce the size of your final image, by creating a cleaner separation between the building of your image and the final output. Split your Dockerfile instructions into distinct stages to make sure that the resulting output only contains the files that are needed to run the application.
 
 Using multiple stages can also let you build more efficiently by executing build steps in parallel.
 
-See [Multi-stage builds](https://docs.docker.com/build/building/multi-stage/) for more information.
+See [Multi-stage builds]({{< ref "/manuals/DockerBuild/Building/Multi-stage" >}}) for more information.
 
-### [Create reusable stages](https://docs.docker.com/build/building/best-practices/#create-reusable-stages)
+### Create reusable stages
 
 If you have multiple images with a lot in common, consider creating a reusable stage that includes the shared components, and basing your unique stages on that. Docker only needs to build the common stage once. This means that your derivative images use memory on the Docker host more efficiently and load more quickly.
 
 It's also easier to maintain a common base stage ("Don't repeat yourself"), than it is to have multiple different stages doing similar things.
 
-## [Choose the right base image](https://docs.docker.com/build/building/best-practices/#choose-the-right-base-image)
+## Choose the right base image
 
 The first step towards achieving a secure image is to choose the right base image. When choosing an image, ensure it's built from a trusted source and keep it small.
 
 - [Docker Official Images](https://hub.docker.com/search?image_filter=official) are some of the most secure and dependable images on Docker Hub. Typically, Docker Official images have few or no packages containing CVEs, and are thoroughly reviewed by Docker and project maintainers.
 - [Verified Publisher](https://hub.docker.com/search?image_filter=store) images are high-quality images published and maintained by the organizations partnering with Docker, with Docker verifying the authenticity of the content in their repositories.
-- [Docker-Sponsored Open Source](https://hub.docker.com/search?image_filter=open_source) are published and maintained by open source projects sponsored by Docker through an [open source program](https://docs.docker.com/trusted-content/dsos-program/).
+- [Docker-Sponsored Open Source](https://hub.docker.com/search?image_filter=open_source) are published and maintained by open source projects sponsored by Docker through an [open source program]({{< ref "/manuals/Trustedcontent/Docker-SponsoredOpenSourceProgram" >}}).
 
 When you pick your base image, look out for the badges indicating that the image is part of these programs.
 
@@ -44,7 +44,7 @@ When building your own image from a Dockerfile, ensure you choose a minimal base
 
 You should also consider using two types of base image: one for building and unit testing, and another (typically slimmer) image for production. In the later stages of development, your image may not require build tools such as compilers, build systems, and debugging tools. A small image with minimal dependencies can considerably lower the attack surface.
 
-## [Rebuild your images often](https://docs.docker.com/build/building/best-practices/#rebuild-your-images-often)
+## Rebuild your images often
 
 Docker images are immutable. Building an image is taking a snapshot of that image at that moment. That includes any base images, libraries, or other software you use in your build. To keep your images up-to-date and secure, make sure to rebuild your image often, with updated dependencies.
 
@@ -68,7 +68,7 @@ RUN apt-get -y update && apt-get install -y python
 
 Also consider [pinning base image versions](https://docs.docker.com/build/building/best-practices/#pin-base-image-versions).
 
-## [Exclude with .dockerignore](https://docs.docker.com/build/building/best-practices/#exclude-with-dockerignore)
+## Exclude with .dockerignore
 
 To exclude files not relevant to the build, without restructuring your source repository, use a `.dockerignore` file. This file supports exclusion patterns similar to `.gitignore` files.
 
@@ -82,27 +82,27 @@ For example, to exclude all files with the `.md` extension:
 
 For information on creating one, see [Dockerignore file](https://docs.docker.com/build/concepts/context/#dockerignore-files).
 
-## [Create ephemeral containers](https://docs.docker.com/build/building/best-practices/#create-ephemeral-containers)
+## Create ephemeral containers
 
 The image defined by your Dockerfile should generate containers that are as ephemeral as possible. Ephemeral means that the container can be stopped and destroyed, then rebuilt and replaced with an absolute minimum set up and configuration.
 
 Refer to [Processes](https://12factor.net/processes) under *The Twelve-factor App* methodology to get a feel for the motivations of running containers in such a stateless fashion.
 
-## [Don't install unnecessary packages](https://docs.docker.com/build/building/best-practices/#dont-install-unnecessary-packages)
+## Don't install unnecessary packages
 
 Avoid installing extra or unnecessary packages just because they might be nice to have. For example, you don’t need to include a text editor in a database image.
 
 When you avoid installing extra or unnecessary packages, your images have reduced complexity, reduced dependencies, reduced file sizes, and reduced build times.
 
-## [Decouple applications](https://docs.docker.com/build/building/best-practices/#decouple-applications)
+## Decouple applications
 
 Each container should have only one concern. Decoupling applications into multiple containers makes it easier to scale horizontally and reuse containers. For instance, a web application stack might consist of three separate containers, each with its own unique image, to manage the web application, database, and an in-memory cache in a decoupled manner.
 
 Limiting each container to one process is a good rule of thumb, but it's not a hard and fast rule. For example, not only can containers be [spawned with an init process](https://docs.docker.com/engine/containers/run/#specify-an-init-process), some programs might spawn additional processes of their own accord. For instance, [Celery](https://docs.celeryproject.org/) can spawn multiple worker processes, and [Apache](https://httpd.apache.org/) can create one process per request.
 
-Use your best judgment to keep containers as clean and modular as possible. If containers depend on each other, you can use [Docker container networks](https://docs.docker.com/engine/network/) to ensure that these containers can communicate.
+Use your best judgment to keep containers as clean and modular as possible. If containers depend on each other, you can use [Docker container networks]({{< ref "/manuals/DockerEngine/Networking" >}}) to ensure that these containers can communicate.
 
-## [Sort multi-line arguments](https://docs.docker.com/build/building/best-practices/#sort-multi-line-arguments)
+## Sort multi-line arguments
 
 Whenever possible, sort multi-line arguments alphanumerically to make maintenance easier. This helps to avoid duplication of packages and make the list much easier to update. This also makes PRs a lot easier to read and review. Adding a space before a backslash (`\`) helps as well.
 
@@ -120,13 +120,13 @@ RUN apt-get update && apt-get install -y \
   && rm -rf /var/lib/apt/lists/*
 ```
 
-## [Leverage build cache](https://docs.docker.com/build/building/best-practices/#leverage-build-cache)
+## Leverage build cache
 
 When building an image, Docker steps through the instructions in your Dockerfile, executing each in the order specified. For each instruction, Docker checks whether it can reuse the instruction from the build cache.
 
-Understanding how the build cache works, and how cache invalidation occurs, is critical for ensuring faster builds. For more information about the Docker build cache and how to optimize your builds, see [Docker build cache](https://docs.docker.com/build/cache/).
+Understanding how the build cache works, and how cache invalidation occurs, is critical for ensuring faster builds. For more information about the Docker build cache and how to optimize your builds, see [Docker build cache]({{< ref "/manuals/DockerBuild/Cache" >}}).
 
-## [Pin base image versions](https://docs.docker.com/build/building/best-practices/#pin-base-image-versions)
+## Pin base image versions
 
 Image tags are mutable, meaning a publisher can update a tag to point to a new image. This is useful because it lets publishers update tags to point to newer versions of an image. And as an image consumer, it means you automatically get the new version when you re-build your image.
 
@@ -160,23 +160,23 @@ Docker Scout's default [**Up-to-Date Base Images** policy](https://docs.docker.c
 
 Docker Scout also supports an automated remediation workflow for keeping your base images up-to-date. When a new image digest is available, Docker Scout can automatically raise a pull request on your repository to update your Dockerfiles to use the latest version. This is better than using a tag that changes the version automatically, because you're in control and you have an audit trail of when and how the change occurred.
 
-For more information about automatically updating your base images with Docker Scout, see [Remediation](https://docs.docker.com/scout/policy/remediation/).
+For more information about automatically updating your base images with Docker Scout, see [Remediation]({{< ref "/manuals/DockerScout/PolicyEvaluation/RemediationwithDockerScout" >}}).
 
-## [Build and test your images in CI](https://docs.docker.com/build/building/best-practices/#build-and-test-your-images-in-ci)
+## Build and test your images in CI
 
-When you check in a change to source control or create a pull request, use [GitHub Actions](https://docs.docker.com/build/ci/github-actions/) or another CI/CD pipeline to automatically build and tag a Docker image and test it.
+When you check in a change to source control or create a pull request, use [GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions" >}}) or another CI/CD pipeline to automatically build and tag a Docker image and test it.
 
-## [Dockerfile instructions](https://docs.docker.com/build/building/best-practices/#dockerfile-instructions)
+## Dockerfile instructions
 
-Follow these recommendations on how to properly use the [Dockerfile instructions](https://docs.docker.com/reference/dockerfile/) to create an efficient and maintainable Dockerfile.
+Follow these recommendations on how to properly use the [Dockerfile instructions]({{< ref "/reference/Dockerfilereference" >}}) to create an efficient and maintainable Dockerfile.
 
-### [FROM](https://docs.docker.com/build/building/best-practices/#from)
+### FROM
 
 Whenever possible, use current official images as the basis for your images. Docker recommends the [Alpine image](https://hub.docker.com/_/alpine/) as it is tightly controlled and small in size (currently under 6 MB), while still being a full Linux distribution.
 
 For more information about the `FROM` instruction, see [Dockerfile reference for the FROM instruction](https://docs.docker.com/reference/dockerfile/#from).
 
-### [LABEL](https://docs.docker.com/build/building/best-practices/#label)
+### LABEL
 
 You can add labels to your image to help organize images by project, record licensing information, to aid in automation, or for other reasons. For each label, add a line beginning with `LABEL` with one or more key-value pairs. The following examples show the different acceptable formats. Explanatory comments are included inline.
 
@@ -215,9 +215,9 @@ LABEL vendor=ACME\ Incorporated \
       com.example.release-date="2015-02-12"
 ```
 
-See [Understanding object labels](https://docs.docker.com/engine/manage-resources/labels/) for guidelines about acceptable label keys and values. For information about querying labels, refer to the items related to filtering in [Managing labels on objects](https://docs.docker.com/engine/manage-resources/labels/#manage-labels-on-objects). See also [LABEL](https://docs.docker.com/reference/dockerfile/#label) in the Dockerfile reference.
+See [Understanding object labels]({{< ref "/manuals/DockerEngine/Manageresources/Dockerobjectlabels" >}}) for guidelines about acceptable label keys and values. For information about querying labels, refer to the items related to filtering in [Managing labels on objects](https://docs.docker.com/engine/manage-resources/labels/#manage-labels-on-objects). See also [LABEL](https://docs.docker.com/reference/dockerfile/#label) in the Dockerfile reference.
 
-### [RUN](https://docs.docker.com/build/building/best-practices/#run)
+### RUN
 
 Split long or complex `RUN` statements on multiple lines separated with backslashes to make your Dockerfile more readable, understandable, and maintainable.
 
@@ -250,7 +250,7 @@ EOF
 
 For more information about `RUN`, see [Dockerfile reference for the RUN instruction](https://docs.docker.com/reference/dockerfile/#run).
 
-#### [apt-get](https://docs.docker.com/build/building/best-practices/#apt-get)
+#### apt-get
 
 One common use case for `RUN` instructions in Debian-based images is to install software using `apt-get`. Because `apt-get` installs packages, the `RUN apt-get` command has several counter-intuitive behaviors to look out for.
 
@@ -331,7 +331,7 @@ In addition, when you clean up the apt cache by removing `/var/lib/apt/lists` it
 
 Official Debian and Ubuntu images [automatically run `apt-get clean`](https://github.com/moby/moby/blob/03e2923e42446dbb830c654d0eec323a0b4ef02a/contrib/mkimage/debootstrap#L82-L105), so explicit invocation is not required.
 
-#### [Using pipes](https://docs.docker.com/build/building/best-practices/#using-pipes)
+#### Using pipes
 
 Some `RUN` commands depend on the ability to pipe the output of one command into another, using the pipe character (`|`), as in the following example:
 
@@ -365,7 +365,7 @@ RUN set -o pipefail && wget -O - https://some.site | wc -l > /number
 > RUN ["/bin/bash", "-c", "set -o pipefail && wget -O - https://some.site | wc -l > /number"]
 > ```
 
-### [CMD](https://docs.docker.com/build/building/best-practices/#cmd)
+### CMD
 
 The `CMD` instruction should be used to run the software contained in your image, along with any arguments. `CMD` should almost always be used in the form of `CMD ["executable", "param1", "param2"]`. Thus, if the image is for a service, such as Apache and Rails, you would run something like `CMD ["apache2","-DFOREGROUND"]`. Indeed, this form of the instruction is recommended for any service-based image.
 
@@ -373,7 +373,7 @@ In most other cases, `CMD` should be given an interactive shell, such as bash, p
 
 For more information about `CMD`, see [Dockerfile reference for the CMD instruction](https://docs.docker.com/reference/dockerfile/#cmd).
 
-### [EXPOSE](https://docs.docker.com/build/building/best-practices/#expose)
+### EXPOSE
 
 The `EXPOSE` instruction indicates the ports on which a container listens for connections. Consequently, you should use the common, traditional port for your application. For example, an image containing the Apache web server would use `EXPOSE 80`, while an image containing MongoDB would use `EXPOSE 27017` and so on.
 
@@ -381,7 +381,7 @@ For external access, your users can execute `docker run` with a flag indicating 
 
 For more information about `EXPOSE`, see [Dockerfile reference for the EXPOSE instruction](https://docs.docker.com/reference/dockerfile/#expose).
 
-### [ENV](https://docs.docker.com/build/building/best-practices/#env)
+### ENV
 
 To make new software easier to run, you can use `ENV` to update the `PATH` environment variable for the software your container installs. For example, `ENV PATH=/usr/local/nginx/bin:$PATH` ensures that `CMD ["nginx"]` just works.
 
@@ -441,9 +441,9 @@ $ docker run --rm test sh -c 'echo $ADMIN_USER'
 
 For more information about `ENV`, see [Dockerfile reference for the ENV instruction](https://docs.docker.com/reference/dockerfile/#env).
 
-### [ADD or COPY](https://docs.docker.com/build/building/best-practices/#add-or-copy)
+### ADD or COPY
 
-`ADD` and `COPY` are functionally similar. `COPY` supports basic copying of files into the container, from the [build context](https://docs.docker.com/build/concepts/context/) or from a stage in a [multi-stage build](https://docs.docker.com/build/building/multi-stage/). `ADD` supports features for fetching files from remote HTTPS and Git URLs, and extracting tar files automatically when adding files from the build context.
+`ADD` and `COPY` are functionally similar. `COPY` supports basic copying of files into the container, from the [build context]({{< ref "/manuals/DockerBuild/Coreconcepts/Buildcontext" >}}) or from a stage in a [multi-stage build]({{< ref "/manuals/DockerBuild/Building/Multi-stage" >}}). `ADD` supports features for fetching files from remote HTTPS and Git URLs, and extracting tar files automatically when adding files from the build context.
 
 You'll mostly want to use `COPY` for copying files from one stage to another in a multi-stage build. If you need to add files from the build context to the container temporarily to execute a `RUN` instruction, you can often substitute the `COPY` instruction with a bind mount instead. For example, to temporarily add a `requirements.txt` file for a `RUN pip install` instruction:
 
@@ -489,7 +489,7 @@ For more information about `ADD` or `COPY`, see the following:
 - [Dockerfile reference for the ADD instruction](https://docs.docker.com/reference/dockerfile/#add)
 - [Dockerfile reference for the COPY instruction](https://docs.docker.com/reference/dockerfile/#copy)
 
-### [ENTRYPOINT](https://docs.docker.com/build/building/best-practices/#entrypoint)
+### ENTRYPOINT
 
 The best use for `ENTRYPOINT` is to set the image's main command, allowing that image to be run as though it was that command, and then use `CMD` as the default flags.
 
@@ -583,13 +583,13 @@ $ docker run --rm -it postgres bash
 
 For more information about `ENTRYPOINT`, see [Dockerfile reference for the ENTRYPOINT instruction](https://docs.docker.com/reference/dockerfile/#entrypoint).
 
-### [VOLUME](https://docs.docker.com/build/building/best-practices/#volume)
+### VOLUME
 
 You should use the `VOLUME` instruction to expose any database storage area, configuration storage, or files and folders created by your Docker container. You are strongly encouraged to use `VOLUME` for any combination of mutable or user-serviceable parts of your image.
 
 For more information about `VOLUME`, see [Dockerfile reference for the VOLUME instruction](https://docs.docker.com/reference/dockerfile/#volume).
 
-### [USER](https://docs.docker.com/build/building/best-practices/#user)
+### USER
 
 If a service can run without privileges, use `USER` to change to a non-root user. Start by creating the user and group in the Dockerfile with something like the following example:
 
@@ -619,13 +619,13 @@ Lastly, to reduce layers and complexity, avoid switching `USER` back and forth f
 
 For more information about `USER`, see [Dockerfile reference for the USER instruction](https://docs.docker.com/reference/dockerfile/#user).
 
-### [WORKDIR](https://docs.docker.com/build/building/best-practices/#workdir)
+### WORKDIR
 
 For clarity and reliability, you should always use absolute paths for your `WORKDIR`. Also, you should use `WORKDIR` instead of proliferating instructions like `RUN cd … && do-something`, which are hard to read, troubleshoot, and maintain.
 
 For more information about `WORKDIR`, see [Dockerfile reference for the WORKDIR instruction](https://docs.docker.com/reference/dockerfile/#workdir).
 
-### [ONBUILD](https://docs.docker.com/build/building/best-practices/#onbuild)
+### ONBUILD
 
 An `ONBUILD` command executes after the current Dockerfile build completes. `ONBUILD` executes in any child image derived `FROM` the current image. Think of the `ONBUILD` command as an instruction that the parent Dockerfile gives to the child Dockerfile.
 

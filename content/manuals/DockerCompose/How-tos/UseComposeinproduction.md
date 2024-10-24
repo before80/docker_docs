@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/how-tos/production/](https://docs.docker.com/compose/how-tos/production/)
+> 原文：[https://docs.docker.com/compose/how-tos/production/](https://docs.docker.com/compose/how-tos/production/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ When you define your app with Compose in development, you can use this definitio
 
 The easiest way to deploy an application is to run it on a single server, similar to how you would run your development environment. If you want to scale up your application, you can run Compose apps on a Swarm cluster.
 
-### [Modify your Compose file for production](https://docs.docker.com/compose/how-tos/production/#modify-your-compose-file-for-production)
+### Modify your Compose file for production
 
 You may need to make changes to your app configuration to make it ready for production. These changes might include:
 
@@ -38,9 +38,9 @@ Once you have a second configuration file, you can use it with the `-f` option:
 $ docker compose -f compose.yml -f production.yml up -d
 ```
 
-See [Using multiple compose files](https://docs.docker.com/compose/how-tos/multiple-compose-files/) for a more complete example, and other options.
+See [Using multiple compose files]({{< ref "/manuals/DockerCompose/How-tos/UsemultipleComposefiles" >}}) for a more complete example, and other options.
 
-### [Deploying changes](https://docs.docker.com/compose/how-tos/production/#deploying-changes)
+### Deploying changes
 
 When you make changes to your app code, remember to rebuild your image and recreate your app's containers. To redeploy a service called `web`, use:
 
@@ -53,9 +53,9 @@ $ docker compose up --no-deps -d web
 
 This first command rebuilds the image for `web` and then stops, destroys, and recreates just the `web` service. The `--no-deps` flag prevents Compose from also recreating any services which `web` depends on.
 
-### [Running Compose on a single server](https://docs.docker.com/compose/how-tos/production/#running-compose-on-a-single-server)
+### Running Compose on a single server
 
-You can use Compose to deploy an app to a remote Docker host by setting the `DOCKER_HOST`, `DOCKER_TLS_VERIFY`, and `DOCKER_CERT_PATH` environment variables appropriately. For more information, see [pre-defined environment variables](https://docs.docker.com/compose/how-tos/environment-variables/envvars/).
+You can use Compose to deploy an app to a remote Docker host by setting the `DOCKER_HOST`, `DOCKER_TLS_VERIFY`, and `DOCKER_CERT_PATH` environment variables appropriately. For more information, see [pre-defined environment variables]({{< ref "/manuals/DockerCompose/How-tos/Useenvironmentvariables/Pre-definedenvironmentvariables" >}}).
 
 Once you've set up your environment variables, all the normal `docker compose` commands work with no further configuration.
 

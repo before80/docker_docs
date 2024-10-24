@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/networking/](https://docs.docker.com/engine/swarm/networking/)
+> 原文：[https://docs.docker.com/engine/swarm/networking/](https://docs.docker.com/engine/swarm/networking/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,14 +16,14 @@ draft = false
 
 This page describes networking for swarm services.
 
-## [Swarm and types of traffic](https://docs.docker.com/engine/swarm/networking/#swarm-and-types-of-traffic)
+## Swarm and types of traffic
 
 A Docker swarm generates two different kinds of traffic:
 
 - Control and management plane traffic: This includes swarm management messages, such as requests to join or leave the swarm. This traffic is always encrypted.
 - Application data plane traffic: This includes container traffic and traffic to and from external clients.
 
-## [Key network concepts](https://docs.docker.com/engine/swarm/networking/#key-network-concepts)
+## Key network concepts
 
 The following three network concepts are important to swarm services:
 
@@ -41,9 +41,9 @@ The following three network concepts are important to swarm services:
 >
 > 
 >
-> See also [Networking overview](https://docs.docker.com/engine/network/) for more details about Swarm networking in general.
+> See also [Networking overview]({{< ref "/manuals/DockerEngine/Networking" >}}) for more details about Swarm networking in general.
 
-## [Firewall considerations](https://docs.docker.com/engine/swarm/networking/#firewall-considerations)
+## Firewall considerations
 
 Docker daemons participating in a swarm need the ability to communicate with each other over the following ports:
 
@@ -52,14 +52,14 @@ Docker daemons participating in a swarm need the ability to communicate with eac
 
 When setting up networking in a Swarm, special care should be taken. Consult the [tutorial](https://docs.docker.com/engine/swarm/swarm-tutorial/#open-protocols-and-ports-between-the-hosts) for an overview.
 
-## [Overlay networking](https://docs.docker.com/engine/swarm/networking/#overlay-networking)
+## Overlay networking
 
 When you initialize a swarm or join a Docker host to an existing swarm, two new networks are created on that Docker host:
 
 - An overlay network called `ingress`, which handles the control and data traffic related to swarm services. When you create a swarm service and do not connect it to a user-defined overlay network, it connects to the `ingress` network by default.
 - A bridge network called `docker_gwbridge`, which connects the individual Docker daemon to the other daemons participating in the swarm.
 
-### [Create an overlay network](https://docs.docker.com/engine/swarm/networking/#create-an-overlay-network)
+### Create an overlay network
 
 To create an overlay network, specify the `overlay` driver when using the `docker network create` command:
 
@@ -170,11 +170,11 @@ $ docker network inspect my-network
 ]
 ```
 
-### [Customize an overlay network](https://docs.docker.com/engine/swarm/networking/#customize-an-overlay-network)
+### Customize an overlay network
 
 There may be situations where you don't want to use the default configuration for an overlay network. For a full list of configurable options, run the command `docker network create --help`. The following are some of the most common options to change.
 
-#### [Configure the subnet and gateway](https://docs.docker.com/engine/swarm/networking/#configure-the-subnet-and-gateway)
+#### Configure the subnet and gateway
 
 By default, the network's subnet and gateway are configured automatically when the first service is connected to the network. You can configure these when creating a network using the `--subnet` and `--gateway` flags. The following example extends the previous one by configuring the subnet and gateway.
 
@@ -188,9 +188,9 @@ $ docker network create \
   my-network
 ```
 
-##### [Using custom default address pools](https://docs.docker.com/engine/swarm/networking/#using-custom-default-address-pools)
+##### Using custom default address pools
 
-To customize subnet allocation for your Swarm networks, you can [optionally configure them](https://docs.docker.com/engine/swarm/swarm-mode/) during `swarm init`.
+To customize subnet allocation for your Swarm networks, you can [optionally configure them]({{< ref "/manuals/DockerEngine/Swarmmode/RunDockerEngineinswarmmode" >}}) during `swarm init`.
 
 For example, the following command is used when initializing Swarm:
 
@@ -212,15 +212,15 @@ The default mask length can be configured and is the same for all networks. It i
 >
 > Default address pools can only be configured on `swarm init` and cannot be altered after cluster creation.
 
-##### [Overlay network size limitations](https://docs.docker.com/engine/swarm/networking/#overlay-network-size-limitations)
+##### Overlay network size limitations
 
 Docker recommends creating overlay networks with `/24` blocks. The `/24` overlay network blocks limit the network to 256 IP addresses.
 
 This recommendation addresses [limitations with swarm mode](https://github.com/moby/moby/issues/30820). If you need more than 256 IP addresses, do not increase the IP block size. You can either use `dnsrr` endpoint mode with an external load balancer, or use multiple smaller overlay networks. See [Configure service discovery](https://docs.docker.com/engine/swarm/networking/#configure-service-discovery) for more information about different endpoint modes.
 
-#### [Configure encryption of application data](https://docs.docker.com/engine/swarm/networking/#encryption)
+#### Configure encryption of application data
 
-Management and control plane data related to a swarm is always encrypted. For more details about the encryption mechanisms, see the [Docker swarm mode overlay network security model](https://docs.docker.com/engine/network/drivers/overlay/).
+Management and control plane data related to a swarm is always encrypted. For more details about the encryption mechanisms, see the [Docker swarm mode overlay network security model]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Overlaynetworkdriver" >}}).
 
 Application data among swarm nodes is not encrypted by default. To encrypt this traffic on a given overlay network, use the `--opt encrypted` flag on `docker network create`. This enables IPSEC encryption at the level of the vxlan. This encryption imposes a non-negligible performance penalty, so you should test this option before using it in production.
 
@@ -230,7 +230,7 @@ Application data among swarm nodes is not encrypted by default. To encrypt this 
 >
 > You must [customize the automatically created ingress](https://docs.docker.com/engine/swarm/networking/#customize-ingress) to enable encryption. By default, all ingress traffic is unencrypted, as encryption is a network-level option.
 
-## [Attach a service to an overlay network](https://docs.docker.com/engine/swarm/networking/#attach-a-service-to-an-overlay-network)
+## Attach a service to an overlay network
 
 To attach a service to an existing overlay network, pass the `--network` flag to `docker service create`, or the `--network-add` flag to `docker service update`.
 
@@ -248,7 +248,7 @@ Service containers connected to an overlay network can communicate with each oth
 
 To see which networks a service is connected to, use `docker service ls` to find the name of the service, then `docker service ps <service-name>` to list the networks. Alternately, to see which services' containers are connected to a network, use `docker network inspect <network-name>`. You can run these commands from any swarm node which is joined to the swarm and is in a `running` state.
 
-### [Configure service discovery](https://docs.docker.com/engine/swarm/networking/#configure-service-discovery)
+### Configure service discovery
 
 Service discovery is the mechanism Docker uses to route a request from your service's external clients to an individual swarm node, without the client needing to know how many nodes are participating in the service or their IP addresses or ports. You don't need to publish ports which are used between services on the same network. For instance, if you have a [WordPress service that stores its data in a MySQL service](https://training.play-with-docker.com/swarm-service-discovery/), and they are connected to the same overlay network, you do not need to publish the MySQL port to the client, only the WordPress HTTP port.
 
@@ -260,7 +260,7 @@ Service discovery can work in two different ways: internal connection-based load
 
   DNS round-robin is useful in cases where you want to use your own load balancer, such as HAProxy. To configure a service to use DNSRR, use the flag `--endpoint-mode dnsrr` when creating a new service or updating an existing one.
 
-## [Customize the ingress network](https://docs.docker.com/engine/swarm/networking/#customize-ingress)
+## Customize the ingress network
 
 Most users never need to configure the `ingress` network, but Docker allows you to do so. This can be useful if the automatically-chosen subnet conflicts with one that already exists on your network, or you need to customize other low-level network settings such as the MTU, or if you want to [enable encryption](https://docs.docker.com/engine/swarm/networking/#encryption).
 
@@ -306,7 +306,7 @@ During the time that no `ingress` network exists, existing services which do not
 
 4. Restart the services that you stopped in the first step.
 
-## [Customize the docker_gwbridge](https://docs.docker.com/engine/swarm/networking/#customize-the-docker_gwbridge)
+## Customize the docker_gwbridge
 
 The `docker_gwbridge` is a virtual bridge that connects the overlay networks (including the `ingress` network) to an individual Docker daemon's physical network. Docker creates it automatically when you initialize a swarm or join a Docker host to a swarm, but it is not a Docker device. It exists in the kernel of the Docker host. If you need to customize its settings, you must do so before joining the Docker host to the swarm, or after temporarily removing the host from the swarm.
 
@@ -333,7 +333,7 @@ You need to have the `brctl` application installed on your operating system in o
 
 5. Initialize or join the swarm.
 
-## [Use a separate interface for control and data traffic](https://docs.docker.com/engine/swarm/networking/#use-a-separate-interface-for-control-and-data-traffic)
+## Use a separate interface for control and data traffic
 
 By default, all swarm traffic is sent over the same interface, including control and management traffic for maintaining the swarm itself and data traffic to and from the service containers.
 
@@ -359,7 +359,7 @@ $ docker swarm join \
   192.168.99.100:2377
 ```
 
-## [Publish ports on an overlay network](https://docs.docker.com/engine/swarm/networking/#publish-ports-on-an-overlay-network)
+## Publish ports on an overlay network
 
 Swarm services connected to the same overlay network effectively expose all ports to each other. For a port to be accessible outside of the service, that port must be *published* using the `-p` or `--publish` flag on `docker service create` or `docker service update`. Both the legacy colon-separated syntax and the newer comma-separated value syntax are supported. The longer syntax is preferred because it is somewhat self-documenting.
 
@@ -369,10 +369,10 @@ Swarm services connected to the same overlay network effectively expose all port
 | `-p 8080:80/udp` or `-p published=8080,target=80,protocol=udp` | Map UDP port 80 on the service to port 8080 on the routing mesh. |
 | `-p 8080:80/tcp -p 8080:80/udp` or `-p published=8080,target=80,protocol=tcp -p published=8080,target=80,protocol=udp` | Map TCP port 80 on the service to TCP port 8080 on the routing mesh, and map UDP port 80 on the service to UDP port 8080 on the routing mesh. |
 
-## [Learn more](https://docs.docker.com/engine/swarm/networking/#learn-more)
+## Learn more
 
-- [Deploy services to a swarm](https://docs.docker.com/engine/swarm/services/)
-- [Swarm administration guide](https://docs.docker.com/engine/swarm/admin_guide/)
-- [Swarm mode tutorial](https://docs.docker.com/engine/swarm/swarm-tutorial/)
-- [Networking overview](https://docs.docker.com/engine/network/)
-- [Docker CLI reference](https://docs.docker.com/reference/cli/docker/)
+- [Deploy services to a swarm]({{< ref "/manuals/DockerEngine/Swarmmode/Deployservicestoaswarm" >}})
+- [Swarm administration guide]({{< ref "/manuals/DockerEngine/Swarmmode/AdministerandmaintainaswarmofDockerEngines" >}})
+- [Swarm mode tutorial]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode" >}})
+- [Networking overview]({{< ref "/manuals/DockerEngine/Networking" >}})
+- [Docker CLI reference]({{< ref "/reference/CLIreference/docker" >}})

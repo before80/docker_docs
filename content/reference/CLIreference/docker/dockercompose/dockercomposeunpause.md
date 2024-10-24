@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/unpause/](https://docs.docker.com/reference/cli/docker/compose/unpause/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/unpause/](https://docs.docker.com/reference/cli/docker/compose/unpause/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,6 +18,6 @@ draft = false
 | :---------- | ------------------------------------- |
 | Usage       | `docker compose unpause [SERVICE...]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/unpause/#description)
+## Description
 
 Unpauses paused containers of a service

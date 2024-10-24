@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/network/drivers/overlay/](https://docs.docker.com/engine/network/drivers/overlay/)
+> 原文：[https://docs.docker.com/engine/network/drivers/overlay/](https://docs.docker.com/engine/network/drivers/overlay/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,9 +20,9 @@ You can create user-defined `overlay` networks using `docker network create`, in
 
 Overlay networks are often used to create a connection between Swarm services, but you can also use it to connect standalone containers running on different hosts. When using standalone containers, it's still required that you use Swarm mode to establish a connection between the hosts.
 
-This page describes overlay networks in general, and when used with standalone containers. For information about overlay for Swarm services, see [Manage Swarm service networks](https://docs.docker.com/engine/swarm/networking/).
+This page describes overlay networks in general, and when used with standalone containers. For information about overlay for Swarm services, see [Manage Swarm service networks]({{< ref "/manuals/DockerEngine/Swarmmode/Manageswarmservicenetworks" >}}).
 
-## [Create an overlay network](https://docs.docker.com/engine/network/drivers/overlay/#create-an-overlay-network)
+## Create an overlay network
 
 Before you start, you must ensure that participating nodes can communicate over the network. The following table lists ports that need to be open to each host participating in an overlay network:
 
@@ -44,7 +44,7 @@ The `--attachable` option enables both standalone containers and Swarm services 
 
 You can specify the IP address range, subnet, gateway, and other options. See `docker network create --help` for details.
 
-## [Encrypt traffic on an overlay network](https://docs.docker.com/engine/network/drivers/overlay/#encrypt-traffic-on-an-overlay-network)
+## Encrypt traffic on an overlay network
 
 Use the `--opt encrypted` flag to encrypt the application data transmitted over the overlay network:
 
@@ -71,7 +71,7 @@ This enables IPsec encryption at the level of the Virtual Extensible LAN (VXLAN)
 > - Windows containers can't communicate with Linux containers on the network
 > - Data traffic between Windows containers on the network isn't encrypted
 
-## [Attach a container to an overlay network](https://docs.docker.com/engine/network/drivers/overlay/#attach-a-container-to-an-overlay-network)
+## Attach a container to an overlay network
 
 Adding containers to an overlay network gives them the ability to communicate with other containers without having to set up routing on the individual Docker daemon hosts. A prerequisite for doing this is that the hosts have joined the same Swarm.
 
@@ -89,7 +89,7 @@ $ docker run --network multi-host-network busybox sh
 >
 > This only works if the overlay network is attachable (created with the `--attachable` flag).
 
-## [Container discovery](https://docs.docker.com/engine/network/drivers/overlay/#container-discovery)
+## Container discovery
 
 Publishing ports of a container on an overlay network opens the ports to other containers on the same network. Containers are discoverable by doing a DNS lookup using the container name.
 
@@ -100,15 +100,15 @@ Publishing ports of a container on an overlay network opens the ports to other c
 | `-p 8080:80/sctp`               | Map SCTP port 80 in the container to port `8080` on the overlay network. |
 | `-p 8080:80/tcp -p 8080:80/udp` | Map TCP port 80 in the container to TCP port `8080` on the overlay network, and map UDP port 80 in the container to UDP port `8080` on the overlay network. |
 
-## [Connection limit for overlay networks](https://docs.docker.com/engine/network/drivers/overlay/#connection-limit-for-overlay-networks)
+## Connection limit for overlay networks
 
 Due to limitations set by the Linux kernel, overlay networks become unstable and inter-container communications may break when 1000 containers are co-located on the same host.
 
 For more information about this limitation, see [moby/moby#44973](https://github.com/moby/moby/issues/44973#issuecomment-1543747718).
 
-## [Next steps](https://docs.docker.com/engine/network/drivers/overlay/#next-steps)
+## Next steps
 
-- Go through the [overlay networking tutorial](https://docs.docker.com/engine/network/tutorials/overlay/)
-- Learn about [networking from the container's point of view](https://docs.docker.com/engine/network/)
-- Learn about [standalone bridge networks](https://docs.docker.com/engine/network/drivers/bridge/)
-- Learn about [Macvlan networks](https://docs.docker.com/engine/network/drivers/macvlan/)
+- Go through the [overlay networking tutorial]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithoverlaynetworks" >}})
+- Learn about [networking from the container's point of view]({{< ref "/manuals/DockerEngine/Networking" >}})
+- Learn about [standalone bridge networks]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Bridgenetworkdriver" >}})
+- Learn about [Macvlan networks]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Macvlannetworkdriver" >}})

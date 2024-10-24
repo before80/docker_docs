@@ -8,17 +8,17 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/17.05/](https://docs.docker.com/engine/release-notes/17.05/)
+> 原文：[https://docs.docker.com/engine/release-notes/17.05/](https://docs.docker.com/engine/release-notes/17.05/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Engine 17.05 release notes
 
-## [17.05.0-ce](https://docs.docker.com/engine/release-notes/17.05/#17050-ce)
+## 17.05.0-ce
 
 2017-05-04
 
-### [Builder](https://docs.docker.com/engine/release-notes/17.05/#builder)
+### Builder
 
 - Add multi-stage build support [#31257](https://github.com/docker/docker/pull/31257) [#32063](https://github.com/docker/docker/pull/32063)
 - Allow using build-time args (`ARG`) in `FROM` [#31352](https://github.com/docker/docker/pull/31352)
@@ -30,7 +30,7 @@ draft = false
 - Fix setting command if a custom shell is used in a parent image [#32236](https://github.com/docker/docker/pull/32236)
 - Fix `docker build --label` when the label includes single quotes and a space [#31750](https://github.com/docker/docker/pull/31750)
 
-### [Client](https://docs.docker.com/engine/release-notes/17.05/#client)
+### Client
 
 - Add `--mount` flag to `docker run` and `docker create` [#32251](https://github.com/docker/docker/pull/32251)
 - Add `--type=secret` to `docker inspect` [#32124](https://github.com/docker/docker/pull/32124)
@@ -45,35 +45,35 @@ draft = false
 - Display created tags on successful `docker build` [#32077](https://github.com/docker/docker/pull/32077)
 - Cleanup compose convert error messages [#32087](https://github.com/moby/moby/pull/32087)
 
-### [Contrib](https://docs.docker.com/engine/release-notes/17.05/#contrib)
+### Contrib
 
 - Add support for building docker debs for Ubuntu 17.04 Zesty on amd64 [#32435](https://github.com/docker/docker/pull/32435)
 
-### [Daemon](https://docs.docker.com/engine/release-notes/17.05/#daemon)
+### Daemon
 
 - Fix `--api-cors-header` being ignored if `--api-enable-cors` is not set [#32174](https://github.com/docker/docker/pull/32174)
 - Cleanup docker tmp dir on start [#31741](https://github.com/docker/docker/pull/31741)
 - Deprecate `--graph` flag in favor or `--data-root` [#28696](https://github.com/docker/docker/pull/28696)
 
-### [Logging](https://docs.docker.com/engine/release-notes/17.05/#logging)
+### Logging
 
 - Add support for logging driver plugins [#28403](https://github.com/docker/docker/pull/28403)
 
 - Add support for showing logs of individual tasks to `docker service logs`, and add `/task/{id}/logs` REST endpoint [#32015](https://github.com/docker/docker/pull/32015)
 - Add `--log-opt env-regex` option to match environment variables using a regular expression [#27565](https://github.com/docker/docker/pull/27565)
 
-### [Networking](https://docs.docker.com/engine/release-notes/17.05/#networking)
+### Networking
 
 - Allow user to replace, and customize the ingress network [#31714](https://github.com/docker/docker/pull/31714)
 
 - Fix UDP traffic in containers not working after the container is restarted [#32505](https://github.com/docker/docker/pull/32505)
 - Fix files being written to `/var/lib/docker` if a different data-root is set [#32505](https://github.com/docker/docker/pull/32505)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/17.05/#runtime)
+### Runtime
 
 - Ensure health probe is stopped when a container exits [#32274](https://github.com/docker/docker/pull/32274)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/17.05/#swarm-mode)
+### Swarm Mode
 
 - Add update/rollback order for services (`--update-order` / `--rollback-order`) [#30261](https://github.com/docker/docker/pull/30261)
 - Add support for synchronous `service create` and `service update` [#31144](https://github.com/docker/docker/pull/31144)
@@ -96,11 +96,11 @@ draft = false
 - Fix `docker stack deploy` not supporting `endpoint_mode` when deploying from a docker compose file [#32333](https://github.com/docker/docker/pull/32333)
 - Proceed with startup if cluster component cannot be created to allow recovering from a broken swarm setup [#31631](https://github.com/docker/docker/pull/31631)
 
-### [Security](https://docs.docker.com/engine/release-notes/17.05/#security)
+### Security
 
 - Allow setting SELinux type or MCS labels when using `--ipc=container:` or `--ipc=host` [#30652](https://github.com/docker/docker/pull/30652)
 
-### [Deprecation](https://docs.docker.com/engine/release-notes/17.05/#deprecation)
+### Deprecation
 
 - Deprecate `--api-enable-cors` daemon flag. This flag was marked deprecated in Docker 1.6.0 but not listed in deprecated features [#32352](https://github.com/docker/docker/pull/32352)
 - Remove Ubuntu 12.04 (Precise Pangolin) as supported platform. Ubuntu 12.04 is EOL, and no longer receives updates [#32520](https://github.com/docker/docker/pull/32520)

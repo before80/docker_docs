@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/manage-resources/contexts/](https://docs.docker.com/engine/manage-resources/contexts/)
+> 原文：[https://docs.docker.com/engine/manage-resources/contexts/](https://docs.docker.com/engine/manage-resources/contexts/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker contexts
 
-## [Introduction](https://docs.docker.com/engine/manage-resources/contexts/#introduction)
+## Introduction
 
 This guide shows how you can use contexts to manage Docker daemons from a single client.
 
@@ -27,7 +27,7 @@ As an example, a single Docker client might be configured with two contexts:
 
 Once these contexts are configured, you can use the `docker context use <context-name>` command to switch between them.
 
-## [Prerequisites](https://docs.docker.com/engine/manage-resources/contexts/#prerequisites)
+## Prerequisites
 
 To follow the examples in this guide, you'll need:
 
@@ -35,7 +35,7 @@ To follow the examples in this guide, you'll need:
 
 Run `docker context` to verify that your Docker client supports contexts.
 
-## [The anatomy of a context](https://docs.docker.com/engine/manage-resources/contexts/#the-anatomy-of-a-context)
+## The anatomy of a context
 
 A context is a combination of several properties. These include:
 
@@ -82,7 +82,7 @@ $ docker context inspect default
 ]
 ```
 
-### [Create a new context](https://docs.docker.com/engine/manage-resources/contexts/#create-a-new-context)
+### Create a new context
 
 You can create new contexts with the `docker context create` command.
 
@@ -111,7 +111,7 @@ docker-test                                           tcp://docker:2375
 
 The current context is indicated with an asterisk ("*").
 
-## [Use a different context](https://docs.docker.com/engine/manage-resources/contexts/#use-a-different-context)
+## Use a different context
 
 You can use `docker context use` to switch between contexts.
 
@@ -142,15 +142,27 @@ You can also set the current context using the `DOCKER_CONTEXT` environment vari
 
 Use the appropriate command below to set the context to `docker-test` using an environment variable.
 
-PowerShell Bash
+{{< tabpane text=true persist=disabled >}}
 
-------
-
-
+{{% tab header="PowerShell" %}}
 
 ```ps
 > $env:DOCKER_CONTEXT='docker-test'
 ```
+
+{{% /tab  %}}
+
+{{% tab header="Bash" %}}
+
+```bash
+ export DOCKER_CONTEXT=docker-test
+```
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+ 
 
 ------
 
@@ -164,13 +176,13 @@ You can also use the global `--context` flag to override the context. The follow
 $ docker --context production container ls
 ```
 
-## [Exporting and importing Docker contexts](https://docs.docker.com/engine/manage-resources/contexts/#exporting-and-importing-docker-contexts)
+## Exporting and importing Docker contexts
 
 You can use the `docker context export` and `docker context import` commands to export and import contexts on different hosts.
 
 The `docker context export` command exports an existing context to a file. The file can be imported on any host that has the `docker` client installed.
 
-### [Exporting and importing a context](https://docs.docker.com/engine/manage-resources/contexts/#exporting-and-importing-a-context)
+### Exporting and importing a context
 
 The following example exports an existing context called `docker-test`. It will be written to a file called `docker-test.dockercontext`.
 
@@ -203,7 +215,7 @@ You can verify that the context was imported with `docker context ls`.
 
 The format of the import command is `docker context import <context-name> <context-file>`.
 
-## [Updating a context](https://docs.docker.com/engine/manage-resources/contexts/#updating-a-context)
+## Updating a context
 
 You can use `docker context update` to update fields in an existing context.
 

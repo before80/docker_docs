@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/bake/inheritance/](https://docs.docker.com/build/bake/inheritance/)
+> 原文：[https://docs.docker.com/build/bake/inheritance/](https://docs.docker.com/build/bake/inheritance/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -43,7 +43,7 @@ target "app-release" {
 }
 ```
 
-## [Common reusable targets](https://docs.docker.com/build/bake/inheritance/#common-reusable-targets)
+## Common reusable targets
 
 One common inheritance pattern is to define a common target that contains shared attributes for all or many of the build targets in the project. For example, the following `_common` target defines a common set of build arguments:
 
@@ -89,7 +89,7 @@ target "binaries" {
 }
 ```
 
-## [Overriding inherited attributes](https://docs.docker.com/build/bake/inheritance/#overriding-inherited-attributes)
+## Overriding inherited attributes
 
 When a target inherits another target, it can override any of the inherited attributes. For example, the following target overrides the `args` attribute from the inherited target:
 
@@ -107,9 +107,9 @@ target "app-dev" {
 
 The `GO_VERSION` argument in `app-release` is set to `1.17`, overriding the `GO_VERSION` argument from the `app-dev` target.
 
-For more information about overriding attributes, see the [Overriding configurations](https://docs.docker.com/build/bake/overrides/) page.
+For more information about overriding attributes, see the [Overriding configurations]({{< ref "/manuals/DockerBuild/Bake/Overridingconfigurations" >}}) page.
 
-## [Inherit from multiple targets](https://docs.docker.com/build/bake/inheritance/#inherit-from-multiple-targets)
+## Inherit from multiple targets
 
 The `inherits` attribute is a list, meaning you can reuse attributes from multiple other targets. In the following example, the app-release target reuses attributes from both the `app-dev` and `_common` targets.
 
@@ -146,7 +146,7 @@ When inheriting attributes from multiple targets and there's a conflict, the tar
 
 The `app-release` target inherits both `app-dev` target and the `_common` target. The `BUILDKIT_CONTEXT_KEEP_GIT_DIR` argument is set to 0 in the `app-dev` target and 1 in the `_common` target. The `BUILDKIT_CONTEXT_KEEP_GIT_DIR` argument in the `app-release` target is set to 1, not 0, because the `_common` target appears last in the inherits list.
 
-## [Reusing single attributes from targets](https://docs.docker.com/build/bake/inheritance/#reusing-single-attributes-from-targets)
+## Reusing single attributes from targets
 
 If you only want to inherit a single attribute from a target, you can reference an attribute from another target using dot notation. For example, in the following Bake file, the `bar` target reuses the `tags` attribute from the `foo` target:
 

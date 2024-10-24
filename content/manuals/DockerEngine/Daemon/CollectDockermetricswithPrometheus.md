@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/daemon/prometheus/](https://docs.docker.com/engine/daemon/prometheus/)
+> 原文：[https://docs.docker.com/engine/daemon/prometheus/](https://docs.docker.com/engine/daemon/prometheus/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,11 +24,11 @@ draft = false
 
 Currently, you can only monitor Docker itself. You can't currently monitor your application using the Docker target.
 
-## [Example](https://docs.docker.com/engine/daemon/prometheus/#example)
+## Example
 
 The following example shows you how to configure your Docker daemon, set up Prometheus to run as a container on your local machine, and monitor your Docker instance using Prometheus.
 
-### [Configure the daemon](https://docs.docker.com/engine/daemon/prometheus/#configure-the-daemon)
+### Configure the daemon
 
 To configure the Docker daemon as a Prometheus target, you need to specify the `metrics-address` in the `daemon.json` configuration file. This daemon expects the file to be located at one of the following locations by default. If the file doesn't exist, create it.
 
@@ -50,7 +50,7 @@ Save the file, or in the case of Docker Desktop for Mac or Docker Desktop for Wi
 
 Docker now exposes Prometheus-compatible metrics on port 9323 on the loopback interface.
 
-### [Create a Prometheus configuration](https://docs.docker.com/engine/daemon/prometheus/#create-a-prometheus-configuration)
+### Create a Prometheus configuration
 
 Copy the following configuration file and save it to a location of your choice, for example `/tmp/prometheus.yml`. This is a stock Prometheus configuration file, except for the addition of the Docker job definition at the bottom of the file.
 
@@ -93,7 +93,7 @@ scrape_configs:
       - targets: ["host.docker.internal:9323"]
 ```
 
-### [Run Prometheus in a container](https://docs.docker.com/engine/daemon/prometheus/#run-prometheus-in-a-container)
+### Run Prometheus in a container
 
 Next, start a Prometheus container using this configuration.
 
@@ -109,7 +109,7 @@ $ docker run --name my-prometheus \
 
 If you're using Docker Desktop, the `--add-host` flag is optional. This flag makes sure that the host's internal IP gets exposed to the Prometheus container. Docker Desktop does this by default. The host IP is exposed as the `host.docker.internal` hostname. This matches the configuration defined in `prometheus.yml` in the previous step.
 
-### [Open the Prometheus Dashboard](https://docs.docker.com/engine/daemon/prometheus/#open-the-prometheus-dashboard)
+### Open the Prometheus Dashboard
 
 Verify that the Docker target is listed at `http://localhost:9090/targets/`.
 
@@ -121,7 +121,7 @@ Verify that the Docker target is listed at `http://localhost:9090/targets/`.
 >
 > You can't access the endpoint URLs on this page directly if you use Docker Desktop.
 
-### [Use Prometheus](https://docs.docker.com/engine/daemon/prometheus/#use-prometheus)
+### Use Prometheus
 
 Create a graph. Select the **Graphs** link in the Prometheus UI. Choose a metric from the combo box to the right of the **Execute** button, and click **Execute**. The screenshot below shows the graph for `engine_daemon_network_actions_seconds_count`.
 
@@ -141,7 +141,7 @@ Wait a few seconds (the default scrape interval is 15 seconds) and reload your g
 
 ![Prometheus report showing traffic](CollectDockermetricswithPrometheus_img/prometheus-graph_load.webp)
 
-## [Next steps](https://docs.docker.com/engine/daemon/prometheus/#next-steps)
+## Next steps
 
 The example provided here shows how to run Prometheus as a container on your local system. In practice, you'll probably be running Prometheus on another system or as a cloud service somewhere. You can set up the Docker daemon as a Prometheus target in such contexts too. Configure the `metrics-addr` of the daemon and add the address of the daemon as a scrape endpoint in your Prometheus configuration.
 

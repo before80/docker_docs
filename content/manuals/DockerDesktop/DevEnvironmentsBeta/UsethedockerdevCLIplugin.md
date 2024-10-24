@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/dev-environments/dev-cli/](https://docs.docker.com/desktop/dev-environments/dev-cli/)
+> 原文：[https://docs.docker.com/desktop/dev-environments/dev-cli/](https://docs.docker.com/desktop/dev-environments/dev-cli/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,9 +24,9 @@ draft = false
 
 Use the new `docker dev` CLI plugin to get the full Dev Environments experience from the terminal in addition to the Dashboard.
 
-It is available with [Docker Desktop 4.13.0 and later](https://docs.docker.com/desktop/release-notes/).
+It is available with [Docker Desktop 4.13.0 and later]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}).
 
-### [Usage](https://docs.docker.com/desktop/dev-environments/dev-cli/#usage)
+### Usage
 
 
 
@@ -34,7 +34,7 @@ It is available with [Docker Desktop 4.13.0 and later](https://docs.docker.com/d
 docker dev [OPTIONS] COMMAND
 ```
 
-### [Commands](https://docs.docker.com/desktop/dev-environments/dev-cli/#commands)
+### Commands
 
 | Command   | Description                              |
 | :-------- | :--------------------------------------- |
@@ -48,105 +48,105 @@ docker dev [OPTIONS] COMMAND
 | `stop`    | Stops a dev environment                  |
 | `version` | Shows the Docker Dev version information |
 
-### [`docker dev check`](https://docs.docker.com/desktop/dev-environments/dev-cli/#docker-dev-check)
+### `docker dev check`
 
-#### [Usage](https://docs.docker.com/desktop/dev-environments/dev-cli/#usage-1)
+#### Usage
 
 ```
 docker dev check [OPTIONS]
 ```
 
-#### [Options](https://docs.docker.com/desktop/dev-environments/dev-cli/#options)
+#### Options
 
 | Name, shorthand | Description        |
 | :-------------- | :----------------- |
 | `--format`,`-f` | Format the output. |
 
-### [`docker dev create`](https://docs.docker.com/desktop/dev-environments/dev-cli/#docker-dev-create)
+### `docker dev create`
 
-#### [Usage](https://docs.docker.com/desktop/dev-environments/dev-cli/#usage-2)
+#### Usage
 
 ```
 docker dev create [OPTIONS] REPOSITORY_URL
 ```
 
-#### [Options](https://docs.docker.com/desktop/dev-environments/dev-cli/#options-1)
+#### Options
 
 | Name, shorthand | Description                                              |
 | :-------------- | :------------------------------------------------------- |
 | `--detach`,`-d` | Detach creates a Dev Env without attaching to it's logs. |
 | `--open`,`-o`   | Open IDE after a successful creation                     |
 
-### [`docker dev list`](https://docs.docker.com/desktop/dev-environments/dev-cli/#docker-dev-list)
+### `docker dev list`
 
-#### [Usage](https://docs.docker.com/desktop/dev-environments/dev-cli/#usage-3)
+#### Usage
 
 ```
 docker dev list [OPTIONS]
 ```
 
-#### [Options](https://docs.docker.com/desktop/dev-environments/dev-cli/#options-2)
+#### Options
 
 | Name, shorthand | Description                      |
 | :-------------- | :------------------------------- |
 | `--format`,`-f` | Format the output                |
 | `--quiet`,`-q`  | Only show dev environments names |
 
-### [`docker dev logs`](https://docs.docker.com/desktop/dev-environments/dev-cli/#docker-dev-logs)
+### `docker dev logs`
 
-#### [Usage](https://docs.docker.com/desktop/dev-environments/dev-cli/#usage-4)
+#### Usage
 
 ```
 docker dev logs [OPTIONS] DEV_ENV_NAME
 ```
 
-### [`docker dev open`](https://docs.docker.com/desktop/dev-environments/dev-cli/#docker-dev-open)
+### `docker dev open`
 
-#### [Usage](https://docs.docker.com/desktop/dev-environments/dev-cli/#usage-5)
+#### Usage
 
 ```
 docker dev open DEV_ENV_NAME CONTAINER_REF [OPTIONS]
 ```
 
-#### [Options](https://docs.docker.com/desktop/dev-environments/dev-cli/#options-3)
+#### Options
 
 | Name, shorthand | Description |
 | :-------------- | :---------- |
 | `--editor`,`-e` | Editor.     |
 
-### [`docker dev rm`](https://docs.docker.com/desktop/dev-environments/dev-cli/#docker-dev-rm)
+### `docker dev rm`
 
-#### [Usage](https://docs.docker.com/desktop/dev-environments/dev-cli/#usage-6)
+#### Usage
 
 ```
 docker dev rm DEV_ENV_NAME
 ```
 
-### [`docker dev start`](https://docs.docker.com/desktop/dev-environments/dev-cli/#docker-dev-start)
+### `docker dev start`
 
-#### [Usage](https://docs.docker.com/desktop/dev-environments/dev-cli/#usage-7)
+#### Usage
 
 ```
 docker dev start DEV_ENV_NAME
 ```
 
-### [`docker dev stop`](https://docs.docker.com/desktop/dev-environments/dev-cli/#docker-dev-stop)
+### `docker dev stop`
 
-#### [Usage](https://docs.docker.com/desktop/dev-environments/dev-cli/#usage-8)
+#### Usage
 
 ```
 docker dev stop DEV_ENV_NAME
 ```
 
-### [`docker dev version`](https://docs.docker.com/desktop/dev-environments/dev-cli/#docker-dev-version)
+### `docker dev version`
 
-#### [Usage](https://docs.docker.com/desktop/dev-environments/dev-cli/#usage-9)
+#### Usage
 
 ```
 docker dev version [OPTIONS]
 ```
 
-#### [Options](https://docs.docker.com/desktop/dev-environments/dev-cli/#options-4)
+#### Options
 
 | Name, shorthand | Description                             |
 | :-------------- | :-------------------------------------- |

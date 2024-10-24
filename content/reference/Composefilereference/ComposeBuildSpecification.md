@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/compose-file/build/](https://docs.docker.com/reference/compose-file/build/)
+> 原文：[https://docs.docker.com/reference/compose-file/build/](https://docs.docker.com/reference/compose-file/build/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -20,17 +20,17 @@ In the former case, the whole path is used as a Docker context to execute a Dock
 
 In the latter case, build arguments can be specified, including an alternate `Dockerfile` location. The path can be absolute or relative. If it is relative, it is resolved from the directory containing your Compose file. If it is absolute, the path prevents the Compose file from being portable so Compose displays a warning.
 
-## [Using `build` and `image`](https://docs.docker.com/reference/compose-file/build/#using-build-and-image)
+## Using `build` and `image`
 
 When Compose is confronted with both a `build` subsection for a service and an `image` attribute, it follows the rules defined by the [`pull_policy`](https://docs.docker.com/reference/compose-file/services/#pull_policy) attribute.
 
 If `pull_policy` is missing from the service definition, Compose attempts to pull the image first and then builds from source if the image isn't found in the registry or platform cache.
 
-## [Publishing built images](https://docs.docker.com/reference/compose-file/build/#publishing-built-images)
+## Publishing built images
 
 Compose with `build` support offers an option to push built images to a registry. When doing so, it doesn't try to push service images without an `image` attribute. Compose warns you about the missing `image` attribute which prevents images being pushed.
 
-## [Illustrative example](https://docs.docker.com/reference/compose-file/build/#illustrative-example)
+## Illustrative example
 
 The following example illustrates Compose Build Specification concepts with a concrete sample application. The sample is non-normative.
 
@@ -60,7 +60,7 @@ When used to build service images from source, the Compose file creates three Do
 
 On push, both `example/webapp` and `example/database` Docker images are pushed to the default registry. The `custom` service image is skipped as no `image` attribute is set and Compose displays a warning about this missing attribute.
 
-## [Attributes](https://docs.docker.com/reference/compose-file/build/#attributes)
+## Attributes
 
 The `build` subsection defines configuration options that are applied by Compose to build Docker images from source. `build` can be specified either as a string containing a path to the build context or as a detailed structure:
 
@@ -88,7 +88,7 @@ Using the string syntax, only the build context can be configured as either:
 
 Alternatively `build` can be an object with fields defined as follows:
 
-### [additional_contexts](https://docs.docker.com/reference/compose-file/build/#additional_contexts)
+### additional_contexts
 
 Introduced in Docker Compose version [2.17.0](https://docs.docker.com/compose/releases/release-notes/#2170)
 
@@ -124,7 +124,7 @@ Compose warns you if the image builder does not support additional contexts and 
 
 Illustrative examples of how this is used in Buildx can be found [here](https://github.com/docker/buildx/blob/master/docs/reference/buildx_build.md#-additional-build-contexts---build-context).
 
-### [args](https://docs.docker.com/reference/compose-file/build/#args)
+### args
 
 `args` define build arguments, i.e. Dockerfile `ARG` values.
 
@@ -166,7 +166,7 @@ args:
   - GIT_COMMIT
 ```
 
-### [context](https://docs.docker.com/reference/compose-file/build/#context)
+### context
 
 `context` defines either a path to a directory containing a Dockerfile, or a URL to a git repository.
 
@@ -189,7 +189,7 @@ services:
 
 If not set explicitly, `context` defaults to project directory (`.`).
 
-### [cache_from](https://docs.docker.com/reference/compose-file/build/#cache_from)
+### cache_from
 
 `cache_from` defines a list of sources the image builder should use for cache resolution.
 
@@ -212,7 +212,7 @@ build:
 
 Unsupported caches are ignored and don't prevent you from building images.
 
-### [cache_to](https://docs.docker.com/reference/compose-file/build/#cache_to)
+### cache_to
 
 `cache_to` defines a list of export locations to be used to share build cache with future builds.
 
@@ -230,7 +230,7 @@ Cache target is defined using the same `type=TYPE[,KEY=VALUE]` syntax defined by
 
 Unsupported caches are ignored and don't prevent you from building images.
 
-### [dockerfile](https://docs.docker.com/reference/compose-file/build/#dockerfile)
+### dockerfile
 
 `dockerfile` sets an alternate Dockerfile. A relative path is resolved from the build context. Compose warns you about the absolute path used to define the Dockerfile as it prevents Compose files from being portable.
 
@@ -244,7 +244,7 @@ build:
   dockerfile: webapp.Dockerfile
 ```
 
-### [dockerfile_inline](https://docs.docker.com/reference/compose-file/build/#dockerfile_inline)
+### dockerfile_inline
 
 Introduced in Docker Compose version [2.17.0](https://docs.docker.com/compose/releases/release-notes/#2170)
 
@@ -262,7 +262,7 @@ build:
     RUN some command    
 ```
 
-### [entitlements](https://docs.docker.com/reference/compose-file/build/#entitlements)
+### entitlements
 
 Introduced in Docker Compose version [2.27.1](https://docs.docker.com/compose/releases/release-notes/#2271)
 
@@ -276,7 +276,7 @@ entitlements:
   - security.insecure
 ```
 
-### [extra_hosts](https://docs.docker.com/reference/compose-file/build/#extra_hosts)
+### extra_hosts
 
 `extra_hosts` adds hostname mappings at build-time. Use the same syntax as [extra_hosts](https://docs.docker.com/reference/compose-file/services/#extra_hosts).
 
@@ -318,11 +318,11 @@ Compose creates matching entry with the IP address and hostname in the container
 ::1             myhostv6
 ```
 
-### [isolation](https://docs.docker.com/reference/compose-file/build/#isolation)
+### isolation
 
 `isolation` specifies a build’s container isolation technology. Like [isolation](https://docs.docker.com/reference/compose-file/services/#isolation), supported values are platform specific.
 
-### [labels](https://docs.docker.com/reference/compose-file/build/#labels)
+### labels
 
 `labels` add metadata to the resulting image. `labels` can be set either as an array or a map.
 
@@ -350,7 +350,7 @@ build:
     - "com.example.label-with-empty-value"
 ```
 
-### [network](https://docs.docker.com/reference/compose-file/build/#network)
+### network
 
 Set the network containers connect to for the `RUN` instructions during build.
 
@@ -380,11 +380,11 @@ build:
   network: none
 ```
 
-### [no_cache](https://docs.docker.com/reference/compose-file/build/#no_cache)
+### no_cache
 
 `no_cache` disables image builder cache and enforces a full rebuild from source for all image layers. This only applies to layers declared in the Dockerfile, referenced images can be retrieved from local image store whenever tag has been updated on registry (see [pull](https://docs.docker.com/reference/compose-file/build/#pull)).
 
-### [platforms](https://docs.docker.com/reference/compose-file/build/#platforms)
+### platforms
 
 `platforms` defines a list of target [platforms](https://docs.docker.com/reference/compose-file/services/#platform).
 
@@ -432,7 +432,7 @@ Composes reports an error in the following cases:
           - "linux/arm64"
   ```
 
-### [privileged](https://docs.docker.com/reference/compose-file/build/#privileged)
+### privileged
 
 Introduced in Docker Compose version [2.15.0](https://docs.docker.com/compose/releases/release-notes/#2)
 
@@ -446,17 +446,17 @@ build:
   privileged: true
 ```
 
-### [pull](https://docs.docker.com/reference/compose-file/build/#pull)
+### pull
 
 `pull` requires the image builder to pull referenced images (`FROM` Dockerfile directive), even if those are already available in the local image store.
 
-### [secrets](https://docs.docker.com/reference/compose-file/build/#secrets)
+### secrets
 
 `secrets` grants access to sensitive data defined by [secrets](https://docs.docker.com/reference/compose-file/services/#secrets) on a per-service build basis. Two different syntax variants are supported: the short syntax and the long syntax.
 
-Compose reports an error if the secret isn't defined in the [`secrets`](https://docs.docker.com/reference/compose-file/secrets/) section of this Compose file.
+Compose reports an error if the secret isn't defined in the [`secrets`]({{< ref "/reference/Composefilereference/Secretstop-levelelements" >}}) section of this Compose file.
 
-#### [Short syntax](https://docs.docker.com/reference/compose-file/build/#short-syntax)
+#### Short syntax
 
 The short syntax variant only specifies the secret name. This grants the container access to the secret and mounts it as read-only to `/run/secrets/<secret_name>` within the container. The source name and destination mountpoint are both set to the secret name.
 
@@ -476,7 +476,7 @@ secrets:
     file: ./server.cert
 ```
 
-#### [Long syntax](https://docs.docker.com/reference/compose-file/build/#long-syntax)
+#### Long syntax
 
 The long syntax provides more granularity in how the secret is created within the service's containers.
 
@@ -507,7 +507,7 @@ secrets:
 
 Service builds may be granted access to multiple secrets. Long and short syntax for secrets may be used in the same Compose file. Defining a secret in the top-level `secrets` must not imply granting any service build access to it. Such grant must be explicit within service specification as [secrets](https://docs.docker.com/reference/compose-file/services/#secrets) service element.
 
-### [ssh](https://docs.docker.com/reference/compose-file/build/#ssh)
+### ssh
 
 `ssh` defines SSH authentications that the image builder should use during image build (e.g., cloning private repository).
 
@@ -556,7 +556,7 @@ For illustration, [SSH mounts](https://github.com/moby/buildkit/blob/master/fron
 RUN --mount=type=ssh,id=myproject git clone ...
 ```
 
-### [shm_size](https://docs.docker.com/reference/compose-file/build/#shm_size)
+### shm_size
 
 `shm_size` sets the size of the shared memory (`/dev/shm` partition on Linux) allocated for building Docker images. Specify as an integer value representing the number of bytes or as a string expressing a [byte value](https://docs.docker.com/reference/compose-file/extension/#specifying-byte-values).
 
@@ -576,7 +576,7 @@ build:
   shm_size: 10000000
 ```
 
-### [tags](https://docs.docker.com/reference/compose-file/build/#tags)
+### tags
 
 `tags` defines a list of tag mappings that must be associated to the build image. This list comes in addition to the `image` [property defined in the service section](https://docs.docker.com/reference/compose-file/services/#image)
 
@@ -588,7 +588,7 @@ tags:
   - "registry/username/myrepos:my-other-tag"
 ```
 
-### [target](https://docs.docker.com/reference/compose-file/build/#target)
+### target
 
 `target` defines the stage to build as defined inside a multi-stage `Dockerfile`.
 
@@ -600,7 +600,7 @@ build:
   target: prod
 ```
 
-### [ulimits](https://docs.docker.com/reference/compose-file/build/#ulimits)
+### ulimits
 
 Introduced in Docker Compose version [2.23.1](https://docs.docker.com/compose/releases/release-notes/#2231)
 

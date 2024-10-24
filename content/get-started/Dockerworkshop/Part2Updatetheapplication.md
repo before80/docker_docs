@@ -8,15 +8,15 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/workshop/03_updating_app/](https://docs.docker.com/get-started/workshop/03_updating_app/)
+> 原文：[https://docs.docker.com/get-started/workshop/03_updating_app/](https://docs.docker.com/get-started/workshop/03_updating_app/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
 # Update the application
 
-In [part 1](https://docs.docker.com/get-started/workshop/02_our_app/), you containerized a todo application. In this part, you'll update the application and image. You'll also learn how to stop and remove a container.
+In [part 1]({{< ref "/get-started/Dockerworkshop/Part1Containerizeanapplication" >}}), you containerized a todo application. In this part, you'll update the application and image. You'll also learn how to stop and remove a container.
 
-## [Update the source code](https://docs.docker.com/get-started/workshop/03_updating_app/#update-the-source-code)
+## Update the source code
 
 In the following steps, you'll change the "empty text" when you don't have any todo list items to "You have no todo items yet! Add one above!"
 
@@ -56,7 +56,7 @@ docker: Error response from daemon: driver failed programming external connectiv
 
 The error occurred because you aren't able to start the new container while your old container is still running. The reason is that the old container is already using the host's port 3000 and only one process on the machine (containers included) can listen to a specific port. To fix this, you need to remove the old container.
 
-## [Remove the old container](https://docs.docker.com/get-started/workshop/03_updating_app/#remove-the-old-container)
+## Remove the old container
 
 To remove a container, you first need to stop it. Once it has stopped, you can remove it. You can remove the old container using the CLI or Docker Desktop's graphical interface. Choose the option that you're most comfortable with.
 
@@ -112,7 +112,7 @@ To remove a container, you first need to stop it. Once it has stopped, you can r
 
 ------
 
-### [Start the updated app container](https://docs.docker.com/get-started/workshop/03_updating_app/#start-the-updated-app-container)
+### Start the updated app container
 
 1. Now, start your updated app using the `docker run` command.
 
@@ -124,16 +124,16 @@ To remove a container, you first need to stop it. Once it has stopped, you can r
 
 2. Refresh your browser on [http://localhost:3000](http://localhost:3000/) and you should see your updated help text.
 
-## [Summary](https://docs.docker.com/get-started/workshop/03_updating_app/#summary)
+## Summary
 
 In this section, you learned how to update and rebuild a container, as well as how to stop and remove a container.
 
 Related information:
 
-- [docker CLI reference](https://docs.docker.com/reference/cli/docker/)
+- [docker CLI reference]({{< ref "/reference/CLIreference/docker" >}})
 
-## [Next steps](https://docs.docker.com/get-started/workshop/03_updating_app/#next-steps)
+## Next steps
 
 Next, you'll learn how to share images with others.
 
-[Share the application](https://docs.docker.com/get-started/workshop/04_sharing_app/)
+[Share the application]({{< ref "/get-started/Dockerworkshop/Part3Sharetheapplication" >}})

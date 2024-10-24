@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/cache/backends/registry/](https://docs.docker.com/build/cache/backends/registry/)
+> 原文：[https://docs.docker.com/build/cache/backends/registry/](https://docs.docker.com/build/cache/backends/registry/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,9 +20,9 @@ The `registry` cache storage can be thought of as an extension to the `inline` c
 - It can efficiently cache multi-stage builds in `max` mode, instead of only the final stage.
 - It works with other exporters for more flexibility, instead of only the `image` exporter.
 
-This cache storage backend is not supported with the default `docker` driver. To use this feature, create a new builder using a different driver. See [Build drivers](https://docs.docker.com/build/builders/drivers/) for more information.
+This cache storage backend is not supported with the default `docker` driver. To use this feature, create a new builder using a different driver. See [Build drivers]({{< ref "/manuals/DockerBuild/Builders/Builddrivers" >}}) for more information.
 
-## [Synopsis](https://docs.docker.com/build/cache/backends/registry/#synopsis)
+## Synopsis
 
 Unlike the simpler `inline` cache, the `registry` cache supports several configuration parameters:
 
@@ -51,8 +51,8 @@ You can choose any valid value for `ref`, as long as it's not the same as the ta
 
 If the `--cache-from` target doesn't exist, then the cache import step will fail, but the build continues.
 
-## [Further reading](https://docs.docker.com/build/cache/backends/registry/#further-reading)
+## Further reading
 
-For an introduction to caching see [Docker build cache](https://docs.docker.com/build/cache/).
+For an introduction to caching see [Docker build cache]({{< ref "/manuals/DockerBuild/Cache" >}}).
 
 For more information on the `registry` cache backend, see the [BuildKit README](https://github.com/moby/buildkit#registry-push-image-and-cache-separately).

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/quickstart/](https://docs.docker.com/extensions/extensions-sdk/quickstart/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/quickstart/](https://docs.docker.com/extensions/extensions-sdk/quickstart/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,9 +16,9 @@ draft = false
 
 Follow this guide to get started with creating a basic Docker extension. The Quickstart guide automatically generates boilerplate files for you.
 
-## [Prerequisites](https://docs.docker.com/extensions/extensions-sdk/quickstart/#prerequisites)
+## Prerequisites
 
-- [Docker Desktop](https://docs.docker.com/desktop/release-notes/)
+- [Docker Desktop]({{< ref "/manuals/DockerDesktop/Releasenotes" >}})
 - [NodeJS](https://nodejs.org/)
 - [Go](https://go.dev/dl/)
 
@@ -30,7 +30,7 @@ Follow this guide to get started with creating a basic Docker extension. The Qui
 
 In Docker Desktop settings, ensure you can install the extension you're developing. You may need to navigate to the **Extensions** tab in Docker Desktop settings and deselect **Allow only extensions distributed through the Docker Marketplace**.
 
-## [Step one: Set up your directory](https://docs.docker.com/extensions/extensions-sdk/quickstart/#step-one-set-up-your-directory)
+## Step one: Set up your directory
 
 To set up your directory, use the `init` subcommand and provide a name for your extension.
 
@@ -47,9 +47,9 @@ The automatically generated extension contains:
 - A Go backend service in the `backend` folder that listens on a socket. It has one endpoint `/hello` that returns a JSON payload.
 - A React frontend in the `frontend` folder that can call the backend and output the backend’s response.
 
-For more information and guidelines on building the UI, see the [Design and UI styling section](https://docs.docker.com/extensions/extensions-sdk/design/design-guidelines/).
+For more information and guidelines on building the UI, see the [Design and UI styling section]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DesignandUIstyling/Guidelines" >}}).
 
-## [Step two: Build the extension](https://docs.docker.com/extensions/extensions-sdk/quickstart/#step-two-build-the-extension)
+## Step two: Build the extension
 
 To build the extension, move into the newly created directory and run:
 
@@ -69,7 +69,7 @@ $ docker build -t <name-of-your-extension> .
 
 The `docker build` generates an image with name `john/my-extension`.
 
-## [Step three: Install and preview the extension](https://docs.docker.com/extensions/extensions-sdk/quickstart/#step-three-install-and-preview-the-extension)
+## Step three: Install and preview the extension
 
 To install the extension in Docker Desktop, run:
 
@@ -89,11 +89,11 @@ To preview the extension in Docker Desktop, once the installation is complete an
 
 You may also want to inspect the containers that belong to the extension. By default, extension containers are hidden from the Docker Dashboard. You can change this in **Settings**, see [how to show extension containers](https://docs.docker.com/extensions/extensions-sdk/dev/test-debug/#show-the-extension-containers) for more information.
 
-## [Step four: Submit and publish your extension to the Marketplace](https://docs.docker.com/extensions/extensions-sdk/quickstart/#step-four-submit-and-publish-your-extension-to-the-marketplace)
+## Step four: Submit and publish your extension to the Marketplace
 
-If you want to make your extension available to all Docker Desktop users, you can submit it for publication in the Marketplace. For more information, see [Publish](https://docs.docker.com/extensions/extensions-sdk/extensions/).
+If you want to make your extension available to all Docker Desktop users, you can submit it for publication in the Marketplace. For more information, see [Publish]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish" >}}).
 
-## [Clean up](https://docs.docker.com/extensions/extensions-sdk/quickstart/#clean-up)
+## Clean up
 
 To remove the extension, run:
 
@@ -103,10 +103,10 @@ To remove the extension, run:
 $ docker extension rm <name-of-your-extension>
 ```
 
-## [What's next](https://docs.docker.com/extensions/extensions-sdk/quickstart/#whats-next)
+## What's next
 
-- Build a more [advanced frontend](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/) for your extension.
-- Learn how to [test and debug](https://docs.docker.com/extensions/extensions-sdk/dev/test-debug/) your extension.
-- Learn how to [setup CI for your extension](https://docs.docker.com/extensions/extensions-sdk/dev/continuous-integration/).
-- Learn more about extensions [architecture](https://docs.docker.com/extensions/extensions-sdk/architecture/).
-- Learn more about [designing the UI](https://docs.docker.com/extensions/extensions-sdk/design/design-guidelines/).
+- Build a more [advanced frontend]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/PartoneBuild/Createanadvancedfrontendextension" >}}) for your extension.
+- Learn how to [test and debug]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DeveloperSDKtools/Testanddebug" >}}) your extension.
+- Learn how to [setup CI for your extension]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DeveloperSDKtools/ContinuousIntegrationCI" >}}).
+- Learn more about extensions [architecture]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/Architecture" >}}).
+- Learn more about [designing the UI]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DesignandUIstyling/Guidelines" >}}).

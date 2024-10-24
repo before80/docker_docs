@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/billing/core-billing/cycle/](https://docs.docker.com/billing/core-billing/cycle/)
+> 原文：[https://docs.docker.com/billing/core-billing/cycle/](https://docs.docker.com/billing/core-billing/cycle/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -30,16 +30,16 @@ When you change the billing cycle's duration:
 >
 > Starting July 1, 2024, Docker will begin collecting sales tax on subscription fees in compliance with state regulations for customers in the United States. For our global customers subject to VAT, the implementation will start rolling out on July 1, 2024. Note that while the rollout begins on this date, VAT charges may not apply to all applicable subscriptions immediately.
 >
-> To ensure that tax assessments are correct, make sure that your [billing information](https://docs.docker.com/billing/core-billing/details/) and VAT/Tax ID, if applicable, are updated. If you're exempt from sales tax, see [Register a tax certificate](https://docs.docker.com/billing/tax-certificate/).
+> To ensure that tax assessments are correct, make sure that your [billing information]({{< ref "/manuals/Billing/DockerCore/Updatethebillinginformation" >}}) and VAT/Tax ID, if applicable, are updated. If you're exempt from sales tax, see [Register a tax certificate]({{< ref "/manuals/Billing/Registerataxcertificate" >}}).
 
-## [Personal account](https://docs.docker.com/billing/core-billing/cycle/#personal-account)
+## Personal account
 
 1. Select your avatar in the top-right corner of Docker Hub.
 2. From the drop-down menu select **Billing**.
 3. In the bottom-right of the **Plan** tab, select **Switch to annual billing**.
 4. Review the information displayed on the **Change to an Annual subscription** page and select **Accept Terms and Purchase** to confirm.
 
-## [Organization](https://docs.docker.com/billing/core-billing/cycle/#organization)
+## Organization
 
 > **Note**
 >

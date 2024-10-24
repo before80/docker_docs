@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/docker-hub/mirror/](https://docs.docker.com/docker-hub/mirror/)
+> 原文：[https://docs.docker.com/docker-hub/mirror/](https://docs.docker.com/docker-hub/mirror/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Registry as a pull through cache
 
-## [Use-case](https://docs.docker.com/docker-hub/mirror/#use-case)
+## Use-case
 
 If you have multiple instances of Docker running in your environment, such as multiple physical or virtual machines all running Docker, each daemon goes out to the internet and fetches an image it doesn't have locally, from the Docker repository. You can run a local registry mirror and point all your daemons there, to avoid this extra internet traffic.
 
@@ -24,13 +24,13 @@ If you have multiple instances of Docker running in your environment, such as mu
 >
 > Docker Official Images are an intellectual property of Docker.
 
-### [Alternatives](https://docs.docker.com/docker-hub/mirror/#alternatives)
+### Alternatives
 
 Alternatively, if the set of images you are using is well delimited, you can simply pull them manually and push them to a simple, local, private registry.
 
 Furthermore, if your images are all built in-house, not using the Hub at all and relying entirely on your local registry is the simplest scenario.
 
-### [Gotcha](https://docs.docker.com/docker-hub/mirror/#gotcha)
+### Gotcha
 
 It's currently not possible to mirror another private registry. Only the central Hub can be mirrored.
 
@@ -40,25 +40,25 @@ It's currently not possible to mirror another private registry. Only the central
 >
 > Mirrors of Docker Hub are still subject to Docker's [fair use policy](https://docs.docker.com/docker-hub/download-rate-limit/#fair-use).
 
-### [Solution](https://docs.docker.com/docker-hub/mirror/#solution)
+### Solution
 
 The Registry can be configured as a pull through cache. In this mode a Registry responds to all normal docker pull requests but stores all content locally.
 
-## [How does it work?](https://docs.docker.com/docker-hub/mirror/#how-does-it-work)
+## How does it work?
 
 The first time you request an image from your local registry mirror, it pulls the image from the public Docker registry and stores it locally before handing it back to you. On subsequent requests, the local registry mirror is able to serve the image from its own storage.
 
-### [What if the content changes on the Hub?](https://docs.docker.com/docker-hub/mirror/#what-if-the-content-changes-on-the-hub)
+### What if the content changes on the Hub?
 
 When a pull is attempted with a tag, the Registry checks the remote to ensure if it has the latest version of the requested content. Otherwise, it fetches and caches the latest content.
 
-### [What about my disk?](https://docs.docker.com/docker-hub/mirror/#what-about-my-disk)
+### What about my disk?
 
 In environments with high churn rates, stale data can build up in the cache. When running as a pull through cache the Registry periodically removes old content to save disk space. Subsequent requests for removed content causes a remote fetch and local re-caching.
 
 To ensure best performance and guarantee correctness the Registry cache should be configured to use the `filesystem` driver for storage.
 
-## [Run a Registry as a pull-through cache](https://docs.docker.com/docker-hub/mirror/#run-a-registry-as-a-pull-through-cache)
+## Run a Registry as a pull-through cache
 
 The easiest way to run a registry as a pull through cache is to run the official [Registry](https://hub.docker.com/_/registry) image. At least, you need to specify `proxy.remoteurl` within `/etc/docker/registry/config.yml` as described in the following subsection.
 
@@ -68,9 +68,9 @@ Multiple registry caches can be deployed over the same back-end. A single regist
 >
 > 
 >
-> When using Docker Hub, all paid Docker subscriptions are limited to 5000 pulls per day. If you require a higher number of pulls, you can purchase an Enhanced Service Account add-on. See [Service Accounts](https://docs.docker.com/docker-hub/service-accounts/) for more details.
+> When using Docker Hub, all paid Docker subscriptions are limited to 5000 pulls per day. If you require a higher number of pulls, you can purchase an Enhanced Service Account add-on. See [Service Accounts]({{< ref "/manuals/DockerHub/Serviceaccounts" >}}) for more details.
 
-### [Configure the cache](https://docs.docker.com/docker-hub/mirror/#configure-the-cache)
+### Configure the cache
 
 To configure a Registry to run as a pull through cache, the addition of a `proxy` section is required to the config file.
 
@@ -97,7 +97,7 @@ proxy:
 >
 > For the scheduler to clean up old entries, `delete` must be enabled in the registry configuration.
 
-### [Configure the Docker daemon](https://docs.docker.com/docker-hub/mirror/#configure-the-docker-daemon)
+### Configure the Docker daemon
 
 Either pass the `--registry-mirror` option when starting `dockerd` manually, or edit [`/etc/docker/daemon.json`](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file) and add the `registry-mirrors` key and value, to make the change persistent.
 

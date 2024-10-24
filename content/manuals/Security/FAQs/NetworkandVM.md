@@ -8,36 +8,36 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/faqs/networking-and-vms/](https://docs.docker.com/security/faqs/networking-and-vms/)
+> 原文：[https://docs.docker.com/security/faqs/networking-and-vms/](https://docs.docker.com/security/faqs/networking-and-vms/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Network and VM FAQs
 
-### [How can I limit the type of internet access allowed by the container when it runs, to prevent it from being able to exfiltrate data or download malicious code?](https://docs.docker.com/security/faqs/networking-and-vms/#how-can-i-limit-the-type-of-internet-access-allowed-by-the-container-when-it-runs-to-prevent-it-from-being-able-to-exfiltrate-data-or-download-malicious-code)
+### How can I limit the type of internet access allowed by the container when it runs, to prevent it from being able to exfiltrate data or download malicious code?
 
 There is no built-in mechanism for that but it can be addressed by process-level firewall on the host. Hook into the `com.docker.vpnkit` user-space process and apply rules where it can connect to (DNS URL white list; packet/payload filter) and which ports/protocols it is allowed to use.
 
-### [Can I prevent users binding ports on 0.0.0.0?](https://docs.docker.com/security/faqs/networking-and-vms/#can-i-prevent-users-binding-ports-on-0000)
+### Can I prevent users binding ports on 0.0.0.0?
 
 There is no direct way to enforce that through Docker Desktop but it would inherit any firewall rules enforced on the host.
 
-### [What options exist to lock containerized network settings to a system? If not supported, are there any consequences to manipulating the settings?](https://docs.docker.com/security/faqs/networking-and-vms/#what-options-exist-to-lock-containerized-network-settings-to-a-system-if-not-supported-are-there-any-consequences-to-manipulating-the-settings)
+### What options exist to lock containerized network settings to a system? If not supported, are there any consequences to manipulating the settings?
 
 The Docker network settings are entirely local within the VM and have no effect on the system.
 
-### [Can I apply rules on container network traffic via a local firewall or VPN client?](https://docs.docker.com/security/faqs/networking-and-vms/#can-i-apply-rules-on-container-network-traffic-via-a-local-firewall-or-vpn-client)
+### Can I apply rules on container network traffic via a local firewall or VPN client?
 
 For network connectivity, Docker Desktop uses a user-space process (`com.docker.vpnkit`), which inherits constraints like firewall rules, VPN, HTTP proxy properties etc, from the user that launched it.
 
-### [Does running Docker Desktop for Windows with Hyper-V backend allow users to create arbitrary VMs?](https://docs.docker.com/security/faqs/networking-and-vms/#does-running-docker-desktop-for-windows-with-hyper-v-backend-allow-users-to-create-arbitrary-vms)
+### Does running Docker Desktop for Windows with Hyper-V backend allow users to create arbitrary VMs?
 
 No. The `DockerDesktopVM` name is hard coded in the service code, so you cannot use Docker Desktop to create or manipulate any other VM.
 
-### [Can I prevent our users creating other VMs when using Docker Desktop on Mac?](https://docs.docker.com/security/faqs/networking-and-vms/#can-i-prevent-our-users-creating-other-vms-when-using-docker-desktop-on-mac)
+### Can I prevent our users creating other VMs when using Docker Desktop on Mac?
 
 On Mac it is an unprivileged operation to start a VM, so that is not enforced by Docker Desktop.
 
-### [How does Docker Desktop achieve network level isolation when Hyper-V and/or WSL2 is used?](https://docs.docker.com/security/faqs/networking-and-vms/#how-does-docker-desktop-achieve-network-level-isolation-when-hyper-v-andor-wsl2-is-used)
+### How does Docker Desktop achieve network level isolation when Hyper-V and/or WSL2 is used?
 
 The VM processes are the same for both WSL 2 (running inside the `docker-desktop` distro) and Hyper-V (running inside the `DockerDesktopVM`). Host/VM communication uses `AF_VSOCK` hypervisor sockets (shared memory). It does not use Hyper-V network switches or network interfaces. All host networking is performed using normal TCP/IP sockets from the `com.docker.vpnkit.exe` and `com.docker.backend.exe` processes. For more information see [How Docker Desktop networking works under the hood](https://www.docker.com/blog/how-docker-desktop-networking-works-under-the-hood/).

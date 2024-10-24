@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/policy/remediation/](https://docs.docker.com/scout/policy/remediation/)
+> 原文：[https://docs.docker.com/scout/policy/remediation/](https://docs.docker.com/scout/policy/remediation/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -31,7 +31,7 @@ Docker Scout provides remediation advice for the default policies of the followi
 
 For images that violate policy, the recommendations focus on addressing compliance issues and fixing violations. For images where Docker Scout is unable to determine compliance, recommendations show you how to meet the prerequisites that ensure Docker Scout can successfully evaluate the policy.
 
-## [View recommendations](https://docs.docker.com/scout/policy/remediation/#view-recommendations)
+## View recommendations
 
 Recommendations appear on the policy details pages of the Docker Scout Dashboard. To get to this page:
 
@@ -55,25 +55,25 @@ If there are more than one recommendations available, the primary recommendation
 
 The side panel may also contain one or more help sections related to the available recommendations.
 
-## [Up-to-Date Base Images remediation](https://docs.docker.com/scout/policy/remediation/#up-to-date-base-images-remediation)
+## Up-to-Date Base Images remediation
 
 The **Up-to-Date Base Images** policy checks whether the base image you use is up-to-date. The recommended actions displayed in the remediation side panel depend on how much information Docker Scout has about your image. The more information that's available, the better the recommendations.
 
 The following scenarios outline the different recommendations depending on the information available about the image.
 
-### [No provenance attestations](https://docs.docker.com/scout/policy/remediation/#no-provenance-attestations)
+### No provenance attestations
 
-For Docker Scout to be able to evaluate this policy, you must add [provenance attestations](https://docs.docker.com/build/metadata/attestations/slsa-provenance/) to your image. If your image doesn't have provenance attestations, compliance is undeterminable.
+For Docker Scout to be able to evaluate this policy, you must add [provenance attestations]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations/Provenanceattestations" >}}) to your image. If your image doesn't have provenance attestations, compliance is undeterminable.
 
-### [Provenance attestations available](https://docs.docker.com/scout/policy/remediation/#provenance-attestations-available)
+### Provenance attestations available
 
 With provenance attestations added, Docker Scout can correctly detect the base image version that you're using. The version found in the attestations is cross-referenced against the current version of the corresponding tag to determine if it's up-to-date.
 
 If there's a policy violation, the recommended actions show how to update your base image version to the latest version, while also pinning the base image version to a specific digest. For more information, see [Pin base image versions](https://docs.docker.com/build/building/best-practices/#pin-base-image-versions).
 
-### [GitHub integration enabled](https://docs.docker.com/scout/policy/remediation/#github-integration-enabled)
+### GitHub integration enabled
 
-If you're hosting the source code for your image on GitHub, you can enable the [GitHub integration](https://docs.docker.com/scout/integrations/source-code-management/github/). This integration enables Docker Scout to provide even more useful remediation advice, and lets you initiate remediation for violations directly from the Docker Scout Dashboard.
+If you're hosting the source code for your image on GitHub, you can enable the [GitHub integration]({{< ref "/manuals/DockerScout/Integrations/Sourcecodemanagement/GitHub" >}}). This integration enables Docker Scout to provide even more useful remediation advice, and lets you initiate remediation for violations directly from the Docker Scout Dashboard.
 
 With the GitHub integration enabled, you can use the remediation side panel to raise a pull request on the GitHub repository of the image. The pull request automatically updates the base image version in your Dockerfile to the up-to-date version.
 
@@ -81,7 +81,7 @@ This automated remediation pins your base image to a specific digest, while help
 
 For more information about base image pinning, see [Pin base image versions](https://docs.docker.com/build/building/best-practices/#pin-base-image-versions).
 
-## [Supply Chain Attestations remediation](https://docs.docker.com/scout/policy/remediation/#supply-chain-attestations-remediation)
+## Supply Chain Attestations remediation
 
 The default **Supply Chain Attestations** policy requires full provenance and SBOM attestations on images. If your image is missing an attestation, or if an attestation doesn't contain enough information, the policy is violated.
 

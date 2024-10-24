@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/domain-audit/](https://docs.docker.com/security/for-admins/domain-audit/)
+> 原文：[https://docs.docker.com/security/for-admins/domain-audit/](https://docs.docker.com/security/for-admins/domain-audit/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -23,13 +23,13 @@ Domain audit can't identify the following Docker users in your environment:
 - Users who access Docker Desktop without authenticating
 - Users who authenticate using an account that doesn't have an email address associated with one of your verified domains
 
-Although domain audit can't identify all Docker users in your environment, you can enforce sign-in to prevent unidentifiable users from accessing Docker Desktop in your environment. For more details about enforcing sign-in, see [Configure registry.json to enforce sign-in](https://docs.docker.com/security/for-admins/enforce-sign-in/).
+Although domain audit can't identify all Docker users in your environment, you can enforce sign-in to prevent unidentifiable users from accessing Docker Desktop in your environment. For more details about enforcing sign-in, see [Configure registry.json to enforce sign-in]({{< ref "/manuals/Security/Foradmins/Enforcesign-in" >}}).
 
 > **Tip**
 >
 > 
 >
-> You can use endpoint management (MDM) software to identify the number of Docker Desktop instances and their versions within your environment. This can provide accurate license reporting, help ensure your machines use the latest version of Docker Desktop, and enable you to [enforce sign-in](https://docs.docker.com/security/for-admins/enforce-sign-in/).
+> You can use endpoint management (MDM) software to identify the number of Docker Desktop instances and their versions within your environment. This can provide accurate license reporting, help ensure your machines use the latest version of Docker Desktop, and enable you to [enforce sign-in]({{< ref "/manuals/Security/Foradmins/Enforcesign-in" >}}).
 >
 > - [Intune](https://learn.microsoft.com/en-us/mem/intune/apps/app-discovered-apps)
 > - [Jamf](https://docs.jamf.com/10.25.0/jamf-pro/administrator-guide/Application_Usage.html)
@@ -37,11 +37,11 @@ Although domain audit can't identify all Docker users in your environment, you c
 > - [Kolide](https://www.kolide.com/features/device-inventory/properties/mac-apps)
 > - [Workspace One](https://blogs.vmware.com/euc/2022/11/how-to-use-workspace-one-intelligence-to-manage-app-licenses-and-reduce-costs.html)
 
-## [Prerequisites](https://docs.docker.com/security/for-admins/domain-audit/#prerequisites)
+## Prerequisites
 
 Before you audit your domains, review the following required prerequisites:
 
-- Your organization must be part of a Docker Business subscription. To upgrade your existing account to a Docker Business subscription, see [Upgrade your subscription](https://docs.docker.com/subscription/core-subscription/upgrade/).
+- Your organization must be part of a Docker Business subscription. To upgrade your existing account to a Docker Business subscription, see [Upgrade your subscription]({{< ref "/manuals/Subscription/DockerCore/Upgrade" >}}).
 - You must [add and verify your domains](https://docs.docker.com/security/for-admins/single-sign-on/configure/#step-one-add-and-verify-your-domain).
 
 > **Important**
@@ -50,7 +50,7 @@ Before you audit your domains, review the following required prerequisites:
 >
 > Domain audit is not supported for companies or organizations within a company.
 
-## [Audit your domains for uncaptured users](https://docs.docker.com/security/for-admins/domain-audit/#audit-your-domains-for-uncaptured-users)
+## Audit your domains for uncaptured users
 
 Docker Hub Admin Console
 
@@ -65,10 +65,10 @@ To audit your domains:
    - Username: The Docker ID of the user.
    - Email: The email address of the user.
 
-You can invite all the uncaptured users to your organization using the exported CSV file. For more details, see [Invite members](https://docs.docker.com/admin/organization/members/). Optionally, enforce single sign-on or enable SCIM to add users to your organization automatically. For more details, see [SSO](https://docs.docker.com/security/for-admins/single-sign-on/) or [SCIM](https://docs.docker.com/security/for-admins/provisioning/scim/).
+You can invite all the uncaptured users to your organization using the exported CSV file. For more details, see [Invite members]({{< ref "/manuals/Administration/Organizationadministration/Manageorganizationmembers" >}}). Optionally, enforce single sign-on or enable SCIM to add users to your organization automatically. For more details, see [SSO]({{< ref "/manuals/Security/Foradmins/Singlesign-on" >}}) or [SCIM]({{< ref "/manuals/Security/Foradmins/Provisioning/SCIM" >}}).
 
 > **Note**
 >
 > Domain audit may identify accounts of users who are no longer a part of your organization. If you don't want to add a user to your organization and you don't want the user to appear in future domain audits, you must deactivate the account or update the associated email address.
 >
-> Only someone with access to the Docker account can deactivate the account or update the associated email address. For more details, see [Deactivating an account](https://docs.docker.com/admin/deactivate-account/).
+> Only someone with access to the Docker account can deactivate the account or update the associated email address. For more details, see [Deactivating an account]({{< ref "/manuals/Administration/Deactivatinganorganization" >}}).

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/building/secrets/](https://docs.docker.com/build/building/secrets/)
+> 原文：[https://docs.docker.com/build/building/secrets/](https://docs.docker.com/build/building/secrets/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,13 +18,13 @@ A build secret is any piece of sensitive information, such as a password or API 
 
 Build arguments and environment variables are inappropriate for passing secrets to your build, because they persist in the final image. Instead, you should use secret mounts or SSH mounts, which expose secrets to your builds securely.
 
-## [Types of build secrets](https://docs.docker.com/build/building/secrets/#types-of-build-secrets)
+## Types of build secrets
 
 - [Secret mounts](https://docs.docker.com/build/building/secrets/#secret-mounts) are general-purpose mounts for passing secrets into your build. A secret mount takes a secret from the build client and makes it temporarily available inside the build container, for the duration of the build instruction. This is useful if, for example, your build needs to communicate with a private artifact server or API.
 - [SSH mounts](https://docs.docker.com/build/building/secrets/#ssh-mounts) are special-purpose mounts for making SSH sockets or keys available inside builds. They're commonly used when you need to fetch private Git repositories in your builds.
 - [Git authentication for remote contexts](https://docs.docker.com/build/building/secrets/#git-authentication-for-remote-contexts) is a set of pre-defined secrets for when you build with a remote Git context that's also a private repository. These secrets are "pre-flight" secrets: they are not consumed within your build instruction, but they're used to provide the builder with the necessary credentials to fetch the context.
 
-## [Using build secrets](https://docs.docker.com/build/building/secrets/#using-build-secrets)
+## Using build secrets
 
 For secret mounts and SSH mounts, using build secrets is a two-step process. First you need to pass the secret into the `docker build` command, and then you need to consume the secret in your Dockerfile.
 
@@ -52,11 +52,11 @@ RUN --mount=type=secret,id=aws \
     aws s3 cp ...
 ```
 
-## [Secret mounts](https://docs.docker.com/build/building/secrets/#secret-mounts)
+## Secret mounts
 
 Secret mounts expose secrets to the build containers, as files or environment variables. You can use secret mounts to pass sensitive information to your builds, such as API tokens, passwords, or SSH keys.
 
-### [Sources](https://docs.docker.com/build/building/secrets/#sources)
+### Sources
 
 The source of a secret can be either a [file](https://docs.docker.com/reference/cli/docker/buildx/build/#file) or an [environment variable](https://docs.docker.com/reference/cli/docker/buildx/build/#env). When you use the CLI or Bake, the type can be detected automatically. You can also specify it explicitly with `type=file` or `type=env`.
 
@@ -76,7 +76,7 @@ When you use secrets from environment variables, you can omit the `env` paramete
 $ docker build --secret id=API_TOKEN .
 ```
 
-### [Target](https://docs.docker.com/build/building/secrets/#target)
+### Target
 
 When consuming a secret in a Dockerfile, the secret is mounted to a file by default. The default file path of the secret, inside the build container, is `/run/secrets/<id>`. You can customize how the secrets get mounted in the build container using the `target` and `env` options for the `RUN --mount` flag in the Dockerfile.
 
@@ -112,7 +112,7 @@ RUN --mount=type=secret,id=aws-key-id,env=AWS_ACCESS_KEY_ID \
 
 It's possible to use the `target` and `env` options together to mount a secret as both a file and an environment variable.
 
-## [SSH mounts](https://docs.docker.com/build/building/secrets/#ssh-mounts)
+## SSH mounts
 
 If the credential you want to use in your build is an SSH agent socket or key, you can use the SSH mount instead of a secret mount. Cloning private Git repositories is a common use case for SSH mounts.
 
@@ -134,7 +134,7 @@ To pass an SSH socket the build, you use the [`docker build --ssh` flag](https:/
 $ docker buildx build --ssh default .
 ```
 
-## [Git authentication for remote contexts](https://docs.docker.com/build/building/secrets/#git-authentication-for-remote-contexts)
+## Git authentication for remote contexts
 
 BuildKit supports two pre-defined build secrets, `GIT_AUTH_TOKEN` and `GIT_AUTH_HEADER`. Use them to specify HTTP authentication parameters when building with remote, private Git repositories, including:
 
@@ -174,7 +174,7 @@ FROM alpine
 ADD https://gitlab.com/example/todo-app.git /src
 ```
 
-### [HTTP authentication scheme](https://docs.docker.com/build/building/secrets/#http-authentication-scheme)
+### HTTP authentication scheme
 
 By default, Git authentication over HTTP uses the Bearer authentication scheme:
 
@@ -199,7 +199,7 @@ $ docker build \
 
 BuildKit currently only supports the Bearer and Basic schemes.
 
-### [Multiple hosts](https://docs.docker.com/build/building/secrets/#multiple-hosts)
+### Multiple hosts
 
 You can set the `GIT_AUTH_TOKEN` and `GIT_AUTH_HEADER` secrets on a per-host basis, which lets you use different authentication parameters for different hostnames. To specify a hostname, append the hostname as a suffix to the secret ID:
 

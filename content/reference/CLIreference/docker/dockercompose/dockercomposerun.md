@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/run/](https://docs.docker.com/reference/cli/docker/compose/run/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/run/](https://docs.docker.com/reference/cli/docker/compose/run/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 | :---------- | ---------------------------------------------------------- |
 | Usage       | `docker compose run [OPTIONS] SERVICE [COMMAND] [ARGS...]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/run/#description)
+## Description
 
 Runs a one-time command against a service.
 
@@ -78,7 +78,7 @@ $ docker compose run --rm web python manage.py db upgrade
 
 This runs a database upgrade script, and removes the container when finished running, even if a restart policy is specified in the service configuration.
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/run/#options)
+## Options
 
 | Option                | Default | Description                                                  |
 | --------------------- | ------- | ------------------------------------------------------------ |

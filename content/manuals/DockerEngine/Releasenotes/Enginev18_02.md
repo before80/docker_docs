@@ -8,21 +8,21 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/18.02/](https://docs.docker.com/engine/release-notes/18.02/)
+> 原文：[https://docs.docker.com/engine/release-notes/18.02/](https://docs.docker.com/engine/release-notes/18.02/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Engine 18.02 release notes
 
-## [18.02.0-ce](https://docs.docker.com/engine/release-notes/18.02/#18020-ce)
+## 18.02.0-ce
 
 2018-02-07
 
-### [Builder](https://docs.docker.com/engine/release-notes/18.02/#builder)
+### Builder
 
 - Gitutils: fix checking out submodules [moby/moby#35737](https://github.com/moby/moby/pull/35737)
 
-### [Client](https://docs.docker.com/engine/release-notes/18.02/#client)
+### Client
 
 - Attach: Ensure attach exit code matches container's [docker/cli#696](https://github.com/docker/cli/pull/696)
 
@@ -39,7 +39,7 @@ draft = false
 
 - Annotate "stack" commands to be "swarm" and "kubernetes" [docker/cli#804](https://github.com/docker/cli/pull/804)
 
-### [Experimental](https://docs.docker.com/engine/release-notes/18.02/#experimental)
+### Experimental
 
 - Add manifest command [docker/cli#138](https://github.com/docker/cli/pull/138)
 
@@ -51,7 +51,7 @@ draft = false
 
 - LCOW: Raise minimum requirement to Windows RS3 RTM build (16299) [moby/moby#36065](https://github.com/moby/moby/pull/36065)
 
-### [Logging](https://docs.docker.com/engine/release-notes/18.02/#logging)
+### Logging
 
 - Improve daemon config reload; log active configuration [moby/moby#36019](https://github.com/moby/moby/pull/36019)
 
@@ -61,7 +61,7 @@ draft = false
 
 - Splunk: limit the reader size on error responses [moby/moby#35509](https://github.com/moby/moby/pull/35509)
 
-### [Networking](https://docs.docker.com/engine/release-notes/18.02/#networking)
+### Networking
 
 - Disable service on release network results in zero-downtime deployments with rolling upgrades [moby/moby#35960](https://github.com/moby/moby/pull/35960)
 
@@ -73,14 +73,14 @@ draft = false
 
 - Add support for MX type DNS queries in the embedded DNS server [docker/libnetwork#2041](https://github.com/docker/libnetwork/pull/2041)
 
-### [Packaging](https://docs.docker.com/engine/release-notes/18.02/#packaging)
+### Packaging
 
 - Added packaging for Fedora 26, Fedora 27, and Centos 7 on aarch64 [docker/docker-ce-packaging#71](https://github.com/docker/docker-ce-packaging/pull/71)
 
 - Removed support for Ubuntu Zesty [docker/docker-ce-packaging#73](https://github.com/docker/docker-ce-packaging/pull/73)
 - Removed support for Fedora 25 [docker/docker-ce-packaging#72](https://github.com/docker/docker-ce-packaging/pull/72)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/18.02/#runtime)
+### Runtime
 
 - Fixes unexpected Docker Daemon shutdown based on pipe error [moby/moby#35968](https://github.com/moby/moby/pull/35968)
 - Fix some occurrences of hcsshim::ImportLayer failed in Win32: The system cannot find the path specified [moby/moby#35924](https://github.com/moby/moby/pull/35924)

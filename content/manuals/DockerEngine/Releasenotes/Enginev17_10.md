@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/17.10/](https://docs.docker.com/engine/release-notes/17.10/)
+> 原文：[https://docs.docker.com/engine/release-notes/17.10/](https://docs.docker.com/engine/release-notes/17.10/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Engine 17.10 release notes
 
-## [17.10.0-ce](https://docs.docker.com/engine/release-notes/17.10/#17100-ce)
+## 17.10.0-ce
 
 2017-10-17
 
@@ -22,13 +22,13 @@ draft = false
 >
 > `docker service scale` and `docker service rollback` use non-detached mode as default, use `--detach` to keep the old behaviour.
 
-### [Builder](https://docs.docker.com/engine/release-notes/17.10/#builder)
+### Builder
 
 - Reset uid/gid to 0 in uploaded build context to share build cache with other clients [docker/cli#513](https://github.com/docker/cli/pull/513)
 
 - Add support for `ADD` urls without any sub path [moby/moby#34217](https://github.com/moby/moby/pull/34217)
 
-### [Client](https://docs.docker.com/engine/release-notes/17.10/#client)
+### Client
 
 - Move output of `docker stack rm` to stdout [docker/cli#491](https://github.com/docker/cli/pull/491)
 - Use natural sort for secrets and configs in cli [docker/cli#307](https://github.com/docker/cli/pull/307)
@@ -44,7 +44,7 @@ draft = false
 
 - Various doc and shell completion fixes [docker/cli#610](https://github.com/docker/cli/pull/610) [docker/cli#611](https://github.com/docker/cli/pull/611) [docker/cli#618](https://github.com/docker/cli/pull/618) [docker/cli#580](https://github.com/docker/cli/pull/580) [docker/cli#598](https://github.com/docker/cli/pull/598) [docker/cli#603](https://github.com/docker/cli/pull/603)
 
-### [Networking](https://docs.docker.com/engine/release-notes/17.10/#networking)
+### Networking
 
 - Enabling ILB/ELB on windows using per-node, per-network LB endpoint [moby/moby#34674](https://github.com/moby/moby/pull/34674)
 - Overlay fix for transient IP reuse [docker/libnetwork#1935](https://github.com/docker/libnetwork/pull/1935)
@@ -52,7 +52,7 @@ draft = false
 
 - Disable hostname lookup on chain exists check [docker/libnetwork#1974](https://github.com/docker/libnetwork/pull/1974)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/17.10/#runtime)
+### Runtime
 
 - LCOW: Add UVM debuggability by grabbing logs before tear-down [moby/moby#34846](https://github.com/moby/moby/pull/34846)
 - LCOW: Prepare work for bind mounts [moby/moby#34258](https://github.com/moby/moby/pull/34258)
@@ -64,7 +64,7 @@ draft = false
 
 - Add support for Windows version filtering on pull [moby/moby#35090](https://github.com/moby/moby/pull/35090)
 
-### [Swarm mode](https://docs.docker.com/engine/release-notes/17.10/#swarm-mode)
+### Swarm mode
 
 - Produce an error if `docker swarm init --force-new-cluster` is executed on worker nodes [moby/moby#34881](https://github.com/moby/moby/pull/34881)
 

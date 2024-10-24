@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/integrations/environment/sysdig/](https://docs.docker.com/scout/integrations/environment/sysdig/)
+> 原文：[https://docs.docker.com/scout/integrations/environment/sysdig/](https://docs.docker.com/scout/integrations/environment/sysdig/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 The Sysdig integration enables Docker Scout to automatically detect the images you're using for your running workloads. Activating this integration gives you real-time insights about your security posture, and lets you compare your builds with what's running in production.
 
-## [How it works](https://docs.docker.com/scout/integrations/environment/sysdig/#how-it-works)
+## How it works
 
 The Sysdig Agent captures the images of your container workloads. Docker Scout integrates with the Sysdig API to discover the images in your cluster. This integration uses Sysdig's Risk Spotlight feature. For more information, see [Risk Spotlight Integrations (Sysdig docs)](https://docs.sysdig.com/en/docs/sysdig-secure/integrations-for-sysdig-secure/risk-spotlight-integrations/).
 
@@ -34,13 +34,13 @@ Only images analyzed by Docker Scout can be assigned to an environment. The Sysd
 
 Image analysis must not necessarily precede the runtime integration, but the environment assignment only takes place once Docker Scout has analyzed the image.
 
-## [Prerequisites](https://docs.docker.com/scout/integrations/environment/sysdig/#prerequisites)
+## Prerequisites
 
 - Install the Sysdig Agent in the cluster that you want to integrate, see [Install Sysdig Agent (Sysdig docs)](https://docs.sysdig.com/en/docs/installation/sysdig-monitor/install-sysdig-agent/).
 - Enable profiling for Risk Spotlight Integrations in Sysdig, see [Profiling (Sysdig docs)](https://docs.sysdig.com/en/docs/sysdig-secure/policies/profiling/#enablement).
 - You must be an organization owner to enable the integration in the Docker Scout Dashboard.
 
-## [Integrate an environment](https://docs.docker.com/scout/integrations/environment/sysdig/#integrate-an-environment)
+## Integrate an environment
 
 1. Go to the [Sysdig integration page](https://scout.docker.com/settings/integrations/sysdig/) on the Docker Scout Dashboard.
 
@@ -70,7 +70,7 @@ Image analysis must not necessarily precede the runtime integration, but the env
 
 9. Select **Enable integration**.
 
-After enabling the integration, Docker Scout automatically detects images running in the cluster, and assigns those images to the environment associated with the cluster. For more information about environments, see [Environment monitoring](https://docs.docker.com/scout/integrations/environment/).
+After enabling the integration, Docker Scout automatically detects images running in the cluster, and assigns those images to the environment associated with the cluster. For more information about environments, see [Environment monitoring]({{< ref "/manuals/DockerScout/Integrations/IntegratingDockerScoutwithenvironments" >}}).
 
 > **Note**
 >

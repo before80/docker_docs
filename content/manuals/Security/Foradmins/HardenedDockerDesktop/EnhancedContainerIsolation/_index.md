@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/)
+> 原文：[https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,7 +22,7 @@ draft = false
 
 Enhanced Container Isolation provides an additional layer of security to prevent malicious workloads running in containers from compromising Docker Desktop or the host.
 
-It uses a variety of advanced techniques to harden container isolation, but without impacting developer productivity. It is available with [Docker Desktop 4.13.0 and later](https://docs.docker.com/desktop/release-notes/).
+It uses a variety of advanced techniques to harden container isolation, but without impacting developer productivity. It is available with [Docker Desktop 4.13.0 and later]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}).
 
 These techniques include:
 
@@ -33,7 +33,7 @@ These techniques include:
 
 When Enhanced Container Isolation is enabled, these mechanisms are applied automatically and with minimal functional or performance impact to developers. Developers continue to use Docker Desktop as usual, but the containers they launch are more strongly isolated.
 
-Enhanced Container Isolation ensures stronger container isolation and also locks in any security configurations that have been created by IT admins, for instance through [Registry Access Management policies](https://docs.docker.com/security/for-admins/hardened-desktop/registry-access-management/) or with [Settings Management](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/).
+Enhanced Container Isolation ensures stronger container isolation and also locks in any security configurations that have been created by IT admins, for instance through [Registry Access Management policies]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/RegistryAccessManagement" >}}) or with [Settings Management]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/SettingsManagement" >}}).
 
 > **Note**
 >
@@ -41,12 +41,12 @@ Enhanced Container Isolation ensures stronger container isolation and also locks
 >
 > Enhanced Container Isolation is in addition to other container security techniques used by Docker. For example, reduced Linux Capabilities, Seccomp, AppArmor.
 
-### [Who is it for?](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/#who-is-it-for)
+### Who is it for?
 
 - For organizations and developers that want to prevent container attacks and reduce vulnerabilities in developer environments.
 - For organizations that want to ensure stronger container isolation that is easy and intuitive to implement on developers' machines.
 
-### [What happens when Enhanced Container Isolation is turned on?](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/#what-happens-when-enhanced-container-isolation-is-turned-on)
+### What happens when Enhanced Container Isolation is turned on?
 
 When Enhanced Container Isolation is turned on, the following features are enabled:
 
@@ -62,20 +62,20 @@ In addition, the following restrictions are imposed:
 
 - Containers can no longer share namespaces with the Docker Desktop VM (e.g., `--network=host`, `--pid=host` are disallowed).
 - Containers can no longer modify configuration files inside the Docker Desktop VM (e.g., mounting any VM directory into the container is disallowed).
-- Containers can no longer access the Docker engine (e.g., mounting the Docker engine's socket into the container is restricted); this prevents malicious containers from gaining control of the Docker engine. Admins can relax this for [trusted container images](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/config/).
+- Containers can no longer access the Docker engine (e.g., mounting the Docker engine's socket into the container is restricted); this prevents malicious containers from gaining control of the Docker engine. Admins can relax this for [trusted container images]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/EnhancedContainerIsolation/Advancedconfiguration" >}}).
 - Console access to the Docker Desktop VM is forbidden for all users.
 
 These features and restrictions ensure that containers are better secured at runtime, with minimal impact to developer experience and productivity.
 
-For more information on how Enhanced Container Isolation work, see [How does it work](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/how-eci-works/).
+For more information on how Enhanced Container Isolation work, see [How does it work]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/EnhancedContainerIsolation/Howdoesitwork" >}}).
 
 > **Important**
 >
 > 
 >
-> Enhanced Container Isolation does not yet fully protect Docker builds, Kubernetes pods and Extension containers. For more information on known limitations and workarounds, see [FAQs](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/faq/).
+> Enhanced Container Isolation does not yet fully protect Docker builds, Kubernetes pods and Extension containers. For more information on known limitations and workarounds, see [FAQs]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/EnhancedContainerIsolation/FAQs" >}}).
 
-### [What host OSes / platforms is Enhanced Container Isolation supported on?](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/#what-host-oses--platforms-is-enhanced-container-isolation-supported-on)
+### What host OSes / platforms is Enhanced Container Isolation supported on?
 
 Enhanced Container Isolation (ECI) was introduced in Docker Desktop 4.13, for all platforms (Windows, Mac, and Linux).
 
@@ -86,9 +86,9 @@ For Windows hosts, ECI works with both the Docker Desktop Hyper-V and WSL 2 back
 
 See [ECI Support for WSL](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/limitations/#eci-support-for-wsl) for further info as well as security caveats when using Enhanced Container Isolation on WSL 2.
 
-### [How do I enable Enhanced Container Isolation?](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/#how-do-i-enable-enhanced-container-isolation)
+### How do I enable Enhanced Container Isolation?
 
-#### [As a developer](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/#as-a-developer)
+#### As a developer
 
 To enable Enhanced Container Isolation as a developer:
 
@@ -103,19 +103,19 @@ To enable Enhanced Container Isolation as a developer:
 >
 > 
 >
-> Enhanced Container Isolation does not protect containers created prior to enabling ECI. For more information on known limitations and workarounds, see [FAQs](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/faq/).
+> Enhanced Container Isolation does not protect containers created prior to enabling ECI. For more information on known limitations and workarounds, see [FAQs]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/EnhancedContainerIsolation/FAQs" >}}).
 
-#### [As an admin](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/#as-an-admin)
+#### As an admin
 
-##### [Prerequisite](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/#prerequisite)
+##### Prerequisite
 
-To enable Enhanced Container Isolation as an admin, you first need to [enforce sign-in](https://docs.docker.com/security/for-admins/enforce-sign-in/). This is because the Enhanced Container Isolation feature requires a Docker Business subscription and therefore your Docker Desktop users must authenticate to your organization for this configuration to take effect.
+To enable Enhanced Container Isolation as an admin, you first need to [enforce sign-in]({{< ref "/manuals/Security/Foradmins/Enforcesign-in" >}}). This is because the Enhanced Container Isolation feature requires a Docker Business subscription and therefore your Docker Desktop users must authenticate to your organization for this configuration to take effect.
 
 Enforcing sign-in ensures that your Docker Desktop developers always authenticate to your organization.
 
-##### [Setup](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/#setup)
+##### Setup
 
-[Create and configure the `admin-settings.json` file](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/configure/) and specify:
+[Create and configure the `admin-settings.json` file]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/SettingsManagement/Configure" >}}) and specify:
 
 
 
@@ -131,7 +131,7 @@ Enforcing sign-in ensures that your Docker Desktop developers always authenticat
 
 By setting `"value": true`, the admin ensures ECI is enabled by default. By setting `"locked": true`, the admin ensures ECI can't be disabled by developers. If you wish to give developers the ability to disable the feature, set `"locked": false`.
 
-In addition, starting with Docker Desktop 4.27, admins can also configure Docker socket mount permissions for containers, as described [here](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/config/).
+In addition, starting with Docker Desktop 4.27, admins can also configure Docker socket mount permissions for containers, as described [here]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/EnhancedContainerIsolation/Advancedconfiguration" >}}).
 
 For this to take effect:
 
@@ -144,7 +144,7 @@ For this to take effect:
 >
 > Selecting **Restart** from the Docker menu isn't enough as it only restarts some components of Docker Desktop.
 
-### [What do users see when this setting is enforced by an admin?](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/#what-do-users-see-when-this-setting-is-enforced-by-an-admin)
+### What do users see when this setting is enforced by an admin?
 
 When Enhanced Container Isolation is enabled, users see:
 
@@ -167,7 +167,7 @@ The following output displays:
          0     100000      65536
 ```
 
-This indicates that the container's root user (0) maps to unprivileged user (100000) in the Docker Desktop VM, and that the mapping extends for a range of 64K user-IDs. If a container process were to escape the container, it would find itself without privileges at the VM level. The user-ID mapping varies with each new container, as each container gets an exclusive range of host User-IDs for isolation. User-ID mapping is automatically managed by Docker Desktop. For further details, see [How Enhanced Container Isolation works](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/how-eci-works/).
+This indicates that the container's root user (0) maps to unprivileged user (100000) in the Docker Desktop VM, and that the mapping extends for a range of 64K user-IDs. If a container process were to escape the container, it would find itself without privileges at the VM level. The user-ID mapping varies with each new container, as each container gets an exclusive range of host User-IDs for isolation. User-ID mapping is automatically managed by Docker Desktop. For further details, see [How Enhanced Container Isolation works]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/EnhancedContainerIsolation/Howdoesitwork" >}}).
 
 In contrast, without ECI the Linux user namespace is not used for containers, the following displays:
 
@@ -179,7 +179,7 @@ In contrast, without ECI the Linux user namespace is not used for containers, th
 
 This means that the root user in the container (0) is in fact the root user in the Docker Desktop VM (0) which reduces container isolation.
 
-Since Enhanced Container Isolation [uses the Sysbox container runtime](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/how-eci-works/) embedded in the Docker Desktop Linux VM, another way to determine if a container is running with Enhanced Container Isolation is by using `docker inspect`:
+Since Enhanced Container Isolation [uses the Sysbox container runtime]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/EnhancedContainerIsolation/Howdoesitwork" >}}) embedded in the Docker Desktop Linux VM, another way to determine if a container is running with Enhanced Container Isolation is by using `docker inspect`:
 
 
 
@@ -197,6 +197,6 @@ sysbox-runc
 
 Without Enhanced Container Isolation, `docker inspect` outputs `runc`, which is the standard OCI runtime.
 
-## [More resources](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/#more-resources)
+## More resources
 
 - [Video: Enhanced Container Isolation](https://www.youtube.com/watch?v=oA1WQZWnTAk)

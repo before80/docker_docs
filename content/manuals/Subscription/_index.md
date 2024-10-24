@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/subscription/](https://docs.docker.com/subscription/)
+> 原文：[https://docs.docker.com/subscription/](https://docs.docker.com/subscription/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ A Docker Core subscription includes licensing for commercial use of Docker compo
 
 Use the resources here to decide what subscription you need, manage an existing subscription, or explore additional products like Docker Scout or Docker Build Cloud.
 
-## [Docker subscriptions and features](https://docs.docker.com/subscription/#docker-subscriptions-and-features)
+## Docker subscriptions and features
 
 
 
@@ -38,7 +38,7 @@ Docker Build Cloud subscriptions and features
 
 Learn how a Docker Build Cloud subscription can accelerate your builds.
 
-## [Manage your Docker Core subscription](https://docs.docker.com/subscription/#manage-your-docker-core-subscription)
+## Manage your Docker Core subscription
 
 
 
@@ -52,7 +52,7 @@ Add more seats to your subscription
 
 Do more with Docker and add seats to your subscription.
 
-## [Resources](https://docs.docker.com/subscription/#resources)
+## Resources
 
 
 

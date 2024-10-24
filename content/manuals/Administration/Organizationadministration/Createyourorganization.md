@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/admin/organization/orgs/](https://docs.docker.com/admin/organization/orgs/)
+> 原文：[https://docs.docker.com/admin/organization/orgs/](https://docs.docker.com/admin/organization/orgs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,12 +16,12 @@ draft = false
 
 This section describes how to create an organization. Before you begin:
 
-- You need a [Docker ID](https://docs.docker.com/accounts/create-account/).
-- Review the [Docker subscriptions and features](https://docs.docker.com/subscription/core-subscription/details/) to determine what plan to choose for your organization.
+- You need a [Docker ID]({{< ref "/manuals/Dockeraccounts/Createanaccount" >}}).
+- Review the [Docker subscriptions and features]({{< ref "/manuals/Subscription/DockerCore/Subscriptionsandfeatures" >}}) to determine what plan to choose for your organization.
 
-## [Create an organization](https://docs.docker.com/admin/organization/orgs/#create-an-organization)
+## Create an organization
 
-There are multiple ways to create an organization. You can create a brand new organization using the **Create Organization** option in Docker Hub, or you can convert an existing user account to an organization. The following section contains instructions on how to create a new organization. For prerequisites and detailed instructions on converting an existing user account to an organization, see [Convert an account into an organization](https://docs.docker.com/admin/convert-account/).
+There are multiple ways to create an organization. You can create a brand new organization using the **Create Organization** option in Docker Hub, or you can convert an existing user account to an organization. The following section contains instructions on how to create a new organization. For prerequisites and detailed instructions on converting an existing user account to an organization, see [Convert an account into an organization]({{< ref "/manuals/Administration/Convertanaccountintoanorganization" >}}).
 
 To create an organization:
 
@@ -43,7 +43,7 @@ To create an organization:
    >
    > 
    >
-   > You can't use the same name for the organization and your Docker ID. If you want to use your Docker ID as the organization name, then you must first [convert your account into an organization](https://docs.docker.com/admin/convert-account/).
+   > You can't use the same name for the organization and your Docker ID. If you want to use your Docker ID as the organization name, then you must first [convert your account into an organization]({{< ref "/manuals/Administration/Convertanaccountintoanorganization" >}}).
 
 5. Enter the name of your company. This is the full name of your company. Docker displays the company name on your organization page and in the details of any public images you publish. You can update the company name anytime by navigating to your organization's **Settings** page.
 
@@ -61,7 +61,7 @@ To create an organization:
 
 You've now created an organization.
 
-## [View an organization](https://docs.docker.com/admin/organization/orgs/#view-an-organization)
+## View an organization
 
 To view an organization:
 
@@ -71,27 +71,27 @@ To view an organization:
    >
    > 
    >
-   > You can't *directly* log in to an organization. This is especially important to note if you create an organization by [converting a user account](https://docs.docker.com/admin/convert-account/), as conversion means you lose the ability to log into that "account", since it no longer exists. To view the organization you need to log in with the new owner account assigned during the conversion or another account that was added as a member. If you don't see the organization after logging in, then you are neither a member or an owner of it. An organization administrator needs to add you as a member of the organization.
+   > You can't *directly* log in to an organization. This is especially important to note if you create an organization by [converting a user account]({{< ref "/manuals/Administration/Convertanaccountintoanorganization" >}}), as conversion means you lose the ability to log into that "account", since it no longer exists. To view the organization you need to log in with the new owner account assigned during the conversion or another account that was added as a member. If you don't see the organization after logging in, then you are neither a member or an owner of it. An organization administrator needs to add you as a member of the organization.
 
 2. Select **Organizations** in the top navigation bar, then choose your organization from the list.
 
 The organization landing page displays various options that allow you to configure your organization.
 
-- **Members**: Displays a list of team members. You can invite new members using the **Invite members** button. See [Manage members](https://docs.docker.com/admin/organization/members/) for details.
-- **Teams**: Displays a list of existing teams and the number of members in each team. See [Create a team](https://docs.docker.com/admin/organization/manage-a-team/) for details.
-- **Repositories**: Displays a list of repositories associated with the organization. See [Repositories](https://docs.docker.com/docker-hub/repos/) for detailed information about working with repositories.
-- **Activity** Displays the audit logs, a chronological list of activities that occur at organization and repository levels. It provides the org owners a report of all their team member activities. See [Audit logs](https://docs.docker.com/admin/organization/activity-logs/) for details.
-- **Settings**: Displays information about your organization, and allows you to view and change your repository privacy settings, configure org permissions such as [Image Access Management](https://docs.docker.com/security/for-admins/hardened-desktop/image-access-management/), configure notification settings, and [deactivate](https://docs.docker.com/admin/deactivate-account/#deactivate-an-organization) You can also update your organization name and company name that appear on your organization landing page. You must be an owner to access the organization's **Settings** page.
-- **Billing**: Displays information about your existing [Docker subscription (plan)](https://docs.docker.com/subscription/), including the number of seats and next payment due date. For how to access the billing history and payment methods for your organization, see [View billing history](https://docs.docker.com/billing/core-billing/history/).
+- **Members**: Displays a list of team members. You can invite new members using the **Invite members** button. See [Manage members]({{< ref "/manuals/Administration/Organizationadministration/Manageorganizationmembers" >}}) for details.
+- **Teams**: Displays a list of existing teams and the number of members in each team. See [Create a team]({{< ref "/manuals/Administration/Organizationadministration/Createandmanageateam" >}}) for details.
+- **Repositories**: Displays a list of repositories associated with the organization. See [Repositories]({{< ref "/manuals/DockerHub/Managerepositories" >}}) for detailed information about working with repositories.
+- **Activity** Displays the audit logs, a chronological list of activities that occur at organization and repository levels. It provides the org owners a report of all their team member activities. See [Audit logs]({{< ref "/manuals/Administration/Organizationadministration/Activitylogs" >}}) for details.
+- **Settings**: Displays information about your organization, and allows you to view and change your repository privacy settings, configure org permissions such as [Image Access Management]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/ImageAccessManagement" >}}), configure notification settings, and [deactivate](https://docs.docker.com/admin/deactivate-account/#deactivate-an-organization) You can also update your organization name and company name that appear on your organization landing page. You must be an owner to access the organization's **Settings** page.
+- **Billing**: Displays information about your existing [Docker subscription (plan)]({{< ref "/manuals/Subscription" >}}), including the number of seats and next payment due date. For how to access the billing history and payment methods for your organization, see [View billing history]({{< ref "/manuals/Billing/DockerCore/Viewbillinghistory" >}}).
 
-## [Merge organizations](https://docs.docker.com/admin/organization/orgs/#merge-organizations)
+## Merge organizations
 
 If you have multiple organizations that you want to merge into one, complete the following:
 
-1. Based on the number of seats from the secondary organization, [purchase additional seats](https://docs.docker.com/subscription/core-subscription/add-seats/) for the primary organization account that you want to keep.
+1. Based on the number of seats from the secondary organization, [purchase additional seats]({{< ref "/manuals/Subscription/DockerCore/Addseats" >}}) for the primary organization account that you want to keep.
 2. Manually add users to the primary organization and remove existing users from the secondary organization.
 3. Manually move over your data, including all repositories.
-4. Once you're done moving all of your users and data, [downgrade](https://docs.docker.com/subscription/core-subscription/downgrade/) the secondary account to a free subscription.
+4. Once you're done moving all of your users and data, [downgrade]({{< ref "/manuals/Subscription/DockerCore/Downgrade" >}}) the secondary account to a free subscription.
 
 > **Tip**
 >
@@ -99,6 +99,6 @@ If you have multiple organizations that you want to merge into one, complete the
 >
 > If your organization has a Docker Core Business subscription with a purchase order, contact Support or your Account Manager at Docker.
 
-## [More resources](https://docs.docker.com/admin/organization/orgs/#more-resources)
+## More resources
 
 - [Video: Docker Hub Organizations](https://www.youtube.com/watch?v=WKlT1O-4Du8)

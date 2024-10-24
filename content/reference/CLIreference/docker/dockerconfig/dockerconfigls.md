@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/config/ls/](https://docs.docker.com/reference/cli/docker/config/ls/)
+> 原文：[https://docs.docker.com/reference/cli/docker/config/ls/](https://docs.docker.com/reference/cli/docker/config/ls/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -21,17 +21,17 @@ draft = false
 
 Swarm This command works with the Swarm orchestrator.
 
-## [Description](https://docs.docker.com/reference/cli/docker/config/ls/#description)
+## Description
 
 Run this command on a manager node to list the configs in the Swarm.
 
-For detailed information about using configs, refer to [store configuration data using Docker Configs](https://docs.docker.com/engine/swarm/configs/).
+For detailed information about using configs, refer to [store configuration data using Docker Configs]({{< ref "/manuals/DockerEngine/Swarmmode/StoreconfigurationdatausingDockerConfigs" >}}).
 
 > **Note**
 >
-> This is a cluster management command, and must be executed on a Swarm manager node. To learn about managers and workers, refer to the [Swarm mode section](https://docs.docker.com/engine/swarm/) in the documentation.
+> This is a cluster management command, and must be executed on a Swarm manager node. To learn about managers and workers, refer to the [Swarm mode section]({{< ref "/manuals/DockerEngine/Swarmmode" >}}) in the documentation.
 
-## [Options](https://docs.docker.com/reference/cli/docker/config/ls/#options)
+## Options
 
 | Option                                                       | Default | Description                                                  |
 | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
@@ -39,7 +39,7 @@ For detailed information about using configs, refer to [store configuration data
 | [`--format`](https://docs.docker.com/reference/cli/docker/config/ls/#format) |         | Format output using a custom template: 'table': Print output in table format with column headers (default) 'table TEMPLATE': Print output in table format using the given Go template 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
 | `-q, --quiet`                                                |         | Only display IDs                                             |
 
-## [Examples](https://docs.docker.com/reference/cli/docker/config/ls/#examples)
+## Examples
 
 
 
@@ -52,7 +52,7 @@ ID                          NAME                        CREATED             UPDA
 mem02h8n73mybpgqjf0kfi1n0   test_config                 3 seconds ago       3 seconds ago
 ```
 
-### [Filtering (-f, --filter)](https://docs.docker.com/reference/cli/docker/config/ls/#filter)
+### Filtering (-f, --filter)
 
 The filtering flag (`-f` or `--filter`) format is a `key=value` pair. If there is more than one filter, then pass multiple flags (e.g., `--filter "foo=bar" --filter "bif=baz"`)
 
@@ -62,7 +62,7 @@ The currently supported filters are:
 - [label](https://docs.docker.com/reference/cli/docker/config/ls/#label) (`label=<key>` or `label=<key>=<value>`)
 - [name](https://docs.docker.com/reference/cli/docker/config/ls/#name) (config's name)
 
-#### [id](https://docs.docker.com/reference/cli/docker/config/ls/#id)
+#### id
 
 The `id` filter matches all or prefix of a config's id.
 
@@ -75,7 +75,7 @@ ID                          NAME                        CREATED             UPDA
 6697bflskwj1998km1gnnjr38   q5s5570vtvnimefos1fyeo2u2   6 weeks ago         6 weeks ago
 ```
 
-#### [label](https://docs.docker.com/reference/cli/docker/config/ls/#label)
+#### label
 
 The `label` filter matches configs based on the presence of a `label` alone or a `label` and a value.
 
@@ -101,7 +101,7 @@ ID                          NAME                        CREATED             UPDA
 mem02h8n73mybpgqjf0kfi1n0   test_config                 About an hour ago   About an hour ago
 ```
 
-#### [name](https://docs.docker.com/reference/cli/docker/config/ls/#name)
+#### name
 
 The `name` filter matches on all or prefix of a config's name.
 
@@ -116,7 +116,7 @@ ID                          NAME                        CREATED             UPDA
 mem02h8n73mybpgqjf0kfi1n0   test_config                 About an hour ago   About an hour ago
 ```
 
-### [Format the output (--format)](https://docs.docker.com/reference/cli/docker/config/ls/#format)
+### Format the output (--format)
 
 The formatting option (`--format`) pretty prints configs output using a Go template.
 

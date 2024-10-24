@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/hardened-desktop/air-gapped-containers/](https://docs.docker.com/security/for-admins/hardened-desktop/air-gapped-containers/)
+> 原文：[https://docs.docker.com/security/for-admins/hardened-desktop/air-gapped-containers/](https://docs.docker.com/security/for-admins/hardened-desktop/air-gapped-containers/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -29,9 +29,9 @@ You can choose:
 - Which outgoing TCP ports the policy applies to. For example, only certain ports, `80`, `443` or all with `*`.
 - Whether to forward to a single HTTP or SOCKS proxy, or to have a policy per destination via a Proxy Auto-Configuration (PAC) file.
 
-## [Configuration](https://docs.docker.com/security/for-admins/hardened-desktop/air-gapped-containers/#configuration)
+## Configuration
 
-Assuming [enforced sign-in](https://docs.docker.com/security/for-admins/enforce-sign-in/) and [Settings Management](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/) are enabled, add the new proxy configuration to the `admin-settings.json` file. For example:
+Assuming [enforced sign-in]({{< ref "/manuals/Security/Foradmins/Enforcesign-in" >}}) and [Settings Management]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/SettingsManagement" >}}) are enabled, add the new proxy configuration to the `admin-settings.json` file. For example:
 
 
 
@@ -64,7 +64,7 @@ The `containersProxy` setting describes the policy which is applied to traffic f
 >
 > Any existing `proxy` setting in the `admin-settings.json` file continues to apply to traffic from the app on the host.
 
-## [Example PAC file](https://docs.docker.com/security/for-admins/hardened-desktop/air-gapped-containers/#example-pac-file)
+## Example PAC file
 
 For general information about PAC files, see the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_PAC_file).
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/storage/drivers/vfs-driver/](https://docs.docker.com/engine/storage/drivers/vfs-driver/)
+> 原文：[https://docs.docker.com/engine/storage/drivers/vfs-driver/](https://docs.docker.com/engine/storage/drivers/vfs-driver/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 The VFS storage driver isn't a union filesystem. Each layer is a directory on disk, and there is no copy-on-write support. To create a new layer, a "deep copy" is done of the previous layer. This leads to lower performance and more space used on disk than other storage drivers. However, it is robust, stable, and works in every environment. It can also be used as a mechanism to verify other storage back-ends against, in a testing environment.
 
-## [Configure Docker with the `vfs` storage driver](https://docs.docker.com/engine/storage/drivers/vfs-driver/#configure-docker-with-the-vfs-storage-driver)
+## Configure Docker with the `vfs` storage driver
 
 1. Stop Docker.
 
@@ -70,13 +70,13 @@ The VFS storage driver isn't a union filesystem. Each layer is a directory on di
 
 Docker is now using the `vfs` storage driver. Docker has automatically created the `/var/lib/docker/vfs/` directory, which contains all the layers used by running containers.
 
-## [How the `vfs` storage driver works](https://docs.docker.com/engine/storage/drivers/vfs-driver/#how-the-vfs-storage-driver-works)
+## How the `vfs` storage driver works
 
 Each image layer and the writable container layer are represented on the Docker host as subdirectories within `/var/lib/docker/`. The union mount provides the unified view of all layers. The directory names don't directly correspond to the IDs of the layers themselves.
 
 VFS doesn't support copy-on-write (COW). Each time a new layer is created, it's a deep copy of its parent layer. These layers are all located under `/var/lib/docker/vfs/dir/`.
 
-### [Example: Image and container on-disk constructs](https://docs.docker.com/engine/storage/drivers/vfs-driver/#example-image-and-container-on-disk-constructs)
+### Example: Image and container on-disk constructs
 
 The following `docker pull` command shows a Docker host downloading a Docker image comprising five layers.
 
@@ -127,7 +127,7 @@ $ du -sh /var/lib/docker/vfs/dir/*
 
 The above output shows that three layers each take 104M and two take 125M. These directories have only small differences from each other, but they all consume the same amount of disk space. This is one of the disadvantages of using the `vfs` storage driver.
 
-## [Related information](https://docs.docker.com/engine/storage/drivers/vfs-driver/#related-information)
+## Related information
 
-- [Understand images, containers, and storage drivers](https://docs.docker.com/engine/storage/drivers/)
-- [Select a storage driver](https://docs.docker.com/engine/storage/drivers/select-storage-driver/)
+- [Understand images, containers, and storage drivers]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers" >}})
+- [Select a storage driver]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers/Selectastoragedriver" >}})

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/hardened-desktop/image-access-management/](https://docs.docker.com/security/for-admins/hardened-desktop/image-access-management/)
+> 原文：[https://docs.docker.com/security/for-admins/hardened-desktop/image-access-management/](https://docs.docker.com/security/for-admins/hardened-desktop/image-access-management/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,11 +24,11 @@ Image Access Management gives administrators control over which types of images,
 
 For example, a developer, who is part of an organization, building a new containerized application could accidentally use an untrusted, community image as a component of their application. This image could be malicious and pose a security risk to the company. Using Image Access Management, the organization owner can ensure that the developer can only access trusted content like Docker Official Images, Docker Verified Publisher Images, or the organization’s own images, preventing such a risk.
 
-## [Prerequisites](https://docs.docker.com/security/for-admins/hardened-desktop/image-access-management/#prerequisites)
+## Prerequisites
 
-You need to [enforce sign-in](https://docs.docker.com/security/for-admins/enforce-sign-in/). For Image Access Management to take effect, Docker Desktop users must authenticate to your organization. Enforcing sign-in ensures that your Docker Desktop developers always authenticate to your organization, even though they can authenticate without it and the feature will take effect. Enforcing sign-in guarantees the feature always takes effect.
+You need to [enforce sign-in]({{< ref "/manuals/Security/Foradmins/Enforcesign-in" >}}). For Image Access Management to take effect, Docker Desktop users must authenticate to your organization. Enforcing sign-in ensures that your Docker Desktop developers always authenticate to your organization, even though they can authenticate without it and the feature will take effect. Enforcing sign-in guarantees the feature always takes effect.
 
-## [Configure Image Access Management permissions](https://docs.docker.com/security/for-admins/hardened-desktop/image-access-management/#configure-image-access-management-permissions)
+## Configure Image Access Management permissions
 
 Docker Hub Admin Console
 
@@ -49,12 +49,12 @@ Docker Hub Admin Console
 
 1. Select the category restrictions for your images by selecting **Allowed**. Once the restrictions are applied, your members can view the organization permissions page in a read-only format.
 
-## [Verify the restrictions](https://docs.docker.com/security/for-admins/hardened-desktop/image-access-management/#verify-the-restrictions)
+## Verify the restrictions
 
 The new Image Access Management policy takes effect after the developer successfully authenticates to Docker Desktop using their organization credentials. If a developer attempts to pull a disallowed image type using Docker, they receive an error message.
 
 ------
 
-## [More resources](https://docs.docker.com/security/for-admins/hardened-desktop/image-access-management/#more-resources)
+## More resources
 
 - [Video: Hardened Desktop Image Access Management](https://www.youtube.com/watch?v=r3QRKHA1A5U)

@@ -8,24 +8,24 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/18.03/](https://docs.docker.com/engine/release-notes/18.03/)
+> 原文：[https://docs.docker.com/engine/release-notes/18.03/](https://docs.docker.com/engine/release-notes/18.03/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Engine 18.03 release notes
 
-## [18.03.1-ce](https://docs.docker.com/engine/release-notes/18.03/#18031-ce)
+## 18.03.1-ce
 
 2018-04-26
 
-### [Client](https://docs.docker.com/engine/release-notes/18.03/#client)
+### Client
 
 - Fix error with merge compose file with networks [docker/cli#983](https://github.com/docker/cli/pull/983)
 
 - Fix docker stack deploy re-deploying services after the service was updated with `--force` [docker/cli#963](https://github.com/docker/cli/pull/963)
 - Fix docker version output alignment [docker/cli#965](https://github.com/docker/cli/pull/965)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/18.03/#runtime)
+### Runtime
 
 - Fix AppArmor profiles not being applied to `docker exec` processes [moby/moby#36466](https://github.com/moby/moby/pull/36466)
 - Don't sort plugin mount slice [moby/moby#36711](https://github.com/moby/moby/pull/36711)
@@ -48,11 +48,11 @@ draft = false
 - Relax some libcontainerd client locking [moby/moby#36848](https://github.com/moby/moby/pull/36848)
 - Update `hcsshim` to v0.6.10 to address [CVE-2018-8115](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8115)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/18.03/#swarm-mode)
+### Swarm Mode
 
 - Increase raft Election tick to 10 times Heartbeat tick [moby/moby#36672](https://github.com/moby/moby/pull/36672)
 
-### [Networking](https://docs.docker.com/engine/release-notes/18.03/#networking)
+### Networking
 
 - Gracefully remove LB endpoints from services [docker/libnetwork#2112](https://github.com/docker/libnetwork/pull/2112)
 - Retry other external DNS servers on ServFail [docker/libnetwork#2121](https://github.com/docker/libnetwork/pull/2121)
@@ -60,11 +60,11 @@ draft = false
 - Allow for larger preset property values, do not override [docker/libnetwork#2124](https://github.com/docker/libnetwork/pull/2124)
 - Prevent panics on concurrent reads/writes when calling `changeNodeState` [docker/libnetwork#2136](https://github.com/docker/libnetwork/pull/2136)
 
-## [18.03.0-ce](https://docs.docker.com/engine/release-notes/18.03/#18030-ce)
+## 18.03.0-ce
 
 2018-03-21
 
-### [Builder](https://docs.docker.com/engine/release-notes/18.03/#builder)
+### Builder
 
 - Switch to -buildmode=pie [moby/moby#34369](https://github.com/moby/moby/pull/34369)
 - Allow Dockerfile to be outside of build-context [docker/cli#886](https://github.com/docker/cli/pull/886)
@@ -72,7 +72,7 @@ draft = false
 
 - Fixes files leaking to other images in a multi-stage build [moby/moby#36338](https://github.com/moby/moby/pull/36338)
 
-### [Client](https://docs.docker.com/engine/release-notes/18.03/#client-1)
+### Client
 
 - Simplify the marshaling of compose types.Config [docker/cli#895](https://github.com/docker/cli/pull/895)
 
@@ -101,7 +101,7 @@ draft = false
 - Add --template-driver option for secrets/configs [docker/cli#896](https://github.com/docker/cli/pull/896)
 - Move `docker trust` commands out of experimental [docker/cli#934](https://github.com/docker/cli/pull/934) [docker/cli#935](https://github.com/docker/cli/pull/935) [docker/cli#944](https://github.com/docker/cli/pull/944)
 
-### [Logging](https://docs.docker.com/engine/release-notes/18.03/#logging)
+### Logging
 
 - AWS logs - don't add new lines to maximum sized events [moby/moby#36078](https://github.com/moby/moby/pull/36078)
 - Move log validator logic after plugins are loaded [moby/moby#36306](https://github.com/moby/moby/pull/36306)
@@ -109,7 +109,7 @@ draft = false
 
 - Fix log tail with empty logs [moby/moby#36305](https://github.com/moby/moby/pull/36305)
 
-### [Networking](https://docs.docker.com/engine/release-notes/18.03/#networking-1)
+### Networking
 
 - Libnetwork revendoring [moby/moby#36137](https://github.com/moby/moby/pull/36137)
 
@@ -133,7 +133,7 @@ draft = false
 - Fix stale HNS endpoints on Windows [moby/moby#36603](https://github.com/moby/moby/pull/36603)
 - IPAM fixes for duplicate IP addresses [docker/libnetwork#2104](https://github.com/docker/libnetwork/pull/2104) [docker/libnetwork#2105](https://github.com/docker/libnetwork/pull/2105)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/18.03/#runtime-1)
+### Runtime
 
 - Enable HotAdd for Windows [moby/moby#35414](https://github.com/moby/moby/pull/35414)
 - LCOW: Graphdriver fix deadlock in hotRemoveVHDs [moby/moby#36114](https://github.com/moby/moby/pull/36114)
@@ -200,7 +200,7 @@ draft = false
 - Fix devices mounted with wrong uid/gid [moby/moby#36449](https://github.com/moby/moby/pull/36449)
 - Fix read-only containers with IPC private mounts `/dev/shm` read-only [moby/moby#36526](https://github.com/moby/moby/pull/36526)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/18.03/#swarm-mode-1)
+### Swarm Mode
 
 - Replace EC Private Key with PKCS#8 PEMs [docker/swarmkit#2246](https://github.com/docker/swarmkit/pull/2246)
 - Fix IP overlap with empty EndpointSpec [docker/swarmkit #2505](https://github.com/docker/swarmkit/pull/2505)

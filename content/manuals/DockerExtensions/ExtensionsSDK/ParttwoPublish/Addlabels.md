@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/extensions/labels/](https://docs.docker.com/extensions/extensions-sdk/extensions/labels/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/extensions/labels/](https://docs.docker.com/extensions/extensions-sdk/extensions/labels/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -49,9 +49,9 @@ Here is the list of labels you can or need to specify when building your extensi
 >
 > 
 >
-> Docker Desktop applies CSS styles to the provided HTML content. You can make sure that it renders correctly [within the Marketplace](https://docs.docker.com/extensions/extensions-sdk/extensions/labels/#preview-the-extension-in-the-marketplace). It is recommended that you follow the [styling guidelines](https://docs.docker.com/extensions/extensions-sdk/design/).
+> Docker Desktop applies CSS styles to the provided HTML content. You can make sure that it renders correctly [within the Marketplace](https://docs.docker.com/extensions/extensions-sdk/extensions/labels/#preview-the-extension-in-the-marketplace). It is recommended that you follow the [styling guidelines]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DesignandUIstyling" >}}).
 
-## [Preview the extension in the Marketplace](https://docs.docker.com/extensions/extensions-sdk/extensions/labels/#preview-the-extension-in-the-marketplace)
+## Preview the extension in the Marketplace
 
 You can validate that the image labels render as you expect.
 

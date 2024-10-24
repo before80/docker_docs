@@ -8,6 +8,32 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/container/stop/](https://docs.docker.com/reference/cli/docker/container/stop/)
+> 原文：[https://docs.docker.com/reference/cli/docker/container/stop/](https://docs.docker.com/reference/cli/docker/container/stop/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
+
+# docker container stop
+
+| Description | Stop one or more running containers                        |
+| :---------- | ---------------------------------------------------------- |
+| Usage       | `docker container stop [OPTIONS] CONTAINER [CONTAINER...]` |
+| Aliases     | `docker stop`                                              |
+
+## Description
+
+The main process inside the container will receive `SIGTERM`, and after a grace period, `SIGKILL`. The first signal can be changed with the `STOPSIGNAL` instruction in the container's Dockerfile, or the `--stop-signal` option to `docker run`.
+
+## Options
+
+| Option         | Default | Description                                  |
+| -------------- | ------- | -------------------------------------------- |
+| `-s, --signal` |         | Signal to send to the container              |
+| `-t, --time`   |         | Seconds to wait before killing the container |
+
+## Examples
+
+
+
+```console
+$ docker stop my_container
+```

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/dev/continuous-integration/](https://docs.docker.com/extensions/extensions-sdk/dev/continuous-integration/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/dev/continuous-integration/](https://docs.docker.com/extensions/extensions-sdk/dev/continuous-integration/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,7 +22,7 @@ In order to help validate your extension and ensure it's functional, the Extensi
 >
 > The [Docker Desktop Action](https://github.com/docker/desktop-action) and the [extension-test-helper library](https://www.npmjs.com/package/@docker/extension-test-helper) are both [experimental](https://docs.docker.com/release-lifecycle/#experimental).
 
-## [Setup CI environment with GitHub Actions](https://docs.docker.com/extensions/extensions-sdk/dev/continuous-integration/#setup-ci-environment-with-github-actions)
+## Setup CI environment with GitHub Actions
 
 You need Docker Desktop to be able to install and validate your extension. You can start Docker Desktop in GitHub Actions using the [Docker Desktop Action](https://github.com/docker/desktop-action), by adding the following to a workflow file:
 
@@ -42,7 +42,7 @@ steps:
 
 Once the step has executed, the next steps use Docker Desktop and the Docker CLI to install and test the extension.
 
-## [Validating your extension with Puppeteer](https://docs.docker.com/extensions/extensions-sdk/dev/continuous-integration/#validating-your-extension-with-puppeteer)
+## Validating your extension with Puppeteer
 
 Once Docker Desktop starts in CI, you can build, install, and validate your extension with Jest and Puppeteer.
 
@@ -97,8 +97,8 @@ afterAll(async () => {
 });
 ```
 
-## [What's next](https://docs.docker.com/extensions/extensions-sdk/dev/continuous-integration/#whats-next)
+## What's next
 
-- Build an [advanced frontend](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/) extension.
-- Learn more about extensions [architecture](https://docs.docker.com/extensions/extensions-sdk/architecture/).
-- Learn how to [publish your extension](https://docs.docker.com/extensions/extensions-sdk/extensions/).
+- Build an [advanced frontend]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/PartoneBuild/Createanadvancedfrontendextension" >}}) extension.
+- Learn more about extensions [architecture]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/Architecture" >}}).
+- Learn how to [publish your extension]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish" >}}).

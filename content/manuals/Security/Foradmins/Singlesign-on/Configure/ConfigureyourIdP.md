@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/single-sign-on/configure/configure-idp/](https://docs.docker.com/security/for-admins/single-sign-on/configure/configure-idp/)
+> 原文：[https://docs.docker.com/security/for-admins/single-sign-on/configure/configure-idp/](https://docs.docker.com/security/for-admins/single-sign-on/configure/configure-idp/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,14 +16,14 @@ draft = false
 
 The steps to set up your SSO configuration are:
 
-1. [Add and verify the domain or domains](https://docs.docker.com/security/for-admins/single-sign-on/configure#step-one-add-and-verify-your-domain) that your members use to sign in to Docker.
-2. [Create your SSO connection](https://docs.docker.com/security/for-admins/single-sign-on/configure#step-two-create-an-sso-connection-in-docker) in Docker.
+1. [Add and verify the domain or domains]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Configure#step-one-add-and-verify-your-domain" >}}) that your members use to sign in to Docker.
+2. [Create your SSO connection]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Configure#step-two-create-an-sso-connection-in-docker" >}}) in Docker.
 3. [Configure your IdP](https://docs.docker.com/security/for-admins/single-sign-on/configure/configure-idp/#step-three-configure-your-idp-to-work-with-docker) to work with Docker.
-4. [Complete your SSO connection](https://docs.docker.com/security/for-admins/single-sign-on/connect/) in Docker.
+4. [Complete your SSO connection]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Connect" >}}) in Docker.
 
 This page walks through step 3 for common IdPs.
 
-## [Prerequisites](https://docs.docker.com/security/for-admins/single-sign-on/configure/configure-idp/#prerequisites)
+## Prerequisites
 
 Make sure you have completed the following before you begin:
 
@@ -33,7 +33,7 @@ Make sure you have completed the following before you begin:
   - SAML: **Entity ID**, **ACS URL**
   - Azure AD (OIDC): **Redirect URL**
 
-## [SSO attributes](https://docs.docker.com/security/for-admins/single-sign-on/configure/configure-idp/#sso-attributes)
+## SSO attributes
 
 When a user signs in using SSO, Docker obtains the following attributes from the IdP:
 
@@ -50,7 +50,7 @@ If you use SAML for your SSO connection, Docker obtains these attributes from th
 >
 > 
 >
-> SSO uses Just-in-Time (JIT) provisioning by default. If you [enable SCIM](https://docs.docker.com/security/for-admins/provisioning/scim/), JIT values still overwrite the attribute values set by SCIM provisioning whenever users log in. To avoid conflicts, make sure your JIT values match your SCIM values. For example, to make sure that the full name of a user displays in your organization, you would set a `name` attribute in your SAML attributes and ensure the value includes their first name and last name. The exact method for setting these values (for example, constructing it with `user.firstName + " " + user.lastName`) varies depending on your IdP.
+> SSO uses Just-in-Time (JIT) provisioning by default. If you [enable SCIM]({{< ref "/manuals/Security/Foradmins/Provisioning/SCIM" >}}), JIT values still overwrite the attribute values set by SCIM provisioning whenever users log in. To avoid conflicts, make sure your JIT values match your SCIM values. For example, to make sure that the full name of a user displays in your organization, you would set a `name` attribute in your SAML attributes and ensure the value includes their first name and last name. The exact method for setting these values (for example, constructing it with `user.firstName + " " + user.lastName`) varies depending on your IdP.
 
 > **Tip**
 >
@@ -75,7 +75,7 @@ You can also configure attributes to override default values, such as default te
 >
 > If none of the email address attributes listed in the previous table are found, SSO returns an error. Also, if the `Full name` attribute isn't set, then the name will be displayed as the value of the `Email address`.
 
-## [Step three: Configure your IdP to work with Docker](https://docs.docker.com/security/for-admins/single-sign-on/configure/configure-idp/#step-three-configure-your-idp-to-work-with-docker)
+## Step three: Configure your IdP to work with Docker
 
 The user interface for your IdP may differ slightly from the following steps. You can refer to the documentation for your IdP to verify.
 
@@ -118,7 +118,7 @@ See [More resources](https://docs.docker.com/security/for-admins/single-sign-on/
 
 ------
 
-## [More resources](https://docs.docker.com/security/for-admins/single-sign-on/configure/configure-idp/#more-resources)
+## More resources
 
 The following videos demonstrate how to configure your IdP with your Docker SSO connection.
 
@@ -126,6 +126,6 @@ The following videos demonstrate how to configure your IdP with your Docker SSO 
 - [Video: SSO connection with Azure Connect (OIDC)](https://youtu.be/bGquA8qR9jU?feature=shared&t=630)
 - [Video: SSO connection with Entra ID (Azure) SAML](https://youtu.be/bGquA8qR9jU?feature=shared&t=1246)
 
-## [What's next?](https://docs.docker.com/security/for-admins/single-sign-on/configure/configure-idp/#whats-next)
+## What's next?
 
-[Complete your connection](https://docs.docker.com/security/for-admins/single-sign-on/connect/) in the Docker console, then test your connection.
+[Complete your connection]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Connect" >}}) in the Docker console, then test your connection.

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/bake/targets/](https://docs.docker.com/build/bake/targets/)
+> 原文：[https://docs.docker.com/build/bake/targets/](https://docs.docker.com/build/bake/targets/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -42,7 +42,7 @@ You can build multiple targets at once by passing multiple target names to the `
 $ docker buildx bake webapp api tests
 ```
 
-## [Default target](https://docs.docker.com/build/bake/targets/#default-target)
+## Default target
 
 If you don't specify a target when running `docker buildx bake`, Bake will build the target named `default`.
 
@@ -64,13 +64,13 @@ To build this target, run `docker buildx bake` without any arguments:
 $ docker buildx bake
 ```
 
-## [Target properties](https://docs.docker.com/build/bake/targets/#target-properties)
+## Target properties
 
 The properties you can set for a target closely resemble the CLI flags for `docker build`, with a few additional properties that are specific to Bake.
 
-For all the properties you can set for a target, see the [Bake reference](https://docs.docker.com/build/bake/reference#target).
+For all the properties you can set for a target, see the [Bake reference]({{< ref "/manuals/DockerBuild/Bake/Bakefilereference#target" >}}).
 
-## [Grouping targets](https://docs.docker.com/build/bake/targets/#grouping-targets)
+## Grouping targets
 
 You can group targets together using the `group` block. This is useful when you want to build multiple targets at once.
 
@@ -112,10 +112,10 @@ To build all the targets in a group, pass the name of the group to the `bake` co
 $ docker buildx bake all
 ```
 
-## [Additional resources](https://docs.docker.com/build/bake/targets/#additional-resources)
+## Additional resources
 
 Refer to the following pages to learn more about Bake's features:
 
-- Learn how to use [variables](https://docs.docker.com/build/bake/variables/) in Bake to make your build configuration more flexible.
-- Learn how you can use matrices to build multiple images with different configurations in [Matrices](https://docs.docker.com/build/bake/matrices/).
-- Head to the [Bake file reference](https://docs.docker.com/build/bake/reference/) to learn about all the properties you can set in a Bake file, and its syntax.
+- Learn how to use [variables]({{< ref "/manuals/DockerBuild/Bake/Variables" >}}) in Bake to make your build configuration more flexible.
+- Learn how you can use matrices to build multiple images with different configurations in [Matrices]({{< ref "/manuals/DockerBuild/Bake/Matrixtargets" >}}).
+- Head to the [Bake file reference]({{< ref "/manuals/DockerBuild/Bake/Bakefilereference" >}}) to learn about all the properties you can set in a Bake file, and its syntax.

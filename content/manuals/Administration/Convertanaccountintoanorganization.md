@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/admin/convert-account/](https://docs.docker.com/admin/convert-account/)
+> 原文：[https://docs.docker.com/admin/convert-account/](https://docs.docker.com/admin/convert-account/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Convert an account into an organization
 
-You can convert an existing user account to an organization. This is useful if you need multiple users to access your account and the repositories that it’s connected to. Converting it to an organization gives you better control over permissions for these users through [teams](https://docs.docker.com/admin/organization/manage-a-team/) and [roles](https://docs.docker.com/security/for-admins/roles-and-permissions/).
+You can convert an existing user account to an organization. This is useful if you need multiple users to access your account and the repositories that it’s connected to. Converting it to an organization gives you better control over permissions for these users through [teams]({{< ref "/manuals/Administration/Organizationadministration/Createandmanageateam" >}}) and [roles]({{< ref "/manuals/Security/Foradmins/Rolesandpermissions" >}}).
 
 When you convert a user account to an organization, the account is migrated to a Docker Team plan.
 
@@ -24,7 +24,7 @@ When you convert a user account to an organization, the account is migrated to a
 >
 > Once you convert your account to an organization, you can’t revert it to a user account.
 
-## [Prerequisites](https://docs.docker.com/admin/convert-account/#prerequisites)
+## Prerequisites
 
 Before you convert a user account to an organization, ensure that you meet the following requirements:
 
@@ -42,7 +42,7 @@ Before you convert a user account to an organization, ensure that you meet the f
 
   If you want to convert your user account into an organization account and you don't have any other user accounts, you need to create a new user account to assign it as the owner of the new organization. With the owner role assigned, this user account has full administrative access to configure and manage the organization. You can assign more users the owner role after the conversion.
 
-## [Effects of converting an account into an organization](https://docs.docker.com/admin/convert-account/#effects-of-converting-an-account-into-an-organization)
+## Effects of converting an account into an organization
 
 Consider the following effects of converting your account:
 
@@ -53,7 +53,7 @@ Consider the following effects of converting your account:
 - The user account that you add as the first owner will have full administrative access to configure and manage the organization.
 - Converting a user account to an organization will delete all of the user's personal access tokens. See [Create an access token](https://docs.docker.com/security/for-developers/access-tokens/#create-an-access-token) for steps on creating personal access tokens after converting the user account.
 
-## [Convert an account into an organization](https://docs.docker.com/admin/convert-account/#convert-an-account-into-an-organization)
+## Convert an account into an organization
 
 1. Ensure you have removed your user account from any company or teams or organizations. Also make sure that you have a new Docker ID before you convert an account. See the [Prerequisites](https://docs.docker.com/admin/convert-account/#prerequisites) section for details.
 2. Sign in to your [Docker account](https://app.docker.com/login).

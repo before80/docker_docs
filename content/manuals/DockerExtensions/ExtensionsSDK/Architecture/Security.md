@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/architecture/security/](https://docs.docker.com/extensions/extensions-sdk/architecture/security/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/architecture/security/](https://docs.docker.com/extensions/extensions-sdk/architecture/security/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Extension security
 
-## [Extension capabilities](https://docs.docker.com/extensions/extensions-sdk/architecture/security/#extension-capabilities)
+## Extension capabilities
 
 An extension can have the following optional parts:
 

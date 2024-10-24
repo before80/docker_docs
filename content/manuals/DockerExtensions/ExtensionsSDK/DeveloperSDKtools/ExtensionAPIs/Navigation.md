@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/dev/api/dashboard-routes-navigation/](https://docs.docker.com/extensions/extensions-sdk/dev/api/dashboard-routes-navigation/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/dev/api/dashboard-routes-navigation/](https://docs.docker.com/extensions/extensions-sdk/dev/api/dashboard-routes-navigation/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -32,19 +32,19 @@ try {
 }
 ```
 
-#### [Parameters](https://docs.docker.com/extensions/extensions-sdk/dev/api/dashboard-routes-navigation/#parameters)
+#### Parameters
 
 | Name | Type     | Description                                                  |
 | :--- | :------- | :----------------------------------------------------------- |
 | `id` | `string` | The full container id, e.g. `46b57e400d801762e9e115734bf902a2450d89669d85881058a46136520aca28`. You can use the `--no-trunc` flag as part of the `docker ps` command to display the full container id. |
 
-#### [Returns](https://docs.docker.com/extensions/extensions-sdk/dev/api/dashboard-routes-navigation/#returns)
+#### Returns
 
 `Promise`<`void`>
 
 A promise that fails if the container doesn't exist.
 
-For more details about all navigation methods, see the [Navigation API reference](https://docs.docker.com/reference/api/extensions-sdk/NavigationIntents/).
+For more details about all navigation methods, see the [Navigation API reference]({{< ref "/reference/APIreference/ExtensionsAPI/InterfaceNavigationIntents" >}}).
 
 > Deprecated navigation methods
 >

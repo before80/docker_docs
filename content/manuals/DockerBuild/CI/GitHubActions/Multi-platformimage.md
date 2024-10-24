@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/ci/github-actions/multi-platform/](https://docs.docker.com/build/ci/github-actions/multi-platform/)
+> 原文：[https://docs.docker.com/build/ci/github-actions/multi-platform/](https://docs.docker.com/build/ci/github-actions/multi-platform/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Multi-platform image with GitHub Actions
 
-You can build [multi-platform images](https://docs.docker.com/build/building/multi-platform/) using the `platforms` option, as shown in the following example:
+You can build [multi-platform images]({{< ref "/manuals/DockerBuild/Building/Multi-platform" >}}) using the `platforms` option, as shown in the following example:
 
 > **Note**
 >
@@ -55,11 +55,11 @@ jobs:
           tags: user/app:latest
 ```
 
-## [Distribute build across multiple runners](https://docs.docker.com/build/ci/github-actions/multi-platform/#distribute-build-across-multiple-runners)
+## Distribute build across multiple runners
 
 In the previous example, each platform is built on the same runner which can take a long time depending on the number of platforms and your Dockerfile.
 
-To solve this issue you can use a matrix strategy to distribute the build for each platform across multiple runners and create manifest list using the [`buildx imagetools create` command](https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/).
+To solve this issue you can use a matrix strategy to distribute the build for each platform across multiple runners and create manifest list using the [`buildx imagetools create` command]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildximagetools/dockerbuildximagetoolscreate" >}}).
 
 The following workflow will build the image for each platform on a dedicated runner using a matrix strategy and push by digest. Then, the `merge` job will create a manifest list and push it to Docker Hub.
 
@@ -171,7 +171,7 @@ jobs:
           docker buildx imagetools inspect ${{ env.REGISTRY_IMAGE }}:${{ steps.meta.outputs.version }}          
 ```
 
-### [With Bake](https://docs.docker.com/build/ci/github-actions/multi-platform/#with-bake)
+### With Bake
 
 It's also possible to build on multiple runners using Bake, with the [bake action](https://github.com/docker/bake-action).
 

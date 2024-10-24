@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/logging/drivers/gcplogs/](https://docs.docker.com/engine/logging/drivers/gcplogs/)
+> 原文：[https://docs.docker.com/engine/logging/drivers/gcplogs/](https://docs.docker.com/engine/logging/drivers/gcplogs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 The Google Cloud Logging driver sends container logs to [Google Cloud Logging](https://cloud.google.com/logging/docs/) Logging.
 
-## [Usage](https://docs.docker.com/engine/logging/drivers/gcplogs/#usage)
+## Usage
 
 To use the `gcplogs` driver as the default logging driver, set the `log-driver` and `log-opt` keys to appropriate values in the `daemon.json` file, which is located in `/etc/docker/` on Linux hosts or `C:\ProgramData\docker\config\daemon.json` on Windows Server. For more about configuring Docker using `daemon.json`, see [daemon.json](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file).
 
@@ -47,7 +47,7 @@ If Docker detects that it's running in a Google Cloud Project, it discovers conf
 
 Docker fetches the values for zone, instance name and instance ID from Google Cloud metadata server. Those values can be provided via options if metadata server isn't available. They don't override the values from metadata server.
 
-## [gcplogs options](https://docs.docker.com/engine/logging/drivers/gcplogs/#gcplogs-options)
+## gcplogs options
 
 You can use the `--log-opt NAME=VALUE` flag to specify these additional Google Cloud Logging driver options:
 
@@ -56,9 +56,9 @@ You can use the `--log-opt NAME=VALUE` flag to specify these additional Google C
 | `gcp-project`   | optional | Which Google Cloud project to log to. Defaults to discovering this value from the Google Cloud metadata server. |
 | `gcp-log-cmd`   | optional | Whether to log the command that the container was started with. Defaults to false. |
 | `labels`        | optional | Comma-separated list of keys of labels, which should be included in message, if these labels are specified for the container. |
-| `labels-regex`  | optional | Similar to and compatible with `labels`. A regular expression to match logging-related labels. Used for advanced [log tag options](https://docs.docker.com/engine/logging/log_tags/). |
+| `labels-regex`  | optional | Similar to and compatible with `labels`. A regular expression to match logging-related labels. Used for advanced [log tag options]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}). |
 | `env`           | optional | Comma-separated list of keys of environment variables, which should be included in message, if these variables are specified for the container. |
-| `env-regex`     | optional | Similar to and compatible with `env`. A regular expression to match logging-related environment variables. Used for advanced [log tag options](https://docs.docker.com/engine/logging/log_tags/). |
+| `env-regex`     | optional | Similar to and compatible with `env`. A regular expression to match logging-related environment variables. Used for advanced [log tag options]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}). |
 | `gcp-meta-zone` | optional | Zone name for the instance.                                  |
 | `gcp-meta-name` | optional | Instance name.                                               |
 | `gcp-meta-id`   | optional | Instance ID.                                                 |

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/security/trust/trust_sandbox/](https://docs.docker.com/engine/security/trust/trust_sandbox/)
+> 原文：[https://docs.docker.com/engine/security/trust/trust_sandbox/](https://docs.docker.com/engine/security/trust/trust_sandbox/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,15 +16,15 @@ draft = false
 
 This page explains how to set up and use a sandbox for experimenting with trust. The sandbox allows you to configure and try trust operations locally without impacting your production images.
 
-Before working through this sandbox, you should have read through the [trust overview](https://docs.docker.com/engine/security/trust/).
+Before working through this sandbox, you should have read through the [trust overview]({{< ref "/manuals/DockerEngine/Security/ContenttrustinDocker" >}}).
 
-## [Prerequisites](https://docs.docker.com/engine/security/trust/trust_sandbox/#prerequisites)
+## Prerequisites
 
 These instructions assume you are running in Linux or macOS. You can run this sandbox on a local machine or on a virtual machine. You need to have privileges to run docker commands on your local machine or in the VM.
 
-This sandbox requires you to install two Docker tools: Docker Engine >= 1.10.0 and Docker Compose >= 1.6.0. To install the Docker Engine, choose from the [list of supported platforms](https://docs.docker.com/engine/install/). To install Docker Compose, see the [detailed instructions here](https://docs.docker.com/compose/install/).
+This sandbox requires you to install two Docker tools: Docker Engine >= 1.10.0 and Docker Compose >= 1.6.0. To install the Docker Engine, choose from the [list of supported platforms]({{< ref "/manuals/DockerEngine/Install" >}}). To install Docker Compose, see the [detailed instructions here]({{< ref "/manuals/DockerCompose/Install" >}}).
 
-## [What is in the sandbox?](https://docs.docker.com/engine/security/trust/trust_sandbox/#what-is-in-the-sandbox)
+## What is in the sandbox?
 
 If you are just using trust out-of-the-box you only need your Docker Engine client and access to the Docker Hub. The sandbox mimics a production trust environment, and sets up these additional components.
 
@@ -42,7 +42,7 @@ When you play in the sandbox, you also create root and repository keys. The sand
 
 By using a docker-in-docker image for the `trustsandbox` container, you also don't pollute your real Docker daemon cache with any images you push and pull. The images are stored in an anonymous volume attached to this container, and can be destroyed after you destroy the container.
 
-## [Build the sandbox](https://docs.docker.com/engine/security/trust/trust_sandbox/#build-the-sandbox)
+## Build the sandbox
 
 In this section, you use Docker Compose to specify how to set up and link together the `trustsandbox` container, the Notary server, and the Registry server.
 
@@ -111,7 +111,7 @@ In this section, you use Docker Compose to specify how to set up and link togeth
 
    The first time you run this, the docker-in-docker, Notary server, and registry images are downloaded from Docker Hub.
 
-## [Play in the sandbox](https://docs.docker.com/engine/security/trust/trust_sandbox/#play-in-the-sandbox)
+## Play in the sandbox
 
 Now that everything is setup, you can go into your `trustsandbox` container and start testing Docker content trust. From your host machine, obtain a shell in the `trustsandbox` container.
 
@@ -120,7 +120,7 @@ $ docker container exec -it trustsandbox sh
 / #
 ```
 
-### [Test some trust operations](https://docs.docker.com/engine/security/trust/trust_sandbox/#test-some-trust-operations)
+### Test some trust operations
 
 Now, pull some images from within the `trustsandbox` container.
 
@@ -205,7 +205,7 @@ Now, pull some images from within the `trustsandbox` container.
     Tagging sandboxregistry:5000/test/trusttest@sha256:ebf59c538accdf160ef435f1a19938ab8c0d6bd96aef8d4ddd1b379edf15a926 as sandboxregistry:5000/test/trusttest:latest
    ```
 
-### [Test with malicious images](https://docs.docker.com/engine/security/trust/trust_sandbox/#test-with-malicious-images)
+### Test with malicious images
 
 What happens when data is corrupted and you try to pull it when trust is enabled? In this section, you go into the `sandboxregistry` and tamper with some data. Then, you try and pull it.
 
@@ -283,11 +283,11 @@ What happens when data is corrupted and you try to pull it when trust is enabled
 
    The pull did not complete because the trust system couldn't verify the image.
 
-## [More play in the sandbox](https://docs.docker.com/engine/security/trust/trust_sandbox/#more-play-in-the-sandbox)
+## More play in the sandbox
 
-Now, you have a full Docker content trust sandbox on your local system, feel free to play with it and see how it behaves. If you find any security issues with Docker, feel free to send us an email at [security@docker.com](https://docs.docker.com/engine/security/trust/trust_sandbox/).
+Now, you have a full Docker content trust sandbox on your local system, feel free to play with it and see how it behaves. If you find any security issues with Docker, feel free to send us an email at [security@docker.com]({{< ref "/manuals/DockerEngine/Security/ContenttrustinDocker/Playinacontenttrustsandbox" >}}).
 
-## [Clean up your sandbox](https://docs.docker.com/engine/security/trust/trust_sandbox/#clean-up-your-sandbox)
+## Clean up your sandbox
 
 When you are done, and want to clean up all the services you've started and any anonymous volumes that have been created, just run the following command in the directory where you've created your Docker Compose file:
 

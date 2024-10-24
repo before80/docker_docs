@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/docker-hub/repos/create/](https://docs.docker.com/docker-hub/repos/create/)
+> 原文：[https://docs.docker.com/docker-hub/repos/create/](https://docs.docker.com/docker-hub/repos/create/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,9 +16,9 @@ draft = false
 
 Repositories let you share container images with your team, customers, or the Docker community at large.
 
-A single Docker Hub repository can hold many Docker images which are stored as **tags**. You can push Docker images to Docker Hub with the [`docker push`](https://docs.docker.com/reference/cli/docker/image/push/)command.
+A single Docker Hub repository can hold many Docker images which are stored as **tags**. You can push Docker images to Docker Hub with the [`docker push`]({{< ref "/reference/CLIreference/docker/dockerimage/dockerpush" >}})command.
 
-## [Create a repository](https://docs.docker.com/docker-hub/repos/create/#create-a-repository)
+## Create a repository
 
 1. Sign in to Docker Hub.
 2. Select **Repositories**.
@@ -26,7 +26,7 @@ A single Docker Hub repository can hold many Docker images which are stored as *
 
 When creating a new repository:
 
-- You can choose to locate it under your own user account, or under any [organization](https://docs.docker.com/admin/organization/orgs/) where you are an [owner](https://docs.docker.com/admin/organization/manage-a-team/#organization-owner) or [editor](https://docs.docker.com/security/for-admins/roles-and-permissions/).
+- You can choose to locate it under your own user account, or under any [organization]({{< ref "/manuals/Administration/Organizationadministration/Createyourorganization" >}}) where you are an [owner](https://docs.docker.com/admin/organization/manage-a-team/#organization-owner) or [editor]({{< ref "/manuals/Security/Foradmins/Rolesandpermissions" >}}).
 
 - The repository name needs to:
 
@@ -54,7 +54,7 @@ When creating a new repository:
   >
   > For organizations creating a new repository, it's recommended you select **Private**.
 
-### [Add a repository overview](https://docs.docker.com/docker-hub/repos/create/#add-a-repository-overview)
+### Add a repository overview
 
 Once you have created a repository, add an overview to the **Repository overview** field. This describes what your image does and how to use it.
 
@@ -67,7 +67,7 @@ Consider the following repository overview best practices.
 - Provide contact information for the image maintainers.
 - Include the license for the image and where to find more details if needed.
 
-## [Push a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/create/#push-a-docker-container-image-to-docker-hub)
+## Push a Docker container image to Docker Hub
 
 Once you have created a repository, you can start using `docker push` to push images.
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/network/packet-filtering-firewalls/](https://docs.docker.com/engine/network/packet-filtering-firewalls/)
+> 原文：[https://docs.docker.com/engine/network/packet-filtering-firewalls/](https://docs.docker.com/engine/network/packet-filtering-firewalls/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -28,7 +28,7 @@ But, if you are running Docker on a host exposed to the internet, you will proba
 >
 > No `iptables` rules are created for `ipvlan`, `macvlan` or `host` networking.
 
-## [Docker and iptables chains](https://docs.docker.com/engine/network/packet-filtering-firewalls/#docker-and-iptables-chains)
+## Docker and iptables chains
 
 In the `filter` table, Docker sets the default policy to `DROP`, and creates the following custom `iptables` chains:
 
@@ -64,11 +64,11 @@ In the `FORWARD` chain, Docker adds rules that pass packets that are not related
 
 In the `nat` table, Docker creates chain `DOCKER` and adds rules to implement masquerading and port-mapping.
 
-### [Add iptables policies before Docker's rules](https://docs.docker.com/engine/network/packet-filtering-firewalls/#add-iptables-policies-before-dockers-rules)
+### Add iptables policies before Docker's rules
 
 Packets that get accepted or rejected by rules in these custom chains will not be seen by user-defined rules appended to the `FORWARD` chain. So, to add additional rules to filter these packets, use the `DOCKER-USER` chain.
 
-### [Match the original IP and ports for requests](https://docs.docker.com/engine/network/packet-filtering-firewalls/#match-the-original-ip-and-ports-for-requests)
+### Match the original IP and ports for requests
 
 When packets arrive to the `DOCKER-USER` chain, they have already passed through a Destination Network Address Translation (DNAT) filter. That means that the `iptables` flags you use can only match internal IP addresses and ports of containers.
 
@@ -87,13 +87,13 @@ $ sudo iptables -I DOCKER-USER -p tcp -m conntrack --ctorigdst 198.51.100.2 --ct
 >
 > Using the `conntrack` extension may result in degraded performance.
 
-## [Port publishing and mapping](https://docs.docker.com/engine/network/packet-filtering-firewalls/#port-publishing-and-mapping)
+## Port publishing and mapping
 
 By default, for both IPv4 and IPv6, the daemon blocks access to ports that have not been published. Published container ports are mapped to host IP addresses. To do this, it uses iptables to perform Network Address Translation (NAT), Port Address Translation (PAT), and masquerading.
 
 For example, `docker run -p 8080:80 [...]` creates a mapping between port 8080 on any address on the Docker host, and the container's port 80. Outgoing connections from the container will masquerade, using the Docker host's IP address.
 
-### [Restrict external connections to containers](https://docs.docker.com/engine/network/packet-filtering-firewalls/#restrict-external-connections-to-containers)
+### Restrict external connections to containers
 
 By default, all external source IPs are allowed to connect to ports that have been published to the Docker host's addresses.
 
@@ -125,7 +125,7 @@ You can combine `-s` or `--src-range` with `-d` or `--dst-range` to control both
 
 `iptables` is complicated. There is a lot more information at [Netfilter.org HOWTO](https://www.netfilter.org/documentation/HOWTO/NAT-HOWTO.html).
 
-### [Direct routing](https://docs.docker.com/engine/network/packet-filtering-firewalls/#direct-routing)
+### Direct routing
 
 Port mapping ensures that published ports are accessible on the host's network addresses, which are likely to be routable for any external clients. No routes are normally set up in the host's network for container addresses that exist within a host.
 
@@ -141,7 +141,7 @@ In `routed` mode, a host port in a `-p` or `--publish` port mapping is not used,
 
 Mapped container ports, in `nat` or `routed` mode, are accessible from any remote address, if routing is set up in the network, unless the Docker host's firewall has additional restrictions.
 
-#### [Example](https://docs.docker.com/engine/network/packet-filtering-firewalls/#example)
+#### Example
 
 Create a network suitable for direct routing for IPv6, with NAT enabled for IPv4:
 
@@ -182,7 +182,7 @@ Alternatively, to make the mapping IPv6-only, disabling IPv4 access to the conta
 $ docker run --network mynet -p '[::]::80'
 ```
 
-### [Setting the default bind address for containers](https://docs.docker.com/engine/network/packet-filtering-firewalls/#setting-the-default-bind-address-for-containers)
+### Setting the default bind address for containers
 
 By default, when a container's ports are mapped without any specific host address, the Docker daemon binds published container ports to all host addresses (`0.0.0.0` and `[::]`).
 
@@ -218,7 +218,7 @@ $ docker network create mybridge \
 > - Setting the default binding address to `::` means port bindings with no host address specified will work for any IPv6 address on the host. But, `0.0.0.0` means any IPv4 or IPv6 address.
 > - Changing the default bind address doesn't have any effect on Swarm services. Swarm services are always exposed on the `0.0.0.0` network interface.
 
-#### [Default bridge](https://docs.docker.com/engine/network/packet-filtering-firewalls/#default-bridge)
+#### Default bridge
 
 To set the default binding for the default bridge network, configure the `"ip"` key in the `daemon.json` configuration file:
 
@@ -232,7 +232,7 @@ To set the default binding for the default bridge network, configure the `"ip"` 
 
 This changes the default binding address to `127.0.0.1` for published container ports on the default bridge network. Restart the daemon for this change to take effect. Alternatively, you can use the `dockerd --ip` flag when starting the daemon.
 
-## [Docker on a router](https://docs.docker.com/engine/network/packet-filtering-firewalls/#docker-on-a-router)
+## Docker on a router
 
 Docker sets the policy for the `FORWARD` chain to `DROP`. This will prevent your Docker host from acting as a router.
 
@@ -244,15 +244,15 @@ If you want your system to function as a router, you must add explicit `ACCEPT` 
 $ iptables -I DOCKER-USER -i src_if -o dst_if -j ACCEPT
 ```
 
-## [Prevent Docker from manipulating iptables](https://docs.docker.com/engine/network/packet-filtering-firewalls/#prevent-docker-from-manipulating-iptables)
+## Prevent Docker from manipulating iptables
 
-It is possible to set the `iptables` or `ip6tables` keys to `false` in [daemon configuration](https://docs.docker.com/reference/cli/dockerd/), but this option is not appropriate for most users. It is likely to break container networking for the Docker Engine.
+It is possible to set the `iptables` or `ip6tables` keys to `false` in [daemon configuration]({{< ref "/reference/CLIreference/dockerd" >}}), but this option is not appropriate for most users. It is likely to break container networking for the Docker Engine.
 
 All ports of all containers will be accessible from the network, and none will be mapped from Docker host IP addresses.
 
 It is not possible to completely prevent Docker from creating `iptables` rules, and creating rules after-the-fact is extremely involved and beyond the scope of these instructions.
 
-## [Integration with firewalld](https://docs.docker.com/engine/network/packet-filtering-firewalls/#integration-with-firewalld)
+## Integration with firewalld
 
 If you are running Docker with the `iptables` option set to `true`, and [firewalld](https://firewalld.org/) is enabled on your system, Docker automatically creates a `firewalld` zone called `docker`, with target `ACCEPT`.
 
@@ -260,7 +260,7 @@ All network interfaces created by Docker (for example, `docker0`) are inserted i
 
 Docker also creates a forwarding policy called `docker-forwarding` that allows forwarding from `ANY` zone to the `docker` zone.
 
-## [Docker and ufw](https://docs.docker.com/engine/network/packet-filtering-firewalls/#docker-and-ufw)
+## Docker and ufw
 
 [Uncomplicated Firewall](https://launchpad.net/ufw) (ufw) is a frontend that ships with Debian and Ubuntu, and it lets you manage firewall rules. Docker and ufw use iptables in ways that make them incompatible with each other.
 

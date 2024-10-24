@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/cli/otel/](https://docs.docker.com/engine/cli/otel/)
+> 原文：[https://docs.docker.com/engine/cli/otel/](https://docs.docker.com/engine/cli/otel/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,13 +20,13 @@ The Docker CLI supports [OpenTelemetry](https://opentelemetry.io/docs/) instrume
 
 Exporting metrics is opt-in, and you control where data is being sent by specifying the destination address of the metrics collector.
 
-## [What is OpenTelemetry?](https://docs.docker.com/engine/cli/otel/#what-is-opentelemetry)
+## What is OpenTelemetry?
 
 OpenTelemetry, or OTel for short, is an open observability framework for creating and managing telemetry data, such as traces, metrics, and logs. OpenTelemetry is vendor- and tool-agnostic, meaning that it can be used with a broad variety of Observability backends.
 
 Support for OpenTelemetry instrumentation in the Docker CLI means that the CLI can emit information about events that take place, using the protocols and conventions defined in the Open Telemetry specification.
 
-## [How it works](https://docs.docker.com/engine/cli/otel/#how-it-works)
+## How it works
 
 The Docker CLI doesn't emit telemetry data by default. Only if you've set an environment variable on your system will Docker CLI attempt to emit OpenTelemetry metrics, to the endpoint that you specify.
 
@@ -42,7 +42,7 @@ The purpose of a collector is to receive the telemetry data, process it, and exp
 
 Some backends provide tools for visualizing the metrics directly. Alternatively, you can also run a dedicated frontend with support for generating more useful graphs, such as Grafana.
 
-## [Setup](https://docs.docker.com/engine/cli/otel/#setup)
+## Setup
 
 To get started capturing telemetry data for the Docker CLI, you'll need to:
 
@@ -162,7 +162,7 @@ With these files in place:
 
 5. In the **Query** field, enter `command_time_milliseconds_total`, and execute the query to see the telemetry data.
 
-## [Available metrics](https://docs.docker.com/engine/cli/otel/#available-metrics)
+## Available metrics
 
 Docker CLI currently exports a single metric, `command.time`, which measures the execution duration of a command in milliseconds. This metric has the following attributes:
 

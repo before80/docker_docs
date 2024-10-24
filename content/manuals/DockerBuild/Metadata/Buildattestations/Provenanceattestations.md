@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/metadata/attestations/slsa-provenance/](https://docs.docker.com/build/metadata/attestations/slsa-provenance/)
+> 原文：[https://docs.docker.com/build/metadata/attestations/slsa-provenance/](https://docs.docker.com/build/metadata/attestations/slsa-provenance/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,9 +24,9 @@ The provenance attestations include facts about the build process, including det
 
 Provenance attestations follow the [SLSA provenance schema, version 0.2](https://slsa.dev/provenance/v0.2#schema).
 
-For more information about how BuildKit populates these provenance properties, refer to [SLSA definitions](https://docs.docker.com/build/metadata/attestations/slsa-definitions/).
+For more information about how BuildKit populates these provenance properties, refer to [SLSA definitions]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations" >}}).
 
-## [Create provenance attestations](https://docs.docker.com/build/metadata/attestations/slsa-provenance/#create-provenance-attestations)
+## Create provenance attestations
 
 To create a provenance attestation, pass the `--attest type=provenance` option to the `docker buildx build` command:
 
@@ -39,13 +39,13 @@ $ docker buildx build --tag <namespace>/<image>:<version> \
 
 Alternatively, you can use the shorthand `--provenance=true` option instead of `--attest type=provenance`. To specify the `mode` parameter using the shorthand option, use: `--provenance=mode=max`.
 
-For an example on how to add provenance attestations with GitHub Actions, see [Add attestations with GitHub Actions](https://docs.docker.com/build/ci/github-actions/attestations/).
+For an example on how to add provenance attestations with GitHub Actions, see [Add attestations with GitHub Actions]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Attestations" >}}).
 
-## [Mode](https://docs.docker.com/build/metadata/attestations/slsa-provenance/#mode)
+## Mode
 
 You can use the `mode` parameter to define the level of detail to be included in the provenance attestation. Supported values are `mode=min`, and `mode=max` (default).
 
-### [Min](https://docs.docker.com/build/metadata/attestations/slsa-provenance/#min)
+### Min
 
 In `min` mode, the provenance attestations include a minimal set of information, such as:
 
@@ -125,7 +125,7 @@ The following JSON example shows the information included in a provenance attest
 }
 ```
 
-### [Max](https://docs.docker.com/build/metadata/attestations/slsa-provenance/#max)
+### Max
 
 The `max` mode includes all of the information included in the `min` mode, as well as:
 
@@ -143,9 +143,9 @@ When possible, you should prefer `mode=max` as it contains significantly more de
 >
 > If you're misusing build arguments to pass credentials, authentication tokens, or other secrets, you should refactor your build to pass the secrets using [secret mounts](https://docs.docker.com/reference/cli/docker/buildx/build/#secret) instead. Secret mounts don't leak outside of the build and are never included in provenance attestations.
 
-## [Inspecting Provenance](https://docs.docker.com/build/metadata/attestations/slsa-provenance/#inspecting-provenance)
+## Inspecting Provenance
 
-To explore created Provenance exported through the `image` exporter, you can use [`imagetools inspect`](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/).
+To explore created Provenance exported through the `image` exporter, you can use [`imagetools inspect`]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildximagetools/dockerbuildximagetoolsinspect" >}}).
 
 Using the `--format` option, you can specify a template for the output. All provenance-related data is available under the `.Provenance` attribute. For example, to get the raw contents of the Provenance in the SLSA format:
 
@@ -172,7 +172,7 @@ RUN apt-get update
 ...
 ```
 
-## [Provenance attestation example](https://docs.docker.com/build/metadata/attestations/slsa-provenance/#provenance-attestation-example)
+## Provenance attestation example
 
 The following example shows what a JSON representation of a provenance attestation with `mode=max` looks like:
 

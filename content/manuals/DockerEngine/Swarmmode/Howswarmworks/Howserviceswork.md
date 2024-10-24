@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/)
+> 原文：[https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,7 +24,7 @@ When you create a service, you specify which container image to use and which co
 - A rolling update policy
 - The number of replicas of the image to run in the swarm
 
-## [Services, tasks, and containers](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#services-tasks-and-containers)
+## Services, tasks, and containers
 
 When you deploy the service to the swarm, the swarm manager accepts your service definition as the desired state for the service. Then it schedules the service on nodes in the swarm as one or more replica tasks. The tasks run independently of each other on nodes in the swarm.
 
@@ -34,7 +34,7 @@ For example, imagine you want to load balance between three instances of an HTTP
 
 A container is an isolated process. In the Swarm mode model, each task invokes exactly one container. A task is analogous to a “slot” where the scheduler places a container. Once the container is live, the scheduler recognizes that the task is in a running state. If the container fails health checks or terminates, the task terminates.
 
-## [Tasks and scheduling](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#tasks-and-scheduling)
+## Tasks and scheduling
 
 A task is the atomic unit of scheduling within a swarm. When you declare a desired service state by creating or updating a service, the orchestrator realizes the desired state by scheduling tasks. For instance, you define a service that instructs the orchestrator to keep three instances of an HTTP listener running at all times. The orchestrator responds by creating three tasks. Each task is a slot that the scheduler fills by spawning a container. The container is the instantiation of the task. If an HTTP listener task subsequently fails its health check or crashes, the orchestrator creates a new replica task that spawns a new container.
 
@@ -46,7 +46,7 @@ The diagram below shows how Swarm mode accepts service create requests and sched
 
 ![Services flow](Howserviceswork_img/service-lifecycle.webp)
 
-### [Pending services](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#pending-services)
+### Pending services
 
 A service may be configured in such a way that no node currently in the swarm can run its tasks. In this case, the service remains in state `pending`. Here are a few examples of when a service might remain in state `pending`.
 
@@ -60,7 +60,7 @@ A service may be configured in such a way that no node currently in the swarm ca
 
 This behavior illustrates that the requirements and configuration of your tasks are not tightly tied to the current state of the swarm. As the administrator of a swarm, you declare the desired state of your swarm, and the manager works with the nodes in the swarm to create that state. You do not need to micro-manage the tasks on the swarm.
 
-## [Replicated and global services](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#replicated-and-global-services)
+## Replicated and global services
 
 There are two types of service deployments, replicated and global.
 
@@ -72,7 +72,7 @@ The diagram below shows a three-service replica in gray and a global service in 
 
 ![Global vs replicated services](Howserviceswork_img/replicated-vs-global.webp)
 
-## [Learn more](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#learn-more)
+## Learn more
 
-- Read about how Swarm mode [nodes](https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/) work.
-- Learn how [PKI](https://docs.docker.com/engine/swarm/how-swarm-mode-works/pki/) works in Swarm mode.
+- Read about how Swarm mode [nodes]({{< ref "/manuals/DockerEngine/Swarmmode/Howswarmworks/Hownodeswork" >}}) work.
+- Learn how [PKI]({{< ref "/manuals/DockerEngine/Swarmmode/Howswarmworks/ManageswarmsecuritywithpublickeyinfrastructurePKI" >}}) works in Swarm mode.

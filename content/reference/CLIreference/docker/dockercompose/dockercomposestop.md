@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/stop/](https://docs.docker.com/reference/cli/docker/compose/stop/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/stop/](https://docs.docker.com/reference/cli/docker/compose/stop/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,11 +18,11 @@ draft = false
 | :---------- | ---------------------------------- |
 | Usage       | `docker compose top [SERVICES...]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/top/#description)
+## Description
 
 Displays the running processes
 
-## [Examples](https://docs.docker.com/reference/cli/docker/compose/top/#examples)
+## Examples
 
 
 

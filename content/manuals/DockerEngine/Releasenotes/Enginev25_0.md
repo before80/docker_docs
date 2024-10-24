@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/25.0/](https://docs.docker.com/engine/release-notes/25.0/)
+> 原文：[https://docs.docker.com/engine/release-notes/25.0/](https://docs.docker.com/engine/release-notes/25.0/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,10 +18,10 @@ This page describes the latest changes, additions, known issues, and fixes for D
 
 For more information about:
 
-- Deprecated and removed features, see [Deprecated Engine Features](https://docs.docker.com/engine/deprecated/).
-- Changes to the Engine API, see [Engine API version history](https://docs.docker.com/reference/api/engine/version-history/).
+- Deprecated and removed features, see [Deprecated Engine Features]({{< ref "/manuals/DockerEngine/Deprecatedfeatures" >}}).
+- Changes to the Engine API, see [Engine API version history]({{< ref "/reference/APIreference/DockerEngineAPI/EngineAPIversionhistory" >}}).
 
-## [25.0.5](https://docs.docker.com/engine/release-notes/25.0/#2505)
+## 25.0.5
 
 *2024-03-19*
 
@@ -30,18 +30,18 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 25.0.5 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A25.0.5)
 - [moby/moby, 25.0.5 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A25.0.5)
 
-### [Security](https://docs.docker.com/engine/release-notes/25.0/#security)
+### Security
 
 This release contains a security fix for [CVE-2024-29018](https://github.com/moby/moby/security/advisories/GHSA-mq39-4gv4-mvpx), a potential data exfiltration from 'internal' networks via authoritative DNS servers.
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/25.0/#bug-fixes-and-enhancements)
+### Bug fixes and enhancements
 
 - [CVE-2024-29018](https://github.com/moby/moby/security/advisories/GHSA-mq39-4gv4-mvpx): Do not forward requests to external DNS servers for a container that is only connected to an 'internal' network. Previously, requests were forwarded if the host's DNS server was running on a loopback address, like systemd's 127.0.0.53. [moby/moby#47589](https://github.com/moby/moby/pull/47589)
 - plugin: fix mounting /etc/hosts when running in UserNS. [moby/moby#47588](https://github.com/moby/moby/pull/47588)
 - rootless: fix `open /etc/docker/plugins: permission denied`. [moby/moby#47587](https://github.com/moby/moby/pull/47587)
 - Fix multiple parallel `docker build` runs leaking disk space. [moby/moby#47527](https://github.com/moby/moby/pull/47527)
 
-## [25.0.4](https://docs.docker.com/engine/release-notes/25.0/#2504)
+## 25.0.4
 
 *2024-03-07*
 
@@ -50,7 +50,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 25.0.4 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A25.0.4)
 - [moby/moby, 25.0.4 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A25.0.4)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/25.0/#bug-fixes-and-enhancements-1)
+### Bug fixes and enhancements
 
 - Restore DNS names for containers in the default "nat" network on Windows. [moby/moby#47490](https://github.com/moby/moby/pull/47490)
 - Fix `docker start` failing when used with `--checkpoint` [moby/moby#47466](https://github.com/moby/moby/pull/47466)
@@ -64,14 +64,14 @@ For a full list of pull requests and changes in this release, refer to the relev
 - API: Fix a regression that caused API socket connection failures to report an API version negotiation failure instead. [moby/moby#47470](https://github.com/moby/moby/pull/47470)
 - API: Preserve supplied endpoint configuration in a container-create API request, when a container-wide MAC address is specified, but `NetworkMode` name or id is not the same as the name or id used in `NetworkSettings.Networks`. [moby/moby#47510](https://github.com/moby/moby/pull/47510)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/25.0/#packaging-updates)
+### Packaging updates
 
 - Upgrade Go runtime to 1.21.8. [moby/moby#47503](https://github.com/moby/moby/pull/47503)
 - Upgrade RootlessKit to v2.0.2. [moby/moby#47508](https://github.com/moby/moby/pull/47508)
 - Upgrade Compose to v2.24.7. [docker/docker-ce-packaging#998](https://github.com/moby/moby/pull/998)
 - Upgrade Buildx to v0.13.0. [docker/docker-ce-packaging#997](https://github.com/moby/moby/pull/997)
 
-## [25.0.3](https://docs.docker.com/engine/release-notes/25.0/#2503)
+## 25.0.3
 
 *2024-02-06*
 
@@ -80,7 +80,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 25.0.3 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A25.0.3)
 - [moby/moby, 25.0.3 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A25.0.3)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/25.0/#bug-fixes-and-enhancements-2)
+### Bug fixes and enhancements
 
 - containerd image store: Fix a bug where `docker image history` would fail if a manifest wasn't found in the content store. [moby/moby#47348](https://github.com/moby/moby/pull/47348)
 
@@ -111,11 +111,11 @@ For a full list of pull requests and changes in this release, refer to the relev
 
 - Windows: Fix cache not being used when building images based on Windows versions older than the host's version. [moby/moby#47307](https://github.com/moby/moby/pull/47307), [moby/moby#47337](https://github.com/moby/moby/pull/47337)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/25.0/#packaging-updates-1)
+### Packaging updates
 
 - Removed support for Ubuntu Lunar (23.04). [docker/ce-packaging#986](https://github.com/docker/docker-ce-packaging/pull/986)
 
-## [25.0.2](https://docs.docker.com/engine/release-notes/25.0/#2502)
+## 25.0.2
 
 *2024-01-31*
 
@@ -124,7 +124,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 25.0.2 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A25.0.2)
 - [moby/moby, 25.0.2 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A25.0.2)
 
-### [Security](https://docs.docker.com/engine/release-notes/25.0/#security-1)
+### Security
 
 This release contains security fixes for the following CVEs affecting Docker Engine and its components.
 
@@ -152,7 +152,7 @@ For more information about the security issues addressed in this release, refer 
 - [CVE-2024-23650](https://github.com/moby/buildkit/security/advisories/GHSA-9p26-698r-w4hx)
 - [CVE-2024-24557](https://github.com/moby/moby/security/advisories/GHSA-xw73-rw38-6vjc)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/25.0/#packaging-updates-2)
+### Packaging updates
 
 - Upgrade containerd to [v1.6.28](https://github.com/containerd/containerd/releases/tag/v1.6.28).
 - Upgrade containerd to v1.7.13 (static binaries only). [moby/moby#47280](https://github.com/moby/moby/pull/47280)
@@ -160,7 +160,7 @@ For more information about the security issues addressed in this release, refer 
 - Upgrade Compose to v2.24.5. [docker/docker-ce-packaging#985](https://github.com/docker/docker-ce-packaging/pull/985)
 - Upgrade BuildKit to v0.12.5. [moby/moby#47273](https://github.com/moby/moby/pull/47273)
 
-## [25.0.1](https://docs.docker.com/engine/release-notes/25.0/#2501)
+## 25.0.1
 
 *2024-01-23*
 
@@ -169,7 +169,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 25.0.1 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A25.0.1)
 - [moby/moby, 25.0.1 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A25.0.1)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/25.0/#bug-fixes-and-enhancements-3)
+### Bug fixes and enhancements
 
 - API: Fix incorrect HTTP status code for containers with an invalid network configuration created before upgrading to Docker Engine v25.0. [moby/moby#47159](https://github.com/moby/moby/pull/47159)
 - Ensure that a MAC address based on a container's IP address is re-generated when the container is stopped and restarted, in case the generated IP/MAC addresses have been reused. [moby/moby#47171](https://github.com/moby/moby/pull/47171)
@@ -182,11 +182,11 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Improve error message related to extended attributes that can't be set due to improperly namespaced attribute names. [moby/moby#47178](https://github.com/moby/moby/pull/47178)
 - Swarm: Fixed `start_interval` not being passed to the container config. [moby/moby#47163](https://github.com/moby/moby/pull/47163)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/25.0/#packaging-updates-3)
+### Packaging updates
 
 - Upgrade Compose to `2.24.2`. [docker/docker-ce-packaging#981](https://github.com/docker/docker-ce-packaging/pull/981)
 
-## [25.0.0](https://docs.docker.com/engine/release-notes/25.0/#2500)
+## 25.0.0
 
 *2024-01-19*
 
@@ -211,7 +211,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 >
 > This option isn't supported with the `-v` or `--volume` flag. For more information, see [Recursive mounts](https://docs.docker.com/engine/storage/bind-mounts/#recursive-mounts).
 
-### [New](https://docs.docker.com/engine/release-notes/25.0/#new)
+### New
 
 - The daemon now uses systemd's default `LimitNOFILE`. In earlier versions of Docker Engine, this limit was set to `infinity`. This would cause issues with recent versions of systemd, where the hard limit was increased, causing programs that adjusted their behaviors based on ulimits to consume a high amount of memory. [moby/moby#45534](https://github.com/moby/moby/pull/45534)
 
@@ -233,7 +233,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 
 - Add support for filtering images based on timestamp with `docker image ls --filter=until=<timestamp>`. [moby/moby#46577](https://github.com/moby/moby/pull/46577)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/25.0/#bug-fixes-and-enhancements-4)
+### Bug fixes and enhancements
 
 - API: Fix error message for invalid policies at `ValidateRestartPolicy`. [moby/moby#46352](https://github.com/moby/moby/pull/46352)
 - API: Update `/info` endpoint to use singleflight. [moby/moby#45847](https://github.com/moby/moby/pull/45847)
@@ -285,7 +285,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - containerd image store: Add support for pulling all tags (`docker pull -a`). [moby/moby#46618](https://github.com/moby/moby/pull/46618)
 - containerd image store: Use the domain name in the image reference as the default registry authentication domain. [moby/moby#46779](https://github.com/moby/moby/pull/46779)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/25.0/#packaging-updates-4)
+### Packaging updates
 
 - Upgrade API to v1.44. [moby/moby#45468](https://github.com/moby/moby/pull/45468)
 - Upgrade Compose to `2.24.1`. [docker/docker-ce-packaging#980](https://github.com/docker/docker-ce-packaging/pull/980)
@@ -295,7 +295,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Upgrade BuildKit to v0.12.4. [moby/moby#46882](https://github.com/moby/moby/pull/46882)
 - Upgrade Buildx to v0.12.1. [docker/docker-ce-packaging#979](https://github.com/docker/docker-ce-packaging/pull/979)
 
-### [Removed](https://docs.docker.com/engine/release-notes/25.0/#removed)
+### Removed
 
 - API: Remove VirtualSize field for the `GET /images/json` and `GET /images/{id}/json` endpoints. [moby/moby#45469](https://github.com/moby/moby/pull/45469)
 - Remove deprecated `devicemapper` storage driver. [moby/moby#43637](https://github.com/moby/moby/pull/43637)
@@ -305,15 +305,15 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Remove warning for deprecated `~/.dockercfg` file. [docker/cli#4281](https://github.com/docker/cli/pull/4281)
 - Remove `logentries` logging driver. [moby/moby#46925](https://github.com/moby/moby/pull/46925)
 
-### [Deprecated](https://docs.docker.com/engine/release-notes/25.0/#deprecated)
+### Deprecated
 
 - Deprecate API versions older than 1.24. [Deprecation notice](https://docs.docker.com/engine/deprecated/#deprecate-legacy-api-versions)
 - Deprecate `IsAutomated` field and `is-automated` filter for `docker search`. [Deprecation notice](https://docs.docker.com/engine/deprecated/#isautomated-field-and-is-automated-filter-on-docker-search)
 - API: Deprecate `Container` and `ContainerConfig` properties for `/images/{id}/json` (`docker image inspect`). [moby/moby#46939](https://github.com/moby/moby/pull/46939)
 
-### [Known limitations](https://docs.docker.com/engine/release-notes/25.0/#known-limitations)
+### Known limitations
 
-#### [Extended attributes for tar files](https://docs.docker.com/engine/release-notes/25.0/#extended-attributes-for-tar-files)
+#### Extended attributes for tar files
 
 In this release, the code that handles `tar` archives was changed to be more strict and to produce an error when failing to write extended attributes (`xattr`). The `tar` implementation for macOS generates additional extended attributes by default when creating tar files. These attribute prefixes aren't valid Linux `xattr` namespace prefixes, which causes an error when Docker attempts to process these files. For example, if you try to use a tar file with an `ADD` Dockerfile instruction, you might see an error message similar to the following:
 

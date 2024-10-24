@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/buildx/debug/](https://docs.docker.com/reference/cli/docker/buildx/debug/)
+> 原文：[https://docs.docker.com/reference/cli/docker/buildx/debug/](https://docs.docker.com/reference/cli/docker/buildx/debug/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -24,11 +24,11 @@ draft = false
 
 Experimental features are intended for testing and feedback as their functionality or design may change between releases without warning or can be removed entirely in a future release.
 
-## [Description](https://docs.docker.com/reference/cli/docker/buildx/debug/#description)
+## Description
 
 Start debugger
 
-## [Options](https://docs.docker.com/reference/cli/docker/buildx/debug/#options)
+## Options
 
 | Option            | Default | Description                                                  |
 | ----------------- | ------- | ------------------------------------------------------------ |
@@ -39,8 +39,8 @@ Start debugger
 | `--root`          |         | experimental (CLI) Specify root directory of server to connect for the monitor |
 | `--server-config` |         | experimental (CLI) Specify buildx server config file for the monitor (used only when launching new server) |
 
-## [Subcommands](https://docs.docker.com/reference/cli/docker/buildx/debug/#subcommands)
+## Subcommands
 
 | Command                                                      | Description   |
 | :----------------------------------------------------------- | :------------ |
-| [`docker buildx debug build`](https://docs.docker.com/reference/cli/docker/buildx/debug/build/) | Start a build |
+| [`docker buildx debug build`]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildxdebug/dockerbuildxdebugbuild" >}}) | Start a build |

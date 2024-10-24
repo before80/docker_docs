@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文: [https://docs.docker.com/reference/glossary/](https://docs.docker.com/reference/glossary/)
+> 原文：[https://docs.docker.com/reference/glossary/](https://docs.docker.com/reference/glossary/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -105,7 +105,7 @@ In practice, `ENTRYPOINT` is not often overridden. However, specifying the `ENTR
 SSH (secure shell) is a secure protocol for accessing remote machines and applications. It provides authentication and encrypts data communication over insecure networks such as the Internet. SSH uses public/private key pairs to authenticate logins.
 
 ## `Union file system`
-Union file systems implement a [union mount](https://en.wikipedia.org/wiki/Union_mount) and operate by creating layers. Docker uses union file systems in conjunction with [copy-on-write](https://docs.docker.com/reference/glossary/#copy-on-write) techniques to provide the building blocks for containers, making them very lightweight and fast. For more on Docker and union file systems, see [Docker and OverlayFS in practice](https://docs.docker.com/engine/storage/drivers/overlayfs-driver/). Example implementations of union file systems are [UnionFS](https://en.wikipedia.org/wiki/UnionFS) and [OverlayFS](https://en.wikipedia.org/wiki/OverlayFS).
+Union file systems implement a [union mount](https://en.wikipedia.org/wiki/Union_mount) and operate by creating layers. Docker uses union file systems in conjunction with [copy-on-write](https://docs.docker.com/reference/glossary/#copy-on-write) techniques to provide the building blocks for containers, making them very lightweight and fast. For more on Docker and union file systems, see [Docker and OverlayFS in practice]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers/OverlayFSstoragedriver" >}}). Example implementations of union file systems are [UnionFS](https://en.wikipedia.org/wiki/UnionFS) and [OverlayFS](https://en.wikipedia.org/wiki/OverlayFS).
 
 ## `amd64`
 
@@ -143,7 +143,7 @@ Docker images are the basis of containers. An image is an ordered collection of 
 
 ## `Copy-on-write`
 
-Docker uses a [copy-on-write](https://docs.docker.com/engine/storage/drivers/#the-copy-on-write-cow-strategy) technique and a [union file system](https://docs.docker.com/reference/glossary/#union-file-system) for both images and containers to optimize resources and speed performance. Multiple copies of an entity share the same instance and each one makes only specific changes to its unique layer. Multiple containers can share access to the same image, and make container-specific changes on a writable layer which is deleted when the container is removed. This speeds up container start times and performance. Images are essentially layers of filesystems typically predicated on a base image under a writable layer, and built up with layers of differences from the base image. This minimizes the footprint of the image and enables shared development. For more about copy-on-write in the context of Docker, see [Understand images, containers, and storage drivers](https://docs.docker.com/engine/storage/drivers/).
+Docker uses a [copy-on-write](https://docs.docker.com/engine/storage/drivers/#the-copy-on-write-cow-strategy) technique and a [union file system](https://docs.docker.com/reference/glossary/#union-file-system) for both images and containers to optimize resources and speed performance. Multiple copies of an entity share the same instance and each one makes only specific changes to its unique layer. Multiple containers can share access to the same image, and make container-specific changes on a writable layer which is deleted when the container is removed. This speeds up container start times and performance. Images are essentially layers of filesystems typically predicated on a base image under a writable layer, and built up with layers of differences from the base image. This minimizes the footprint of the image and enables shared development. For more about copy-on-write in the context of Docker, see [Understand images, containers, and storage drivers]({{< ref "/manuals/DockerEngine/Storage/Storagedrivers" >}}).
 
 ## `Filesystem`
 A file system is the method an operating system uses to name files and assign them locations for efficient storage and retrieval.
@@ -174,10 +174,10 @@ Libnetwork provides a native Go implementation for creating and managing contain
 The people who have received and accepted invitations to join an [organization](https://docs.docker.com/reference/glossary/#organization). Member can also refer to members of a [team](https://docs.docker.com/reference/glossary/#team) within an organization.
 
 ## `Namespace`
-A [Linux namespace](https://man7.org/linux/man-pages/man7/namespaces.7.html) is a Linux kernel feature that isolates and virtualizes system resources. Processes which are restricted to a namespace can only interact with resources or processes that are part of the same namespace. Namespaces are an important part of Docker's isolation model. Namespaces exist for each type of resource, including `net` (networking), `mnt` (storage), `pid` (processes), `uts` (hostname control), and `user` (UID mapping). For more information about namespaces, see [Docker run reference](https://docs.docker.com/engine/containers/run/) and [Isolate containers with a user namespace](https://docs.docker.com/engine/security/userns-remap/).
+A [Linux namespace](https://man7.org/linux/man-pages/man7/namespaces.7.html) is a Linux kernel feature that isolates and virtualizes system resources. Processes which are restricted to a namespace can only interact with resources or processes that are part of the same namespace. Namespaces are an important part of Docker's isolation model. Namespaces exist for each type of resource, including `net` (networking), `mnt` (storage), `pid` (processes), `uts` (hostname control), and `user` (UID mapping). For more information about namespaces, see [Docker run reference]({{< ref "/manuals/DockerEngine/Containers/Runningcontainers" >}}) and [Isolate containers with a user namespace]({{< ref "/manuals/DockerEngine/Security/Isolatecontainerswithausernamespace" >}}).
 
 ## `Node`
-A [node](https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/) is a physical or virtual machine running an instance of the Docker Engine in [swarm mode](https://docs.docker.com/reference/glossary/#swarm-mode). Manager nodes perform swarm management and orchestration duties. By default, manager nodes are also worker nodes. Worker nodes execute tasks.
+A [node]({{< ref "/manuals/DockerEngine/Swarmmode/Howswarmworks/Hownodeswork" >}}) is a physical or virtual machine running an instance of the Docker Engine in [swarm mode](https://docs.docker.com/reference/glossary/#swarm-mode). Manager nodes perform swarm management and orchestration duties. By default, manager nodes are also worker nodes. Worker nodes execute tasks.
 
 ## `Organization`
 An organization is a collection of teams and repositories that can be managed together. Docker users become members of an organization when they are assigned to at least one team in the organization.
@@ -204,7 +204,7 @@ A repository is a set of Docker images. A repository can be shared by pushing it
 The number of seats refers to the number of planned members within an [organization](https://docs.docker.com/reference/glossary/#organization).
 
 ## `Service`
-A [service](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/) is the definition of how you want to run your application containers in a swarm. At the most basic level, a service defines which container image to run in the swarm and which commands to run in the container. For orchestration purposes, the service defines the "desired state," meaning how many containers to run as tasks and constraints for deploying the containers. Frequently a service is a microservice within the context of some larger application. Examples of services might include an HTTP server, a database, or any other type of executable program that you wish to run in a distributed environment.
+A [service]({{< ref "/manuals/DockerEngine/Swarmmode/Howswarmworks/Howserviceswork" >}}) is the definition of how you want to run your application containers in a swarm. At the most basic level, a service defines which container image to run in the swarm and which commands to run in the container. For orchestration purposes, the service defines the "desired state," meaning how many containers to run as tasks and constraints for deploying the containers. Frequently a service is a microservice within the context of some larger application. Examples of services might include an HTTP server, a database, or any other type of executable program that you wish to run in a distributed environment.
 
 ## `Service account`
 A service account is a Docker ID used for automated management of container images or containerized applications. Service accounts are typically used in automated workflows and do not share Docker IDs with the members in a Docker Team or Docker Business subscription plan.
@@ -213,10 +213,10 @@ A service account is a Docker ID used for automated management of container imag
 Swarm mode [container discovery](https://docs.docker.com/engine/network/drivers/overlay/#container-discovery) is a DNS component internal to the swarm that automatically assigns each service on an overlay network in the swarm a VIP and DNS entry. Containers on the network share DNS mappings for the service through gossip, so any container on the network can access the service through its service name. You don’t need to expose service-specific ports to make the service available to other services on the same overlay network. The swarm’s internal load balancer automatically distributes requests to the service VIP among the active tasks.
 
 ## `Swarm`
-A [swarm](https://docs.docker.com/engine/swarm/) is a cluster of one or more Docker Engines running in [swarm mode](https://docs.docker.com/reference/glossary/#swarm-mode).
+A [swarm]({{< ref "/manuals/DockerEngine/Swarmmode" >}}) is a cluster of one or more Docker Engines running in [swarm mode](https://docs.docker.com/reference/glossary/#swarm-mode).
 
 ## `Swarm mode`
-[Swarm mode](https://docs.docker.com/engine/swarm/) refers to cluster management and orchestration features embedded in Docker Engine. When you initialize a new swarm (cluster) or join nodes to a swarm, the Docker Engine runs in swarm mode.
+[Swarm mode]({{< ref "/manuals/DockerEngine/Swarmmode" >}}) refers to cluster management and orchestration features embedded in Docker Engine. When you initialize a new swarm (cluster) or join nodes to a swarm, the Docker Engine runs in swarm mode.
 
 ## `Tag`
 A tag is a label applied to a Docker image in a [repository](https://docs.docker.com/reference/glossary/#repository). Tags are how various images in a repository are distinguished from each other.

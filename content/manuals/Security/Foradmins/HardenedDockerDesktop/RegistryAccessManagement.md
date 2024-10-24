@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/hardened-desktop/registry-access-management/](https://docs.docker.com/security/for-admins/hardened-desktop/registry-access-management/)
+> 原文：[https://docs.docker.com/security/for-admins/hardened-desktop/registry-access-management/](https://docs.docker.com/security/for-admins/hardened-desktop/registry-access-management/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 >
 > 
 >
-> Registry Access Management is available to [Docker Business](https://docs.docker.com/subscription/core-subscription/details/) customers only.
+> Registry Access Management is available to [Docker Business]({{< ref "/manuals/Subscription/DockerCore/Subscriptionsandfeatures" >}}) customers only.
 
 With Registry Access Management (RAM), administrators can ensure that their developers using Docker Desktop only access allowed registries. This is done through the Registry Access Management dashboard in Docker Hub or the Docker Admin Console.
 
@@ -34,11 +34,11 @@ Example registries administrators can allow include:
 - Nexus
 - Artifactory
 
-## [Prerequisites](https://docs.docker.com/security/for-admins/hardened-desktop/registry-access-management/#prerequisites)
+## Prerequisites
 
-You need to [enforce sign-in](https://docs.docker.com/security/for-admins/enforce-sign-in/). For Registry Access Management to take effect, Docker Desktop users must authenticate to your organization. Enforcing sign-in ensures that your Docker Desktop developers always authenticate to your organization, even though they can authenticate without it and the feature will take effect. Enforcing sign-in guarantees the feature always takes effect.
+You need to [enforce sign-in]({{< ref "/manuals/Security/Foradmins/Enforcesign-in" >}}). For Registry Access Management to take effect, Docker Desktop users must authenticate to your organization. Enforcing sign-in ensures that your Docker Desktop developers always authenticate to your organization, even though they can authenticate without it and the feature will take effect. Enforcing sign-in guarantees the feature always takes effect.
 
-## [Configure Registry Access Management permissions](https://docs.docker.com/security/for-admins/hardened-desktop/registry-access-management/#configure-registry-access-management-permissions)
+## Configure Registry Access Management permissions
 
 Docker Hub Admin Console
 
@@ -76,11 +76,11 @@ To configure Registry Access Management permissions, perform the following steps
 
 ------
 
-## [Verify the restrictions](https://docs.docker.com/security/for-admins/hardened-desktop/registry-access-management/#verify-the-restrictions)
+## Verify the restrictions
 
 The new Registry Access Management policy takes effect after the developer successfully authenticates to Docker Desktop using their organization credentials. If a developer attempts to pull an image from a disallowed registry via the Docker CLI, they receive an error message that the organization has disallowed this registry.
 
-## [Caveats](https://docs.docker.com/security/for-admins/hardened-desktop/registry-access-management/#caveats)
+## Caveats
 
 There are certain limitations when using Registry Access Management:
 
@@ -94,6 +94,6 @@ There are certain limitations when using Registry Access Management:
 
 Also, Registry Access Management operates on the level of hosts, not IP addresses. Developers can bypass this restriction within their domain resolution, for example by running Docker against a local proxy or modifying their operating system's `sts` file. Blocking these forms of manipulation is outside the remit of Docker Desktop.
 
-## [More resources](https://docs.docker.com/security/for-admins/hardened-desktop/registry-access-management/#more-resources)
+## More resources
 
 - [Video: Hardened Desktop Registry Access Management](https://www.youtube.com/watch?v=l9Z6WJdJC9A)

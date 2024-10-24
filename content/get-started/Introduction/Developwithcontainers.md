@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/introduction/develop-with-containers/](https://docs.docker.com/get-started/introduction/develop-with-containers/)
+> 原文：[https://docs.docker.com/get-started/introduction/develop-with-containers/](https://docs.docker.com/get-started/introduction/develop-with-containers/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 <iframe id="youtube-player-D0SDBrS3t9I" data-video-id="D0SDBrS3t9I" class="youtube-video aspect-video h-fit w-full py-2" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Docker Concepts: Develop with Containers" width="100%" height="100%" src="https://www.youtube.com/embed/D0SDBrS3t9I?rel=0&amp;iv_load_policy=3&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fdocs.docker.com&amp;widgetid=1" data-gtm-yt-inspected-24="true" style="--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border-width: 0px; border-style: solid; border-color: initial; display: block; vertical-align: middle; aspect-ratio: 16 / 9; height: fit-content; width: 634.672px; padding-top: 0.5rem; padding-bottom: 0.5rem; color: rgb(0, 0, 0); font-family: &quot;Roboto Flex&quot;, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"></iframe>
 
-## [Explanation](https://docs.docker.com/get-started/introduction/develop-with-containers/#explanation)
+## Explanation
 
 Now that you have Docker Desktop installed, you are ready to do some application development. Specifically, you will do the following:
 
@@ -24,11 +24,11 @@ Now that you have Docker Desktop installed, you are ready to do some application
 2. Make changes to the backend and frontend
 3. See the changes immediately
 
-## [Try it out](https://docs.docker.com/get-started/introduction/develop-with-containers/#try-it-out)
+## Try it out
 
 In this hands-on guide, you'll learn how to develop with containers.
 
-## [Start the project](https://docs.docker.com/get-started/introduction/develop-with-containers/#start-the-project)
+## Start the project
 
 1. To get started, either clone or [download the project as a ZIP file](https://github.com/docker/getting-started-todo-app/archive/refs/heads/main.zip) to your local machine.
 
@@ -62,7 +62,7 @@ In this hands-on guide, you'll learn how to develop with containers.
 
    ![Screenshot of the getting started to-do app after its first launch](Developwithcontainers_img/develop-getting-started-app-first-launch.webp)
 
-### [What's in the environment?](https://docs.docker.com/get-started/introduction/develop-with-containers/#whats-in-the-environment)
+### What's in the environment?
 
 Now that the environment is up and running, what's actually in it? At a high-level, there are several containers (or processes) that each serve a specific need for the application:
 
@@ -74,11 +74,11 @@ Now that the environment is up and running, what's actually in it? At a high-lev
 
 With this environment, you as the developer don’t need to install or configure any services, populate a database schema, configure database credentials, or anything. You only need Docker Desktop. The rest just works.
 
-## [Make changes to the app](https://docs.docker.com/get-started/introduction/develop-with-containers/#make-changes-to-the-app)
+## Make changes to the app
 
 With this environment up and running, you’re ready to make a few changes to the application and see how Docker helps provide a fast feedback loop.
 
-### [Change the greeting](https://docs.docker.com/get-started/introduction/develop-with-containers/#change-the-greeting)
+### Change the greeting
 
 The greeting at the top of the page is populated by an API call at `/api/greeting`. Currently, it always returns "Hello world!". You’ll now modify it to return one of three randomized messages (that you'll get to choose).
 
@@ -96,7 +96,7 @@ The greeting at the top of the page is populated by an API call at `/api/greetin
 
    ![Screenshot of the to-do app with a new greeting](Developwithcontainers_img/develop-app-with-greetings.webp)
 
-### [Change the placeholder text](https://docs.docker.com/get-started/introduction/develop-with-containers/#change-the-placeholder-text)
+### Change the placeholder text
 
 When you look at the app, you'll see the placeholder text is simply "New Item". You’ll now make that a little more descriptive and fun. You’ll also make a few changes to the styling of the app too.
 
@@ -114,7 +114,7 @@ When you look at the app, you'll see the placeholder text is simply "New Item". 
 
 ![Screenshot of the to-do app with an updated placeholder in the add item text field"](Developwithcontainers_img/develop-app-with-updated-placeholder.webp)
 
-### [Change the background color](https://docs.docker.com/get-started/introduction/develop-with-containers/#change-the-background-color)
+### Change the background color
 
 Before you consider the application finalized, you need to make the colors better.
 
@@ -136,7 +136,7 @@ Before you consider the application finalized, you need to make the colors bette
 
 And with that, you're done. Congrats on updating your website.
 
-## [Recap](https://docs.docker.com/get-started/introduction/develop-with-containers/#recap)
+## Recap
 
 Before you move on, take a moment and reflect on what happened here. Within a few moments, you were able to:
 
@@ -145,8 +145,8 @@ Before you move on, take a moment and reflect on what happened here. Within a fe
 
 Docker Desktop enables all of this and so much more. Once you start thinking with containers, you can create almost any environment and easily share it with your team.
 
-## [Next steps](https://docs.docker.com/get-started/introduction/develop-with-containers/#next-steps)
+## Next steps
 
 Now that the application has been updated, you’re ready to learn about packaging it as a container image and pushing it to a registry, specifically Docker Hub.
 
-[Build and push your first image](https://docs.docker.com/get-started/introduction/build-and-push-first-image/)
+[Build and push your first image]({{< ref "/get-started/Introduction/Buildandpushyourfirstimage" >}})

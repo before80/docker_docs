@@ -8,26 +8,26 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/17.09/](https://docs.docker.com/engine/release-notes/17.09/)
+> 原文：[https://docs.docker.com/engine/release-notes/17.09/](https://docs.docker.com/engine/release-notes/17.09/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Engine 17.09 release notes
 
-## [17.09.1-ce](https://docs.docker.com/engine/release-notes/17.09/#17091-ce)
+## 17.09.1-ce
 
 2017-12-07
 
-### [Builder](https://docs.docker.com/engine/release-notes/17.09/#builder)
+### Builder
 
 - Fix config leakage on shared parent stage [moby/moby#33753](https://github.com/moby/moby/issues/33753)
 - Warn on empty continuation lines only, not on comment-only lines [moby/moby#35004](https://github.com/moby/moby/pull/35004)
 
-### [Client](https://docs.docker.com/engine/release-notes/17.09/#client)
+### Client
 
 - Set API version on Client even when Ping fails [docker/cli#546](https://github.com/docker/cli/pull/546)
 
-### [Networking](https://docs.docker.com/engine/release-notes/17.09/#networking)
+### Networking
 
 - Overlay fix for transient IP reuse [docker/libnetwork#2016](https://github.com/docker/libnetwork/pull/2016)
 - Fix reapTime logic in NetworkDB and handle DNS cleanup for attachable container [docker/libnetwork#2017](https://github.com/docker/libnetwork/pull/2017)
@@ -35,7 +35,7 @@ draft = false
 - Fix lint issues [docker/libnetwork#2020](https://github.com/docker/libnetwork/pull/2020)
 - Restore error type in FindNetwork [moby/moby#35634](https://github.com/moby/moby/pull/35634)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/17.09/#runtime)
+### Runtime
 
 - Protect `health monitor` Go channel [moby/moby#35482](https://github.com/moby/moby/pull/35482)
 - Fix leaking container/exec state [moby/moby#35484](https://github.com/moby/moby/pull/35484)
@@ -52,7 +52,7 @@ draft = false
 - Don't abort when setting may_detach_mounts (log the error instead) [moby/moby#35172](https://github.com/moby/moby/pull/35172)
 - Fix version comparison when negotiating the API version [moby/moby#35008](https://github.com/moby/moby/pull/35008)
 
-### [Swarm mode](https://docs.docker.com/engine/release-notes/17.09/#swarm-mode)
+### Swarm mode
 
 - Increase gRPC request timeout when sending snapshots [docker/swarmkit#2404](https://github.com/docker/swarmkit/pull/2404)
 
@@ -62,17 +62,17 @@ draft = false
 - Provide custom gRPC dialer to override default proxy dialer [docker/swarmkit/#2457](https://github.com/docker/swarmkit/pull/2457)
 - Avoids recursive readlock on swarm info [moby/moby#35388](https://github.com/moby/moby/pull/35388)
 
-## [17.09.0-ce](https://docs.docker.com/engine/release-notes/17.09/#17090-ce)
+## 17.09.0-ce
 
 2017-09-26
 
-### [Builder](https://docs.docker.com/engine/release-notes/17.09/#builder-1)
+### Builder
 
 - Add `--chown` flag to `ADD/COPY` commands in Dockerfile [moby/moby#34263](https://github.com/moby/moby/pull/34263)
 
 - Fix cloning unneeded files while building from git repositories [moby/moby#33704](https://github.com/moby/moby/pull/33704)
 
-### [Client](https://docs.docker.com/engine/release-notes/17.09/#client-1)
+### Client
 
 - Allow extension fields in the v3.4 version of the compose format [docker/cli#452](https://github.com/docker/cli/pull/452)
 - Make compose file allow to specify names for non-external volume [docker/cli#306](https://github.com/docker/cli/pull/306)
@@ -92,16 +92,16 @@ draft = false
 - Fix presentation of random host ports [docker/cli#404](https://github.com/docker/cli/pull/404)
 - Fix redundant service restarts when service created with multiple secrets [moby/moby#34746](https://github.com/moby/moby/issues/34746)
 
-### [Logging](https://docs.docker.com/engine/release-notes/17.09/#logging)
+### Logging
 
 - Fix Splunk logger not transmitting log data when tag is empty and raw-mode is used [moby/moby#34520](https://github.com/moby/moby/pull/34520)
 
-### [Networking](https://docs.docker.com/engine/release-notes/17.09/#networking-1)
+### Networking
 
 - Add the control plane MTU option in the daemon config [moby/moby#34103](https://github.com/moby/moby/pull/34103)
 - Add service virtual IP to sandbox's loopback address [docker/libnetwork#1877](https://github.com/docker/libnetwork/pull/1877)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/17.09/#runtime-1)
+### Runtime
 
 - Graphdriver: promote overlay2 over aufs [moby/moby#34430](https://github.com/moby/moby/pull/34430)
 - LCOW: Additional flags for VHD boot [moby/moby#34451](https://github.com/moby/moby/pull/34451)
@@ -117,7 +117,7 @@ draft = false
 - Fix layers size reported as `0` in `docker system df` [moby/moby#34826](https://github.com/moby/moby/pull/34826)
 - Fix some "device or resource busy" errors when removing containers on RHEL 7.4 based kernels [moby/moby#34886](https://github.com/moby/moby/pull/34886)
 
-### [Swarm mode](https://docs.docker.com/engine/release-notes/17.09/#swarm-mode-1)
+### Swarm mode
 
 - Include whether the managers in the swarm are autolocked as part of `docker info` [docker/cli#471](https://github.com/docker/cli/pull/471)
 
@@ -127,10 +127,10 @@ draft = false
 - Fix "permission denied" errors for configuration file in SELinux-enabled containers [moby/moby#34732](https://github.com/moby/moby/pull/34732)
 - Fix services failing to deploy on ARM nodes [moby/moby#34021](https://github.com/moby/moby/pull/34021)
 
-### [Packaging](https://docs.docker.com/engine/release-notes/17.09/#packaging)
+### Packaging
 
 - Build scripts for ppc64el on Ubuntu [docker/docker-ce-packaging#43](https://github.com/docker/docker-ce-packaging/pull/43)
 
-### [Deprecation](https://docs.docker.com/engine/release-notes/17.09/#deprecation)
+### Deprecation
 
 - Remove deprecated `--enable-api-cors` daemon flag [moby/moby#34821](https://github.com/moby/moby/pull/34821)

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/how-tos/configure-cli/](https://docs.docker.com/scout/how-tos/configure-cli/)
+> 原文：[https://docs.docker.com/scout/how-tos/configure-cli/](https://docs.docker.com/scout/how-tos/configure-cli/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -31,7 +31,7 @@ The following environment variables are available to configure the Docker Scout 
 | DOCKER_SCOUT_EXPERIMENTAL_WARN          | Boolean | Warn about experimental features                             |
 | DOCKER_SCOUT_EXPERIMENTAL_POLICY_OUTPUT | Boolean | Disable experimental output for policy evaluation            |
 
-## [Offline mode](https://docs.docker.com/scout/how-tos/configure-cli/#offline-mode)
+## Offline mode
 
 Under normal operation, Docker Scout cross-references external systems, such as npm, NuGet, or proxy.golang.org, to retrieve additional information about packages found in your image.
 

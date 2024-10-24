@@ -8,19 +8,19 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/workshop/06_bind_mounts/](https://docs.docker.com/get-started/workshop/06_bind_mounts/)
+> 原文：[https://docs.docker.com/get-started/workshop/06_bind_mounts/](https://docs.docker.com/get-started/workshop/06_bind_mounts/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
 # Use bind mounts
 
-In [part 4](https://docs.docker.com/get-started/workshop/05_persisting_data/), you used a volume mount to persist the data in your database. A volume mount is a great choice when you need somewhere persistent to store your application data.
+In [part 4]({{< ref "/get-started/Dockerworkshop/Part4PersisttheDB" >}}), you used a volume mount to persist the data in your database. A volume mount is a great choice when you need somewhere persistent to store your application data.
 
 A bind mount is another type of mount, which lets you share a directory from the host's filesystem into the container. When working on an application, you can use a bind mount to mount source code into the container. The container sees the changes you make to the code immediately, as soon as you save a file. This means that you can run processes in the container that watch for filesystem changes and respond to them.
 
 In this chapter, you'll see how you can use bind mounts and a tool called [nodemon](https://npmjs.com/package/nodemon) to watch for file changes, and then restart the application automatically. There are equivalent tools in most other languages and frameworks.
 
-## [Quick volume type comparisons](https://docs.docker.com/get-started/workshop/06_bind_mounts/#quick-volume-type-comparisons)
+## Quick volume type comparisons
 
 The following are examples of a named volume and a bind mount using `--mount`:
 
@@ -35,7 +35,7 @@ The following table outlines the main differences between volume mounts and bind
 | Populates new volume with container contents | Yes            | No          |
 | Supports Volume Drivers                      | Yes            | No          |
 
-## [Trying out bind mounts](https://docs.docker.com/get-started/workshop/06_bind_mounts/#trying-out-bind-mounts)
+## Trying out bind mounts
 
 Before looking at how you can use bind mounts for developing your application, you can run a quick experiment to get a practical understanding of how bind mounts work.
 
@@ -149,11 +149,11 @@ Before looking at how you can use bind mounts for developing your application, y
 
 That's all for a brief introduction to bind mounts. This procedure demonstrated how files are shared between the host and the container, and how changes are immediately reflected on both sides. Now you can use bind mounts to develop software.
 
-## [Development containers](https://docs.docker.com/get-started/workshop/06_bind_mounts/#development-containers)
+## Development containers
 
 Using bind mounts is common for local development setups. The advantage is that the development machine doesn’t need to have all of the build tools and environments installed. With a single docker run command, Docker pulls dependencies and tools.
 
-### [Run your app in a development container](https://docs.docker.com/get-started/workshop/06_bind_mounts/#run-your-app-in-a-development-container)
+### Run your app in a development container
 
 The following steps describe how to run a development container with a bind mount that does the following:
 
@@ -393,7 +393,7 @@ Listening on port 3000
 
 ------
 
-### [Develop your app with the development container](https://docs.docker.com/get-started/workshop/06_bind_mounts/#develop-your-app-with-the-development-container)
+### Develop your app with the development container
 
 Update your app on your host machine and see the changes reflected in the container.
 
@@ -420,7 +420,7 @@ Update your app on your host machine and see the changes reflected in the contai
    $ docker build -t getting-started .
    ```
 
-## [Summary](https://docs.docker.com/get-started/workshop/06_bind_mounts/#summary)
+## Summary
 
 At this point, you can persist your database and see changes in your app as you develop without rebuilding the image.
 
@@ -428,11 +428,11 @@ In addition to volume mounts and bind mounts, Docker also supports other mount t
 
 Related information:
 
-- [docker CLI reference](https://docs.docker.com/reference/cli/docker/)
+- [docker CLI reference]({{< ref "/reference/CLIreference/docker" >}})
 - [Manage data in Docker](https://docs.docker.com/storage/)
 
-## [Next steps](https://docs.docker.com/get-started/workshop/06_bind_mounts/#next-steps)
+## Next steps
 
 In order to prepare your app for production, you need to migrate your database from working in SQLite to something that can scale a little better. For simplicity, you'll keep using a relational database and switch your application to use MySQL. But, how should you run MySQL? How do you allow the containers to talk to each other? You'll learn about that in the next section.
 
-[Multi container apps](https://docs.docker.com/get-started/workshop/07_multi_container/)
+[Multi container apps]({{< ref "/get-started/Dockerworkshop/Part6Multi-containerapps" >}})

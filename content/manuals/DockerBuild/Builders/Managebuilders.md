@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/builders/manage/](https://docs.docker.com/build/builders/manage/)
+> 原文：[https://docs.docker.com/build/builders/manage/](https://docs.docker.com/build/builders/manage/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,11 +16,11 @@ draft = false
 
 You can create, inspect, and manage builders using `docker buildx` commands, or [using Docker Desktop](https://docs.docker.com/build/builders/manage/#manage-builders-with-docker-desktop).
 
-## [Create a new builder](https://docs.docker.com/build/builders/manage/#create-a-new-builder)
+## Create a new builder
 
-The default builder uses the [`docker` driver](https://docs.docker.com/build/builders/drivers/docker/). You can't manually create new `docker` builders, but you can create builders that use other drivers, such as the [`docker-container` driver](https://docs.docker.com/build/builders/drivers/docker-container/), which runs the BuildKit daemon in a container.
+The default builder uses the [`docker` driver]({{< ref "/manuals/DockerBuild/Builders/Builddrivers/Dockerdriver" >}}). You can't manually create new `docker` builders, but you can create builders that use other drivers, such as the [`docker-container` driver]({{< ref "/manuals/DockerBuild/Builders/Builddrivers/Dockercontainerbuilddriver" >}}), which runs the BuildKit daemon in a container.
 
-Use the [`docker buildx create`](https://docs.docker.com/reference/cli/docker/buildx/create/) command to create a builder.
+Use the [`docker buildx create`]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildxcreate" >}}) command to create a builder.
 
 
 
@@ -28,9 +28,9 @@ Use the [`docker buildx create`](https://docs.docker.com/reference/cli/docker/bu
 $ docker buildx create --name=<builder-name>
 ```
 
-Buildx uses the `docker-container` driver by default if you omit the `--driver` flag. For more information about available drivers, see [Build drivers](https://docs.docker.com/build/builders/drivers/).
+Buildx uses the `docker-container` driver by default if you omit the `--driver` flag. For more information about available drivers, see [Build drivers]({{< ref "/manuals/DockerBuild/Builders/Builddrivers" >}}).
 
-## [List available builders](https://docs.docker.com/build/builders/manage/#list-available-builders)
+## List available builders
 
 Use `docker buildx ls` to see builder instances available on your system, and the drivers they're using.
 
@@ -47,7 +47,7 @@ my_builder      docker-container
 
 The asterisk (`*`) next to the builder name indicates the [selected builder](https://docs.docker.com/build/builders/#selected-builder).
 
-## [Inspect a builder](https://docs.docker.com/build/builders/manage/#inspect-a-builder)
+## Inspect a builder
 
 To inspect a builder with the CLI, use `docker buildx inspect <name>`. You can only inspect a builder if the builder is active. You can add the `--bootstrap` flag to the command to start the builder.
 
@@ -99,9 +99,9 @@ Reclaimable:  2.01GB
 Total:        2.01GB
 ```
 
-## [Remove a builder](https://docs.docker.com/build/builders/manage/#remove-a-builder)
+## Remove a builder
 
-Use the [`docker buildx remove`](https://docs.docker.com/reference/cli/docker/buildx/create/) command to remove a builder.
+Use the [`docker buildx remove`]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildxcreate" >}}) command to remove a builder.
 
 
 
@@ -113,10 +113,10 @@ If you remove your currently selected builder, the default `docker` builder is a
 
 Local build cache for the builder is also removed.
 
-### [Removing remote builders](https://docs.docker.com/build/builders/manage/#removing-remote-builders)
+### Removing remote builders
 
 Removing a remote builder doesn't affect the remote build cache. It also doesn't stop the remote BuildKit daemon. It only removes your connection to the builder.
 
-## [Manage builders with Docker Desktop](https://docs.docker.com/build/builders/manage/#manage-builders-with-docker-desktop)
+## Manage builders with Docker Desktop
 
-If you have turned on the [Docker Desktop Builds view](https://docs.docker.com/desktop/use-desktop/builds/), you can inspect builders in [Docker Desktop settings](https://docs.docker.com/desktop/settings/#builders).
+If you have turned on the [Docker Desktop Builds view]({{< ref "/manuals/DockerDesktop/ExploreDockerDesktop/Builds" >}}), you can inspect builders in [Docker Desktop settings](https://docs.docker.com/desktop/settings/#builders).

@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/containers/runmetrics/](https://docs.docker.com/engine/containers/runmetrics/)
+> 原文：[https://docs.docker.com/engine/containers/runmetrics/](https://docs.docker.com/engine/containers/runmetrics/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Runtime metrics
 
-## [Docker stats](https://docs.docker.com/engine/containers/runmetrics/#docker-stats)
+## Docker stats
 
 You can use the `docker stats` command to live stream a container's runtime metrics. The command supports CPU, memory usage, memory limit, and network IO metrics.
 
@@ -30,9 +30,9 @@ redis1              0.07%               796 KB / 64 MB        1.21%             
 redis2              0.07%               2.746 MB / 64 MB      4.29%               1.266 KB / 648 B    12.4 MB / 0 B
 ```
 
-The [`docker stats`](https://docs.docker.com/reference/cli/docker/container/stats/) reference page has more details about the `docker stats` command.
+The [`docker stats`]({{< ref "/reference/CLIreference/docker/dockercontainer/dockercontainerstats" >}}) reference page has more details about the `docker stats` command.
 
-## [Control groups](https://docs.docker.com/engine/containers/runmetrics/#control-groups)
+## Control groups
 
 Linux Containers rely on [control groups](https://www.kernel.org/doc/Documentation/cgroup-v1/cgroups.txt) which not only track groups of processes, but also expose metrics about CPU, memory, and block I/O usage. You can access those metrics and obtain network usage metrics as well. This is relevant for "pure" LXC containers, as well as for Docker containers.
 
@@ -48,7 +48,7 @@ To figure out where your control groups are mounted, you can run:
 $ grep cgroup /proc/mounts
 ```
 
-### [Enumerate cgroups](https://docs.docker.com/engine/containers/runmetrics/#enumerate-cgroups)
+### Enumerate cgroups
 
 The file layout of cgroups is significantly different between v1 and v2.
 
@@ -60,17 +60,17 @@ cgroup v2 is used by default on the following distributions:
 - Debian GNU/Linux (since 11)
 - Ubuntu (since 21.10)
 
-#### [cgroup v1](https://docs.docker.com/engine/containers/runmetrics/#cgroup-v1)
+#### cgroup v1
 
 You can look into `/proc/cgroups` to see the different control group subsystems known to the system, the hierarchy they belong to, and how many groups they contain.
 
 You can also look at `/proc/<pid>/cgroup` to see which control groups a process belongs to. The control group is shown as a path relative to the root of the hierarchy mountpoint. `/` means the process hasn't been assigned to a group, while `/lxc/pumpkin` indicates that the process is a member of a container named `pumpkin`.
 
-#### [cgroup v2](https://docs.docker.com/engine/containers/runmetrics/#cgroup-v2)
+#### cgroup v2
 
 On cgroup v2 hosts, the content of `/proc/cgroups` isn't meaningful. See `/sys/fs/cgroup/cgroup.controllers` to the available controllers.
 
-### [Changing cgroup version](https://docs.docker.com/engine/containers/runmetrics/#changing-cgroup-version)
+### Changing cgroup version
 
 Changing cgroup version requires rebooting the entire system.
 
@@ -86,7 +86,7 @@ $ sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=1"
 
 If `grubby` command isn't available, edit the `GRUB_CMDLINE_LINUX` line in `/etc/default/grub` and run `sudo update-grub`.
 
-### [Running Docker on cgroup v2](https://docs.docker.com/engine/containers/runmetrics/#running-docker-on-cgroup-v2)
+### Running Docker on cgroup v2
 
 Docker supports cgroup v2 since Docker 20.10. Running Docker on cgroup v2 also requires the following conditions to be satisfied:
 
@@ -100,7 +100,7 @@ Note that the cgroup v2 mode behaves slightly different from the cgroup v1 mode:
 - The default cgroup namespace mode (`docker run --cgroupns`) is `private` on v2, `host` on v1.
 - The `docker run` flags `--oom-kill-disable` and `--kernel-memory` are discarded on v2.
 
-### [Find the cgroup for a given container](https://docs.docker.com/engine/containers/runmetrics/#find-the-cgroup-for-a-given-container)
+### Find the cgroup for a given container
 
 For each container, one cgroup is created in each hierarchy. On older systems with older versions of the LXC userland tools, the name of the cgroup is the name of the container. With more recent versions of the LXC tools, the cgroup is `lxc/<container_name>.`
 
@@ -113,7 +113,7 @@ Putting everything together to look at the memory metrics for a Docker container
 - `/sys/fs/cgroup/docker/<longid>/` on cgroup v2, `cgroupfs` driver
 - `/sys/fs/cgroup/system.slice/docker-<longid>.scope/` on cgroup v2, `systemd` driver
 
-### [Metrics from cgroups: memory, CPU, block I/O](https://docs.docker.com/engine/containers/runmetrics/#metrics-from-cgroups-memory-cpu-block-io)
+### Metrics from cgroups: memory, CPU, block I/O
 
 > **Note**
 >
@@ -123,7 +123,7 @@ Putting everything together to look at the memory metrics for a Docker container
 
 For each subsystem (memory, CPU, and block I/O), one or more pseudo-files exist and contain statistics.
 
-#### [Memory metrics: `memory.stat`](https://docs.docker.com/engine/containers/runmetrics/#memory-metrics-memorystat)
+#### Memory metrics: `memory.stat`
 
 Memory metrics are found in the `memory` cgroup. The memory control group adds a little overhead, because it does very fine-grained accounting of the memory usage on your host. Therefore, many distros chose to not enable it by default. Generally, to enable it, all you have to do is to add some kernel command-line parameters: `cgroup_enable=memory swapaccount=1`.
 
@@ -202,7 +202,7 @@ Some metrics are "gauges", or values that can increase or decrease. For instance
 
 Accounting for memory in the page cache is very complex. If two processes in different control groups both read the same file (ultimately relying on the same blocks on disk), the corresponding memory charge is split between the control groups. It's nice, but it also means that when a cgroup is terminated, it could increase the memory usage of another cgroup, because they're not splitting the cost anymore for those memory pages.
 
-### [CPU metrics: `cpuacct.stat`](https://docs.docker.com/engine/containers/runmetrics/#cpu-metrics-cpuacctstat)
+### CPU metrics: `cpuacct.stat`
 
 Now that we've covered memory metrics, everything else is simple in comparison. CPU metrics are in the `cpuacct` controller.
 
@@ -213,7 +213,7 @@ For each container, a pseudo-file `cpuacct.stat` contains the CPU usage accumula
 
 Those times are expressed in ticks of 1/100th of a second, also called "user jiffies". There are `USER_HZ` *"jiffies"* per second, and on x86 systems, `USER_HZ` is 100. Historically, this mapped exactly to the number of scheduler "ticks" per second, but higher frequency scheduling and [tickless kernels](https://lwn.net/Articles/549580/) have made the number of ticks irrelevant.
 
-#### [Block I/O metrics](https://docs.docker.com/engine/containers/runmetrics/#block-io-metrics)
+#### Block I/O metrics
 
 Block I/O is accounted in the `blkio` controller. Different metrics are scattered across different files. While you can find in-depth details in the [blkio-controller](https://www.kernel.org/doc/Documentation/cgroup-v1/blkio-controller.txt) file in the kernel documentation, here is a short list of the most relevant ones:
 
@@ -233,13 +233,13 @@ Block I/O is accounted in the `blkio` controller. Different metrics are scattere
 
   Indicates the number of I/O operations currently queued for this cgroup. In other words, if the cgroup isn't doing any I/O, this is zero. The opposite is not true. In other words, if there is no I/O queued, it doesn't mean that the cgroup is idle (I/O-wise). It could be doing purely synchronous reads on an otherwise quiescent device, which can therefore handle them immediately, without queuing. Also, while it's helpful to figure out which cgroup is putting stress on the I/O subsystem, keep in mind that it's a relative quantity. Even if a process group doesn't perform more I/O, its queue size can increase just because the device load increases because of other devices.
 
-### [Network metrics](https://docs.docker.com/engine/containers/runmetrics/#network-metrics)
+### Network metrics
 
 Network metrics aren't exposed directly by control groups. There is a good explanation for that: network interfaces exist within the context of *network namespaces*. The kernel could probably accumulate metrics about packets and bytes sent and received by a group of processes, but those metrics wouldn't be very useful. You want per-interface metrics (because traffic happening on the local `lo` interface doesn't really count). But since processes in a single cgroup can belong to multiple network namespaces, those metrics would be harder to interpret: multiple network namespaces means multiple `lo` interfaces, potentially multiple `eth0` interfaces, etc.; so this is why there is no easy way to gather network metrics with control groups.
 
 Instead you can gather network metrics from other sources.
 
-#### [iptables](https://docs.docker.com/engine/containers/runmetrics/#iptables)
+#### iptables
 
 iptables (or rather, the netfilter framework for which iptables is just an interface) can do some serious accounting.
 
@@ -267,7 +267,7 @@ Counters include packets and bytes. If you want to setup metrics for container t
 
 Then, you need to check those counters on a regular basis. If you happen to use `collectd`, there is a [nice plugin](https://collectd.org/wiki/index.php/Table_of_Plugins) to automate iptables counters collection.
 
-#### [Interface-level counters](https://docs.docker.com/engine/containers/runmetrics/#interface-level-counters)
+#### Interface-level counters
 
 Since each container has a virtual Ethernet interface, you might want to check directly the TX and RX counters of this interface. Each container is associated to a virtual Ethernet interface in your host, with a name like `vethKk8Zqi`. Figuring out which interface corresponds to which container is, unfortunately, difficult.
 
@@ -315,7 +315,7 @@ $ ln -sf /proc/$PID/ns/net /var/run/netns/$CID
 $ ip netns exec $CID netstat -i
 ```
 
-## [Tips for high-performance metric collection](https://docs.docker.com/engine/containers/runmetrics/#tips-for-high-performance-metric-collection)
+## Tips for high-performance metric collection
 
 Running a new process each time you want to update metrics is (relatively) expensive. If you want to collect metrics at high resolutions, and/or over a large number of containers (think 1000 containers on a single host), you don't want to fork a new process each time.
 
@@ -325,7 +325,7 @@ However, there is a catch: you must not keep this file descriptor open. If you d
 
 The right approach would be to keep track of the first PID of each container, and re-open the namespace pseudo-file each time.
 
-## [Collect metrics when a container exits](https://docs.docker.com/engine/containers/runmetrics/#collect-metrics-when-a-container-exits)
+## Collect metrics when a container exits
 
 Sometimes, you don't care about real time metric collection, but when a container exits, you want to know how much CPU, memory, etc. it has used.
 

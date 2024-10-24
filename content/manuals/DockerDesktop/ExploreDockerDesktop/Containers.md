@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/use-desktop/container/](https://docs.docker.com/desktop/use-desktop/container/)
+> 原文：[https://docs.docker.com/desktop/use-desktop/container/](https://docs.docker.com/desktop/use-desktop/container/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 The **Containers** view lists all your running containers and applications. You must have running or stopped containers and applications to see them listed.
 
-## [Container actions](https://docs.docker.com/desktop/use-desktop/container/#container-actions)
+## Container actions
 
 Use the **Search** field to search for any specific container.
 
@@ -30,19 +30,19 @@ From the **Containers** view you can perform the following actions:
 - Open the port exposed by the container in a browser
 - Copy docker run. This lets you share container run details or modify certain parameters.
 
-## [Resource usage](https://docs.docker.com/desktop/use-desktop/container/#resource-usage)
+## Resource usage
 
 From the **Containers** view you can monitor your containers' CPU and memory usage over time. This can help you understand if something is wrong with your containers or if you need to allocate additional resources.
 
 When you [inspect a container](https://docs.docker.com/desktop/use-desktop/container/#inspect-a-container), the **Stats** tab displays further information about a container's resource utilization. You can see how much CPU, memory, network and disk space your container is using over time.
 
-## [Inspect a container](https://docs.docker.com/desktop/use-desktop/container/#inspect-a-container)
+## Inspect a container
 
 You can obtain detailed information about the container when you select it.
 
 From here, you can use the quick action buttons to perform various actions such as pause, resume, start or stop, or explore the **Logs**, **Inspect**, **Bind mounts**, **Exec**, **Files**, and **Stats** tabs.
 
-### [Logs](https://docs.docker.com/desktop/use-desktop/container/#logs)
+### Logs
 
 Select **Logs** to see logs from the container. You can also:
 
@@ -53,11 +53,11 @@ Select **Logs** to see logs from the container. You can also:
 - Use the **Clear terminal** icon in the top right-hand corner to clear the logs terminal.
 - Select and view external links that may be in your logs.
 
-### [Inspect](https://docs.docker.com/desktop/use-desktop/container/#inspect)
+### Inspect
 
 Select **Inspect** to view low-level information about the container. It displays the local path, version number of the image, SHA-256, port mapping, and other details.
 
-### [Integrated terminal](https://docs.docker.com/desktop/use-desktop/container/#integrated-terminal)
+### Integrated terminal
 
 From the **Exec** tab, you can use the integrated terminal, on a running container, directly within Docker Desktop. You are able to quickly run commands within your container so you can understand its current state or debug when something goes wrong.
 
@@ -73,7 +73,7 @@ The integrated terminal:
 - Supports copy, paste, search, and clearing your session.
 - When not using debug mode, it automatically detects the default user for a running container from the image's Dockerfile. If no user is specified, or you're using debug mode, it defaults to `root`.
 
-#### [Open the integrated terminal](https://docs.docker.com/desktop/use-desktop/container/#open-the-integrated-terminal)
+#### Open the integrated terminal
 
 To open the integrated terminal, either:
 
@@ -82,11 +82,11 @@ To open the integrated terminal, either:
 
 To use your external terminal, navigate to the **General** tab in **Settings** and select the **System default** option under **Choose your terminal**.
 
-#### [Open the integrated terminal in debug mode](https://docs.docker.com/desktop/use-desktop/container/#open-the-integrated-terminal-in-debug-mode)
+#### Open the integrated terminal in debug mode
 
 Debug mode requires a [Pro, Team, or Business subcription](https://docs.docker.com/subscription/details/). Debug mode has several advantages, such as:
 
-- A customizable toolbox. The toolbox comes with many standard Linux tools pre-installed, such as `vim`, `nano`, `htop`, and `curl`. For more details, see the [`docker debug` CLI reference](https://docs.docker.com/reference/cli/docker/debug/).
+- A customizable toolbox. The toolbox comes with many standard Linux tools pre-installed, such as `vim`, `nano`, `htop`, and `curl`. For more details, see the [`docker debug` CLI reference]({{< ref "/reference/CLIreference/docker/dockerdebug" >}}).
 - The ability to access containers that don't have a shell, for example, slim or distroless containers.
 
 To open the integrated terminal in debug mode:
@@ -98,7 +98,7 @@ To open the integrated terminal in debug mode:
 
 To use debug mode by default when accessing the integrated terminal, navigate to the **General** tab in **Settings** and select the **Enable Docker Debug by default** option.
 
-### [Files](https://docs.docker.com/desktop/use-desktop/container/#files)
+### Files
 
 Select **Files** to explore the filesystem of running or stopped containers. You can also:
 
@@ -108,7 +108,7 @@ Select **Files** to explore the filesystem of running or stopped containers. You
 - Delete unnecessary files when you right-click on a file
 - Download files and folders from the container straight to the host
 
-## [Additional resources](https://docs.docker.com/desktop/use-desktop/container/#additional-resources)
+## Additional resources
 
-- [What is a container](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/)
-- [Run multi-container applications](https://docs.docker.com/get-started/docker-concepts/running-containers/multi-container-applications/)
+- [What is a container]({{< ref "/get-started/Dockerconcepts/Thebasics/Whatisacontainer" >}})
+- [Run multi-container applications]({{< ref "/get-started/Dockerconcepts/Runningcontainers/Multi-containerapplications" >}})

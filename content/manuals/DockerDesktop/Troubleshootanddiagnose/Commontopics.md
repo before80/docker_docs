@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/troubleshoot/topics/](https://docs.docker.com/desktop/troubleshoot/topics/)
+> 原文：[https://docs.docker.com/desktop/troubleshoot/topics/](https://docs.docker.com/desktop/troubleshoot/topics/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,9 +24,9 @@ draft = false
 > - [docker/for-win](https://github.com/docker/for-win/issues)
 > - [docker/for-linux](https://github.com/docker/for-linux/issues)
 
-## [Topics for all platforms](https://docs.docker.com/desktop/troubleshoot/topics/#topics-for-all-platforms)
+## Topics for all platforms
 
-### [Make sure certificates are set up correctly](https://docs.docker.com/desktop/troubleshoot/topics/#make-sure-certificates-are-set-up-correctly)
+### Make sure certificates are set up correctly
 
 Docker Desktop ignores certificates listed under insecure registries, and does not send client certificates to them. Commands like `docker run` that attempt to pull from the registry produces error messages on the command line, like this:
 
@@ -45,7 +45,7 @@ As well as on the registry. For example:
 2017/06/20 18:15:30 http: TLS handshake error from 192.168.203.139:52883: tls: first record does not look like a TLS handshake
 ```
 
-### [Docker Desktop's UI appears green, distorted, or has visual artifacts](https://docs.docker.com/desktop/troubleshoot/topics/#docker-desktops-ui-appears-green-distorted-or-has-visual-artifacts)
+### Docker Desktop's UI appears green, distorted, or has visual artifacts
 
 Docker Desktop uses hardware-accelerated graphics by default, which may cause problems for some GPUs. In such cases, Docker Desktop will launch successfully, but some screens may appear green, distorted, or have some visual artifacts.
 
@@ -57,15 +57,15 @@ To work around this issue, disable hardware acceleration by creating a `"disable
 
 After updating the `settings.json` file, close and restart Docker Desktop to apply the changes.
 
-## [Topics for Linux and Mac](https://docs.docker.com/desktop/troubleshoot/topics/#topics-for-linux-and-mac)
+## Topics for Linux and Mac
 
-### [Volume mounting requires file sharing for any project directories outside of `$HOME`](https://docs.docker.com/desktop/troubleshoot/topics/#volume-mounting-requires-file-sharing-for-any-project-directories-outside-of-home)
+### Volume mounting requires file sharing for any project directories outside of `$HOME`
 
-If you are using mounted volumes and get runtime errors indicating an application file is not found, access to a volume mount is denied, or a service cannot start, such as when using [Docker Compose](https://docs.docker.com/compose/gettingstarted/), you might need to turn on [file sharing](https://docs.docker.com/desktop/settings/#file-sharing).
+If you are using mounted volumes and get runtime errors indicating an application file is not found, access to a volume mount is denied, or a service cannot start, such as when using [Docker Compose]({{< ref "/manuals/DockerCompose/Quickstart" >}}), you might need to turn on [file sharing](https://docs.docker.com/desktop/settings/#file-sharing).
 
 Volume mounting requires shared drives for projects that live outside of the `/home/<user>` directory. From **Settings**, select **Resources** and then **File sharing**. Share the drive that contains the Dockerfile and volume.
 
-### [Docker Desktop fails to start on MacOS or Linux platforms](https://docs.docker.com/desktop/troubleshoot/topics/#docker-desktop-fails-to-start-on-macos-or-linux-platforms)
+### Docker Desktop fails to start on MacOS or Linux platforms
 
 On MacOS and Linux, Docker Desktop creates Unix domain sockets used for inter-process communication.
 
@@ -85,9 +85,9 @@ Following are the examples of errors on MacOS which indicate that the startup fa
 [com.docker.backend][E] listen(vsock:4099) failed: listen unix HOME/Library/Containers/com.docker.docker/Data/vms/0/00000002.00001003: bind: invalid argument
 ```
 
-## [Topics for Mac](https://docs.docker.com/desktop/troubleshoot/topics/#topics-for-mac)
+## Topics for Mac
 
-### [Incompatible CPU detected](https://docs.docker.com/desktop/troubleshoot/topics/#incompatible-cpu-detected)
+### Incompatible CPU detected
 
 Docker Desktop requires a processor (CPU) that supports virtualization and, more specifically, the [Apple Hypervisor framework](https://developer.apple.com/library/mac/documentation/DriversKernelHardware/Reference/Hypervisor/). Docker Desktop is only compatible with Mac systems that have a CPU that supports the Hypervisor framework. Most Macs built in 2010 and later support it,as described in the Apple Hypervisor Framework documentation about supported hardware:
 
@@ -107,17 +107,17 @@ If not, the command prints `kern.hv_support: 0`.
 
 See also, [Hypervisor Framework Reference](https://developer.apple.com/library/mac/documentation/DriversKernelHardware/Reference/Hypervisor/) in the Apple documentation, and Docker Desktop [Mac system requirements](https://docs.docker.com/desktop/install/mac-install/#system-requirements).
 
-### [VPNKit keeps breaking](https://docs.docker.com/desktop/troubleshoot/topics/#vpnkit-keeps-breaking)
+### VPNKit keeps breaking
 
 In Docker Desktop version 4.19, gVisor replaced VPNKit to enhance the performance of VM networking when using the Virtualization framework on macOS 13 and above.
 
 To continue using VPNKit, add `"networkType":"vpnkit"` to your `settings.json` file located at `~/Library/Group Containers/group.com.docker/settings.json`.
 
-## [Topics for Windows](https://docs.docker.com/desktop/troubleshoot/topics/#topics-for-windows)
+## Topics for Windows
 
-### [Volumes](https://docs.docker.com/desktop/troubleshoot/topics/#volumes)
+### Volumes
 
-#### [Permissions errors on data directories for shared volumes](https://docs.docker.com/desktop/troubleshoot/topics/#permissions-errors-on-data-directories-for-shared-volumes)
+#### Permissions errors on data directories for shared volumes
 
 When sharing files from Windows, Docker Desktop sets permissions on [shared volumes](https://docs.docker.com/desktop/settings/#file-sharing) to a default value of [0777](https://chmodcommand.com/chmod-0777/) (`read`, `write`, `execute` permissions for `user` and for `group`).
 
@@ -125,17 +125,17 @@ The default permissions on shared volumes are not configurable. If you are worki
 
 See also, [Can I change permissions on shared volumes for container-specific deployment requirements?](https://docs.docker.com/desktop/faqs/windowsfaqs/#can-i-change-permissions-on-shared-volumes-for-container-specific-deployment-requirements) in the FAQs.
 
-#### [Volume mounting requires shared folders for Linux containers](https://docs.docker.com/desktop/troubleshoot/topics/#volume-mounting-requires-shared-folders-for-linux-containers)
+#### Volume mounting requires shared folders for Linux containers
 
-If you are using mounted volumes and get runtime errors indicating an application file is not found, access is denied to a volume mount, or a service cannot start, such as when using [Docker Compose](https://docs.docker.com/compose/gettingstarted/), you might need to turn on [shared folders](https://docs.docker.com/desktop/settings/#file-sharing).
+If you are using mounted volumes and get runtime errors indicating an application file is not found, access is denied to a volume mount, or a service cannot start, such as when using [Docker Compose]({{< ref "/manuals/DockerCompose/Quickstart" >}}), you might need to turn on [shared folders](https://docs.docker.com/desktop/settings/#file-sharing).
 
 With the Hyper-V backend, mounting files from Windows requires shared folders for Linux containers. From **Settings**, select **Shared Folders** and share the folder that contains the Dockerfile and volume.
 
-#### [Support for symlinks](https://docs.docker.com/desktop/troubleshoot/topics/#support-for-symlinks)
+#### Support for symlinks
 
 Symlinks work within and across containers. To learn more, see [How do symlinks work on Windows?](https://docs.docker.com/desktop/faqs/windowsfaqs/#how-do-symlinks-work-on-windows).
 
-#### [Avoid unexpected syntax errors, use Unix style line endings for files in containers](https://docs.docker.com/desktop/troubleshoot/topics/#avoid-unexpected-syntax-errors-use-unix-style-line-endings-for-files-in-containers)
+#### Avoid unexpected syntax errors, use Unix style line endings for files in containers
 
 Any file destined to run inside a container must use Unix style `\n` line endings. This includes files referenced at the command line for builds and in RUN commands in Docker files.
 
@@ -143,7 +143,7 @@ Docker containers and `docker build` run in a Unix environment, so files in cont
 
 For an example of this issue and the resolution, see this issue on GitHub: [Docker RUN fails to execute shell script](https://github.com/moby/moby/issues/24388).
 
-#### [Path conversion on Windows](https://docs.docker.com/desktop/troubleshoot/topics/#path-conversion-on-windows)
+#### Path conversion on Windows
 
 On Linux, the system takes care of mounting a path to another path. For example, when you run the following command on Linux:
 
@@ -173,7 +173,7 @@ Docker Desktop also allows you to use Unix-style path to the appropriate format.
 $ docker run --rm -ti -v /c/Users/user/work:/work alpine ls /work
 ```
 
-#### [Working with Git Bash](https://docs.docker.com/desktop/troubleshoot/topics/#working-with-git-bash)
+#### Working with Git Bash
 
 Git Bash (or MSYS) provides a Unix-like environment on Windows. These tools apply their own preprocessing on the command line. For example, if you run the following command in Git Bash, it gives an error:
 
@@ -247,11 +247,11 @@ It only expects the environment variable here. The value doesn't matter.
 
 In some cases, MSYS also transforms colons to semicolon. Similar conversions can also occur when using `~` because the POSIX layer translates it to a DOS path. `MSYS_NO_PATHCONV` also works in this case.
 
-### [Virtualization](https://docs.docker.com/desktop/troubleshoot/topics/#virtualization)
+### Virtualization
 
 Your machine must have the following features for Docker Desktop to function correctly:
 
-#### [WSL 2 and Windows Home](https://docs.docker.com/desktop/troubleshoot/topics/#wsl-2-and-windows-home)
+#### WSL 2 and Windows Home
 
 1. Virtual Machine Platform
 2. [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
@@ -260,7 +260,7 @@ Your machine must have the following features for Docker Desktop to function cor
 
 ![WSL 2 enabled](Commontopics_img/wsl2-enabled.png)
 
-#### [Hyper-V](https://docs.docker.com/desktop/troubleshoot/topics/#hyper-v)
+#### Hyper-V
 
 On Windows 10 Pro or Enterprise, you can also use Hyper-V with the following features enabled:
 
@@ -278,9 +278,9 @@ To install Hyper-V manually, see [Install Hyper-V on Windows 10](https://msdn.mi
 
 From the start menu, type **Turn Windows features on or off** and press enter. In the subsequent screen, verify that Hyper-V is enabled.
 
-#### [Virtualization must be turned on](https://docs.docker.com/desktop/troubleshoot/topics/#virtualization-must-be-turned-on)
+#### Virtualization must be turned on
 
-In addition to [Hyper-V](https://docs.docker.com/desktop/troubleshoot/topics/#hyper-v) or [WSL 2](https://docs.docker.com/desktop/wsl/), virtualization must be turned on. Check the Performance tab on the Task Manager. Alternatively, you can type 'systeminfo' into your terminal. If you see 'Hyper-V Requirements: A hypervisor has been detected. Features required for Hyper-V will not be displayed', then virtualization is enabled.
+In addition to [Hyper-V](https://docs.docker.com/desktop/troubleshoot/topics/#hyper-v) or [WSL 2]({{< ref "/manuals/DockerDesktop/WSL" >}}), virtualization must be turned on. Check the Performance tab on the Task Manager. Alternatively, you can type 'systeminfo' into your terminal. If you see 'Hyper-V Requirements: A hypervisor has been detected. Features required for Hyper-V will not be displayed', then virtualization is enabled.
 
 ![Task Manager](Commontopics_img/virtualization-enabled.png)
 
@@ -288,7 +288,7 @@ If you manually uninstall Hyper-V, WSL 2 or turn off virtualization, Docker Desk
 
 To turn on nested virtualisation, see [Run Docker Desktop for Windows in a VM or VDI environment](https://docs.docker.com/desktop/vm-vdi/#turn-on-nested-virtualization).
 
-#### [Hypervisor enabled at Windows startup](https://docs.docker.com/desktop/troubleshoot/topics/#hypervisor-enabled-at-windows-startup)
+#### Hypervisor enabled at Windows startup
 
 If you have completed the steps described above and are still experiencing Docker Desktop startup issues, this could be because the Hypervisor is installed, but not launched during Windows startup. Some tools (such as older versions of Virtual Box) and video game installers turn off hypervisor on boot. To turn it back on:
 
@@ -298,7 +298,7 @@ If you have completed the steps described above and are still experiencing Docke
 
 You can also refer to the [Microsoft TechNet article](https://social.technet.microsoft.com/Forums/en-US/ee5b1d6b-09e2-49f3-a52c-820aafc316f9/hyperv-doesnt-work-after-upgrade-to-windows-10-1809?forum=win10itprovirt) on Code flow guard (CFG) settings.
 
-#### [Turn on nested virtualization](https://docs.docker.com/desktop/troubleshoot/topics/#turn-on-nested-virtualization)
+#### Turn on nested virtualization
 
 If you are using Hyper-V and you get the following error message when running Docker Desktop in a VDI environment:
 
@@ -310,7 +310,7 @@ The Virtual Machine Management Service failed to start the virtual machine 'Dock
 
 Try [enabling nested virtualization](https://docs.docker.com/desktop/vm-vdi/#turn-on-nested-virtualization).
 
-### [Windows containers and Windows Server](https://docs.docker.com/desktop/troubleshoot/topics/#windows-containers-and-windows-server)
+### Windows containers and Windows Server
 
 Docker Desktop is not supported on Windows Server. If you have questions about how to run Windows containers on Windows 10, see [Switch between Windows and Linux containers](https://docs.docker.com/desktop/faqs/windowsfaqs/#how-do-i-switch-between-windows-and-linux-containers).
 
@@ -326,7 +326,7 @@ C:\Program Files\Docker\docker.exe:
  See 'C:\Program Files\Docker\docker.exe run --help'.
 ```
 
-### [`Docker Desktop Access Denied` error message when starting Docker Desktop](https://docs.docker.com/desktop/troubleshoot/topics/#docker-desktop-access-denied-error-message-when-starting-docker-desktop)
+### `Docker Desktop Access Denied` error message when starting Docker Desktop
 
 Docker Desktop displays the **Docker Desktop - Access Denied** error if a Windows user is not part of the **docker-users** group.
 

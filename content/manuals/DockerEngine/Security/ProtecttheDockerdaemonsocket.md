@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/security/protect-access/](https://docs.docker.com/engine/security/protect-access/)
+> 原文：[https://docs.docker.com/engine/security/protect-access/](https://docs.docker.com/engine/security/protect-access/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 By default, Docker runs through a non-networked UNIX socket. It can also optionally communicate using SSH or a TLS (HTTPS) socket.
 
-## [Use SSH to protect the Docker daemon socket](https://docs.docker.com/engine/security/protect-access/#use-ssh-to-protect-the-docker-daemon-socket)
+## Use SSH to protect the Docker daemon socket
 
 > **Note**
 >
@@ -24,7 +24,7 @@ By default, Docker runs through a non-networked UNIX socket. It can also optiona
 >
 > The given `USERNAME` must have permissions to access the docker socket on the remote machine. Refer to [manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) to learn how to give a non-root user access to the docker socket.
 
-The following example creates a [`docker context`](https://docs.docker.com/engine/manage-resources/contexts/) to connect with a remote `dockerd` daemon on `host1.example.com` using SSH, and as the `docker-user` user on the remote machine:
+The following example creates a [`docker context`]({{< ref "/manuals/DockerEngine/Manageresources/Dockercontexts" >}}) to connect with a remote `dockerd` daemon on `host1.example.com` using SSH, and as the `docker-user` user on the remote machine:
 
 
 
@@ -71,7 +71,7 @@ $ docker info
 <prints output of the remote engine>
 ```
 
-### [SSH Tips](https://docs.docker.com/engine/security/protect-access/#ssh-tips)
+### SSH Tips
 
 For the best user experience with SSH, configure `~/.ssh/config` as follows to allow reusing a SSH connection for multiple invocations of the `docker` CLI:
 
@@ -83,7 +83,7 @@ ControlPath       ~/.ssh/control-%C
 ControlPersist    yes
 ```
 
-## [Use TLS (HTTPS) to protect the Docker daemon socket](https://docs.docker.com/engine/security/protect-access/#use-tls-https-to-protect-the-docker-daemon-socket)
+## Use TLS (HTTPS) to protect the Docker daemon socket
 
 If you need Docker to be reachable through HTTP rather than SSH in a safe manner, you can enable TLS (HTTPS) by specifying the `tlsverify` flag and pointing Docker's `tlscacert` flag to a trusted CA certificate.
 
@@ -95,7 +95,7 @@ In the daemon mode, it only allows connections from clients authenticated by a c
 >
 > Using TLS and managing a CA is an advanced topic. Familiarize yourself with OpenSSL, x509, and TLS before using it in production.
 
-### [Create a CA, server and client keys with OpenSSL](https://docs.docker.com/engine/security/protect-access/#create-a-ca-server-and-client-keys-with-openssl)
+### Create a CA, server and client keys with OpenSSL
 
 > **Note**
 >
@@ -185,7 +185,7 @@ Getting CA Private Key
 Enter pass phrase for ca-key.pem:
 ```
 
-[Authorization plugins](https://docs.docker.com/engine/extend/plugins_authorization/) offer more fine-grained control to supplement authentication from mutual TLS. In addition to other information described in the above document, authorization plugins running on a Docker daemon receive the certificate information for connecting Docker clients.
+[Authorization plugins]({{< ref "/manuals/DockerEngine/DockerEngineplugins/Accessauthorizationplugin" >}}) offer more fine-grained control to supplement authentication from mutual TLS. In addition to other information described in the above document, authorization plugins running on a Docker daemon receive the certificate information for connecting Docker clients.
 
 For client authentication, create a client key and certificate signing request:
 
@@ -303,7 +303,7 @@ $ docker --tlsverify \
 >
 > As shown in the example above, you don't need to run the `docker` client with `sudo` or the `docker` group when you use certificate authentication. That means anyone with the keys can give any instructions to your Docker daemon, giving them root access to the machine hosting the daemon. Guard these keys as you would a root password!
 
-### [Secure by default](https://docs.docker.com/engine/security/protect-access/#secure-by-default)
+### Secure by default
 
 If you want to secure your Docker client connections by default, you can move the files to the `.docker` directory in your home directory --- and set the `DOCKER_HOST` and `DOCKER_TLS_VERIFY` variables as well (instead of passing `-H=tcp://$HOST:2376` and `--tlsverify` on every call).
 
@@ -322,16 +322,16 @@ Docker now connects securely by default:
 $ docker ps
 ```
 
-### [Other modes](https://docs.docker.com/engine/security/protect-access/#other-modes)
+### Other modes
 
 If you don't want to have complete two-way authentication, you can run Docker in various other modes by mixing the flags.
 
-#### [Daemon modes](https://docs.docker.com/engine/security/protect-access/#daemon-modes)
+#### Daemon modes
 
 - `tlsverify`, `tlscacert`, `tlscert`, `tlskey` set: Authenticate clients
 - `tls`, `tlscert`, `tlskey`: Do not authenticate clients
 
-#### [Client modes](https://docs.docker.com/engine/security/protect-access/#client-modes)
+#### Client modes
 
 - `tls`: Authenticate server based on public/default CA pool
 - `tlsverify`, `tlscacert`: Authenticate server based on given CA
@@ -347,7 +347,7 @@ $ export DOCKER_CERT_PATH=~/.docker/zone1/
 $ docker --tlsverify ps
 ```
 
-#### [Connecting to the secure Docker port using `curl`](https://docs.docker.com/engine/security/protect-access/#connecting-to-the-secure-docker-port-using-curl)
+#### Connecting to the secure Docker port using `curl`
 
 To use `curl` to make test API requests, you need to use three extra command line flags:
 
@@ -360,7 +360,7 @@ $ curl https://$HOST:2376/images/json \
   --cacert ~/.docker/ca.pem
 ```
 
-## [Related information](https://docs.docker.com/engine/security/protect-access/#related-information)
+## Related information
 
-- [Using certificates for repository client verification](https://docs.docker.com/engine/security/certificates/)
-- [Use trusted images](https://docs.docker.com/engine/security/trust/)
+- [Using certificates for repository client verification]({{< ref "/manuals/DockerEngine/Security/Verifyrepositoryclientwithcertificates" >}})
+- [Use trusted images]({{< ref "/manuals/DockerEngine/Security/ContenttrustinDocker" >}})

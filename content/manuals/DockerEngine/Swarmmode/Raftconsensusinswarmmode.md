@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/raft/](https://docs.docker.com/engine/swarm/raft/)
+> 原文：[https://docs.docker.com/engine/swarm/raft/](https://docs.docker.com/engine/swarm/raft/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 

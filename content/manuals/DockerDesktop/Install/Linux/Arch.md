@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/install/linux/archlinux/](https://docs.docker.com/desktop/install/linux/archlinux/)
+> 原文：[https://docs.docker.com/desktop/install/linux/archlinux/](https://docs.docker.com/desktop/install/linux/archlinux/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -26,11 +26,11 @@ This page contains information on how to install, launch and upgrade Docker Desk
 >
 > This is an experimental installation package. Docker has not tested or verified the installation.
 
-## [Prerequisites](https://docs.docker.com/desktop/install/linux/archlinux/#prerequisites)
+## Prerequisites
 
 To install Docker Desktop successfully, you must meet the [general system requirements](https://docs.docker.com/desktop/install/linux/#general-system-requirements).
 
-## [Install Docker Desktop](https://docs.docker.com/desktop/install/linux/archlinux/#install-docker-desktop)
+## Install Docker Desktop
 
 1. [Install the Docker client binary on Linux](https://docs.docker.com/engine/install/binaries/#install-daemon-and-client-binaries-on-linux). Static binaries for the Docker client are available for Linux as `docker`. You can use:
 
@@ -41,7 +41,7 @@ To install Docker Desktop successfully, you must meet the [general system requir
    $ mv ./docker /usr/local/bin
    ```
 
-2. Download the latest Arch package from the [Release notes](https://docs.docker.com/desktop/release-notes/).
+2. Download the latest Arch package from the [Release notes]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}).
 
 3. Install the package:
 
@@ -53,7 +53,7 @@ To install Docker Desktop successfully, you must meet the [general system requir
 
    By default, Docker Desktop is installed at `/opt/docker-desktop`.
 
-## [Launch Docker Desktop](https://docs.docker.com/desktop/install/linux/archlinux/#launch-docker-desktop)
+## Launch Docker Desktop
 
 To start Docker Desktop for Linux:
 
@@ -120,12 +120,12 @@ Alternatively, open a terminal and run:
 $ systemctl --user stop docker-desktop
 ```
 
-## [Next steps](https://docs.docker.com/desktop/install/linux/archlinux/#next-steps)
+## Next steps
 
 - Explore [Docker's core subscriptions](https://www.docker.com/pricing/) to see what Docker can offer you.
-- Take a look at the [Docker workshop](https://docs.docker.com/get-started/workshop/) to learn how to build an image and run it as a containerized application.
-- [Explore Docker Desktop](https://docs.docker.com/desktop/use-desktop/) and all its features.
-- [Troubleshooting](https://docs.docker.com/desktop/troubleshoot/) describes common problems, workarounds, how to run and submit diagnostics, and submit issues.
-- [FAQs](https://docs.docker.com/desktop/faqs/general/) provide answers to frequently asked questions.
-- [Release notes](https://docs.docker.com/desktop/release-notes/) lists component updates, new features, and improvements associated with Docker Desktop releases.
-- [Back up and restore data](https://docs.docker.com/desktop/backup-and-restore/) provides instructions on backing up and restoring data related to Docker.
+- Take a look at the [Docker workshop]({{< ref "/get-started/Dockerworkshop" >}}) to learn how to build an image and run it as a containerized application.
+- [Explore Docker Desktop]({{< ref "/manuals/DockerDesktop/ExploreDockerDesktop" >}}) and all its features.
+- [Troubleshooting]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose" >}}) describes common problems, workarounds, how to run and submit diagnostics, and submit issues.
+- [FAQs]({{< ref "/manuals/DockerDesktop/FAQs/General" >}}) provide answers to frequently asked questions.
+- [Release notes]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}) lists component updates, new features, and improvements associated with Docker Desktop releases.
+- [Back up and restore data]({{< ref "/manuals/DockerDesktop/HowtobackupandrestoreyourDockerDesktopdata" >}}) provides instructions on backing up and restoring data related to Docker.

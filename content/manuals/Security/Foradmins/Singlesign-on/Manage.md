@@ -8,27 +8,27 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/single-sign-on/manage/](https://docs.docker.com/security/for-admins/single-sign-on/manage/)
+> 原文：[https://docs.docker.com/security/for-admins/single-sign-on/manage/](https://docs.docker.com/security/for-admins/single-sign-on/manage/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Manage single sign-on
 
-## [Manage organizations](https://docs.docker.com/security/for-admins/single-sign-on/manage/#manage-organizations)
+## Manage organizations
 
 > **Note**
 >
 > 
 >
-> You must have a [company](https://docs.docker.com/admin/company/) to manage more than one organization.
+> You must have a [company]({{< ref "/manuals/Administration/Companyadministration" >}}) to manage more than one organization.
 
 **Early Access**
 
-The Docker Admin Console is an [early access](https://docs.docker.com/release-lifecycle#early-access-ea) product.
+The Docker Admin Console is an [early access]({{< ref "/manuals/Releaselifecycle#early-access-ea" >}}) product.
 
 It's available to all company owners and organization owners. You can still manage organizations in Docker Hub, but the Admin Console includes company-level management and enhanced features for organization management.
 
-### [Connect an organization](https://docs.docker.com/security/for-admins/single-sign-on/manage/#connect-an-organization)
+### Connect an organization
 
 1. Sign in to the [Admin Console](https://admin.docker.com/).
 2. Select your company in the left navigation drop-down menu, and then select **SSO and SCIM**.
@@ -38,7 +38,7 @@ It's available to all company owners and organization owners. You can still mana
 6. Select **Next** to confirm or change the default organization and team provisioning.
 7. Review the **Connection Summary** and select **Save**.
 
-### [Remove an organization](https://docs.docker.com/security/for-admins/single-sign-on/manage/#remove-an-organization)
+### Remove an organization
 
 1. Sign in to the [Admin Console](https://admin.docker.com/).
 2. Select your company in the left navigation drop-down menu, and then select **SSO and SCIM**.
@@ -48,7 +48,7 @@ It's available to all company owners and organization owners. You can still mana
 6. Select **Next** to confirm or change the default organization and team provisioning.
 7. Review the **Connection Summary** and select **Save**.
 
-## [Manage domains](https://docs.docker.com/security/for-admins/single-sign-on/manage/#manage-domains)
+## Manage domains
 
 Admin Console Docker Hub
 
@@ -56,11 +56,11 @@ Admin Console Docker Hub
 
 **Early Access**
 
-The Docker Admin Console is an [early access](https://docs.docker.com/release-lifecycle#early-access-ea) product.
+The Docker Admin Console is an [early access]({{< ref "/manuals/Releaselifecycle#early-access-ea" >}}) product.
 
 It's available to all company owners and organization owners. You can still manage organizations in Docker Hub, but the Admin Console includes company-level management and enhanced features for organization management.
 
-### [Remove a domain from an SSO connection](https://docs.docker.com/security/for-admins/single-sign-on/manage/#remove-a-domain-from-an-sso-connection)
+### Remove a domain from an SSO connection
 
 1. Sign in to the [Admin Console](https://admin.docker.com/).
 2. Select your organization or company in the left navigation drop-down menu, and then select **SSO and SCIM**.
@@ -77,7 +77,7 @@ It's available to all company owners and organization owners. You can still mana
 
 ------
 
-## [Manage SSO connections](https://docs.docker.com/security/for-admins/single-sign-on/manage/#manage-sso-connections)
+## Manage SSO connections
 
 Admin Console Docker Hub
 
@@ -85,11 +85,11 @@ Admin Console Docker Hub
 
 **Early Access**
 
-The Docker Admin Console is an [early access](https://docs.docker.com/release-lifecycle#early-access-ea) product.
+The Docker Admin Console is an [early access]({{< ref "/manuals/Releaselifecycle#early-access-ea" >}}) product.
 
 It's available to all company owners and organization owners. You can still manage organizations in Docker Hub, but the Admin Console includes company-level management and enhanced features for organization management.
 
-### [Edit a connection](https://docs.docker.com/security/for-admins/single-sign-on/manage/#edit-a-connection)
+### Edit a connection
 
 1. Sign in to the [Admin Console](https://admin.docker.com/).
 2. Select your organization or company in the left navigation drop-down menu, and then select **SSO and SCIM**. Note that when an organization is part of a company, you must select the company and configure SSO for that organization at the company level. Each organization can have its own SSO configuration and domain, but it must be configured at the company level.
@@ -97,7 +97,7 @@ It's available to all company owners and organization owners. You can still mana
 4. Select **Edit connection** to edit your connection.
 5. Follow the on-screen instructions to edit the connection.
 
-### [Delete a connection](https://docs.docker.com/security/for-admins/single-sign-on/manage/#delete-a-connection)
+### Delete a connection
 
 1. Sign in to the [Admin Console](https://admin.docker.com/).
 2. Select your organization or company in the left navigation drop-down menu, and then select **SSO and SCIM**. Note that when an organization is part of a company, you must select the company and configure SSO for that organization at the company level. Each organization can have its own SSO configuration and domain, but it must be configured at the company level.
@@ -105,13 +105,13 @@ It's available to all company owners and organization owners. You can still mana
 4. Select **Delete connection**.
 5. Follow the on-screen instructions to delete a connection.
 
-### [Deleting SSO](https://docs.docker.com/security/for-admins/single-sign-on/manage/#deleting-sso)
+### Deleting SSO
 
 When you disable SSO, you can delete the connection to remove the configuration settings and the added domains. Once you delete this connection, it can't be undone. Users must authenticate with their Docker ID and password or create a password reset if they don't have one.
 
 ------
 
-## [Manage users](https://docs.docker.com/security/for-admins/single-sign-on/manage/#manage-users)
+## Manage users
 
 Admin Console Docker Hub
 
@@ -119,7 +119,7 @@ Admin Console Docker Hub
 
 **Early Access**
 
-The Docker Admin Console is an [early access](https://docs.docker.com/release-lifecycle#early-access-ea) product.
+The Docker Admin Console is an [early access]({{< ref "/manuals/Releaselifecycle#early-access-ea" >}}) product.
 
 It's available to all company owners and organization owners. You can still manage organizations in Docker Hub, but the Admin Console includes company-level management and enhanced features for organization management.
 
@@ -136,7 +136,7 @@ It's available to all company owners and organization owners. You can still mana
 >
 > Alternatively, see [Manage how users are provisioned](https://docs.docker.com/security/for-admins/single-sign-on/manage/#manage-how-users-are-provisioned).
 
-### [Add guest users when SSO is enabled](https://docs.docker.com/security/for-admins/single-sign-on/manage/#add-guest-users-when-sso-is-enabled)
+### Add guest users when SSO is enabled
 
 To add a guest that isn't verified through your IdP:
 
@@ -147,7 +147,7 @@ To add a guest that isn't verified through your IdP:
 3. Select **Invite**.
 4. Follow the on-screen instructions to invite the user.
 
-### [Remove users from the SSO company](https://docs.docker.com/security/for-admins/single-sign-on/manage/#remove-users-from-the-sso-company)
+### Remove users from the SSO company
 
 To remove a user:
 
@@ -158,7 +158,7 @@ To remove a user:
 3. Select the action icon next to a user’s name, and then select **Remove member**, if you're an organization, or **Remove user**, if you're a company.
 4. Follow the on-screen instructions to remove the user.
 
-### [Manage how users are provisioned](https://docs.docker.com/security/for-admins/single-sign-on/manage/#manage-how-users-are-provisioned)
+### Manage how users are provisioned
 
 Users are provisioned with JIT provisioning by default. If you enable SCIM, you can disable JIT:
 
@@ -169,7 +169,7 @@ Users are provisioned with JIT provisioning by default. If you enable SCIM, you 
 
 ------
 
-## [What's next?](https://docs.docker.com/security/for-admins/single-sign-on/manage/#whats-next)
+## What's next?
 
-- [Set up SCIM](https://docs.docker.com/security/for-admins/provisioning/scim/)
-- [Enable Group mapping](https://docs.docker.com/security/for-admins/provisioning/group-mapping/)
+- [Set up SCIM]({{< ref "/manuals/Security/Foradmins/Provisioning/SCIM" >}})
+- [Enable Group mapping]({{< ref "/manuals/Security/Foradmins/Provisioning/Groupmapping" >}})

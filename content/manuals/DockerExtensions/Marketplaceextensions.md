@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/marketplace/](https://docs.docker.com/extensions/marketplace/)
+> 原文：[https://docs.docker.com/extensions/marketplace/](https://docs.docker.com/extensions/marketplace/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -23,7 +23,7 @@ Docker-reviewed extensions are manually reviewed by the Docker Extensions team t
 
 Self-published extensions are autonomously published by extension developers and go through an automated validation process. They appear as **Not reviewed** in the Marketplace.
 
-## [Install an extension](https://docs.docker.com/extensions/marketplace/#install-an-extension)
+## Install an extension
 
 > **Note**
 >
@@ -40,13 +40,13 @@ To install an extension:
 
 From here, you can select **Open** to access the extension or install additional extensions. The extension also appears in the left-hand menu and in the **Manage** tab.
 
-## [Update an extension](https://docs.docker.com/extensions/marketplace/#update-an-extension)
+## Update an extension
 
 You can update any extension outside of Docker Desktop releases. To update an extension to the latest version, navigate to the Docker Dashboard and select the **Manage** tab.
 
 The **Manage** tab displays with all your installed extensions. If an extension has a new version available, it displays an **Update** button.
 
-## [Uninstall an extension](https://docs.docker.com/extensions/marketplace/#uninstall-an-extension)
+## Uninstall an extension
 
 You can uninstall an extension at any time.
 

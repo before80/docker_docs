@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/)
+> 原文：[https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,9 +20,9 @@ A container's environment is not set until there's an explicit entry in the serv
 >
 > 
 >
-> Don't use environment variables to pass sensitive information, such as passwords, in to your containers. Use [secrets](https://docs.docker.com/compose/how-tos/use-secrets/) instead.
+> Don't use environment variables to pass sensitive information, such as passwords, in to your containers. Use [secrets]({{< ref "/manuals/DockerCompose/How-tos/SecretsinCompose" >}}) instead.
 
-## [Use the `environment` attribute](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/#use-the-environment-attribute)
+## Use the `environment` attribute
 
 You can set environment variables directly in your container's environment with the [`environment` attribute](https://docs.docker.com/reference/compose-file/services/#environment) in your `compose.yml`.
 
@@ -50,7 +50,7 @@ services:
 
 See [`environment` attribute](https://docs.docker.com/reference/compose-file/services/#environment) for more examples on how to use it.
 
-### [Additional information](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/#additional-information)
+### Additional information
 
 - You can choose not to set a value and pass the environment variables from your shell straight through to your containers. It works in the same way as
 
@@ -82,7 +82,7 @@ The value of the `DEBUG` variable in the container is taken from the value for t
       - DEBUG=${DEBUG}
   ```
 
-## [Use the `env_file` attribute](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/#use-the-env_file-attribute)
+## Use the `env_file` attribute
 
 A container's environment can also be set using [`.env` files](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/#env-file) along with the [`env_file` attribute](https://docs.docker.com/reference/compose-file/services/#env_file).
 
@@ -110,7 +110,7 @@ The paths to your `.env` file, specified in the `env_file` attribute, are relati
 >
 > It is not supported when running `docker run --env-file ...`.
 
-### [Additional information](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/#additional-information-1)
+### Additional information
 
 - If multiple files are specified, they are evaluated in order and can override values set in previous files.
 
@@ -188,7 +188,7 @@ The paths to your `.env` file, specified in the `env_file` attribute, are relati
 
 - Values in your `.env` file can be overridden from the command line by using [`docker compose run -e`](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/#set-environment-variables-with-docker-compose-run---env).
 
-## [Set environment variables with `docker compose run --env`](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/#set-environment-variables-with-docker-compose-run---env)
+## Set environment variables with `docker compose run --env`
 
 Similar to `docker run --env`, you can set environment variables temporarily with `docker compose run --env` or its short form `docker compose run -e`:
 
@@ -198,7 +198,7 @@ Similar to `docker run --env`, you can set environment variables temporarily wit
 $ docker compose run -e DEBUG=1 web python console.py
 ```
 
-### [Additional information](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/#additional-information-2)
+### Additional information
 
 - You can also pass a variable from the shell or your environment files by not giving it a value:
 
@@ -210,9 +210,9 @@ $ docker compose run -e DEBUG=1 web python console.py
 
 The value of the `DEBUG` variable in the container is taken from the value for the same variable in the shell in which Compose is run or from the environment files.
 
-## [Further resources](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/#further-resources)
+## Further resources
 
-- [Understand environment variable precedence](https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence/).
-- [Set or change predefined environment variables](https://docs.docker.com/compose/how-tos/environment-variables/envvars/)
-- [Explore best practices](https://docs.docker.com/compose/how-tos/environment-variables/best-practices/)
-- [Understand interpolation](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/)
+- [Understand environment variable precedence]({{< ref "/manuals/DockerCompose/How-tos/Useenvironmentvariables/Environmentvariablesprecedence" >}}).
+- [Set or change predefined environment variables]({{< ref "/manuals/DockerCompose/How-tos/Useenvironmentvariables/Pre-definedenvironmentvariables" >}})
+- [Explore best practices]({{< ref "/manuals/DockerCompose/How-tos/Useenvironmentvariables/Bestpractices" >}})
+- [Understand interpolation]({{< ref "/manuals/DockerCompose/How-tos/Useenvironmentvariables/Interpolation" >}})

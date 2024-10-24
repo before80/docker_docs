@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/swarm-mode/](https://docs.docker.com/engine/swarm/swarm-mode/)
+> 原文：[https://docs.docker.com/engine/swarm/swarm-mode/](https://docs.docker.com/engine/swarm/swarm-mode/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -19,19 +19,19 @@ When you first install and start working with Docker Engine, Swarm mode is disab
 There are two ways to run the engine in Swarm mode:
 
 - Create a new swarm, covered in this article.
-- [Join an existing swarm](https://docs.docker.com/engine/swarm/join-nodes/).
+- [Join an existing swarm]({{< ref "/manuals/DockerEngine/Swarmmode/Joinnodestoaswarm" >}}).
 
 When you run the engine in Swarm mode on your local machine, you can create and test services based upon images you've created or other available images. In your production environment, Swarm mode provides a fault-tolerant platform with cluster management features to keep your services running and available.
 
 These instructions assume you have installed the Docker Engine on a machine to serve as a manager node in your swarm.
 
-If you haven't already, read through the [Swarm mode key concepts](https://docs.docker.com/engine/swarm/key-concepts/) and try the [Swarm mode tutorial](https://docs.docker.com/engine/swarm/swarm-tutorial/).
+If you haven't already, read through the [Swarm mode key concepts]({{< ref "/manuals/DockerEngine/Swarmmode/Swarmmodekeyconcepts" >}}) and try the [Swarm mode tutorial]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode" >}}).
 
-## [Create a swarm](https://docs.docker.com/engine/swarm/swarm-mode/#create-a-swarm)
+## Create a swarm
 
 When you run the command to create a swarm, Docker Engine starts running in Swarm mode.
 
-Run [`docker swarm init`](https://docs.docker.com/reference/cli/docker/swarm/init/) to create a single-node swarm on the current node. The engine sets up the swarm as follows:
+Run [`docker swarm init`]({{< ref "/reference/CLIreference/docker/dockerswarm/dockerswarminit" >}}) to create a single-node swarm on the current node. The engine sets up the swarm as follows:
 
 - Switches the current node into Swarm mode.
 - Creates a swarm named `default`.
@@ -62,7 +62,7 @@ To add a worker to this swarm, run the following command:
 To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
 ```
 
-### [Configuring default address pools](https://docs.docker.com/engine/swarm/swarm-mode/#configuring-default-address-pools)
+### Configuring default address pools
 
 By default Swarm mode uses a default address pool `10.0.0.0/8` for global scope (overlay) networks. Every network that does not have a subnet specified will have a subnet sequentially allocated from this pool. In some circumstances it may be desirable to use a different default IP address pool for networks.
 
@@ -102,10 +102,10 @@ In this example, `docker network create -d overlay net1` will result in `10.20.0
 
 Refer to the following pages for more information:
 
-- [Swarm networking](https://docs.docker.com/engine/swarm/networking/) for more information about the default address pool usage
-- `docker swarm init` [CLI reference](https://docs.docker.com/reference/cli/docker/swarm/init/) for more detail on the `--default-addr-pool` flag.
+- [Swarm networking]({{< ref "/manuals/DockerEngine/Swarmmode/Manageswarmservicenetworks" >}}) for more information about the default address pool usage
+- `docker swarm init` [CLI reference]({{< ref "/reference/CLIreference/docker/dockerswarm/dockerswarminit" >}}) for more detail on the `--default-addr-pool` flag.
 
-### [Configure the advertise address](https://docs.docker.com/engine/swarm/swarm-mode/#configure-the-advertise-address)
+### Configure the advertise address
 
 Manager nodes use an advertise address to allow other nodes in the swarm access to the Swarmkit API and overlay networking. The other nodes on the swarm must be able to access the manager node on its advertise address.
 
@@ -119,9 +119,9 @@ $ docker swarm init --advertise-addr <MANAGER-IP>
 
 You must also specify the `--advertise-addr` if the address where other nodes reach the first manager node is not the same address the manager sees as its own. For instance, in a cloud setup that spans different regions, hosts have both internal addresses for access within the region and external addresses that you use for access from outside that region. In this case, specify the external address with `--advertise-addr` so that the node can propagate that information to other nodes that subsequently connect to it.
 
-Refer to the `docker swarm init` [CLI reference](https://docs.docker.com/reference/cli/docker/swarm/init/) for more detail on the advertise address.
+Refer to the `docker swarm init` [CLI reference]({{< ref "/reference/CLIreference/docker/dockerswarm/dockerswarminit" >}}) for more detail on the advertise address.
 
-### [View the join command or update a swarm join token](https://docs.docker.com/engine/swarm/swarm-mode/#view-the-join-command-or-update-a-swarm-join-token)
+### View the join command or update a swarm join token
 
 Nodes require a secret token to join the swarm. The token for worker nodes is different from the token for manager nodes. Nodes only use the join-token at the moment they join the swarm. Rotating the join token after a node has already joined a swarm does not affect the node's swarm membership. Token rotation ensures an old token cannot be used by any new nodes attempting to join the swarm.
 
@@ -189,8 +189,8 @@ To add a worker to this swarm, run the following command:
     192.168.99.100:2377
 ```
 
-## [Learn more](https://docs.docker.com/engine/swarm/swarm-mode/#learn-more)
+## Learn more
 
-- [Join nodes to a swarm](https://docs.docker.com/engine/swarm/join-nodes/)
-- `swarm init` [command line reference](https://docs.docker.com/reference/cli/docker/swarm/init/)
-- [Swarm mode tutorial](https://docs.docker.com/engine/swarm/swarm-tutorial/)
+- [Join nodes to a swarm]({{< ref "/manuals/DockerEngine/Swarmmode/Joinnodestoaswarm" >}})
+- `swarm init` [command line reference]({{< ref "/reference/CLIreference/docker/dockerswarm/dockerswarminit" >}})
+- [Swarm mode tutorial]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode" >}})

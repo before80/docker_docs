@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/docker-hub/repos/categories/](https://docs.docker.com/docker-hub/repos/categories/)
+> 原文：[https://docs.docker.com/docker-hub/repos/categories/](https://docs.docker.com/docker-hub/repos/categories/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 You can tag Docker Hub repositories with categories, representing the primary intended use cases for your images. This lets users more easily find and explore content for the problem domain that they're interested in.
 
-## [Available categories](https://docs.docker.com/docker-hub/repos/categories/#available-categories)
+## Available categories
 
 The Docker Hub content team maintains a curated list of categories. The available categories are:
 
@@ -36,7 +36,7 @@ The Docker Hub content team maintains a curated list of categories. The availabl
 - **Web Servers:** Software to serve web pages, HTML files, and other assets to users or other systems.
 - **Web Analytics:** Tools to collect, measure, analyze, and report on web data and website visitor engagement.
 
-## [Auto-generated categories](https://docs.docker.com/docker-hub/repos/categories/#auto-generated-categories)
+## Auto-generated categories
 
 > **Note**
 >
@@ -50,7 +50,7 @@ As an owner of a repository that has been auto-categorized, you can manually edi
 
 The auto-generated categorization was a one-time effort to help seed categories onto repositories created before the feature existed. Categories are not assigned to new repositories automatically.
 
-## [Manage categories for a repository](https://docs.docker.com/docker-hub/repos/categories/#manage-categories-for-a-repository)
+## Manage categories for a repository
 
 You can tag a repository with up to three categories.
 

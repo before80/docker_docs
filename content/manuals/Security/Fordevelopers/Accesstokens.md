@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-developers/access-tokens/](https://docs.docker.com/security/for-developers/access-tokens/)
+> 原文：[https://docs.docker.com/security/for-developers/access-tokens/](https://docs.docker.com/security/for-developers/access-tokens/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -23,7 +23,7 @@ Compared to passwords, PATs provide the following advantages:
 
 Access tokens are also valuable for building integrations, as you can issue multiple tokens, one for each integration, and revoke them at any time.
 
-## [Create an access token](https://docs.docker.com/security/for-developers/access-tokens/#create-an-access-token)
+## Create an access token
 
 > **Important**
 >
@@ -39,7 +39,7 @@ Access tokens are also valuable for building integrations, as you can issue mult
 6. Set the access permissions. The access permissions are scopes that set restrictions in your repositories. For example, for Read & Write permissions, an automation pipeline can build an image and then push it to a repository. However, it can't delete the repository.
 7. Select **Generate** and then copy the token that appears on the screen and save it. You won't be able to retrieve the token once you close this prompt.
 
-## [Use an access token](https://docs.docker.com/security/for-developers/access-tokens/#use-an-access-token)
+## Use an access token
 
 You can use an access token in place of your password when you sign in using Docker CLI.
 
@@ -57,9 +57,9 @@ When prompted for a password, enter your personal access token instead of a pass
 >
 > 
 >
-> If you have [two-factor authentication (2FA)](https://docs.docker.com/security/for-developers/2fa/) enabled, you must use a personal access token when logging in from the Docker CLI. 2FA is an optional, but more secure method of authentication.
+> If you have [two-factor authentication (2FA)]({{< ref "/manuals/Security/Fordevelopers/Two-factorauthentication" >}}) enabled, you must use a personal access token when logging in from the Docker CLI. 2FA is an optional, but more secure method of authentication.
 
-## [Modify existing tokens](https://docs.docker.com/security/for-developers/access-tokens/#modify-existing-tokens)
+## Modify existing tokens
 
 You can rename, activate, deactivate, or delete a token as needed. You can manage your tokens in your account settings.
 
@@ -69,7 +69,7 @@ You can rename, activate, deactivate, or delete a token as needed. You can manag
 4. Select the actions menu on the far right of a token row, then select **Deactivate**, **Edit**, or **Delete** to modify the token.
 5. After modifying the token, select **Save token**.
 
-## [Auto-generated tokens](https://docs.docker.com/security/for-developers/access-tokens/#auto-generated-tokens)
+## Auto-generated tokens
 
 When you sign in to your Docker account with Docker Desktop, Docker Desktop generates an authentication token on your behalf. When you interact with Docker Hub using the Docker CLI, the CLI uses this token for authentication. The token scope has Read, Write, and Delete access. If your Docker Desktop session expires, the token is automatically removed locally.
 

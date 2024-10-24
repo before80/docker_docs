@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/install/linux/ubuntu/](https://docs.docker.com/desktop/install/linux/ubuntu/)
+> 原文：[https://docs.docker.com/desktop/install/linux/ubuntu/](https://docs.docker.com/desktop/install/linux/ubuntu/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ draft = false
 
 This page contains information on how to install, launch and upgrade Docker Desktop on an Ubuntu distribution.
 
-## [Prerequisites](https://docs.docker.com/desktop/install/linux/ubuntu/#prerequisites)
+## Prerequisites
 
 To install Docker Desktop successfully, you must:
 
@@ -42,13 +42,13 @@ To install Docker Desktop successfully, you must:
   $ sudo apt install gnome-terminal
   ```
 
-## [Install Docker Desktop](https://docs.docker.com/desktop/install/linux/ubuntu/#install-docker-desktop)
+## Install Docker Desktop
 
 Recommended approach to install Docker Desktop on Ubuntu:
 
 1. Set up Docker's package repository. See step one of [Install using the `apt` repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository).
 
-2. Download the latest [DEB package](https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64). For checksums, see the [Release notes](https://docs.docker.com/desktop/release-notes/).
+2. Download the latest [DEB package](https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64). For checksums, see the [Release notes]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}).
 
 3. Install the package with apt as follows:
 
@@ -83,7 +83,7 @@ The post-install script:
 - Adds a DNS name for Kubernetes to `/etc/hosts`.
 - Creates a symlink from `/usr/local/bin/com.docker.cli` to `/usr/bin/docker`. This is because the classic Docker CLI is installed at `/usr/bin/docker`. The Docker Desktop installer also installs a Docker CLI binary that includes cloud-integration capabilities and is essentially a wrapper for the Compose CLI, at`/usr/local/bin/com.docker.cli`. The symlink ensures that the wrapper can access the classic Docker CLI.
 
-## [Launch Docker Desktop](https://docs.docker.com/desktop/install/linux/ubuntu/#launch-docker-desktop)
+## Launch Docker Desktop
 
 To start Docker Desktop for Linux:
 
@@ -150,7 +150,7 @@ Alternatively, open a terminal and run:
 $ systemctl --user stop docker-desktop
 ```
 
-## [Upgrade Docker Desktop](https://docs.docker.com/desktop/install/linux/ubuntu/#upgrade-docker-desktop)
+## Upgrade Docker Desktop
 
 Once a new version for Docker Desktop is released, the Docker UI shows a notification. You need to download the new package each time you want to upgrade Docker Desktop and run:
 
@@ -162,12 +162,12 @@ $ sudo apt-get install ./docker-desktop-<arch>.deb
 
 Don't forget to substitute `<arch>` with the architecture you want.
 
-## [Next steps](https://docs.docker.com/desktop/install/linux/ubuntu/#next-steps)
+## Next steps
 
 - Explore [Docker's core subscriptions](https://www.docker.com/pricing/) to see what Docker can offer you.
-- Take a look at the [Docker workshop](https://docs.docker.com/get-started/workshop/) to learn how to build an image and run it as a containerized application.
-- [Explore Docker Desktop](https://docs.docker.com/desktop/use-desktop/) and all its features.
-- [Troubleshooting](https://docs.docker.com/desktop/troubleshoot/) describes common problems, workarounds, how to run and submit diagnostics, and submit issues.
-- [FAQs](https://docs.docker.com/desktop/faqs/general/) provide answers to frequently asked questions.
-- [Release notes](https://docs.docker.com/desktop/release-notes/) lists component updates, new features, and improvements associated with Docker Desktop releases.
-- [Back up and restore data](https://docs.docker.com/desktop/backup-and-restore/) provides instructions on backing up and restoring data related to Docker.
+- Take a look at the [Docker workshop]({{< ref "/get-started/Dockerworkshop" >}}) to learn how to build an image and run it as a containerized application.
+- [Explore Docker Desktop]({{< ref "/manuals/DockerDesktop/ExploreDockerDesktop" >}}) and all its features.
+- [Troubleshooting]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose" >}}) describes common problems, workarounds, how to run and submit diagnostics, and submit issues.
+- [FAQs]({{< ref "/manuals/DockerDesktop/FAQs/General" >}}) provide answers to frequently asked questions.
+- [Release notes]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}) lists component updates, new features, and improvements associated with Docker Desktop releases.
+- [Back up and restore data]({{< ref "/manuals/DockerDesktop/HowtobackupandrestoreyourDockerDesktopdata" >}}) provides instructions on backing up and restoring data related to Docker.

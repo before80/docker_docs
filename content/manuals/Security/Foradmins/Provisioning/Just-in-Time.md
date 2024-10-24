@@ -8,15 +8,15 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/provisioning/just-in-time/](https://docs.docker.com/security/for-admins/provisioning/just-in-time/)
+> 原文：[https://docs.docker.com/security/for-admins/provisioning/just-in-time/](https://docs.docker.com/security/for-admins/provisioning/just-in-time/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Just-in-Time provisioning
 
-Just-in-Time (JIT) provisioning runs after every successful single sign-on (SSO) sign-in. JIT verifies that the user that signs in is a member of the organization and teams that they are assigned to in the IdP. When you [create your SSO connection](https://docs.docker.com/security/for-admins/single-sign-on/), JIT provisioning is turned on by default.
+Just-in-Time (JIT) provisioning runs after every successful single sign-on (SSO) sign-in. JIT verifies that the user that signs in is a member of the organization and teams that they are assigned to in the IdP. When you [create your SSO connection]({{< ref "/manuals/Security/Foradmins/Singlesign-on" >}}), JIT provisioning is turned on by default.
 
-## [SSO authentication with JIT provisioning enabled](https://docs.docker.com/security/for-admins/provisioning/just-in-time/#sso-authentication-with-jit-provisioning-enabled)
+## SSO authentication with JIT provisioning enabled
 
 After every successful SSO sign-in authentication, the JIT provisioner performs the following actions:
 
@@ -34,9 +34,9 @@ After every successful SSO sign-in authentication, the JIT provisioner performs 
 
    b) If the IdP didn't provide group mappings, it checks if the user is already a member of the organization, or if the SSO connection is for multiple organizations (only at company level) and if the user is a member of any of those organizations. If the user isn't a member, it adds the user to the default team and organization configured in the SSO connection.
 
-   ![JIT provisioning enabled](Just-in-Time_img/jit-enabled-flow.svg+xml)
+   ![JIT provisioning enabled](Just-in-Time_img/jit-enabled-flow.svg)
 
-## [SSO authentication with JIT provisioning disabled](https://docs.docker.com/security/for-admins/provisioning/just-in-time/#sso-authentication-with-jit-provisioning-disabled)
+## SSO authentication with JIT provisioning disabled
 
 When you opt to disable JIT provisioning in your SSO connection, the following actions occur:
 
@@ -54,9 +54,9 @@ When you opt to disable JIT provisioning in your SSO connection, the following a
 
 If you disable JIT provisioning when you create or edit your SSO connection, you can still use group mapping as long as you have also [enabled SCIM](https://docs.docker.com/security/for-admins/provisioning/scim/#enable-scim-in-docker). When JIT provisioning is disabled and SCIM isn't enabled, users won't be auto-provisioned to groups. For instructions on disabling JIT provisioning, see [Manage how users are provisioned](https://docs.docker.com/security/for-admins/single-sign-on/manage/#manage-how-users-are-provisioned).
 
-![JIT provisioning disabled](Just-in-Time_img/jit-disabled-flow.svg+xml)
+![JIT provisioning disabled](Just-in-Time_img/jit-disabled-flow.svg)
 
-## [Disable JIT provisioning](https://docs.docker.com/security/for-admins/provisioning/just-in-time/#disable-jit-provisioning)
+## Disable JIT provisioning
 
 You may want to disable JIT provisioning for reasons such as the following:
 
@@ -67,6 +67,6 @@ You may want to disable JIT provisioning for reasons such as the following:
 >
 > 
 >
-> Disabling JIT provisioning could potentially disrupt your users' workflows. Users must already be a member of the organization or have an invitation to the organization when they authenticate with SSO in order to sign in successfully. To auto-provision users with JIT disabled, you can [use SCIM](https://docs.docker.com/security/for-admins/provisioning/scim/).
+> Disabling JIT provisioning could potentially disrupt your users' workflows. Users must already be a member of the organization or have an invitation to the organization when they authenticate with SSO in order to sign in successfully. To auto-provision users with JIT disabled, you can [use SCIM]({{< ref "/manuals/Security/Foradmins/Provisioning/SCIM" >}}).
 
 See [Manage how users are provisioned](https://docs.docker.com/security/for-admins/single-sign-on/manage/#manage-how-users-are-provisioned) to learn how to disable JIT provisioning.

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/integrations/code-quality/sonarqube/](https://docs.docker.com/scout/integrations/code-quality/sonarqube/)
+> 原文：[https://docs.docker.com/scout/integrations/code-quality/sonarqube/](https://docs.docker.com/scout/integrations/code-quality/sonarqube/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 The SonarQube integration enables Docker Scout to surface SonarQube quality gate checks through Policy Evaluation, under a new [SonarQube Quality Gates Policy](https://docs.docker.com/scout/policy/#sonarqube-quality-gates-policy).
 
-## [How it works](https://docs.docker.com/scout/integrations/code-quality/sonarqube/#how-it-works)
+## How it works
 
 This integration uses [SonarQube webhooks](https://docs.sonarsource.com/sonarqube/latest/project-administration/webhooks/) to notify Docker Scout of when a SonarQube project analysis has completed. When the webhook is called, Docker Scout receives the analysis results, and stores them in the database.
 
@@ -30,14 +30,14 @@ When you push a new image to a repository, Docker Scout evaluates the results of
 
 Both self-managed SonarQube instances and SonarCloud are supported.
 
-## [Prerequisites](https://docs.docker.com/scout/integrations/code-quality/sonarqube/#prerequisites)
+## Prerequisites
 
 To integrate Docker Scout with SonarQube, ensure that:
 
 - Your image repository is [integrated with Docker Scout](https://docs.docker.com/scout/integrations/#container-registries).
-- Your images are built with [provenance attestations](https://docs.docker.com/build/metadata/attestations/slsa-provenance/), or the `org.opencontainers.image.revision` annotation, containing information about the Git repository.
+- Your images are built with [provenance attestations]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations/Provenanceattestations" >}}), or the `org.opencontainers.image.revision` annotation, containing information about the Git repository.
 
-## [Enable the SonarQube integration](https://docs.docker.com/scout/integrations/code-quality/sonarqube/#enable-the-sonarqube-integration)
+## Enable the SonarQube integration
 
 1. Go to the [SonarQube integrations page](https://scout.docker.com/settings/integrations/sonarqube/) on the Docker Scout Dashboard.
 

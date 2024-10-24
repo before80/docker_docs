@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/logging/drivers/syslog/](https://docs.docker.com/engine/logging/drivers/syslog/)
+> 原文：[https://docs.docker.com/engine/logging/drivers/syslog/](https://docs.docker.com/engine/logging/drivers/syslog/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -36,7 +36,7 @@ The format is defined in [RFC 5424](https://tools.ietf.org/html/rfc5424) and Doc
 2017-04-01T17:41:05.616647+08:00 a.vm {taskid:aa,version:} 1787791 {taskid:aa,version:}
 ```
 
-## [Usage](https://docs.docker.com/engine/logging/drivers/syslog/#usage)
+## Usage
 
 To use the `syslog` driver as the default logging driver, set the `log-driver` and `log-opt` keys to appropriate values in the `daemon.json` file, which is located in `/etc/docker/` on Linux hosts or `C:\ProgramData\docker\config\daemon.json` on Windows Server. For more about configuring Docker using `daemon.json`, see [daemon.json](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file).
 
@@ -71,7 +71,7 @@ $ docker run \
       alpine echo hello world
 ```
 
-## [Options](https://docs.docker.com/engine/logging/drivers/syslog/#options)
+## Options
 
 The following logging options are supported as options for the `syslog` logging driver. They can be set as defaults in the `daemon.json`, by adding them as key-value pairs to the `log-opts` JSON array. They can also be set on a given container by adding a `--log-opt <key>=<value>` flag for each option when starting the container.
 
@@ -83,10 +83,10 @@ The following logging options are supported as options for the `syslog` logging 
 | `syslog-tls-cert`        | The absolute path to the TLS certificate file. Ignored if the address protocol isn't `tcp+tls`. | `--log-opt syslog-tls-cert=/etc/ca-certificates/custom/cert.pem` |
 | `syslog-tls-key`         | The absolute path to the TLS key file. Ignored if the address protocol isn't `tcp+tls`. | `--log-opt syslog-tls-key=/etc/ca-certificates/custom/key.pem` |
 | `syslog-tls-skip-verify` | If set to `true`, TLS verification is skipped when connecting to the `syslog` daemon. Defaults to `false`. Ignored if the address protocol isn't `tcp+tls`. | `--log-opt syslog-tls-skip-verify=true`                      |
-| `tag`                    | A string that's appended to the `APP-NAME` in the `syslog` message. By default, Docker uses the first 12 characters of the container ID to tag log messages. Refer to the [log tag option documentation](https://docs.docker.com/engine/logging/log_tags/) for customizing the log tag format. | `--log-opt tag=mailer`                                       |
+| `tag`                    | A string that's appended to the `APP-NAME` in the `syslog` message. By default, Docker uses the first 12 characters of the container ID to tag log messages. Refer to the [log tag option documentation]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}) for customizing the log tag format. | `--log-opt tag=mailer`                                       |
 | `syslog-format`          | The `syslog` message format to use. If not specified the local Unix syslog format is used, without a specified hostname. Specify `rfc3164` for the RFC-3164 compatible format, `rfc5424` for RFC-5424 compatible format, or `rfc5424micro` for RFC-5424 compatible format with microsecond timestamp resolution. | `--log-opt syslog-format=rfc5424micro`                       |
-| `labels`                 | Applies when starting the Docker daemon. A comma-separated list of logging-related labels this daemon accepts. Used for advanced [log tag options](https://docs.docker.com/engine/logging/log_tags/). | `--log-opt labels=production_status,geo`                     |
-| `labels-regex`           | Applies when starting the Docker daemon. Similar to and compatible with `labels`. A regular expression to match logging-related labels. Used for advanced [log tag options](https://docs.docker.com/engine/logging/log_tags/). | `--log-opt labels-regex=^(production_status|geo)`            |
-| `env`                    | Applies when starting the Docker daemon. A comma-separated list of logging-related environment variables this daemon accepts. Used for advanced [log tag options](https://docs.docker.com/engine/logging/log_tags/). | `--log-opt env=os,customer`                                  |
-| `env-regex`              | Applies when starting the Docker daemon. Similar to and compatible with `env`. A regular expression to match logging-related environment variables. Used for advanced [log tag options](https://docs.docker.com/engine/logging/log_tags/). | `--log-opt env-regex=^(os|customer)`                         |
+| `labels`                 | Applies when starting the Docker daemon. A comma-separated list of logging-related labels this daemon accepts. Used for advanced [log tag options]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}). | `--log-opt labels=production_status,geo`                     |
+| `labels-regex`           | Applies when starting the Docker daemon. Similar to and compatible with `labels`. A regular expression to match logging-related labels. Used for advanced [log tag options]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}). | `--log-opt labels-regex=^(production_status|geo)`            |
+| `env`                    | Applies when starting the Docker daemon. A comma-separated list of logging-related environment variables this daemon accepts. Used for advanced [log tag options]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}). | `--log-opt env=os,customer`                                  |
+| `env-regex`              | Applies when starting the Docker daemon. Similar to and compatible with `env`. A regular expression to match logging-related environment variables. Used for advanced [log tag options]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}). | `--log-opt env-regex=^(os|customer)`                         |
 

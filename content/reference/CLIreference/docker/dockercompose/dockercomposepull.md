@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/pull/](https://docs.docker.com/reference/cli/docker/compose/pull/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/pull/](https://docs.docker.com/reference/cli/docker/compose/pull/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,11 +18,11 @@ draft = false
 | :---------- | -------------------------------------------- |
 | Usage       | `docker compose pull [OPTIONS] [SERVICE...]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/pull/#description)
+## Description
 
 Pulls an image associated with a service defined in a `compose.yaml` file, but does not start containers based on those images
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/pull/#options)
+## Options
 
 | Option                   | Default | Description                                            |
 | ------------------------ | ------- | ------------------------------------------------------ |
@@ -32,7 +32,7 @@ Pulls an image associated with a service defined in a `compose.yaml` file, but d
 | `--policy`               |         | Apply pull policy ("missing"\|"always")                |
 | `-q, --quiet`            |         | Pull without printing progress information             |
 
-## [Examples](https://docs.docker.com/reference/cli/docker/compose/pull/#examples)
+## Examples
 
 Consider the following `compose.yaml`:
 

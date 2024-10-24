@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/admin/organization/](https://docs.docker.com/admin/organization/)
+> 原文：[https://docs.docker.com/admin/organization/](https://docs.docker.com/admin/organization/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,7 +24,7 @@ The following diagram depicts the setup of an organization and how it relates to
 
 ![organization-hierarchy](_index_img/org-structure.webp)
 
-To create an organization, see [Create your organization](https://docs.docker.com/admin/organization/orgs/).
+To create an organization, see [Create your organization]({{< ref "/manuals/Administration/Organizationadministration/Createyourorganization" >}}).
 
 Learn how to administer an organization in the following sections.
 
@@ -68,7 +68,7 @@ Configure information for your organization and manage settings.
 
 SSO and SCIM
 
-Set up [Single Sign-On](https://docs.docker.com/security/for-admins/single-sign-on/) and [SCIM](https://docs.docker.com/security/for-admins/provisioning/scim/) for your organization.
+Set up [Single Sign-On]({{< ref "/manuals/Security/Foradmins/Singlesign-on" >}}) and [SCIM]({{< ref "/manuals/Security/Foradmins/Provisioning/SCIM" >}}) for your organization.
 
 
 

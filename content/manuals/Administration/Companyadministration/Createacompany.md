@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/admin/company/new-company/](https://docs.docker.com/admin/company/new-company/)
+> 原文：[https://docs.docker.com/admin/company/new-company/](https://docs.docker.com/admin/company/new-company/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,11 +18,11 @@ You can create a new company in the Docker Admin Console. Before you begin, make
 
 **Early Access**
 
-The Docker Admin Console is an [early access](https://docs.docker.com/release-lifecycle#early-access-ea) product.
+The Docker Admin Console is an [early access]({{< ref "/manuals/Releaselifecycle#early-access-ea" >}}) product.
 
 It's available to all company owners and organization owners. You can still manage organizations in Docker Hub, but the Admin Console includes company-level management and enhanced features for organization management.
 
-## [Create a company](https://docs.docker.com/admin/company/new-company/#create-a-company)
+## Create a company
 
 To create a new company:
 
@@ -44,12 +44,12 @@ To create a new company:
 
 For more information on how you can add organizations to your company, see [Add organizations to a company](https://docs.docker.com/admin/company/organizations/#add-organizations-to-a-company).
 
-## [Next steps](https://docs.docker.com/admin/company/new-company/#next-steps)
+## Next steps
 
-- [Manage organizations](https://docs.docker.com/admin/company/organizations/)
-- [Manage company users](https://docs.docker.com/admin/company/users/)
-- [Manage company owners](https://docs.docker.com/admin/company/owners/)
+- [Manage organizations]({{< ref "/manuals/Administration/Companyadministration/Manageorganizations" >}})
+- [Manage company users]({{< ref "/manuals/Administration/Companyadministration/Managecompanyusers" >}})
+- [Manage company owners]({{< ref "/manuals/Administration/Companyadministration/Managecompanyowners" >}})
 
-## [More resources](https://docs.docker.com/admin/company/new-company/#more-resources)
+## More resources
 
 - [Video: Create a company](https://youtu.be/XZ5_i6qiKho?feature=shared&t=359)

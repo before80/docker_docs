@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/buildx/ls/](https://docs.docker.com/reference/cli/docker/buildx/ls/)
+> 原文：[https://docs.docker.com/reference/cli/docker/buildx/ls/](https://docs.docker.com/reference/cli/docker/buildx/ls/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 | :---------- | ---------------------- |
 | Usage       | `docker buildx ls`     |
 
-## [Description](https://docs.docker.com/reference/cli/docker/buildx/ls/#description)
+## Description
 
 Lists all builder instances and the nodes for each instance.
 
@@ -36,15 +36,15 @@ default             docker
 
 Each builder has one or more nodes associated with it. The current builder's name is marked with a `*` in `NAME/NODE` and explicit node to build against for the target platform marked with a `*` in the `PLATFORMS` column.
 
-## [Options](https://docs.docker.com/reference/cli/docker/buildx/ls/#options)
+## Options
 
 | Option                                                       | Default | Description       |
 | ------------------------------------------------------------ | ------- | ----------------- |
 | [`--format`](https://docs.docker.com/reference/cli/docker/buildx/ls/#format) | `table` | Format the output |
 
-## [Examples](https://docs.docker.com/reference/cli/docker/buildx/ls/#examples)
+## Examples
 
-### [Format the output (--format)](https://docs.docker.com/reference/cli/docker/buildx/ls/#format)
+### Format the output (--format)
 
 The formatting options (`--format`) pretty-prints builder instances output using a Go template.
 

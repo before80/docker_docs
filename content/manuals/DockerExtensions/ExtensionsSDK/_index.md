@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/](https://docs.docker.com/extensions/extensions-sdk/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/](https://docs.docker.com/extensions/extensions-sdk/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,9 +20,9 @@ The Docker CLI tool provides a set of commands to help you build and publish you
 
 At the root of the image filesystem is a `metadata.json` file which describes the content of the extension. It's a fundamental element of a Docker extension.
 
-An extension can contain a UI part and backend parts that run either on the host or in the Desktop virtual machine. For further information, see [Architecture](https://docs.docker.com/extensions/extensions-sdk/architecture/).
+An extension can contain a UI part and backend parts that run either on the host or in the Desktop virtual machine. For further information, see [Architecture]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/Architecture" >}}).
 
-You distribute extensions through Docker Hub. However, you can develop them locally without the need to push the extension to Docker Hub. See [Extensions distribution](https://docs.docker.com/extensions/extensions-sdk/extensions/DISTRIBUTION/) for further details.
+You distribute extensions through Docker Hub. However, you can develop them locally without the need to push the extension to Docker Hub. See [Extensions distribution]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/ParttwoPublish/Packageandreleaseyourextension" >}}) for further details.
 
 > Already built an extension?
 >

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/)
+> 原文：[https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 <iframe id="youtube-player-W1kWqFkiu7k" data-video-id="W1kWqFkiu7k" class="youtube-video aspect-video h-fit w-full py-2" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Docker concepts - What is a container?" width="100%" height="100%" src="https://www.youtube.com/embed/W1kWqFkiu7k?rel=0&amp;iv_load_policy=3&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fdocs.docker.com&amp;widgetid=1" data-gtm-yt-inspected-21="true" style="--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border-width: 0px; border-style: solid; border-color: initial; display: block; vertical-align: middle; aspect-ratio: 16 / 9; height: fit-content; width: 634.672px; padding-top: 0.5rem; padding-bottom: 0.5rem; color: rgb(0, 0, 0); font-family: &quot;Roboto Flex&quot;, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"></iframe>
 
-## [Explanation](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/#explanation)
+## Explanation
 
 Imagine you're developing a killer web app that has three main components - a React frontend, a Python API, and a PostgreSQL database. If you wanted to work on this project, you'd have to install Node, Python, and PostgreSQL.
 
@@ -35,7 +35,7 @@ Here's what makes them awesome. Containers are:
 - Independent. Each container is independently managed. Deleting one container won't affect any others.
 - Portable. Containers can run anywhere! The container that runs on your development machine will work the same way in a data center or anywhere in the cloud!
 
-### [Containers versus virtual machines (VMs)](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/#containers-versus-virtual-machines-vms)
+### Containers versus virtual machines (VMs)
 
 Without getting too deep, a VM is an entire operating system with its own kernel, hardware drivers, programs, and applications. Spinning up a VM only to isolate a single application is a lot of overhead.
 
@@ -45,7 +45,7 @@ A container is simply an isolated process with all of the files it needs to run.
 >
 > Quite often, you will see containers and VMs used together. As an example, in a cloud environment, the provisioned machines are typically VMs. However, instead of provisioning one machine to run one application, a VM with a container runtime can run multiple containerized applications, increasing resource utilization and reducing costs.
 
-## [Try it out](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/#try-it-out)
+## Try it out
 
 In this hands-on, you will see how to run a Docker container using the Docker Desktop GUI.
 
@@ -81,7 +81,7 @@ Congratulations! You just ran your first container! 🎉
 
 Follow the instructions to run a container using the CLI:
 
-1. Open your CLI terminal and start a container by using the [`docker run`](https://docs.docker.com/reference/cli/docker/container/run/) command:
+1. Open your CLI terminal and start a container by using the [`docker run`]({{< ref "/reference/CLIreference/docker/dockercontainer/dockerrun" >}}) command:
 
    
 
@@ -101,7 +101,7 @@ Congratulations! You just fired up your first container! 🎉
 
 
 
-### [View your container](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/#view-your-container)
+### View your container
 
 You can view all of your containers by going to the **Containers** view of the Docker Dashboard.
 
@@ -109,7 +109,7 @@ You can view all of your containers by going to the **Containers** view of the D
 
 This container runs a web server that displays a simple website. When working with more complex projects, you'll run different parts in different containers. For example, you might run a different container for the frontend, backend, and database.
 
-### [Access the frontend](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/#access-the-frontend)
+### Access the frontend
 
 When you launched the container, you exposed one of the container's ports onto your machine. Think of this as creating configuration to let you to connect through the isolated environment of the container.
 
@@ -117,7 +117,7 @@ For this container, the frontend is accessible on port `8080`. To open the websi
 
 ![Screenshot of the landing page coming from the running container](Whatisacontainer_img/access-the-frontend.webp)
 
-### [Explore your container](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/#explore-your-container)
+### Explore your container
 
 Docker Desktop lets you explore and interact with different aspects of your container. Try it out yourself.
 
@@ -129,7 +129,7 @@ Docker Desktop lets you explore and interact with different aspects of your cont
 
    ![Screenshot of the Docker Dashboard showing the files and directories inside a running container](Whatisacontainer_img/explore-your-container.webp)
 
-### [Stop your container](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/#stop-your-container)
+### Stop your container
 
 The `docker/welcome-to-docker` container continues to run until you stop it.
 
@@ -143,16 +143,16 @@ The `docker/welcome-to-docker` container continues to run until you stop it.
 
 ------
 
-## [Additional resources](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/#additional-resources)
+## Additional resources
 
 The following links provide additional guidance into containers:
 
-- [Running a container](https://docs.docker.com/engine/containers/run/)
+- [Running a container]({{< ref "/manuals/DockerEngine/Containers/Runningcontainers" >}})
 - [Overview of container](https://www.docker.com/resources/what-container/)
 - [Why Docker?](https://www.docker.com/why-docker/)
 
-## [Next steps](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/#next-steps)
+## Next steps
 
 Now that you have learned the basics of a Docker container, it's time to learn about Docker images.
 
-[What is an image?](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/)
+[What is an image?]({{< ref "/get-started/Dockerconcepts/Thebasics/Whatisanimage" >}})

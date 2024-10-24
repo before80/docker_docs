@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/bake/](https://docs.docker.com/build/bake/)
+> 原文：[https://docs.docker.com/build/bake/](https://docs.docker.com/build/bake/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -60,6 +60,6 @@ $ docker buildx bake
 
 This executes the `default` group, which builds the `frontend` and `backend` targets concurrently.
 
-## [Get started](https://docs.docker.com/build/bake/#get-started)
+## Get started
 
-To learn how to get started with Bake, head over to the [Bake introduction](https://docs.docker.com/build/bake/introduction/).
+To learn how to get started with Bake, head over to the [Bake introduction]({{< ref "/manuals/DockerBuild/Bake/Introduction" >}}).

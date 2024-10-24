@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/building/base-images/](https://docs.docker.com/build/building/base-images/)
+> 原文：[https://docs.docker.com/build/building/base-images/](https://docs.docker.com/build/building/base-images/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,9 +22,9 @@ All Dockerfiles start from a base image. A base is the image that your image ext
 FROM debian
 ```
 
-For most cases, you don't need to create your own base image. Docker Hub contains a vast library of Docker images that are suitable for use as a base image in your build. [Docker Official Images](https://docs.docker.com/trusted-content/official-images/) are specifically designed as a set of hardened, battle-tested images that support a wide variety of platforms, languages, and frameworks. There are also [Docker Verified Publisher](https://hub.docker.com/search?q=&image_filter=store) images, created by trusted publishing partners, verified by Docker.
+For most cases, you don't need to create your own base image. Docker Hub contains a vast library of Docker images that are suitable for use as a base image in your build. [Docker Official Images]({{< ref "/manuals/Trustedcontent/DockerOfficialImages" >}}) are specifically designed as a set of hardened, battle-tested images that support a wide variety of platforms, languages, and frameworks. There are also [Docker Verified Publisher](https://hub.docker.com/search?q=&image_filter=store) images, created by trusted publishing partners, verified by Docker.
 
-## [Create a base image](https://docs.docker.com/build/building/base-images/#create-a-base-image)
+## Create a base image
 
 If you need to completely control the contents of your image, you can create your own base image from a Linux distribution of your choosing, or use the special `FROM scratch` base:
 
@@ -38,7 +38,7 @@ The `scratch` image is typically used to create minimal images containing only j
 
 To create a distribution base image, you can use a root filesystem, packaged as a `tar` file, and import it to Docker with `docker import`. The process for creating your own base image depends on the Linux distribution you want to package. See [Create a full image using tar](https://docs.docker.com/build/building/base-images/#create-a-full-image-using-tar).
 
-## [Create a minimal base image using scratch](https://docs.docker.com/build/building/base-images/#create-a-minimal-base-image-using-scratch)
+## Create a minimal base image using scratch
 
 The reserved, minimal `scratch` image serves as a starting point for building containers. Using the `scratch` image signals to the build process that you want the next command in the `Dockerfile` to be the first filesystem layer in your image.
 
@@ -53,7 +53,7 @@ ADD hello /
 CMD ["/hello"]
 ```
 
-Assuming an executable binary named `hello` exists at the root of the [build context](https://docs.docker.com/build/concepts/context/). You can build this Docker image using the following `docker build` command:
+Assuming an executable binary named `hello` exists at the root of the [build context]({{< ref "/manuals/DockerBuild/Coreconcepts/Buildcontext" >}}). You can build this Docker image using the following `docker build` command:
 
 
 
@@ -77,7 +77,7 @@ This example image can only successfully execute as long as the `hello` binary d
 
 When building a base image, or any image, this is an important aspect to consider. And this is why creating a base image using `FROM scratch` can be difficult, for anything other than small, simple programs. On the other hand, it's also important to include only the things you need in your image, to reduce the image size and attack surface.
 
-## [Create a full image using tar](https://docs.docker.com/build/building/base-images/#create-a-full-image-using-tar)
+## Create a full image using tar
 
 In general, start with a working machine that is running the distribution you'd like to package as a base image, though that is not required for some tools like Debian's [Debootstrap](https://wiki.debian.org/Debootstrap), which you can also use to build Ubuntu images.
 
@@ -101,10 +101,10 @@ DISTRIB_DESCRIPTION="Ubuntu 20.04 LTS"
 
 There are more example scripts for creating base images in [the Moby GitHub repository](https://github.com/moby/moby/blob/master/contrib).
 
-## [More resources](https://docs.docker.com/build/building/base-images/#more-resources)
+## More resources
 
 For more information about building images and writing Dockerfiles, see:
 
-- [Dockerfile reference](https://docs.docker.com/reference/dockerfile/)
-- [Dockerfile best practices](https://docs.docker.com/build/building/best-practices/)
-- [Docker Official Images](https://docs.docker.com/trusted-content/official-images/)
+- [Dockerfile reference]({{< ref "/reference/Dockerfilereference" >}})
+- [Dockerfile best practices]({{< ref "/manuals/DockerBuild/Building/Bestpractices" >}})
+- [Docker Official Images]({{< ref "/manuals/Trustedcontent/DockerOfficialImages" >}})

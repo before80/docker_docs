@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/](https://docs.docker.com/reference/cli/docker/compose/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/](https://docs.docker.com/reference/cli/docker/compose/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,15 +18,15 @@ draft = false
 | :---------- | ---------------- |
 | Usage       | `docker compose` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/#description)
+## Description
 
 You can use the compose subcommand, `docker compose [-f <arg>...] [options] [COMMAND] [ARGS...]`, to build and manage multiple services in Docker containers.
 
-### [Use `-f` to specify the name and path of one or more Compose files](https://docs.docker.com/reference/cli/docker/compose/#use--f-to-specify-the-name-and-path-of-one-or-more-compose-files)
+### Use `-f` to specify the name and path of one or more Compose files
 
 Use the `-f` flag to specify the location of a Compose configuration file.
 
-#### [Specifying multiple Compose files](https://docs.docker.com/reference/cli/docker/compose/#specifying-multiple-compose-files)
+#### Specifying multiple Compose files
 
 You can supply multiple `-f` configuration files. When you supply multiple files, Compose combines them into a single configuration. Compose builds the configuration in the order you supply the files. Subsequent files override and add to their predecessors.
 
@@ -70,7 +70,7 @@ Use a `-f` with `-` (dash) as the filename to read the configuration from stdin.
 
 The `-f` flag is optional. If you don’t provide this flag on the command line, Compose traverses the working directory and its parent directories looking for a `compose.yaml` or `docker-compose.yaml` file.
 
-#### [Specifying a path to a single Compose file](https://docs.docker.com/reference/cli/docker/compose/#specifying-a-path-to-a-single-compose-file)
+#### Specifying a path to a single Compose file
 
 You can use the `-f` flag to specify a path to a Compose file that is not located in the current directory, either from the command line or by setting up a `COMPOSE_FILE` environment variable in your shell or in an environment file.
 
@@ -82,7 +82,7 @@ For an example of using the `-f` option at the command line, suppose you are run
 $ docker compose -f ~/sandbox/rails/compose.yaml pull db
 ```
 
-### [Use `-p` to specify a project name](https://docs.docker.com/reference/cli/docker/compose/#use--p-to-specify-a-project-name)
+### Use `-p` to specify a project name
 
 Each configuration has a project name. Compose sets the project name using the following mechanisms, in order of precedence:
 
@@ -104,19 +104,19 @@ demo_1  | PING localhost (127.0.0.1): 56 data bytes
 demo_1  | 64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.095 ms
 ```
 
-### [Use profiles to enable optional services](https://docs.docker.com/reference/cli/docker/compose/#use-profiles-to-enable-optional-services)
+### Use profiles to enable optional services
 
 Use `--profile` to specify one or more active profiles Calling `docker compose --profile frontend up` starts the services with the profile `frontend` and services without any specified profiles. You can also enable multiple profiles, e.g. with `docker compose --profile frontend --profile debug up` the profiles `frontend` and `debug` is enabled.
 
 Profiles can also be set by `COMPOSE_PROFILES` environment variable.
 
-### [Configuring parallelism](https://docs.docker.com/reference/cli/docker/compose/#configuring-parallelism)
+### Configuring parallelism
 
 Use `--parallel` to specify the maximum level of parallelism for concurrent engine calls. Calling `docker compose --parallel 1 pull` pulls the pullable images defined in the Compose file one at a time. This can also be used to control build concurrency.
 
 Parallelism can also be set by the `COMPOSE_PARALLEL_LIMIT` environment variable.
 
-### [Set up environment variables](https://docs.docker.com/reference/cli/docker/compose/#set-up-environment-variables)
+### Set up environment variables
 
 You can set environment variables for various docker compose options, including the `-f`, `-p` and `--profiles` flags.
 
@@ -128,7 +128,7 @@ Setting the `COMPOSE_IGNORE_ORPHANS` environment variable to `true` stops docker
 
 Setting the `COMPOSE_MENU` environment variable to `false` disables the helper menu when running `docker compose up` in attached mode. Alternatively, you can also run `docker compose up --menu=false` to disable the helper menu.
 
-### [Use Dry Run mode to test your command](https://docs.docker.com/reference/cli/docker/compose/#use-dry-run-mode-to-test-your-command)
+### Use Dry Run mode to test your command
 
 Use `--dry-run` flag to test a command without changing your application stack state. Dry Run mode shows you all the steps Compose applies when executing a command, for example:
 
@@ -155,7 +155,7 @@ From the example above, you can see that the first step is to pull the image def
 
 Dry Run mode works with almost all commands. You cannot use Dry Run mode with a command that doesn't change the state of a Compose stack such as `ps`, `ls`, `logs` for example.
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/#options)
+## Options
 
 | Option                | Default | Description                                                  |
 | --------------------- | ------- | ------------------------------------------------------------ |
@@ -171,35 +171,35 @@ Dry Run mode works with almost all commands. You cannot use Dry Run mode with a 
 | `--project-directory` |         | Specify an alternate working directory (default: the path of the, first specified, Compose file) |
 | `-p, --project-name`  |         | Project name                                                 |
 
-## [Subcommands](https://docs.docker.com/reference/cli/docker/compose/#subcommands)
+## Subcommands
 
 | Command                                                      | Description                                                  |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| [`docker compose alpha`](https://docs.docker.com/reference/cli/docker/compose/alpha/) | Experimental commands                                        |
-| [`docker compose build`](https://docs.docker.com/reference/cli/docker/compose/build/) | Build or rebuild services                                    |
-| [`docker compose config`](https://docs.docker.com/reference/cli/docker/compose/config/) | Parse, resolve and render compose file in canonical format   |
-| [`docker compose cp`](https://docs.docker.com/reference/cli/docker/compose/cp/) | Copy files/folders between a service container and the local filesystem |
-| [`docker compose create`](https://docs.docker.com/reference/cli/docker/compose/create/) | Creates containers for a service                             |
-| [`docker compose down`](https://docs.docker.com/reference/cli/docker/compose/down/) | Stop and remove containers, networks                         |
-| [`docker compose events`](https://docs.docker.com/reference/cli/docker/compose/events/) | Receive real time events from containers                     |
-| [`docker compose exec`](https://docs.docker.com/reference/cli/docker/compose/exec/) | Execute a command in a running container                     |
-| [`docker compose images`](https://docs.docker.com/reference/cli/docker/compose/images/) | List images used by the created containers                   |
-| [`docker compose kill`](https://docs.docker.com/reference/cli/docker/compose/kill/) | Force stop service containers                                |
-| [`docker compose logs`](https://docs.docker.com/reference/cli/docker/compose/logs/) | View output from containers                                  |
-| [`docker compose ls`](https://docs.docker.com/reference/cli/docker/compose/ls/) | List running compose projects                                |
-| [`docker compose pause`](https://docs.docker.com/reference/cli/docker/compose/pause/) | Pause services                                               |
-| [`docker compose port`](https://docs.docker.com/reference/cli/docker/compose/port/) | Print the public port for a port binding                     |
-| [`docker compose ps`](https://docs.docker.com/reference/cli/docker/compose/ps/) | List containers                                              |
-| [`docker compose pull`](https://docs.docker.com/reference/cli/docker/compose/pull/) | Pull service images                                          |
-| [`docker compose push`](https://docs.docker.com/reference/cli/docker/compose/push/) | Push service images                                          |
-| [`docker compose restart`](https://docs.docker.com/reference/cli/docker/compose/restart/) | Restart service containers                                   |
-| [`docker compose rm`](https://docs.docker.com/reference/cli/docker/compose/rm/) | Removes stopped service containers                           |
-| [`docker compose run`](https://docs.docker.com/reference/cli/docker/compose/run/) | Run a one-off command on a service                           |
-| [`docker compose start`](https://docs.docker.com/reference/cli/docker/compose/start/) | Start services                                               |
-| [`docker compose stop`](https://docs.docker.com/reference/cli/docker/compose/stop/) | Stop services                                                |
-| [`docker compose top`](https://docs.docker.com/reference/cli/docker/compose/top/) | Display the running processes                                |
-| [`docker compose unpause`](https://docs.docker.com/reference/cli/docker/compose/unpause/) | Unpause services                                             |
-| [`docker compose up`](https://docs.docker.com/reference/cli/docker/compose/up/) | Create and start containers                                  |
-| [`docker compose version`](https://docs.docker.com/reference/cli/docker/compose/version/) | Show the Docker Compose version information                  |
-| [`docker compose wait`](https://docs.docker.com/reference/cli/docker/compose/wait/) | Block until the first service container stops                |
-| [`docker compose watch`](https://docs.docker.com/reference/cli/docker/compose/watch/) | Watch build context for service and rebuild/refresh containers when files are updated |
+| [`docker compose alpha`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposealpha" >}}) | Experimental commands                                        |
+| [`docker compose build`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposebuild" >}}) | Build or rebuild services                                    |
+| [`docker compose config`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposeconfig" >}}) | Parse, resolve and render compose file in canonical format   |
+| [`docker compose cp`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposecp" >}}) | Copy files/folders between a service container and the local filesystem |
+| [`docker compose create`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposecreate" >}}) | Creates containers for a service                             |
+| [`docker compose down`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposedown" >}}) | Stop and remove containers, networks                         |
+| [`docker compose events`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposeevents" >}}) | Receive real time events from containers                     |
+| [`docker compose exec`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposeexec" >}}) | Execute a command in a running container                     |
+| [`docker compose images`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposeimages" >}}) | List images used by the created containers                   |
+| [`docker compose kill`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposekill" >}}) | Force stop service containers                                |
+| [`docker compose logs`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposelogs" >}}) | View output from containers                                  |
+| [`docker compose ls`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposels" >}}) | List running compose projects                                |
+| [`docker compose pause`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposepause" >}}) | Pause services                                               |
+| [`docker compose port`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposeport" >}}) | Print the public port for a port binding                     |
+| [`docker compose ps`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposeps" >}}) | List containers                                              |
+| [`docker compose pull`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposepull" >}}) | Pull service images                                          |
+| [`docker compose push`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposepush" >}}) | Push service images                                          |
+| [`docker compose restart`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposerestart" >}}) | Restart service containers                                   |
+| [`docker compose rm`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposerm" >}}) | Removes stopped service containers                           |
+| [`docker compose run`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposerun" >}}) | Run a one-off command on a service                           |
+| [`docker compose start`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposestart" >}}) | Start services                                               |
+| [`docker compose stop`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposestop" >}}) | Stop services                                                |
+| [`docker compose top`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposetop" >}}) | Display the running processes                                |
+| [`docker compose unpause`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposeunpause" >}}) | Unpause services                                             |
+| [`docker compose up`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposeup" >}}) | Create and start containers                                  |
+| [`docker compose version`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposeversion" >}}) | Show the Docker Compose version information                  |
+| [`docker compose wait`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposewait" >}}) | Block until the first service container stops                |
+| [`docker compose watch`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposewatch" >}}) | Watch build context for service and rebuild/refresh containers when files are updated |

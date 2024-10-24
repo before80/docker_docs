@@ -8,29 +8,29 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/17.03/](https://docs.docker.com/engine/release-notes/17.03/)
+> 原文：[https://docs.docker.com/engine/release-notes/17.03/](https://docs.docker.com/engine/release-notes/17.03/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Engine 17.03 release notes
 
-## [17.03.3-ce](https://docs.docker.com/engine/release-notes/17.03/#17033-ce)
+## 17.03.3-ce
 
 2018-08-30
 
-### [Runtime](https://docs.docker.com/engine/release-notes/17.03/#runtime)
+### Runtime
 
 - Update go-connections to d217f8e [#28](https://github.com/docker/engine/pull/28)
 
-## [17.03.2-ce](https://docs.docker.com/engine/release-notes/17.03/#17032-ce)
+## 17.03.2-ce
 
 2017-05-29
 
-### [Networking](https://docs.docker.com/engine/release-notes/17.03/#networking)
+### Networking
 
 - Fix a concurrency issue preventing network creation [#33273](https://github.com/moby/moby/pull/33273)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/17.03/#runtime-1)
+### Runtime
 
 - Relabel secrets path to avoid a Permission Denied on selinux enabled systems [#33236](https://github.com/moby/moby/pull/33236) (ref [#32529](https://github.com/moby/moby/pull/32529)
 - Fix cases where local volume were not properly relabeled if needed [#33236](https://github.com/moby/moby/pull/33236) (ref [#29428](https://github.com/moby/moby/pull/29428))
@@ -43,23 +43,23 @@ draft = false
 - Fix an issue with backporting mount spec to older volumes [#33207](https://github.com/moby/moby/pull/33207)
 - Fix issue where a failed unmount can lead to data loss on local volume remove [#33120](https://github.com/moby/moby/pull/33120)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/17.03/#swarm-mode)
+### Swarm Mode
 
 - Fix a case where tasks could get killed unexpectedly [#33118](https://github.com/moby/moby/pull/33118)
 - Fix an issue preventing to deploy services if the registry cannot be reached despite the needed images being locally present [#33117](https://github.com/moby/moby/pull/33117)
 
-## [17.03.1-ce](https://docs.docker.com/engine/release-notes/17.03/#17031-ce)
+## 17.03.1-ce
 
 2017-03-27
 
-### [Remote API (v1.27) & Client](https://docs.docker.com/engine/release-notes/17.03/#remote-api-v127--client)
+### Remote API (v1.27) & Client
 
 - Fix autoremove on older api [#31692](https://github.com/docker/docker/pull/31692)
 - Fix default network customization for a stack [#31258](https://github.com/docker/docker/pull/31258/)
 - Correct CPU usage calculation in presence of offline CPUs and newer Linux [#31802](https://github.com/docker/docker/pull/31802)
 - Fix issue where service healthcheck is `{}` in remote API [#30197](https://github.com/docker/docker/pull/30197)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/17.03/#runtime-2)
+### Runtime
 
 - Update runc to 54296cf40ad8143b62dbcaa1d90e520a2136ddfe [#31666](https://github.com/docker/docker/pull/31666)
 - Ignore cgroup2 mountpoints [opencontainers/runc#1266](https://github.com/opencontainers/runc/pull/1266)
@@ -69,7 +69,7 @@ draft = false
 - Fix unmounting layer without merge dir with Overlay2 [#31069](https://github.com/docker/docker/pull/31069)
 - Do not ignore "volume in use" errors when force-delete [#31450](https://github.com/docker/docker/pull/31450)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/17.03/#swarm-mode-1)
+### Swarm Mode
 
 - Update swarmkit to 17756457ad6dc4d8a639a1f0b7a85d1b65a617bb [#31807](https://github.com/docker/docker/pull/31807)
 - Scheduler now correctly considers tasks which have been assigned to a node but aren't yet running [docker/swarmkit#1980](https://github.com/docker/swarmkit/pull/1980)
@@ -78,26 +78,26 @@ draft = false
 - Avoid network allocation for tasks that are no longer running [docker/swarmkit#2017](https://github.com/docker/swarmkit/pull/2017)
 - Bookkeeping fixes inside network allocator allocator [docker/swarmkit#2019](https://github.com/docker/swarmkit/pull/2019) [docker/swarmkit#2020](https://github.com/docker/swarmkit/pull/2020)
 
-### [Windows](https://docs.docker.com/engine/release-notes/17.03/#windows)
+### Windows
 
 - Cleanup HCS on restore [#31503](https://github.com/docker/docker/pull/31503)
 
-## [17.03.0-ce](https://docs.docker.com/engine/release-notes/17.03/#17030-ce)
+## 17.03.0-ce
 
 2017-03-01
 
 **IMPORTANT**: Starting with this release, Docker is on a monthly release cycle and uses a new YY.MM versioning scheme to reflect this. Two channels are available: monthly and quarterly. Any given monthly release will only receive security and bugfixes until the next monthly release is available. Quarterly releases receive security and bugfixes for 4 months after initial release. This release includes bugfixes for 1.13.1 but there are no major feature additions and the API version stays the same. Upgrading from Docker 1.13.1 to 17.03.0 is expected to be simple and low-risk.
 
-### [Client](https://docs.docker.com/engine/release-notes/17.03/#client)
+### Client
 
 - Fix panic in `docker stats --format` [#30776](https://github.com/docker/docker/pull/30776)
 
-### [Contrib](https://docs.docker.com/engine/release-notes/17.03/#contrib)
+### Contrib
 
 - Update various `bash` and `zsh` completion scripts [#30823](https://github.com/docker/docker/pull/30823), [#30945](https://github.com/docker/docker/pull/30945) and more...
 - Block obsolete socket families in default seccomp profile - mitigates unpatched kernels' CVE-2017-6074 [#29076](https://github.com/docker/docker/pull/29076)
 
-### [Networking](https://docs.docker.com/engine/release-notes/17.03/#networking-1)
+### Networking
 
 - Fix bug on overlay encryption keys rotation in cross-datacenter swarm [#30727](https://github.com/docker/docker/pull/30727)
 - Fix side effect panic in overlay encryption and network control plane communication failure ("No installed keys could decrypt the message") on frequent swarm leader re-election [#25608](https://github.com/docker/docker/pull/25608)
@@ -106,7 +106,7 @@ draft = false
 - Release the network attachment on allocation failure [#31073](https://github.com/docker/docker/pull/31073)
 - Fix port allocation when multiple published ports map to the same target port [docker/swarmkit#1835](https://github.com/docker/swarmkit/pull/1835)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/17.03/#runtime-3)
+### Runtime
 
 - Fix a deadlock in docker logs [#30223](https://github.com/docker/docker/pull/30223)
 - Fix CPU spin waiting for log write events [#31070](https://github.com/docker/docker/pull/31070)
@@ -115,7 +115,7 @@ draft = false
 - Fix duplicate mount point for `--volumes-from` in `docker run` [#29563](https://github.com/docker/docker/pull/29563)
 - Fix `--cache-from` does not cache last step [#31189](https://github.com/docker/docker/pull/31189)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/17.03/#swarm-mode-2)
+### Swarm Mode
 
 - Shutdown leaks an error when the container was never started [#31279](https://github.com/docker/docker/pull/31279)
 - Fix possibility of tasks getting stuck in the "NEW" state during a leader failover [docker/swarmkit#1938](https://github.com/docker/swarmkit/pull/1938)

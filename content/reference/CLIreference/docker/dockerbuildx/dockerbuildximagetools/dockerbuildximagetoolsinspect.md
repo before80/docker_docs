@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/)
+> 原文：[https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 | :---------- | ------------------------------------------------- |
 | Usage       | `docker buildx imagetools inspect [OPTIONS] NAME` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#description)
+## Description
 
 Show details of an image in the registry.
 
@@ -60,20 +60,20 @@ Manifests:
   Platform:  linux/s390x
 ```
 
-## [Options](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#options)
+## Options
 
 | Option                                                       | Default           | Description                                   |
 | ------------------------------------------------------------ | ----------------- | --------------------------------------------- |
 | [`--format`](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#format) | ``{{.Manifest}}`` | Format the output using the given Go template |
 | [`--raw`](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#raw) |                   | Show original, unformatted JSON manifest      |
 
-## [Examples](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#examples)
+## Examples
 
-### [Override the configured builder instance (--builder)](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#builder)
+### Override the configured builder instance (--builder)
 
 Same as [`buildx --builder`](https://docs.docker.com/reference/cli/docker/buildx/#builder).
 
-### [Format the output (--format)](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#format)
+### Format the output (--format)
 
 Format the output using the given Go template. Defaults to `{{.Manifest}}` if unset. Following fields are available:
 
@@ -81,7 +81,7 @@ Format the output using the given Go template. Defaults to `{{.Manifest}}` if un
 - `.Manifest`: provides the manifest or manifest list
 - `.Image`: provides the image config
 
-#### [`.Name`](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#name)
+#### `.Name`
 
 
 
@@ -90,7 +90,7 @@ $ docker buildx imagetools inspect alpine --format "{{.Name}}"
 Name: docker.io/library/alpine:latest
 ```
 
-#### [`.Manifest`](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#manifest)
+#### `.Manifest`
 
 
 
@@ -135,7 +135,7 @@ Manifests:
   Platform:  linux/riscv64
 ```
 
-#### [JSON output](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#json-output)
+#### JSON output
 
 A `json` template function is also available if you want to render fields in JSON format:
 
@@ -554,7 +554,7 @@ $ docker buildx imagetools inspect crazymax/buildkit:attest --format "{{json .}}
 }
 ```
 
-#### [Multi-platform](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#multi-platform)
+#### Multi-platform
 
 Multi-platform images are supported for `.Image`, `.SLSA` and `.SBOM` fields. If you want to pick up a specific platform, you can specify it using the `index` go template function:
 
@@ -632,7 +632,7 @@ $ docker buildx imagetools inspect --format '{{json (index .Image "linux/s390x")
 }
 ```
 
-### [Show original JSON manifest (--raw)](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#raw)
+### Show original JSON manifest (--raw)
 
 Use the `--raw` option to print the raw JSON manifest.
 

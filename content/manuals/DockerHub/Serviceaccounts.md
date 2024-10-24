@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/docker-hub/service-accounts/](https://docs.docker.com/docker-hub/service-accounts/)
+> 原文：[https://docs.docker.com/docker-hub/service-accounts/](https://docs.docker.com/docker-hub/service-accounts/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,9 +24,9 @@ draft = false
 >
 > 
 >
-> Service accounts require a [Docker Team, or Business subscription](https://docs.docker.com/subscription/).
+> Service accounts require a [Docker Team, or Business subscription]({{< ref "/manuals/Subscription" >}}).
 >
-> Docker recommends that you use organization access tokens instead of service accounts. For more details, see [Organization access tokens](https://docs.docker.com/security/for-admins/access-tokens/).
+> Docker recommends that you use organization access tokens instead of service accounts. For more details, see [Organization access tokens]({{< ref "/manuals/Security/Foradmins/OrganizationaccesstokensBeta" >}}).
 
 A service account is a Docker ID used for automated management of container images or containerized applications. Service accounts are typically used in automated workflows, and don't share Docker IDs with the members in the organization. Common use cases for service accounts include mirroring content on Docker Hub, or tying in image pulls from your CI/CD process.
 
@@ -36,7 +36,7 @@ A service account is a Docker ID used for automated management of container imag
 >
 > All paid Docker subscriptions include up to 5000 pulls per day per authenticated user. If you require a higher number of pulls, you can purchase an Enhanced Service Account add-on.
 
-## [Enhanced Service Account add-on pricing](https://docs.docker.com/docker-hub/service-accounts/#enhanced-service-account-add-on-pricing)
+## Enhanced Service Account add-on pricing
 
 Refer to the following table for details on the Enhanced Service Account add-on pricing:
 
@@ -50,7 +50,7 @@ Refer to the following table for details on the Enhanced Service Account add-on 
 
 *Once you establish the initial Tier, that's the minimum fee for the year. Annual commitment required. The service account may exceed Pulls by up to 25% for up to 20 days during the year without incurring additional fees. Reports on consumption are available upon request. At the end of the initial 1-year term, the appropriate Tier will be established for the following year.
 
-## [How a pull is defined](https://docs.docker.com/docker-hub/service-accounts/#how-a-pull-is-defined)
+## How a pull is defined
 
 - Pulls are accounted to the user doing the pull, not to the owner of the image.
 - A pull request is defined as up to two `GET` requests on registry manifest URLs (`/v2/*/manifests/*`).
@@ -59,15 +59,15 @@ Refer to the following table for details on the Enhanced Service Account add-on 
 - `HEAD` requests aren't counted.
 - Some images are unlimited through our [Docker Sponsored Open Source](https://www.docker.com/blog/expanded-support-for-open-source-software-projects/) and [Docker Verified Publisher](https://www.docker.com/partners/programs) programs.
 
-## [Creating a new service account](https://docs.docker.com/docker-hub/service-accounts/#creating-a-new-service-account)
+## Creating a new service account
 
 To create a new service account for your Team account:
 
 1. Create a new Docker ID.
-2. Create a [team](https://docs.docker.com/admin/organization/manage-a-team/) in your organization and grant it read-only access to your private repositories.
-3. Add the new Docker ID to your [organization](https://docs.docker.com/admin/organization/orgs/).
-4. Add the new Docker ID to the [team](https://docs.docker.com/admin/organization/manage-a-team/) you created earlier.
-5. Create a new [personal access token (PAT)](https://docs.docker.com/security/for-developers/access-tokens/) from the user account and use it for CI.
+2. Create a [team]({{< ref "/manuals/Administration/Organizationadministration/Createandmanageateam" >}}) in your organization and grant it read-only access to your private repositories.
+3. Add the new Docker ID to your [organization]({{< ref "/manuals/Administration/Organizationadministration/Createyourorganization" >}}).
+4. Add the new Docker ID to the [team]({{< ref "/manuals/Administration/Organizationadministration/Createandmanageateam" >}}) you created earlier.
+5. Create a new [personal access token (PAT)]({{< ref "/manuals/Security/Fordevelopers/Accesstokens" >}}) from the user account and use it for CI.
 
 > **Note**
 >
@@ -75,9 +75,9 @@ To create a new service account for your Team account:
 >
 > If you want a read-only PAT just for your open-source repositories, or to access official images and other public images, you don't have to grant any access permissions to the new Docker ID.
 
-## [Additional information](https://docs.docker.com/docker-hub/service-accounts/#additional-information)
+## Additional information
 
 Refer to the following topics for additional information:
 
-- [Mirroring Docker Hub](https://docs.docker.com/docker-hub/mirror/)
+- [Mirroring Docker Hub]({{< ref "/manuals/DockerHub/Mirroring" >}})
 - [Docker pricing FAQs](https://www.docker.com/pricing/faq/)

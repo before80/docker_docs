@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/](https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/)
+> 原文：[https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/](https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Apply rolling updates to a service
 
-In a previous step of the tutorial, you [scaled](https://docs.docker.com/engine/swarm/swarm-tutorial/scale-service/) the number of instances of a service. In this part of the tutorial, you deploy a service based on the Redis 3.0.6 container tag. Then you upgrade the service to use the Redis 3.0.7 container image using rolling updates.
+In a previous step of the tutorial, you [scaled]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode/Scaletheserviceintheswarm" >}}) the number of instances of a service. In this part of the tutorial, you deploy a service based on the Redis 3.0.6 container tag. Then you upgrade the service to use the Redis 3.0.7 container image using rolling updates.
 
 1. If you haven't already, open a terminal and ssh into the machine where you run your manager node. For example, the tutorial uses a machine named `manager1`.
 
@@ -146,8 +146,8 @@ In a previous step of the tutorial, you [scaled](https://docs.docker.com/engine/
 
    Before Swarm updates all of the tasks, you can see that some are running `redis:3.0.6` while others are running `redis:3.0.7`. The output above shows the state once the rolling updates are done.
 
-## [Next steps](https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/#next-steps)
+## Next steps
 
 Next, you'll learn how to drain a node in the swarm.
 
-[Drain a node](https://docs.docker.com/engine/swarm/swarm-tutorial/drain-node/)
+[Drain a node]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode/Drainanodeontheswarm" >}})

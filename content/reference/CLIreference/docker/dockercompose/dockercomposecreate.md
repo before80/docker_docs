@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/create/](https://docs.docker.com/reference/cli/docker/compose/create/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/create/](https://docs.docker.com/reference/cli/docker/compose/create/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,11 +18,11 @@ draft = false
 | :---------- | ---------------------------------------------- |
 | Usage       | `docker compose create [OPTIONS] [SERVICE...]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/create/#description)
+## Description
 
 Creates containers for a service
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/create/#options)
+## Options
 
 | Option             | Default  | Description                                                  |
 | ------------------ | -------- | ------------------------------------------------------------ |

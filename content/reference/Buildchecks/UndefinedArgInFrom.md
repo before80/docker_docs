@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/build-checks/undefined-arg-in-from/](https://docs.docker.com/reference/build-checks/undefined-arg-in-from/)
+> 原文：[https://docs.docker.com/reference/build-checks/undefined-arg-in-from/](https://docs.docker.com/reference/build-checks/undefined-arg-in-from/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
 # UndefinedArgInFrom
 
-## [Output](https://docs.docker.com/reference/build-checks/undefined-arg-in-from/#output)
+## Output
 
 
 
@@ -22,7 +22,7 @@ draft = false
 FROM argument 'VARIANT' is not declared
 ```
 
-## [Description](https://docs.docker.com/reference/build-checks/undefined-arg-in-from/#description)
+## Description
 
 This rule warns for cases where you're consuming an undefined build argument in `FROM` instructions.
 
@@ -46,7 +46,7 @@ $ docker buildx build --build-arg ALPINE_VERSION=edge .
 
 This check also tries to detect and warn when a `FROM` instruction reference miss-spelled built-in build arguments, like `BUILDPLATFORM`.
 
-## [Examples](https://docs.docker.com/reference/build-checks/undefined-arg-in-from/#examples)
+## Examples
 
 ❌ Bad: the `VARIANT` build argument is undefined.
 

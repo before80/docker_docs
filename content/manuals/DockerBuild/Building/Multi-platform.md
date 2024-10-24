@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/building/multi-platform/](https://docs.docker.com/build/building/multi-platform/)
+> 原文：[https://docs.docker.com/build/building/multi-platform/](https://docs.docker.com/build/building/multi-platform/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 A multi-platform build refers to a single build invocation that targets multiple different operating system or CPU architecture combinations. When building images, this lets you create a single image that can run on multiple platforms, such as `linux/amd64`, `linux/arm64`, and `windows/amd64`.
 
-## [Why multi-platform builds?](https://docs.docker.com/build/building/multi-platform/#why-multi-platform-builds)
+## Why multi-platform builds?
 
 Docker solves the "it works on my machine" problem by packaging applications and their dependencies into containers. This makes it easy to run the same application on different environments, such as development, testing, and production.
 
@@ -24,15 +24,15 @@ But containerization by itself only solves part of the problem. Containers share
 
 Multi-platform builds solve this problem by packaging multiple variants of the same application into a single image. This enables you to run the same image on different types of hardware, such as development machines running x86-64 or ARM-based Amazon EC2 instances in the cloud, without the need for emulation.
 
-### [Difference between single-platform and multi-platform images](https://docs.docker.com/build/building/multi-platform/#difference-between-single-platform-and-multi-platform-images)
+### Difference between single-platform and multi-platform images
 
 Multi-platform images have a different structure than single-platform images. Single-platform images contain a single manifest that points to a single configuration and a single set of layers. Multi-platform images contain a manifest list, pointing to multiple manifests, each of which points to a different configuration and set of layers.
 
-![Multi-platform image structure](Multi-platform_img/single-vs-multiplatform-image.svg+xml)
+![Multi-platform image structure](Multi-platform_img/single-vs-multiplatform-image.svg)
 
 When you push a multi-platform image to a registry, the registry stores the manifest list and all the individual manifests. When you pull the image, the registry returns the manifest list, and Docker automatically selects the correct variant based on the host's architecture. For example, if you run a multi-platform image on an ARM-based Raspberry Pi, Docker selects the `linux/arm64` variant. If you run the same image on an x86-64 laptop, Docker selects the `linux/amd64` variant (if you're using Linux containers).
 
-## [Prerequisites](https://docs.docker.com/build/building/multi-platform/#prerequisites)
+## Prerequisites
 
 To build multi-platform images, you first need to make sure that your Docker environment is set up to support it. There are two ways you can do that:
 
@@ -51,8 +51,8 @@ Creating a custom builder that uses a driver with multi-platform support, such a
 
 The steps for enabling the containerd image store depends on whether you're using Docker Desktop or Docker Engine standalone:
 
-- If you're using Docker Desktop, enable the containerd image store in the [Docker Desktop settings](https://docs.docker.com/desktop/containerd/).
-- If you're using Docker Engine standalone, enable the containerd image store using the [daemon configuration file](https://docs.docker.com/engine/storage/containerd/).
+- If you're using Docker Desktop, enable the containerd image store in the [Docker Desktop settings]({{< ref "/manuals/DockerDesktop/containerdimagestore" >}}).
+- If you're using Docker Engine standalone, enable the containerd image store using the [daemon configuration file]({{< ref "/manuals/DockerEngine/Storage/containerdimagestore" >}}).
 
 ------
 
@@ -75,13 +75,13 @@ $ docker buildx create \
 
 > **Note**
 >
-> Builds with the `docker-container` driver aren't automatically loaded to your Docker Engine image store. For more information, see [Build drivers](https://docs.docker.com/build/builders/drivers/).
+> Builds with the `docker-container` driver aren't automatically loaded to your Docker Engine image store. For more information, see [Build drivers]({{< ref "/manuals/DockerBuild/Builders/Builddrivers" >}}).
 
 {{% /tab  %}}
 
 {{< /tabpane >}}
 
-## [Build multi-platform images](https://docs.docker.com/build/building/multi-platform/#build-multi-platform-images)
+## Build multi-platform images
 
 When triggering a build, use the `--platform` flag to define the target platforms for the build output, such as `linux/amd64` and `linux/arm64`:
 
@@ -91,7 +91,7 @@ When triggering a build, use the `--platform` flag to define the target platform
 $ docker buildx build --platform linux/amd64,linux/arm64 .
 ```
 
-## [Strategies](https://docs.docker.com/build/building/multi-platform/#strategies)
+## Strategies
 
 You can build multi-platform images using three different strategies, depending on your use case:
 
@@ -99,7 +99,7 @@ You can build multi-platform images using three different strategies, depending 
 2. Use a builder with [multiple native nodes](https://docs.docker.com/build/building/multi-platform/#multiple-native-nodes)
 3. Use [cross-compilation](https://docs.docker.com/build/building/multi-platform/#cross-compilation) with multi-stage builds
 
-### [QEMU](https://docs.docker.com/build/building/multi-platform/#qemu)
+### QEMU
 
 Building multi-platform images under emulation with QEMU is the easiest way to get started if your builder already supports it. Using emulation requires no changes to your Dockerfile, and BuildKit automatically detects the architectures that are available for emulation.
 
@@ -113,7 +113,7 @@ Building multi-platform images under emulation with QEMU is the easiest way to g
 
 Docker Desktop supports running and building multi-platform images under emulation by default. No configuration is necessary as the builder uses the QEMU that's bundled within the Docker Desktop VM.
 
-#### [Install QEMU manually](https://docs.docker.com/build/building/multi-platform/#install-qemu-manually)
+#### Install QEMU manually
 
 If you're using a builder outside of Docker Desktop, such as if you're using Docker Engine on Linux, or a custom remote builder, you need to install QEMU and register the executable types on the host OS. The prerequisites for installing QEMU are:
 
@@ -133,7 +133,7 @@ This installs the QEMU binaries and registers them with [`binfmt_misc`](https://
 
 Once QEMU is installed and the executable types are registered on the host OS, they work transparently inside containers. You can verify your registration by checking if `F` is among the flags in `/proc/sys/fs/binfmt_misc/qemu-*`.
 
-### [Multiple native nodes](https://docs.docker.com/build/building/multi-platform/#multiple-native-nodes)
+### Multiple native nodes
 
 Using multiple native nodes provide better support for more complicated cases that QEMU can't handle, and also provides better performance.
 
@@ -166,9 +166,9 @@ $ docker build \
   --push .
 ```
 
-For more information, see [Docker Build Cloud](https://docs.docker.com/build-cloud/).
+For more information, see [Docker Build Cloud]({{< ref "/manuals/DockerBuildCloud" >}}).
 
-### [Cross-compilation](https://docs.docker.com/build/building/multi-platform/#cross-compilation)
+### Cross-compilation
 
 Depending on your project, if the programming language you use has good support for cross-compilation, you can leverage multi-stage builds to build binaries for target platforms from the native architecture of the builder. Special build arguments, such as `BUILDPLATFORM` and `TARGETPLATFORM`, are automatically available for use in your Dockerfile.
 
@@ -186,7 +186,7 @@ FROM alpine
 COPY --from=build /log /log
 ```
 
-## [Examples](https://docs.docker.com/build/building/multi-platform/#examples)
+## Examples
 
 Here are some examples of multi-platform builds:
 
@@ -194,7 +194,7 @@ Here are some examples of multi-platform builds:
 - [Multi-platform Neovim build using Docker Build Cloud](https://docs.docker.com/build/building/multi-platform/#multi-platform-neovim-build-using-docker-build-cloud)
 - [Cross-compiling a Go application](https://docs.docker.com/build/building/multi-platform/#cross-compiling-a-go-application)
 
-### [Simple multi-platform build using emulation](https://docs.docker.com/build/building/multi-platform/#simple-multi-platform-build-using-emulation)
+### Simple multi-platform build using emulation
 
 This example demonstrates how to build a simple multi-platform image using emulation with QEMU. The image contains a single file that prints the architecture of the container.
 
@@ -243,7 +243,7 @@ Steps:
    - If you're running on an x86-64 machine, you should see `x86_64`.
    - If you're running on an ARM machine, you should see `aarch64`.
 
-### [Multi-platform Neovim build using Docker Build Cloud](https://docs.docker.com/build/building/multi-platform/#multi-platform-neovim-build-using-docker-build-cloud)
+### Multi-platform Neovim build using Docker Build Cloud
 
 This example demonstrates how run a multi-platform build using Docker Build Cloud to compile and export [Neovim](https://github.com/neovim/neovim) binaries for the `linux/amd64` and `linux/arm64` platforms.
 
@@ -251,7 +251,7 @@ Docker Build Cloud provides managed multi-node builders that support native mult
 
 Prerequisites:
 
-- You've [signed up for Docker Build Cloud and created a builder](https://docs.docker.com/build-cloud/setup/)
+- You've [signed up for Docker Build Cloud and created a builder]({{< ref "/manuals/DockerBuildCloud/Setup" >}})
 
 Steps:
 
@@ -316,7 +316,7 @@ Steps:
    3 directories, 2 files
    ```
 
-### [Cross-compiling a Go application](https://docs.docker.com/build/building/multi-platform/#cross-compiling-a-go-application)
+### Cross-compiling a Go application
 
 This example demonstrates how to cross-compile a Go application for multiple platforms using multi-stage builds. The application is a simple HTTP server that listens on port 8080 and returns the architecture of the container. This example uses Go, but the same principles apply to other programming languages that support cross-compilation.
 

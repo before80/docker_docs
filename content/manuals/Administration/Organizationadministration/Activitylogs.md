@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/admin/organization/activity-logs/](https://docs.docker.com/admin/organization/activity-logs/)
+> 原文：[https://docs.docker.com/admin/organization/activity-logs/](https://docs.docker.com/admin/organization/activity-logs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -30,15 +30,15 @@ Owners can also see the activity logs for their repository if the repository is 
 >
 > 
 >
-> Activity logs requires a [Docker Team or Business subscription](https://docs.docker.com/subscription/).
+> Activity logs requires a [Docker Team or Business subscription]({{< ref "/manuals/Subscription" >}}).
 
-## [Manage activity logs](https://docs.docker.com/admin/organization/activity-logs/#manage-activity-logs)
+## Manage activity logs
 
 {{< tabpane text=true persist=disabled >}}
 
 {{% tab header="Docker Hub" %}}
 
-### [View the activity logs](https://docs.docker.com/admin/organization/activity-logs/#view-the-activity-logs)
+### View the activity logs
 
 To view the activity logs:
 
@@ -49,7 +49,7 @@ To view the activity logs:
 >
 > Docker retains the activity data for a period of three months.
 
-### [Customize the activity logs](https://docs.docker.com/admin/organization/activity-logs/#customize-the-activity-logs)
+### Customize the activity logs
 
 By default, all activities that occur are displayed on the **Activity** tab. Use the calendar option to select a date range and customize your results. After you have selected a date range, the activity logs of all the activities that occurred during that period are displayed.
 
@@ -67,11 +67,11 @@ After choosing **Organization**, **Repository**, or **Billing**, you can further
 
 **Early Access**
 
-The Docker Admin Console is an [early access](https://docs.docker.com/release-lifecycle#early-access-ea) product.
+The Docker Admin Console is an [early access]({{< ref "/manuals/Releaselifecycle#early-access-ea" >}}) product.
 
 It's available to all company owners and organization owners. You can still manage organizations in Docker Hub, but the Admin Console includes company-level management and enhanced features for organization management.
 
-### [View the activity logs](https://docs.docker.com/admin/organization/activity-logs/#view-the-activity-logs)
+### View the activity logs
 
 To view the activity logs:
 
@@ -82,7 +82,7 @@ To view the activity logs:
 >
 > Docker retains the activity data for a period of three months.
 
-### [Customize the activity logs](https://docs.docker.com/admin/organization/activity-logs/#customize-the-activity-logs)
+### Customize the activity logs
 
 By default, all activities that occur are displayed on the **Activity** tab. Use the calendar option to select a date range and customize your results. After you have selected a date range, the activity logs of all the activities that occurred during that period are displayed.
 
@@ -100,11 +100,11 @@ After choosing **Organization**, **Repository**, or **Billing**, you can further
 
 
 
-## [Event definitions](https://docs.docker.com/admin/organization/activity-logs/#event-definitions)
+## Event definitions
 
 Refer to the following section for a list of events and their descriptions:
 
-### [Organization events](https://docs.docker.com/admin/organization/activity-logs/#organization-events)
+### Organization events
 
 | Event                                       | Description                                                  |
 | :------------------------------------------ | :----------------------------------------------------------- |
@@ -131,7 +131,7 @@ Refer to the following section for a list of events and their descriptions:
 | Access token updated                        | Access token updated in organization                         |
 | Access token deleted                        | Access token deleted in organization                         |
 
-### [Repository events](https://docs.docker.com/admin/organization/activity-logs/#repository-events)
+### Repository events
 
 | Event              | Description                                                  |
 | :----------------- | :----------------------------------------------------------- |
@@ -143,7 +143,7 @@ Refer to the following section for a list of events and their descriptions:
 | Tag Deleted        | Activities related to the tags deleted                       |
 | Categories Updated | Activities related to setting or updating categories of a repository |
 
-### [Billing events](https://docs.docker.com/admin/organization/activity-logs/#billing-events)
+### Billing events
 
 | Event                                 | Description                                                  |
 | :------------------------------------ | :----------------------------------------------------------- |

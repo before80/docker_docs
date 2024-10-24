@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/concepts/s3c/](https://docs.docker.com/scout/concepts/s3c/)
+> 原文：[https://docs.docker.com/scout/concepts/s3c/](https://docs.docker.com/scout/concepts/s3c/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ S3C is a fundamental change in how organizations approach software security. Tra
 
 Following industry best practices for software supply chain conduct is important because it helps organizations protect their software from security threats, compliance risks, and other vulnerabilities. Implementing a software supply chain security framework improves visibility, collaboration, and traceability of a project across stakeholders. This helps organizations detect, respond to, and remediate threats more effectively.
 
-## [Securing the software supply chain](https://docs.docker.com/scout/concepts/s3c/#securing-the-software-supply-chain)
+## Securing the software supply chain
 
 Building a secure software supply chain involves several key steps, such as:
 
@@ -31,10 +31,10 @@ Building a secure software supply chain involves several key steps, such as:
 
 Managing the software supply chain is a complex task, especially in the modern day where software is built using multiple components from different sources. Organizations need to have a clear understanding of the software components they use, and the security risks associated with them.
 
-## [Docker Scout](https://docs.docker.com/scout/concepts/s3c/#docker-scout)
+## Docker Scout
 
 Docker Scout is a platform designed to help organizations secure their software supply chain. It provides tools and services for identifying and managing software assets and policies, and automated remediation of security threats.
 
 Unlike traditional security tools that focus on scheduled, point-in-time scans at specific stages in the software development lifecycle, Docker Scout uses a modern event-driven model that spans the entire software supply chain. This means that when a new vulnerability affecting your images is disclosed, your updated risk assessment is available within seconds, and earlier in the development process.
 
-Docker Scout works by analyzing the composition of your images to create a [Software Bill of Materials (SBOM)](https://docs.docker.com/scout/concepts/sbom/). The SBOM is cross-referenced against the security advisories to identify CVEs that affect your images. Docker Scout integrates with [over 20 different security advisories](https://docs.docker.com/scout/deep-dive/advisory-db-sources/), and updates its vulnerability database in real-time. This ensures that your security posture is represented using the latest available information.
+Docker Scout works by analyzing the composition of your images to create a [Software Bill of Materials (SBOM)]({{< ref "/manuals/DockerScout/Concepts/SoftwareBillofMaterials" >}}). The SBOM is cross-referenced against the security advisories to identify CVEs that affect your images. Docker Scout integrates with [over 20 different security advisories]({{< ref "/manuals/DockerScout/Deepdive/Advisorydatabasesourcesandmatchingservice" >}}), and updates its vulnerability database in real-time. This ensures that your security posture is represented using the latest available information.

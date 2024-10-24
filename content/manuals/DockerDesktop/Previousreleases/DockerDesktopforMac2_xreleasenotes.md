@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/previous-versions/2.x-mac/](https://docs.docker.com/desktop/previous-versions/2.x-mac/)
+> 原文：[https://docs.docker.com/desktop/previous-versions/2.x-mac/](https://docs.docker.com/desktop/previous-versions/2.x-mac/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,35 +16,35 @@ draft = false
 
 This page contains release notes for Docker Desktop for Mac 2.x.
 
-## [Docker Desktop Community 2.5.0.1](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2501)
+## Docker Desktop Community 2.5.0.1
 
 2020-11-10
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/2.x-mac/#upgrades)
+### Upgrades
 
 - [Compose CLI v1.0.2](https://github.com/docker/compose-cli/releases/tag/v1.0.2)
 - [Snyk v1.424.4](https://github.com/snyk/snyk/releases/tag/v1.424.4)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/2.x-mac/#bug-fixes-and-minor-changes)
+### Bug fixes and minor changes
 
 - Fixed an issue that caused Docker Desktop to crash on MacOS 11.0 (Big Sur) when VirtualBox was also installed. See [docker/for-mac#4997](https://github.com/docker/for-mac/issues/4997).
 
-## [Docker Desktop Community 2.5.0.0](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2500)
+## Docker Desktop Community 2.5.0.0
 
 2020-11-02
 
 Docker Desktop 2.5.0.0 contains a Kubernetes upgrade. Your local Kubernetes cluster will be reset after installing this version.
 
-### [New](https://docs.docker.com/desktop/previous-versions/2.x-mac/#new)
+### New
 
 - Users with a paid Docker subscription plan can now see the vulnerability scan report on the Remote repositories tab in Docker Desktop.
 - Docker Desktop introduces a support option for users with a paid Docker subscription.
 
-### [Security](https://docs.docker.com/desktop/previous-versions/2.x-mac/#security)
+### Security
 
 - Fixed local privilege escalation vulnerability caused by inadequate certificate checking. See [CVE-2021-3162](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3162).
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/2.x-mac/#upgrades-1)
+### Upgrades
 
 - [Linux kernel 5.4.39](https://hub.docker.com/layers/linuxkit/kernel/5.4.39-f39f83d0d475b274938c86eaa796022bfc7063d2/images/sha256-8614670219aca0bb276d4749e479591b60cd348abc770ac9ecd09ee4c1575405?context=explore)
 - [Docker Compose CLI 1.0.1](https://github.com/docker/compose-cli/releases/tag/v1.0.1)
@@ -52,7 +52,7 @@ Docker Desktop 2.5.0.0 contains a Kubernetes upgrade. Your local Kubernetes clus
 - [Go 1.15.2](https://github.com/golang/go/releases/tag/go1.15.2)
 - [Kubernetes 1.19.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.19.3)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/2.x-mac/#bug-fixes-and-minor-changes-1)
+### Bug fixes and minor changes
 
 - Renamed 'Run Diagnostics' to 'Get support'.
 - Removed BlueStacks warning message. Fixes [docker/for-mac#4863](https://github.com/docker/for-mac/issues/4863).
@@ -68,13 +68,13 @@ Docker Desktop 2.5.0.0 contains a Kubernetes upgrade. Your local Kubernetes clus
 - Diagnostics: avoid hanging when Kubernetes is in a broken state.
 - Docker Desktop now supports `S_ISUID`, `S_ISGID` and `S_ISVTX` in calls to `chmod(2)` on shared filesystems. Fixes [docker/for-mac#4943](https://github.com/docker/for-mac/issues/4943).
 
-## [Docker Desktop Community 2.4.0.0](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2400)
+## Docker Desktop Community 2.4.0.0
 
 2020-09-30
 
 Docker Desktop 2.4.0.0 contains a Kubernetes upgrade. Your local Kubernetes cluster will be reset after installing this version.
 
-### [New](https://docs.docker.com/desktop/previous-versions/2.x-mac/#new-1)
+### New
 
 - [Docker Compose CLI - 0.1.18](https://github.com/docker/compose-cli), enabling use of volumes with Compose and the Cloud through ECS and ACI.
 - Docker introduces the new Images view in the Docker Dashboard. The images view allows users to view the Hub images, pull them and manage their local images on disk including cleaning up unwanted and unused images. To access the new Images view, from the Docker menu, select **Dashboard** > **Images**.
@@ -83,7 +83,7 @@ Docker Desktop 2.4.0.0 contains a Kubernetes upgrade. Your local Kubernetes clus
 - Docker Desktop now uses much less CPU when there are lots of file events on the host and when running Kubernetes, see [docker/roadmap#12](https://github.com/docker/roadmap/issues/12).
 - Docker Desktop now uses gRPC-FUSE for file sharing by default. This uses much less CPU than osxfs, especially when there are lots of file events on the host. To switch back to `osxfs`, go to **Preferences** > **General** and disable gRPC-FUSE.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/2.x-mac/#upgrades-2)
+### Upgrades
 
 - [Docker 19.03.13](https://github.com/docker/docker-ce/releases/tag/v19.03.13)
 - [Docker Compose 1.27.4](https://github.com/docker/compose/releases/tag/1.27.4)
@@ -92,7 +92,7 @@ Docker Desktop 2.4.0.0 contains a Kubernetes upgrade. Your local Kubernetes clus
 - [Kubernetes 1.18.8](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.8)
 - [Qemu 4.2.0](https://git.qemu.org/?p=qemu.git;a=tag;h=1e4aa2dad329852aa6c3f59cefd65c2c2ef2062c)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/2.x-mac/#bug-fixes-and-minor-changes-2)
+### Bug fixes and minor changes
 
 - Docker Desktop on macOS 10.13 is now deprecated.
 - Removed the legacy Kubernetes context `docker-for-desktop`. The context `docker-desktop` should be used instead. Fixes [docker/for-win#5089](https://github.com/docker/for-win/issues/5089) and [docker/for-mac#4089](https://github.com/docker/for-mac/issues/5089).
@@ -108,79 +108,79 @@ Docker Desktop 2.4.0.0 contains a Kubernetes upgrade. Your local Kubernetes clus
 - Docker Desktop always flushes filesystem caches synchronously on container start. See [docker/for-mac#4943](https://github.com/docker/for-mac/issues/4943).
 - Compose-on-Kubernetes is no longer included in the Docker Desktop installer. You can download it separately from the compose-on-kubernetes [release page](https://github.com/docker/compose-on-kubernetes/releases).
 
-### [Known issues](https://docs.docker.com/desktop/previous-versions/2.x-mac/#known-issues)
+### Known issues
 
 - There is a known issue when using `docker-compose` with named volumes and gRPC FUSE: second and subsequent calls to `docker-compose up` will fail due to the volume path having the prefix `/host_mnt`. To work around this issue, switch back to `osxfs` in Settings. See [docker/for-mac#4859](https://github.com/docker/for-mac/issues/4859).
 - There is a known issue when enabling Kubernetes where the settings UI fails to update the Kubernetes state. To work around this issue, close and re-open the window.
 - There is a rare known issue when switching users where the images view continues to show the repositories of the previous user. To work around this issue, close and re-open the window.
 
-## [Docker Desktop Community 2.3.0.5](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2305)
+## Docker Desktop Community 2.3.0.5
 
 2020-09-15
 
-### [New](https://docs.docker.com/desktop/previous-versions/2.x-mac/#new-2)
+### New
 
 - The new Cloud integration in Docker CLI makes it easy to run containers in the cloud using either Amazon ECS or Microsoft ACI.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/2.x-mac/#upgrades-3)
+### Upgrades
 
 - [Docker Compose 1.27.2](https://github.com/docker/compose/releases/tag/1.27.2)
 - [Cloud integration v0.1.15](https://github.com/docker/aci-integration-beta/releases/tag/v0.1.15)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/2.x-mac/#bug-fixes-and-minor-changes-3)
+### Bug fixes and minor changes
 
 - Fixed automatic start on log in. See [docker/for-mac#4877](https://github.com/docker/for-mac/issues/4877) and [docker/for-mac#4890](https://github.com/docker/for-mac/issues/4890)
 
-### [Known issues](https://docs.docker.com/desktop/previous-versions/2.x-mac/#known-issues-1)
+### Known issues
 
 - The `clock_gettime64` system call returns `EPERM` rather than `ENOSYS` in i386 images. To work around this issue, disable `seccomp` by using the `--privileged` flag. See [docker/for-win#8326](https://github.com/docker/for-win/issues/8326).
 
-## [Docker Desktop Community 2.3.0.4](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2304)
+## Docker Desktop Community 2.3.0.4
 
 2020-07-27
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/2.x-mac/#upgrades-4)
+### Upgrades
 
 - [Docker 19.03.12](https://github.com/docker/docker-ce/releases/tag/v19.03.12)
 - [Docker Compose 1.26.2](https://github.com/docker/compose/releases/tag/1.26.2)
 - [Go 1.13.14](https://github.com/golang/go/issues?q=milestone%3AGo1.13.14+label%3ACherryPickApproved)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/2.x-mac/#bug-fixes-and-minor-changes-4)
+### Bug fixes and minor changes
 
 - Fixed a privilege escalation vulnerability in `com.docker.vmnetd`. See [CVE-2020-15360](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-15360)
 - Fixed an issue with startup when the Kubernetes certificates have expired. See [docker/for-mac#4594](https://github.com/docker/for-mac/issues/4594)
 - Fix an incompatibility between `hyperkit` and [osquery](https://osquery.io/) which resulted in excessive `hyperkit` CPU usage. See [docker/for-mac#3499](https://github.com/docker/for-mac/issues/3499#issuecomment-619544836)
 - Dashboard: Fixed containers logs which were sometimes truncated. Fixes [docker/for-win#5954](https://github.com/docker/for-win/issues/5954)
 
-## [Docker Desktop Community 2.3.0.3](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2303)
+## Docker Desktop Community 2.3.0.3
 
 2020-05-27
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/2.x-mac/#upgrades-5)
+### Upgrades
 
 - [Linux kernel 4.19.76](https://hub.docker.com/layers/docker/for-desktop-kernel/4.19.76-83885d3b4cff391813f4262099b36a529bca2df8-amd64/images/sha256-0214b82436af70054e013ea51cb1fea72bd943d0d6245b6521f1ff09a505c40f?context=repo)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/2.x-mac/#bug-fixes-and-minor-changes-5)
+### Bug fixes and minor changes
 
 - Re-added device-mapper to the embedded Linux kernel. Fixes [docker/for-mac#4549](https://github.com/docker/for-mac/issues/4549).
 - Fixed `hyperkit` on newer Macs and newer versions of `Hypervisor.framework`. Fixes [docker/for-mac#4562](https://github.com/docker/for-mac/issues/4562).
 
-## [Docker Desktop Community 2.3.0.2](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2302)
+## Docker Desktop Community 2.3.0.2
 
 2020-05-11
 
-### [New](https://docs.docker.com/desktop/previous-versions/2.x-mac/#new-3)
+### New
 
 Docker Desktop introduces a new onboarding tutorial upon first startup. The Quick Start tutorial guides users to get started with Docker in a few easy steps. It includes a simple exercise to build an example Docker image, run it as a container, push and save the image to Docker Hub.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/2.x-mac/#upgrades-6)
+### Upgrades
 
 - [Docker Compose 1.25.5](https://github.com/docker/compose/releases/tag/1.25.5)
 - [Go 1.13.10](https://github.com/golang/go/issues?q=milestone%3AGo1.13.10+label%3ACherryPickApproved)
 - [Linux kernel 4.19.76](https://hub.docker.com/layers/docker/for-desktop-kernel/4.19.76-ce15f646db9b062dc947cfc0c1deab019fa63f96-amd64/images/sha256-6c252199aee548e4bdc8457e0a068e7d8e81c2649d4c1e26e4150daa253a85d8?context=repo)
 - LinuxKit [init](https://hub.docker.com/layers/linuxkit/init/1a80a9907b35b9a808e7868ffb7b0da29ee64a95/images/sha256-64cc8fa50d63940dbaa9979a13c362c89ecb4439bcb3ab22c40d300b9c0b597e?context=explore), [runc](https://hub.docker.com/layers/linuxkit/runc/69b4a35eaa22eba4990ee52cccc8f48f6c08ed03/images/sha256-57e3c7cbd96790990cf87d7b0f30f459ea0b6f9768b03b32a89b832b73546280?context=explore) and [containerd](https://hub.docker.com/layers/linuxkit/containerd/09553963ed9da626c25cf8acdf6d62ec37645412/images/sha256-866be7edb0598430709f88d0e1c6ed7bfd4a397b5ed220e1f793ee9067255ff1?context=explore)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/2.x-mac/#bug-fixes-and-minor-changes-6)
+### Bug fixes and minor changes
 
 - Reduced the size of the Docker Desktop installer from 708 MB to 456 MB.
 - Fixed bug where containers disappeared from the UI when Kubernetes context is invalid. Fixes [docker/for-win#6037](https://github.com/docker/for-win/issues/6037).
@@ -196,57 +196,57 @@ Docker Desktop introduces a new onboarding tutorial upon first startup. The Quic
 - Ceph support has been removed from Docker Desktop to save disk space.
 - Fixed a performance regression when using shared volumes in 2.2.0.5. Fixes [docker/for-mac#4423].
 
-## [Docker Desktop Community 2.2.0.5](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2205)
+## Docker Desktop Community 2.2.0.5
 
 2020-04-02
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/2.x-mac/#bug-fixes-and-minor-changes-7)
+### Bug fixes and minor changes
 
 - Removed dangling `/usr/local/bin/docker-machine` symlinks which avoids custom installs of Docker Machine being accidentally deleted in future upgrades. Note that if you have installed Docker Machine manually, then the install might have followed the symlink and installed Docker Machine in `/Applications/Docker.app`. In this case, you must manually reinstall Docker Machine after installing this version of Docker Desktop. Fixes [docker/for-mac#4208](https://github.com/docker/for-mac/issues/4208).
 
-## [Docker Desktop Community 2.2.0.4](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2204)
+## Docker Desktop Community 2.2.0.4
 
 2020-03-13
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/2.x-mac/#upgrades-7)
+### Upgrades
 
 - [Docker 19.03.8](https://github.com/docker/docker-ce/releases/tag/v19.03.8)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/2.x-mac/#bug-fixes-and-minor-changes-8)
+### Bug fixes and minor changes
 
 - Kubernetes: Persistent volumes created by claims are now stored in the virtual machine. Fixes [docker/for-win#5665](https://github.com/docker/for-win/issues/5665).
 - Fixed an issue which caused Docker Desktop Dashboard to attempt connecting to all exposed ports inside a container. Fixes [docker/for-mac#4264](https://github.com/docker/for-mac/issues/4264).
 
-## [Docker Desktop Community 2.2.0.3](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2203)
+## Docker Desktop Community 2.2.0.3
 
 2020-02-11
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/2.x-mac/#upgrades-8)
+### Upgrades
 
 - [Docker Compose 1.25.4](https://github.com/docker/compose/releases/tag/1.25.4)
 - [Go 1.12.16](https://golang.org/doc/devel/release.html#go1.12)
 
-## [Docker Desktop Community 2.2.0.0](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2200)
+## Docker Desktop Community 2.2.0.0
 
 2020-01-21
 
 Docker Desktop 2.2.0.0 contains a Kubernetes upgrade. Your local Kubernetes cluster will be reset after installing this version.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/2.x-mac/#upgrades-9)
+### Upgrades
 
 - [Docker Compose 1.25.2](https://github.com/docker/compose/releases/tag/1.25.2)
 - [Kubernetes 1.15.5](https://github.com/kubernetes/kubernetes/releases/tag/v1.15.5)
 - Linux kernel 4.19.76
 - [QEMU 4.0.1](https://github.com/docker/binfmt)
 
-### [New](https://docs.docker.com/desktop/previous-versions/2.x-mac/#new-4)
+### New
 
-- **Docker Desktop Dashboard:** The new Docker Desktop **Dashboard** provides a user-friendly interface which enables you to interact with containers and applications, and manage the lifecycle of your applications directly from the UI. In addition, it allows you to access the logs, view container details, and monitor resource utilization to explore the container behavior. For detailed information about the new Dashboard UI, see [Docker Desktop Dashboard](https://docs.docker.com/desktop/).
+- **Docker Desktop Dashboard:** The new Docker Desktop **Dashboard** provides a user-friendly interface which enables you to interact with containers and applications, and manage the lifecycle of your applications directly from the UI. In addition, it allows you to access the logs, view container details, and monitor resource utilization to explore the container behavior. For detailed information about the new Dashboard UI, see [Docker Desktop Dashboard]({{< ref "/manuals/DockerDesktop" >}}).
 - Introduced a new user interface for the Docker Desktop **Preferences** menu.
 - The Restart, Reset, and Uninstall options are now available on the **Troubleshoot** menu.
 - Added the ability to start and stop existing Compose-based applications and view combined logs in the Docker Desktop **Dashboard** UI.
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/2.x-mac/#bug-fixes-and-minor-changes-9)
+### Bug fixes and minor changes
 
 - Added missing completions for the `fish` shell for Docker Compose. Fixes [docker/for-mac#3795](https://github.com/docker/for-mac/issues/3795).
 - Fixed a bug that did not allow users to copy and paste text in the **Preferences** > **Daemon** window. Fixes [docker/for-mac#3798](https://github.com/docker/for-mac/issues/3798).
@@ -266,70 +266,70 @@ Docker Desktop 2.2.0.0 contains a Kubernetes upgrade. Your local Kubernetes clus
 - Fixed an issue that caused Docker Desktop to fail on startup when there is an incomplete Kubernetes config file.
 - Fixed an issue where attempts to log into Docker through Docker Desktop could sometimes fail with the `Incorrect authentication credentials` error. Fixes [docker/for-mac#4010](https://github.com/docker/for-mac/issues/4010).
 
-### [Known issues](https://docs.docker.com/desktop/previous-versions/2.x-mac/#known-issues-2)
+### Known issues
 
 - When you start a Docker Compose application and then start a Docker App which has the same name as the Compose application, Docker Desktop displays only one application on the Dashboard. However, when you expand the application, containers that belong to both applications are displayed on the Dashboard.
 - When you deploy a Docker App with multiple containers on Kubernetes, Docker Desktop displays each Pod as an application on the Dashboard.
 
-## [Docker Desktop Community 2.1.0.5](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2105)
+## Docker Desktop Community 2.1.0.5
 
 2019-11-18
 
 Docker Desktop 2.1.0.5 contains a Kubernetes upgrade. Note that your local Kubernetes cluster will be reset after installing this version.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/2.x-mac/#upgrades-10)
+### Upgrades
 
 - [Docker 19.03.5](https://github.com/docker/docker-ce/releases/tag/v19.03.5)
 - [Kubernetes 1.14.8](https://github.com/kubernetes/kubernetes/releases/tag/v1.14.8)
 - [Go 1.12.13](https://golang.org/doc/devel/release.html#go1.12)
 
-## [Docker Desktop Community 2.1.0.4](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2104)
+## Docker Desktop Community 2.1.0.4
 
 2019-10-21
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/2.x-mac/#upgrades-11)
+### Upgrades
 
 - [Docker 19.03.4](https://github.com/docker/docker-ce/releases/tag/v19.03.4)
 - [Kubernetes 1.14.7](https://github.com/kubernetes/kubernetes/releases/tag/v1.14.7)
 - [Go 1.12.10](https://github.com/golang/go/issues?q=milestone%3AGo1.12.10+label%3ACherryPickApproved)
 - [Kitematic 0.17.9](https://github.com/docker/kitematic/releases/tag/v0.17.9)
 
-### [New](https://docs.docker.com/desktop/previous-versions/2.x-mac/#new-5)
+### New
 
 Docker Desktop now enables you to sign into Docker Hub using two-factor authentication.
 
-## [Docker Desktop Community 2.1.0.3](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2103)
+## Docker Desktop Community 2.1.0.3
 
 2019-09-16
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/2.x-mac/#upgrades-12)
+### Upgrades
 
 - [Kitematic 0.17.8](https://github.com/docker/kitematic/releases/tag/v0.17.8)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/2.x-mac/#bug-fixes-and-minor-changes-10)
+### Bug fixes and minor changes
 
 - All binaries included in Docker Desktop are now notarized so that they can run on macOS Catalina. For more information, see [Notarization Requirement for Mac Software](https://developer.apple.com/news/?id=06032019i).
 
-## [Docker Desktop Community 2.1.0.2](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2102)
+## Docker Desktop Community 2.1.0.2
 
 2019-09-04
 
 Docker Desktop 2.1.0.2 contains a Kubernetes upgrade. Note that your local Kubernetes cluster will be reset after installing this version.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/2.x-mac/#upgrades-13)
+### Upgrades
 
 - [Docker 19.03.2](https://github.com/docker/docker-ce/releases/tag/v19.03.2)
 - [Kubernetes 1.14.6](https://github.com/kubernetes/kubernetes/releases/tag/v1.14.6)
 - [Go 1.12.9](https://github.com/golang/go/issues?q=milestone%3AGo1.12.9+label%3ACherryPickApproved)
 - [Docker Machine 0.16.2](https://github.com/docker/machine/releases/tag/v0.16.2)
 
-## [Docker Desktop Community 2.1.0.1](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-desktop-community-2101)
+## Docker Desktop Community 2.1.0.1
 
 2019-08-08
 
 Note that you must sign in and create a Docker ID in order to download Docker Desktop.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/2.x-mac/#upgrades-14)
+### Upgrades
 
 - [Docker 19.03.1](https://github.com/docker/docker-ce/releases/tag/v19.03.1)
 - [Docker Compose 1.24.1](https://github.com/docker/compose/releases/tag/1.24.1)
@@ -344,22 +344,22 @@ Note that you must sign in and create a Docker ID in order to download Docker De
 - [Docker Credential Helpers 0.6.3](https://github.com/docker/docker-credential-helpers/releases/tag/v0.6.3)
 - [Hyperkit v0.20190802](https://github.com/moby/hyperkit/releases/tag/v0.20190802)
 
-### [New](https://docs.docker.com/desktop/previous-versions/2.x-mac/#new-6)
+### New
 
 - Selecting the ‘Experimental features’ checkbox in the Daemon **Preferences** menu turns on experimental features for Docker daemon and Docker CLI.
 - Improved the reliability of `com.docker.osxfs trace` performance profiling command. Users can now run the `com.docker.osxfs trace --summary` option for a high-level summary of operations, instead of receiving a trace of all operations.
 - Docker Desktop now supports large lists of DNS resource records on Mac. Fixes [docker/for-mac#2160](https://github.com/docker/for-mac/issues/2160#issuecomment-431571031).
 
-### [Experimental](https://docs.docker.com/desktop/previous-versions/2.x-mac/#experimental)
+### Experimental
 
 > Experimental features provide early access to future product functionality. These features are intended for testing and feedback only as they may change between releases without warning or can be removed entirely from a future release. Experimental features must not be used in production environments. Docker does not offer support for experimental features.
 
 Docker Desktop Community 2.1.0.0 contains the following experimental features.
 
 - Docker App: Docker App is a CLI plugin that helps configure, share, and install applications.
-- Docker Buildx: Docker Buildx is a CLI plugin for extended build capabilities with BuildKit. For more information, see the [Build page](https://docs.docker.com/build/).
+- Docker Buildx: Docker Buildx is a CLI plugin for extended build capabilities with BuildKit. For more information, see the [Build page]({{< ref "/manuals/DockerBuild" >}}).
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/2.x-mac/#bug-fixes-and-minor-changes-11)
+### Bug fixes and minor changes
 
 - Docker Desktop now allows users to expose privileged UDP ports. [docker/for-mac#3775](https://github.com/docker/for-mac/issues/3775)
 - Fixed an issue where running some Docker commands can fail if you are not using Credential Helpers. [docker/for-mac#3785](https://github.com/docker/for-mac/issues/3785)
@@ -384,12 +384,12 @@ Docker Desktop Community 2.1.0.0 contains the following experimental features.
 - When two services have a common exposed port, Docker Desktop now exposes the available ports for the second service. [docker/for-mac#3438](https://github.com/docker/for-mac/issues/3438).
 - Docker Desktop ensures localhost resolves to 127.0.0.1. This is related to [docker/for-mac#2990](https://github.com/docker/for-mac/issues/2990#issuecomment-443097942), [docker/for-mac#3383](https://github.com/docker/for-mac/issues/3383).
 
-### [Docker Community Edition 2.0.0.3 2019-02-15](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-community-edition-2003-2019-02-15)
+### Docker Community Edition 2.0.0.3 2019-02-15
 
 - Upgrades
   - [Docker 18.09.2](https://github.com/docker/docker-ce/releases/tag/v18.09.2), fixes [CVE-2019-5736](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5736)
 
-### [Docker Community Edition 2.0.0.2 2019-01-16](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-community-edition-2002-2019-01-16)
+### Docker Community Edition 2.0.0.2 2019-01-16
 
 - Upgrades
   - [Docker 18.09.1](https://github.com/docker/docker-ce/releases/tag/v18.09.1)
@@ -400,12 +400,12 @@ Docker Desktop Community 2.1.0.0 contains the following experimental features.
 - Bug fixes and minor changes
   - Add 18.09 missing daemon options
 
-### [Docker Community Edition 2.0.0.0-mac81 2018-12-07](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-community-edition-2000-mac81-2018-12-07)
+### Docker Community Edition 2.0.0.0-mac81 2018-12-07
 
 - Upgrades
   - [Docker compose 1.23.2](https://github.com/docker/compose/releases/tag/1.23.2)
 
-### [Docker Community Edition 2.0.0.0-mac78 2018-11-19](https://docs.docker.com/desktop/previous-versions/2.x-mac/#docker-community-edition-2000-mac78-2018-11-19)
+### Docker Community Edition 2.0.0.0-mac78 2018-11-19
 
 - Upgrades
   - [Docker 18.09.0](https://github.com/docker/docker-ce-packaging/releases/tag/v18.09.0)

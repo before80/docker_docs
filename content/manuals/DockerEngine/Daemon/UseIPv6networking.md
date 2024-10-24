@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/daemon/ipv6/](https://docs.docker.com/engine/daemon/ipv6/)
+> 原文：[https://docs.docker.com/engine/daemon/ipv6/](https://docs.docker.com/engine/daemon/ipv6/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 IPv6 is only supported on Docker daemons running on Linux hosts.
 
-## [Create an IPv6 network](https://docs.docker.com/engine/daemon/ipv6/#create-an-ipv6-network)
+## Create an IPv6 network
 
 - Using `docker network create`:
 
@@ -74,7 +74,7 @@ User-Agent: curl/8.1.2
 Accept: */*
 ```
 
-## [Use IPv6 for the default bridge network](https://docs.docker.com/engine/daemon/ipv6/#use-ipv6-for-the-default-bridge-network)
+## Use IPv6 for the default bridge network
 
 The following steps show you how to use IPv6 on the default bridge network.
 
@@ -130,7 +130,7 @@ User-Agent: curl/8.1.2
 Accept: */*
 ```
 
-## [Dynamic IPv6 subnet allocation](https://docs.docker.com/engine/daemon/ipv6/#dynamic-ipv6-subnet-allocation)
+## Dynamic IPv6 subnet allocation
 
 If you don't explicitly configure subnets for user-defined networks, using `docker network create --subnet=<your-subnet>`, those networks use the default address pools of the daemon as a fallback. This also applies to networks created from a Docker Compose file, with `enable_ipv6` set to `true`.
 
@@ -186,12 +186,12 @@ The following example shows a valid configuration with the default values and an
 >
 > The default IPv4 pools are from the private address range, similar to the default IPv6 [ULA](https://en.wikipedia.org/wiki/Unique_local_address) networks.
 
-## [Docker in Docker](https://docs.docker.com/engine/daemon/ipv6/#docker-in-docker)
+## Docker in Docker
 
 On a host using `xtables` (legacy `iptables`) instead of `nftables`, kernel module `ip6_tables` must be loaded before an IPv6 Docker network can be created, It is normally loaded automatically when Docker starts.
 
 However, if you running Docker in Docker that is not based on a recent version of the [official `docker` image](https://hub.docker.com/_/docker), you may need to run `modprobe ip6_tables` on your host. Alternatively, use daemon option `--ip6tables=false` to disable `ip6tables` for the containerized Docker Engine.
 
-## [Next steps](https://docs.docker.com/engine/daemon/ipv6/#next-steps)
+## Next steps
 
-- [Networking overview](https://docs.docker.com/engine/network/)
+- [Networking overview]({{< ref "/manuals/DockerEngine/Networking" >}})

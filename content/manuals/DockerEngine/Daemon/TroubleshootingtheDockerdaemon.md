@@ -6,9 +6,10 @@ type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
-> 原文: [https://docs.docker.com/engine/daemon/troubleshoot/](https://docs.docker.com/engine/daemon/troubleshoot/)
+> 原文：[https://docs.docker.com/engine/daemon/troubleshoot/](https://docs.docker.com/engine/daemon/troubleshoot/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,9 +19,9 @@ This page describes how to troubleshoot and debug the daemon if you run into iss
 
 You can turn on debugging on the daemon to learn about the runtime activity of the daemon and to aid in troubleshooting. If the daemon is unresponsive, you can also [force a full stack trace](https://docs.docker.com/engine/daemon/logs/#force-a-stack-trace-to-be-logged) of all threads to be added to the daemon log by sending the `SIGUSR` signal to the Docker daemon.
 
-## [Daemon](https://docs.docker.com/engine/daemon/troubleshoot/#daemon)
+## Daemon
 
-### [Unable to connect to the Docker daemon](https://docs.docker.com/engine/daemon/troubleshoot/#unable-to-connect-to-the-docker-daemon)
+### Unable to connect to the Docker daemon
 
 
 
@@ -33,7 +34,7 @@ This error may indicate:
 - The Docker daemon isn't running on your system. Start the daemon and try running the command again.
 - Your Docker client is attempting to connect to a Docker daemon on a different host, and that host is unreachable.
 
-### [Check whether Docker is running](https://docs.docker.com/engine/daemon/troubleshoot/#check-whether-docker-is-running)
+### Check whether Docker is running
 
 The operating-system independent way to check whether Docker is running is to ask Docker, using the `docker info` command.
 
@@ -41,7 +42,7 @@ You can also use operating system utilities, such as `sudo systemctl is-active d
 
 Finally, you can check in the process list for the `dockerd` process, using commands like `ps` or `top`.
 
-#### [Check which host your client is connecting to](https://docs.docker.com/engine/daemon/troubleshoot/#check-which-host-your-client-is-connecting-to)
+#### Check which host your client is connecting to
 
 To see which host your client is connecting to, check the value of the `DOCKER_HOST` variable in your environment.
 
@@ -63,7 +64,7 @@ You may need to edit your environment in files such as `~/.bashrc` or `~/.profil
 
 If `DOCKER_HOST` is set as intended, verify that the Docker daemon is running on the remote host and that a firewall or network outage isn't preventing you from connecting.
 
-### [Troubleshoot conflicts between the `daemon.json` and startup scripts](https://docs.docker.com/engine/daemon/troubleshoot/#troubleshoot-conflicts-between-the-daemonjson-and-startup-scripts)
+### Troubleshoot conflicts between the `daemon.json` and startup scripts
 
 If you use a `daemon.json` file and also pass options to the `dockerd` command manually or using start-up scripts, and these options conflict, Docker fails to start with an error such as:
 
@@ -85,7 +86,7 @@ If you see an error similar to this one and you are starting the daemon manually
 
 If you are starting Docker using your operating system's init scripts, you may need to override the defaults in these scripts in ways that are specific to the operating system.
 
-#### [Configure the daemon host with systemd](https://docs.docker.com/engine/daemon/troubleshoot/#configure-the-daemon-host-with-systemd)
+#### Configure the daemon host with systemd
 
 One notable example of a configuration conflict that's difficult to troubleshoot is when you want to specify a different daemon address from the default. Docker listens on a socket by default. On Debian and Ubuntu systems using `systemd`, this means that a host flag `-H` is always used when starting `dockerd`. If you specify a `hosts` entry in the `daemon.json`, this causes a configuration conflict and results in the Docker daemon failing to start.
 
@@ -99,7 +100,7 @@ ExecStart=
 ExecStart=/usr/bin/dockerd
 ```
 
-There are other times when you might need to configure `systemd` with Docker, such as [configuring a HTTP or HTTPS proxy](https://docs.docker.com/engine/daemon/proxy/).
+There are other times when you might need to configure `systemd` with Docker, such as [configuring a HTTP or HTTPS proxy]({{< ref "/manuals/DockerEngine/Daemon/Daemonproxyconfiguration" >}}).
 
 > **Note**
 >
@@ -115,11 +116,11 @@ Run `sudo systemctl daemon-reload` before attempting to start Docker. If Docker 
 >
 > Setting `hosts` in the `daemon.json` isn't supported on Docker Desktop for Windows or Docker Desktop for Mac.
 
-### [Out of memory issues](https://docs.docker.com/engine/daemon/troubleshoot/#out-of-memory-issues)
+### Out of memory issues
 
 If your containers attempt to use more memory than the system has available, you may experience an Out of Memory (OOM) exception, and a container, or the Docker daemon, might be stopped by the kernel OOM killer. To prevent this from happening, ensure that your application runs on hosts with adequate memory and see [Understand the risks of running out of memory](https://docs.docker.com/engine/containers/resource_constraints/#understand-the-risks-of-running-out-of-memory).
 
-### [Kernel compatibility](https://docs.docker.com/engine/daemon/troubleshoot/#kernel-compatibility)
+### Kernel compatibility
 
 Docker can't run correctly if your kernel is older than version 3.10, or if it's missing kernel modules. To check kernel compatibility, you can download and run the [`check-config.sh`](https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh) script.
 
@@ -133,7 +134,7 @@ $ bash ./check-config.sh
 
 The script only works on Linux.
 
-### [Kernel cgroup swap limit capabilities](https://docs.docker.com/engine/daemon/troubleshoot/#kernel-cgroup-swap-limit-capabilities)
+### Kernel cgroup swap limit capabilities
 
 On Ubuntu or Debian hosts, you may see messages similar to the following when working with an image.
 
@@ -171,9 +172,9 @@ You can turn on these capabilities on Ubuntu or Debian by following these instru
 
    The changes take effect when you reboot the system.
 
-## [Networking](https://docs.docker.com/engine/daemon/troubleshoot/#networking)
+## Networking
 
-### [IP forwarding problems](https://docs.docker.com/engine/daemon/troubleshoot/#ip-forwarding-problems)
+### IP forwarding problems
 
 If you manually configure your network using `systemd-network` with systemd version 219 or later, Docker containers may not be able to access your network. Beginning with systemd version 220, the forwarding setting for a given network (`net.ipv4.conf.<interface>.forwarding`) defaults to off. This setting prevents IP forwarding. It also conflicts with Docker's behavior of enabling the `net.ipv4.conf.all.forwarding` setting within containers.
 
@@ -193,7 +194,7 @@ IPForward=true
 
 This configuration allows IP forwarding from the container as expected.
 
-### [DNS resolver issues](https://docs.docker.com/engine/daemon/troubleshoot/#dns-resolver-issues)
+### DNS resolver issues
 
 
 
@@ -230,7 +231,7 @@ If your container needs to resolve hosts which are internal to your network, the
 
 You only need to use one of these methods.
 
-### [Specify DNS servers for Docker](https://docs.docker.com/engine/daemon/troubleshoot/#specify-dns-servers-for-docker)
+### Specify DNS servers for Docker
 
 The default location of the configuration file is `/etc/docker/daemon.json`. You can change the location of the configuration file using the `--config-file` daemon flag. The following instruction assumes that the location of the configuration file is `/etc/docker/daemon.json`.
 
@@ -286,11 +287,11 @@ The default location of the configuration file is `/etc/docker/daemon.json`. You
    64 bytes from 192.168.1.2: seq=3 ttl=41 time=7.677 ms
    ```
 
-### [Turn off `dnsmasq`](https://docs.docker.com/engine/daemon/troubleshoot/#turn-off-dnsmasq)
+### Turn off `dnsmasq`
 
-Ubuntu RHEL, CentOS, or Fedora
+{{< tabpane text=true persist=disabled >}}
 
-------
+{{% tab header="Ubuntu" %}}
 
 If you prefer not to change the Docker daemon's configuration to use a specific IP address, follow these instructions to turn off `dnsmasq` in NetworkManager.
 
@@ -315,9 +316,32 @@ If you prefer not to change the Docker daemon's configuration to use a specific 
    $ sudo systemctl restart docker
    ```
 
+{{% /tab  %}}
+
+{{% tab header="RHEL, CentOS, or Fedora" %}}
+
+To turn off `dnsmasq` on RHEL, CentOS, or Fedora:
+
+1. Turn off the `dnsmasq` service:
+
+   
+
+   ```console
+   $ sudo systemctl stop dnsmasq
+   $ sudo systemctl disable dnsmasq
+   ```
+
+2. Configure the DNS servers manually using the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/configuring_and_managing_networking/configuring-the-order-of-dns-servers_configuring-and-managing-networking).
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+
+
 ------
 
-### [Docker networks disappearing](https://docs.docker.com/engine/daemon/troubleshoot/#docker-networks-disappearing)
+### Docker networks disappearing
 
 If a Docker network, such as the `docker0` bridge or a custom network, randomly disappears or otherwise appears to be working incorrectly, it could be because another service is interfering with or modifying Docker interfaces. Tools that manage networking interfaces on the host are known to sometimes also inappropriately modify Docker interfaces.
 
@@ -327,7 +351,7 @@ Refer to the following sections for instructions on how to configure your networ
 - Configure the network manager to [treat Docker interfaces as un-managed](https://docs.docker.com/engine/daemon/troubleshoot/#un-manage-docker-interfaces)
 - If you're using Netplan, you may need to [apply a custom Netplan configuration](https://docs.docker.com/engine/daemon/troubleshoot/#prevent-netplan-from-overriding-network-configuration)
 
-#### [Uninstall `netscript`](https://docs.docker.com/engine/daemon/troubleshoot/#uninstall-netscript)
+#### Uninstall `netscript`
 
 If `netscript` is installed on your system, you can likely fix this issue by uninstalling it. For example, on a Debian-based system:
 
@@ -337,13 +361,13 @@ If `netscript` is installed on your system, you can likely fix this issue by uni
 $ sudo apt-get remove netscript-2.4
 ```
 
-#### [Un-manage Docker interfaces](https://docs.docker.com/engine/daemon/troubleshoot/#un-manage-docker-interfaces)
+#### Un-manage Docker interfaces
 
 In some cases, the network manager will attempt to manage Docker interfaces by default. You can try to explicitly flag Docker networks as un-managed by editing your system's network configuration settings.
 
-NetworkManager systemd-networkd
+{{< tabpane text=true persist=disabled >}}
 
-------
+{{% tab header="NetworkManager" %}}
 
 If you're using `NetworkManager`, edit your system network configuration under `/etc/network/interfaces`
 
@@ -373,9 +397,59 @@ If you're using `NetworkManager`, edit your system network configuration under `
    $ nmcli device
    ```
 
+{{% /tab  %}}
+
+{{% tab header="systemd-networkd" %}}
+
+If you're running Docker on a system using `systemd-networkd` as a networking daemon, configure the Docker interfaces as un-managed by creating configuration files under `/etc/systemd/network`:
+
+1. Create `/etc/systemd/network/docker.network` with the following contents:
+
+   
+
+   ```ini
+   # Ensure that the Docker interfaces are un-managed
+   
+   [Match]
+   Name=docker0 br-* veth*
+   
+   [Link]
+   Unmanaged=yes
+   ```
+
+2. Reload the configuration.
+
+   
+
+   ```console
+   $ sudo systemctl restart systemd-networkd
+   ```
+
+3. Restart the Docker daemon.
+
+   
+
+   ```console
+   $ sudo systemctl restart docker
+   ```
+
+4. Verify that the Docker interfaces have the `unmanaged` state.
+
+   
+
+   ```console
+   $ networkctl
+   ```
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+
+
 ------
 
-### [Prevent Netplan from overriding network configuration](https://docs.docker.com/engine/daemon/troubleshoot/#prevent-netplan-from-overriding-network-configuration)
+### Prevent Netplan from overriding network configuration
 
 On systems that use [Netplan](https://netplan.io/) through [`cloud-init`](https://cloudinit.readthedocs.io/en/latest/index.html), you may need to apply a custom configuration to prevent `netplan` from overriding the network manager configuration:
 
@@ -426,9 +500,9 @@ On systems that use [Netplan](https://netplan.io/) through [`cloud-init`](https:
    $ networkctl
    ```
 
-## [Volumes](https://docs.docker.com/engine/daemon/troubleshoot/#volumes)
+## Volumes
 
-### [Unable to remove filesystem](https://docs.docker.com/engine/daemon/troubleshoot/#unable-to-remove-filesystem)
+### Unable to remove filesystem
 
 
 

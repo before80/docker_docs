@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/docker-hub/builds/advanced/](https://docs.docker.com/docker-hub/builds/advanced/)
+> 原文：[https://docs.docker.com/docker-hub/builds/advanced/](https://docs.docker.com/docker-hub/builds/advanced/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,11 +18,11 @@ draft = false
 >
 > 
 >
-> Automated builds require a [Docker Pro, Team, or Business subscription](https://docs.docker.com/subscription/).
+> Automated builds require a [Docker Pro, Team, or Business subscription]({{< ref "/manuals/Subscription" >}}).
 
 The following options allow you to customize your automated build and automated test processes.
 
-## [Environment variables for building and testing](https://docs.docker.com/docker-hub/builds/advanced/#environment-variables-for-building-and-testing)
+## Environment variables for building and testing
 
 Several utility environment variables are set by the build process, and are available during automated builds, automated tests, and while executing hooks.
 
@@ -53,7 +53,7 @@ services:
       - SOURCE_BRANCH
 ```
 
-## [Override build, test or push commands](https://docs.docker.com/docker-hub/builds/advanced/#override-build-test-or-push-commands)
+## Override build, test or push commands
 
 Docker Hub allows you to override and customize the `build`, `test` and `push` commands during automated build and test processes using hooks. For example, you might use a build hook to set build arguments used only during the build process. You can also set up [custom build phase hooks](https://docs.docker.com/docker-hub/builds/advanced/#custom-build-phase-hooks) to perform actions in between these commands.
 
@@ -67,7 +67,7 @@ To override these phases, create a folder called `hooks` in your source code rep
 
 These hooks run on an instance of [Ubuntu](https://releases.ubuntu.com/), which includes interpreters such as Perl or Python, and utilities such as `git` or `curl`. Refer to the [Ubuntu documentation](https://ubuntu.com/) for the full list of available interpreters and utilities.
 
-## [Custom build phase hooks](https://docs.docker.com/docker-hub/builds/advanced/#custom-build-phase-hooks)
+## Custom build phase hooks
 
 You can run custom commands between phases of the build process by creating hooks. Hooks allow you to provide extra instructions to the autobuild and autotest processes.
 
@@ -80,12 +80,12 @@ The following hooks are available:
 - `hooks/post_build`
 - `hooks/pre_test`
 - `hooks/post_test`
-- `hooks/pre_push` (only used when executing a build rule or [Automated build](https://docs.docker.com/docker-hub/builds/) )
-- `hooks/post_push` (only used when executing a build rule or [Automated build](https://docs.docker.com/docker-hub/builds/) )
+- `hooks/pre_push` (only used when executing a build rule or [Automated build]({{< ref "/manuals/DockerHub/Automatedbuilds" >}}) )
+- `hooks/post_push` (only used when executing a build rule or [Automated build]({{< ref "/manuals/DockerHub/Automatedbuilds" >}}) )
 
-### [Build hook examples](https://docs.docker.com/docker-hub/builds/advanced/#build-hook-examples)
+### Build hook examples
 
-#### [Override the "build" phase to set variables](https://docs.docker.com/docker-hub/builds/advanced/#override-the-build-phase-to-set-variables)
+#### Override the "build" phase to set variables
 
 Docker Hub allows you to define build environment variables either in the hook files, or from the automated build interface, which you can then reference in hooks.
 
@@ -105,7 +105,7 @@ $ docker build --build-arg CUSTOM=$VAR -f $DOCKERFILE_PATH -t $IMAGE_NAME .
 
 Refer to the [docker build documentation](https://docs.docker.com/reference/cli/docker/buildx/build/#build-arg) to learn more about Docker build-time variables.
 
-#### [Push to multiple repositories](https://docs.docker.com/docker-hub/builds/advanced/#push-to-multiple-repositories)
+#### Push to multiple repositories
 
 By default the build process pushes the image only to the repository where the build settings are configured. If you need to push the same image to multiple repositories, you can set up a `post_push` hook to add additional tags and push to more repositories.
 
@@ -116,7 +116,7 @@ $ docker tag $IMAGE_NAME $DOCKER_REPO:$SOURCE_COMMIT
 $ docker push $DOCKER_REPO:$SOURCE_COMMIT
 ```
 
-## [Source repository or branch clones](https://docs.docker.com/docker-hub/builds/advanced/#source-repository-or-branch-clones)
+## Source repository or branch clones
 
 When Docker Hub pulls a branch from a source code repository, it performs a shallow clone, it clones only the tip of the specified branch. This has the advantage of minimizing the amount of data transfer necessary from the repository and speeding up the build because it pulls only the minimal code necessary.
 

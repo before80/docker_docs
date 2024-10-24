@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/network/drivers/macvlan/](https://docs.docker.com/engine/network/drivers/macvlan/)
+> 原文：[https://docs.docker.com/engine/network/drivers/macvlan/](https://docs.docker.com/engine/network/drivers/macvlan/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,7 +22,7 @@ Keep the following things in mind:
 - Your networking equipment needs to be able to handle "promiscuous mode", where one physical interface can be assigned multiple MAC addresses.
 - If your application can work using a bridge (on a single Docker host) or overlay (to communicate across multiple Docker hosts), these solutions may be better in the long term.
 
-## [Options](https://docs.docker.com/engine/network/drivers/macvlan/#options)
+## Options
 
 The following table describes the driver-specific options that you can pass to `--option` when creating a network using the `macvlan` driver.
 
@@ -31,14 +31,14 @@ The following table describes the driver-specific options that you can pass to `
 | `macvlan_mode` | `bridge` | Sets the Macvlan mode. Can be one of: `bridge`, `vepa`, `passthru`, `private` |
 | `parent`       |          | Specifies the parent interface to use.                       |
 
-## [Create a Macvlan network](https://docs.docker.com/engine/network/drivers/macvlan/#create-a-macvlan-network)
+## Create a Macvlan network
 
 When you create a Macvlan network, it can either be in bridge mode or 802.1Q trunk bridge mode.
 
 - In bridge mode, Macvlan traffic goes through a physical device on the host.
 - In 802.1Q trunk bridge mode, traffic goes through an 802.1Q sub-interface which Docker creates on the fly. This allows you to control routing and filtering at a more granular level.
 
-### [Bridge mode](https://docs.docker.com/engine/network/drivers/macvlan/#bridge-mode)
+### Bridge mode
 
 To create a `macvlan` network which bridges with a given physical network interface, use `--driver macvlan` with the `docker network create` command. You also need to specify the `parent`, which is the interface the traffic will physically go through on the Docker host.
 
@@ -64,7 +64,7 @@ $ docker network create -d macvlan \
   -o parent=eth0 macnet32
 ```
 
-### [802.1Q trunk bridge mode](https://docs.docker.com/engine/network/drivers/macvlan/#8021q-trunk-bridge-mode)
+### 802.1Q trunk bridge mode
 
 If you specify a `parent` interface name with a dot included, such as `eth0.50`, Docker interprets that as a sub-interface of `eth0` and creates the sub-interface automatically.
 
@@ -77,7 +77,7 @@ $ docker network create -d macvlan \
     -o parent=eth0.50 macvlan50
 ```
 
-### [Use an IPvlan instead of Macvlan](https://docs.docker.com/engine/network/drivers/macvlan/#use-an-ipvlan-instead-of-macvlan)
+### Use an IPvlan instead of Macvlan
 
 In the above example, you are still using a L3 bridge. You can use `ipvlan` instead, and get an L2 bridge. Specify `-o ipvlan_mode=l2`.
 
@@ -92,9 +92,9 @@ $ docker network create -d ipvlan \
      -o ipvlan_mode=l2 -o parent=eth0 ipvlan210
 ```
 
-## [Use IPv6](https://docs.docker.com/engine/network/drivers/macvlan/#use-ipv6)
+## Use IPv6
 
-If you have [configured the Docker daemon to allow IPv6](https://docs.docker.com/engine/daemon/ipv6/), you can use dual-stack IPv4/IPv6 `macvlan` networks.
+If you have [configured the Docker daemon to allow IPv6]({{< ref "/manuals/DockerEngine/Daemon/UseIPv6networking" >}}), you can use dual-stack IPv4/IPv6 `macvlan` networks.
 
 
 
@@ -107,6 +107,6 @@ $ docker network create -d macvlan \
      -o macvlan_mode=bridge macvlan216
 ```
 
-## [Next steps](https://docs.docker.com/engine/network/drivers/macvlan/#next-steps)
+## Next steps
 
-Learn how to use the Macvlan driver in the [Macvlan networking tutorial](https://docs.docker.com/engine/network/tutorials/macvlan/).
+Learn how to use the Macvlan driver in the [Macvlan networking tutorial]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingusingamacvlannetwork" >}}).

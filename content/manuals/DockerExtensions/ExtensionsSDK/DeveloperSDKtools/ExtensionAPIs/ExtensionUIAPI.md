@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/dev/api/overview/](https://docs.docker.com/extensions/extensions-sdk/dev/api/overview/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/dev/api/overview/](https://docs.docker.com/extensions/extensions-sdk/dev/api/overview/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -37,9 +37,9 @@ export function App() {
 
 The `ddClient` object gives access to various APIs:
 
-- [Extension Backend](https://docs.docker.com/extensions/extensions-sdk/dev/api/backend/)
-- [Docker](https://docs.docker.com/extensions/extensions-sdk/dev/api/docker/)
-- [Dashboard](https://docs.docker.com/extensions/extensions-sdk/dev/api/dashboard/)
-- [Navigation](https://docs.docker.com/extensions/extensions-sdk/dev/api/dashboard-routes-navigation/)
+- [Extension Backend]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DeveloperSDKtools/ExtensionAPIs/ExtensionBackend" >}})
+- [Docker]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DeveloperSDKtools/ExtensionAPIs/Docker" >}})
+- [Dashboard]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DeveloperSDKtools/ExtensionAPIs/Dashboard" >}})
+- [Navigation]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DeveloperSDKtools/ExtensionAPIs/Navigation" >}})
 
-Find the Extensions API reference [here](https://docs.docker.com/reference/api/extensions-sdk/).
+Find the Extensions API reference [here]({{< ref "/reference/APIreference/ExtensionsAPI" >}}).

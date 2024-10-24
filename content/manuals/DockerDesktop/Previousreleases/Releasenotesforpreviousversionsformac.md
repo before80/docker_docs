@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/previous-versions/archive-windows/](https://docs.docker.com/desktop/previous-versions/archive-windows/)
+> 原文：[https://docs.docker.com/desktop/previous-versions/archive-windows/](https://docs.docker.com/desktop/previous-versions/archive-windows/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,16 +16,16 @@ draft = false
 
 This page contains release notes for older versions of Docker Desktop for Mac.
 
-## [Stable Releases of 2018](https://docs.docker.com/desktop/previous-versions/archive-mac/#stable-releases-of-2018)
+## Stable Releases of 2018
 
-### [Docker Community Edition 18.06.1-ce-mac73 2018-08-29](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-18061-ce-mac73-2018-08-29)
+### Docker Community Edition 18.06.1-ce-mac73 2018-08-29
 
 - Upgrades
   - [Docker 18.06.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.06.1-ce)
 - Bug fixes and minor changes
   - Fix local DNS failing to resolve inside containers.
 
-### [Docker Community Edition 18.06.0-ce-mac70 2018-07-25](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-18060-ce-mac70-2018-07-25)
+### Docker Community Edition 18.06.0-ce-mac70 2018-07-25
 
 - Upgrades
   - [Docker 18.06.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.06.0-ce)
@@ -34,7 +34,7 @@ This page contains release notes for older versions of Docker Desktop for Mac.
   - [LinuxKit v0.5](https://github.com/linuxkit/linuxkit/releases/tag/v0.5)
   - Linux Kernel 4.9.93 with CEPH, DRBD, RBD, MPLS_ROUTING and MPLS_IPTUNNEL enabled
 - New
-  - Kubernetes Support. You can now run a single-node Kubernetes cluster from the "Kubernetes" Pane in Docker For Mac Preferences and use kubectl commands as well as docker commands. See [the Kubernetes section](https://docs.docker.com/desktop/kubernetes/)
+  - Kubernetes Support. You can now run a single-node Kubernetes cluster from the "Kubernetes" Pane in Docker For Mac Preferences and use kubectl commands as well as docker commands. See [the Kubernetes section]({{< ref "/manuals/DockerDesktop/DeployonKuberneteswithDockerDesktop" >}})
   - Add an experimental SOCKS server to allow access to container networks, see [docker/for-mac#2670](https://github.com/docker/for-mac/issues/2670#issuecomment-372365274). Also see [docker/for-mac#2721](https://github.com/docker/for-mac/issues/2721)
   - Re-enable raw as the default disk format for users running macOS 10.13.4 and higher. Note this change only takes effect after a "reset to factory defaults" or "remove all data" (from the Whale menu -> Preferences -> Reset). Related to [docker/for-mac#2625](https://github.com/docker/for-mac/issues/2625)
 - Bug fixes and minor changes
@@ -52,7 +52,7 @@ This page contains release notes for older versions of Docker Desktop for Mac.
   - Fix upgrade straight from pre-17.12 versions where Docker for Mac cannot restart once the upgrade has been performed. Fixes [docker/for-mac#2739](https://github.com/docker/for-mac/issues/2739)
   - Added log rotation for docker-ce logs inside the virtual machine.
 
-### [Docker Community Edition 18.03.1-ce-mac65 2018-04-30](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-18031-ce-mac65-2018-04-30)
+### Docker Community Edition 18.03.1-ce-mac65 2018-04-30
 
 - Upgrades
   - [Docker 18.03.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.1-ce)
@@ -61,7 +61,7 @@ This page contains release notes for older versions of Docker Desktop for Mac.
 - Bug fixes and minor changes
   - Fix Docker for Mac not starting due to socket file paths being too long (typically HOME folder path being too long). Fixes [docker/for-mac#2727](https://github.com/docker/for-mac/issues/2727), [docker/for-mac#2731](https://github.com/docker/for-mac/issues/2731).
 
-### [Docker Community Edition 18.03.1-ce-mac64 2018-04-26](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-18031-ce-mac64-2018-04-26)
+### Docker Community Edition 18.03.1-ce-mac64 2018-04-26
 
 - Upgrades
   - [Docker 18.03.1-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.1-ce)
@@ -70,12 +70,12 @@ This page contains release notes for older versions of Docker Desktop for Mac.
 - Bug fixes and minor changes
   - Fix Docker for Mac not starting due to socket file paths being too long (typically HOME folder path being too long). Fixes [docker/for-mac#2727](https://github.com/docker/for-mac/issues/2727), [docker/for-mac#2731](https://github.com/docker/for-mac/issues/2731).
 
-### [Docker Community Edition 18.03.0-ce-mac60 2018-03-30](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-18030-ce-mac60-2018-03-30)
+### Docker Community Edition 18.03.0-ce-mac60 2018-03-30
 
 - Bug fixes and minor changes
   - Fix Upgrade straight from 17.09 versions where Docker for Mac cannot restart once the upgrade has been performed. Fixes [docker/for-mac#2739](https://github.com/docker/for-mac/issues/2739)
 
-### [Docker Community Edition 18.03.0-ce-mac59 2018-03-26](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-18030-ce-mac59-2018-03-26)
+### Docker Community Edition 18.03.0-ce-mac59 2018-03-26
 
 - Upgrades
   - [Docker 18.03.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.03.0-ce)
@@ -99,13 +99,13 @@ This page contains release notes for older versions of Docker Desktop for Mac.
   - Fix incorrect NTP config. Fixes [docker/for-mac#2529](https://github.com/docker/for-mac/issues/2529)
   - Migration of Docker Toolbox images is not proposed anymore in Docker For Mac installer (still possible to migrate Toolbox images manually).
 
-### [Docker Community Edition 17.12.0-ce-mac55 2018-02-27](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-17120-ce-mac55-2018-02-27)
+### Docker Community Edition 17.12.0-ce-mac55 2018-02-27
 
 - Bug fixes and minor changes
   - Revert the default disk format to qcow2 for users running macOS 10.13 (High Sierra). There are confirmed reports of file corruption using the raw format which uses sparse files on APFS. Note this change only takes effect after a reset to factory defaults (from the Whale menu -> Preferences -> Reset). Related to [docker/for-mac#2625](https://github.com/docker/for-mac/issues/2625)
   - Fix VPNKit proxy for docker.for.mac.http.internal.
 
-### [Docker Community Edition 17.12.0-ce-mac49 2018-01-19](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-17120-ce-mac49-2018-01-19)
+### Docker Community Edition 17.12.0-ce-mac49 2018-01-19
 
 - Bug fixes and minor changes
   - Fix error during resize/create Docker.raw disk image in some cases. Fixes [docker/for-mac#2383](https://github.com/docker/for-mac/issues/2383), [docker/for-mac#2447](https://github.com/docker/for-mac/issues/2447), [docker/for-mac#2453], ( https://github.com/docker/for-mac/issues/2453), [docker/for-mac#2420](https://github.com/docker/for-mac/issues/2420)
@@ -116,13 +116,13 @@ This page contains release notes for older versions of Docker Desktop for Mac.
   - Allow individual IP addresses to be added to HTTP proxy excludes.
   - Avoid hitting DNS timeouts when querying docker.for.mac.* when the upstream DNS servers are slow or missing.
 
-### [Docker Community Edition 17.12.0-ce-mac47 2018-01-12](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-17120-ce-mac47-2018-01-12)
+### Docker Community Edition 17.12.0-ce-mac47 2018-01-12
 
 - Bug fixes and minor changes
   - Fix for `docker push` to an insecure registry. Fixes [docker/for-mac#2392](https://github.com/docker/for-mac/issues/2392)
   - Separate internal ports used to proxy HTTP and HTTPS content.
 
-### [Docker Community Edition 17.12.0-ce-mac46 2018-01-09](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-17120-ce-mac46-2018-01-09)
+### Docker Community Edition 17.12.0-ce-mac46 2018-01-09
 
 - Upgrades
   - [Docker 17.12.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.12.0-ce)
@@ -143,9 +143,9 @@ This page contains release notes for older versions of Docker Desktop for Mac.
   - Better VM state handling & error messages in case of VM crashes.
   - Fix login into private repository with certificate issue. (See [docker/for-mac#2201](https://github.com/docker/for-mac/issues/2201))
 
-## [Stable Releases of 2017](https://docs.docker.com/desktop/previous-versions/archive-mac/#stable-releases-of-2017)
+## Stable Releases of 2017
 
-### [Docker Community Edition 17.09.1-ce-mac42 2017-12-11](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-17091-ce-mac42-2017-12-11)
+### Docker Community Edition 17.09.1-ce-mac42 2017-12-11
 
 - Upgrades
   - [Docker 17.09.1-ce](https://github.com/docker/docker-ce/releases/tag/v17.09.1-ce)
@@ -154,16 +154,16 @@ This page contains release notes for older versions of Docker Desktop for Mac.
 - Bug fixes and minor changes
   - Fix bug not allowing to move qcow disk in some cases.
 
-### [Docker Community Edition 17.09.0-ce-mac35 2017-10-06](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-17090-ce-mac35-2017-10-06)
+### Docker Community Edition 17.09.0-ce-mac35 2017-10-06
 
 - Bug fix
   - Fix Docker For Mac unable to start in some cases : removed use of libgmp sometimes causing the vpnkit process to die.
 
-### [Docker Community Edition 17.09.0-ce-mac33 2017-10-03](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-17090-ce-mac33-2017-10-03)
+### Docker Community Edition 17.09.0-ce-mac33 2017-10-03
 
 - Do not show Toolbox migration assistant when there are existing Docker For Mac data.
 
-### [Docker Community Edition 17.09.0-ce-mac32 2017-10-02](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-17090-ce-mac32-2017-10-02)
+### Docker Community Edition 17.09.0-ce-mac32 2017-10-02
 
 - Upgrades
   - [Docker 17.09.0-ce](https://github.com/docker/docker-ce/releases/tag/v17.09.0-ce)
@@ -193,14 +193,14 @@ This page contains release notes for older versions of Docker Desktop for Mac.
   - Diagnose can be cancelled & Improved help information. Fixes docker/for-mac#1134, docker/for-mac#1474
   - Support paging of docker-cloud repositories & orgs. Fixes docker/for-mac#1538
 
-### [Docker Community Edition 17.06.2-ce-mac27 2017-09-06](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-17062-ce-mac27-2017-09-06)
+### Docker Community Edition 17.06.2-ce-mac27 2017-09-06
 
 **Upgrades**
 
 - [Docker 17.06.2-ce](https://github.com/docker/docker-ce/releases/tag/v17.06.2-ce)
 - [Docker Machine 0.12.2](https://github.com/docker/machine/releases/tag/v0.12.2)
 
-### [Docker Community Edition 17.06.1-ce-mac24, 2017-08-21](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-17061-ce-mac24-2017-08-21)
+### Docker Community Edition 17.06.1-ce-mac24, 2017-08-21
 
 **Upgrades**
 
@@ -213,7 +213,7 @@ This page contains release notes for older versions of Docker Desktop for Mac.
 - DNS Fixes. Fixes [docker/for-mac#1763](https://github.com/docker/for-mac/issues/176), [docker/for-mac#1811](https://github.com/docker/for-mac/issues/1811), [docker/for-mac#1803](https://github.com/docker/for-mac/issues/1803)
 - Avoid unnecessary VM reboot (when changing proxy exclude, but no proxy set). Fixes [docker/for-mac#1809](https://github.com/docker/for-mac/issues/1809), [docker/for-mac#1801](https://github.com/docker/for-mac/issues/1801)
 
-### [Docker Community Edition 17.06.0-ce-mac18, 2017-06-28s](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-17060-ce-mac18-2017-06-28s)
+### Docker Community Edition 17.06.0-ce-mac18, 2017-06-28s
 
 **Upgrades**
 
@@ -256,19 +256,19 @@ This page contains release notes for older versions of Docker Desktop for Mac.
 - Disk trimming should work as expected
 - Diagnostics now contains more settings data
 
-### [Docker Community Edition 17.03.1-ce-mac12, 2017-05-12s](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-17031-ce-mac12-2017-05-12s)
+### Docker Community Edition 17.03.1-ce-mac12, 2017-05-12s
 
 **Upgrades**
 
 - Security fix for CVE-2017-7308
 
-### [Docker Community Edition 17.03.1-ce-mac5, 2017-03-29s](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-17031-ce-mac5-2017-03-29s)
+### Docker Community Edition 17.03.1-ce-mac5, 2017-03-29s
 
 **Upgrades**
 
 - [Docker Credential Helpers 0.4.2](https://github.com/docker/docker-credential-helpers/releases/tag/v0.4.2)
 
-### [Docker Community Edition 17.03.0-ce-mac1, 2017-03-02- Renamed to Docker Community Edition](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-community-edition-17030-ce-mac1-2017-03-02--renamed-to-docker-community-edition)
+### Docker Community Edition 17.03.0-ce-mac1, 2017-03-02- Renamed to Docker Community Edition
 
 **New**
 
@@ -309,7 +309,7 @@ This page contains release notes for older versions of Docker Desktop for Mac.
 - HyperKit: Dump guest physical and linear address from VMCS when dumping state
 - HyperKit: Kernel boots with panic=1 arg
 
-### [Docker for Mac 1.13.1, 2017-02-09s](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-for-mac-1131-2017-02-09s)
+### Docker for Mac 1.13.1, 2017-02-09s
 
 **Upgrades**
 
@@ -324,7 +324,7 @@ This page contains release notes for older versions of Docker Desktop for Mac.
 - `daemon.json` should render nicely in the UI
 - Allow to reset faulty `daemon.json` through a link in advanced subpanel
 
-### [Docker for Mac 1.13.0, 2017-01-19s](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-for-mac-1130-2017-01-19s)
+### Docker for Mac 1.13.0, 2017-01-19s
 
 **Upgrades**
 
@@ -371,20 +371,20 @@ This page contains release notes for older versions of Docker Desktop for Mac.
 - VPNKit: If one request fails, allow other concurrent requests to succeed. For example this allows IPv4 servers to work even if IPv6 is broken.
 - VPNKit: Fix bug that could cause the connection tracking to underestimate the number of active connections
 
-## [Stable Releases of 2016](https://docs.docker.com/desktop/previous-versions/archive-mac/#stable-releases-of-2016)
+## Stable Releases of 2016
 
-### [Docker for Mac 1.12.5, 2016-12-20s](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-for-mac-1125-2016-12-20s)
+### Docker for Mac 1.12.5, 2016-12-20s
 
 **Upgrades**
 
 - Docker 1.12.5
 - Docker Compose 1.9.0
 
-### [Skipped Docker for Mac 1.12.4](https://docs.docker.com/desktop/previous-versions/archive-mac/#skipped-docker-for-mac-1124)
+### Skipped Docker for Mac 1.12.4
 
 We did not distribute a 1.12.4 stable release
 
-### [Docker for Mac 1.12.3, 2016-11-09s](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-for-mac-1123-2016-11-09s)
+### Docker for Mac 1.12.3, 2016-11-09s
 
 **Upgrades**
 
@@ -430,7 +430,7 @@ We did not distribute a 1.12.4 stable release
 
 - Increase default ulimit for memlock (fixes [docker/for-mac#801](https://github.com/docker/for-mac/issues/801))
 
-### [Docker for Mac 1.12.1, 2016-09-16](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-for-mac-1121-2016-09-16)
+### Docker for Mac 1.12.1, 2016-09-16
 
 **New**
 
@@ -484,7 +484,7 @@ We did not distribute a 1.12.4 stable release
 
 - HyperKit updated with `dtrace` support and lock fixes
 
-### [Docker for Mac 2016-08-11 1.12.0-afix release contains osxfs improvements.](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-for-mac-2016-08-11-1120-afix-release-contains-osxfs-improvements)
+### Docker for Mac 2016-08-11 1.12.0-afix release contains osxfs improvements.
 
 The fixed issues may have been seen as failures with apt-get and npm in containers, missed inotify events or unexpected unmounts.
 
@@ -495,7 +495,7 @@ The fixed issues may have been seen as failures with apt-get and npm in containe
 - osxfs: fixed an issue causing all inotify events to stop when an ancestor directory of a mounted directory was mounted
 - osxfs: fixed an issue causing volumes mounted under other mounts to spontaneously unmount
 
-### [Docker for Mac 1.12.0, 2016-07-28table release](https://docs.docker.com/desktop/previous-versions/archive-mac/#docker-for-mac-1120-2016-07-28table-release)
+### Docker for Mac 1.12.0, 2016-07-28table release
 
 **Components**
 

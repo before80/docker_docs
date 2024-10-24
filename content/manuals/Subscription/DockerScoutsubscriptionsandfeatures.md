@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/subscription/scout-details/](https://docs.docker.com/subscription/scout-details/)
+> 原文：[https://docs.docker.com/subscription/scout-details/](https://docs.docker.com/subscription/scout-details/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,9 +22,9 @@ draft = false
 
 This page provides an overview of the subscription plans for Docker Scout. To compare features available for each plan, see [Docker Scout Pricing](https://docker.com/products/docker-scout).
 
-## [Docker Scout Free](https://docs.docker.com/subscription/scout-details/#docker-scout-free)
+## Docker Scout Free
 
-Docker Scout Free is available for both personal accounts and organizations. If you have a [Docker subscription](https://docs.docker.com/subscription/core-subscription/details/), you automatically have access to Docker Scout Free. This plan is ideal for individual developers getting started with software supply chain security.
+Docker Scout Free is available for both personal accounts and organizations. If you have a [Docker subscription]({{< ref "/manuals/Subscription/DockerCore/Subscriptionsandfeatures" >}}), you automatically have access to Docker Scout Free. This plan is ideal for individual developers getting started with software supply chain security.
 
 Docker Scout Free includes:
 
@@ -34,7 +34,7 @@ Docker Scout Free includes:
 - On-prem and cloud container registry integrations
 - Security posture reporting
 
-## [Docker Scout Team](https://docs.docker.com/subscription/scout-details/#docker-scout-team)
+## Docker Scout Team
 
 Docker Scout Team is available for both personal accounts and organizations. This plan is ideal for development teams developing and maintaining multiple container images.
 
@@ -43,9 +43,9 @@ Docker Scout Team includes:
 - All the features available in Docker Scout Free
 - In addition to 3 Docker Scout-enabled repositories, add up to 100 repositories when you buy your subscription
 
-You can buy Docker Scout Team in Docker Hub. See [Docker Scout billing](https://docs.docker.com/billing/scout-billing/). To learn more about pricing per repository, see [Docker Scout Pricing](https://www.docker.com/products/docker-scout/).
+You can buy Docker Scout Team in Docker Hub. See [Docker Scout billing]({{< ref "/manuals/Billing/DockerScout" >}}). To learn more about pricing per repository, see [Docker Scout Pricing](https://www.docker.com/products/docker-scout/).
 
-## [Docker Scout Business](https://docs.docker.com/subscription/scout-details/#docker-scout-business)
+## Docker Scout Business
 
 Docker Scout Business is ideal for commercial organizations managing multiple teams.
 

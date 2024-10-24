@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/install/windows-install/](https://docs.docker.com/desktop/install/windows-install/)
+> 原文：[https://docs.docker.com/desktop/install/windows-install/](https://docs.docker.com/desktop/install/windows-install/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -28,9 +28,9 @@ This page contains the download URL, information about system requirements, and 
 
 
 
-*For checksums, see [Release notes](https://docs.docker.com/desktop/release-notes/)*
+*For checksums, see [Release notes]({{< ref "/manuals/DockerDesktop/Releasenotes" >}})*
 
-## [System requirements](https://docs.docker.com/desktop/install/windows-install/#system-requirements)
+## System requirements
 
 > **Tip**
 >
@@ -40,9 +40,9 @@ This page contains the download URL, information about system requirements, and 
 >
 > Docker Desktop's functionality remains consistent on both WSL and Hyper-V, without a preference for either architecture. Hyper-V and WSL have their own advantages and disadvantages, depending on your specific set up and your planned use case.
 
-WSL 2 backend, x86_64 Hyper-V backend, x86_64 WSL 2 backend, Arm (Beta)
+{{< tabpane text=true persist=disabled >}}
 
-------
+{{% tab header="WSL 2 backend, x86_64" %}}
 
 - WSL version 1.1.3.0 or later.
 - Windows 11 64-bit: Home or Pro version 21H2 or higher, or Enterprise or Education version 21H2 or higher.
@@ -55,7 +55,7 @@ WSL 2 backend, x86_64 Hyper-V backend, x86_64 WSL 2 backend, Arm (Beta)
   - 4GB system RAM
   - Enable hardware virtualization in BIOS. For more information, see [Virtualization](https://docs.docker.com/desktop/troubleshoot/topics/#virtualization).
 
-For more information on setting up WSL 2 with Docker Desktop, see [WSL](https://docs.docker.com/desktop/wsl/).
+For more information on setting up WSL 2 with Docker Desktop, see [WSL]({{< ref "/manuals/DockerDesktop/WSL" >}}).
 
 > **Note**
 >
@@ -69,13 +69,66 @@ For more information on setting up WSL 2 with Docker Desktop, see [WSL](https://
 >
 > To run Windows containers, you need Windows 10 or Windows 11 Professional or Enterprise edition. Windows Home or Education editions only allow you to run Linux containers.
 
+{{% /tab  %}}
+
+{{% tab header="Hyper-V backend, x86_64" %}}
+
+- Windows 11 64-bit: Home or Pro version 21H2 or higher, or Enterprise or Education version 21H2 or higher.
+- Windows 10 64-bit:
+  - Home or Pro 22H2 (build 19045) or higher, or Enterprise or Education 22H2 (build 19045) or higher is recommended.
+  - Minimum required is Home or Pro 21H2 (build 19044) or higher, or Enterprise or Education 21H2 (build 19044) or higher.
+- Turn on Hyper-V and Containers Windows features.
+- The following hardware prerequisites are required to successfully run Client Hyper-V on Windows 10:
+  - 64 bit processor with [Second Level Address Translation (SLAT)](https://en.wikipedia.org/wiki/Second_Level_Address_Translation)
+  - 4GB system RAM
+  - Turn on BIOS-level hardware virtualization support in the BIOS settings. For more information, see [Virtualization](https://docs.docker.com/desktop/troubleshoot/topics/#virtualization).
+
+> **Note**
+>
+> 
+>
+> Docker only supports Docker Desktop on Windows for those versions of Windows that are still within [Microsoft’s servicing timeline](https://support.microsoft.com/en-us/help/13853/windows-lifecycle-fact-sheet). Docker Desktop is not supported on server versions of Windows, such as Windows Server 2019 or Windows Server 2022. For more information on how to run containers on Windows Server, see [Microsoft's official documentation](https://learn.microsoft.com/virtualization/windowscontainers/quick-start/set-up-environment).
+
+> **Important**
+>
+> 
+>
+> To run Windows containers, you need Windows 10 or Windows 11 Professional or Enterprise edition. Windows Home or Education editions only allow you to run Linux containers.
+
+{{% /tab  %}}
+
+{{% tab header="WSL 2 backend, Arm (Beta)" %}}
+
+- WSL version 1.1.3.0 or later.
+- Windows 11 64-bit: Home or Pro version 21H2 or higher, or Enterprise or Education version 21H2 or higher.
+- Windows 10 64-bit:
+  - Home or Pro 22H2 (build 19045) or higher, or Enterprise or Education 22H2 (build 19045) or higher is recommended.
+  - Minimum required is Home or Pro 21H2 (build 19044) or higher, or Enterprise or Education 21H2 (build 19044) or higher.
+- Turn on the WSL 2 feature on Windows. For detailed instructions, refer to the [Microsoft documentation](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+- The following hardware prerequisites are required to successfully run WSL 2 on Windows 10 or Windows 11:
+  - 64-bit processor with [Second Level Address Translation (SLAT)](https://en.wikipedia.org/wiki/Second_Level_Address_Translation)
+  - 4GB system RAM
+  - Enable hardware virtualization in BIOS. For more information, see [Virtualization](https://docs.docker.com/desktop/troubleshoot/topics/#virtualization).
+
+> **Important**
+>
+> 
+>
+> Windows containers are not supported.
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+ 
+
 ------
 
 Containers and images created with Docker Desktop are shared between all user accounts on machines where it is installed. This is because all Windows accounts use the same VM to build and run containers. Note that it is not possible to share containers and images between user accounts when using the Docker Desktop WSL 2 backend.
 
-Running Docker Desktop inside a VMware ESXi or Azure VM is supported for Docker Business customers. It requires enabling nested virtualization on the hypervisor first. For more information, see [Running Docker Desktop in a VM or VDI environment](https://docs.docker.com/desktop/vm-vdi/).
+Running Docker Desktop inside a VMware ESXi or Azure VM is supported for Docker Business customers. It requires enabling nested virtualization on the hypervisor first. For more information, see [Running Docker Desktop in a VM or VDI environment]({{< ref "/manuals/DockerDesktop/RunDockerDesktopforWindowsinaVMorVDIenvironment" >}}).
 
-## [Install Docker Desktop on Windows](https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows)
+## Install Docker Desktop on Windows
 
 > **Tip**
 >
@@ -83,9 +136,9 @@ Running Docker Desktop inside a VMware ESXi or Azure VM is supported for Docker 
 >
 > See the [FAQs](https://docs.docker.com/desktop/faqs/general/#how-do-I-run-docker-desktop-without-administrator-privileges) on how to install and run Docker Desktop without needing administrator privileges.
 
-### [Install interactively](https://docs.docker.com/desktop/install/windows-install/#install-interactively)
+### Install interactively
 
-1. Download the installer using the download button at the top of the page, or from the [release notes](https://docs.docker.com/desktop/release-notes/).
+1. Download the installer using the download button at the top of the page, or from the [release notes]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}).
 
 2. Double-click `Docker Desktop Installer.exe` to run the installer. By default, Docker Desktop is installed at `C:\Program Files\Docker\Docker`.
 
@@ -106,7 +159,7 @@ If your administrator account is different to your user account, you must add th
 3. Right-click to add the user to the group.
 4. Sign out and sign back in for the changes to take effect.
 
-### [Install from the command line](https://docs.docker.com/desktop/install/windows-install/#install-from-the-command-line)
+### Install from the command line
 
 After downloading `Docker Desktop Installer.exe`, run the following command in a terminal to install Docker Desktop:
 
@@ -142,7 +195,7 @@ The `install` command accepts the following flags:
 - `--allowed-org=<org name>`: Requires the user to sign in and be part of the specified Docker Hub organization when running the application
 - `--backend=<backend name>`: Selects the default backend to use for Docker Desktop, `hyper-v`, `windows` or `wsl-2` (default)
 - `--installation-dir=<path>`: Changes the default installation location (`C:\Program Files\Docker\Docker`)
-- `--admin-settings`: Automatically creates an `admin-settings.json` file which is used by admins to control certain Docker Desktop settings on client machines within their organization. For more information, see [Settings Management](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/).
+- `--admin-settings`: Automatically creates an `admin-settings.json` file which is used by admins to control certain Docker Desktop settings on client machines within their organization. For more information, see [Settings Management]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/SettingsManagement" >}}).
   - It must be used together with the `--allowed-org=<org name>` flag.
   - For example:`--allowed-org=<org name> --admin-settings="{'configurationFileVersion': 2, 'enhancedContainerIsolation': {'value': true, 'locked': false}}"`
 - `--proxy-http-mode=<mode>`: Sets the HTTP Proxy mode, `system` (default) or `manual`
@@ -175,13 +228,13 @@ If your admin account is different to your user account, you must add the user t
 $ net localgroup docker-users <user> /add
 ```
 
-## [Start Docker Desktop](https://docs.docker.com/desktop/install/windows-install/#start-docker-desktop)
+## Start Docker Desktop
 
 Docker Desktop does not start automatically after installation. To start Docker Desktop:
 
 1. Search for Docker, and select **Docker Desktop** in the search results.
 
-2. The Docker menu ( ![whale menu](Windows_img/whale-x.svg+xml) ) displays the Docker Subscription Service Agreement.
+2. The Docker menu ( ![whale menu](Windows_img/whale-x.svg) ) displays the Docker Subscription Service Agreement.
 
    Here’s a summary of the key points:
 
@@ -200,7 +253,7 @@ Docker Desktop does not start automatically after installation. To start Docker 
 >
 > 
 >
-> As an IT administrator, you can use endpoint management (MDM) software to identify the number of Docker Desktop instances and their versions within your environment. This can provide accurate license reporting, help ensure your machines use the latest version of Docker Desktop, and enable you to [enforce sign-in](https://docs.docker.com/security/for-admins/enforce-sign-in/).
+> As an IT administrator, you can use endpoint management (MDM) software to identify the number of Docker Desktop instances and their versions within your environment. This can provide accurate license reporting, help ensure your machines use the latest version of Docker Desktop, and enable you to [enforce sign-in]({{< ref "/manuals/Security/Foradmins/Enforcesign-in" >}}).
 >
 > - [Intune](https://learn.microsoft.com/en-us/mem/intune/apps/app-discovered-apps)
 > - [Jamf](https://docs.jamf.com/10.25.0/jamf-pro/administrator-guide/Application_Usage.html)
@@ -208,12 +261,12 @@ Docker Desktop does not start automatically after installation. To start Docker 
 > - [Kolide](https://www.kolide.com/features/device-inventory/properties/mac-apps)
 > - [Workspace One](https://blogs.vmware.com/euc/2022/11/how-to-use-workspace-one-intelligence-to-manage-app-licenses-and-reduce-costs.html)
 
-## [Where to go next](https://docs.docker.com/desktop/install/windows-install/#where-to-go-next)
+## Where to go next
 
 - Explore [Docker's core subscriptions](https://www.docker.com/pricing/) to see what Docker can offer you.
-- [Get started with Docker](https://docs.docker.com/get-started/introduction/).
-- [Explore Docker Desktop](https://docs.docker.com/desktop/use-desktop/) and all its features.
-- [Troubleshooting](https://docs.docker.com/desktop/troubleshoot/) describes common problems, workarounds, and how to get support.
-- [FAQs](https://docs.docker.com/desktop/faqs/general/) provide answers to frequently asked questions.
-- [Release notes](https://docs.docker.com/desktop/release-notes/) lists component updates, new features, and improvements associated with Docker Desktop releases.
-- [Back up and restore data](https://docs.docker.com/desktop/backup-and-restore/) provides instructions on backing up and restoring data related to Docker.
+- [Get started with Docker]({{< ref "/get-started/Introduction" >}}).
+- [Explore Docker Desktop]({{< ref "/manuals/DockerDesktop/ExploreDockerDesktop" >}}) and all its features.
+- [Troubleshooting]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose" >}}) describes common problems, workarounds, and how to get support.
+- [FAQs]({{< ref "/manuals/DockerDesktop/FAQs/General" >}}) provide answers to frequently asked questions.
+- [Release notes]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}) lists component updates, new features, and improvements associated with Docker Desktop releases.
+- [Back up and restore data]({{< ref "/manuals/DockerDesktop/HowtobackupandrestoreyourDockerDesktopdata" >}}) provides instructions on backing up and restoring data related to Docker.

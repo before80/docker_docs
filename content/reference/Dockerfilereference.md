@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/dockerfile/](https://docs.docker.com/reference/dockerfile/)
+> 原文：[https://docs.docker.com/reference/dockerfile/](https://docs.docker.com/reference/dockerfile/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. This page describes the commands you can use in a Dockerfile.
 
-## [Overview](https://docs.docker.com/reference/dockerfile/#overview)
+## Overview
 
 The Dockerfile supports the following instructions:
 
@@ -41,7 +41,7 @@ The Dockerfile supports the following instructions:
 | [`VOLUME`](https://docs.docker.com/reference/dockerfile/#volume) | Create volume mounts.                                       |
 | [`WORKDIR`](https://docs.docker.com/reference/dockerfile/#workdir) | Change working directory.                                   |
 
-## [Format](https://docs.docker.com/reference/dockerfile/#format)
+## Format
 
 Here is the format of the Dockerfile:
 
@@ -118,7 +118,7 @@ Comments don't support line continuation characters.
 >      world"
 > ```
 
-## [Parser directives](https://docs.docker.com/reference/dockerfile/#parser-directives)
+## Parser directives
 
 Parser directives are optional, and affect the way in which subsequent lines in a Dockerfile are handled. Parser directives don't add layers to the build, and don't show up as build steps. Parser directives are written as a special type of comment in the form `# directive=value`. A single directive may only be used once.
 
@@ -199,7 +199,7 @@ The following parser directives are supported:
 - `syntax`
 - `escape`
 
-### [syntax](https://docs.docker.com/reference/dockerfile/#syntax)
+### syntax
 
 
 
@@ -215,7 +215,7 @@ Most users will want to set this parser directive to `docker/dockerfile:1`, whic
 
 For more information about how the parser directive works, see [Custom Dockerfile syntax](https://docs.docker.com/build/buildkit/dockerfile-frontend/).
 
-### [escape](https://docs.docker.com/reference/dockerfile/#escape)
+### escape
 
 
 
@@ -310,7 +310,7 @@ Successfully built 01c7f3bef04f
 PS E:\myproject>
 ```
 
-### [check](https://docs.docker.com/reference/dockerfile/#check)
+### check
 
 
 
@@ -319,7 +319,7 @@ PS E:\myproject>
 # check=error=<boolean>
 ```
 
-The `check` directive is used to configure how [build checks](https://docs.docker.com/build/checks/) are evaluated. By default, all checks are run, and failures are treated as warnings.
+The `check` directive is used to configure how [build checks]({{< ref "/manuals/DockerBuild/BuildchecksNew" >}}) are evaluated. By default, all checks are run, and failures are treated as warnings.
 
 You can disable specific checks using `#check=skip=<check-name>`. To specify multiple checks to skip, separate them with a comma:
 
@@ -347,9 +347,9 @@ To combine both the `skip` and `error` options, use a semi-colon to separate the
 # check=skip=JSONArgsRecommended;error=true
 ```
 
-To see all available checks, see the [build checks reference](https://docs.docker.com/reference/build-checks/). Note that the checks available depend on the Dockerfile syntax version. To make sure you're getting the most up-to-date checks, use the [`syntax`](https://docs.docker.com/reference/dockerfile/#syntax) directive to specify the Dockerfile syntax version to the latest stable version.
+To see all available checks, see the [build checks reference]({{< ref "/reference/Buildchecks" >}}). Note that the checks available depend on the Dockerfile syntax version. To make sure you're getting the most up-to-date checks, use the [`syntax`](https://docs.docker.com/reference/dockerfile/#syntax) directive to specify the Dockerfile syntax version to the latest stable version.
 
-## [Environment replacement](https://docs.docker.com/reference/dockerfile/#environment-replacement)
+## Environment replacement
 
 Environment variables (declared with [the `ENV` statement](https://docs.docker.com/reference/dockerfile/#env)) can also be used in certain instructions as variables to be interpreted by the Dockerfile. Escapes are also handled for including variable-like syntax into a statement literally.
 
@@ -457,11 +457,11 @@ ENV ghi=$abc
 - The value of `def` becomes `hello`
 - The value of `ghi` becomes `bye`
 
-## [.dockerignore file](https://docs.docker.com/reference/dockerfile/#dockerignore-file)
+## .dockerignore file
 
 You can use `.dockerignore` file to exclude files and directories from the build context. For more information, see [.dockerignore file](https://docs.docker.com/build/building/context/#dockerignore-files).
 
-## [Shell and exec form](https://docs.docker.com/reference/dockerfile/#shell-and-exec-form)
+## Shell and exec form
 
 The `RUN`, `CMD`, and `ENTRYPOINT` instructions all have two possible forms:
 
@@ -472,7 +472,7 @@ The exec form makes it possible to avoid shell string munging, and to invoke com
 
 The shell form is more relaxed, and emphasizes ease of use, flexibility, and readability. The shell form automatically uses a command shell, whereas the exec form does not.
 
-### [Exec form](https://docs.docker.com/reference/dockerfile/#exec-form)
+### Exec form
 
 The exec form is parsed as a JSON array, which means that you must use double-quotes (") around words, not single-quotes (').
 
@@ -484,13 +484,13 @@ ENTRYPOINT ["/bin/bash", "-c", "echo hello"]
 
 The exec form is best used to specify an `ENTRYPOINT` instruction, combined with `CMD` for setting default arguments that can be overridden at runtime. For more information, see [ENTRYPOINT](https://docs.docker.com/reference/dockerfile/#entrypoint).
 
-#### [Variable substitution](https://docs.docker.com/reference/dockerfile/#variable-substitution)
+#### Variable substitution
 
 Using the exec form doesn't automatically invoke a command shell. This means that normal shell processing, such as variable substitution, doesn't happen. For example, `RUN [ "echo", "$HOME" ]` won't handle variable substitution for `$HOME`.
 
 If you want shell processing then either use the shell form or execute a shell directly with the exec form, for example: `RUN [ "sh", "-c", "echo $HOME" ]`. When using the exec form and executing a shell directly, as in the case for the shell form, it's the shell that's doing the environment variable substitution, not the builder.
 
-#### [Backslashes](https://docs.docker.com/reference/dockerfile/#backslashes)
+#### Backslashes
 
 In exec form, you must escape backslashes. This is particularly relevant on Windows where the backslash is the path separator. The following line would otherwise be treated as shell form due to not being valid JSON, and fail in an unexpected way:
 
@@ -508,7 +508,7 @@ The correct syntax for this example is:
 RUN ["c:\\windows\\system32\\tasklist.exe"]
 ```
 
-### [Shell form](https://docs.docker.com/reference/dockerfile/#shell-form)
+### Shell form
 
 Unlike the exec form, instructions using the shell form always use a command shell. The shell form doesn't use the JSON array format, instead it's a regular string. The shell form string lets you escape newlines using the [escape character](https://docs.docker.com/reference/dockerfile/#escape) (backslash by default) to continue a single instruction onto the next line. This makes it easier to use with longer commands, because it lets you split them up into multiple lines. For example, consider these two lines:
 
@@ -540,7 +540,7 @@ EOF
 
 For more information about heredocs, see [Here-documents](https://docs.docker.com/reference/dockerfile/#here-documents).
 
-### [Use a different shell](https://docs.docker.com/reference/dockerfile/#use-a-different-shell)
+### Use a different shell
 
 You can change the default shell using the `SHELL` command. For example:
 
@@ -553,7 +553,7 @@ RUN echo hello
 
 For more information, see [SHELL](https://docs.docker.com/reference/dockerfile/#shell).
 
-## [FROM](https://docs.docker.com/reference/dockerfile/#from)
+## FROM
 
 
 
@@ -586,7 +586,7 @@ The `FROM` instruction initializes a new build stage and sets the [base image](h
 
 The optional `--platform` flag can be used to specify the platform of the image in case `FROM` references a multi-platform image. For example, `linux/amd64`, `linux/arm64`, or `windows/amd64`. By default, the target platform of the build request is used. Global build arguments can be used in the value of this flag, for example [automatic platform ARGs](https://docs.docker.com/reference/dockerfile/#automatic-platform-args-in-the-global-scope) allow you to force a stage to native build platform (`--platform=$BUILDPLATFORM`), and use it to cross-compile to the target platform inside the stage.
 
-### [Understand how ARG and FROM interact](https://docs.docker.com/reference/dockerfile/#understand-how-arg-and-from-interact)
+### Understand how ARG and FROM interact
 
 `FROM` instructions support variables that are declared by any `ARG` instructions that occur before the first `FROM`.
 
@@ -612,7 +612,7 @@ ARG VERSION
 RUN echo $VERSION > image_version
 ```
 
-## [RUN](https://docs.docker.com/reference/dockerfile/#run)
+## RUN
 
 The `RUN` instruction will execute any commands to create a new layer on top of the current image. The added layer is used in the next step in the Dockerfile. `RUN` has two forms:
 
@@ -646,7 +646,7 @@ The available `[OPTIONS]` for the `RUN` instruction are:
 | [`--network`](https://docs.docker.com/reference/dockerfile/#run---network) | 1.3                        |
 | [`--security`](https://docs.docker.com/reference/dockerfile/#run---security) | 1.1.2-labs                 |
 
-### [Cache invalidation for RUN instructions](https://docs.docker.com/reference/dockerfile/#cache-invalidation-for-run-instructions)
+### Cache invalidation for RUN instructions
 
 The cache for `RUN` instructions isn't invalidated automatically during the next build. The cache for an instruction like `RUN apt-get dist-upgrade -y` will be reused during the next build. The cache for `RUN` instructions can be invalidated by using the `--no-cache` flag, for example `docker build --no-cache`.
 
@@ -654,7 +654,7 @@ See the [Dockerfile Best Practices guide](https://docs.docker.com/engine/usergui
 
 The cache for `RUN` instructions can be invalidated by [`ADD`](https://docs.docker.com/reference/dockerfile/#add) and [`COPY`](https://docs.docker.com/reference/dockerfile/#copy) instructions.
 
-### [RUN --mount](https://docs.docker.com/reference/dockerfile/#run---mount)
+### RUN --mount
 
 
 
@@ -678,7 +678,7 @@ The supported mount types are:
 | [`secret`](https://docs.docker.com/reference/dockerfile/#run---mounttypesecret) | Allow the build container to access secure files such as private keys without baking them into the image or build cache. |
 | [`ssh`](https://docs.docker.com/reference/dockerfile/#run---mounttypessh) | Allow the build container to access SSH keys via SSH agents, with support for passphrases. |
 
-### [RUN --mount=type=bind](https://docs.docker.com/reference/dockerfile/#run---mounttypebind)
+### RUN --mount=type=bind
 
 This mount type allows binding files or directories to the build container. A bind mount is read-only by default.
 
@@ -689,7 +689,7 @@ This mount type allows binding files or directories to the build container. A bi
 | `from`                                                       | Build stage, context, or image name for the root of the source. Defaults to the build context. |
 | `rw`,`readwrite`                                             | Allow writes on the mount. Written data will be discarded.   |
 
-### [RUN --mount=type=cache](https://docs.docker.com/reference/dockerfile/#run---mounttypecache)
+### RUN --mount=type=cache
 
 This mount type allows the build container to cache directories for compilers and package managers.
 
@@ -707,7 +707,7 @@ This mount type allows the build container to cache directories for compilers an
 
 Contents of the cache directories persists between builder invocations without invalidating the instruction cache. Cache mounts should only be used for better performance. Your build should work with any contents of the cache directory as another build may overwrite the files or GC may clean it if more storage space is needed.
 
-#### [Example: cache Go packages](https://docs.docker.com/reference/dockerfile/#example-cache-go-packages)
+#### Example: cache Go packages
 
 
 
@@ -718,7 +718,7 @@ RUN --mount=type=cache,target=/root/.cache/go-build \
   go build ...
 ```
 
-#### [Example: cache apt packages](https://docs.docker.com/reference/dockerfile/#example-cache-apt-packages)
+#### Example: cache apt packages
 
 
 
@@ -733,7 +733,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
 
 Apt needs exclusive access to its data, so the caches use the option `sharing=locked`, which will make sure multiple parallel builds using the same cache mount will wait for each other and not access the same cache files at the same time. You could also use `sharing=private` if you prefer to have each build create another cache directory in this case.
 
-### [RUN --mount=type=tmpfs](https://docs.docker.com/reference/dockerfile/#run---mounttypetmpfs)
+### RUN --mount=type=tmpfs
 
 This mount type allows mounting `tmpfs` in the build container.
 
@@ -742,7 +742,7 @@ This mount type allows mounting `tmpfs` in the build container.
 | `target`, `dst`, `destination`[1](https://docs.docker.com/reference/dockerfile/#fn:1) | Mount path.                                           |
 | `size`                                                       | Specify an upper limit on the size of the filesystem. |
 
-### [RUN --mount=type=secret](https://docs.docker.com/reference/dockerfile/#run---mounttypesecret)
+### RUN --mount=type=secret
 
 This mount type allows the build container to access secret values, such as tokens or private keys, without baking them into the image.
 
@@ -758,7 +758,7 @@ By default, the secret is mounted as a file. You can also mount the secret as an
 | `uid`                          | User ID for secret file. Default `0`.                        |
 | `gid`                          | Group ID for secret file. Default `0`.                       |
 
-#### [Example: access to S3](https://docs.docker.com/reference/dockerfile/#example-access-to-s3)
+#### Example: access to S3
 
 
 
@@ -776,7 +776,7 @@ RUN --mount=type=secret,id=aws,target=/root/.aws/credentials \
 $ docker buildx build --secret id=aws,src=$HOME/.aws/credentials .
 ```
 
-#### [Example: Mount as environment variable](https://docs.docker.com/reference/dockerfile/#example-mount-as-environment-variable)
+#### Example: Mount as environment variable
 
 The following example takes the secret `API_KEY` and mounts it as an environment variable with the same name.
 
@@ -797,7 +797,7 @@ Assuming that the `API_KEY` environment variable is set in the build environment
 $ docker buildx build --secret id=API_KEY .
 ```
 
-### [RUN --mount=type=ssh](https://docs.docker.com/reference/dockerfile/#run---mounttypessh)
+### RUN --mount=type=ssh
 
 This mount type allows the build container to access SSH keys via SSH agents, with support for passphrases.
 
@@ -810,7 +810,7 @@ This mount type allows the build container to access SSH keys via SSH agents, wi
 | `uid`                          | User ID for socket. Default `0`.                             |
 | `gid`                          | Group ID for socket. Default `0`.                            |
 
-#### [Example: access to GitLab](https://docs.docker.com/reference/dockerfile/#example-access-to-gitlab)
+#### Example: access to GitLab
 
 
 
@@ -836,7 +836,7 @@ $ docker buildx build --ssh default=$SSH_AUTH_SOCK .
 
 You can also specify a path to `*.pem` file on the host directly instead of `$SSH_AUTH_SOCK`. However, pem files with passphrases are not supported.
 
-### [RUN --network](https://docs.docker.com/reference/dockerfile/#run---network)
+### RUN --network
 
 
 
@@ -854,15 +854,15 @@ The supported network types are:
 | [`none`](https://docs.docker.com/reference/dockerfile/#run---networknone) | Run with no network access.            |
 | [`host`](https://docs.docker.com/reference/dockerfile/#run---networkhost) | Run in the host's network environment. |
 
-### [RUN --network=default](https://docs.docker.com/reference/dockerfile/#run---networkdefault)
+### RUN --network=default
 
 Equivalent to not supplying a flag at all, the command is run in the default network for the build.
 
-### [RUN --network=none](https://docs.docker.com/reference/dockerfile/#run---networknone)
+### RUN --network=none
 
 The command is run with no network access (`lo` is still available, but is isolated to this process)
 
-#### [Example: isolating external effects](https://docs.docker.com/reference/dockerfile/#example-isolating-external-effects)
+#### Example: isolating external effects
 
 
 
@@ -875,7 +875,7 @@ RUN --network=none pip install --find-links wheels mypackage
 
 `pip` will only be able to install the packages provided in the tarfile, which can be controlled by an earlier build stage.
 
-### [RUN --network=host](https://docs.docker.com/reference/dockerfile/#run---networkhost)
+### RUN --network=host
 
 The command is run in the host's network environment (similar to `docker build --network=host`, but on a per-instruction basis)
 
@@ -883,7 +883,7 @@ The command is run in the host's network environment (similar to `docker build -
 >
 > The use of `--network=host` is protected by the `network.host` entitlement, which needs to be enabled when starting the buildkitd daemon with `--allow-insecure-entitlement network.host` flag or in [buildkitd config](https://github.com/moby/buildkit/blob/master/docs/buildkitd.toml.md), and for a build request with [`--allow network.host` flag](https://docs.docker.com/engine/reference/commandline/buildx_build/#allow).
 
-### [RUN --security](https://docs.docker.com/reference/dockerfile/#run---security)
+### RUN --security
 
 > **Note**
 >
@@ -903,7 +903,7 @@ The default security mode is `sandbox`. With `--security=insecure`, the builder 
 
 Default sandbox mode can be activated via `--security=sandbox`, but that is no-op.
 
-#### [Example: check entitlements](https://docs.docker.com/reference/dockerfile/#example-check-entitlements)
+#### Example: check entitlements
 
 
 
@@ -919,7 +919,7 @@ RUN --security=insecure cat /proc/self/status | grep CapEff
 #84 0.093 CapEff:	0000003fffffffff
 ```
 
-## [CMD](https://docs.docker.com/reference/dockerfile/#cmd)
+## CMD
 
 The `CMD` instruction sets the command to be executed when running a container from an image.
 
@@ -941,7 +941,7 @@ If `CMD` is used to provide default arguments for the `ENTRYPOINT` instruction, 
 >
 > Don't confuse `RUN` with `CMD`. `RUN` actually runs a command and commits the result; `CMD` doesn't execute anything at build time, but specifies the intended command for the image.
 
-## [LABEL](https://docs.docker.com/reference/dockerfile/#label)
+## LABEL
 
 
 
@@ -1005,7 +1005,7 @@ $ docker image inspect --format='{{json .Config.Labels}}' myimage
 }
 ```
 
-## [MAINTAINER (deprecated)](https://docs.docker.com/reference/dockerfile/#maintainer-deprecated)
+## MAINTAINER (deprecated)
 
 
 
@@ -1023,7 +1023,7 @@ LABEL org.opencontainers.image.authors="SvenDowideit@home.org.au"
 
 This will then be visible from `docker inspect` with the other labels.
 
-## [EXPOSE](https://docs.docker.com/reference/dockerfile/#expose)
+## EXPOSE
 
 
 
@@ -1064,7 +1064,7 @@ $ docker run -p 80:80/tcp -p 80:80/udp ...
 
 To set up port redirection on the host system, see [using the -P flag](https://docs.docker.com/reference/cli/docker/container/run/#publish). The `docker network` command supports creating networks for communication among containers without the need to expose or publish specific ports, because the containers connected to the network can communicate with each other over any port. For detailed information, see the [overview of this feature](https://docs.docker.com/engine/userguide/networking/).
 
-## [ENV](https://docs.docker.com/reference/dockerfile/#env)
+## ENV
 
 
 
@@ -1095,7 +1095,7 @@ ENV MY_NAME="John Doe" MY_DOG=Rex\ The\ Dog \
 
 The environment variables set using `ENV` will persist when a container is run from the resulting image. You can view the values using `docker inspect`, and change them using `docker run --env <key>=<value>`.
 
-A stage inherits any environment variables that were set using `ENV` by its parent stage or any ancestor. Refer to the [multi-stage builds section](https://docs.docker.com/build/building/multi-stage/) in the manual for more information.
+A stage inherits any environment variables that were set using `ENV` by its parent stage or any ancestor. Refer to the [multi-stage builds section]({{< ref "/manuals/DockerBuild/Building/Multi-stage" >}}) in the manual for more information.
 
 Environment variable persistence can cause unexpected side effects. For example, setting `ENV DEBIAN_FRONTEND=noninteractive` changes the behavior of `apt-get`, and may confuse users of your image.
 
@@ -1138,7 +1138,7 @@ RUN apt-get update && apt-get install -y ...
 >
 > The alternative syntax is supported for backward compatibility, but discouraged for the reasons outlined above, and may be removed in a future release.
 
-## [ADD](https://docs.docker.com/reference/dockerfile/#add)
+## ADD
 
 ADD has two forms. The latter form is required for paths containing whitespace.
 
@@ -1164,7 +1164,7 @@ The `ADD` instruction copies new files or directories from `<src>` and adds them
 
 The `ADD` and `COPY` instructions are functionally similar, but serve slightly different purposes. Learn more about the [differences between `ADD` and `COPY`](https://docs.docker.com/build/building/best-practices/#add-or-copy).
 
-### [Source](https://docs.docker.com/reference/dockerfile/#source)
+### Source
 
 You can specify multiple source files or directories with `ADD`. The last argument must always be the destination. For example, to add two files, `file1.txt` and `file2.txt`, from the build context to `/usr/src/things/` in the build container:
 
@@ -1192,7 +1192,7 @@ BuildKit detects the type of `<src>` and processes it accordingly.
 - If `<src>` is a URL, the contents of the URL are downloaded and placed at the specified destination. See [Adding files from a URL](https://docs.docker.com/reference/dockerfile/#adding-files-from-a-url).
 - If `<src>` is a Git repository, the repository is cloned to the specified destination. See [Adding files from a Git repository](https://docs.docker.com/reference/dockerfile/#adding-files-from-a-git-repository).
 
-#### [Adding files from the build context](https://docs.docker.com/reference/dockerfile/#adding-files-from-the-build-context)
+#### Adding files from the build context
 
 Any relative or local path that doesn't begin with a `http://`, `https://`, or `git@` protocol prefix is considered a local file path. The local file path is relative to the build context. For example, if the build context is the current directory, `ADD file.txt /` adds the file at `./file.txt` to the root of the filesystem in the build container.
 
@@ -1204,7 +1204,7 @@ If the source is a file, the file and its metadata are copied to the destination
 
 If you pass a Dockerfile through stdin to the build (`docker build - < Dockerfile`), there is no build context. In this case, you can only use the `ADD` instruction to copy remote files. You can also pass a tar archive through stdin: (`docker build - < archive.tar`), the Dockerfile at the root of the archive and the rest of the archive will be used as the context of the build.
 
-##### [Pattern matching](https://docs.docker.com/reference/dockerfile/#pattern-matching)
+##### Pattern matching
 
 For local files, each `<src>` may contain wildcards and matching will be done using Go's [filepath.Match](https://golang.org/pkg/path/filepath#Match) rules.
 
@@ -1232,7 +1232,7 @@ When adding files or directories that contain special characters (such as `[` an
 ADD arr[[]0].txt /dest/
 ```
 
-#### [Adding local tar archives](https://docs.docker.com/reference/dockerfile/#adding-local-tar-archives)
+#### Adding local tar archives
 
 When using a local tar archive as the source for `ADD`, and the archive is in a recognized compression format (`gzip`, `bzip2` or `xz`, or uncompressed), the archive is decompressed and extracted into the specified destination. Only local tar archives are extracted. If the tar archive is a remote URL, the archive is not extracted, but downloaded and placed at the destination.
 
@@ -1245,7 +1245,7 @@ When a directory is extracted, it has the same behavior as `tar -x`. The result 
 >
 > Whether a file is identified as a recognized compression format or not is done solely based on the contents of the file, not the name of the file. For example, if an empty file happens to end with `.tar.gz` this isn't recognized as a compressed file and doesn't generate any kind of decompression error message, rather the file will simply be copied to the destination.
 
-#### [Adding files from a URL](https://docs.docker.com/reference/dockerfile/#adding-files-from-a-url)
+#### Adding files from a URL
 
 In the case where source is a remote file URL, the destination will have permissions of 600. If the HTTP response contains a `Last-Modified` header, the timestamp from that header will be used to set the `mtime` on the destination file. However, like any other file processed during an `ADD`, `mtime` isn't included in the determination of whether or not the file has changed and the cache should be updated.
 
@@ -1255,7 +1255,7 @@ If the destination doesn't end with a trailing slash, the destination path becom
 
 If your URL files are protected using authentication, you need to use `RUN wget`, `RUN curl` or use another tool from within the container as the `ADD` instruction doesn't support authentication.
 
-#### [Adding files from a Git repository](https://docs.docker.com/reference/dockerfile/#adding-files-from-a-git-repository)
+#### Adding files from a Git repository
 
 To use a Git repository as the source for `ADD`, you can reference the repository's HTTP or SSH address as the source. The repository is cloned to the specified destination in the image.
 
@@ -1295,9 +1295,9 @@ To build this Dockerfile, pass the `--ssh` flag to the `docker build` to mount t
 $ docker build --ssh default .
 ```
 
-For more information about building with secrets, see [Build secrets](https://docs.docker.com/build/building/secrets/).
+For more information about building with secrets, see [Build secrets]({{< ref "/manuals/DockerBuild/Building/Secrets" >}}).
 
-### [Destination](https://docs.docker.com/reference/dockerfile/#destination)
+### Destination
 
 If the destination path begins with a forward slash, it's interpreted as an absolute path, and the source files are copied into the specified destination relative to the root of the current build stage.
 
@@ -1324,7 +1324,7 @@ If destination doesn't exist, it's created, along with all missing directories i
 
 If the source is a file, and the destination doesn't end with a trailing slash, the source file will be written to the destination path as a file.
 
-### [ADD --keep-git-dir](https://docs.docker.com/reference/dockerfile/#add---keep-git-dir)
+### ADD --keep-git-dir
 
 
 
@@ -1344,7 +1344,7 @@ FROM alpine
 ADD --keep-git-dir=true https://github.com/moby/buildkit.git#v0.10.1 /buildkit
 ```
 
-### [ADD --checksum](https://docs.docker.com/reference/dockerfile/#add---checksum)
+### ADD --checksum
 
 
 
@@ -1362,19 +1362,19 @@ ADD --checksum=sha256:24454f830cdb571e2c4ad15481119c43b3cafd48dd869a9b2945d1036d
 
 The `--checksum` flag only supports HTTP(S) sources.
 
-### [ADD --chown --chmod](https://docs.docker.com/reference/dockerfile/#add---chown---chmod)
+### ADD --chown --chmod
 
 See [`COPY --chown --chmod`](https://docs.docker.com/reference/dockerfile/#copy---chown---chmod).
 
-### [ADD --link](https://docs.docker.com/reference/dockerfile/#add---link)
+### ADD --link
 
 See [`COPY --link`](https://docs.docker.com/reference/dockerfile/#copy---link).
 
-### [ADD --exclude](https://docs.docker.com/reference/dockerfile/#add---exclude)
+### ADD --exclude
 
 See [`COPY --exclude`](https://docs.docker.com/reference/dockerfile/#copy---exclude).
 
-## [COPY](https://docs.docker.com/reference/dockerfile/#copy)
+## COPY
 
 COPY has two forms. The latter form is required for paths containing whitespace.
 
@@ -1400,7 +1400,7 @@ The `COPY` instruction copies new files or directories from `<src>` and adds the
 
 The `ADD` and `COPY` instructions are functionally similar, but serve slightly different purposes. Learn more about the [differences between `ADD` and `COPY`](https://docs.docker.com/build/building/best-practices/#add-or-copy).
 
-### [Source](https://docs.docker.com/reference/dockerfile/#source-1)
+### Source
 
 You can specify multiple source files or directories with `COPY`. The last argument must always be the destination. For example, to copy two files, `file1.txt` and `file2.txt`, from the build context to `/usr/src/things/` in the build container:
 
@@ -1426,7 +1426,7 @@ COPY --from=build /myapp /usr/bin/
 
 For more information about copying from named sources, see the [`--from` flag](https://docs.docker.com/reference/dockerfile/#copy---from).
 
-#### [Copying from the build context](https://docs.docker.com/reference/dockerfile/#copying-from-the-build-context)
+#### Copying from the build context
 
 When copying source files from the build context, their paths are interpreted as relative to the root of the context. If you specify a relative path leading outside of the build context, such as `COPY ../something /something`, parent directory paths are stripped out automatically. The effective source path in this example becomes `COPY something /something`.
 
@@ -1438,7 +1438,7 @@ If you pass a Dockerfile through stdin to the build (`docker build - < Dockerfil
 
 When using a Git repository as the build context, the permissions bits for copied files are 644. If a file in the repository has the executable bit set, it will have permissions set to 755. Directories have permissions set to 755.
 
-##### [Pattern matching](https://docs.docker.com/reference/dockerfile/#pattern-matching-1)
+##### Pattern matching
 
 For local files, each `<src>` may contain wildcards and matching will be done using Go's [filepath.Match](https://golang.org/pkg/path/filepath#Match) rules.
 
@@ -1466,7 +1466,7 @@ When adding files or directories that contain special characters (such as `[` an
 COPY arr[[]0].txt /dest/
 ```
 
-### [Destination](https://docs.docker.com/reference/dockerfile/#destination-1)
+### Destination
 
 If the destination path begins with a forward slash, it's interpreted as an absolute path, and the source files are copied into the specified destination relative to the root of the current build stage.
 
@@ -1493,7 +1493,7 @@ If destination doesn't exist, it's created, along with all missing directories i
 
 If the source is a file, and the destination doesn't end with a trailing slash, the source file will be written to the destination path as a file.
 
-### [COPY --from](https://docs.docker.com/reference/dockerfile/#copy---from)
+### COPY --from
 
 By default, the `COPY` instruction copies files from the build context. The `COPY --from` flag lets you copy files from an image, a build stage, or a named context instead.
 
@@ -1503,7 +1503,7 @@ By default, the `COPY` instruction copies files from the build context. The `COP
 COPY [--from=<image|stage|context>] <src> ... <dest>
 ```
 
-To copy from a build stage in a [multi-stage build](https://docs.docker.com/build/building/multi-stage/), specify the name of the stage you want to copy from. You specify stage names using the `AS` keyword with the `FROM` instruction.
+To copy from a build stage in a [multi-stage build]({{< ref "/manuals/DockerBuild/Building/Multi-stage" >}}), specify the name of the stage you want to copy from. You specify stage names using the `AS` keyword with the `FROM` instruction.
 
 
 
@@ -1528,7 +1528,7 @@ COPY --from=nginx:latest /etc/nginx/nginx.conf /nginx.conf
 
 The source path of `COPY --from` is always resolved from filesystem root of the image or stage that you specify.
 
-### [COPY --chown --chmod](https://docs.docker.com/reference/dockerfile/#copy---chown---chmod)
+### COPY --chown --chmod
 
 > **Note**
 >
@@ -1568,7 +1568,7 @@ ARG MODE=440
 COPY --chmod=$MODE . .
 ```
 
-### [COPY --link](https://docs.docker.com/reference/dockerfile/#copy---link)
+### COPY --link
 
 
 
@@ -1607,19 +1607,19 @@ COPY /foo /bar
 
 and merging all the layers of both images together.
 
-#### [Benefits of using `--link`](https://docs.docker.com/reference/dockerfile/#benefits-of-using---link)
+#### Benefits of using `--link`
 
 Use `--link` to reuse already built layers in subsequent builds with `--cache-from` even if the previous layers have changed. This is especially important for multi-stage builds where a `COPY --from` statement would previously get invalidated if any previous commands in the same stage changed, causing the need to rebuild the intermediate stages again. With `--link` the layer the previous build generated is reused and merged on top of the new layers. This also means you can easily rebase your images when the base images receive updates, without having to execute the whole build again. In backends that support it, BuildKit can do this rebase action without the need to push or pull any layers between the client and the registry. BuildKit will detect this case and only create new image manifest that contains the new layers and old layers in correct order.
 
 The same behavior where BuildKit can avoid pulling down the base image can also happen when using `--link` and no other commands that would require access to the files in the base image. In that case BuildKit will only build the layers for the `COPY` commands and push them to the registry directly on top of the layers of the base image.
 
-#### [Incompatibilities with `--link=false`](https://docs.docker.com/reference/dockerfile/#incompatibilities-with---linkfalse)
+#### Incompatibilities with `--link=false`
 
 When using `--link` the `COPY/ADD` commands are not allowed to read any files from the previous state. This means that if in previous state the destination directory was a path that contained a symlink, `COPY/ADD` can not follow it. In the final image the destination path created with `--link` will always be a path containing only directories.
 
 If you don't rely on the behavior of following symlinks in the destination path, using `--link` is always recommended. The performance of `--link` is equivalent or better than the default behavior and, it creates much better conditions for cache reuse.
 
-### [COPY --parents](https://docs.docker.com/reference/dockerfile/#copy---parents)
+### COPY --parents
 
 > **Note**
 >
@@ -1672,7 +1672,7 @@ Note that, without the `--parents` flag specified, any filename collision will f
 
 While it is possible to preserve the directory structure for `COPY` instructions consisting of only one `src` entry, usually it is more beneficial to keep the layer count in the resulting image as low as possible. Therefore, with the `--parents` flag, the Buildkit is capable of packing multiple `COPY` instructions together, keeping the directory structure intact.
 
-### [COPY --exclude](https://docs.docker.com/reference/dockerfile/#copy---exclude)
+### COPY --exclude
 
 > **Note**
 >
@@ -1702,7 +1702,7 @@ You can specify the `--exclude` option multiple times for a `COPY` instruction. 
 COPY --exclude=*.txt --exclude=*.md hom* /mydir/
 ```
 
-## [ENTRYPOINT](https://docs.docker.com/reference/dockerfile/#entrypoint)
+## ENTRYPOINT
 
 An `ENTRYPOINT` allows you to configure a container that will run as an executable.
 
@@ -1742,7 +1742,7 @@ The shell form of `ENTRYPOINT` prevents any `CMD` command line arguments from be
 
 Only the last `ENTRYPOINT` instruction in the Dockerfile will have an effect.
 
-### [Exec form ENTRYPOINT example](https://docs.docker.com/reference/dockerfile/#exec-form-entrypoint-example)
+### Exec form ENTRYPOINT example
 
 You can use the exec form of `ENTRYPOINT` to set fairly stable default commands and arguments and then use either form of `CMD` to set additional defaults that are more likely to be changed.
 
@@ -1877,7 +1877,7 @@ sys	0m 0.03s
 >
 > You can override the `ENTRYPOINT` setting using `--entrypoint`, but this can only set the binary to exec (no `sh -c` will be used).
 
-### [Shell form ENTRYPOINT example](https://docs.docker.com/reference/dockerfile/#shell-form-entrypoint-example)
+### Shell form ENTRYPOINT example
 
 You can specify a plain string for the `ENTRYPOINT` and it will execute in `/bin/sh -c`. This form will use shell processing to substitute shell environment variables, and will ignore any `CMD` or `docker run` command line arguments. To ensure that `docker stop` will signal any long running `ENTRYPOINT` executable correctly, you need to remember to start it with `exec`:
 
@@ -1965,7 +1965,7 @@ user	0m 0.04s
 sys	0m 0.03s
 ```
 
-### [Understand how CMD and ENTRYPOINT interact](https://docs.docker.com/reference/dockerfile/#understand-how-cmd-and-entrypoint-interact)
+### Understand how CMD and ENTRYPOINT interact
 
 Both `CMD` and `ENTRYPOINT` instructions define what command gets executed when running a container. There are few rules that describe their co-operation.
 
@@ -1986,7 +1986,7 @@ The table below shows what command is executed for different `ENTRYPOINT` / `CMD
 >
 > If `CMD` is defined from the base image, setting `ENTRYPOINT` will reset `CMD` to an empty value. In this scenario, `CMD` must be defined in the current image to have a value.
 
-## [VOLUME](https://docs.docker.com/reference/dockerfile/#volume)
+## VOLUME
 
 
 
@@ -2009,7 +2009,7 @@ VOLUME /myvol
 
 This Dockerfile results in an image that causes `docker run` to create a new mount point at `/myvol` and copy the `greeting` file into the newly created volume.
 
-### [Notes about specifying volumes](https://docs.docker.com/reference/dockerfile/#notes-about-specifying-volumes)
+### Notes about specifying volumes
 
 Keep the following things in mind about volumes in the Dockerfile.
 
@@ -2020,7 +2020,7 @@ Keep the following things in mind about volumes in the Dockerfile.
 - **JSON formatting**: The list is parsed as a JSON array. You must enclose words with double quotes (`"`) rather than single quotes (`'`).
 - **The host directory is declared at container run-time**: The host directory (the mountpoint) is, by its nature, host-dependent. This is to preserve image portability, since a given host directory can't be guaranteed to be available on all hosts. For this reason, you can't mount a host directory from within the Dockerfile. The `VOLUME` instruction does not support specifying a `host-dir` parameter. You must specify the mountpoint when you create or run the container.
 
-## [USER](https://docs.docker.com/reference/dockerfile/#user)
+## USER
 
 
 
@@ -2056,7 +2056,7 @@ RUN net user /add patrick
 USER patrick
 ```
 
-## [WORKDIR](https://docs.docker.com/reference/dockerfile/#workdir)
+## WORKDIR
 
 
 
@@ -2095,7 +2095,7 @@ If not specified, the default working directory is `/`. In practice, if you aren
 
 Therefore, to avoid unintended operations in unknown directories, it's best practice to set your `WORKDIR` explicitly.
 
-## [ARG](https://docs.docker.com/reference/dockerfile/#arg)
+## ARG
 
 
 
@@ -2122,7 +2122,7 @@ ARG buildno
 # ...
 ```
 
-### [Default values](https://docs.docker.com/reference/dockerfile/#default-values)
+### Default values
 
 An `ARG` instruction can optionally include a default value:
 
@@ -2137,7 +2137,7 @@ ARG buildno=1
 
 If an `ARG` instruction has a default value and if there is no value passed at build-time, the builder uses the default.
 
-### [Scope](https://docs.docker.com/reference/dockerfile/#scope)
+### Scope
 
 An `ARG` variable definition comes into effect from the line on which it is defined in the Dockerfile not from the argument's use on the command-line or elsewhere. For example, consider this Dockerfile:
 
@@ -2175,7 +2175,7 @@ ARG SETTINGS
 RUN ./run/other $SETTINGS
 ```
 
-### [Using ARG variables](https://docs.docker.com/reference/dockerfile/#using-arg-variables)
+### Using ARG variables
 
 You can use an `ARG` or an `ENV` instruction to specify variables that are available to the `RUN` instruction. Environment variables defined using the `ENV` instruction always override an `ARG` instruction of the same name. Consider this Dockerfile with an `ENV` and `ARG` instruction.
 
@@ -2221,7 +2221,7 @@ Using this Dockerfile example, `CONT_IMG_VER` is still persisted in the image bu
 
 The variable expansion technique in this example allows you to pass arguments from the command line and persist them in the final image by leveraging the `ENV` instruction. Variable expansion is only supported for [a limited set of Dockerfile instructions.](https://docs.docker.com/reference/dockerfile/#environment-replacement)
 
-### [Predefined ARGs](https://docs.docker.com/reference/dockerfile/#predefined-args)
+### Predefined ARGs
 
 Docker has a set of predefined `ARG` variables that you can use without a corresponding `ARG` instruction in the Dockerfile.
 
@@ -2269,9 +2269,9 @@ RUN echo "Hello World"
 
 When building this Dockerfile, the `HTTP_PROXY` is preserved in the `docker history`, and changing its value invalidates the build cache.
 
-### [Automatic platform ARGs in the global scope](https://docs.docker.com/reference/dockerfile/#automatic-platform-args-in-the-global-scope)
+### Automatic platform ARGs in the global scope
 
-This feature is only available when using the [BuildKit](https://docs.docker.com/build/buildkit/) backend.
+This feature is only available when using the [BuildKit]({{< ref "/manuals/DockerBuild/BuildKit" >}}) backend.
 
 BuildKit supports a predefined set of `ARG` variables with information on the platform of the node performing the build (build platform) and on the platform of the resulting image (target platform). The target platform can be specified with the `--platform` flag on `docker build`.
 
@@ -2298,7 +2298,7 @@ ARG TARGETPLATFORM
 RUN echo "I'm building for $TARGETPLATFORM"
 ```
 
-### [BuildKit built-in build args](https://docs.docker.com/reference/dockerfile/#buildkit-built-in-build-args)
+### BuildKit built-in build args
 
 | Arg                                                          | Type   | Description                                                  |
 | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
@@ -2310,7 +2310,7 @@ RUN echo "I'm building for $TARGETPLATFORM"
 | `BUILDKIT_SYNTAX`                                            | String | Set frontend image                                           |
 | `SOURCE_DATE_EPOCH`                                          | Int    | Set the Unix timestamp for created image and layers. More info from [reproducible builds](https://reproducible-builds.org/docs/source-date-epoch/). Supported since Dockerfile 1.5, BuildKit 0.11 |
 
-#### [Example: keep `.git` dir](https://docs.docker.com/reference/dockerfile/#example-keep-git-dir)
+#### Example: keep `.git` dir
 
 When using a Git context, `.git` dir is not kept on checkouts. It can be useful to keep it around if you want to retrieve git information during your build:
 
@@ -2330,7 +2330,7 @@ RUN --mount=target=. \
 $ docker build --build-arg BUILDKIT_CONTEXT_KEEP_GIT_DIR=1 https://github.com/user/repo.git#main
 ```
 
-### [Impact on build caching](https://docs.docker.com/reference/dockerfile/#impact-on-build-caching)
+### Impact on build caching
 
 `ARG` variables are not persisted into the built image as `ENV` variables are. However, `ARG` variables do impact the build cache in similar ways. If a Dockerfile defines an `ARG` variable whose value is different from a previous build, then a "cache miss" occurs upon its first usage, not its definition. In particular, all `RUN` instructions following an `ARG` instruction use the `ARG` variable implicitly (as an environment variable), thus can cause a cache miss. All predefined `ARG` variables are exempt from caching unless there is a matching `ARG` statement in the Dockerfile.
 
@@ -2380,7 +2380,7 @@ RUN echo $CONT_IMG_VER
 
 Line 3 doesn't cause a cache miss because the value of `CONT_IMG_VER` is a constant (`hello`). As a result, the environment variables and values used on the `RUN` (line 4) doesn't change between builds.
 
-## [ONBUILD](https://docs.docker.com/reference/dockerfile/#onbuild)
+## ONBUILD
 
 
 
@@ -2414,13 +2414,13 @@ ONBUILD ADD . /app/src
 ONBUILD RUN /usr/local/bin/python-build --dir /app/src
 ```
 
-### [ONBUILD limitations](https://docs.docker.com/reference/dockerfile/#onbuild-limitations)
+### ONBUILD limitations
 
 - Chaining `ONBUILD` instructions using `ONBUILD ONBUILD` isn't allowed.
 - The `ONBUILD` instruction may not trigger `FROM` or `MAINTAINER` instructions.
 - `ONBUILD COPY --from` is [not supported](https://github.com/moby/buildkit/issues/816).
 
-## [STOPSIGNAL](https://docs.docker.com/reference/dockerfile/#stopsignal)
+## STOPSIGNAL
 
 
 
@@ -2432,7 +2432,7 @@ The `STOPSIGNAL` instruction sets the system call signal that will be sent to th
 
 The image's default stopsignal can be overridden per container, using the `--stop-signal` flag on `docker run` and `docker create`.
 
-## [HEALTHCHECK](https://docs.docker.com/reference/dockerfile/#healthcheck)
+## HEALTHCHECK
 
 The `HEALTHCHECK` instruction has two forms:
 
@@ -2484,7 +2484,7 @@ To help debug failing probes, any output text (UTF-8 encoded) that the command w
 
 When the health status of a container changes, a `health_status` event is generated with the new status.
 
-## [SHELL](https://docs.docker.com/reference/dockerfile/#shell)
+## SHELL
 
 
 
@@ -2604,11 +2604,11 @@ The `SHELL` instruction could also be used to modify the way in which a shell op
 
 The `SHELL` instruction can also be used on Linux should an alternate shell be required such as `zsh`, `csh`, `tcsh` and others.
 
-## [Here-Documents](https://docs.docker.com/reference/dockerfile/#here-documents)
+## Here-Documents
 
 Here-documents allow redirection of subsequent Dockerfile lines to the input of `RUN` or `COPY` commands. If such command contains a [here-document](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_07_04) the Dockerfile considers the next lines until the line only containing a here-doc delimiter as part of the same command.
 
-### [Example: Running a multi-line script](https://docs.docker.com/reference/dockerfile/#example-running-a-multi-line-script)
+### Example: Running a multi-line script
 
 
 
@@ -2663,7 +2663,7 @@ second
 FILE2
 ```
 
-### [Example: Creating inline files](https://docs.docker.com/reference/dockerfile/#example-creating-inline-files)
+### Example: Creating inline files
 
 With `COPY` instructions, you can replace the source parameter with a here-doc indicator to write the contents of the here-document directly to a file. The following example creates a `greeting.txt` file containing `hello world` using a `COPY` instruction.
 
@@ -2725,7 +2725,7 @@ $ docker run -e FOO=world heredoc
 hello world
 ```
 
-## [Dockerfile examples](https://docs.docker.com/reference/dockerfile/#dockerfile-examples)
+## Dockerfile examples
 
 For examples of Dockerfiles, refer to:
 

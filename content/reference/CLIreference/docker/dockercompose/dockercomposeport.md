@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/port/](https://docs.docker.com/reference/cli/docker/compose/port/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/port/](https://docs.docker.com/reference/cli/docker/compose/port/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,11 +18,11 @@ draft = false
 | :---------- | ---------------------------------------------------- |
 | Usage       | `docker compose port [OPTIONS] SERVICE PRIVATE_PORT` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/port/#description)
+## Description
 
 Prints the public port for a port binding
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/port/#options)
+## Options
 
 | Option       | Default | Description                                             |
 | ------------ | ------- | ------------------------------------------------------- |

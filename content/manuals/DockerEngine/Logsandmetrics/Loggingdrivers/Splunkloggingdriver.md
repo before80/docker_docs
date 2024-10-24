@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/logging/drivers/splunk/](https://docs.docker.com/engine/logging/drivers/splunk/)
+> 原文：[https://docs.docker.com/engine/logging/drivers/splunk/](https://docs.docker.com/engine/logging/drivers/splunk/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 The `splunk` logging driver sends container logs to [HTTP Event Collector](https://dev.splunk.com/enterprise/docs/devtools/httpeventcollector/) in Splunk Enterprise and Splunk Cloud.
 
-## [Usage](https://docs.docker.com/engine/logging/drivers/splunk/#usage)
+## Usage
 
 You can configure Docker logging to use the `splunk` driver by default or on a per-container basis.
 
@@ -51,7 +51,7 @@ To use the `splunk` driver for a specific container, use the commandline flags `
 $ docker run --log-driver=splunk --log-opt splunk-token=VALUE --log-opt splunk-url=VALUE ...
 ```
 
-## [Splunk options](https://docs.docker.com/engine/logging/drivers/splunk/#splunk-options)
+## Splunk options
 
 The following properties let you configure the Splunk logging driver.
 
@@ -72,11 +72,11 @@ The following properties let you configure the Splunk logging driver.
 | `splunk-verify-connection`  | optional | Verify on start, that Docker can connect to Splunk server. Defaults to true. |
 | `splunk-gzip`               | optional | Enable/disable gzip compression to send events to Splunk Enterprise or Splunk Cloud instance. Defaults to false. |
 | `splunk-gzip-level`         | optional | Set compression level for gzip. Valid values are -1 (default), 0 (no compression), 1 (best speed) ... 9 (best compression). Defaults to [DefaultCompression](https://golang.org/pkg/compress/gzip/#DefaultCompression). |
-| `tag`                       | optional | Specify tag for message, which interpret some markup. Default value is `{{.ID}}` (12 characters of the container ID). Refer to the [log tag option documentation](https://docs.docker.com/engine/logging/log_tags/) for customizing the log tag format. |
+| `tag`                       | optional | Specify tag for message, which interpret some markup. Default value is `{{.ID}}` (12 characters of the container ID). Refer to the [log tag option documentation]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}) for customizing the log tag format. |
 | `labels`                    | optional | Comma-separated list of keys of labels, which should be included in message, if these labels are specified for container. |
-| `labels-regex`              | optional | Similar to and compatible with `labels`. A regular expression to match logging-related labels. Used for advanced [log tag options](https://docs.docker.com/engine/logging/log_tags/). |
+| `labels-regex`              | optional | Similar to and compatible with `labels`. A regular expression to match logging-related labels. Used for advanced [log tag options]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}). |
 | `env`                       | optional | Comma-separated list of keys of environment variables, which should be included in message, if these variables are specified for container. |
-| `env-regex`                 | optional | Similar to and compatible with `env`. A regular expression to match logging-related environment variables. Used for advanced [log tag options](https://docs.docker.com/engine/logging/log_tags/). |
+| `env-regex`                 | optional | Similar to and compatible with `env`. A regular expression to match logging-related environment variables. Used for advanced [log tag options]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}). |
 
 If there is collision between the `label` and `env` keys, the value of the `env` takes precedence. Both options add additional fields to the attributes of a logging message.
 
@@ -103,7 +103,7 @@ $ docker run \
 
 The `splunk-url` for Splunk instances hosted on Splunk Cloud is in a format like `https://http-inputs-XXXXXXXX.splunkcloud.com` and does not include a port specifier.
 
-### [Message formats](https://docs.docker.com/engine/logging/drivers/splunk/#message-formats)
+### Message formats
 
 There are three logging driver messaging formats: `inline` (default), `json`, and `raw`.
 
@@ -143,7 +143,7 @@ The default format is `inline` where each log message is embedded as a string. F
 
 ------
 
-## [Advanced options](https://docs.docker.com/engine/logging/drivers/splunk/#advanced-options)
+## Advanced options
 
 The Splunk logging driver lets you configure a few advanced options by setting environment variables for the Docker daemon.
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/compose-file/secrets/](https://docs.docker.com/reference/compose-file/secrets/)
+> 原文：[https://docs.docker.com/reference/compose-file/secrets/](https://docs.docker.com/reference/compose-file/secrets/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,13 +18,13 @@ A service is an abstract definition of a computing resource within an applicatio
 
 A Compose file must declare a `services` top-level element as a map whose keys are string representations of service names, and whose values are service definitions. A service definition contains the configuration that is applied to each service container.
 
-Each service may also include a `build` section, which defines how to create the Docker image for the service. Compose supports building docker images using this service definition. If not used, the `build` section is ignored and the Compose file is still considered valid. Build support is an optional aspect of the Compose Specification, and is described in detail in the [Compose Build Specification](https://docs.docker.com/reference/compose-file/build/) documentation.
+Each service may also include a `build` section, which defines how to create the Docker image for the service. Compose supports building docker images using this service definition. If not used, the `build` section is ignored and the Compose file is still considered valid. Build support is an optional aspect of the Compose Specification, and is described in detail in the [Compose Build Specification]({{< ref "/reference/Composefilereference/ComposeBuildSpecification" >}}) documentation.
 
-Each service defines runtime constraints and requirements to run its containers. The `deploy` section groups these constraints and allows the platform to adjust the deployment strategy to best match containers' needs with available resources. Deploy support is an optional aspect of the Compose Specification, and is described in detail in the [Compose Deploy Specification](https://docs.docker.com/reference/compose-file/deploy/) documentation. If not implemented the `deploy` section is ignored and the Compose file is still considered valid.
+Each service defines runtime constraints and requirements to run its containers. The `deploy` section groups these constraints and allows the platform to adjust the deployment strategy to best match containers' needs with available resources. Deploy support is an optional aspect of the Compose Specification, and is described in detail in the [Compose Deploy Specification]({{< ref "/reference/Composefilereference/ComposeDeploySpecification" >}}) documentation. If not implemented the `deploy` section is ignored and the Compose file is still considered valid.
 
-## [Examples](https://docs.docker.com/reference/compose-file/services/#examples)
+## Examples
 
-### [Simple example](https://docs.docker.com/reference/compose-file/services/#simple-example)
+### Simple example
 
 The following example demonstrates how to define two simple services, set their images, map ports, and configure basic environment variables using Docker Compose.
 
@@ -44,7 +44,7 @@ services:
       POSTGRES_DB: exampledb
 ```
 
-### [Advanced example](https://docs.docker.com/reference/compose-file/services/#advanced-example)
+### Advanced example
 
 In the following example, the `proxy` service uses the Nginx image, mounts a local Nginx configuration file into the container, exposes port `80` and depends on the `backend` service.
 
@@ -74,9 +74,9 @@ services:
 
 For more example Compose files, explore the [Awesome Compose samples](https://github.com/docker/awesome-compose).
 
-## [Attributes](https://docs.docker.com/reference/compose-file/services/#attributes)
+## Attributes
 
-### [annotations](https://docs.docker.com/reference/compose-file/services/#annotations)
+### annotations
 
 `annotations` defines annotations for the container. `annotations` can use either an array or a map.
 
@@ -94,7 +94,7 @@ annotations:
   - com.example.foo=bar
 ```
 
-### [attach](https://docs.docker.com/reference/compose-file/services/#attach)
+### attach
 
 Introduced in Docker Compose version [2.20.0](https://docs.docker.com/compose/releases/release-notes/#2200)
 
@@ -102,11 +102,11 @@ When `attach` is defined and set to `false` Compose does not collect service log
 
 The default service configuration is `attach: true`.
 
-### [build](https://docs.docker.com/reference/compose-file/services/#build)
+### build
 
-`build` specifies the build configuration for creating a container image from source, as defined in the [Compose Build Specification](https://docs.docker.com/reference/compose-file/build/).
+`build` specifies the build configuration for creating a container image from source, as defined in the [Compose Build Specification]({{< ref "/reference/Composefilereference/ComposeBuildSpecification" >}}).
 
-### [blkio_config](https://docs.docker.com/reference/compose-file/services/#blkio_config)
+### blkio_config
 
 `blkio_config` defines a set of configuration options to set block IO limits for a service.
 
@@ -135,52 +135,52 @@ services:
            rate: 30
 ```
 
-#### [device_read_bps, device_write_bps](https://docs.docker.com/reference/compose-file/services/#device_read_bps-device_write_bps)
+#### device_read_bps, device_write_bps
 
 Set a limit in bytes per second for read / write operations on a given device. Each item in the list must have two keys:
 
 - `path`: Defines the symbolic path to the affected device.
 - `rate`: Either as an integer value representing the number of bytes or as a string expressing a byte value.
 
-#### [device_read_iops, device_write_iops](https://docs.docker.com/reference/compose-file/services/#device_read_iops-device_write_iops)
+#### device_read_iops, device_write_iops
 
 Set a limit in operations per second for read / write operations on a given device. Each item in the list must have two keys:
 
 - `path`: Defines the symbolic path to the affected device.
 - `rate`: As an integer value representing the permitted number of operations per second.
 
-#### [weight](https://docs.docker.com/reference/compose-file/services/#weight)
+#### weight
 
 Modify the proportion of bandwidth allocated to a service relative to other services. Takes an integer value between 10 and 1000, with 500 being the default.
 
-#### [weight_device](https://docs.docker.com/reference/compose-file/services/#weight_device)
+#### weight_device
 
 Fine-tune bandwidth allocation by device. Each item in the list must have two keys:
 
 - `path`: Defines the symbolic path to the affected device.
 - `weight`: An integer value between 10 and 1000.
 
-### [cpu_count](https://docs.docker.com/reference/compose-file/services/#cpu_count)
+### cpu_count
 
 `cpu_count` defines the number of usable CPUs for service container.
 
-### [cpu_percent](https://docs.docker.com/reference/compose-file/services/#cpu_percent)
+### cpu_percent
 
 `cpu_percent` defines the usable percentage of the available CPUs.
 
-### [cpu_shares](https://docs.docker.com/reference/compose-file/services/#cpu_shares)
+### cpu_shares
 
 `cpu_shares` defines, as integer value, a service container's relative CPU weight versus other containers.
 
-### [cpu_period](https://docs.docker.com/reference/compose-file/services/#cpu_period)
+### cpu_period
 
 `cpu_period` configures CPU CFS (Completely Fair Scheduler) period when a platform is based on Linux kernel.
 
-### [cpu_quota](https://docs.docker.com/reference/compose-file/services/#cpu_quota)
+### cpu_quota
 
 `cpu_quota` configures CPU CFS (Completely Fair Scheduler) quota when a platform is based on Linux kernel.
 
-### [cpu_rt_runtime](https://docs.docker.com/reference/compose-file/services/#cpu_rt_runtime)
+### cpu_rt_runtime
 
 `cpu_rt_runtime` configures CPU allocation parameters for platforms with support for realtime scheduler. It can be either an integer value using microseconds as unit or a [duration](https://docs.docker.com/reference/compose-file/extension/#specifying-durations).
 
@@ -191,7 +191,7 @@ Fine-tune bandwidth allocation by device. Each item in the list must have two ke
  cpu_rt_runtime: 95000`
 ```
 
-### [cpu_rt_period](https://docs.docker.com/reference/compose-file/services/#cpu_rt_period)
+### cpu_rt_period
 
 `cpu_rt_period` configures CPU allocation parameters for platforms with support for realtime scheduler. It can be either an integer value using microseconds as unit or a [duration](https://docs.docker.com/reference/compose-file/extension/#specifying-durations).
 
@@ -202,19 +202,19 @@ Fine-tune bandwidth allocation by device. Each item in the list must have two ke
  cpu_rt_period: 11000`
 ```
 
-### [cpus](https://docs.docker.com/reference/compose-file/services/#cpus)
+### cpus
 
 `cpus` define the number of (potentially virtual) CPUs to allocate to service containers. This is a fractional number. `0.000` means no limit.
 
 When set, `cpus` must be consistent with the `cpus` attribute in the [Deploy Specification](https://docs.docker.com/reference/compose-file/deploy/#cpus).
 
-### [cpuset](https://docs.docker.com/reference/compose-file/services/#cpuset)
+### cpuset
 
 ```
 cpuset` defines the explicit CPUs in which to allow execution. Can be a range `0-3` or a list `0,1
 ```
 
-### [cap_add](https://docs.docker.com/reference/compose-file/services/#cap_add)
+### cap_add
 
 `cap_add` specifies additional container [capabilities](https://man7.org/linux/man-pages/man7/capabilities.7.html) as strings.
 
@@ -225,7 +225,7 @@ cap_add:
   - ALL
 ```
 
-### [cap_drop](https://docs.docker.com/reference/compose-file/services/#cap_drop)
+### cap_drop
 
 `cap_drop` specifies container [capabilities](https://man7.org/linux/man-pages/man7/capabilities.7.html) to drop as strings.
 
@@ -237,7 +237,7 @@ cap_drop:
   - SYS_ADMIN
 ```
 
-### [cgroup](https://docs.docker.com/reference/compose-file/services/#cgroup)
+### cgroup
 
 Introduced in Docker Compose version [2.15.0](https://docs.docker.com/compose/releases/release-notes/#2150)
 
@@ -246,7 +246,7 @@ Introduced in Docker Compose version [2.15.0](https://docs.docker.com/compose/re
 - `host`: Runs the container in the Container runtime cgroup namespace.
 - `private`: Runs the container in its own private cgroup namespace.
 
-### [cgroup_parent](https://docs.docker.com/reference/compose-file/services/#cgroup_parent)
+### cgroup_parent
 
 `cgroup_parent` specifies an optional parent [cgroup](https://man7.org/linux/man-pages/man7/cgroups.7.html) for the container.
 
@@ -256,7 +256,7 @@ Introduced in Docker Compose version [2.15.0](https://docs.docker.com/compose/re
 cgroup_parent: m-executor-abcd
 ```
 
-### [command](https://docs.docker.com/reference/compose-file/services/#command)
+### command
 
 `command` overrides the default command declared by the container image, for example by Dockerfile's `CMD`.
 
@@ -278,17 +278,17 @@ If the value is `null`, the default command from the image is used.
 
 If the value is `[]` (empty list) or `''` (empty string), the default command declared by the image is ignored, i.e. overridden to be empty.
 
-### [configs](https://docs.docker.com/reference/compose-file/services/#configs)
+### configs
 
 Configs allow services to adapt their behaviour without the need to rebuild a Docker image. Services can only access configs when explicitly granted by the `configs` attribute. Two different syntax variants are supported.
 
-Compose reports an error if `config` doesn't exist on the platform or isn't defined in the [`configs` top-level element](https://docs.docker.com/reference/compose-file/configs/) in the Compose file.
+Compose reports an error if `config` doesn't exist on the platform or isn't defined in the [`configs` top-level element]({{< ref "/reference/Composefilereference/Configstop-levelelements" >}}) in the Compose file.
 
 There are two syntaxes defined for configs: a short syntax and a long syntax.
 
 You can grant a service access to multiple configs, and you can mix long and short syntax.
 
-#### [Short syntax](https://docs.docker.com/reference/compose-file/services/#short-syntax)
+#### Short syntax
 
 The short syntax variant only specifies the config name. This grants the container access to the config and mounts it as files into a service’s container’s filesystem. The location of the mount point within the container defaults to `/<config_name>` in Linux containers, and `C:\<config-name>` in Windows containers.
 
@@ -310,7 +310,7 @@ configs:
     external: true
 ```
 
-#### [Long syntax](https://docs.docker.com/reference/compose-file/services/#long-syntax)
+#### Long syntax
 
 The long syntax provides more granularity in how the config is created within the service's task containers.
 
@@ -340,7 +340,7 @@ configs:
     external: true
 ```
 
-### [container_name](https://docs.docker.com/reference/compose-file/services/#container_name)
+### container_name
 
 `container_name` is a string that specifies a custom container name, rather than a name generated by default.
 
@@ -356,7 +356,7 @@ Compose does not scale a service beyond one container if the Compose file specif
 container_name` follows the regex format of `[a-zA-Z0-9][a-zA-Z0-9_.-]+
 ```
 
-### [credential_spec](https://docs.docker.com/reference/compose-file/services/#credential_spec)
+### credential_spec
 
 `credential_spec` configures the credential spec for a managed service account.
 
@@ -386,7 +386,7 @@ credential_spec:
   registry: my-credential-spec
 ```
 
-#### [Example gMSA configuration](https://docs.docker.com/reference/compose-file/services/#example-gmsa-configuration)
+#### Example gMSA configuration
 
 When configuring a gMSA credential spec for a service, you only need to specify a credential spec with `config`, as shown in the following example:
 
@@ -404,11 +404,11 @@ configs:
     file: ./my-credential-spec.json|
 ```
 
-### [depends_on](https://docs.docker.com/reference/compose-file/services/#depends_on)
+### depends_on
 
 With the `depends_on` attribute, you can control the order of service startup and shutdown. It is useful if services are closely coupled, and the startup sequence impacts the application's functionality.
 
-#### [Short syntax](https://docs.docker.com/reference/compose-file/services/#short-syntax-1)
+#### Short syntax
 
 The short syntax variant only specifies service names of the dependencies. Service dependencies cause the following behaviors:
 
@@ -434,7 +434,7 @@ services:
 
 Compose guarantees dependency services have been started before starting a dependent service. Compose waits for dependency services to be "ready" before starting a dependent service.
 
-#### [Long syntax](https://docs.docker.com/reference/compose-file/services/#long-syntax-1)
+#### Long syntax
 
 The long form syntax enables the configuration of additional fields that can't be expressed in the short form.
 
@@ -471,17 +471,17 @@ services:
 
 Compose guarantees dependency services are started before starting a dependent service. Compose guarantees dependency services marked with `service_healthy` are "healthy" before starting a dependent service.
 
-### [deploy](https://docs.docker.com/reference/compose-file/services/#deploy)
+### deploy
 
-`deploy` specifies the configuration for the deployment and lifecycle of services, as defined [in the Compose Deploy Specification](https://docs.docker.com/reference/compose-file/deploy/).
+`deploy` specifies the configuration for the deployment and lifecycle of services, as defined [in the Compose Deploy Specification]({{< ref "/reference/Composefilereference/ComposeDeploySpecification" >}}).
 
-### [develop](https://docs.docker.com/reference/compose-file/services/#develop)
+### develop
 
 Introduced in Docker Compose version [2.22.0](https://docs.docker.com/compose/releases/release-notes/#2220)
 
-`develop` specifies the development configuration for maintaining a container in sync with source, as defined in the [Development Section](https://docs.docker.com/reference/compose-file/develop/).
+`develop` specifies the development configuration for maintaining a container in sync with source, as defined in the [Development Section]({{< ref "/reference/Composefilereference/ComposeDevelopSpecification" >}}).
 
-### [device_cgroup_rules](https://docs.docker.com/reference/compose-file/services/#device_cgroup_rules)
+### device_cgroup_rules
 
 `device_cgroup_rules` defines a list of device cgroup rules for this container. The format is the same format the Linux kernel specifies in the [Control Groups Device Whitelist Controller](https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v1/devices.html).
 
@@ -493,7 +493,7 @@ device_cgroup_rules:
   - 'a 7:* rmw'
 ```
 
-### [devices](https://docs.docker.com/reference/compose-file/services/#devices)
+### devices
 
 `devices` defines a list of device mappings for created containers in the form of `HOST_PATH:CONTAINER_PATH[:CGROUP_PERMISSIONS]`.
 
@@ -505,7 +505,7 @@ devices:
   - "/dev/sda:/dev/xvda:rwm"
 ```
 
-### [dns](https://docs.docker.com/reference/compose-file/services/#dns)
+### dns
 
 `dns` defines custom DNS servers to set on the container network interface configuration. It can be a single value or a list.
 
@@ -523,7 +523,7 @@ dns:
   - 9.9.9.9
 ```
 
-### [dns_opt](https://docs.docker.com/reference/compose-file/services/#dns_opt)
+### dns_opt
 
 `dns_opt` list custom DNS options to be passed to the container’s DNS resolver (`/etc/resolv.conf` file on Linux).
 
@@ -535,7 +535,7 @@ dns_opt:
   - no-tld-query
 ```
 
-### [dns_search](https://docs.docker.com/reference/compose-file/services/#dns_search)
+### dns_search
 
 `dns_search` defines custom DNS search domains to set on container network interface configuration. It can be a single value or a list.
 
@@ -553,11 +553,11 @@ dns_search:
   - dc2.example.com
 ```
 
-### [domainname](https://docs.docker.com/reference/compose-file/services/#domainname)
+### domainname
 
 `domainname` declares a custom domain name to use for the service container. It must be a valid RFC 1123 hostname.
 
-### [driver_opts](https://docs.docker.com/reference/compose-file/services/#driver_opts)
+### driver_opts
 
 Introduced in Docker Compose version [2.27.1](https://docs.docker.com/compose/releases/release-notes/#2271)
 
@@ -574,9 +574,9 @@ services:
           com.docker.network.bridge.host_binding_ipv4: "127.0.0.1"
 ```
 
-Consult the [network drivers documentation](https://docs.docker.com/engine/network/) for more information.
+Consult the [network drivers documentation]({{< ref "/manuals/DockerEngine/Networking" >}}) for more information.
 
-### [entrypoint](https://docs.docker.com/reference/compose-file/services/#entrypoint)
+### entrypoint
 
 `entrypoint` declares the default entrypoint for the service container. This overrides the `ENTRYPOINT` instruction from the service's Dockerfile.
 
@@ -610,7 +610,7 @@ If the value is `null`, the default entrypoint from the image is used.
 
 If the value is `[]` (empty list) or `''` (empty string), the default entrypoint declared by the image is ignored, i.e. overridden to be empty.
 
-### [env_file](https://docs.docker.com/reference/compose-file/services/#env_file)
+### env_file
 
 The `env_file` attribute is used to specify one or more files that contain environment variables to be passed to the containers.
 
@@ -648,7 +648,7 @@ Relative path are resolved from the Compose file's parent folder. As absolute pa
 
 Environment variables declared in the [environment](https://docs.docker.com/reference/compose-file/services/#environment) section override these values. This holds true even if those values are empty or undefined.
 
-#### [Env_file format](https://docs.docker.com/reference/compose-file/services/#env_file-format)
+#### Env_file format
 
 Each line in an `.env` file must be in `VAR[=[VAL]]` format. The following syntax rules apply:
 
@@ -656,7 +656,7 @@ Each line in an `.env` file must be in `VAR[=[VAL]]` format. The following synta
 
 - Blank lines are ignored.
 
-- Unquoted and double-quoted (`"`) values have [Interpolation](https://docs.docker.com/reference/compose-file/interpolation/) applied.
+- Unquoted and double-quoted (`"`) values have [Interpolation]({{< ref "/reference/Composefilereference/Interpolation" >}}) applied.
 
 - Each line represents a key-value pair. Values can optionally be quoted.
 
@@ -748,7 +748,7 @@ RACK_ENV=development
 VAR="quoted"
 ```
 
-### [environment](https://docs.docker.com/reference/compose-file/services/#environment)
+### environment
 
 The `environment` attribute defines environment variables set in the container. `environment` can use either an array or a map. Any boolean values; true, false, yes, no, should be enclosed in quotes to ensure they are not converted to True or False by the YAML parser.
 
@@ -778,7 +778,7 @@ environment:
 
 When both `env_file` and `environment` are set for a service, values set by `environment` have precedence.
 
-### [expose](https://docs.docker.com/reference/compose-file/services/#expose)
+### expose
 
 `expose` defines the (incoming) port or a range of ports that Compose exposes from the container. These ports must be accessible to linked services and should not be published to the host machine. Only the internal container ports can be specified.
 
@@ -799,7 +799,7 @@ expose:
 >
 > If the Dockerfile for the image already exposes ports, it is visible to other containers on the network even if `expose` is not set in your Compose file.
 
-### [extends](https://docs.docker.com/reference/compose-file/services/#extends)
+### extends
 
 `extends` lets you share common configurations among different files, or even different projects entirely. With `extends` you can define a common set of service options in one place and refer to it from anywhere. You can refer to another Compose file and select a service you want to also use in your own application, with the ability to override some attributes for your own needs.
 
@@ -825,7 +825,7 @@ Dependencies on other resources in an `extends` target can be:
 
 Circular references with `extends` are not supported, Compose returns an error when one is detected.
 
-#### [Finding referenced service](https://docs.docker.com/reference/compose-file/services/#finding-referenced-service)
+#### Finding referenced service
 
 `file` value can be:
 
@@ -839,7 +839,7 @@ A service denoted by `service` must be present in the identified referenced Comp
 - The service denoted by `service` is not found.
 - The Compose file denoted by `file` is not found.
 
-#### [Merging service definitions](https://docs.docker.com/reference/compose-file/services/#merging-service-definitions)
+#### Merging service definitions
 
 Two service definitions, the main one in the current Compose file and the referenced one specified by `extends`, are merged in the following way:
 
@@ -847,7 +847,7 @@ Two service definitions, the main one in the current Compose file and the refere
 - Sequences: Items are combined together into a new sequence. The order of elements is preserved with the referenced items coming first and main items after.
 - Scalars: Keys in the main service definition take precedence over keys in the referenced one.
 
-##### [Mappings](https://docs.docker.com/reference/compose-file/services/#mappings)
+##### Mappings
 
 The following keys should be treated as mappings: `annotations`, `build.args`, `build.labels`, `build.extra_hosts`, `deploy.labels`, `deploy.update_config`, `deploy.rollback_config`, `deploy.restart_policy`, `deploy.resources.limits`, `environment`, `healthcheck`, `labels`, `logging.options`, `sysctls`, `storage_opt`, `extra_hosts`, `ulimits`.
 
@@ -940,7 +940,7 @@ image: busybox
 user: root
 ```
 
-##### [Sequences](https://docs.docker.com/reference/compose-file/services/#sequences)
+##### Sequences
 
 The following keys should be treated as sequences: `cap_add`, `cap_drop`, `configs`, `deploy.placement.constraints`, `deploy.placement.preferences`, `deploy.reservations.generic_resources`, `device_cgroup_rules`, `expose`, `external_links`, `ports`, `secrets`, `security_opt`. Any duplicates resulting from the merge are removed so that the sequence only contains unique elements.
 
@@ -974,11 +974,11 @@ security_opt:
 
 In case list syntax is used, the following keys should also be treated as sequences: `dns`, `dns_search`, `env_file`, `tmpfs`. Unlike sequence fields mentioned above, duplicates resulting from the merge are not removed.
 
-##### [Scalars](https://docs.docker.com/reference/compose-file/services/#scalars)
+##### Scalars
 
 Any other allowed keys in the service definition should be treated as scalars.
 
-### [external_links](https://docs.docker.com/reference/compose-file/services/#external_links)
+### external_links
 
 `external_links` link service containers to services managed outside of your Compose application. `external_links` define the name of an existing service to retrieve using the platform lookup mechanism. An alias of the form `SERVICE:ALIAS` can be specified.
 
@@ -991,11 +991,11 @@ external_links:
   - database:postgresql
 ```
 
-### [extra_hosts](https://docs.docker.com/reference/compose-file/services/#extra_hosts)
+### extra_hosts
 
 `extra_hosts` adds hostname mappings to the container network interface configuration (`/etc/hosts` for Linux).
 
-#### [Short syntax](https://docs.docker.com/reference/compose-file/services/#short-syntax-2)
+#### Short syntax
 
 Short syntax uses plain strings in a list. Values must set hostname and IP address for additional hosts in the form of `HOSTNAME=IP`.
 
@@ -1027,7 +1027,7 @@ extra_hosts:
   - "myhostv6:::1"
 ```
 
-#### [Long syntax](https://docs.docker.com/reference/compose-file/services/#long-syntax-2)
+#### Long syntax
 
 Alternatively, `extra_hosts` can be set as a mapping between hostname(s) and IP(s)
 
@@ -1050,7 +1050,7 @@ Compose creates a matching entry with the IP address and hostname in the contain
 ::1             myhostv6
 ```
 
-### [group_add](https://docs.docker.com/reference/compose-file/services/#group_add)
+### group_add
 
 `group_add` specifies additional groups, by name or number, which the user inside the container must be a member of.
 
@@ -1068,7 +1068,7 @@ services:
 
 Running `id` inside the created container must show that the user belongs to the `mail` group, which would not have been the case if `group_add` were not declared.
 
-### [healthcheck](https://docs.docker.com/reference/compose-file/services/#healthcheck)
+### healthcheck
 
 The `healthcheck` attribute declares a check that's run to determine whether or not the service containers are "healthy". It works in the same way, and has the same default values, as the HEALTHCHECK Dockerfile instruction set by the service's Docker image. Your Compose file can override the values set in the Dockerfile.
 
@@ -1120,11 +1120,11 @@ healthcheck:
   disable: true
 ```
 
-### [hostname](https://docs.docker.com/reference/compose-file/services/#hostname)
+### hostname
 
 `hostname` declares a custom host name to use for the service container. It must be a valid RFC 1123 hostname.
 
-### [image](https://docs.docker.com/reference/compose-file/services/#image)
+### image
 
 `image` specifies the image to start the container from. `image` must follow the Open Container Specification [addressable image format](https://github.com/opencontainers/org/blob/master/docs/docs/introduction/digests.md), as `[<registry>/][<project>/]<image>[:<tag>|@<digest>]`.
 
@@ -1139,11 +1139,11 @@ healthcheck:
     image: my_private.registry:5000/redis
 ```
 
-If the image does not exist on the platform, Compose attempts to pull it based on the `pull_policy`. If you are also using the [Compose Build Specification](https://docs.docker.com/reference/compose-file/build/), there are alternative options for controlling the precedence of pull over building the image from source, however pulling the image is the default behavior.
+If the image does not exist on the platform, Compose attempts to pull it based on the `pull_policy`. If you are also using the [Compose Build Specification]({{< ref "/reference/Composefilereference/ComposeBuildSpecification" >}}), there are alternative options for controlling the precedence of pull over building the image from source, however pulling the image is the default behavior.
 
 `image` may be omitted from a Compose file as long as a `build` section is declared. If you are not using the Compose Build Specification, Compose won't work if `image` is missing from the Compose file.
 
-### [init](https://docs.docker.com/reference/compose-file/services/#init)
+### init
 
 `init` runs an init process (PID 1) inside the container that forwards signals and reaps processes. Set this option to `true` to enable this feature for the service.
 
@@ -1158,7 +1158,7 @@ services:
 
 The init binary that is used is platform specific.
 
-### [ipc](https://docs.docker.com/reference/compose-file/services/#ipc)
+### ipc
 
 `ipc` configures the IPC isolation mode set by the service container.
 
@@ -1172,11 +1172,11 @@ The init binary that is used is platform specific.
     ipc: "service:[service name]"
 ```
 
-### [isolation](https://docs.docker.com/reference/compose-file/services/#isolation)
+### isolation
 
 `isolation` specifies a container’s isolation technology. Supported values are platform specific.
 
-### [labels](https://docs.docker.com/reference/compose-file/services/#labels)
+### labels
 
 `labels` add metadata to containers. You can use either an array or a map.
 
@@ -1207,7 +1207,7 @@ Compose creates containers with canonical labels:
 
 The `com.docker.compose` label prefix is reserved. Specifying labels with this prefix in the Compose file results in a runtime error.
 
-### [links](https://docs.docker.com/reference/compose-file/services/#links)
+### links
 
 `links` defines a network link to containers in another service. Either specify both the service name and a link alias (`SERVICE:ALIAS`), or just the service name.
 
@@ -1227,7 +1227,7 @@ Links are not required to enable services to communicate. When no specific netwo
 
 Links also express implicit dependency between services in the same way as [depends_on](https://docs.docker.com/reference/compose-file/services/#depends_on), so they determine the order of service startup.
 
-### [logging](https://docs.docker.com/reference/compose-file/services/#logging)
+### logging
 
 `logging` defines the logging configuration for the service.
 
@@ -1242,7 +1242,7 @@ logging:
 
 The `driver` name specifies a logging driver for the service's containers. The default and available values are platform specific. Driver specific options can be set with `options` as key-value pairs.
 
-### [mac_address](https://docs.docker.com/reference/compose-file/services/#mac_address)
+### mac_address
 
 > Available with Docker Compose version 2.24.0 and later.
 
@@ -1252,19 +1252,19 @@ The `driver` name specifies a logging driver for the service's containers. The d
 >
 > Container runtimes might reject this value (ie. Docker Engine >= v25.0). In that case, you should use [networks.mac_address](https://docs.docker.com/reference/compose-file/services/#mac_address) instead.
 
-### [mem_limit](https://docs.docker.com/reference/compose-file/services/#mem_limit)
+### mem_limit
 
 `mem_limit` configures a limit on the amount of memory a container can allocate, set as a string expressing a [byte value](https://docs.docker.com/reference/compose-file/extension/#specifying-byte-values).
 
 When set, `mem_limit` must be consistent with the `limits.memory` attribute in the [Deploy Specification](https://docs.docker.com/reference/compose-file/deploy/#memory).
 
-### [mem_reservation](https://docs.docker.com/reference/compose-file/services/#mem_reservation)
+### mem_reservation
 
 `mem_reservation` configures a reservation on the amount of memory a container can allocate, set as a string expressing a [byte value](https://docs.docker.com/reference/compose-file/extension/#specifying-byte-values).
 
 When set, `mem_reservation` must be consistent with the `reservations.memory` attribute in the [Deploy Specification](https://docs.docker.com/reference/compose-file/deploy/#memory).
 
-### [mem_swappiness](https://docs.docker.com/reference/compose-file/services/#mem_swappiness)
+### mem_swappiness
 
 `mem_swappiness` defines as a percentage, a value between 0 and 100, for the host kernel to swap out anonymous memory pages used by a container.
 
@@ -1273,7 +1273,7 @@ When set, `mem_reservation` must be consistent with the `reservations.memory` at
 
 The default value is platform specific.
 
-### [memswap_limit](https://docs.docker.com/reference/compose-file/services/#memswap_limit)
+### memswap_limit
 
 `memswap_limit` defines the amount of memory the container is allowed to swap to disk. This is a modifier attribute that only has meaning if [`memory`](https://docs.docker.com/reference/compose-file/deploy/#memory) is also set. Using swap lets the container write excess memory requirements to disk when the container has exhausted all the memory that is available to it. There is a performance penalty for applications that swap memory to disk often.
 
@@ -1283,7 +1283,7 @@ The default value is platform specific.
 - If `memswap_limit` is unset, and `memory` is set, the container can use as much swap as the `memory` setting, if the host container has swap memory configured. For instance, if `memory`="300m" and `memswap_limit` is not set, the container can use 600m in total of memory and swap.
 - If `memswap_limit` is explicitly set to -1, the container is allowed to use unlimited swap, up to the amount available on the host system.
 
-### [network_mode](https://docs.docker.com/reference/compose-file/services/#network_mode)
+### network_mode
 
 `network_mode` sets a service container's network mode.
 
@@ -1301,7 +1301,7 @@ The default value is platform specific.
 
 When set, the [`networks`](https://docs.docker.com/reference/compose-file/services/#networks) attribute is not allowed and Compose rejects any Compose file containing both attributes.
 
-### [networks](https://docs.docker.com/reference/compose-file/services/#networks)
+### networks
 
 The `networks` attribute defines the networks that service containers are attached to, referencing entries under the `networks` top-level element. The `networks` attribute helps manage the networking aspects of containers, providing control over how services are segmented and interact within the Docker environment. This is used to specify which networks the containers for that service should connect to. This is important for defining how containers communicate with each other and externally.
 
@@ -1315,9 +1315,9 @@ services:
       - other-network
 ```
 
-For more information about the `networks` top-level element, see [Networks](https://docs.docker.com/reference/compose-file/networks/).
+For more information about the `networks` top-level element, see [Networks]({{< ref "/reference/Composefilereference/Networkstop-levelelements" >}}).
 
-#### [aliases](https://docs.docker.com/reference/compose-file/services/#aliases)
+#### aliases
 
 `aliases` declares alternative hostnames for the service on the network. Other containers on the same network can use either the service name or an alias to connect to one of the service's containers.
 
@@ -1375,11 +1375,11 @@ networks:
   admin:
 ```
 
-#### [ipv4_address, ipv6_address](https://docs.docker.com/reference/compose-file/services/#ipv4_address-ipv6_address)
+#### ipv4_address, ipv6_address
 
 Specify a static IP address for a service container when joining the network.
 
-The corresponding network configuration in the [top-level networks section](https://docs.docker.com/reference/compose-file/networks/) must have an `ipam` attribute with subnet configurations covering each static address.
+The corresponding network configuration in the [top-level networks section]({{< ref "/reference/Composefilereference/Networkstop-levelelements" >}}) must have an `ipam` attribute with subnet configurations covering each static address.
 
 
 
@@ -1401,7 +1401,7 @@ networks:
         - subnet: "2001:3984:3989::/64"
 ```
 
-#### [link_local_ips](https://docs.docker.com/reference/compose-file/services/#link_local_ips)
+#### link_local_ips
 
 `link_local_ips` specifies a list of link-local IPs. Link-local IPs are special IPs which belong to a well known subnet and are purely managed by the operator, usually dependent on the architecture where they are deployed.
 
@@ -1424,13 +1424,13 @@ networks:
     driver: bridge
 ```
 
-#### [mac_address](https://docs.docker.com/reference/compose-file/services/#mac_address-1)
+#### mac_address
 
 Introduced in Docker Compose version [2.23.2](https://docs.docker.com/compose/releases/release-notes/#2232)
 
 `mac_address` sets the MAC address used by the service container when connecting to this particular network.
 
-#### [priority](https://docs.docker.com/reference/compose-file/services/#priority)
+#### priority
 
 `priority` indicates in which order Compose connects the service’s containers to its networks. If unspecified, the default value is 0.
 
@@ -1456,19 +1456,19 @@ networks:
   app_net_3:
 ```
 
-### [oom_kill_disable](https://docs.docker.com/reference/compose-file/services/#oom_kill_disable)
+### oom_kill_disable
 
 If `oom_kill_disable` is set, Compose configures the platform so it won't kill the container in case of memory starvation.
 
-### [oom_score_adj](https://docs.docker.com/reference/compose-file/services/#oom_score_adj)
+### oom_score_adj
 
 `oom_score_adj` tunes the preference for containers to be killed by platform in case of memory starvation. Value must be within -1000,1000 range.
 
-### [pid](https://docs.docker.com/reference/compose-file/services/#pid)
+### pid
 
 `pid` sets the PID mode for container created by Compose. Supported values are platform specific.
 
-### [pids_limit](https://docs.docker.com/reference/compose-file/services/#pids_limit)
+### pids_limit
 
 `pids_limit` tunes a container’s PIDs limit. Set to -1 for unlimited PIDs.
 
@@ -1480,7 +1480,7 @@ pids_limit: 10
 
 When set, `pids_limit` must be consistent with the `pids` attribute in the [Deploy Specification](https://docs.docker.com/reference/compose-file/deploy/#pids).
 
-### [platform](https://docs.docker.com/reference/compose-file/services/#platform)
+### platform
 
 `platform` defines the target platform the containers for the service run on. It uses the `os[/arch[/variant]]` syntax.
 
@@ -1496,7 +1496,7 @@ platform: windows/amd64
 platform: linux/arm64/v8
 ```
 
-### [ports](https://docs.docker.com/reference/compose-file/services/#ports)
+### ports
 
 The `ports` is used to define the port mappings between the host machine and the containers. This is crucial for allowing external access to services running inside containers. It can be defined using short syntax for simple port mapping or long syntax, which includes additional options like protocol type and network mode.
 
@@ -1506,7 +1506,7 @@ The `ports` is used to define the port mappings between the host machine and the
 >
 > Port mapping must not be used with `network_mode: host` otherwise a runtime error occurs.
 
-#### [Short syntax](https://docs.docker.com/reference/compose-file/services/#short-syntax-3)
+#### Short syntax
 
 The short syntax is a colon-separated string to set the host IP, host port, and container port in the form:
 
@@ -1545,7 +1545,7 @@ ports:
 >
 > If Host IP mapping is not supported by a container engine, Compose rejects the Compose file and ignores the specified host IP.
 
-#### [Long syntax](https://docs.docker.com/reference/compose-file/services/#long-syntax-3)
+#### Long syntax
 
 The long form syntax allows the configuration of additional fields that can't be expressed in the short form.
 
@@ -1578,11 +1578,11 @@ ports:
     mode: host
 ```
 
-### [privileged](https://docs.docker.com/reference/compose-file/services/#privileged)
+### privileged
 
 `privileged` configures the service container to run with elevated privileges. Support and actual impacts are platform specific.
 
-### [profiles](https://docs.docker.com/reference/compose-file/services/#profiles)
+### profiles
 
 `profiles` defines a list of named profiles for the service to be enabled under. If unassigned, the service is always started but if assigned, it is only started if the profile is activated.
 
@@ -1604,20 +1604,20 @@ services:
       - debug
 ```
 
-### [pull_policy](https://docs.docker.com/reference/compose-file/services/#pull_policy)
+### pull_policy
 
 `pull_policy` defines the decisions Compose makes when it starts to pull images. Possible values are:
 
 - `always`: Compose always pulls the image from the registry.
 - `never`: Compose doesn't pull the image from a registry and relies on the platform cached image. If there is no cached image, a failure is reported.
-- `missing`: Compose pulls the image only if it's not available in the platform cache. This is the default option if you are not also using the [Compose Build Specification](https://docs.docker.com/reference/compose-file/build/). `if_not_present` is considered an alias for this value for backward compatibility.
+- `missing`: Compose pulls the image only if it's not available in the platform cache. This is the default option if you are not also using the [Compose Build Specification]({{< ref "/reference/Composefilereference/ComposeBuildSpecification" >}}). `if_not_present` is considered an alias for this value for backward compatibility.
 - `build`: Compose builds the image. Compose rebuilds the image if it's already present.
 
-### [read_only](https://docs.docker.com/reference/compose-file/services/#read_only)
+### read_only
 
 `read_only` configures the service container to be created with a read-only filesystem.
 
-### [restart](https://docs.docker.com/reference/compose-file/services/#restart)
+### restart
 
 `restart` defines the policy that the platform applies on container termination.
 
@@ -1638,7 +1638,7 @@ services:
 
 You can find more detailed information on restart policies in the [Restart Policies (--restart)](https://docs.docker.com/reference/cli/docker/container/run/#restart) section of the Docker run reference page.
 
-### [runtime](https://docs.docker.com/reference/compose-file/services/#runtime)
+### runtime
 
 `runtime` specifies which runtime to use for the service’s containers.
 
@@ -1653,23 +1653,23 @@ web:
   runtime: runc
 ```
 
-The default is `runc`. To use a different runtime, see [Alternative runtimes](https://docs.docker.com/engine/daemon/alternative-runtimes/).
+The default is `runc`. To use a different runtime, see [Alternative runtimes]({{< ref "/manuals/DockerEngine/Daemon/Alternativecontainerruntimes" >}}).
 
-### [scale](https://docs.docker.com/reference/compose-file/services/#scale)
+### scale
 
 `scale` specifies the default number of containers to deploy for this service. When both are set, `scale` must be consistent with the `replicas` attribute in the [Deploy Specification](https://docs.docker.com/reference/compose-file/deploy/#replicas).
 
-### [secrets](https://docs.docker.com/reference/compose-file/services/#secrets)
+### secrets
 
 The `secrets` attribute grants access to sensitive data defined by the secrets top-level element on a per-service basis. Services can be granted access to multiple secrets.
 
 Two different syntax variants are supported; the short syntax and the long syntax. Long and short syntax for secrets may be used in the same Compose file.
 
-Compose reports an error if the secret doesn't exist on the platform or isn't defined in the [`secrets` top-level section](https://docs.docker.com/reference/compose-file/secrets/) of the Compose file.
+Compose reports an error if the secret doesn't exist on the platform or isn't defined in the [`secrets` top-level section]({{< ref "/reference/Composefilereference/Secretstop-levelelements" >}}) of the Compose file.
 
-Defining a secret in the top-level `secrets` must not imply granting any service access to it. Such grant must be explicit within service specification as [secrets](https://docs.docker.com/reference/compose-file/secrets/) service element.
+Defining a secret in the top-level `secrets` must not imply granting any service access to it. Such grant must be explicit within service specification as [secrets]({{< ref "/reference/Composefilereference/Secretstop-levelelements" >}}) service element.
 
-#### [Short syntax](https://docs.docker.com/reference/compose-file/services/#short-syntax-4)
+#### Short syntax
 
 The short syntax variant only specifies the secret name. This grants the container access to the secret and mounts it as read-only to `/run/secrets/<secret_name>` within the container. The source name and destination mountpoint are both set to the secret name.
 
@@ -1688,7 +1688,7 @@ secrets:
     file: ./server.cert
 ```
 
-#### [Long syntax](https://docs.docker.com/reference/compose-file/services/#long-syntax-4)
+#### Long syntax
 
 The long syntax provides more granularity in how the secret is created within the service's containers.
 
@@ -1716,7 +1716,7 @@ secrets:
     file: ./server.cert
 ```
 
-### [security_opt](https://docs.docker.com/reference/compose-file/services/#security_opt)
+### security_opt
 
 `security_opt` overrides the default labeling scheme for each container.
 
@@ -1730,17 +1730,17 @@ security_opt:
 
 For further default labeling schemes you can override, see [Security configuration](https://docs.docker.com/reference/cli/docker/container/run/#security-opt).
 
-### [shm_size](https://docs.docker.com/reference/compose-file/services/#shm_size)
+### shm_size
 
 `shm_size` configures the size of the shared memory (`/dev/shm` partition on Linux) allowed by the service container. It's specified as a [byte value](https://docs.docker.com/reference/compose-file/extension/#specifying-byte-values).
 
-### [stdin_open](https://docs.docker.com/reference/compose-file/services/#stdin_open)
+### stdin_open
 
 `stdin_open` configures a service's container to run with an allocated stdin. This is the same as running a container with the `-i` flag. For more information, see [Keep STDIN open](https://docs.docker.com/reference/cli/docker/container/run/#interactive).
 
 Supported values are `true` or `false`.
 
-### [stop_grace_period](https://docs.docker.com/reference/compose-file/services/#stop_grace_period)
+### stop_grace_period
 
 `stop_grace_period` specifies how long Compose must wait when attempting to stop a container if it doesn't handle SIGTERM (or whichever stop signal has been specified with [`stop_signal`](https://docs.docker.com/reference/compose-file/services/#stop_signal)), before sending SIGKILL. It's specified as a [duration](https://docs.docker.com/reference/compose-file/extension/#specifying-durations).
 
@@ -1753,7 +1753,7 @@ Supported values are `true` or `false`.
 
 Default value is 10 seconds for the container to exit before sending SIGKILL.
 
-### [stop_signal](https://docs.docker.com/reference/compose-file/services/#stop_signal)
+### stop_signal
 
 `stop_signal` defines the signal that Compose uses to stop the service containers. If unset containers are stopped by Compose by sending `SIGTERM`.
 
@@ -1763,7 +1763,7 @@ Default value is 10 seconds for the container to exit before sending SIGKILL.
 stop_signal: SIGUSR1
 ```
 
-### [storage_opt](https://docs.docker.com/reference/compose-file/services/#storage_opt)
+### storage_opt
 
 `storage_opt` defines storage driver options for a service.
 
@@ -1774,7 +1774,7 @@ storage_opt:
   size: '1G'
 ```
 
-### [sysctls](https://docs.docker.com/reference/compose-file/services/#sysctls)
+### sysctls
 
 `sysctls` defines kernel parameters to set in the container. `sysctls` can use either an array or a map.
 
@@ -1796,7 +1796,7 @@ sysctls:
 
 You can only use sysctls that are namespaced in the kernel. Docker does not support changing sysctls inside a container that also modify the host system. For an overview of supported sysctls, refer to [configure namespaced kernel parameters (sysctls) at runtime](https://docs.docker.com/reference/cli/docker/container/run/#sysctl).
 
-### [tmpfs](https://docs.docker.com/reference/compose-file/services/#tmpfs)
+### tmpfs
 
 `tmpfs` mounts a temporary file system inside the container. It can be a single value or a list.
 
@@ -1814,13 +1814,13 @@ tmpfs:
   - /tmp
 ```
 
-### [tty](https://docs.docker.com/reference/compose-file/services/#tty)
+### tty
 
 `tty` configures a service's container to run with a TTY. This is the same as running a container with the `-t` or `--tty` flag. For more information, see [Allocate a pseudo-TTY](https://docs.docker.com/reference/cli/docker/container/run/#tty).
 
 Supported values are `true` or `false`.
 
-### [ulimits](https://docs.docker.com/reference/compose-file/services/#ulimits)
+### ulimits
 
 `ulimits` overrides the default ulimits for a container. It's specified either as an integer for a single limit or as mapping for soft/hard limits.
 
@@ -1834,11 +1834,11 @@ ulimits:
     hard: 40000
 ```
 
-### [user](https://docs.docker.com/reference/compose-file/services/#user)
+### user
 
 `user` overrides the user used to run the container process. The default is set by the image (i.e. Dockerfile `USER`). If it's not set, then `root`.
 
-### [userns_mode](https://docs.docker.com/reference/compose-file/services/#userns_mode)
+### userns_mode
 
 `userns_mode` sets the user namespace for the service. Supported values are platform specific and may depend on platform configuration.
 
@@ -1848,7 +1848,7 @@ ulimits:
 userns_mode: "host"
 ```
 
-### [uts](https://docs.docker.com/reference/compose-file/services/#uts)
+### uts
 
 Introduced in Docker Compose version [2.15.1](https://docs.docker.com/compose/releases/release-notes/#2151)
 
@@ -1862,7 +1862,7 @@ Introduced in Docker Compose version [2.15.1](https://docs.docker.com/compose/re
     uts: "host"
 ```
 
-### [volumes](https://docs.docker.com/reference/compose-file/services/#volumes)
+### volumes
 
 The `volumes` attribute define mount host paths or named volumes that are accessible by service containers. You can use `volumes` to define multiple types of mounts; `volume`, `bind`, `tmpfs`, or `npipe`.
 
@@ -1891,9 +1891,9 @@ volumes:
   db-data:
 ```
 
-For more information about the `volumes` top-level element, see [Volumes](https://docs.docker.com/reference/compose-file/volumes/).
+For more information about the `volumes` top-level element, see [Volumes]({{< ref "/reference/Composefilereference/Volumestop-levelelement" >}}).
 
-#### [Short syntax](https://docs.docker.com/reference/compose-file/services/#short-syntax-5)
+#### Short syntax
 
 The short syntax uses a single string with colon-separated values to specify a volume mount (`VOLUME:CONTAINER_PATH`), or an access mode (`VOLUME:CONTAINER_PATH:ACCESS_MODE`).
 
@@ -1932,13 +1932,13 @@ The short syntax uses a single string with colon-separated values to specify a v
 >
 > Relative host paths are only supported by Compose that deploy to a local container runtime. This is because the relative path is resolved from the Compose file’s parent directory which is only applicable in the local case. When Compose deploys to a non-local platform it rejects Compose files which use relative host paths with an error. To avoid ambiguities with named volumes, relative paths should always begin with `.` or `..`.
 
-#### [Long syntax](https://docs.docker.com/reference/compose-file/services/#long-syntax-5)
+#### Long syntax
 
 The long form syntax allows the configuration of additional fields that can't be expressed in the short form.
 
 - `type`: The mount type. Either `volume`, `bind`, `tmpfs`, `npipe`, or `cluster`
 
-- `source`: The source of the mount, a path on the host for a bind mount, or the name of a volume defined in the [top-level `volumes` key](https://docs.docker.com/reference/compose-file/volumes/). Not applicable for a tmpfs mount.
+- `source`: The source of the mount, a path on the host for a bind mount, or the name of a volume defined in the [top-level `volumes` key]({{< ref "/reference/Composefilereference/Volumestop-levelelement" >}}). Not applicable for a tmpfs mount.
 
 - `target`: The path in the container where the volume is mounted.
 
@@ -1978,9 +1978,9 @@ The long form syntax allows the configuration of additional fields that can't be
 >
 > 
 >
-> Working with large repositories or monorepos, or with virtual file systems that are no longer scaling with your codebase? Compose now takes advantage of [Synchronized file shares](https://docs.docker.com/desktop/synchronized-file-sharing/) and automatically creates file shares for bind mounts. Ensure you're signed in to Docker with a paid subscription and have enabled both **Access experimental features** and **Manage Synchronized file shares with Compose** in Docker Desktop's settings.
+> Working with large repositories or monorepos, or with virtual file systems that are no longer scaling with your codebase? Compose now takes advantage of [Synchronized file shares]({{< ref "/manuals/DockerDesktop/Synchronizedfileshares" >}}) and automatically creates file shares for bind mounts. Ensure you're signed in to Docker with a paid subscription and have enabled both **Access experimental features** and **Manage Synchronized file shares with Compose** in Docker Desktop's settings.
 
-### [volumes_from](https://docs.docker.com/reference/compose-file/services/#volumes_from)
+### volumes_from
 
 `volumes_from` mounts all of the volumes from another service or container. You can optionally specify read-only access `ro` or read-write `rw`. If no access level is specified, then read-write access is used.
 
@@ -1996,6 +1996,6 @@ volumes_from:
   - container:container_name:rw
 ```
 
-### [working_dir](https://docs.docker.com/reference/compose-file/services/#working_dir)
+### working_dir
 
 `working_dir` overrides the container's working directory which is specified by the image, for example Dockerfile's `WORKDIR`.

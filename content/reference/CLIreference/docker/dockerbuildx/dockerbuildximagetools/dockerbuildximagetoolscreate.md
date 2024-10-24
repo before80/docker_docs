@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/](https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/)
+> 原文：[https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/](https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,13 +18,13 @@ draft = false
 | :---------- | ------------------------------------------------------------ |
 | Usage       | `docker buildx imagetools create [OPTIONS] [SOURCE] [SOURCE...]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/#description)
+## Description
 
 Create a new manifest list based on source manifests. The source manifests can be manifest lists or single platform distribution manifests and must already exist in the registry where the new manifest is created.
 
 If only one source is specified and that source is a manifest list or image index, create performs a carbon copy. If one source is specified and that source is *not* a list or index, the output will be a manifest list, however you can disable this behavior with `--prefer-index=false` which attempts to preserve the source manifest format in the output.
 
-## [Options](https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/#options)
+## Options
 
 | Option                                                       | Default | Description                                                  |
 | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
@@ -36,9 +36,9 @@ If only one source is specified and that source is a manifest list or image inde
 | `--progress`                                                 | `auto`  | Set type of progress output (`auto`, `plain`, `tty`, `rawjson`). Use plain to show container output |
 | [`-t, --tag`](https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/#tag) |         | Set reference for new image                                  |
 
-## [Examples](https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/#examples)
+## Examples
 
-### [Add annotations to an image (--annotation)](https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/#annotation)
+### Add annotations to an image (--annotation)
 
 The `--annotation` flag lets you add annotations the image index, manifest, and descriptors when creating a new image.
 
@@ -64,19 +64,19 @@ $ docker buildx imagetools create \
 
 For more information about annotations, see [Annotations](https://docs.docker.com/build/building/annotations/).
 
-### [Append new sources to an existing manifest list (--append)](https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/#append)
+### Append new sources to an existing manifest list (--append)
 
 Use the `--append` flag to append the new sources to an existing manifest list in the destination.
 
-### [Override the configured builder instance (--builder)](https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/#builder)
+### Override the configured builder instance (--builder)
 
 Same as [`buildx --builder`](https://docs.docker.com/reference/cli/docker/buildx/#builder).
 
-### [Show final image instead of pushing (--dry-run)](https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/#dry-run)
+### Show final image instead of pushing (--dry-run)
 
 Use the `--dry-run` flag to not push the image, just show it.
 
-### [Read source descriptor from a file (-f, --file)](https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/#file)
+### Read source descriptor from a file (-f, --file)
 
 
 
@@ -99,7 +99,7 @@ The descriptor in the file is merged with existing descriptor in the registry if
 
 The supported fields for the descriptor are defined in [OCI spec](https://github.com/opencontainers/image-spec/blob/master/descriptor.md#properties) .
 
-### [Set reference for new image (-t, --tag)](https://docs.docker.com/reference/cli/docker/buildx/imagetools/create/#tag)
+### Set reference for new image (-t, --tag)
 
 
 

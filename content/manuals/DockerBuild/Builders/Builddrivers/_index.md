@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/builders/drivers/](https://docs.docker.com/build/builders/drivers/)
+> 原文：[https://docs.docker.com/build/builders/drivers/](https://docs.docker.com/build/builders/drivers/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -33,9 +33,9 @@ The following table outlines some differences between drivers.
 | **Multi-arch images**        |          |         ✅          |      ✅       |         ✅          |
 | **BuildKit configuration**   |          |         ✅          |      ✅       | Managed externally |
 
-\* *The `docker` driver doesn't support all cache export options. See [Cache storage backends](https://docs.docker.com/build/cache/backends/) for more information.*
+\* *The `docker` driver doesn't support all cache export options. See [Cache storage backends]({{< ref "/manuals/DockerBuild/Cache/Cachestoragebackends" >}}) for more information.*
 
-## [Loading to local image store](https://docs.docker.com/build/builders/drivers/#loading-to-local-image-store)
+## Loading to local image store
 
 Unlike when using the default `docker` driver, images built using other drivers aren't automatically loaded into the local image store. If you don't specify an output, the build result is exported to the build cache only.
 
@@ -64,7 +64,7 @@ REPOSITORY                       TAG               IMAGE ID       CREATED       
 <image>                          latest            adf3eec768a1   2 minutes ago       197MB
 ```
 
-### [Load by default](https://docs.docker.com/build/builders/drivers/#load-by-default)
+### Load by default
 
 Introduced in Buildx version 0.14.0
 
@@ -78,11 +78,11 @@ $ docker buildx create --driver-opt default-load=true
 
 Note that, just like with the `docker` driver, if you specify a different output format with `--output`, the result will not be loaded to the image store unless you also explicitly specify `--output type=docker` or use the `--load` flag.
 
-## [What's next](https://docs.docker.com/build/builders/drivers/#whats-next)
+## What's next
 
 Read about each driver:
 
-- [Docker driver](https://docs.docker.com/build/builders/drivers/docker/)
-- [Docker container driver](https://docs.docker.com/build/builders/drivers/docker-container/)
-- [Kubernetes driver](https://docs.docker.com/build/builders/drivers/kubernetes/)
-- [Remote driver](https://docs.docker.com/build/builders/drivers/remote/)
+- [Docker driver]({{< ref "/manuals/DockerBuild/Builders/Builddrivers/Dockerdriver" >}})
+- [Docker container driver]({{< ref "/manuals/DockerBuild/Builders/Builddrivers/Dockercontainerbuilddriver" >}})
+- [Kubernetes driver]({{< ref "/manuals/DockerBuild/Builders/Builddrivers/Kubernetesdriver" >}})
+- [Remote driver]({{< ref "/manuals/DockerBuild/Builders/Builddrivers/Remotedriver" >}})

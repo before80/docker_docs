@@ -8,6 +8,29 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/manifest/create/](https://docs.docker.com/reference/cli/docker/manifest/create/)
+> 原文：[https://docs.docker.com/reference/cli/docker/manifest/create/](https://docs.docker.com/reference/cli/docker/manifest/create/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
+
+# docker manifest create
+
+| Description | Create a local manifest list for annotating and pushing to a registry |
+| :---------- | ------------------------------------------------------------ |
+| Usage       | `docker manifest create MANIFEST_LIST MANIFEST [MANIFEST...]` |
+
+**Experimental**
+
+**This command is experimental.**
+
+Experimental features are intended for testing and feedback as their functionality or design may change between releases without warning or can be removed entirely in a future release.
+
+## Description
+
+Create a local manifest list for annotating and pushing to a registry
+
+## Options
+
+| Option        | Default | Description                                   |
+| ------------- | ------- | --------------------------------------------- |
+| `-a, --amend` |         | Amend an existing manifest list               |
+| `--insecure`  |         | Allow communication with an insecure registry |

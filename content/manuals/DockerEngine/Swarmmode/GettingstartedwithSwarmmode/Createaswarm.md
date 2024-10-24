@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/](https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/)
+> 原文：[https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/](https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Create a swarm
 
-After you complete the [tutorial setup](https://docs.docker.com/engine/swarm/swarm-tutorial/) steps, you're ready to create a swarm. Make sure the Docker Engine daemon is started on the host machines.
+After you complete the [tutorial setup]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode" >}}) steps, you're ready to create a swarm. Make sure the Docker Engine daemon is started on the host machines.
 
 1. Open a terminal and ssh into the machine where you want to run your manager node. This tutorial uses a machine named `manager1`.
 
@@ -82,8 +82,8 @@ After you complete the [tutorial setup](https://docs.docker.com/engine/swarm/swa
 
    Docker Engine Swarm mode automatically names the node with the machine host name. The tutorial covers other columns in later steps.
 
-## [Next steps](https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/#next-steps)
+## Next steps
 
 Next, you'll add two more nodes to the cluster.
 
-[Add two more nodes](https://docs.docker.com/engine/swarm/swarm-tutorial/add-nodes/)
+[Add two more nodes]({{< ref "/manuals/DockerEngine/Swarmmode/GettingstartedwithSwarmmode/Addnodestotheswarm" >}})

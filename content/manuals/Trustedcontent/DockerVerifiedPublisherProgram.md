@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/trusted-content/dvp-program/](https://docs.docker.com/trusted-content/dvp-program/)
+> 原文：[https://docs.docker.com/trusted-content/dvp-program/](https://docs.docker.com/trusted-content/dvp-program/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,7 +22,7 @@ Images that are part of this program have a special badge on Docker Hub making i
 
 ![Docker-Sponsored Open Source badge](DockerVerifiedPublisherProgram_img/verified-publisher-badge-iso.png)
 
-## [For content publishers](https://docs.docker.com/trusted-content/dvp-program/#for-content-publishers)
+## For content publishers
 
 The Docker Verified Publisher Program (DVP) provides several features and benefits to Docker Hub publishers. The program grants the following perks based on participation tier:
 
@@ -35,27 +35,27 @@ The Docker Verified Publisher Program (DVP) provides several features and benefi
 - Removal of rate limiting for developers
 - Co-marketing opportunities
 
-### [Repository logo](https://docs.docker.com/trusted-content/dvp-program/#repository-logo)
+### Repository logo
 
 DVP organizations can upload custom images for individual repositories on Docker Hub. This lets you override the default organization-level logo on a per-repository basis.
 
 Only a user with administrative access (owner or team member with administrator permission) over the repository can change the repository logo.
 
-#### [Image requirements](https://docs.docker.com/trusted-content/dvp-program/#image-requirements)
+#### Image requirements
 
 - The supported filetypes for the logo image are JPEG and PNG.
 - The minimum allowed image size in pixels is 120×120.
 - The maximum allowed image size in pixels is 1000×1000.
 - The maximum allowed image file size is 5MB.
 
-#### [Set the repository logo](https://docs.docker.com/trusted-content/dvp-program/#set-the-repository-logo)
+#### Set the repository logo
 
 1. Sign in to [Docker Hub](https://hub.docker.com/).
 2. Go to the page of the repository that you want to change the logo for.
 3. Select the upload logo button, represented by a camera icon ( ![camera icon](DockerVerifiedPublisherProgram_img/upload_logo_sm.png) ) overlaying the current repository logo.
 4. In the dialog that opens, select the PNG image that you want to upload to set it as the logo for the repository.
 
-#### [Remove the logo](https://docs.docker.com/trusted-content/dvp-program/#remove-the-logo)
+#### Remove the logo
 
 Select the **Clear** button ( ![clear button](DockerVerifiedPublisherProgram_img/clear_logo_sm.png) ) to remove a logo.
 
@@ -63,13 +63,13 @@ Removing the logo makes the repository default to using the organization logo, i
 
 ![Default logo which is a 3D grey cube](DockerVerifiedPublisherProgram_img/default_logo_sm.png)
 
-### [Verified publisher badge](https://docs.docker.com/trusted-content/dvp-program/#verified-publisher-badge)
+### Verified publisher badge
 
 Images that are part of this program have a badge on Docker Hub making it easier for developers to identify projects that Docker has verified as high quality publishers and with content they can trust.
 
 ![Docker, Inc. org with a verified publisher badge](DockerVerifiedPublisherProgram_img/verified-publisher-badge.png)
 
-### [Insights and analytics](https://docs.docker.com/trusted-content/dvp-program/#insights-and-analytics)
+### Insights and analytics
 
 The [insights and analytics](https://docs.docker.com/docker-hub/publish/insights-analytics) service provides usage metrics for how the community uses Docker images, granting insight into user behavior.
 
@@ -79,12 +79,12 @@ The usage metrics show the number of image pulls by tag or by digest, and breakd
 
 You can select the time span for which you want to view analytics data. You can also export the data in either a summary or raw format.
 
-### [Vulnerability analysis](https://docs.docker.com/trusted-content/dvp-program/#vulnerability-analysis)
+### Vulnerability analysis
 
-[Docker Scout](https://docs.docker.com/scout/) provides automatic vulnerability analysis for DVP images published to Docker Hub. Scanning images ensures that the published content is secure, and proves to developers that they can trust the image.
+[Docker Scout]({{< ref "/manuals/DockerScout" >}}) provides automatic vulnerability analysis for DVP images published to Docker Hub. Scanning images ensures that the published content is secure, and proves to developers that they can trust the image.
 
-You can enable analysis on a per-repository basis. For more about using this feature, see [Basic vulnerability scanning](https://docs.docker.com/docker-hub/vulnerability-scanning/).
+You can enable analysis on a per-repository basis. For more about using this feature, see [Basic vulnerability scanning]({{< ref "/manuals/DockerHub/Staticvulnerabilityscanning" >}}).
 
-### [Who's eligible to become a verified publisher?](https://docs.docker.com/trusted-content/dvp-program/#whos-eligible-to-become-a-verified-publisher)
+### Who's eligible to become a verified publisher?
 
 Any independent software vendor who distributes software on Docker Hub can join the Verified Publisher Program. Find out more by heading to the [Docker Verified Publisher Program](https://www.docker.com/partners/programs) page.

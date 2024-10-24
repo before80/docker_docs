@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/cli/filter/](https://docs.docker.com/engine/cli/filter/)
+> 原文：[https://docs.docker.com/engine/cli/filter/](https://docs.docker.com/engine/cli/filter/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 You can use the `--filter` flag to scope your commands. When filtering, the commands only include entries that match the pattern you specify.
 
-## [Using filters](https://docs.docker.com/engine/cli/filter/#using-filters)
+## Using filters
 
 The `--filter` flag expects a key-value pair separated by an operator.
 
@@ -51,7 +51,7 @@ The available fields (`reference` in this case) depend on the command you run. S
 
 Refer to the [CLI reference description](https://docs.docker.com/engine/cli/filter/#reference) for each command to learn about the supported filtering capabilities for each command.
 
-## [Combining filters](https://docs.docker.com/engine/cli/filter/#combining-filters)
+## Combining filters
 
 You can combine multiple filters by passing multiple `--filter` flags. The following example shows how to print all images that match `alpine:latest` or `busybox` - a logical `OR`.
 
@@ -73,9 +73,9 @@ busybox      uclibc    3e516f71d880   2 hours ago   2.4MB
 busybox      glibc     7338d0c72c65   2 hours ago   6.09MB
 ```
 
-### [Multiple negated filters](https://docs.docker.com/engine/cli/filter/#multiple-negated-filters)
+### Multiple negated filters
 
-Some commands support negated filters on [labels](https://docs.docker.com/engine/manage-resources/labels/). Negated filters only consider results that don't match the specified patterns. The following command prunes all containers that aren't labeled `foo`.
+Some commands support negated filters on [labels]({{< ref "/manuals/DockerEngine/Manageresources/Dockerobjectlabels" >}}). Negated filters only consider results that don't match the specified patterns. The following command prunes all containers that aren't labeled `foo`.
 
 
 
@@ -91,25 +91,25 @@ There's a catch in combining multiple negated label filters. Multiple negated fi
 $ docker container prune --filter "label!=foo" --filter "label!=bar"
 ```
 
-## [Reference](https://docs.docker.com/engine/cli/filter/#reference)
+## Reference
 
 For more information about filtering commands, refer to the CLI reference description for commands that support the `--filter` flag:
 
-- [`docker config ls`](https://docs.docker.com/reference/cli/docker/config/ls/)
-- [`docker container prune`](https://docs.docker.com/reference/cli/docker/container/prune/)
-- [`docker image prune`](https://docs.docker.com/reference/cli/docker/image/prune/)
-- [`docker image ls`](https://docs.docker.com/reference/cli/docker/image/ls/)
-- [`docker network ls`](https://docs.docker.com/reference/cli/docker/network/ls/)
-- [`docker network prune`](https://docs.docker.com/reference/cli/docker/network/prune/)
-- [`docker node ls`](https://docs.docker.com/reference/cli/docker/node/ls/)
-- [`docker node ps`](https://docs.docker.com/reference/cli/docker/node/ps/)
-- [`docker plugin ls`](https://docs.docker.com/reference/cli/docker/plugin/ls/)
-- [`docker container ls`](https://docs.docker.com/reference/cli/docker/container/ls/)
-- [`docker search`](https://docs.docker.com/reference/cli/docker/search/)
-- [`docker secret ls`](https://docs.docker.com/reference/cli/docker/secret/ls/)
-- [`docker service ls`](https://docs.docker.com/reference/cli/docker/service/ls/)
-- [`docker service ps`](https://docs.docker.com/reference/cli/docker/service/ps/)
-- [`docker stack ps`](https://docs.docker.com/reference/cli/docker/stack/ps/)
-- [`docker system prune`](https://docs.docker.com/reference/cli/docker/system/prune/)
-- [`docker volume ls`](https://docs.docker.com/reference/cli/docker/volume/ls/)
-- [`docker volume prune`](https://docs.docker.com/reference/cli/docker/volume/prune/)
+- [`docker config ls`]({{< ref "/reference/CLIreference/docker/dockerconfig/dockerconfigls" >}})
+- [`docker container prune`]({{< ref "/reference/CLIreference/docker/dockercontainer/dockercontainerprune" >}})
+- [`docker image prune`]({{< ref "/reference/CLIreference/docker/dockerimage/dockerimageprune" >}})
+- [`docker image ls`]({{< ref "/reference/CLIreference/docker/dockerimage/dockerimages" >}})
+- [`docker network ls`]({{< ref "/reference/CLIreference/docker/dockernetwork/dockernetworkls" >}})
+- [`docker network prune`]({{< ref "/reference/CLIreference/docker/dockernetwork/dockernetworkprune" >}})
+- [`docker node ls`]({{< ref "/reference/CLIreference/docker/dockernode/dockernodels" >}})
+- [`docker node ps`]({{< ref "/reference/CLIreference/docker/dockernode/dockernodeps" >}})
+- [`docker plugin ls`]({{< ref "/reference/CLIreference/docker/dockerplugin/dockerpluginls" >}})
+- [`docker container ls`]({{< ref "/reference/CLIreference/docker/dockercontainer/dockerps" >}})
+- [`docker search`]({{< ref "/reference/CLIreference/docker/dockersearch" >}})
+- [`docker secret ls`]({{< ref "/reference/CLIreference/docker/dockersecret/dockersecretls" >}})
+- [`docker service ls`]({{< ref "/reference/CLIreference/docker/dockerservice/dockerservicels" >}})
+- [`docker service ps`]({{< ref "/reference/CLIreference/docker/dockerservice/dockerserviceps" >}})
+- [`docker stack ps`]({{< ref "/reference/CLIreference/docker/dockerstack/dockerstackps" >}})
+- [`docker system prune`]({{< ref "/reference/CLIreference/docker/dockersystem/dockersystemprune" >}})
+- [`docker volume ls`]({{< ref "/reference/CLIreference/docker/dockervolume/dockervolumels" >}})
+- [`docker volume prune`]({{< ref "/reference/CLIreference/docker/dockervolume/dockervolumeprune" >}})

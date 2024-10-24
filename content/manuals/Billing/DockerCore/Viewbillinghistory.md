@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/billing/core-billing/history/](https://docs.docker.com/billing/core-billing/history/)
+> 原文：[https://docs.docker.com/billing/core-billing/history/](https://docs.docker.com/billing/core-billing/history/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,9 +22,9 @@ In this section, learn how you can view your billing history, manage your invoic
 >
 > Starting July 1, 2024, Docker will begin collecting sales tax on subscription fees in compliance with state regulations for customers in the United States. For our global customers subject to VAT, the implementation will start rolling out on July 1, 2024. Note that while the rollout begins on this date, VAT charges may not apply to all applicable subscriptions immediately.
 >
-> To ensure that tax assessments are correct, make sure that your [billing information](https://docs.docker.com/billing/core-billing/details/) and VAT/Tax ID, if applicable, are updated. If you're exempt from sales tax, see [Register a tax certificate](https://docs.docker.com/billing/tax-certificate/).
+> To ensure that tax assessments are correct, make sure that your [billing information]({{< ref "/manuals/Billing/DockerCore/Updatethebillinginformation" >}}) and VAT/Tax ID, if applicable, are updated. If you're exempt from sales tax, see [Register a tax certificate]({{< ref "/manuals/Billing/Registerataxcertificate" >}}).
 
-## [Invoices](https://docs.docker.com/billing/core-billing/history/#invoices)
+## Invoices
 
 Your invoice includes the following:
 
@@ -45,9 +45,9 @@ The information listed in the **Bill** to section is based on your billing infor
 - Phone number
 - Tax ID or VAT
 
-You can’t make changes to a paid or unpaid billing invoice. When you update your billing information, this change won't update an existing invoice. If you need to update your billing information, make sure you do so before your subscription renewal date when your invoice is finalized. For more information, see [Update the billing information](https://docs.docker.com/billing/core-billing/details/).
+You can’t make changes to a paid or unpaid billing invoice. When you update your billing information, this change won't update an existing invoice. If you need to update your billing information, make sure you do so before your subscription renewal date when your invoice is finalized. For more information, see [Update the billing information]({{< ref "/manuals/Billing/DockerCore/Updatethebillinginformation" >}}).
 
-### [View renewal date](https://docs.docker.com/billing/core-billing/history/#view-renewal-date)
+### View renewal date
 
 You receive your invoice when the subscription renews. To verify your renewal date, sign in to Hub, then:
 
@@ -55,7 +55,7 @@ You receive your invoice when the subscription renews. To verify your renewal da
 2. Select **Billing**.
 3. Select the user or organization account to view the billing details. Here you can find your renewal date and the renewal amount.
 
-### [Include your VAT number on your invoice](https://docs.docker.com/billing/core-billing/history/#include-your-vat-number-on-your-invoice)
+### Include your VAT number on your invoice
 
 Update your billing information to include your VAT number:
 
@@ -68,11 +68,11 @@ Update your billing information to include your VAT number:
 
 Your VAT number will be included on your next invoice.
 
-## [View billing history](https://docs.docker.com/billing/core-billing/history/#view-billing-history)
+## View billing history
 
 You can view the billing history and download past invoices for a personal account or organization.
 
-### [Personal account](https://docs.docker.com/billing/core-billing/history/#personal-account)
+### Personal account
 
 1. Select your avatar in the top-right corner of Docker Hub.
 2. From the drop-down menu select **Billing**.
@@ -80,7 +80,7 @@ You can view the billing history and download past invoices for a personal accou
 
 From here you can download an invoice.
 
-### [Organization](https://docs.docker.com/billing/core-billing/history/#organization)
+### Organization
 
 > **Note**
 >

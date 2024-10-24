@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/build-checks/invalid-default-arg-in-from/](https://docs.docker.com/reference/build-checks/invalid-default-arg-in-from/)
+> 原文：[https://docs.docker.com/reference/build-checks/invalid-default-arg-in-from/](https://docs.docker.com/reference/build-checks/invalid-default-arg-in-from/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
 # InvalidDefaultArgInFrom
 
-## [Output](https://docs.docker.com/reference/build-checks/invalid-default-arg-in-from/#output)
+## Output
 
 
 
@@ -22,11 +22,11 @@ draft = false
 Using the global ARGs with default values should produce a valid build.
 ```
 
-## [Description](https://docs.docker.com/reference/build-checks/invalid-default-arg-in-from/#description)
+## Description
 
 An `ARG` used in an image reference should be valid when no build arguments are used. An image build should not require `--build-arg` to be used to produce a valid build.
 
-## [Examples](https://docs.docker.com/reference/build-checks/invalid-default-arg-in-from/#examples)
+## Examples
 
 ❌ Bad: don't rely on an ARG being set for an image reference to be valid
 

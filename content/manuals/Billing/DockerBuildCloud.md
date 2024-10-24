@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/billing/build-billing/](https://docs.docker.com/billing/build-billing/)
+> 原文：[https://docs.docker.com/billing/build-billing/](https://docs.docker.com/billing/build-billing/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -28,15 +28,15 @@ If you don’t have a Docker Core subscription, you can buy Docker Build Cloud T
 >
 > 
 >
-> You can create a free Docker Personal account and [try Docker Build Cloud for free](https://docs.docker.com/subscription/build-cloud/build-details#docker-personal). Team benefits aren't included.
+> You can create a free Docker Personal account and [try Docker Build Cloud for free]({{< ref "/manuals/Subscription/DockerBuildCloud/Subscriptionsandfeatures#docker-personal" >}}). Team benefits aren't included.
 
-In this section, learn how to set up and manage billing for your Build Cloud subscription. For more information about the subscription tiers, see [Build Cloud subscriptions and features](https://docs.docker.com/subscription/build-cloud/build-details). To buy Docker Build Cloud Business, [contact sales](https://www.docker.com/products/build-cloud/#contact_sales).
+In this section, learn how to set up and manage billing for your Build Cloud subscription. For more information about the subscription tiers, see [Build Cloud subscriptions and features]({{< ref "/manuals/Subscription/DockerBuildCloud/Subscriptionsandfeatures" >}}). To buy Docker Build Cloud Business, [contact sales](https://www.docker.com/products/build-cloud/#contact_sales).
 
-## [Set up Docker Build Cloud Team subscription](https://docs.docker.com/billing/build-billing/#set-up-docker-build-cloud-team-subscription)
+## Set up Docker Build Cloud Team subscription
 
 You can set up a Build Cloud subscription on a monthly or annual plan. To upgrade a Build Cloud Starter subscription, see [Upgrade your subscription](https://docs.docker.com/billing/build-billing/#upgrade-your-subscription).
 
-### [Existing account or organization](https://docs.docker.com/billing/build-billing/#existing-account-or-organization)
+### Existing account or organization
 
 1. Sign in to [Docker Build Cloud](https://build.docker.com/).
 2. Choose the user account you want to use to subscribe. This can be a personal account, or an organization account. To buy a subscription for an organization, you need to be an organization owner.
@@ -46,7 +46,7 @@ You can set up a Build Cloud subscription on a monthly or annual plan. To upgrad
 
 Subscription renewals charge to the default payment method.
 
-### [New organization](https://docs.docker.com/billing/build-billing/#new-organization)
+### New organization
 
 You can buy a Docker Build Cloud Team subscription if you haven’t created an organization yet. To do so, you can create a team in Docker Build Cloud.
 
@@ -63,13 +63,13 @@ You can buy a Docker Build Cloud Team subscription if you haven’t created an o
 5. Select **Continue to payment**.
 6. Follow the on-screen instructions to buy your subscription.
 
-When your payment is complete, you’ll be redirected to the dashboard for your new team in Docker Build Cloud. Here, you can [invite users](https://docs.docker.com/subscription/build-cloud/manage-seats/) to your team.
+When your payment is complete, you’ll be redirected to the dashboard for your new team in Docker Build Cloud. Here, you can [invite users]({{< ref "/manuals/Subscription/DockerBuildCloud/Manageseatsandinvites" >}}) to your team.
 
-## [Manage your subscription](https://docs.docker.com/billing/build-billing/#manage-your-subscription)
+## Manage your subscription
 
 You can manage your subscription in the Build Cloud dashboard in the **Settings and billing** section. Here you can view your current plan, upgrade your plan, and review build minute usage.
 
-### [View billing history and manage your billing information](https://docs.docker.com/billing/build-billing/#view-billing-history-and-manage-your-billing-information)
+### View billing history and manage your billing information
 
 You can view your billing history at any time.
 
@@ -79,7 +79,7 @@ You can view your billing history at any time.
 
 Here you can find your invoice history, download your invoices, and manage your billing information and payment methods. You can also find your next billing date.
 
-### [Upgrade your subscription](https://docs.docker.com/billing/build-billing/#upgrade-your-subscription)
+### Upgrade your subscription
 
 You can upgrade your Docker Build Cloud Starter subscription to a Docker Build Cloud Team subscription in the Build Cloud dashboard.
 
@@ -89,7 +89,7 @@ You can upgrade your Docker Build Cloud Starter subscription to a Docker Build C
 4. Select **Upgrade now**.
 5. Follow the on-screen instructions to buy your subscription.
 
-### [Downgrade your subscription](https://docs.docker.com/billing/build-billing/#downgrade-your-subscription)
+### Downgrade your subscription
 
 You can downgrade your subscription at any time.
 

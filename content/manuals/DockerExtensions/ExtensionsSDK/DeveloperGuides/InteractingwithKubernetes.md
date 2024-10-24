@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/guides/kubernetes/](https://docs.docker.com/extensions/extensions-sdk/guides/kubernetes/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/guides/kubernetes/](https://docs.docker.com/extensions/extensions-sdk/guides/kubernetes/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,23 +18,23 @@ The Extensions SDK does not provide any API methods to directly interact with th
 
 To request an API that directly interacts with Docker Desktop-managed Kubernetes, you can upvote [this issue](https://github.com/docker/extensions-sdk/issues/181) in the Extensions SDK GitHub repository.
 
-## [Prerequisites](https://docs.docker.com/extensions/extensions-sdk/guides/kubernetes/#prerequisites)
+## Prerequisites
 
-### [Turn on Kubernetes](https://docs.docker.com/extensions/extensions-sdk/guides/kubernetes/#turn-on-kubernetes)
+### Turn on Kubernetes
 
 You can use the built-in Kubernetes in Docker Desktop to start a Kubernetes single-node cluster. A `kubeconfig` file is used to configure access to Kubernetes when used in conjunction with the `kubectl` command-line tool, or other clients. Docker Desktop conveniently provides the user with a local preconfigured `kubeconfig` file and `kubectl` command within the user’s home area. It is a convenient way to fast-tracking access for those looking to leverage Kubernetes from Docker Desktop.
 
-## [Ship the `kubectl` as part of the extension](https://docs.docker.com/extensions/extensions-sdk/guides/kubernetes/#ship-the-kubectl-as-part-of-the-extension)
+## Ship the `kubectl` as part of the extension
 
 If your extension needs to interact with Kubernetes clusters, it is recommended that you include the `kubectl` command line tool as part of your extension. By doing this, users who install your extension get `kubectl` installed on their host.
 
 To find out how to ship the `kubectl` command line tool for multiple platforms as part of your Docker Extension image, see [Build multi-arch extensions](https://docs.docker.com/extensions/extensions-sdk/extensions/multi-arch/#adding-multi-arch-binaries).
 
-## [Examples](https://docs.docker.com/extensions/extensions-sdk/guides/kubernetes/#examples)
+## Examples
 
 The following code snippets have been put together in the [Kubernetes Sample Extension](https://github.com/docker/extensions-sdk/tree/main/samples/kubernetes-sample-extension). It shows how to interact with a Kubernetes cluster by shipping the `kubectl` command-line tool.
 
-### [Check the Kubernetes API server is reachable](https://docs.docker.com/extensions/extensions-sdk/guides/kubernetes/#check-the-kubernetes-api-server-is-reachable)
+### Check the Kubernetes API server is reachable
 
 Once the `kubectl` command-line tool is added to the extension image in the `Dockerfile`, and defined in the `metadata.json`, the Extensions framework deploys `kubectl` to the users' host when the extension is installed.
 
@@ -52,7 +52,7 @@ const output = await ddClient.extension.host?.cli.exec("kubectl", [
 ]);
 ```
 
-### [List Kubernetes contexts](https://docs.docker.com/extensions/extensions-sdk/guides/kubernetes/#list-kubernetes-contexts)
+### List Kubernetes contexts
 
 
 
@@ -65,7 +65,7 @@ const output = await ddClient.extension.host?.cli.exec("kubectl", [
 ]);
 ```
 
-### [List Kubernetes namespaces](https://docs.docker.com/extensions/extensions-sdk/guides/kubernetes/#list-kubernetes-namespaces)
+### List Kubernetes namespaces
 
 
 
@@ -81,7 +81,7 @@ const output = await ddClient.extension.host?.cli.exec("kubectl", [
 ]);
 ```
 
-## [Persisting the kubeconfig file](https://docs.docker.com/extensions/extensions-sdk/guides/kubernetes/#persisting-the-kubeconfig-file)
+## Persisting the kubeconfig file
 
 Below there are different ways to persist and read the `kubeconfig` file from the host filesystem. Users can add, edit, or remove Kubernetes context to the `kubeconfig` file at any time.
 
@@ -89,7 +89,7 @@ Below there are different ways to persist and read the `kubeconfig` file from th
 >
 > The `kubeconfig` file is very sensitive and if found can give an attacker administrative access to the Kubernetes Cluster.
 
-### [Extension's backend container](https://docs.docker.com/extensions/extensions-sdk/guides/kubernetes/#extensions-backend-container)
+### Extension's backend container
 
 If you need your extension to persist the `kubeconfig` file after it's been read, you can have a backend container that exposes an HTTP POST endpoint to store the content of the file either in memory or somewhere within the container filesystem. This way, if the user navigates out of the extension to another part of Docker Desktop and then comes back, you don't need to read the `kubeconfig` file again.
 
@@ -121,7 +121,7 @@ export const updateKubeconfig = async () => {
 };
 ```
 
-### [Docker volume](https://docs.docker.com/extensions/extensions-sdk/guides/kubernetes/#docker-volume)
+### Docker volume
 
 Volumes are the preferred mechanism for persisting data generated by and used by Docker containers. You can make use of them to persist the `kubeconfig` file. By persisting the `kubeconfig` in a volume you won't need to read the `kubeconfig` file again when the extension pane closes. This makes it ideal for persisting data when navigating out of the extension to other parts of Docker Desktop.
 
@@ -152,7 +152,7 @@ await ddClient.docker.cli.exec("run", [
 ]);
 ```
 
-### [Extension's `localStorage`](https://docs.docker.com/extensions/extensions-sdk/guides/kubernetes/#extensions-localstorage)
+### Extension's `localStorage`
 
 `localStorage` is one of the mechanisms of a browser's web storage. It allows users to save data as key-value pairs in the browser for later use. `localStorage` does not clear data when the browser (the extension pane) closes. This makes it ideal for persisting data when navigating out of the extension to other parts of Docker Desktop.
 

@@ -8,37 +8,37 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/extend/plugins_authorization/](https://docs.docker.com/engine/extend/plugins_authorization/)
+> 原文：[https://docs.docker.com/engine/extend/plugins_authorization/](https://docs.docker.com/engine/extend/plugins_authorization/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Access authorization plugin
 
-This document describes the Docker Engine plugins available in Docker Engine. To view information on plugins managed by Docker Engine, refer to [Docker Engine plugin system](https://docs.docker.com/engine/extend/).
+This document describes the Docker Engine plugins available in Docker Engine. To view information on plugins managed by Docker Engine, refer to [Docker Engine plugin system]({{< ref "/manuals/DockerEngine/DockerEngineplugins" >}}).
 
 Docker's out-of-the-box authorization model is all or nothing. Any user with permission to access the Docker daemon can run any Docker client command. The same is true for callers using Docker's Engine API to contact the daemon. If you require greater access control, you can create authorization plugins and add them to your Docker daemon configuration. Using an authorization plugin, a Docker administrator can configure granular access policies for managing access to the Docker daemon.
 
 Anyone with the appropriate skills can develop an authorization plugin. These skills, at their most basic, are knowledge of Docker, understanding of REST, and sound programming knowledge. This document describes the architecture, state, and methods information available to an authorization plugin developer.
 
-## [Basic principles](https://docs.docker.com/engine/extend/plugins_authorization/#basic-principles)
+## Basic principles
 
-Docker's [plugin infrastructure](https://docs.docker.com/engine/extend/plugin_api/) enables extending Docker by loading, removing and communicating with third-party components using a generic API. The access authorization subsystem was built using this mechanism.
+Docker's [plugin infrastructure]({{< ref "/manuals/DockerEngine/DockerEngineplugins/DockerPluginAPI" >}}) enables extending Docker by loading, removing and communicating with third-party components using a generic API. The access authorization subsystem was built using this mechanism.
 
 Using this subsystem, you don't need to rebuild the Docker daemon to add an authorization plugin. You can add a plugin to an installed Docker daemon. You do need to restart the Docker daemon to add a new plugin.
 
 An authorization plugin approves or denies requests to the Docker daemon based on both the current authentication context and the command context. The authentication context contains all user details and the authentication method. The command context contains all the relevant request data.
 
-Authorization plugins must follow the rules described in [Docker Plugin API](https://docs.docker.com/engine/extend/plugin_api/). Each plugin must reside within directories described under the [Plugin discovery](https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery) section.
+Authorization plugins must follow the rules described in [Docker Plugin API]({{< ref "/manuals/DockerEngine/DockerEngineplugins/DockerPluginAPI" >}}). Each plugin must reside within directories described under the [Plugin discovery](https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery) section.
 
 > **Note**
 >
 > The abbreviations `AuthZ` and `AuthN` mean authorization and authentication respectively.
 
-## [Default user authorization mechanism](https://docs.docker.com/engine/extend/plugins_authorization/#default-user-authorization-mechanism)
+## Default user authorization mechanism
 
 If TLS is enabled in the [Docker daemon](https://docs.docker.com/engine/security/https/), the default user authorization flow extracts the user details from the certificate subject name. That is, the `User` field is set to the client certificate subject common name, and the `AuthenticationMethod` field is set to `TLS`.
 
-## [Basic architecture](https://docs.docker.com/engine/extend/plugins_authorization/#basic-architecture)
+## Basic architecture
 
 You are responsible for registering your plugin as part of the Docker daemon startup. You can install multiple plugins and chain them together. This chain can be ordered. Each request to the daemon passes in order through the chain. Only when all the plugins grant access to the resource, is the access granted.
 
@@ -56,11 +56,11 @@ For commands that can potentially hijack the HTTP connection (`HTTP Upgrade`), s
 
 During request/response processing, some authorization flows might need to do additional queries to the Docker daemon. To complete such flows, plugins can call the daemon API similar to a regular user. To enable these additional queries, the plugin must provide the means for an administrator to configure proper authentication and security policies.
 
-## [Docker client flows](https://docs.docker.com/engine/extend/plugins_authorization/#docker-client-flows)
+## Docker client flows
 
 To enable and configure the authorization plugin, the plugin developer must support the Docker client interactions detailed in this section.
 
-### [Setting up Docker daemon](https://docs.docker.com/engine/extend/plugins_authorization/#setting-up-docker-daemon)
+### Setting up Docker daemon
 
 Enable the authorization plugin with a dedicated command line flag in the `--authorization-plugin=PLUGIN_ID` format. The flag supplies a `PLUGIN_ID` value. This value can be the plugin’s socket or a path to a specification file. Authorization plugins can be loaded without restarting the daemon. Refer to the [`dockerd` documentation](https://docs.docker.com/reference/cli/dockerd/#configuration-reload-behavior) for more information.
 
@@ -72,7 +72,7 @@ $ dockerd --authorization-plugin=plugin1 --authorization-plugin=plugin2,...
 
 Docker's authorization subsystem supports multiple `--authorization-plugin` parameters.
 
-### [Calling authorized command (allow)](https://docs.docker.com/engine/extend/plugins_authorization/#calling-authorized-command-allow)
+### Calling authorized command (allow)
 
 
 
@@ -83,7 +83,7 @@ f1b10cd84249: Pull complete
 <...>
 ```
 
-### [Calling unauthorized command (deny)](https://docs.docker.com/engine/extend/plugins_authorization/#calling-unauthorized-command-deny)
+### Calling unauthorized command (deny)
 
 
 
@@ -93,7 +93,7 @@ $ docker pull centos
 docker: Error response from daemon: authorization denied by plugin PLUGIN_NAME: volumes are not allowed.
 ```
 
-### [Error from plugins](https://docs.docker.com/engine/extend/plugins_authorization/#error-from-plugins)
+### Error from plugins
 
 
 
@@ -103,14 +103,14 @@ $ docker pull centos
 docker: Error response from daemon: plugin PLUGIN_NAME failed with error: AuthZPlugin.AuthZReq: Cannot connect to the Docker daemon. Is the docker daemon running on this host?.
 ```
 
-## [API schema and implementation](https://docs.docker.com/engine/extend/plugins_authorization/#api-schema-and-implementation)
+## API schema and implementation
 
 In addition to Docker's standard plugin registration method, each plugin should implement the following two methods:
 
 - `/AuthZPlugin.AuthZReq` This authorize request method is called before the Docker daemon processes the client request.
 - `/AuthZPlugin.AuthZRes` This authorize response method is called before the response is returned from Docker daemon to the client.
 
-#### [/AuthZPlugin.AuthZReq](https://docs.docker.com/engine/extend/plugins_authorization/#authzpluginauthzreq)
+#### /AuthZPlugin.AuthZReq
 
 Request
 
@@ -139,7 +139,7 @@ Response
 }
 ```
 
-#### [/AuthZPlugin.AuthZRes](https://docs.docker.com/engine/extend/plugins_authorization/#authzpluginauthzres)
+#### /AuthZPlugin.AuthZRes
 
 Request:
 
@@ -171,11 +171,11 @@ Response:
 }
 ```
 
-### [Request authorization](https://docs.docker.com/engine/extend/plugins_authorization/#request-authorization)
+### Request authorization
 
 Each plugin must support two request authorization messages formats, one from the daemon to the plugin and then from the plugin to the daemon. The tables below detail the content expected in each message.
 
-#### [Daemon -> Plugin](https://docs.docker.com/engine/extend/plugins_authorization/#daemon---plugin)
+#### Daemon -> Plugin
 
 | Name                  | Type              | Description                                                  |
 | --------------------- | ----------------- | ------------------------------------------------------------ |
@@ -186,7 +186,7 @@ Each plugin must support two request authorization messages formats, one from th
 | Request headers       | map[string]string | Request headers as key value pairs (without the authorization header) |
 | Request body          | []byte            | Raw request body                                             |
 
-#### [Plugin -> Daemon](https://docs.docker.com/engine/extend/plugins_authorization/#plugin---daemon)
+#### Plugin -> Daemon
 
 | Name  | Type   | Description                                                  |
 | ----- | ------ | ------------------------------------------------------------ |
@@ -194,11 +194,11 @@ Each plugin must support two request authorization messages formats, one from th
 | Msg   | string | Authorization message (will be returned to the client in case the access is denied) |
 | Err   | string | Error message (will be returned to the client in case the plugin encounter an error. The string value supplied may appear in logs, so should not include confidential information) |
 
-### [Response authorization](https://docs.docker.com/engine/extend/plugins_authorization/#response-authorization)
+### Response authorization
 
 The plugin must support two authorization messages formats, one from the daemon to the plugin and then from the plugin to the daemon. The tables below detail the content expected in each message.
 
-#### [Daemon -> Plugin](https://docs.docker.com/engine/extend/plugins_authorization/#daemon---plugin-1)
+#### Daemon -> Plugin
 
 | Name                  | Type              | Description                                                  |
 | --------------------- | ----------------- | ------------------------------------------------------------ |
@@ -212,7 +212,7 @@ The plugin must support two authorization messages formats, one from the daemon 
 | Response headers      | map[string]string | Response headers as key value pairs                          |
 | Response body         | []byte            | Raw Docker daemon response body                              |
 
-#### [Plugin -> Daemon](https://docs.docker.com/engine/extend/plugins_authorization/#plugin---daemon-1)
+#### Plugin -> Daemon
 
 | Name  | Type   | Description                                                  |
 | ----- | ------ | ------------------------------------------------------------ |

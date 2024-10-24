@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/integrations/registry/ecr/](https://docs.docker.com/scout/integrations/registry/ecr/)
+> 原文：[https://docs.docker.com/scout/integrations/registry/ecr/](https://docs.docker.com/scout/integrations/registry/ecr/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 Integrating Docker Scout with Amazon Elastic Container Registry (ECR) lets you view image insights for images hosted in ECR repositories. After integrating Docker Scout with ECR and activating Docker Scout for a repository, pushing an image to the repository automatically triggers image analysis. You can view image insights using the Docker Scout Dashboard, or the `docker scout` CLI commands.
 
-## [How it works](https://docs.docker.com/scout/integrations/registry/ecr/#how-it-works)
+## How it works
 
 To help you integrate Docker Scout with ECR, you can use a CloudFormation stack template that creates and configures the necessary AWS resources for integrating Docker Scout with your ECR registry. For more details about the AWS resources, see [CloudFormation stack template](https://docs.docker.com/scout/integrations/registry/ecr/#cloudformation-stack-template).
 
@@ -24,9 +24,9 @@ The following diagram shows how the Docker Scout ECR integration works.
 
 ![How the ECR integration works](AmazonECR_img/Scout-ECR.png)
 
-After the integration, Docker Scout automatically pulls and analyzes images that you push to the ECR registry. Metadata about your images are stored on the Docker Scout platform, but Docker Scout doesn't store the container images themselves. For more information about how Docker Scout handles image data, see [Data handling](https://docs.docker.com/scout/deep-dive/data-handling/).
+After the integration, Docker Scout automatically pulls and analyzes images that you push to the ECR registry. Metadata about your images are stored on the Docker Scout platform, but Docker Scout doesn't store the container images themselves. For more information about how Docker Scout handles image data, see [Data handling]({{< ref "/manuals/DockerScout/Deepdive/DatacollectionandstorageinDockerScout" >}}).
 
-### [CloudFormation stack template](https://docs.docker.com/scout/integrations/registry/ecr/#cloudformation-stack-template)
+### CloudFormation stack template
 
 The following table describes the configuration resources.
 
@@ -50,7 +50,7 @@ The following table describes the configuration resources.
 | `AWS::IAM::Role`              | `InvokeApiRole`              | Internal role to grant the event access to `ApiDestination`. | Free  |
 | `AWS::IAM::Role`              | `AssumeRoleEcrAccess`        | This role has access to `ScoutAPICredentials` for setting up the Docker Scout integration. | Free  |
 
-## [Integrate your first registry](https://docs.docker.com/scout/integrations/registry/ecr/#integrate-your-first-registry)
+## Integrate your first registry
 
 Create the CloudFormation stack in your AWS account to enable the Docker Scout integration.
 
@@ -81,7 +81,7 @@ The ECR integration is now active. For Docker Scout to start analyzing images in
 
 After activating repositories, images that you push are analyzed by Docker Scout. The analysis results appear in the Docker Scout Dashboard. If your repository already contains images, Docker Scout pulls and analyzes the latest image version automatically.
 
-## [Integrate additional registries](https://docs.docker.com/scout/integrations/registry/ecr/#integrate-additional-registries)
+## Integrate additional registries
 
 To add additional registries:
 
@@ -97,7 +97,7 @@ To add additional registries:
 
 Next, activate Docker Scout for the repositories that you want to analyze in [Repository settings](https://scout.docker.com/settings/repos/).
 
-## [Remove integration](https://docs.docker.com/scout/integrations/registry/ecr/#remove-integration)
+## Remove integration
 
 To remove an integrated ECR registry, you must be an owner of the Docker organization.
 
@@ -117,16 +117,16 @@ To remove an integrated ECR registry, you must be an owner of the Docker organiz
 >
 > After removing the integration in Docker Scout, go to the AWS console and delete the **DockerScoutECRIntegration** CloudFormation stack for the integration that you want to remove.
 
-## [Troubleshooting](https://docs.docker.com/scout/integrations/registry/ecr/#troubleshooting)
+## Troubleshooting
 
-### [Unable to integrate registry](https://docs.docker.com/scout/integrations/registry/ecr/#unable-to-integrate-registry)
+### Unable to integrate registry
 
 Check the **Status** of the integration on the [ECR integration page](https://scout.docker.com/settings/integrations/ecr/) in the Docker Scout Dashboard.
 
 - If the status is **Pending** for a prolonged period of time, it's an indication that the integration was not yet completed on the AWS side. Select the **Pending** link to open the CloudFormation wizard, and complete all the steps.
 - An **Error** status indicates that something's gone wrong in the back-end. You can try [removing the integration](https://docs.docker.com/scout/integrations/registry/ecr/#remove-integration) and recreating it again.
 
-### [ECR images not showing in the dashboard](https://docs.docker.com/scout/integrations/registry/ecr/#ecr-images-not-showing-in-the-dashboard)
+### ECR images not showing in the dashboard
 
 If image analysis results for your ECR images aren't showing up in the Docker Scout Dashboard:
 

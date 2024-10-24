@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/compose/exec/](https://docs.docker.com/reference/cli/docker/compose/exec/)
+> 原文：[https://docs.docker.com/reference/cli/docker/compose/exec/](https://docs.docker.com/reference/cli/docker/compose/exec/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,13 +18,13 @@ draft = false
 | :---------- | --------------------------------------------------------- |
 | Usage       | `docker compose exec [OPTIONS] SERVICE COMMAND [ARGS...]` |
 
-## [Description](https://docs.docker.com/reference/cli/docker/compose/exec/#description)
+## Description
 
 This is the equivalent of `docker exec` targeting a Compose service.
 
 With this subcommand, you can run arbitrary commands in your services. Commands allocate a TTY by default, so you can use a command such as `docker compose exec web sh` to get an interactive prompt.
 
-## [Options](https://docs.docker.com/reference/cli/docker/compose/exec/#options)
+## Options
 
 | Option          | Default | Description                                                  |
 | --------------- | ------- | ------------------------------------------------------------ |

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/policy/configure/](https://docs.docker.com/scout/policy/configure/)
+> 原文：[https://docs.docker.com/scout/policy/configure/](https://docs.docker.com/scout/policy/configure/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ Some policy types are configurable. This means that you can create new, customiz
 >
 > Historic evaluation results for the default policy configuration are removed if you delete or customize a policy.
 
-## [Add a policy](https://docs.docker.com/scout/policy/configure/#add-a-policy)
+## Add a policy
 
 To add a new policy, select the policy type that you want to customize. All custom policies use a policy type as a base.
 
@@ -40,7 +40,7 @@ To add a policy:
    - Select **Save policy** to commit the changes and enable the policy for your current organization.
    - Select **Save and disable** to save the policy configuration without enabling it.
 
-## [Edit a policy](https://docs.docker.com/scout/policy/configure/#edit-a-policy)
+## Edit a policy
 
 Editing a policy lets you to modify its configuration without creating a new one from scratch. This can be useful when policy parameters need adjustments due to evolving requirements or changes in your organization's compliance goals.
 
@@ -52,7 +52,7 @@ To edit a policy:
 4. Update the policy parameters.
 5. Save the changes.
 
-## [Disable a policy](https://docs.docker.com/scout/policy/configure/#disable-a-policy)
+## Disable a policy
 
 When you disable a policy, evaluation results for that policy are hidden, and no longer appear in the Docker Scout Dashboard or in the CLI. Historic evaluation results aren't deleted if you disable a policy, so if you change your mind and re-enable a policy later, results from earlier evaluations will still be available.
 
@@ -62,7 +62,7 @@ To disable a policy:
 2. Select the policy you want to disable.
 3. Select the **Disable** button.
 
-## [Delete a policy](https://docs.docker.com/scout/policy/configure/#delete-a-policy)
+## Delete a policy
 
 When you delete a policy, evaluation results for that policy are deleted as well, and no longer appear in the Docker Scout Dashboard or in the CLI.
 
@@ -72,6 +72,6 @@ To delete a policy:
 2. Select the policy you want to delete.
 3. Select the **Delete** button.
 
-## [Recover a deleted policy](https://docs.docker.com/scout/policy/configure/#recover-a-deleted-policy)
+## Recover a deleted policy
 
 If you've deleted a policy, you can recreate it by following the steps in [Add a policy](https://docs.docker.com/scout/policy/configure/#add-a-policy). On the policy configuration screen, select **Configure** on the deleted policy that you wish to recreate.

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/dev-environments/create-dev-env/](https://docs.docker.com/desktop/dev-environments/create-dev-env/)
+> 原文：[https://docs.docker.com/desktop/dev-environments/create-dev-env/](https://docs.docker.com/desktop/dev-environments/create-dev-env/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -35,7 +35,7 @@ This does not conflict with any of the local files or local tooling set up on yo
 >
 > Install the [Dev Environments browser extension](https://github.com/docker/dev-envs-extension) for [Chrome](https://chrome.google.com/webstore/detail/docker-dev-environments/gnagpachnalcofcblcgdbofnfakdbeka) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/docker-dev-environments/), to launch a dev environment faster.
 
-## [Prerequisites](https://docs.docker.com/desktop/dev-environments/create-dev-env/#prerequisites)
+## Prerequisites
 
 To get started with Dev Environments, you must also install the following tools and extension on your machine:
 
@@ -45,7 +45,7 @@ To get started with Dev Environments, you must also install the following tools 
 
 After Git is installed, restart Docker Desktop. Select **Quit Docker Desktop**, and then start it again.
 
-## [Launch a dev environment from a Git repository](https://docs.docker.com/desktop/dev-environments/create-dev-env/#launch-a-dev-environment-from-a-git-repository)
+## Launch a dev environment from a Git repository
 
 > **Note**
 >
@@ -72,7 +72,7 @@ To launch a dev environment:
 
 To launch the application, run the command `make run` in your terminal. This opens an http server on port 8080. Open [http://localhost:8080](http://localhost:8080/) in your browser to see the running application.
 
-## [Launch from a specific branch or tag](https://docs.docker.com/desktop/dev-environments/create-dev-env/#launch-from-a-specific-branch-or-tag)
+## Launch from a specific branch or tag
 
 You can launch a dev environment from a specific branch, for example a branch corresponding to a Pull Request, or a tag by adding `@mybranch` or `@tag` as a suffix to your Git URL:
 
@@ -88,7 +88,7 @@ git@github.com:dockersamples/single-dev-env.git@mybranch
 
 Docker then clones the repository with your specified branch or tag.
 
-## [Launch from a subfolder of a Git repository](https://docs.docker.com/desktop/dev-environments/create-dev-env/#launch-from-a-subfolder-of-a-git-repository)
+## Launch from a subfolder of a Git repository
 
 > Note
 >
@@ -105,7 +105,7 @@ Docker then clones the repository with your specified branch or tag.
 
 To launch the application, run the command `make run` in your terminal. This opens an http server on port 8080. Open [http://localhost:8080](http://localhost:8080/) in your browser to see the running application.
 
-## [Launch from a local folder](https://docs.docker.com/desktop/dev-environments/create-dev-env/#launch-from-a-local-folder)
+## Launch from a local folder
 
 1. From **Dev Environments** in Docker Dashboard, select **Create**. The **Create a Dev Environment** dialog displays.
 
@@ -125,9 +125,9 @@ To launch the application, run the command `make run` in your terminal. This ope
 >
 > When using a local folder for a dev environment, file changes are synchronized between your environment container and your local files. This can affect the performance inside the container, depending on the number of files in your local folder and the operations performed in the container.
 
-## [What's next?](https://docs.docker.com/desktop/dev-environments/create-dev-env/#whats-next)
+## What's next?
 
 Learn how to:
 
-- [Set up a dev environment](https://docs.docker.com/desktop/dev-environments/set-up/)
-- [Distribute your dev environment](https://docs.docker.com/desktop/dev-environments/share/)
+- [Set up a dev environment]({{< ref "/manuals/DockerDesktop/DevEnvironmentsBeta/Setupadevenvironment" >}})
+- [Distribute your dev environment]({{< ref "/manuals/DockerDesktop/DevEnvironmentsBeta/Distributeyourdevenvironment" >}})

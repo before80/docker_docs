@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/config/rm/](https://docs.docker.com/reference/cli/docker/config/rm/)
+> 原文：[https://docs.docker.com/reference/cli/docker/config/rm/](https://docs.docker.com/reference/cli/docker/config/rm/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -21,17 +21,17 @@ draft = false
 
 Swarm This command works with the Swarm orchestrator.
 
-## [Description](https://docs.docker.com/reference/cli/docker/config/rm/#description)
+## Description
 
 Removes the specified configs from the Swarm.
 
-For detailed information about using configs, refer to [store configuration data using Docker Configs](https://docs.docker.com/engine/swarm/configs/).
+For detailed information about using configs, refer to [store configuration data using Docker Configs]({{< ref "/manuals/DockerEngine/Swarmmode/StoreconfigurationdatausingDockerConfigs" >}}).
 
 > **Note**
 >
-> This is a cluster management command, and must be executed on a Swarm manager node. To learn about managers and workers, refer to the [Swarm mode section](https://docs.docker.com/engine/swarm/) in the documentation.
+> This is a cluster management command, and must be executed on a Swarm manager node. To learn about managers and workers, refer to the [Swarm mode section]({{< ref "/manuals/DockerEngine/Swarmmode" >}}) in the documentation.
 
-## [Examples](https://docs.docker.com/reference/cli/docker/config/rm/#examples)
+## Examples
 
 This example removes a config:
 

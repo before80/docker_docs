@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/swarm_manager_locking/](https://docs.docker.com/engine/swarm/swarm_manager_locking/)
+> 原文：[https://docs.docker.com/engine/swarm/swarm_manager_locking/](https://docs.docker.com/engine/swarm/swarm_manager_locking/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Lock your swarm to protect its encryption key
 
-The Raft logs used by swarm managers are encrypted on disk by default. This at-rest encryption protects your service's configuration and data from attackers who gain access to the encrypted Raft logs. One of the reasons this feature was introduced was in support of the [Docker secrets](https://docs.docker.com/engine/swarm/secrets/) feature.
+The Raft logs used by swarm managers are encrypted on disk by default. This at-rest encryption protects your service's configuration and data from attackers who gain access to the encrypted Raft logs. One of the reasons this feature was introduced was in support of the [Docker secrets]({{< ref "/manuals/DockerEngine/Swarmmode/ManagesensitivedatawithDockersecrets" >}}) feature.
 
 When Docker restarts, both the TLS key used to encrypt communication among swarm nodes and the key used to encrypt and decrypt Raft logs on disk are loaded into each manager node's memory. Docker has the ability to protect the mutual TLS encryption key and the key used to encrypt and decrypt Raft logs at rest, by allowing you to take ownership of these keys and to require manual unlocking of your managers. This feature is called autolock.
 
@@ -26,7 +26,7 @@ When Docker restarts, you must [unlock the swarm](https://docs.docker.com/engine
 >
 > You don't need to unlock the swarm when a new node joins the swarm, because the key is propagated to it over mutual TLS.
 
-## [Initialize a swarm with autolocking enabled](https://docs.docker.com/engine/swarm/swarm_manager_locking/#initialize-a-swarm-with-autolocking-enabled)
+## Initialize a swarm with autolocking enabled
 
 When you initialize a new swarm, you can use the `--autolock` flag to enable autolocking of swarm manager nodes when Docker restarts.
 
@@ -65,7 +65,7 @@ $ docker service ls
 Error response from daemon: Swarm is encrypted and needs to be unlocked before it can be used. Use "docker swarm unlock" to unlock it.
 ```
 
-## [Enable or disable autolock on an existing swarm](https://docs.docker.com/engine/swarm/swarm_manager_locking/#enable-or-disable-autolock-on-an-existing-swarm)
+## Enable or disable autolock on an existing swarm
 
 To enable autolock on an existing swarm, set the `autolock` flag to `true`.
 
@@ -94,7 +94,7 @@ $ docker swarm update --autolock=false
 
 Keep the unlock key around for a short time after disabling autolocking, in case a manager goes down while it is still configured to lock using the old key.
 
-## [Unlock a swarm](https://docs.docker.com/engine/swarm/swarm_manager_locking/#unlock-a-swarm)
+## Unlock a swarm
 
 To unlock a locked swarm, use `docker swarm unlock`.
 
@@ -108,7 +108,7 @@ Please enter unlock key:
 
 Enter the encryption key that was generated and shown in the command output when you locked the swarm or rotated the key, and the swarm unlocks.
 
-## [View the current unlock key for a running swarm](https://docs.docker.com/engine/swarm/swarm_manager_locking/#view-the-current-unlock-key-for-a-running-swarm)
+## View the current unlock key for a running swarm
 
 Consider a situation where your swarm is running as expected, then a manager node becomes unavailable. You troubleshoot the problem and bring the physical node back online, but you need to unlock the manager by providing the unlock key to read the encrypted credentials and Raft logs.
 
@@ -130,7 +130,7 @@ will not be able to restart the manager.
 
 If the key was rotated after the swarm node became unavailable and you do not have a record of the previous key, you may need to force the manager to leave the swarm and join it back to the swarm as a new manager.
 
-## [Rotate the unlock key](https://docs.docker.com/engine/swarm/swarm_manager_locking/#rotate-the-unlock-key)
+## Rotate the unlock key
 
 You should rotate the locked swarm's unlock key on a regular schedule.
 

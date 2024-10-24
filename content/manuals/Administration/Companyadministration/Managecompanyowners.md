@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/admin/company/owners/](https://docs.docker.com/admin/company/owners/)
+> 原文：[https://docs.docker.com/admin/company/owners/](https://docs.docker.com/admin/company/owners/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,11 +18,11 @@ A company can have multiple owners. Company owners have company-wide observabili
 
 **Early Access**
 
-The Docker Admin Console is an [early access](https://docs.docker.com/release-lifecycle#early-access-ea) product.
+The Docker Admin Console is an [early access]({{< ref "/manuals/Releaselifecycle#early-access-ea" >}}) product.
 
 It's available to all company owners and organization owners. You can still manage organizations in Docker Hub, but the Admin Console includes company-level management and enhanced features for organization management.
 
-## [Add a company owner](https://docs.docker.com/admin/company/owners/#add-a-company-owner)
+## Add a company owner
 
 1. Sign in to the [Admin Console](https://admin.docker.com/).
 2. In the left navigation, select your company in the drop-down menu.
@@ -31,7 +31,7 @@ It's available to all company owners and organization owners. You can still mana
 5. Specify the user's Docker ID to search for the user.
 6. After you find the user, select **Add company owner**.
 
-## [Remove a company owner](https://docs.docker.com/admin/company/owners/#remove-a-company-owner)
+## Remove a company owner
 
 1. Sign in to the [Admin Console](https://admin.docker.com/).
 2. In the left navigation, select your company in the drop-down menu.

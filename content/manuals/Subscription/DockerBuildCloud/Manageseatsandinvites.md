@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/subscription/build-cloud/manage-seats/](https://docs.docker.com/subscription/build-cloud/manage-seats/)
+> 原文：[https://docs.docker.com/subscription/build-cloud/manage-seats/](https://docs.docker.com/subscription/build-cloud/manage-seats/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,7 +22,7 @@ You can add seats and manage invitations to your Docker Build Cloud Team in the 
 >
 > If you have a Docker Build Cloud Business subscription, you can add and remove seats by working with your account executive, then assign your purchased seats in the Docker Build Cloud dashboard.
 
-## [Add seats](https://docs.docker.com/subscription/build-cloud/manage-seats/#add-seats)
+## Add seats
 
 1. Sign in to [Docker Build Cloud](https://build.docker.com/).
 2. Select **Settings & billing**.
@@ -31,7 +31,7 @@ You can add seats and manage invitations to your Docker Build Cloud Team in the 
 
 The number of seats will be charged to your payment information on file, and are added immediately.
 
-## [Remove seats](https://docs.docker.com/subscription/build-cloud/manage-seats/#remove-seats)
+## Remove seats
 
 1. Sign in to [Docker Build Cloud](https://build.docker.com/).
 2. Select **Settings & billing**.
@@ -40,7 +40,7 @@ The number of seats will be charged to your payment information on file, and are
 
 The charge for the reduced seat count will be reflected on the next billing cycle. Optionally, you can cancel the seat downgrade any time before the next billing cycle.
 
-## [Invite users](https://docs.docker.com/subscription/build-cloud/manage-seats/#invite-users)
+## Invite users
 
 As an owner of the Docker Build Cloud team, you can invite members to access cloud builders. To invite team members to your team in Docker Build Cloud:
 
@@ -52,4 +52,4 @@ As an owner of the Docker Build Cloud team, you can invite members to access clo
 
 Invitees receive an email with instructions on how they can accept the invite. After they accept, the seat will be marked as **Allocated** in the **User management** section in the Docker Build Cloud dashboard.
 
-For more information on the permissions granted to members, see [Roles and permissions](https://docs.docker.com/security/for-admins/roles-and-permissions#docker-build-cloud).
+For more information on the permissions granted to members, see [Roles and permissions]({{< ref "/manuals/Security/Foradmins/Rolesandpermissions#docker-build-cloud" >}}).

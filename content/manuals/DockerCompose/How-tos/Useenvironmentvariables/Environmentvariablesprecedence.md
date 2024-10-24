@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence/](https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence/)
+> 原文：[https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence/](https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -26,7 +26,7 @@ The order of precedence (highest to lowest) is as follows:
 4. Use of the [`env_file` attribute](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/#use-the-env_file-attribute) in the Compose file.
 5. Set in a container image in the [ENV directive](https://docs.docker.com/reference/dockerfile/#env). Having any `ARG` or `ENV` setting in a `Dockerfile` evaluates only if there is no Docker Compose entry for `environment`, `env_file` or `run --env`.
 
-## [Simple example](https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence/#simple-example)
+## Simple example
 
 In the following example, a different value for the same environment variable in an `.env` file and with the `environment` attribute in the Compose file:
 
@@ -55,11 +55,11 @@ $ docker compose run webapp env | grep NODE_ENV
 NODE_ENV=production
 ```
 
-## [Advanced example](https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence/#advanced-example)
+## Advanced example
 
 The following table uses `VALUE`, an environment variable defining the version for an image, as an example.
 
-### [How the table works](https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence/#how-the-table-works)
+### How the table works
 
 Each column represents a context from where you can set a value, or substitute in a value for `VALUE`.
 
@@ -85,7 +85,7 @@ Each row represents a combination of contexts where `VALUE` is set, substituted,
 |  14  |  `--env VALUE=1.8`   |            -            |     `VALUE=1.6`      | `VALUE=1.5` |      `VALUE=1.4`      | `VALUE=1.3` |      | **`VALUE=1.8`** |
 |  15  |  `--env VALUE=1.8`   |       `VALUE=1.7`       |     `VALUE=1.6`      | `VALUE=1.5` |      `VALUE=1.4`      | `VALUE=1.3` |      | **`VALUE=1.8`** |
 
-### [Result explanation](https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence/#result-explanation)
+### Result explanation
 
 Result 1: The local environment takes precedence, but the Compose file is not set to replicate this inside the container, so no such variable is set.
 

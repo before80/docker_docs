@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/exporters/image-registry/](https://docs.docker.com/build/exporters/image-registry/)
+> 原文：[https://docs.docker.com/build/exporters/image-registry/](https://docs.docker.com/build/exporters/image-registry/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 The `image` exporter outputs the build result into a container image format. The `registry` exporter is identical, but it automatically pushes the result by setting `push=true`.
 
-## [Synopsis](https://docs.docker.com/build/exporters/image-registry/#synopsis)
+## Synopsis
 
 Build a container image using the `image` and `registry` exporters:
 
@@ -46,7 +46,7 @@ The following table describes the available parameters that you can pass to `--o
 | `store`                | `true`,`false`                         | `true`  | Store the result images to the worker's (for example, containerd) image store, and ensures that the image has all blobs in the content store. Ignored if the worker doesn't have image store (when using OCI workers, for example). |
 | `annotation.<key>`     | String                                 |         | Attach an annotation with the respective `key` and `value` to the built image,see [annotations](https://docs.docker.com/build/exporters/image-registry/#annotations) |
 
-## [Annotations](https://docs.docker.com/build/exporters/image-registry/#annotations)
+## Annotations
 
 These exporters support adding OCI annotation using `annotation` parameter, followed by the annotation name using dot notation. The following example sets the `org.opencontainers.image.title` annotation:
 
@@ -59,6 +59,6 @@ $ docker buildx build \
 
 For more information about annotations, see [BuildKit documentation](https://github.com/moby/buildkit/blob/master/docs/annotations.md).
 
-## [Further reading](https://docs.docker.com/build/exporters/image-registry/#further-reading)
+## Further reading
 
 For more information on the `image` or `registry` exporters, see the [BuildKit README](https://github.com/moby/buildkit/blob/master/README.md#imageregistry).

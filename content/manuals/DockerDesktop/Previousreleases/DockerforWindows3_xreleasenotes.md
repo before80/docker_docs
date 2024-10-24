@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/previous-versions/3.x-windows/](https://docs.docker.com/desktop/previous-versions/3.x-windows/)
+> 原文：[https://docs.docker.com/desktop/previous-versions/3.x-windows/](https://docs.docker.com/desktop/previous-versions/3.x-windows/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,16 +16,16 @@ draft = false
 
 This page contains release notes for Docker Desktop for Windows 3.x.
 
-## [Docker Desktop 3.6.0](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-360)
+## Docker Desktop 3.6.0
 
 2021-08-11
 
-### [New](https://docs.docker.com/desktop/previous-versions/3.x-windows/#new)
+### New
 
 - **Dev Environments**: You can now create a Dev Environment from your local Git repository.
-- **Volume Management**: You can now sort volumes by the name, the date created, and the size of the volume. You can also search for specific volumes using the **Search** field. For more information, see [Explore volumes](https://docs.docker.com/desktop/use-desktop/volumes/).
+- **Volume Management**: You can now sort volumes by the name, the date created, and the size of the volume. You can also search for specific volumes using the **Search** field. For more information, see [Explore volumes]({{< ref "/manuals/DockerDesktop/ExploreDockerDesktop/Volumes" >}}).
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/3.x-windows/#upgrades)
+### Upgrades
 
 - Compose V2 RC1
   - Docker compose command line completion.
@@ -38,7 +38,7 @@ This page contains release notes for Docker Desktop for Windows 3.x.
 - [Kubernetes 1.21.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.21.3)
 - [Linux kernel 5.10.47](https://hub.docker.com/layers/docker/for-desktop-kernel/5.10.47-0b705d955f5e283f62583c4e227d64a7924c138f/images/sha256-a4c79bc185ec9eba48dcc802a8881b9d97e532b3f803d23e5b8d4951588f4d51?context=repo)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/3.x-windows/#bug-fixes-and-minor-changes)
+### Bug fixes and minor changes
 
 - Update kernel configuration to fix a performance regression in [Docker Desktop 3.0.0](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-300) that caused publishing container ports to take 10 times longer than on older versions. For more information, see [linuxkit/linuxkit#3701](https://github.com/linuxkit/linuxkit/pull/3701) and [docker/for-mac#5668](https://github.com/docker/for-mac/issues/5668).
 - Fixed a bug where the DNS server would fail after receiving an unexpectedly large datagram.
@@ -52,15 +52,15 @@ This page contains release notes for Docker Desktop for Windows 3.x.
 - Fixed an issue related to log display inside a container [docker/for-win#11251](https://github.com/docker/for-win/issues/11251).
 - Fixed failures of the Windows Background Intelligent Transfer Service preventing Docker Desktop to start. [docker/for-win#11273](https://github.com/docker/for-win/issues/11273)
 
-## [Docker Desktop 3.5.2](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-352)
+## Docker Desktop 3.5.2
 
 2021-07-08
 
-### [New](https://docs.docker.com/desktop/previous-versions/3.x-windows/#new-1)
+### New
 
-**Dev Environments Preview**: Dev Environments enable you to seamlessly collaborate with your team members without moving between Git branches to get your code onto your team members' machines. When using Dev Environments, you can share your in-progress work with your team members in just one click, and without having to deal with any merge conflicts. For more information and for instructions on how to use Dev Environments, see [Development Environments Preview](https://docs.docker.com/desktop/dev-environments/).
+**Dev Environments Preview**: Dev Environments enable you to seamlessly collaborate with your team members without moving between Git branches to get your code onto your team members' machines. When using Dev Environments, you can share your in-progress work with your team members in just one click, and without having to deal with any merge conflicts. For more information and for instructions on how to use Dev Environments, see [Development Environments Preview]({{< ref "/manuals/DockerDesktop/DevEnvironmentsBeta" >}}).
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/3.x-windows/#upgrades-1)
+### Upgrades
 
 - [Compose V2 beta 6](https://github.com/docker/compose-cli/releases/tag/v2.0.0-beta.6)
   - `compose run` and `compose exec` commands use separate streams for stdout and stderr. See [docker/compose-cli#1873](https://github.com/docker/compose-cli/issues/1873).
@@ -71,7 +71,7 @@ This page contains release notes for Docker Desktop for Windows 3.x.
   - Support VS Code Insiders. See [dev-environments#3](https://github.com/docker/dev-environments/issues/3)
   - Allow users to specify a branch when cloning a project. See [dev-environments#11](https://github.com/docker/dev-environments/issues/11)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/3.x-windows/#bug-fixes-and-minor-changes-1)
+### Bug fixes and minor changes
 
 - Dev Environments: Fixed a blank screen in some create and remove scenarios. Fixes [dev-environments#4](https://github.com/docker/dev-environments/issues/4)
 - Dev Environments: Fixed error handling when removing an environment. Fixes [dev-environments#8](https://github.com/docker/dev-environments/issues/8)
@@ -80,32 +80,32 @@ This page contains release notes for Docker Desktop for Windows 3.x.
 - Fixed spurious traces on iptables updates.
 - Fixed a delay when adding a multiple port forwarding option.
 
-## [Docker Desktop 3.5.1](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-351)
+## Docker Desktop 3.5.1
 
 2021-06-25
 
-### [New](https://docs.docker.com/desktop/previous-versions/3.x-windows/#new-2)
+### New
 
-**Dev Environments Preview**: Dev Environments enable you to seamlessly collaborate with your team members without moving between Git branches to get your code onto your team members' machines. When using Dev Environments, you can share your in-progress work with your team members in just one click, and without having to deal with any merge conflicts. For more information and for instructions on how to use Dev Environments, see [Development Environments Preview](https://docs.docker.com/desktop/dev-environments/).
+**Dev Environments Preview**: Dev Environments enable you to seamlessly collaborate with your team members without moving between Git branches to get your code onto your team members' machines. When using Dev Environments, you can share your in-progress work with your team members in just one click, and without having to deal with any merge conflicts. For more information and for instructions on how to use Dev Environments, see [Development Environments Preview]({{< ref "/manuals/DockerDesktop/DevEnvironmentsBeta" >}}).
 
-**Compose V2 beta**: Docker Desktop now includes the beta version of Compose V2, which supports the `docker compose` command as part of the Docker CLI. While `docker-compose` is still supported and maintained, Compose V2 implementation relies directly on the compose-go bindings which are maintained as part of the specification. The compose command in the Docker CLI supports most of the `docker-compose` commands and flags. It is expected to be a drop-in replacement for `docker-compose`. There are a few remaining flags that have yet to be implemented, see the [docker-compose compatibility list](https://docs.docker.com/compose/releases/migrate/) for more information about the flags that are supported in the new compose command. If you run into any problems with Compose V2, you can easily switch back to Compose v1 by either by making changes in Docker Desktop **Experimental** Settings, or by running the command `docker-compose disable-v2`. Let us know your feedback on the new ‘compose’ command by creating an issue in the [Compose-CLI](https://github.com/docker/compose-cli/issues) GitHub repository.
+**Compose V2 beta**: Docker Desktop now includes the beta version of Compose V2, which supports the `docker compose` command as part of the Docker CLI. While `docker-compose` is still supported and maintained, Compose V2 implementation relies directly on the compose-go bindings which are maintained as part of the specification. The compose command in the Docker CLI supports most of the `docker-compose` commands and flags. It is expected to be a drop-in replacement for `docker-compose`. There are a few remaining flags that have yet to be implemented, see the [docker-compose compatibility list]({{< ref "/manuals/DockerCompose/Releases/MigratetoComposeV2" >}}) for more information about the flags that are supported in the new compose command. If you run into any problems with Compose V2, you can easily switch back to Compose v1 by either by making changes in Docker Desktop **Experimental** Settings, or by running the command `docker-compose disable-v2`. Let us know your feedback on the new ‘compose’ command by creating an issue in the [Compose-CLI](https://github.com/docker/compose-cli/issues) GitHub repository.
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/3.x-windows/#bug-fixes-and-minor-changes-2)
+### Bug fixes and minor changes
 
 - Fixed a bug where users could not install Docker Desktop when the path to the temp folder contained dots. Fixes [docker/for-win#11514](https://github.com/docker/for-win/issues/11514)
 - Fixed a link to the policy that provides details on how Docker handles the uploaded diagnostics data. Fixes [docker/for-mac#5741](https://github.com/docker/for-mac/issues/5741)
 
-## [Docker Desktop 3.5.0](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-350)
+## Docker Desktop 3.5.0
 
 2021-06-23
 
-### [New](https://docs.docker.com/desktop/previous-versions/3.x-windows/#new-3)
+### New
 
-**Dev Environments Preview**: Dev Environments enable you to seamlessly collaborate with your team members without moving between Git branches to get your code onto your team members' machines. When using Dev Environments, you can share your in-progress work with your team members in just one click, and without having to deal with any merge conflicts. For more information and for instructions on how to use Dev Environments, see [Development Environments Preview](https://docs.docker.com/desktop/dev-environments/).
+**Dev Environments Preview**: Dev Environments enable you to seamlessly collaborate with your team members without moving between Git branches to get your code onto your team members' machines. When using Dev Environments, you can share your in-progress work with your team members in just one click, and without having to deal with any merge conflicts. For more information and for instructions on how to use Dev Environments, see [Development Environments Preview]({{< ref "/manuals/DockerDesktop/DevEnvironmentsBeta" >}}).
 
-**Compose V2 beta**: Docker Desktop now includes the beta version of Compose V2, which supports the `docker compose` command as part of the Docker CLI. While `docker-compose` is still supported and maintained, Compose V2 implementation relies directly on the compose-go bindings which are maintained as part of the specification. The compose command in the Docker CLI supports most of the `docker-compose` commands and flags. It is expected to be a drop-in replacement for `docker-compose`. There are a few remaining flags that have yet to be implemented, see the [docker-compose compatibility list](https://docs.docker.com/compose/releases/migrate/) for more information about the flags that are supported in the new compose command. If you run into any problems with Compose V2, you can easily switch back to Compose v1 by either by making changes in Docker Desktop **Experimental** Settings, or by running the command `docker-compose disable-v2`. Let us know your feedback on the new ‘compose’ command by creating an issue in the [Compose-CLI](https://github.com/docker/compose-cli/issues) GitHub repository.
+**Compose V2 beta**: Docker Desktop now includes the beta version of Compose V2, which supports the `docker compose` command as part of the Docker CLI. While `docker-compose` is still supported and maintained, Compose V2 implementation relies directly on the compose-go bindings which are maintained as part of the specification. The compose command in the Docker CLI supports most of the `docker-compose` commands and flags. It is expected to be a drop-in replacement for `docker-compose`. There are a few remaining flags that have yet to be implemented, see the [docker-compose compatibility list]({{< ref "/manuals/DockerCompose/Releases/MigratetoComposeV2" >}}) for more information about the flags that are supported in the new compose command. If you run into any problems with Compose V2, you can easily switch back to Compose v1 by either by making changes in Docker Desktop **Experimental** Settings, or by running the command `docker-compose disable-v2`. Let us know your feedback on the new ‘compose’ command by creating an issue in the [Compose-CLI](https://github.com/docker/compose-cli/issues) GitHub repository.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/3.x-windows/#upgrades-2)
+### Upgrades
 
 - Compose V2 beta
   - Fixed a bug where a container cannot be started when a file is bind-mounted into a nested mountpoint. Fixes [docker/compose-cli#1795](https://github.com/docker/compose-cli/issues/1795).
@@ -114,7 +114,7 @@ This page contains release notes for Docker Desktop for Windows 3.x.
   - `docker compose config --profiles` now lists all defined profiles.
 - From [Kubernetes 1.21.1](https://github.com/kubernetes/kubernetes/releases/tag/v1.21.1) to [Kubernetes 1.21.2](https://github.com/kubernetes/kubernetes/releases/tag/v1.21.2)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/3.x-windows/#bug-fixes-and-minor-changes-3)
+### Bug fixes and minor changes
 
 - Volume Management
   - Users can now remove a file or directory inside a volume using the Docker Dashboard.
@@ -127,23 +127,23 @@ This page contains release notes for Docker Desktop for Windows 3.x.
 - The default `docker` CLI `context` is now `desktop-linux` in Linux containers mode and `desktop-windows` when in Windows containers mode.
 - Show the Docker Desktop Feedback popup only when clicking Docker menu.
 
-## [Docker Desktop 3.4.0](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-340)
+## Docker Desktop 3.4.0
 
 2021-06-09
 
-### [New](https://docs.docker.com/desktop/previous-versions/3.x-windows/#new-4)
+### New
 
-**Volume Management**: Docker Desktop users can now create and delete volumes using the Docker Dashboard and also see which volumes are being used. For more information, see [Explore volumes](https://docs.docker.com/desktop/use-desktop/volumes/).
+**Volume Management**: Docker Desktop users can now create and delete volumes using the Docker Dashboard and also see which volumes are being used. For more information, see [Explore volumes]({{< ref "/manuals/DockerDesktop/ExploreDockerDesktop/Volumes" >}}).
 
-**Compose V2 beta**: Docker Desktop now includes the beta version of Compose V2, which supports the `docker compose` command as part of the Docker CLI. While `docker-compose` is still supported and maintained, Compose V2 implementation relies directly on the compose-go bindings which are maintained as part of the specification. The compose command in the Docker CLI supports most of the `docker-compose` commands and flags. It is expected to be a drop-in replacement for `docker-compose`. There are a few remaining flags that have yet to be implemented, see the [docker-compose compatibility list](https://docs.docker.com/compose/releases/migrate/) for more information about the flags that are supported in the new compose command. If you run into any problems with Compose V2, you can easily switch back to Compose v1 by either by making changes in Docker Desktop **Experimental** Settings, or by running the command `docker-compose disable-v2`. Let us know your feedback on the new ‘compose’ command by creating an issue in the [Compose-CLI](https://github.com/docker/compose-cli/issues) GitHub repository.
+**Compose V2 beta**: Docker Desktop now includes the beta version of Compose V2, which supports the `docker compose` command as part of the Docker CLI. While `docker-compose` is still supported and maintained, Compose V2 implementation relies directly on the compose-go bindings which are maintained as part of the specification. The compose command in the Docker CLI supports most of the `docker-compose` commands and flags. It is expected to be a drop-in replacement for `docker-compose`. There are a few remaining flags that have yet to be implemented, see the [docker-compose compatibility list]({{< ref "/manuals/DockerCompose/Releases/MigratetoComposeV2" >}}) for more information about the flags that are supported in the new compose command. If you run into any problems with Compose V2, you can easily switch back to Compose v1 by either by making changes in Docker Desktop **Experimental** Settings, or by running the command `docker-compose disable-v2`. Let us know your feedback on the new ‘compose’ command by creating an issue in the [Compose-CLI](https://github.com/docker/compose-cli/issues) GitHub repository.
 
 **Skip Docker Desktop updates**: All users can now skip an update when they are prompted to install individual Docker Desktop releases.
 
-### [Deprecation](https://docs.docker.com/desktop/previous-versions/3.x-windows/#deprecation)
+### Deprecation
 
 - Docker Desktop no longer installs Notary, `docker trust` should be used for image signing.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/3.x-windows/#upgrades-3)
+### Upgrades
 
 - [Docker Engine 20.10.7](https://docs.docker.com/engine/release-notes/20.10/#20107)
 - [Docker Compose 1.29.2](https://github.com/docker/compose/releases/tag/1.29.2)
@@ -154,7 +154,7 @@ This page contains release notes for Docker Desktop for Windows 3.x.
 - [runc v1.0.0-rc95](https://github.com/opencontainers/runc/releases/tag/v1.0.0-rc95)
 - [Go 1.16.5](https://github.com/golang/go/releases/tag/go1.16.5)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/3.x-windows/#bug-fixes-and-minor-changes-4)
+### Bug fixes and minor changes
 
 - Fixed error showing stderr log in the UI. Fixes [docker/for-win#11251](https://github.com/docker/for-win/issues/11251).
 - Automatically reclaim space after deleting containers by deleting volumes and removing build cache.
@@ -165,31 +165,31 @@ This page contains release notes for Docker Desktop for Windows 3.x.
 - Fixed a corrupted internal cache which was preventing Docker Desktop from starting. Fixes [docker/for-win#8748](https://github.com/docker/for-win/issues/8748).
 - Fixed an issue where `docker info` sometimes took longer to respond. Fixes [docker/for-win#10675](https://github.com/docker/for-win/issues/10675)
 
-## [Docker Desktop 3.3.3](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-333)
+## Docker Desktop 3.3.3
 
 2021-05-06
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/3.x-windows/#upgrades-4)
+### Upgrades
 
 - [Snyk v1.563.0](https://github.com/snyk/snyk/releases/tag/v1.563.0)
 - [Docker Scan v0.8.0](https://github.com/docker/scan-cli-plugin/releases/tag/v0.8.0)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/3.x-windows/#bug-fixes-and-minor-changes-5)
+### Bug fixes and minor changes
 
 - Fixed the diagnostics failing to upload from the Troubleshoot screen.
 
-## [Docker Desktop 3.3.2](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-332)
+## Docker Desktop 3.3.2
 
 2021-05-03
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/3.x-windows/#upgrades-5)
+### Upgrades
 
 - [Compose CLI v1.0.14](https://github.com/docker/compose-cli/tree/v1.0.14)
 - [Go 1.16.3](https://golang.org/doc/go1.16)
 - [Docker Compose 1.29.1](https://github.com/docker/compose/releases/tag/1.29.1)
 - [Docker Engine 20.10.6](https://docs.docker.com/engine/release-notes/20.10/#20106)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/3.x-windows/#bug-fixes-and-minor-changes-6)
+### Bug fixes and minor changes
 
 - Fixed a bug where a `metrics-port` defined in the engine's `daemon.json` blocks application restart.
 - Fixed a leak of ephemeral ports. Fixes [docker/for-mac#5611](https://github.com/docker/for-mac/issues/5611).
@@ -197,22 +197,22 @@ This page contains release notes for Docker Desktop for Windows 3.x.
 - Fixed a bug which blocked binding to port 123. Fixes [docker/for-mac#5589](https://github.com/docker/for-mac/issues/5589).
 - Removed the "Deploy Docker Stacks to Kubernetes by default" Kubernetes setting. The component was removed in 2.4.0.0 but we forgot to remove the setting. Fixes [docker/for-mac#4966](https://github.com/docker/for-mac/issues/4966).
 
-## [Docker Desktop 3.3.1](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-331)
+## Docker Desktop 3.3.1
 
 2021-04-15
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/3.x-windows/#bug-fixes-and-minor-changes-7)
+### Bug fixes and minor changes
 
 - Docker Desktop now ensures the permissions of `/dev/null` and other devices are correctly set to `0666` (`rw-rw-rw-`) inside `--privileged` containers. Fixes [docker/for-mac#5527](https://github.com/docker/for-mac/issues/5527).
 - Fixed an issue that caused `docker run` to fail when using `\\wsl.localhost` path to a directory. Fixes [docker/for-win#10786](https://github.com/docker/for-win/issues/10786)
 - Fixed an issue that caused Docker Desktop to fail during startup when it is unable to establish a connection with Docker Hub in the backend. Fixes [docker/for-win#10896](https://github.com/docker/for-win/issues/10896)
 - Fixed file permission when creating a file from a delta update. Fixes [docker/for-win#10881](https://github.com/docker/for-win/issues/10881)
 
-## [Docker Desktop 3.3.0](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-330)
+## Docker Desktop 3.3.0
 
 2021-04-08
 
-### [New](https://docs.docker.com/desktop/previous-versions/3.x-windows/#new-5)
+### New
 
 You can now specify when to download and install a Docker Desktop update. When an update becomes available, Docker Desktop displays an icon to indicate the availability of a newer version. You can download the update in the background whenever convenient. When the download is complete, all you need to do is to click Update and restart to install the latest update.
 
@@ -220,7 +220,7 @@ Developers who use Docker Desktop for professional development purposes may at t
 
 For developers in IT managed environments, who don’t have administrative access to install updates to Docker Desktop, there is now an option in the Settings menu to opt out of notifications altogether for Docker Desktop updates if your Docker ID is part of a Team subscription.
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/3.x-windows/#upgrades-6)
+### Upgrades
 
 - [Docker Compose 1.29.0](https://github.com/docker/compose/releases/tag/1.29.0)
 - [Compose CLI v1.0.12](https://github.com/docker/compose-cli/tree/v1.0.12)
@@ -230,7 +230,7 @@ For developers in IT managed environments, who don’t have administrative acces
 - [containerd v1.4.4](https://github.com/containerd/containerd/releases/tag/v1.4.4)
 - [runc v1.0.0-rc93](https://github.com/opencontainers/runc/releases/tag/v1.0.0-rc93)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/3.x-windows/#bug-fixes-and-minor-changes-8)
+### Bug fixes and minor changes
 
 - Fixed an issue when viewing compose applications that have been started with an explicit project name. Fixes [docker/for-win#10564](https://github.com/docker/for-win/issues/10564).
 - Ensure `--add-host host.docker.internal:host-gateway` causes `host.docker.internal` resolves to the host IP, rather than the IP of the IP router. See [docker/for-linux#264](https://github.com/docker/for-linux/issues/264).
@@ -239,29 +239,29 @@ For developers in IT managed environments, who don’t have administrative acces
 - Fixed an issue where pulling an image from Docker Hub using the Docker Desktop dashboard was failing silently.
 - Perform a filesystem check when starting the Linux VM.
 
-## [Docker Desktop 3.2.2](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-322)
+## Docker Desktop 3.2.2
 
 2021-03-15
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/3.x-windows/#bug-fixes-and-minor-changes-9)
+### Bug fixes and minor changes
 
 - Fixed an issue that stopped containers binding to port 53. Fixes [docker/for-win#10601](https://github.com/docker/for-win/issues/10601).
 - Fixed an issue that 32-bit Intel binaries were emulated on Intel CPUs. Fixes [docker/for-win#10594](https://github.com/docker/for-win/issues/10594).
 - Fixed an issue related to high CPU consumption and frozen UI when the network connection is lost. Fixes [for-win/#10563](https://github.com/docker/for-win/issues/10563).
 
-## [Docker Desktop 3.2.1](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-321)
+## Docker Desktop 3.2.1
 
 2021-03-05
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/3.x-windows/#upgrades-7)
+### Upgrades
 
 - [Docker Engine 20.10.5](https://docs.docker.com/engine/release-notes/20.10/#20105)
 
-## [Docker Desktop 3.2.0](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-320)
+## Docker Desktop 3.2.0
 
 2021-03-01
 
-### [New](https://docs.docker.com/desktop/previous-versions/3.x-windows/#new-6)
+### New
 
 - The Docker Dashboard opens automatically when you start Docker Desktop.
 - The Docker Dashboard displays a tip once a week.
@@ -275,7 +275,7 @@ For developers in IT managed environments, who don’t have administrative acces
 }
 ```
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/3.x-windows/#upgrades-8)
+### Upgrades
 
 - [Docker Engine 20.10.3](https://docs.docker.com/engine/release-notes/20.10/#20103)
 - [Docker Compose 1.28.5](https://github.com/docker/compose/releases/tag/1.28.5)
@@ -287,12 +287,12 @@ For developers in IT managed environments, who don’t have administrative acces
 - [Kubernetes 1.19.7](https://github.com/kubernetes/kubernetes/releases/tag/v1.19.7)
 - [Go 1.16](https://golang.org/doc/go1.16)
 
-### [Deprecation](https://docs.docker.com/desktop/previous-versions/3.x-windows/#deprecation-1)
+### Deprecation
 
 - Docker Desktop cannot be installed on Windows 1709 (build 16299) anymore.
 - Removed the deprecated DNS name `docker.for.win.localhost`. Use DNS name `host.docker.internal` in a container to access services that are running on the host. [docker/for-win#10619](https://github.com/docker/for-win/issues/10619)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/3.x-windows/#bug-fixes-and-minor-changes-10)
+### Bug fixes and minor changes
 
 - Fixed an issue on the container detail screen where the buttons would disappear when scrolling the logs. Fixes [docker/for-win#10160](https://github.com/docker/for-win/issues/10160)
 - Fixed an issue when port forwarding multiple ports with an IPv6 container network. Fixes [docker/for-mac#5247](https://github.com/docker/for-mac/issues/5247)
@@ -304,40 +304,40 @@ For developers in IT managed environments, who don’t have administrative acces
 - Fixed an issue when binding ports on specific IPs. Note: It may now take a bit of time before the `docker inspect` command shows the open ports. Fixes [docker/for-win#10008](https://github.com/docker/for-win/issues/10008)
 - Fixed an issue where an image deleted from the Docker dashboard was still displayed on the **Images** view.
 
-## [Docker Desktop 3.1.0](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-310)
+## Docker Desktop 3.1.0
 
 2021-01-14
 
-## [New](https://docs.docker.com/desktop/previous-versions/3.x-windows/#new-7)
+## New
 
 - Add experimental support for GPU workloads with WSL 2 backend (requires Windows Insider developer channel).
 - Docker daemon now runs within a Debian Buster based container (instead of Alpine).
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/3.x-windows/#upgrades-9)
+### Upgrades
 
 - [Compose CLI v1.0.7](https://github.com/docker/compose-cli/tree/v1.0.7)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/3.x-windows/#bug-fixes-and-minor-changes-11)
+### Bug fixes and minor changes
 
 - Fixed an issue where disabling proxy settings would not work. Fixes [docker/for-win#9357](https://github.com/docker/for-win/issues/9357).
 - Fixed UI reliability issues when users create or delete a lot of objects in batches.
 - Redesigned the **Support** UI to improve usability.
 
-## [Docker Desktop 3.0.4](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-304)
+## Docker Desktop 3.0.4
 
 2021-01-06 pgrades
 
 - [Docker Engine 20.10.2](https://docs.docker.com/engine/release-notes/20.10/#20102)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/3.x-windows/#bug-fixes-and-minor-changes-12)
+### Bug fixes and minor changes
 
 - Fixed an issue that could cause Docker Desktop to fail to start after upgrading to 3.0.0. Fixes [docker/for-win#9755](https://github.com/docker/for-win/issues/9755).
 
-## [Docker Desktop 3.0.0](https://docs.docker.com/desktop/previous-versions/3.x-windows/#docker-desktop-300)
+## Docker Desktop 3.0.0
 
 2020-12-10
 
-## [New](https://docs.docker.com/desktop/previous-versions/3.x-windows/#new-8)
+## New
 
 - Use of three-digit version number for Docker Desktop releases.
 
@@ -353,19 +353,19 @@ For developers in IT managed environments, who don’t have administrative acces
 
 - [Docker Hub Tool v0.2.0](https://github.com/docker/roadmap/issues/117)
 
-### [Upgrades](https://docs.docker.com/desktop/previous-versions/3.x-windows/#upgrades-10)
+### Upgrades
 
 - [Docker Engine 20.10.0](https://docs.docker.com/engine/release-notes/20.10/#20100)
 - [Go 1.15.6](https://github.com/golang/go/issues?q=milestone%3AGo1.15.6+label%3ACherryPickApproved+)
 - [Compose CLI v1.0.4](https://github.com/docker/compose-cli/releases/tag/v1.0.4)
 - [Snyk v1.432.0](https://github.com/snyk/snyk/releases/tag/v1.432.0)
 
-### [Bug fixes and minor changes](https://docs.docker.com/desktop/previous-versions/3.x-windows/#bug-fixes-and-minor-changes-13)
+### Bug fixes and minor changes
 
 - Downgraded the kernel to [4.19.121](https://hub.docker.com/layers/docker/for-desktop-kernel/4.19.121-2a1dbedf3f998dac347c499808d7c7e029fbc4d3-amd64/images/sha256-4e7d94522be4f25f1fbb626d5a0142cbb6e785f37e437f6fd4285e64a199883a?context=repo) to reduce the CPU usage of hyperkit. Fixes [docker/for-mac#5044](https://github.com/docker/for-mac/issues/5044)
 - Fixed an unexpected EOF error when trying to start a non-existing container with `-v /var/run/docker.sock:`. See [docker/for-mac#5025](https://github.com/docker/for-mac/issues/5025).
 
-### [Known issues](https://docs.docker.com/desktop/previous-versions/3.x-windows/#known-issues)
+### Known issues
 
 - Building an image with BuildKit from a git URL fails when using the form `github.com/org/repo`. To work around this issue, use the form `git://github.com/org/repo`.
 - Some DNS addresses fail to resolve within containers based on Alpine Linux 3.13.

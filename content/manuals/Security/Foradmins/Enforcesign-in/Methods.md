@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/enforce-sign-in/methods/](https://docs.docker.com/security/for-admins/enforce-sign-in/methods/)
+> 原文：[https://docs.docker.com/security/for-admins/enforce-sign-in/methods/](https://docs.docker.com/security/for-admins/enforce-sign-in/methods/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 This page outlines the different ways you can enforce sign-in for Docker Desktop.
 
-## [Registry key method (Windows only)](https://docs.docker.com/security/for-admins/enforce-sign-in/methods/#registry-key-method-windows-only)
+## Registry key method (Windows only)
 
 > **Note**
 >
@@ -54,7 +54,7 @@ In some cases, a system reboot may be necessary for enforcement to take effect.
 >
 > If a registry key and a `registry.json` file both exist, the registry key takes precedence.
 
-### [Example deployment via Group Policy](https://docs.docker.com/security/for-admins/enforce-sign-in/methods/#example-deployment-via-group-policy)
+### Example deployment via Group Policy
 
 The following is only an illustrative example.
 
@@ -69,7 +69,7 @@ There are many ways to deploy the registry key, for example using an MDM solutio
 7. Test the GPO. Test the GPO on a small set of machines first to ensure it behaves as expected. You can use the `gpupdate /force` command on a test machine to manually refresh its group policy settings and check the registry to confirm the changes.
 8. Once verified, you can proceed with broader deployment. Monitor the deployment to ensure the settings are applied correctly across the organization's computers.
 
-## [plist method (Mac only)](https://docs.docker.com/security/for-admins/enforce-sign-in/methods/#plist-method-mac-only)
+## plist method (Mac only)
 
 > **Note**
 >
@@ -114,7 +114,7 @@ There are many ways to deploy the registry key, for example using an MDM solutio
 >
 > If a `plist` and `registry.json` file both exist, the `plist` file takes precedence.
 
-### [Example deployment](https://docs.docker.com/security/for-admins/enforce-sign-in/methods/#example-deployment)
+### Example deployment
 
 The following is only an illustrative example.
 
@@ -130,13 +130,13 @@ MDM Shell script
 
 ------
 
-## [registry.json method (All)](https://docs.docker.com/security/for-admins/enforce-sign-in/methods/#registryjson-method-all)
+## registry.json method (All)
 
 The following instructions explain how to create and deploy a `registry.json` file to a single device. There are many ways to deploy the `registry.json` file. You can follow the example deployments outlined in the `.plist` file section. The method you choose is dependent on your organization's infrastructure, security policies, and the administrative rights of the end-users.
 
-### [Option 1: Create a registry.json file to enforce sign-in](https://docs.docker.com/security/for-admins/enforce-sign-in/methods/#option-1-create-a-registryjson-file-to-enforce-sign-in)
+### Option 1: Create a registry.json file to enforce sign-in
 
-1. Ensure that the user is a member of your organization in Docker. For more details, see [Manage members](https://docs.docker.com/admin/organization/members/).
+1. Ensure that the user is a member of your organization in Docker. For more details, see [Manage members]({{< ref "/manuals/Administration/Organizationadministration/Manageorganizationmembers" >}}).
 
 2. Create the `registry.json` file.
 
@@ -178,7 +178,7 @@ The following instructions explain how to create and deploy a `registry.json` fi
    >
    > If your users have issues starting Docker Desktop after you enforce sign-in, they may need to update to the latest version.
 
-### [Option 2: Create a registry.json file when installing Docker Desktop](https://docs.docker.com/security/for-admins/enforce-sign-in/methods/#option-2-create-a-registryjson-file-when-installing-docker-desktop)
+### Option 2: Create a registry.json file when installing Docker Desktop
 
 To create a `registry.json` file when installing Docker Desktop, use the following instructions based on your user's operating system.
 
@@ -206,7 +206,7 @@ C:\Users\Admin> "Docker Desktop Installer.exe" install --allowed-org=myorg
 
 ------
 
-### [Option 3: Create a registry.json file using the command line](https://docs.docker.com/security/for-admins/enforce-sign-in/methods/#option-3-create-a-registryjson-file-using-the-command-line)
+### Option 3: Create a registry.json file using the command line
 
 To create a `registry.json` using the command line, use the following instructions based on your user's operating system.
 
@@ -240,6 +240,6 @@ registry.json BUILTIN\Administrators NT AUTHORITY\SYSTEM Allow  FullControl...
 
 ------
 
-## [More resources](https://docs.docker.com/security/for-admins/enforce-sign-in/methods/#more-resources)
+## More resources
 
 - [Video: Enforce sign-in with a registry.json](https://www.youtube.com/watch?v=CIOQ6wDnJnM)

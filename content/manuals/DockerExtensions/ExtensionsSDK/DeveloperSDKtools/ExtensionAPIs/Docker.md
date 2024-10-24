@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/dev/api/docker/](https://docs.docker.com/extensions/extensions-sdk/dev/api/docker/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/dev/api/docker/](https://docs.docker.com/extensions/extensions-sdk/dev/api/docker/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker
 
-## [Docker objects](https://docs.docker.com/extensions/extensions-sdk/dev/api/docker/#docker-objects)
+## Docker objects
 
 ▸ **listContainers**(`options?`): `Promise`<`unknown`>
 
@@ -36,7 +36,7 @@ To get the list of local container images:
 const images = await ddClient.docker.listImages();
 ```
 
-See the [Docker API reference](https://docs.docker.com/reference/api/extensions-sdk/Docker/) for details about these methods.
+See the [Docker API reference]({{< ref "/reference/APIreference/ExtensionsAPI/InterfaceDocker" >}}) for details about these methods.
 
 > Deprecated access to Docker objects
 >
@@ -50,11 +50,11 @@ const containers = await window.ddClient.listContainers();
 const images = await window.ddClient.listImages();
 ```
 
-## [Docker commands](https://docs.docker.com/extensions/extensions-sdk/dev/api/docker/#docker-commands)
+## Docker commands
 
 Extensions can also directly execute the `docker` command line.
 
-▸ **exec**(`cmd`, `args`): `Promise`< [`ExecResult`](https://docs.docker.com/reference/api/extensions-sdk/ExecResult/)>
+▸ **exec**(`cmd`, `args`): `Promise`< [`ExecResult`]({{< ref "/reference/APIreference/ExtensionsAPI/InterfaceExecResult" >}})>
 
 
 
@@ -159,7 +159,7 @@ await ddClient.docker.cli.exec(
 >
 > You need to invoke `exec()` for each command and parse results to pass parameters to the next command if needed.
 
-See the [Exec API reference](https://docs.docker.com/reference/api/extensions-sdk/Exec/) for details about these methods.
+See the [Exec API reference]({{< ref "/reference/APIreference/ExtensionsAPI/InterfaceExec" >}}) for details about these methods.
 
 > Deprecated execution of Docker commands
 >

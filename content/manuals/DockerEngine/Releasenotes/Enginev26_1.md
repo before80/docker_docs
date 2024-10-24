@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/26.1/](https://docs.docker.com/engine/release-notes/26.1/)
+> 原文：[https://docs.docker.com/engine/release-notes/26.1/](https://docs.docker.com/engine/release-notes/26.1/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,10 +18,10 @@ This page describes the latest changes, additions, known issues, and fixes for D
 
 For more information about:
 
-- Deprecated and removed features, see [Deprecated Engine Features](https://docs.docker.com/engine/deprecated/).
-- Changes to the Engine API, see [Engine API version history](https://docs.docker.com/reference/api/engine/version-history/).
+- Deprecated and removed features, see [Deprecated Engine Features]({{< ref "/manuals/DockerEngine/Deprecatedfeatures" >}}).
+- Changes to the Engine API, see [Engine API version history]({{< ref "/reference/APIreference/DockerEngineAPI/EngineAPIversionhistory" >}}).
 
-## [26.1.4](https://docs.docker.com/engine/release-notes/26.1/#2614)
+## 26.1.4
 
 *2024-06-05*
 
@@ -32,7 +32,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Deprecated and removed features, see [Deprecated Features](https://github.com/docker/cli/blob/v26.1.4/docs/deprecated.md).
 - Changes to the Engine API, see [API version history](https://github.com/moby/moby/blob/v26.1.4/docs/api/version-history.md).
 
-### [Security](https://docs.docker.com/engine/release-notes/26.1/#security)
+### Security
 
 This release updates the Go runtime to 1.21.11 which contains security fixes for:
 
@@ -40,21 +40,21 @@ This release updates the Go runtime to 1.21.11 which contains security fixes for
 - [CVE-2024-24790](https://github.com/golang/go/issues/67680)
 - A symlink time of check to time of use race condition during directory removal reported by [Addison Crump](https://github.com/addisoncrump).
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/26.1/#bug-fixes-and-enhancements)
+### Bug fixes and enhancements
 
 - Fixed an issue where promoting a node immediately after another node was demoted could cause the promotion to fail. [moby/moby#47870](https://github.com/moby/moby/pull/47870)
 - Prevent the daemon log from being spammed with `superfluous response.WriteHeader call ...` messages. [moby/moby#47843](https://github.com/moby/moby/pull/47843)
 - Don't show empty hints when plugins return an empty hook message. [docker/cli#5083](https://github.com/docker/cli/pull/5083)
 - Fix a compatibility issue with Visual Studio Container Tools. [docker/cli#5095](https://github.com/docker/cli/pull/5095)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/26.1/#packaging-updates)
+### Packaging updates
 
 - Update containerd (static binaries only) to [v1.7.17](https://github.com/containerd/containerd/releases/tag/v1.7.17). [moby/moby#47841](https://github.com/moby/moby/pull/47841)
 - [CVE-2024-24789](https://github.com/golang/go/issues/66869), [CVE-2024-24790](https://github.com/golang/go/issues/67680): Update Go runtime to 1.21.11. [moby/moby#47904](https://github.com/moby/moby/pull/47904)
 - Update Compose to [v2.27.1](https://github.com/docker/compose/releases/tag/v2.27.1). [docker/docker-ce-packages#1022](https://github.com/docker/docker-ce-packaging/pull/1022)
 - Update Buildx to [v0.14.1](https://github.com/docker/buildx/releases/tag/v0.14.1). [docker/docker-ce-packages#1021](https://github.com/docker/docker-ce-packaging/pull/1021)
 
-## [26.1.3](https://docs.docker.com/engine/release-notes/26.1/#2613)
+## 26.1.3
 
 *2024-05-16*
 
@@ -65,16 +65,16 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Deprecated and removed features, see [Deprecated Features](https://github.com/docker/cli/blob/v26.1.3/docs/deprecated.md).
 - Changes to the Engine API, see [API version history](https://github.com/moby/moby/blob/v26.1.3/docs/api/version-history.md).
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/26.1/#bug-fixes-and-enhancements-1)
+### Bug fixes and enhancements
 
 - Fix a regression that prevented the use of DNS servers within a `--internal` network. [moby/moby#47832](https://github.com/moby/moby/pull/47832)
 - When the internal DNS server's own address is supplied as an external server address, ignore it to avoid unproductive recursion. [moby/moby#47833](https://github.com/moby/moby/pull/47833)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/26.1/#packaging-updates-1)
+### Packaging updates
 
 - Allow runc to kill containers when confined to the runc profile in AppArmor version 4.0.0 and later. [moby/moby#47829](https://github.com/moby/moby/pull/47829)
 
-## [26.1.2](https://docs.docker.com/engine/release-notes/26.1/#2612)
+## 26.1.2
 
 *2024-05-08*
 
@@ -85,15 +85,15 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Deprecated and removed features, see [Deprecated Features](https://github.com/docker/cli/blob/v26.1.2/docs/deprecated.md).
 - Changes to the Engine API, see [API version history](https://github.com/moby/moby/blob/v26.1.2/docs/api/version-history.md).
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/26.1/#bug-fixes-and-enhancements-2)
+### Bug fixes and enhancements
 
 - Fix an issue where the CLI process would sometimes hang when a container failed to start. [docker/cli#5062](https://github.com/docker/cli/pull/5062)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/26.1/#packaging-updates-2)
+### Packaging updates
 
 - Update Go runtime to 1.21.10. [moby/moby#47806](https://github.com/moby/moby/pull/47806)
 
-## [26.1.1](https://docs.docker.com/engine/release-notes/26.1/#2611)
+## 26.1.1
 
 *2024-04-30*
 
@@ -104,7 +104,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Deprecated and removed features, see [Deprecated Features](https://github.com/docker/cli/blob/v26.1.1/docs/deprecated.md).
 - Changes to the Engine API, see [API version history](https://github.com/moby/moby/blob/v26.1.1/docs/api/version-history.md).
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/26.1/#bug-fixes-and-enhancements-3)
+### Bug fixes and enhancements
 
 - Fix `docker run -d` printing an `context canceled` spurious error when OpenTelemetry is configured. [docker/cli#5044](https://github.com/docker/cli/pull/5044)
 - Experimental environment variable `DOCKER_BRIDGE_PRESERVE_KERNEL_LL=1` will prevent the daemon from removing the kernel-assigned link local address on a Linux bridge. [moby/moby#47775](https://github.com/moby/moby/pull/47775)
@@ -116,12 +116,12 @@ For a full list of pull requests and changes in this release, refer to the relev
 >
 > The `DOCKER_ALLOW_IPV6_ON_IPV4_INTERFACE` is added as a temporary fix and will be phased out in a future major release, when the IPv6 enablement process has been improved.
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/26.1/#packaging-updates-3)
+### Packaging updates
 
 - Update BuildKit to [v0.13.2](https://github.com/moby/buildkit/releases/tag/v0.13.2). [moby/moby#47762](https://github.com/moby/moby/pull/47762)
 - Update Compose to [v2.27.0](https://github.com/docker/compose/releases/tag/v2.27.0). [docker/docker-ce-packages#1017](https://github.com/docker/docker-ce-packaging/pull/1017)
 
-## [26.1.0](https://docs.docker.com/engine/release-notes/26.1/#2610)
+## 26.1.0
 
 *2024-04-22*
 
@@ -132,11 +132,11 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Deprecated and removed features, see [Deprecated Features](https://github.com/docker/cli/blob/v26.1.0/docs/deprecated.md).
 - Changes to the Engine API, see [API version history](https://github.com/moby/moby/blob/v26.1.0/docs/api/version-history.md).
 
-### [New](https://docs.docker.com/engine/release-notes/26.1/#new)
+### New
 
 - Added configurable OpenTelemetry utilities and basic instrumentation to commands. For more information, see [OpenTelemetry for the Docker CLI](https://docs.docker.com/config/otel). [docker/cli#4889](https://github.com/docker/cli/pull/4889)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/26.1/#bug-fixes-and-enhancements-4)
+### Bug fixes and enhancements
 
 - Native Windows containers are configured with an internal DNS server for container name resolution, and external DNS servers for other lookups. Not all resolvers, including `nslookup`, fall back to the external resolvers when they get a `SERVFAIL` answer from the internal server. So, the internal DNS server can now be configured to forward requests to the external resolvers, by setting a `feature` option in the `daemon.json` file:
 

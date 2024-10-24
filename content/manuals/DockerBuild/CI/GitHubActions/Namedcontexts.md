@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/ci/github-actions/named-contexts/](https://docs.docker.com/build/ci/github-actions/named-contexts/)
+> 原文：[https://docs.docker.com/build/ci/github-actions/named-contexts/](https://docs.docker.com/build/ci/github-actions/named-contexts/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ You can define [additional build contexts](https://docs.docker.com/reference/cli
 
 This can be useful with GitHub Actions to reuse results from other builds or pin an image to a specific tag in your workflow.
 
-## [Pin image to a tag](https://docs.docker.com/build/ci/github-actions/named-contexts/#pin-image-to-a-tag)
+## Pin image to a tag
 
 Replace `alpine:latest` with a pinned one:
 
@@ -53,7 +53,7 @@ jobs:
           tags: myimage:latest
 ```
 
-## [Use image in subsequent steps](https://docs.docker.com/build/ci/github-actions/named-contexts/#use-image-in-subsequent-steps)
+## Use image in subsequent steps
 
 By default, the [Docker Setup Buildx](https://github.com/marketplace/actions/docker-setup-buildx) action uses `docker-container` as a build driver, so built Docker images aren't loaded automatically.
 
@@ -99,9 +99,9 @@ jobs:
           tags: myimage:latest
 ```
 
-## [Using with a container builder](https://docs.docker.com/build/ci/github-actions/named-contexts/#using-with-a-container-builder)
+## Using with a container builder
 
-As shown in the previous section we are not using the default [`docker-container` driver](https://docs.docker.com/build/builders/drivers/docker-container/) for building with named contexts. That's because this driver can't load an image from the Docker store as it's isolated. To solve this problem you can use a [local registry](https://docs.docker.com/build/ci/github-actions/local-registry/) to push your base image in your workflow:
+As shown in the previous section we are not using the default [`docker-container` driver]({{< ref "/manuals/DockerBuild/Builders/Builddrivers/Dockercontainerbuilddriver" >}}) for building with named contexts. That's because this driver can't load an image from the Docker store as it's isolated. To solve this problem you can use a [local registry]({{< ref "/manuals/DockerBuild/CI/GitHubActions/Localregistry" >}}) to push your base image in your workflow:
 
 
 

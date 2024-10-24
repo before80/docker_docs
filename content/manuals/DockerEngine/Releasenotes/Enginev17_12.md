@@ -8,29 +8,29 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/17.12/](https://docs.docker.com/engine/release-notes/17.12/)
+> 原文：[https://docs.docker.com/engine/release-notes/17.12/](https://docs.docker.com/engine/release-notes/17.12/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Engine 17.12 release notes
 
-## [17.12.1-ce](https://docs.docker.com/engine/release-notes/17.12/#17121-ce)
+## 17.12.1-ce
 
 2018-02-27
 
-### [Client](https://docs.docker.com/engine/release-notes/17.12/#client)
+### Client
 
 - Fix `node-generic-resource` typo [moby/moby#35970](https://github.com/moby/moby/pull/35970) and [moby/moby#36125](https://github.com/moby/moby/pull/36125)
 
 - Return errors from daemon on stack deploy configs create/update [docker/cli#757](https://github.com/docker/cli/pull/757)
 
-### [Logging](https://docs.docker.com/engine/release-notes/17.12/#logging)
+### Logging
 
 - awslogs: fix batch size calculation for large logs [moby/moby#35726](https://github.com/moby/moby/pull/35726)
 
 - Support a proxy in splunk log driver [moby/moby#36220](https://github.com/moby/moby/pull/36220)
 
-### [Networking](https://docs.docker.com/engine/release-notes/17.12/#networking)
+### Networking
 
 - Fix ingress network when upgrading from 17.09 to 17.12 [moby/moby#36003](https://github.com/moby/moby/pull/36003)
 
@@ -39,11 +39,11 @@ draft = false
 - Fix IPv6 networking being deconfigured if live-restore is being enabled [docker/libnetwork#2043](https://github.com/docker/libnetwork/pull/2043)
 - Fix watchMiss thread context [docker/libnetwork#2051](https://github.com/docker/libnetwork/pull/2051)
 
-### [Packaging](https://docs.docker.com/engine/release-notes/17.12/#packaging)
+### Packaging
 
 - Set TasksMax in docker.service [docker/docker-ce-packaging#78](https://github.com/docker/docker-ce-packaging/pull/78)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/17.12/#runtime)
+### Runtime
 
 - Bump Golang to 1.9.4
 - Bump containerd to 1.0.1
@@ -66,21 +66,21 @@ draft = false
 
 - Nullify container read write layer upon release [moby/moby#36130](https://github.com/moby/moby/pull/36160) and [moby/moby#36343](https://github.com/moby/moby/pull/36242)
 
-### [Swarm](https://docs.docker.com/engine/release-notes/17.12/#swarm)
+### Swarm
 
 - Remove watchMiss from swarm mode [docker/libnetwork#2047](https://github.com/docker/libnetwork/pull/2047)
 
-### [Known Issues](https://docs.docker.com/engine/release-notes/17.12/#known-issues)
+### Known Issues
 
 - Health check no longer uses the container's working directory [moby/moby#35843](https://github.com/moby/moby/issues/35843)
 - Errors not returned from client in stack deploy configs [moby/moby#757](https://github.com/docker/cli/pull/757)
 - Docker cannot use memory limit when using systemd options [moby/moby#35123](https://github.com/moby/moby/issues/35123)
 
-## [17.12.0-ce](https://docs.docker.com/engine/release-notes/17.12/#17120-ce)
+## 17.12.0-ce
 
 2017-12-27
 
-### [Known Issues](https://docs.docker.com/engine/release-notes/17.12/#known-issues-1)
+### Known Issues
 
 - AWS logs batch size calculation [moby/moby#35726](https://github.com/moby/moby/pull/35726)
 - Health check no longer uses the container's working directory [moby/moby#35843](https://github.com/moby/moby/issues/35843)
@@ -88,13 +88,13 @@ draft = false
 - Daemon aborts when project quota fails [moby/moby#35827](https://github.com/moby/moby/pull/35827)
 - Docker cannot use memory limit when using systemd options [moby/moby#35123](https://github.com/moby/moby/issues/35123)
 
-### [Builder](https://docs.docker.com/engine/release-notes/17.12/#builder)
+### Builder
 
 - Fix build cache hash for broken symlink [moby/moby#34271](https://github.com/moby/moby/pull/34271)
 - Fix long stream sync [moby/moby#35404](https://github.com/moby/moby/pull/35404)
 - Fix dockerfile parser failing silently on long tokens [moby/moby#35429](https://github.com/moby/moby/pull/35429)
 
-### [Client](https://docs.docker.com/engine/release-notes/17.12/#client-1)
+### Client
 
 - Remove secret/config duplication in cli/compose [docker/cli#671](https://github.com/docker/cli/pull/671)
 - Add `--local` flag to `docker trust sign` [docker/cli#575](https://github.com/docker/cli/pull/575)
@@ -114,11 +114,11 @@ draft = false
 - Remove support for referencing images by image shortid [docker/cli#753](https://github.com/docker/cli/pull/753) and [moby/moby#35790](https://github.com/moby/moby/pull/35790)
 - Use commit-sha instead of tag for containerd [moby/moby#35770](https://github.com/moby/moby/pull/35770)
 
-### [Documentation](https://docs.docker.com/engine/release-notes/17.12/#documentation)
+### Documentation
 
 - Update API version history for 1.35 [moby/moby#35724](https://github.com/moby/moby/pull/35724)
 
-### [Logging](https://docs.docker.com/engine/release-notes/17.12/#logging-1)
+### Logging
 
 - Logentries driver line-only=true []byte output fix [moby/moby#35612](https://github.com/moby/moby/pull/35612)
 - Logentries line-only logopt fix to maintain backwards compatibility [moby/moby#35628](https://github.com/moby/moby/pull/35628)
@@ -129,7 +129,7 @@ draft = false
 - Set timeout on splunk batch send [moby/moby#35496](https://github.com/moby/moby/pull/35496)
 - Update Graylog2/go-gelf [moby/moby#35765](https://github.com/moby/moby/pull/35765)
 
-### [Networking](https://docs.docker.com/engine/release-notes/17.12/#networking-1)
+### Networking
 
 - Move load balancer sandbox creation/deletion into libnetwork [moby/moby#35422](https://github.com/moby/moby/pull/35422)
 - Only chown network files within container metadata [moby/moby#34224](https://github.com/moby/moby/pull/34224)
@@ -146,7 +146,7 @@ draft = false
 - Clean up node management logic [docker/libnetwork#2036](https://github.com/docker/libnetwork/pull/2036)
 - Allocate VIPs when endpoints are restored [docker/swarmkit#2474](https://github.com/docker/swarmkit/pull/2474)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/17.12/#runtime-1)
+### Runtime
 
 - Update to containerd v1.0.0 [moby/moby#35707](https://github.com/moby/moby/pull/35707)
 - Have VFS graphdriver use accelerated in-kernel copy [moby/moby#35537](https://github.com/moby/moby/pull/35537)
@@ -195,13 +195,13 @@ draft = false
 - Ensure containers are stopped on daemon startup [moby/moby#35805](https://github.com/moby/moby/pull/35805)
 - Follow containerd namespace conventions [moby/moby#35812](https://github.com/moby/moby/pull/35812)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/17.12/#swarm-mode)
+### Swarm Mode
 
 - Added support for swarm service isolation mode [moby/moby#34424](https://github.com/moby/moby/pull/34424)
 
 - Fix task clean up for tasks that are complete [docker/swarmkit#2477](https://github.com/docker/swarmkit/pull/2477)
 
-### [Packaging](https://docs.docker.com/engine/release-notes/17.12/#packaging-1)
+### Packaging
 
 - Add Packaging for Fedora 27 [docker/docker-ce-packaging#59](https://github.com/docker/docker-ce-packaging/pull/59)
 

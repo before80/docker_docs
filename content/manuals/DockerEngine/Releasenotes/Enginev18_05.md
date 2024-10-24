@@ -8,22 +8,22 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/18.05/](https://docs.docker.com/engine/release-notes/18.05/)
+> 原文：[https://docs.docker.com/engine/release-notes/18.05/](https://docs.docker.com/engine/release-notes/18.05/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Engine 18.05 release notes
 
-## [18.05.0-ce](https://docs.docker.com/engine/release-notes/18.05/#18050-ce)
+## 18.05.0-ce
 
 2018-05-09
 
-### [Builder](https://docs.docker.com/engine/release-notes/18.05/#builder)
+### Builder
 
 - Adding `netbsd` compatibility to the package `pkg/term`. [moby/moby#36887](https://github.com/moby/moby/pull/36887)
 - Standardizes output path for artifacts of intermediate builds to `/build/`. [moby/moby#36858](https://github.com/moby/moby/pull/36858)
 
-### [Client](https://docs.docker.com/engine/release-notes/18.05/#client)
+### Client
 
 - Fix `docker stack deploy` reference flag. [docker/cli#981](https://github.com/docker/cli/pull/981)
 - Fix docker stack deploy re-deploying services after the service was updated with `--force`. [docker/cli#963](https://github.com/docker/cli/pull/963)
@@ -34,12 +34,12 @@ draft = false
 - Fix --format example for docker history. [docker/cli#980](https://github.com/docker/cli/pull/980)
 - Fix error with merge composefile with networks. [docker/cli#983](https://github.com/docker/cli/pull/983)
 
-### [Logging](https://docs.docker.com/engine/release-notes/18.05/#logging)
+### Logging
 
 - Standardized the properties of storage-driver log messages. [moby/moby#36492](https://github.com/moby/moby/pull/36492)
 - Improve partial message support in logger. [moby/moby#35831](https://github.com/moby/moby/pull/35831)
 
-### [Networking](https://docs.docker.com/engine/release-notes/18.05/#networking)
+### Networking
 
 - Allow for larger preset property values, do not override. [docker/libnetwork#2124](https://github.com/docker/libnetwork/pull/2124)
 - networkdb: User write lock in handleNodeEvent. [docker/libnetwork#2136](https://github.com/docker/libnetwork/pull/2136)
@@ -49,7 +49,7 @@ draft = false
 
 - Fix a misused network object name. [moby/moby#36745](https://github.com/moby/moby/pull/36745)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/18.05/#runtime)
+### Runtime
 
 - LCOW: Implement `docker save`. [moby/moby#36599](https://github.com/moby/moby/pull/36599)
 - Pkg: devmapper: dynamically load dm_task_deferred_remove. [moby/moby#35518](https://github.com/moby/moby/pull/35518)
@@ -84,7 +84,7 @@ draft = false
 
 - Fix issues with running volume tests as non-root.. [moby/moby#36935](https://github.com/moby/moby/pull/36935)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/18.05/#swarm-mode)
+### Swarm Mode
 
 - RoleManager will remove detected nodes from the cluster membership [docker/swarmkit#2548](https://github.com/docker/swarmkit/pull/2548)
 - Scheduler/TaskReaper: handle unassigned tasks marked for shutdown [docker/swarmkit#2574](https://github.com/docker/swarmkit/pull/2574)

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/release-lifecycle/](https://docs.docker.com/release-lifecycle/)
+> 原文：[https://docs.docker.com/release-lifecycle/](https://docs.docker.com/release-lifecycle/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -22,7 +22,7 @@ This page details Docker's product release lifecycle and how Docker defines each
 >
 > Our [Subscription Service Agreement](https://www.docker.com/legal/docker-subscription-service-agreement) governs your use of Docker and covers details of eligibility, content, use, payments and billing, and warranties. This document is not a contract and all use of Docker’s services are subject to Docker’s [Subscription Service Agreement](https://www.docker.com/legal/docker-subscription-service-agreement).
 
-## [Lifecycle stage](https://docs.docker.com/release-lifecycle/#lifecycle-stage)
+## Lifecycle stage
 
 | Lifecycle stage                                              | Customer availability                                     | Support availability | Limitations                                                  | Retirement                                                   |
 | ------------------------------------------------------------ | --------------------------------------------------------- | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -31,7 +31,7 @@ This page details Docker's product release lifecycle and how Docker defines each
 | [Early Access (EA)](https://docs.docker.com/release-lifecycle/#early-access-ea) | All or those involved in an Early Access Feedback Program | Full                 | Software may have limitations, bugs and/or stability concerns. These limitations will be documented. | Follows the [retirement process](https://docs.docker.com/release-lifecycle/#retirement-process) |
 | [General Availability (GA)](https://docs.docker.com/release-lifecycle/#general-availability-ga) | All                                                       | Full                 | Few or no limitations for supported use cases                | Follows the [retirement process](https://docs.docker.com/release-lifecycle/#retirement-process) |
 
-### [Experimental](https://docs.docker.com/release-lifecycle/#experimental)
+### Experimental
 
 Experimental offerings are features that Docker is currently experimenting with. Customers who access experimental features have the opportunity to test, validate, and provide feedback on future functionality. This helps us focus our efforts on what provides the most value to our customers.
 
@@ -43,7 +43,7 @@ Experimental offerings are features that Docker is currently experimenting with.
 
 **Retirement:** During the experimental period, Docker will determine whether to continue an offering through its lifecycle. We reserve the right to change the scope of or discontinue an Experimental product or feature at any point in time without notice, as outlined in our [Subscription Service Agreement](https://www.docker.com/legal/docker-subscription-service-agreement).
 
-### [Beta](https://docs.docker.com/release-lifecycle/#beta)
+### Beta
 
 Beta offerings are initial releases of potential future products or features. Customers who participate in our beta programs have the opportunity to test, validate, and provide feedback on future functionality. This helps us focus our efforts on what provides the most value to our customers.
 
@@ -55,7 +55,7 @@ Beta offerings are initial releases of potential future products or features. Cu
 
 **Retirement:** During the beta period, Docker will determine whether to continue an offering through its lifecycle. We reserve the right to change the scope of or discontinue a Beta product or feature at any point in time without notice, as outlined in our [Subscription Service Agreement](https://www.docker.com/legal/docker-subscription-service-agreement).
 
-### [Early Access (EA)](https://docs.docker.com/release-lifecycle/#early-access-ea)
+### Early Access (EA)
 
 Early Access offerings are products or features that may have potential feature limitations and are enabled for specific user groups as part of an incremental roll-out strategy. They are ready to be released to the world, pending some fine tuning.
 
@@ -67,7 +67,7 @@ Early Access offerings are products or features that may have potential feature 
 
 **Retirement:** In the event we retire an Early Access product before General Availability, we will strive to follow the [retirement process](https://docs.docker.com/release-lifecycle/#retirement-process) outlined below.
 
-### [General Availability (GA)](https://docs.docker.com/release-lifecycle/#general-availability-ga)
+### General Availability (GA)
 
 General Availability offerings are fully functional products or features that are openly accessible to all Docker customers.
 
@@ -79,7 +79,7 @@ General Availability offerings are fully functional products or features that ar
 
 **Retirement:** General Availability offerings follow the [retirement process](https://docs.docker.com/release-lifecycle/#retirement-process) outlined below.
 
-## [Retirement process](https://docs.docker.com/release-lifecycle/#retirement-process)
+## Retirement process
 
 The decision to retire or deprecate features follows a rigorous process including understanding the demand, use, impact of feature retirement and, most importantly, customer feedback. Our goal is to invest resources in areas that will add the most value for the most customers
 

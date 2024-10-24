@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/docker-hub/webhooks/](https://docs.docker.com/docker-hub/webhooks/)
+> 原文：[https://docs.docker.com/docker-hub/webhooks/](https://docs.docker.com/docker-hub/webhooks/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 You can use webhooks to cause an action in another service in response to a push event in the repository. Webhooks are POST requests sent to a URL you define in Docker Hub.
 
-## [Create a webhook](https://docs.docker.com/docker-hub/webhooks/#create-a-webhook)
+## Create a webhook
 
 To create a webhook:
 
@@ -25,7 +25,7 @@ To create a webhook:
 3. Provide a destination webhook URL. This is where webhook POST requests are delivered.
 4. Select **Create**.
 
-## [View webhook delivery history](https://docs.docker.com/docker-hub/webhooks/#view-webhook-delivery-history)
+## View webhook delivery history
 
 To view the history of the webhook:
 
@@ -35,7 +35,7 @@ To view the history of the webhook:
 
 You can then view the delivery history, and whether delivering the POST request was successful or not.
 
-## [Example webhook payload](https://docs.docker.com/docker-hub/webhooks/#example-webhook-payload)
+## Example webhook payload
 
 Webhook payloads have the following JSON format:
 

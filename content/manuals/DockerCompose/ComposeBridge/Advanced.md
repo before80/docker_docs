@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/bridge/advanced-integration/](https://docs.docker.com/compose/bridge/advanced-integration/)
+> 原文：[https://docs.docker.com/compose/bridge/advanced-integration/](https://docs.docker.com/compose/bridge/advanced-integration/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ Compose Bridge is an [Experimental](https://docs.docker.com/release-lifecycle/#e
 
 Compose Bridge can also function as a `kubectl` plugin, allowing you to integrate its capabilities directly into your Kubernetes command-line operations. This integration simplifies the process of converting and deploying applications from Docker Compose to Kubernetes.
 
-## [Use `compose-bridge` as a `kubectl` plugin](https://docs.docker.com/compose/bridge/advanced-integration/#use-compose-bridge-as-a-kubectl-plugin)
+## Use `compose-bridge` as a `kubectl` plugin
 
 To use the `compose-bridge` binary as a `kubectl` plugin, you need to make sure that the binary is available in your PATH and the name of the binary is prefixed with `kubectl-`.
 

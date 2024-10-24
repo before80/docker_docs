@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/config/create/](https://docs.docker.com/reference/cli/docker/config/create/)
+> 原文：[https://docs.docker.com/reference/cli/docker/config/create/](https://docs.docker.com/reference/cli/docker/config/create/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -20,26 +20,26 @@ draft = false
 
 Swarm This command works with the Swarm orchestrator.
 
-## [Description](https://docs.docker.com/reference/cli/docker/config/create/#description)
+## Description
 
 Creates a config using standard input or from a file for the config content.
 
-For detailed information about using configs, refer to [store configuration data using Docker Configs](https://docs.docker.com/engine/swarm/configs/).
+For detailed information about using configs, refer to [store configuration data using Docker Configs]({{< ref "/manuals/DockerEngine/Swarmmode/StoreconfigurationdatausingDockerConfigs" >}}).
 
 > **Note**
 >
-> This is a cluster management command, and must be executed on a Swarm manager node. To learn about managers and workers, refer to the [Swarm mode section](https://docs.docker.com/engine/swarm/) in the documentation.
+> This is a cluster management command, and must be executed on a Swarm manager node. To learn about managers and workers, refer to the [Swarm mode section]({{< ref "/manuals/DockerEngine/Swarmmode" >}}) in the documentation.
 
-## [Options](https://docs.docker.com/reference/cli/docker/config/create/#options)
+## Options
 
 | Option                                                       | Default | Description               |
 | ------------------------------------------------------------ | ------- | ------------------------- |
 | [`-l, --label`](https://docs.docker.com/reference/cli/docker/config/create/#label) |         | Config labels             |
 | `--template-driver`                                          |         | API 1.37+ Template driver |
 
-## [Examples](https://docs.docker.com/reference/cli/docker/config/create/#examples)
+## Examples
 
-### [Create a config](https://docs.docker.com/reference/cli/docker/config/create/#create-a-config)
+### Create a config
 
 
 
@@ -54,7 +54,7 @@ ID                          NAME                CREATED             UPDATED
 onakdyv307se2tl7nl20anokv   my_config           6 seconds ago       6 seconds ago
 ```
 
-### [Create a config with a file](https://docs.docker.com/reference/cli/docker/config/create/#create-a-config-with-a-file)
+### Create a config with a file
 
 
 
@@ -69,7 +69,7 @@ ID                          NAME                CREATED             UPDATED
 dg426haahpi5ezmkkj5kyl3sn   my_config           7 seconds ago       7 seconds ago
 ```
 
-### [Create a config with labels (-l, --label)](https://docs.docker.com/reference/cli/docker/config/create/#label)
+### Create a config with labels (-l, --label)
 
 
 

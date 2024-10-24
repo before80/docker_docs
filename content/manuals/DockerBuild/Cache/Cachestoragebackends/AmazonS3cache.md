@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/cache/backends/s3/](https://docs.docker.com/build/cache/backends/s3/)
+> 原文：[https://docs.docker.com/build/cache/backends/s3/](https://docs.docker.com/build/cache/backends/s3/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,9 +20,9 @@ This is an experimental feature. The interface and behavior are unstable and may
 
 The `s3` cache storage uploads your resulting build cache to [Amazon S3 file storage service](https://aws.amazon.com/s3/) or other S3-compatible services, such as [MinIO](https://min.io/).
 
-This cache storage backend is not supported with the default `docker` driver. To use this feature, create a new builder using a different driver. See [Build drivers](https://docs.docker.com/build/builders/drivers/) for more information.
+This cache storage backend is not supported with the default `docker` driver. To use this feature, create a new builder using a different driver. See [Build drivers]({{< ref "/manuals/DockerBuild/Builders/Builddrivers" >}}) for more information.
 
-## [Synopsis](https://docs.docker.com/build/cache/backends/s3/#synopsis)
+## Synopsis
 
 
 
@@ -51,14 +51,14 @@ The following table describes the available CSV parameters that you can pass to 
 | `mode`               | `cache-to`              | `min`,`max` | `min`   | Cache layers to export, see [cache mode](https://docs.docker.com/build/cache/backends/#cache-mode). |
 | `ignore-error`       | `cache-to`              | Boolean     | `false` | Ignore errors caused by failed cache exports.                |
 
-## [Authentication](https://docs.docker.com/build/cache/backends/s3/#authentication)
+## Authentication
 
 Buildx can reuse existing AWS credentials, configured either using a credentials file or environment variables, for pushing and pulling cache to S3. Alternatively, you can use the `access_key_id`, `secret_access_key`, and `session_token` attributes to specify credentials directly on the CLI.
 
 Refer to [AWS Go SDK, Specifying Credentials](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html#specifying-credentials) for details about authentication using environment variables and credentials file.
 
-## [Further reading](https://docs.docker.com/build/cache/backends/s3/#further-reading)
+## Further reading
 
-For an introduction to caching see [Docker build cache](https://docs.docker.com/build/cache/).
+For an introduction to caching see [Docker build cache]({{< ref "/manuals/DockerBuild/Cache" >}}).
 
 For more information on the `s3` cache backend, see the [BuildKit README](https://github.com/moby/buildkit#s3-cache-experimental).

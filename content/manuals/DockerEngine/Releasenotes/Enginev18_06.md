@@ -8,47 +8,47 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/18.06/](https://docs.docker.com/engine/release-notes/18.06/)
+> 原文：[https://docs.docker.com/engine/release-notes/18.06/](https://docs.docker.com/engine/release-notes/18.06/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Engine 18.06 release notes
 
-## [18.06.3-ce](https://docs.docker.com/engine/release-notes/18.06/#18063-ce)
+## 18.06.3-ce
 
 2019-02-19
 
-### [Security fixes for Docker Engine](https://docs.docker.com/engine/release-notes/18.06/#security-fixes-for-docker-engine)
+### Security fixes for Docker Engine
 
 - Change how the `runc` critical vulnerability patch is applied to include the fix in RPM packages. [docker/engine#156](https://github.com/docker/engine/pull/156)
 
-## [18.06.2](https://docs.docker.com/engine/release-notes/18.06/#18062)
+## 18.06.2
 
 2019-02-11
 
-### [Security fixes for Docker Engine](https://docs.docker.com/engine/release-notes/18.06/#security-fixes-for-docker-engine-1)
+### Security fixes for Docker Engine
 
 - Update `runc` to address a critical vulnerability that allows specially-crafted containers to gain administrative privileges on the host. [CVE-2019-5736](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5736)
 - Ubuntu 14.04 customers using a 3.13 kernel will need to upgrade to a supported Ubuntu 4.x kernel
 
-## [18.06.1-ce](https://docs.docker.com/engine/release-notes/18.06/#18061-ce)
+## 18.06.1-ce
 
 2018-08-21
 
-### [Builder](https://docs.docker.com/engine/release-notes/18.06/#builder)
+### Builder
 
 - Fix no error if build args are missing during docker build. [docker/engine#25](https://github.com/docker/engine/pull/25)
 
 - Set BuildKit's ExportedProduct variable to show useful errors. [docker/engine#21](https://github.com/docker/engine/pull/21)
 
-### [Client](https://docs.docker.com/engine/release-notes/18.06/#client)
+### Client
 
 - Various shell completion script updates: [docker/cli#1229](https://github.com/docker/cli/pull/1229), [docker/cli#1268](https://github.com/docker/cli/pull/1268), and [docker/cli#1272](https://github.com/docker/cli/pull/1272)
 
 - Fix `DOCKER_CONFIG` warning message and fallback search. [docker/cli#1241](https://github.com/docker/cli/pull/1241)
 - Fix help message flags on `docker stack` commands and sub-commands. [docker/cli#1267](https://github.com/docker/cli/pull/1267)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/18.06/#runtime)
+### Runtime
 
 - Disable CRI plugin listening on port 10010 by default. [docker/engine#29](https://github.com/docker/engine/pull/29)
 - Update containerd to v1.1.2. [docker/engine#33](https://github.com/docker/engine/pull/33)
@@ -57,20 +57,20 @@ draft = false
 
 - Windows: Select polling-based watcher for Windows log watcher. [docker/engine#34](https://github.com/docker/engine/pull/34)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/18.06/#swarm-mode)
+### Swarm Mode
 
 - Fix the condition used for skipping over running tasks. [docker/swarmkit#2677](https://github.com/docker/swarmkit/pull/2677)
 - Fix task sorting. [docker/swarmkit#2712](https://github.com/docker/swarmkit/pull/2712)
 
-## [18.06.0-ce](https://docs.docker.com/engine/release-notes/18.06/#18060-ce)
+## 18.06.0-ce
 
 2018-07-18
 
-### [Important notes about this release](https://docs.docker.com/engine/release-notes/18.06/#important-notes-about-this-release)
+### Important notes about this release
 
-- Docker 18.06 CE will be the last release with a 4-month maintenance lifecycle. The planned Docker 18.09 CE release will be supported for 7 months with Docker 19.03 CE being the next release in line. More details about the release process can be found [here](https://docs.docker.com/get-started/get-docker/).
+- Docker 18.06 CE will be the last release with a 4-month maintenance lifecycle. The planned Docker 18.09 CE release will be supported for 7 months with Docker 19.03 CE being the next release in line. More details about the release process can be found [here]({{< ref "/get-started/GetDocker" >}}).
 
-### [Builder](https://docs.docker.com/engine/release-notes/18.06/#builder-1)
+### Builder
 
 - Builder: fix layer leak on multi-stage wildcard copy. [moby/moby#37178](https://github.com/moby/moby/pull/37178)
 - Fix parsing of invalid environment variable substitution . [moby/moby#37134](https://github.com/moby/moby/pull/37134)
@@ -80,7 +80,7 @@ draft = false
 
 - Fix handling uppercase targets names in multi-stage builds. [moby/moby#36960](https://github.com/moby/moby/pull/36960)
 
-### [Client](https://docs.docker.com/engine/release-notes/18.06/#client-1)
+### Client
 
 - Bump spf13/cobra to v0.0.3, pflag to v1.0.1. [moby/moby#37106](https://github.com/moby/moby/pull/37106)
 - Add support for the new Stack API for Kubernetes v1beta2. [docker/cli#899](https://github.com/docker/cli/pull/899)
@@ -152,11 +152,11 @@ draft = false
 
 - Add bash completion for `service create|update --init`. [docker/cli#1210](https://github.com/docker/cli/pull/1210)
 
-### [Deprecation](https://docs.docker.com/engine/release-notes/18.06/#deprecation)
+### Deprecation
 
 - Document reserved namespaces deprecation. [docker/cli#1040](https://github.com/docker/cli/pull/1040)
 
-### [Logging](https://docs.docker.com/engine/release-notes/18.06/#logging)
+### Logging
 
 - Allow awslogs to use non-blocking mode. [moby/moby#36522](https://github.com/moby/moby/pull/36522)
 - Improve logging of long log lines on fluentd log driver.. [moby/moby#36159](https://github.com/moby/moby/pull/36159)
@@ -171,7 +171,7 @@ draft = false
 - Fix race conditions in logs API. [moby/moby#37062](https://github.com/moby/moby/pull/37062)
 - Fix some issues in logfile reader and rotation. [moby/moby#37063](https://github.com/moby/moby/pull/37063)
 
-### [Networking](https://docs.docker.com/engine/release-notes/18.06/#networking)
+### Networking
 
 - Allow user to specify default address pools for docker networks. [moby/moby#36396](https://github.com/moby/moby/pull/36396) [docker/cli#818](https://github.com/docker/cli/pull/818)
 - Adding logs for ipam state [doccker/libnetwork#2417](https://github.com/docker/libnetwork/pull/2147)
@@ -188,7 +188,7 @@ draft = false
 - Improve Scalability of the Linux load balancing. [docker/engine#16](https://github.com/docker/engine/pull/16)
 - Change log level from error to warning. [docker/engine#19](https://github.com/docker/engine/pull/19)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/18.06/#runtime-1)
+### Runtime
 
 - Aufs: log why aufs is not supported. [moby/moby#36995](https://github.com/moby/moby/pull/36995)
 - Hide experimental checkpoint features on Windows. [docker/cli#1094](https://github.com/docker/cli/pull/1094)
@@ -235,7 +235,7 @@ draft = false
 - Set item-type for ExecIDs. [moby/moby#37121](https://github.com/moby/moby/pull/37121)
 - Use go-systemd const instead of magic string in Linux version of dockerd. [moby/moby#37136](https://github.com/moby/moby/pull/37136)
 - Use stdlib TLS dialer. [moby/moby#36687](https://github.com/moby/moby/pull/36687)
-- Warn when an engine label using a reserved namespace (com.docker.*, io.docker.*, or org.dockerproject.*) is configured, as per [Docker object labels](https://docs.docker.com/engine/manage-resources/labels/). [moby/moby#36921](https://github.com/moby/moby/pull/36921)
+- Warn when an engine label using a reserved namespace (com.docker.*, io.docker.*, or org.dockerproject.*) is configured, as per [Docker object labels]({{< ref "/manuals/DockerEngine/Manageresources/Dockerobjectlabels" >}}). [moby/moby#36921](https://github.com/moby/moby/pull/36921)
 
 - Fix missing plugin name in message. [moby/moby#37052](https://github.com/moby/moby/pull/37052)
 - Fix link anchors in CONTRIBUTING.md. [moby/moby#37276](https://github.com/moby/moby/pull/37276)
@@ -269,7 +269,7 @@ draft = false
 
 - Fix bindmount autocreate race. [docker/engine#11](https://github.com/docker/engine/pull/11)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/18.06/#swarm-mode-1)
+### Swarm Mode
 
 - List stacks for both Swarm and Kubernetes with --orchestrator=all in docker stack ls. Allow several occurrences of --namespace for Kubernetes with docker stack ls. [docker/cli#1031](https://github.com/docker/cli/pull/1031)
 - Bump SwarmKit to remove deprecated grpc metadata wrappers. [moby/moby#36905](https://github.com/moby/moby/pull/36905)

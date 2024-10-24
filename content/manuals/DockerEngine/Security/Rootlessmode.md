@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/security/rootless/](https://docs.docker.com/engine/security/rootless/)
+> 原文：[https://docs.docker.com/engine/security/rootless/](https://docs.docker.com/engine/security/rootless/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,13 +18,13 @@ Rootless mode allows running the Docker daemon and containers as a non-root user
 
 Rootless mode does not require root privileges even during the installation of the Docker daemon, as long as the [prerequisites](https://docs.docker.com/engine/security/rootless/#prerequisites) are met.
 
-## [How it works](https://docs.docker.com/engine/security/rootless/#how-it-works)
+## How it works
 
-Rootless mode executes the Docker daemon and containers inside a user namespace. This is very similar to [`userns-remap` mode](https://docs.docker.com/engine/security/userns-remap/), except that with `userns-remap` mode, the daemon itself is running with root privileges, whereas in rootless mode, both the daemon and the container are running without root privileges.
+Rootless mode executes the Docker daemon and containers inside a user namespace. This is very similar to [`userns-remap` mode]({{< ref "/manuals/DockerEngine/Security/Isolatecontainerswithausernamespace" >}}), except that with `userns-remap` mode, the daemon itself is running with root privileges, whereas in rootless mode, both the daemon and the container are running without root privileges.
 
 Rootless mode does not use binaries with `SETUID` bits or file capabilities, except `newuidmap` and `newgidmap`, which are needed to allow multiple UIDs/GIDs to be used in the user namespace.
 
-## [Prerequisites](https://docs.docker.com/engine/security/rootless/#prerequisites)
+## Prerequisites
 
 - You must install `newuidmap` and `newgidmap` on the host. These commands are provided by the `uidmap` package on most distros.
 - `/etc/subuid` and `/etc/subgid` should contain at least 65,536 subordinate UIDs/GIDs for the user. In the following example, the user `testuser` has 65,536 subordinate UIDs/GIDs (231072-296607).
@@ -42,7 +42,7 @@ $ grep ^$(whoami): /etc/subgid
 testuser:231072:65536
 ```
 
-### [Distribution-specific hint](https://docs.docker.com/engine/security/rootless/#distribution-specific-hint)
+### Distribution-specific hint
 
 > **Tip**
 >
@@ -50,9 +50,9 @@ testuser:231072:65536
 >
 > We recommend that you use the Ubuntu kernel.
 
-Ubuntu Debian GNU/Linux Arch Linux openSUSE and SLES CentOS, RHEL, and Fedora
+{{< tabpane text=true persist=disabled >}}
 
-------
+{{% tab header="Ubuntu" %}}
 
 - Install `dbus-user-session` package if not installed. Run `sudo apt-get install -y dbus-user-session` and relogin.
 
@@ -93,9 +93,56 @@ Ubuntu Debian GNU/Linux Arch Linux openSUSE and SLES CentOS, RHEL, and Fedora
      $ systemctl restart apparmor.service
      ```
 
+{{% /tab  %}}
+
+{{% tab header="Debian GNU/Linux" %}}
+
+- Install `dbus-user-session` package if not installed. Run `sudo apt-get install -y dbus-user-session` and relogin.
+
+- For Debian 10, add `kernel.unprivileged_userns_clone=1` to `/etc/sysctl.conf` (or `/etc/sysctl.d`) and run `sudo sysctl --system`. This step is not required on Debian 11.
+
+- For Debian 11, installing `fuse-overlayfs` is recommended. Run `sudo apt-get install -y fuse-overlayfs`. This step is not required on Debian 12.
+
+- Rootless docker requires version of `slirp4netns` greater than `v0.4.0` (when `vpnkit` is not installed). Check you have this with
+
+  
+
+  ```console
+  $ slirp4netns --version
+  ```
+
+  If you do not have this download and install with `sudo apt-get install -y slirp4netns` or download the latest [release](https://github.com/rootless-containers/slirp4netns/releases).
+
+{{% /tab  %}}
+
+{{% tab header="Arch Linux " %}}
+
+- Installing `fuse-overlayfs` is recommended. Run `sudo pacman -S fuse-overlayfs`.
+- Add `kernel.unprivileged_userns_clone=1` to `/etc/sysctl.conf` (or `/etc/sysctl.d`) and run `sudo sysctl --system`
+
+{{% /tab  %}}
+
+{{% tab header="openSUSE and SLES " %}}
+
+- For openSUSE 15 and SLES 15, Installing `fuse-overlayfs` is recommended. Run `sudo zypper install -y fuse-overlayfs`. This step is not required on openSUSE Tumbleweed.
+- `sudo modprobe ip_tables iptable_mangle iptable_nat iptable_filter` is required. This might be required on other distros as well depending on the configuration.
+- Known to work on openSUSE 15 and SLES 15.
+
+{{% /tab  %}}
+
+{{% tab header="CentOS, RHEL, and Fedora" %}}
+
+For RHEL 8 and similar distributions, installing `fuse-overlayfs` is recommended. Run `sudo dnf install -y fuse-overlayfs`. This step is not required on RHEL 9 and similar distributions.
+
+You might need `sudo dnf install -y iptables`.
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
 ------
 
-## [Known limitations](https://docs.docker.com/engine/security/rootless/#known-limitations)
+## Known limitations
 
 - Only the following storage drivers are supported:
   - `overlay2` (only if running with kernel 5.11 or later, or Ubuntu-flavored kernel)
@@ -114,7 +161,7 @@ Ubuntu Debian GNU/Linux Arch Linux openSUSE and SLES CentOS, RHEL, and Fedora
 - Host network (`docker run --net=host`) is also namespaced inside RootlessKit.
 - NFS mounts as the docker "data-root" is not supported. This limitation is not specific to rootless mode.
 
-## [Install](https://docs.docker.com/engine/security/rootless/#install)
+## Install
 
 > **Note**
 >
@@ -135,7 +182,7 @@ With packages (RPM/DEB) Without packages
 
 ------
 
-If you installed Docker 20.10 or later with [RPM/DEB packages](https://docs.docker.com/engine/install), you should have `dockerd-rootless-setuptool.sh` in `/usr/bin`.
+If you installed Docker 20.10 or later with [RPM/DEB packages]({{< ref "/manuals/DockerEngine/Install" >}}), you should have `dockerd-rootless-setuptool.sh` in `/usr/bin`.
 
 Run `dockerd-rootless-setuptool.sh install` as a non-root user to set up the daemon:
 
@@ -167,7 +214,7 @@ $ sudo apt-get install -y docker-ce-rootless-extras
 
 See [Troubleshooting](https://docs.docker.com/engine/security/rootless/#troubleshooting) if you faced an error.
 
-## [Uninstall](https://docs.docker.com/engine/security/rootless/#uninstall)
+## Uninstall
 
 To remove the systemd service of the Docker daemon, run `dockerd-rootless-setuptool.sh uninstall`:
 
@@ -196,9 +243,9 @@ $ cd ~/bin
 $ rm -f containerd containerd-shim containerd-shim-runc-v2 ctr docker docker-init docker-proxy dockerd dockerd-rootless-setuptool.sh dockerd-rootless.sh rootlesskit rootlesskit-docker-proxy runc vpnkit
 ```
 
-## [Usage](https://docs.docker.com/engine/security/rootless/#usage)
+## Usage
 
-### [Daemon](https://docs.docker.com/engine/security/rootless/#daemon)
+### Daemon
 
 With systemd (Highly recommended) Without systemd
 
@@ -233,7 +280,7 @@ Remarks about directory paths:
 - The data dir is set to `~/.local/share/docker` by default. The data dir should not be on NFS.
 - The daemon config dir is set to `~/.config/docker` by default. This directory is different from `~/.docker` that is used by the client.
 
-### [Client](https://docs.docker.com/engine/security/rootless/#client)
+### Client
 
 You need to specify either the socket path or the CLI context explicitly.
 
@@ -257,9 +304,9 @@ Current context is now "rootless"
 $ docker run -d -p 8080:80 nginx
 ```
 
-## [Best practices](https://docs.docker.com/engine/security/rootless/#best-practices)
+## Best practices
 
-### [Rootless Docker in Docker](https://docs.docker.com/engine/security/rootless/#rootless-docker-in-docker)
+### Rootless Docker in Docker
 
 To run Rootless Docker inside "rootful" Docker, use the `docker:<version>-dind-rootless` image instead of `docker:<version>-dind`.
 
@@ -271,7 +318,7 @@ $ docker run -d --name dind-rootless --privileged docker:25.0-dind-rootless
 
 The `docker:<version>-dind-rootless` image runs as a non-root user (UID 1000). However, `--privileged` is required for disabling seccomp, AppArmor, and mount masks.
 
-### [Expose Docker API socket through TCP](https://docs.docker.com/engine/security/rootless/#expose-docker-api-socket-through-tcp)
+### Expose Docker API socket through TCP
 
 To expose the Docker API socket through TCP, you need to launch `dockerd-rootless.sh` with `DOCKERD_ROOTLESS_ROOTLESSKIT_FLAGS="-p 0.0.0.0:2376:2376/tcp"`.
 
@@ -284,7 +331,7 @@ $ DOCKERD_ROOTLESS_ROOTLESSKIT_FLAGS="-p 0.0.0.0:2376:2376/tcp" \
   --tlsverify --tlscacert=ca.pem --tlscert=cert.pem --tlskey=key.pem
 ```
 
-### [Expose Docker API socket through SSH](https://docs.docker.com/engine/security/rootless/#expose-docker-api-socket-through-ssh)
+### Expose Docker API socket through SSH
 
 To expose the Docker API socket through SSH, you need to make sure `$DOCKER_HOST` is set on the remote host.
 
@@ -296,13 +343,13 @@ unix:///run/user/1001/docker.sock
 $ docker -H ssh://REMOTEUSER@REMOTEHOST run ...
 ```
 
-### [Routing ping packets](https://docs.docker.com/engine/security/rootless/#routing-ping-packets)
+### Routing ping packets
 
 On some distributions, `ping` does not work by default.
 
 Add `net.ipv4.ping_group_range = 0 2147483647` to `/etc/sysctl.conf` (or `/etc/sysctl.d`) and run `sudo sysctl --system` to allow using `ping`.
 
-### [Exposing privileged ports](https://docs.docker.com/engine/security/rootless/#exposing-privileged-ports)
+### Exposing privileged ports
 
 To expose privileged ports (< 1024), set `CAP_NET_BIND_SERVICE` on `rootlesskit` binary and restart the daemon.
 
@@ -315,9 +362,9 @@ $ systemctl --user restart docker
 
 Or add `net.ipv4.ip_unprivileged_port_start=0` to `/etc/sysctl.conf` (or `/etc/sysctl.d`) and run `sudo sysctl --system`.
 
-### [Limiting resources](https://docs.docker.com/engine/security/rootless/#limiting-resources)
+### Limiting resources
 
-Limiting resources with cgroup-related `docker run` flags such as `--cpus`, `--memory`, `--pids-limit` is supported only when running with cgroup v2 and systemd. See [Changing cgroup version](https://docs.docker.com/engine/containers/runmetrics/) to enable cgroup v2.
+Limiting resources with cgroup-related `docker run` flags such as `--cpus`, `--memory`, `--pids-limit` is supported only when running with cgroup v2 and systemd. See [Changing cgroup version]({{< ref "/manuals/DockerEngine/Containers/Runtimemetrics" >}}) to enable cgroup v2.
 
 If `docker info` shows `none` as `Cgroup Driver`, the conditions are not satisfied. When these conditions are not satisfied, rootless mode ignores the cgroup-related `docker run` flags. See [Limiting resources without cgroup](https://docs.docker.com/engine/security/rootless/#limiting-resources-without-cgroup) for workarounds.
 
@@ -349,7 +396,7 @@ EOF
 >
 > Delegating `cpuset` requires systemd 244 or later.
 
-#### [Limiting resources without cgroup](https://docs.docker.com/engine/security/rootless/#limiting-resources-without-cgroup)
+#### Limiting resources without cgroup
 
 Even when cgroup is not available, you can still use the traditional `ulimit` and [`cpulimit`](https://github.com/opsengine/cpulimit), though they work in process-granularity rather than in container-granularity, and can be arbitrarily disabled by the container process.
 
@@ -359,9 +406,9 @@ For example:
 - To limit max VSZ to 64MiB (similar to `docker run --memory 64m`): `docker run <IMAGE> sh -c "ulimit -v 65536; <COMMAND>"`
 - To limit max number of processes to 100 per namespaced UID 2000 (similar to `docker run --pids-limit=100`): `docker run --user 2000 --ulimit nproc=100 <IMAGE> <COMMAND>`
 
-## [Troubleshooting](https://docs.docker.com/engine/security/rootless/#troubleshooting)
+## Troubleshooting
 
-### [Unable to install with systemd when systemd is present on the system](https://docs.docker.com/engine/security/rootless/#unable-to-install-with-systemd-when-systemd-is-present-on-the-system)
+### Unable to install with systemd when systemd is present on the system
 
 
 
@@ -381,7 +428,7 @@ $ sudo machinectl shell myuser@
 
 Where `myuser@` is your desired username and @ signifies this machine.
 
-### [Errors when starting the Docker daemon](https://docs.docker.com/engine/security/rootless/#errors-when-starting-the-docker-daemon)
+### Errors when starting the Docker daemon
 
 **[rootlesskit:parent] error: failed to start the child: fork/exec /proc/self/exe: operation not permitted**
 
@@ -470,7 +517,7 @@ The issue has been fixed in Docker 20.10.8. A known workaround for older version
 $ sudo dnf install -y policycoreutils-python-utils && sudo semanage permissive -a iptables_t
 ```
 
-### [`docker pull` errors](https://docs.docker.com/engine/security/rootless/#docker-pull-errors)
+### `docker pull` errors
 
 **docker: failed to register layer: Error processing tar file(exit status 1): lchown <FILE>: invalid argument**
 
@@ -488,7 +535,7 @@ A workaround is to specify non-NFS `data-root` directory in `~/.config/docker/da
 {"data-root":"/somewhere-out-of-nfs"}
 ```
 
-### [`docker run` errors](https://docs.docker.com/engine/security/rootless/#docker-run-errors)
+### `docker run` errors
 
 **docker: Error response from daemon: OCI runtime create failed: ...: read unix @->/run/systemd/private: read: connection reset by peer: unknown.**
 
@@ -515,7 +562,7 @@ If the error still occurs, try running `systemctl --user enable --now dbus` (wit
 
 This is an expected behavior on cgroup v1 mode. To use these flags, the host needs to be configured for enabling cgroup v2. For more information, see [Limiting resources](https://docs.docker.com/engine/security/rootless/#limiting-resources).
 
-### [Networking errors](https://docs.docker.com/engine/security/rootless/#networking-errors)
+### Networking errors
 
 This section provides troubleshooting tips for networking in rootless mode.
 
@@ -539,7 +586,7 @@ For information about troubleshooting specific networking issues, see:
 - [Newtork is slow](https://docs.docker.com/engine/security/rootless/#network-is-slow)
 - [`docker run -p` does not propagate source IP addresses](https://docs.docker.com/engine/security/rootless/#docker-run--p-does-not-propagate-source-ip-addresses)
 
-#### [`docker run -p` fails with `cannot expose privileged port`](https://docs.docker.com/engine/security/rootless/#docker-run--p-fails-with-cannot-expose-privileged-port)
+#### `docker run -p` fails with `cannot expose privileged port`
 
 `docker run -p` fails with this error when a privileged port (< 1024) is specified as the host port.
 
@@ -560,7 +607,7 @@ $ docker run -p 8080:80 nginx:alpine
 
 To allow exposing privileged ports, see [Exposing privileged ports](https://docs.docker.com/engine/security/rootless/#exposing-privileged-ports).
 
-#### [Ping doesn't work](https://docs.docker.com/engine/security/rootless/#ping-doesnt-work)
+#### Ping doesn't work
 
 Ping does not work when `/proc/sys/net/ipv4/ping_group_range` is set to `1 0`:
 
@@ -573,15 +620,15 @@ $ cat /proc/sys/net/ipv4/ping_group_range
 
 For details, see [Routing ping packets](https://docs.docker.com/engine/security/rootless/#routing-ping-packets).
 
-#### [`IPAddress` shown in `docker inspect` is unreachable](https://docs.docker.com/engine/security/rootless/#ipaddress-shown-in-docker-inspect-is-unreachable)
+#### `IPAddress` shown in `docker inspect` is unreachable
 
 This is an expected behavior, as the daemon is namespaced inside RootlessKit's network namespace. Use `docker run -p` instead.
 
-#### [`--net=host` doesn't listen ports on the host network namespace](https://docs.docker.com/engine/security/rootless/#--nethost-doesnt-listen-ports-on-the-host-network-namespace)
+#### `--net=host` doesn't listen ports on the host network namespace
 
 This is an expected behavior, as the daemon is namespaced inside RootlessKit's network namespace. Use `docker run -p` instead.
 
-#### [Network is slow](https://docs.docker.com/engine/security/rootless/#network-is-slow)
+#### Network is slow
 
 Docker with rootless mode uses [slirp4netns](https://github.com/rootless-containers/slirp4netns) as the default network stack if slirp4netns v0.4.0 or later is installed. If slirp4netns is not installed, Docker falls back to [VPNKit](https://github.com/moby/vpnkit). Installing slirp4netns may improve the network throughput.
 
@@ -605,7 +652,7 @@ $ systemctl --user daemon-reload
 $ systemctl --user restart docker
 ```
 
-#### [`docker run -p` does not propagate source IP addresses](https://docs.docker.com/engine/security/rootless/#docker-run--p-does-not-propagate-source-ip-addresses)
+#### `docker run -p` does not propagate source IP addresses
 
 This is because Docker in rootless mode uses RootlessKit's `builtin` port driver by default, which doesn't support source IP propagation. To enable source IP propagation, you can:
 
@@ -654,7 +701,7 @@ For more information about networking options for RootlessKit, see:
 - [Network drivers](https://github.com/rootless-containers/rootlesskit/blob/v2.0.0/docs/network.md)
 - [Port drivers](https://github.com/rootless-containers/rootlesskit/blob/v2.0.0/docs/port.md)
 
-### [Tips for debugging](https://docs.docker.com/engine/security/rootless/#tips-for-debugging)
+### Tips for debugging
 
 **Entering into `dockerd` namespaces**
 

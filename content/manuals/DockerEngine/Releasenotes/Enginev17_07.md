@@ -8,17 +8,17 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/17.07/](https://docs.docker.com/engine/release-notes/17.07/)
+> 原文：[https://docs.docker.com/engine/release-notes/17.07/](https://docs.docker.com/engine/release-notes/17.07/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Engine 17.07 release notes
 
-## [17.07.0-ce](https://docs.docker.com/engine/release-notes/17.07/#17070-ce)
+## 17.07.0-ce
 
 2017-08-29
 
-### [API & Client](https://docs.docker.com/engine/release-notes/17.07/#api--client)
+### API & Client
 
 - Add support for proxy configuration in config.json [docker/cli#93](https://github.com/docker/cli/pull/93)
 - Enable pprof/debug endpoints by default [moby/moby#32453](https://github.com/moby/moby/pull/32453)
@@ -38,19 +38,19 @@ draft = false
 
 - Add `scope` filter in `GET /networks/(id or name)` [moby/moby#33630](https://github.com/moby/moby/pull/33630)
 
-### [Builder](https://docs.docker.com/engine/release-notes/17.07/#builder)
+### Builder
 
 - Implement long running interactive session and sending build context incrementally [moby/moby#32677](https://github.com/moby/moby/pull/32677) [docker/cli#231](https://github.com/docker/cli/pull/231) [moby/moby#33859](https://github.com/moby/moby/pull/33859)
 - Warn on empty continuation lines [moby/moby#33719](https://github.com/moby/moby/pull/33719)
 
 - Fix `.dockerignore` entries with a leading `/` not matching anything [moby/moby#32088](https://github.com/moby/moby/pull/32088)
 
-### [Logging](https://docs.docker.com/engine/release-notes/17.07/#logging)
+### Logging
 
 - Fix wrong filemode for rotate log files [moby/moby#33926](https://github.com/moby/moby/pull/33926)
 - Fix stderr logging for journald and syslog [moby/moby#33832](https://github.com/moby/moby/pull/33832)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/17.07/#runtime)
+### Runtime
 
 - Allow stopping of paused container [moby/moby#34027](https://github.com/moby/moby/pull/34027)
 
@@ -81,7 +81,7 @@ draft = false
   - LCOW: pass command arguments without extra quoting [moby/moby#33815](https://github.com/moby/moby/pull/33815)
   - LCOW: Updates necessary due to platform schema change [moby/moby#33785](https://github.com/moby/moby/pull/33785)
 
-### [Swarm mode](https://docs.docker.com/engine/release-notes/17.07/#swarm-mode)
+### Swarm mode
 
 - Initial support for plugable secret backends [moby/moby#34157](https://github.com/moby/moby/pull/34157) [moby/moby#34123](https://github.com/moby/moby/pull/34123)
 - Sort swarm stacks and nodes using natural sorting [docker/cli#315](https://github.com/docker/cli/pull/315)

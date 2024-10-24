@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/explore/analysis/](https://docs.docker.com/scout/explore/analysis/)
+> 原文：[https://docs.docker.com/scout/explore/analysis/](https://docs.docker.com/scout/explore/analysis/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,15 +16,15 @@ draft = false
 
 When you activate image analysis for a repository, Docker Scout automatically analyzes new images that you push to that repository.
 
-Image analysis extracts the Software Bill of Material (SBOM) and other image metadata,and evaluates it against vulnerability data from [security advisories](https://docs.docker.com/scout/deep-dive/advisory-db-sources/).
+Image analysis extracts the Software Bill of Material (SBOM) and other image metadata,and evaluates it against vulnerability data from [security advisories]({{< ref "/manuals/DockerScout/Deepdive/Advisorydatabasesourcesandmatchingservice" >}}).
 
 If you run image analysis as a one-off task using the CLI or Docker Desktop, Docker Scout won't store any data about your image. If you enable Docker Scout for your container image repositories however, Docker Scout saves a metadata snapshot of your images after the analysis. As new vulnerability data becomes available, Docker Scout recalibrates the analysis using the metadata snapshot, which means your security status for images is updated in real-time. This dynamic evaluation means there's no need to re-analyze images when new CVE information is disclosed.
 
-Docker Scout image analysis is available by default for Docker Hub repositories. You can also integrate third-party registries and other services. To learn more, see [Integrating Docker Scout with other systems](https://docs.docker.com/scout/integrations/).
+Docker Scout image analysis is available by default for Docker Hub repositories. You can also integrate third-party registries and other services. To learn more, see [Integrating Docker Scout with other systems]({{< ref "/manuals/DockerScout/Integrations" >}}).
 
-## [Activate Docker Scout on a repository](https://docs.docker.com/scout/explore/analysis/#activate-docker-scout-on-a-repository)
+## Activate Docker Scout on a repository
 
-The free tier of Docker Scout lets you use Docker Scout for up to 3 repositories per Docker organization. You can update your Docker Scout plan if you need additional repositories, see [Docker Scout billing](https://docs.docker.com/billing/scout-billing/).
+The free tier of Docker Scout lets you use Docker Scout for up to 3 repositories per Docker organization. You can update your Docker Scout plan if you need additional repositories, see [Docker Scout billing]({{< ref "/manuals/Billing/DockerScout" >}}).
 
 Before you can activate image analysis on a repository in a third-party registry, the registry must be integrated with Docker Scout for your Docker organization. Docker Hub is integrated by default. For more information, see See [Container registry integrations](https://docs.docker.com/scout/integrations/#container-registries)
 
@@ -42,7 +42,7 @@ To activate image analysis:
 
 If your repositories already contain images, Docker Scout pulls and analyzes the latest images automatically.
 
-## [Analyze registry images](https://docs.docker.com/scout/explore/analysis/#analyze-registry-images)
+## Analyze registry images
 
 To trigger image analysis for an image in a registry, push the image to a registry that's integrated with Docker Scout, to a repository where image analysis is activated.
 
@@ -62,23 +62,23 @@ To trigger image analysis for an image in a registry, push the image to a regist
    $ docker build --push --tag <org>/<image:tag> --provenance=true --sbom=true .
    ```
 
-   Building with the `--provenance=true` and `--sbom=true` flags attaches [build attestations](https://docs.docker.com/build/metadata/attestations/) to the image. Docker Scout uses attestations to provide more fine-grained analysis results.
+   Building with the `--provenance=true` and `--sbom=true` flags attaches [build attestations]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations" >}}) to the image. Docker Scout uses attestations to provide more fine-grained analysis results.
 
    > **Note**
    >
    > 
    >
-   > The default `docker` driver only supports build attestations if you use the [containerd image store](https://docs.docker.com/desktop/containerd/).
+   > The default `docker` driver only supports build attestations if you use the [containerd image store]({{< ref "/manuals/DockerDesktop/containerdimagestore" >}}).
 
 3. Go to the [Images page](https://scout.docker.com/reports/images) in the Docker Scout Dashboard.
 
    The image appears in the list shortly after you push it to the registry. It may take a few minutes for the analysis results to appear.
 
-## [Analyze images locally](https://docs.docker.com/scout/explore/analysis/#analyze-images-locally)
+## Analyze images locally
 
 You can analyze local images with Docker Scout using Docker Desktop or the `docker scout` commands for the Docker CLI.
 
-### [Docker Desktop](https://docs.docker.com/scout/explore/analysis/#docker-desktop)
+### Docker Desktop
 
 > **Note**
 >
@@ -94,9 +94,9 @@ To analyze an image locally using the Docker Desktop GUI:
 
 3. Select one of your local images in the list.
 
-   This opens the [Image details view](https://docs.docker.com/scout/explore/image-details-view/), showing a breakdown of packages and vulnerabilities found by the Docker Scout analysis for the image you selected.
+   This opens the [Image details view]({{< ref "/manuals/DockerScout/Explore/Imagedetailsview" >}}), showing a breakdown of packages and vulnerabilities found by the Docker Scout analysis for the image you selected.
 
-### [CLI](https://docs.docker.com/scout/explore/analysis/#cli)
+### CLI
 
 The `docker scout` CLI commands provide a command line interface for using Docker Scout from your terminal.
 
@@ -106,7 +106,7 @@ The `docker scout` CLI commands provide a command line interface for using Docke
 
 By default, the results are printed to standard output. You can also export results to a file in a structured format, such as Static Analysis Results Interchange Format (SARIF).
 
-#### [Quickview](https://docs.docker.com/scout/explore/analysis/#quickview)
+#### Quickview
 
 The `docker scout quickview` command provides an overview of the vulnerabilities found in a given image and its base image.
 
@@ -138,7 +138,7 @@ $ docker scout quickview postgres:13.1
                                             │    -9    -14     -9     -6
 ```
 
-#### [CVEs](https://docs.docker.com/scout/explore/analysis/#cves)
+#### CVEs
 
 The `docker scout cves` command gives you a complete view of all the vulnerabilities in the image. This command supports several flags that lets you specify more precisely which vulnerabilities you're interested in, for example, by severity or package type:
 
@@ -166,12 +166,12 @@ $ docker scout cves --format only-packages --only-vuln-packages \
 
 For more information about these commands and how to use them, refer to the CLI reference documentation:
 
-- [`docker scout quickview`](https://docs.docker.com/reference/cli/docker/scout/quickview/)
-- [`docker scout cves`](https://docs.docker.com/reference/cli/docker/scout/cves/)
+- [`docker scout quickview`]({{< ref "/reference/CLIreference/docker/dockerscout/dockerscoutquickview" >}})
+- [`docker scout cves`]({{< ref "/reference/CLIreference/docker/dockerscout/dockerscoutcves" >}})
 
-## [Vulnerability severity assessment](https://docs.docker.com/scout/explore/analysis/#vulnerability-severity-assessment)
+## Vulnerability severity assessment
 
-Docker Scout assigns a severity rating to vulnerabilities based on vulnerability data from [advisory sources](https://docs.docker.com/scout/deep-dive/advisory-db-sources/). Advisories are ranked and prioritized depending on the type of package that's affected by a vulnerability. For example, if a vulnerability affects an OS package, the severity level assigned by the distribution maintainer is prioritized.
+Docker Scout assigns a severity rating to vulnerabilities based on vulnerability data from [advisory sources]({{< ref "/manuals/DockerScout/Deepdive/Advisorydatabasesourcesandmatchingservice" >}}). Advisories are ranked and prioritized depending on the type of package that's affected by a vulnerability. For example, if a vulnerability affects an OS package, the severity level assigned by the distribution maintainer is prioritized.
 
 If the preferred advisory source has assigned a severity rating to a CVE, but not a CVSS score, Docker Scout falls back to displaying a CVSS score from another source. The severity rating from the preferred advisory and the CVSS score from the fallback advisory are displayed together. This means a vulnerability can have a severity rating of `LOW` with a CVSS score of 9.8, if the preferred advisory assigns a `LOW` rating but no CVSS score, and a fallback advisory assigns a CVSS score of 9.8.
 
@@ -190,11 +190,11 @@ For more information, see [Vulnerability Metrics (NIST)](https://nvd.nist.gov/vu
 
 Note that, given the advisory prioritization and fallback mechanism described earlier, severity ratings displayed in Docker Scout may deviate from this rating system.
 
-## [Maximum image size](https://docs.docker.com/scout/explore/analysis/#maximum-image-size)
+## Maximum image size
 
 Image analysis on the Docker Scout platform, and analysis triggered by background indexing in Docker Desktop, has an image file size limit of 10 GB (uncompressed). To analyze images larger than that, you can either:
 
-- Attach [SBOM attestations](https://docs.docker.com/build/metadata/attestations/sbom/) at build-time
+- Attach [SBOM attestations]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations/SBOMattestations" >}}) at build-time
 - Use the [CLI](https://docs.docker.com/scout/explore/analysis/#cli) to analyze the image locally
 
 Images analyzed locally with the CLI and images with SBOM attestations have no maximum file size.

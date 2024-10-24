@@ -8,48 +8,48 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/faqs/single-sign-on/faqs/](https://docs.docker.com/security/faqs/single-sign-on/faqs/)
+> 原文：[https://docs.docker.com/security/faqs/single-sign-on/faqs/](https://docs.docker.com/security/faqs/single-sign-on/faqs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # General FAQs on SSO
 
-### [Is Docker SSO available for all paid subscriptions?](https://docs.docker.com/security/faqs/single-sign-on/faqs/#is-docker-sso-available-for-all-paid-subscriptions)
+### Is Docker SSO available for all paid subscriptions?
 
-Docker single sign-on (SSO) is only available with the Docker Business subscription. [Upgrade your existing subscription](https://docs.docker.com/subscription/core-subscription/upgrade/) to start using Docker SSO.
+Docker single sign-on (SSO) is only available with the Docker Business subscription. [Upgrade your existing subscription]({{< ref "/manuals/Subscription/DockerCore/Upgrade" >}}) to start using Docker SSO.
 
-### [How does Docker SSO work?](https://docs.docker.com/security/faqs/single-sign-on/faqs/#how-does-docker-sso-work)
+### How does Docker SSO work?
 
 Docker SSO lets users authenticate using their identity providers (IdPs) to access Docker. Docker supports Entra ID (formerly Azure AD) and any SAML 2.0 identity providers. When you enable SSO, this redirects users to your provider’s authentication page to authenticate using their email and password.
 
-### [What SSO flows does Docker support?](https://docs.docker.com/security/faqs/single-sign-on/faqs/#what-sso-flows-does-docker-support)
+### What SSO flows does Docker support?
 
 Docker supports Service Provider Initiated (SP-initiated) SSO flow. This means users must sign in to Docker Hub or Docker Desktop to initiate the SSO authentication process.
 
-### [Where can I find detailed instructions on how to configure Docker SSO?](https://docs.docker.com/security/faqs/single-sign-on/faqs/#where-can-i-find-detailed-instructions-on-how-to-configure-docker-sso)
+### Where can I find detailed instructions on how to configure Docker SSO?
 
-You first need to establish an SSO connection with your identity provider, and the company email domain needs to be verified prior to establishing an SSO connection for your users. For detailed step-by-step instructions on how to configure Docker SSO, see [Single Sign-on](https://docs.docker.com/security/for-admins/single-sign-on/configure/).
+You first need to establish an SSO connection with your identity provider, and the company email domain needs to be verified prior to establishing an SSO connection for your users. For detailed step-by-step instructions on how to configure Docker SSO, see [Single Sign-on]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Configure" >}}).
 
-### [Does Docker SSO support multi-factor authentication (MFA)?](https://docs.docker.com/security/faqs/single-sign-on/faqs/#does-docker-sso-support-multi-factor-authentication-mfa)
+### Does Docker SSO support multi-factor authentication (MFA)?
 
 When an organization uses SSO, MFA is determined on the IdP level, not on the Docker platform.
 
-### [Do I need a specific version of Docker Desktop for SSO?](https://docs.docker.com/security/faqs/single-sign-on/faqs/#do-i-need-a-specific-version-of-docker-desktop-for-sso)
+### Do I need a specific version of Docker Desktop for SSO?
 
 Yes, all users in your organization must upgrade to Docker Desktop version 4.4.2 or later. Users on older versions of Docker Desktop won't be able to sign in after SSO is enforced if the company domain email is used to sign in or as the primary email associated with an existing Docker account. Your users with existing accounts can't sign in with their username and password.
 
-### [Can I retain my Docker ID when using SSO?](https://docs.docker.com/security/faqs/single-sign-on/faqs/#can-i-retain-my-docker-id-when-using-sso)
+### Can I retain my Docker ID when using SSO?
 
 For a personal Docker ID, a user is the account owner. A Docker ID is associated with access to the user's repositories, images, assets. A user can choose to have a company domain email on the Docker account. When enforcing SSO, the account is connected to the organization account. When enforcing SSO for an organization(s) or company, any user logging in without an existing account using verified company domain email will automatically have an account provisioned, and a new Docker ID created.
 
-### [Does SAML authentication require additional attributes?](https://docs.docker.com/security/faqs/single-sign-on/faqs/#does-saml-authentication-require-additional-attributes)
+### Does SAML authentication require additional attributes?
 
 You must provide an email address as an attribute to authenticate through SAML. The ‘Name’ attribute is optional.
 
-### [Does the application recognize the NameID/Unique Identifier in the `SAMLResponse` subject?](https://docs.docker.com/security/faqs/single-sign-on/faqs/#does-the-application-recognize-the-nameidunique-identifier-in-the-samlresponse-subject)
+### Does the application recognize the NameID/Unique Identifier in the `SAMLResponse` subject?
 
 The preferred format is your email address, which should also be your Name ID.
 
-### [Can I use group mapping with SSO and the Azure AD (OIDC) authentication method?](https://docs.docker.com/security/faqs/single-sign-on/faqs/#can-i-use-group-mapping-with-sso-and-the-azure-ad-oidc-authentication-method)
+### Can I use group mapping with SSO and the Azure AD (OIDC) authentication method?
 
 No. Group mapping with SSO isn't supported with the Azure AD (OIDC) authentication method because it requires granting the OIDC app the Directory.Read.All permission, which provides access to all users, groups, and other sensitive data in the directory. Due to potential security risks, Docker doesn't support this configuration. Instead, Docker recommends [configuring SCIM to enable group sync securely](https://docs.docker.com/security/for-admins/provisioning/group-mapping/#use-group-mapping-with-scim).

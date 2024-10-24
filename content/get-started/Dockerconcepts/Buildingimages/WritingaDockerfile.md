@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/)
+> 原文：[https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 <iframe id="youtube-player-Jx8zoIhiP4c" data-video-id="Jx8zoIhiP4c" class="youtube-video aspect-video h-fit w-full py-2" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Docker concepts - Writing a Dockerfile" width="100%" height="100%" src="https://www.youtube.com/embed/Jx8zoIhiP4c?rel=0&amp;iv_load_policy=3&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fdocs.docker.com&amp;widgetid=1" data-gtm-yt-inspected-21="true" style="--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border-width: 0px; border-style: solid; border-color: initial; display: block; vertical-align: middle; aspect-ratio: 16 / 9; height: fit-content; width: 634.672px; padding-top: 0.5rem; padding-bottom: 0.5rem; color: rgb(0, 0, 0); font-family: &quot;Roboto Flex&quot;, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"></iframe>
 
-## [Explanation](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/#explanation)
+## Explanation
 
 A Dockerfile is a text-based document that's used to create a container image. It provides instructions to the image builder on the commands to run, files to copy, startup command, and more.
 
@@ -43,7 +43,7 @@ USER app
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
 ```
 
-### [Common instructions](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/#common-instructions)
+### Common instructions
 
 Some of the most common instructions in a `Dockerfile` include:
 
@@ -58,7 +58,7 @@ Some of the most common instructions in a `Dockerfile` include:
 
 To read through all of the instructions or go into greater detail, check out the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
 
-## [Try it out](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/#try-it-out)
+## Try it out
 
 Just as you saw with the previous example, a Dockerfile typically follows these steps:
 
@@ -69,11 +69,11 @@ Just as you saw with the previous example, a Dockerfile typically follows these 
 
 In this quick hands-on guide, you'll write a Dockerfile that builds a simple Node.js application. If you're not familiar with JavaScript-based applications, don't worry. It isn't necessary for following along with this guide.
 
-### [Set up](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/#set-up)
+### Set up
 
 [Download this ZIP file](https://github.com/docker/getting-started-todo-app/raw/build-image-from-scratch/app.zip) and extract the contents into a directory on your machine.
 
-### [Creating the Dockerfile](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/#creating-the-dockerfile)
+### Creating the Dockerfile
 
 Now that you have the project, you’re ready to create the `Dockerfile`.
 
@@ -147,17 +147,17 @@ Now that you have the project, you’re ready to create the `Dockerfile`.
 >
 > The `docker init` command will analyze your project and quickly create a Dockerfile, a `compose.yaml`, and a `.dockerignore`, helping you get up and going. Since you're learning about Dockerfiles specifically here, you won't use it now. But, [learn more about it here](https://docs.docker.com/engine/reference/commandline/init/).
 
-## [Additional resources](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/#additional-resources)
+## Additional resources
 
 To learn more about writing a Dockerfile, visit the following resources:
 
-- [Dockerfile reference](https://docs.docker.com/reference/dockerfile/)
+- [Dockerfile reference]({{< ref "/reference/Dockerfilereference" >}})
 - [Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
-- [Base images](https://docs.docker.com/build/building/base-images/)
-- [Getting started with Docker Init](https://docs.docker.com/reference/cli/docker/init/)
+- [Base images]({{< ref "/manuals/DockerBuild/Building/Baseimages" >}})
+- [Getting started with Docker Init]({{< ref "/reference/CLIreference/docker/dockerinit" >}})
 
-## [Next steps](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/#next-steps)
+## Next steps
 
 Now that you have created a Dockerfile and learned the basics, it's time to learn about building, tagging, and pushing the images.
 
-[Build, tag and publish the Image](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/)
+[Build, tag and publish the Image]({{< ref "/get-started/Dockerconcepts/Buildingimages/Buildtagandpublishanimage" >}})

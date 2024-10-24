@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/billing/](https://docs.docker.com/billing/)
+> 原文：[https://docs.docker.com/billing/](https://docs.docker.com/billing/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 Use the resources in this section to manage your billing and payment settings for your Docker subscriptions.
 
-## [Docker Core](https://docs.docker.com/billing/#docker-core)
+## Docker Core
 
 
 
@@ -42,7 +42,7 @@ View billing history
 
 Learn how to view billing history and download past invoices.
 
-## [Docker products](https://docs.docker.com/billing/#docker-products)
+## Docker products
 
 
 
@@ -56,7 +56,7 @@ Docker Build Cloud billing
 
 Learn how to buy and manage a Docker Build Cloud subscription.
 
-## [Resources](https://docs.docker.com/billing/#resources)
+## Resources
 
 
 

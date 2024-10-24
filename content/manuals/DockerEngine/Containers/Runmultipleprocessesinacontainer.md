@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/containers/multi-service_container/](https://docs.docker.com/engine/containers/multi-service_container/)
+> 原文：[https://docs.docker.com/engine/containers/multi-service_container/](https://docs.docker.com/engine/containers/multi-service_container/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ The container's main process is responsible for managing all processes that it s
 
 If you need to run more than one service within a container, you can achieve this in a few different ways.
 
-## [Use a wrapper script](https://docs.docker.com/engine/containers/multi-service_container/#use-a-wrapper-script)
+## Use a wrapper script
 
 Put all of your commands in a wrapper script, complete with testing and debugging information. Run the wrapper script as your `CMD`. The following is a naive example. First, the wrapper script:
 
@@ -55,7 +55,7 @@ COPY my_wrapper_script.sh my_wrapper_script.sh
 CMD ./my_wrapper_script.sh
 ```
 
-## [Use Bash job controls](https://docs.docker.com/engine/containers/multi-service_container/#use-bash-job-controls)
+## Use Bash job controls
 
 If you have one main process that needs to start first and stay running but you temporarily need to run some other processes (perhaps to interact with the main process) then you can use bash's job control. First, the wrapper script:
 
@@ -93,7 +93,7 @@ COPY my_wrapper_script.sh my_wrapper_script.sh
 CMD ./my_wrapper_script.sh
 ```
 
-## [Use a process manager](https://docs.docker.com/engine/containers/multi-service_container/#use-a-process-manager)
+## Use a process manager
 
 Use a process manager like `supervisord`. This is more involved than the other options, as it requires you to bundle `supervisord` and its configuration into your image (or base your image on one that includes `supervisord`), along with the different applications it manages. Then you start `supervisord`, which manages your processes for you.
 

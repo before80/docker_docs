@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/docker-hub/quickstart/](https://docs.docker.com/docker-hub/quickstart/)
+> 原文：[https://docs.docker.com/docker-hub/quickstart/](https://docs.docker.com/docker-hub/quickstart/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,11 +16,11 @@ draft = false
 
 The following section contains step-by-step instructions on how to get started with Docker Hub.
 
-### [Step 1: Sign up for a free Docker account](https://docs.docker.com/docker-hub/quickstart/#step-1-sign-up-for-a-free-docker-account)
+### Step 1: Sign up for a free Docker account
 
 Start by creating a [Docker ID](https://hub.docker.com/signup).
 
-A [Docker ID](https://docs.docker.com/accounts/create-account/) grants you access to Docker Hub repositories and lets you explore available images from the community and verified publishers. You also need a Docker ID to share images on Docker Hub.
+A [Docker ID]({{< ref "/manuals/Dockeraccounts/Createanaccount" >}}) grants you access to Docker Hub repositories and lets you explore available images from the community and verified publishers. You also need a Docker ID to share images on Docker Hub.
 
 > **Tip**
 >
@@ -28,7 +28,7 @@ A [Docker ID](https://docs.docker.com/accounts/create-account/) grants you acces
 >
 > Explore [Docker's core subscriptions](https://www.docker.com/pricing/) to see what else Docker can offer you.
 
-### [Step 2: Create your first repository](https://docs.docker.com/docker-hub/quickstart/#step-2-create-your-first-repository)
+### Step 2: Create your first repository
 
 To create a repository:
 
@@ -40,14 +40,14 @@ To create a repository:
 
 You've created your first repository.
 
-### [Step 3: Download and install Docker Desktop](https://docs.docker.com/docker-hub/quickstart/#step-3-download-and-install-docker-desktop)
+### Step 3: Download and install Docker Desktop
 
 You need to download Docker Desktop to build, push, and pull container images.
 
-1. Download and install [Docker Desktop](https://docs.docker.com/desktop/).
+1. Download and install [Docker Desktop]({{< ref "/manuals/DockerDesktop" >}}).
 2. Sign in to Docker Desktop using the Docker ID you created in step one.
 
-### [Step 4: Pull and run a container image from Docker Hub](https://docs.docker.com/docker-hub/quickstart/#step-4-pull-and-run-a-container-image-from-docker-hub)
+### Step 4: Pull and run a container image from Docker Hub
 
 1. In your terminal, run `docker pull hello-world` to pull the image from Docker Hub. You should see output similar to:
 
@@ -91,9 +91,9 @@ You need to download Docker Desktop to build, push, and pull container images.
     https://docs.docker.com/get-started/
    ```
 
-### [Step 5: Build and push a container image to Docker Hub from your computer](https://docs.docker.com/docker-hub/quickstart/#step-5-build-and-push-a-container-image-to-docker-hub-from-your-computer)
+### Step 5: Build and push a container image to Docker Hub from your computer
 
-1. Start by creating a [Dockerfile](https://docs.docker.com/reference/dockerfile/) to specify your application as shown below:
+1. Start by creating a [Dockerfile]({{< ref "/reference/Dockerfilereference" >}}) to specify your application as shown below:
 
    
 
@@ -153,9 +153,9 @@ You've successfully:
 - Built your own container image on your computer
 - Pushed it successfully to Docker Hub
 
-### [Next steps](https://docs.docker.com/docker-hub/quickstart/#next-steps)
+### Next steps
 
-- Create an [organization](https://docs.docker.com/admin/organization/orgs/) to use Docker Hub with your team.
-- Automatically build container images from code through [builds](https://docs.docker.com/docker-hub/builds/).
+- Create an [organization]({{< ref "/manuals/Administration/Organizationadministration/Createyourorganization" >}}) to use Docker Hub with your team.
+- Automatically build container images from code through [builds]({{< ref "/manuals/DockerHub/Automatedbuilds" >}}).
 - [Explore](https://hub.docker.com/explore) official & publisher images.
 - [Upgrade your subscription](https://www.docker.com/pricing) to push additional private Docker images to Docker Hub.

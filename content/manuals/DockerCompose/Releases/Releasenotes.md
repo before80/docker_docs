@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/releases/release-notes/](https://docs.docker.com/compose/releases/release-notes/)
+> 原文：[https://docs.docker.com/compose/releases/release-notes/](https://docs.docker.com/compose/releases/release-notes/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,61 +16,61 @@ draft = false
 
 For more detailed information, see the [release notes in the Compose repo](https://github.com/docker/compose/releases/).
 
-## [2.29.6](https://docs.docker.com/compose/releases/release-notes/#2296)
+## 2.29.6
 
 *2024-09-19*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update)
+### Update
 
 - Dependencies upgrade: bump docker engine and cli to v27.3.0-rc.2
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements)
+### Bug fixes and enhancements
 
 - Fixed an issue with Windows Containers bind mounts.
 
-## [2.29.5](https://docs.docker.com/compose/releases/release-notes/#2295)
+## 2.29.5
 
 *2024-09-17*
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-1)
+### Bug fixes and enhancements
 
 - Fixed an issue with bind mounts on WSL2.
 
-## [2.29.4](https://docs.docker.com/compose/releases/release-notes/#2294)
+## 2.29.4
 
 *2024-09-16*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-1)
+### Update
 
 - Dependencies upgrade: bump buildx to v0.17.1
 - Dependencies upgrade: bump docker engine and cli to v27.3.0-rc.1
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-2)
+### Bug fixes and enhancements
 
 - Fixed an issue with services not stopping when restarting diverged dependencies.
 - Fixed potential `nil` pointer error on the OTEL client.
 
-## [2.29.3](https://docs.docker.com/compose/releases/release-notes/#2293)
+## 2.29.3
 
 *2024-09-12*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-2)
+### Update
 
 - Dependencies upgrade: bump compose-go to v2.2.0
 - Dependencies upgrade: bump docker engine and cli to v27.2.1
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-3)
+### Bug fixes and enhancements
 
 - Combination of bind mount and `rebuild` are now allowed with `watch`.
 - Fixed a bug recreating containers when `--no-deps` is used with `up`.
 - Fixed a bug not closing streams when reattaching containers.
 - Restored recreation of anonymous volumes when using `-V` or `--renew-anon-volumes`.
 
-## [2.29.2](https://docs.docker.com/compose/releases/release-notes/#2292)
+## 2.29.2
 
 *2024-08-16*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-3)
+### Update
 
 - Dependencies upgrade: bump compose-go to v2.1.6
 - Dependencies upgrade: bump docker engine and cli to v27.1.2
@@ -80,31 +80,31 @@ For more detailed information, see the [release notes in the Compose repo](https
 - Dependencies upgrade: bump sys to v0.22.0
 - Dependencies upgrade: bump flock to v0.12.1
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-4)
+### Bug fixes and enhancements
 
 - Fixed the docs on `docker compose kill` usage.
 - Fixed redundant condition from `toAPIBuildOptions` in build.go.
 - Fixed initial Watch `sync` after Compose restarts with introduction of `x-initSync`.
 - Fixed an issue which stopped the Compose process for a single container on `sync-restart` Watch action.
 
-## [2.29.1](https://docs.docker.com/compose/releases/release-notes/#2291)
+## 2.29.1
 
 *2024-07-23*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-4)
+### Update
 
 - Dependencies upgrade: bump compose-go to v2.1.5.
 - Dependencies upgrade: bump docker engine and cli to v27.1.0.
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-5)
+### Bug fixes and enhancements
 
 - Enhance JSON progress events with more fields.
 
-## [2.29.0](https://docs.docker.com/compose/releases/release-notes/#2290)
+## 2.29.0
 
 *2024-07-17*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-5)
+### Update
 
 - Dependencies upgrade: bump compose-go to v2.1.4
 - Dependencies upgrade: bump docker engine and cli to v27.0.3
@@ -112,44 +112,44 @@ For more detailed information, see the [release notes in the Compose repo](https
 - Dependencies upgrade: bump buildkit to 0.15.0
 - Dependencies upgrade: bump containerd to 1.7.19
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-6)
+### Bug fixes and enhancements
 
 - Added a JSON stream progress writer.
 - Added a `--prune` flag to the `docker compose watch` command.
 - Unnecessary resources are now excluded after services have been selected.
 - Empty variables with no value are unset in containers.
 
-## [2.28.1](https://docs.docker.com/compose/releases/release-notes/#2281)
+## 2.28.1
 
 *2024-06-24*
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-7)
+### Bug fixes and enhancements
 
 - Fixed progress display, broken in `v2.28.0`, when TTY mode available.
 
-## [2.28.0](https://docs.docker.com/compose/releases/release-notes/#2280)
+## 2.28.0
 
 *2024-06-21*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-6)
+### Update
 
 - Dependencies upgrade: bump compose-go to v2.1.3
 - Dependencies upgrade: bump docker engine and cli to v27.0.1-rc.1
 
-## [2.27.3](https://docs.docker.com/compose/releases/release-notes/#2273)
+## 2.27.3
 
 *2024-06-21*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-7)
+### Update
 
 - Dependencies upgrade: bump buildx to 0.15.1
 - Dependencies upgrade: bump buildkit to 0.14.1
 
-## [2.27.2](https://docs.docker.com/compose/releases/release-notes/#2272)
+## 2.27.2
 
 *2024-06-20*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-8)
+### Update
 
 - Dependencies upgrade: bump golang to 1.21.11
 - Dependencies upgrade: bump docker engine and cli to v26.1.4
@@ -157,41 +157,41 @@ For more detailed information, see the [release notes in the Compose repo](https
 - Dependencies upgrade: bump buildkit to 0.14.0
 - Dependencies upgrade: bump containerd to 1.7.18
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-8)
+### Bug fixes and enhancements
 
 - Added an `--environment` flag to the `config` command
 - Fixed a bug which caused the `watch` process to hang when used as flag with the `up` command
 - Fixed usage of `COMPOSE_PROFILES` in `.env` file
 
-## [2.27.1](https://docs.docker.com/compose/releases/release-notes/#2271)
+## 2.27.1
 
 *2024-05-24*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-9)
+### Update
 
 - Dependencies upgrade: bump compose-go to v2.1.1
 - Dependencies upgrade: bump docker engine and cli to v26.1.3
 - Dependencies upgrade: bump buildx to 0.14.1
 - Dependencies upgrade: bump containerd to 1.7.17
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-9)
+### Bug fixes and enhancements
 
 - Added a navigation menu in the CLI where you can open your Compose file in Docker Desktop
 - Added documentation for `--menu` flag in `docker compose up`
 - Fixed a bug with `--resolve-image-digests` used with `--no-interpolate`
 - You can now use a local `.env` file to override `COMPOSE_*` environment variables
 
-## [2.27.0](https://docs.docker.com/compose/releases/release-notes/#2270)
+## 2.27.0
 
 *2024-04-24*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-10)
+### Update
 
 - Dependencies upgrade: bump golang to 1.21.9
 - Dependencies upgrade: bump compose-go to v2.1.0
 - Dependencies upgrade: bump docker engine and cli to v26.1.0
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-10)
+### Bug fixes and enhancements
 
 - Introduced `--abort-on-container-failure` flag
 - Introduced `--all-resources` to not exclude resources not used by services
@@ -199,31 +199,31 @@ For more detailed information, see the [release notes in the Compose repo](https
 - Fixed a bug so Docker Compose now ignores missing containers when `docker compose down/stop -p` is run
 - Fixed support for `--flag=value` syntax in compatibility mode
 
-## [2.26.1](https://docs.docker.com/compose/releases/release-notes/#2261)
+## 2.26.1
 
 *2024-03-29*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-11)
+### Update
 
 - Dependencies upgrade: opencontainers/image-spec v1.1.0
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-11)
+### Bug fixes and enhancements
 
 - Added image pull failure reason in output
 - Fixed crash when running up with `--no-build` and `--watch`
 - Fixed crash when no TTY available and menu enabled
 - Improved legibility of menu actions
 
-## [2.26.0](https://docs.docker.com/compose/releases/release-notes/#2260)
+## 2.26.0
 
 *2024-03-22*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-12)
+### Update
 
 - Dependencies upgrade: bump compose-go v2.0.2
 - Dependencies upgrade: bump docker v26.0.0
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-12)
+### Bug fixes and enhancements
 
 - Reduced timeout of the Otel tracing command
 - Fixed `config --format json`
@@ -233,31 +233,31 @@ For more detailed information, see the [release notes in the Compose repo](https
 - Introduced `config --variables` to list Compose model variables
 - Added a navigation menu within `docker compose up`
 
-## [2.25.0](https://docs.docker.com/compose/releases/release-notes/#2250)
+## 2.25.0
 
 *2024-03-15*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-13)
+### Update
 
 - Dependencies upgrade: bump compose-go v2.0.0
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-13)
+### Bug fixes and enhancements
 
 - Restored `config` behaviour until `--no-interpolate` is set
 - Fixed service name shell completion
 - Added `--watch` flag to `up` command
 
-## [2.24.7](https://docs.docker.com/compose/releases/release-notes/#2247)
+## 2.24.7
 
 *2024-03-06*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-14)
+### Update
 
 - Dependencies upgrade: bump golang to 1.21.8
 - Dependencies upgrade: bump compose-go to 2.0.0-rc8
 - Dependencies upgrade: bump docker to v24.0.4
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-14)
+### Bug fixes and enhancements
 
 - Compose now ensures stable priority sort order for networks
 - Fixed interpolation with curly braces (e.g. JSON) in default values
@@ -272,92 +272,92 @@ For more detailed information, see the [release notes in the Compose repo](https
 - Fixed duplicate exit code status messages
 - Compose now respects `COMPOSE_REMOVE_ORPHANS` on `up`
 
-## [2.24.6](https://docs.docker.com/compose/releases/release-notes/#2246)
+## 2.24.6
 
 *2024-02-15*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-15)
+### Update
 
 - Dependencies upgrade: bump cli to 25.0.3
 - Dependencies upgrade: bump compose-go to 2.0.0-rc.7
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-15)
+### Bug fixes and enhancements
 
 - Fixed issue of `.env` file loading when project file is set via `COMPOSE_FILE` variable
 - Aligned `ps --status=exited` behaviour with the Docker CLI behaviour
 - Fixed a deadlock when collecting large logs
 
-## [2.24.5](https://docs.docker.com/compose/releases/release-notes/#2245)
+## 2.24.5
 
 *2024-01-30*
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-16)
+### Bug fixes and enhancements
 
 - Fixed "failed to solve: changes out of order" errors when building images on Windows.
 
-## [2.24.4](https://docs.docker.com/compose/releases/release-notes/#2244)
+## 2.24.4
 
 *2024-01-29*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-16)
+### Update
 
 - Dependencies upgrade: bump cli to 25.0.1
 - Dependencies upgrade: bump docker to 25.0.1
 - Dependencies upgrade: bump compose-go to 2.0.0-rc.3
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-17)
+### Bug fixes and enhancements
 
 - Fixed issue when checking external network existence when swarm is enabled.
 - Added support for `storage_opt` attribute.
 
-## [2.24.3](https://docs.docker.com/compose/releases/release-notes/#2243)
+## 2.24.3
 
 *2024-01-24*
 
 This release fixes a build issue with Docker Desktop for Windows introduced in Compose v2.24.0.
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-17)
+### Update
 
 - Compose now uses a custom version of `fsutils` library.
 
-## [2.24.2](https://docs.docker.com/compose/releases/release-notes/#2242)
+## 2.24.2
 
 *2024-01-22*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-18)
+### Update
 
 - Dependencies upgrade: bump cli to 25.0.0 GA
 - Dependencies upgrade: bump compose-go to 2.0.0-rc.2
 
-## [2.24.1](https://docs.docker.com/compose/releases/release-notes/#2241)
+## 2.24.1
 
 *2024-01-18*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-19)
+### Update
 
 - Dependencies upgrade: bump cli to 25.0.0-rc3
 - Dependencies upgrade: bump docker to 25.0.0-rc3
 - Dependencies upgrade: bump compose-go to 2.0.0-rc.1
 - Dependencies upgrade: bump containerd to 1.7.12
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-18)
+### Bug fixes and enhancements
 
 - Reworked the display of container status during `up`
 - Fixed the engine version required to use `healthcheck.start_interval`
 - Removed `watch` subcommand from the `alpha` command
 - Fixed a bug when handling received signals
 
-## [2.24.0](https://docs.docker.com/compose/releases/release-notes/#2240)
+## 2.24.0
 
 *2024-01-11*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-20)
+### Update
 
 - Dependencies upgrade: bump cli to 25.0.0-beta.3
 - Dependencies upgrade: bump compose-go to 2.0.0-beta.3
 - Dependencies upgrade: bump golang to 1.21.6
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-19)
+### Bug fixes and enhancements
 
 - Introduced `docker compose attach` to attach local standard input, output, and error streams to a service's running container.
 - Introduced `docker compose stats` to display a live stream of container(s) resource usage statistics.
@@ -376,41 +376,41 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Fixed race condition in log printer.
 - Fixed `docker compose up` teardown when command context is cancelled.
 
-## [2.23.3](https://docs.docker.com/compose/releases/release-notes/#2233)
+## 2.23.3
 
 *2023-11-22*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-21)
+### Update
 
 - Dependencies upgrade: bump buildx to v0.12.0
 
-## [2.23.2](https://docs.docker.com/compose/releases/release-notes/#2232)
+## 2.23.2
 
 *2023-11-21*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-22)
+### Update
 
 - Dependencies upgrade: bump buildkit 0.12.3
 - Dependencies upgrade: bump docker 24.0.7
 - Dependencies upgrade: bump cli 24.0.7
 - Dependencies upgrade: bump 1.20.2
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-20)
+### Bug fixes and enhancements
 
 - Compose now supports `builds.tags` with `push` command.
 - Compose Watch now re-builds service images at startup.
 - Now `--remove-orphans` doesn't manage disabled services as orphaned.
 - Compose displays `Building` output log only if there is at least one service to build.
 
-## [2.23.1](https://docs.docker.com/compose/releases/release-notes/#2231)
+## 2.23.1
 
 *2023-11-16*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-23)
+### Update
 
 - Dependencies upgrade: bump compose-go to v1.20.1
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-21)
+### Bug fixes and enhancements
 
 - Aligned Compose with OCI artifact best practices.
 - Introduced `--resolve-image-digests` so users can seal service images by digest when publishing a Compose application.
@@ -425,16 +425,16 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Compose is rendered quiet after filtering applied.
 - Stripped project prefix from docker-compose up output.
 
-## [2.23.0](https://docs.docker.com/compose/releases/release-notes/#2230)
+## 2.23.0
 
 *2023-10-18*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-24)
+### Update
 
 - Dependencies upgrade: bump compose-go to v1.20.0
 - Dependencies upgrade: bump containerd to 1.7.7
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-22)
+### Bug fixes and enhancements
 
 - Added dry-run support for publish command
 - Added `COMPOSE_ENV_FILES` env variable to pass a list of env files
@@ -444,7 +444,7 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Enabled profiles when `down` ran with explicit service names
 - Fixed an issue when the pull policy provided was invalid
 
-## [2.22.0](https://docs.docker.com/compose/releases/release-notes/#2220)
+## 2.22.0
 
 *2023-09-21*
 
@@ -452,15 +452,15 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 >
 > 
 >
-> The `watch` command is now generally available (GA). You can directly use it from the root command `docker compose watch`. For more information, see [File watch](https://docs.docker.com/compose/how-tos/file-watch/).
+> The `watch` command is now generally available (GA). You can directly use it from the root command `docker compose watch`. For more information, see [File watch]({{< ref "/manuals/DockerCompose/How-tos/UseComposeWatch" >}}).
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-25)
+### Update
 
 - Dependencies upgrade: bump golang to 1.21.1
 - Dependencies upgrade: bump compose-go to v1.19.0
 - Dependencies upgrade: bump buildkit to v0.12.2
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-23)
+### Bug fixes and enhancements
 
 - Added experimental support for the `publish` command.
 - The command `watch` now builds and launches the project during startup.
@@ -471,7 +471,7 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Fixed a `config` issue when the declared `env_file` is missing.
 - Passed BuildOptions to `up` and `run` commands.
 
-## [2.21.0](https://docs.docker.com/compose/releases/release-notes/#2210)
+## 2.21.0
 
 *2023-08-30*
 
@@ -481,11 +481,11 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 >
 > The format of `docker compose ps` and `docker compose ps --format=json` changed to better align with `docker ps` output. See [compose#10918](https://github.com/docker/compose/pull/10918).
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-26)
+### Update
 
 - Dependencies upgrade: bump compose-go to v1.18.3
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-24)
+### Bug fixes and enhancements
 
 - Changed `docker compose ps` and `docker compose ps --format=json` output to align with Docker CLI.
 - Added support for multi-document YAML files.
@@ -495,17 +495,17 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Fixed "no such service" errors when using `include` with `--profile`.
 - Fixed `.env` overrides when using `include`.
 
-## [2.20.3](https://docs.docker.com/compose/releases/release-notes/#2203)
+## 2.20.3
 
 *2023-08-11*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-27)
+### Update
 
 - Dependencies upgrade: bump golang to 1.21.0
 - Dependencies upgrade: bump compose-go to v1.18.1
 - Dependencies upgrade: bump buildkit to v0.12.1
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-25)
+### Bug fixes and enhancements
 
 - Improved speed and reliability of `watch` sync.
 - Added builder's name on the first build line.
@@ -513,39 +513,39 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Fixed build issue with proxy configuration not passing to legacy builder.
 - Removed unnecessary warning when an option dependency exists successfully.
 
-## [2.20.2](https://docs.docker.com/compose/releases/release-notes/#2202)
+## 2.20.2
 
 *2023-07-19*
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-26)
+### Bug fixes and enhancements
 
 - Added support for the `depends_on.required` attribute.
 - Fixed an issue where build tries to push unnamed service images.
 - Fixed a bug which meant the target secret path on Windows was not checked.
 - Fixed a bug resolving build context path for services using `extends.file`.
 
-## [2.20.1](https://docs.docker.com/compose/releases/release-notes/#2201)
+## 2.20.1
 
 *2023-07-18*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-28)
+### Update
 
 - Dependencies upgrade: bump golang to 1.20.6
 - Dependencies upgrade: bump buildx to v0.11.2
 - Dependencies upgrade: bump buildkit to v0.12
 - Dependencies upgrade: bump docker-cli to v24.0.5-dev
 
-## [2.20.0](https://docs.docker.com/compose/releases/release-notes/#2200)
+## 2.20.0
 
 *2023-07-11*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-29)
+### Update
 
 - Dependencies upgrade: bump docker/cli-docs-tools to v0.6.0
 - Dependencies upgrade: bump docker to v24.0.4
 - Dependencies upgrade: bump buildx to v0.11.1
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-27)
+### Bug fixes and enhancements
 
 - Introduced the `wait` command.
 - Added support of `--builder` and `BUILDX_BUILDER` to the `build` command.
@@ -559,32 +559,32 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Fixed a process leak in the wait e2e test.
 - Improved some test speeds.
 
-## [2.19.1](https://docs.docker.com/compose/releases/release-notes/#2191)
+## 2.19.1
 
 *2023-06-29*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-30)
+### Update
 
 - Dependencies upgrade: bump compose-go to v1.15.1
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-28)
+### Bug fixes and enhancements
 
 - Fixed sporadic "container not connected to network" errors on `compose up`.
 - Fixed "please specify build context" errors on `compose build`.
 - Compose now warns if using a bind mount in a service `watch` configuration.
 
-## [2.19.0](https://docs.docker.com/compose/releases/release-notes/#2190)
+## 2.19.0
 
 *2023-06-21*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-31)
+### Update
 
 - Dependencies upgrade: bump compose-go to v1.15.0
 - Dependencies upgrade: bump buildx to v0.11.0
 - Dependencies upgrade: bump docker to v24.0.2
 - Dependencies upgrade: bump golang to 1.20.5
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-29)
+### Bug fixes and enhancements
 
 - Introduced the ability to select a single service to be stopped by `compose down`.
 - Added `--progress` as top-level flag to configure progress UI style.
@@ -614,25 +614,25 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Added a GitHub action to trigger Docker Desktop e2e tests with Compose edge versions.
 - Added more ignore rules to dependabot.
 
-## [2.18.1](https://docs.docker.com/compose/releases/release-notes/#2181)
+## 2.18.1
 
 *2023-05-17*
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-30)
+### Bug fixes and enhancements
 
 - Fixed "Image not found" errors when building images
 
-## [2.18.0](https://docs.docker.com/compose/releases/release-notes/#2180)
+## 2.18.0
 
 *2023-05-16*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-32)
+### Update
 
 - Dependencies upgrade: bump compose-go to v1.13.5
 - Dependencies upgrade: bump buildkit to v0.11.6
 - Dependencies upgrade: bump docker to v23.0.5
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-31)
+### Bug fixes and enhancements
 
 - Added dry run support using `--dry-run`
 - Added the first (alpha) implementation of the `viz` sub-command
@@ -654,52 +654,52 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - `--parallel` now has precedence over `COMPOSE_PARALLEL_LIMIT`
 - Compose now reports that the external network is not found when Swarm is disabled
 
-## [2.17.2](https://docs.docker.com/compose/releases/release-notes/#2172)
+## 2.17.2
 
 *2023-03-26*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-33)
+### Update
 
 - Dependencies upgrade: bump compose-go to v1.13.2
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-32)
+### Bug fixes and enhancements
 
 - Fixed invalid project name error for directories with uppercase characters or `.` in the name. Fixed [compose#10405](https://github.com/docker/compose/issues/10405)
 
-## [2.17.1](https://docs.docker.com/compose/releases/release-notes/#2171)
+## 2.17.1
 
 *2023-03-24*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-34)
+### Update
 
 - Dependencies upgrade: bump buildkit to v0.11.5
 - Dependencies upgrade: bump compose-go to v1.13.1
 - Dependencies upgrade: bump golang to 1.20.2
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-33)
+### Bug fixes and enhancements
 
 - Fixed panic on `alpha watch` command. Pull Request [compose#10393](https://github.com/docker/compose/pull/10393)
 - Prevented conflicts for services named `extensions`. Fixed [compose-go#247](https://github.com/compose-spec/compose-go/issues/247)
 - Compose now validates project names more consistently. Fixed [compose-go#363](https://github.com/compose-spec/compose-go/issues/363)
 
-## [2.17.0](https://docs.docker.com/compose/releases/release-notes/#2170)
+## 2.17.0
 
 *2023-03-23*
 
-### [Upgrade notes](https://docs.docker.com/compose/releases/release-notes/#upgrade-notes)
+### Upgrade notes
 
 - Project name validation is more strictly enforced. Project names can only include letters, numbers, `_`, `-` and must be lowercase and start with a letter or number.
 - Boolean fields in YAML must be either `true` or `false`. Deprecated YAML 1.1 values such as "on" or "no" are not supported.
 - Duplicate YAML merge keys (`<<`) are rejected.
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-35)
+### Update
 
 - Dependencies upgrade: bump buildkit to v0.11.4
 - Dependencies upgrade: bump buildx to v0.10.4
 - Dependencies upgrade: bump containerd to 1.6.18
 - Dependencies upgrade: bump compose-go to v1.13.0
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-34)
+### Bug fixes and enhancements
 
 - Introduced `--wait-timeout` on `up` command. Fixed [compose#10269](https://github.com/docker/compose/issues/10269)
 - Made `compose service --hash` output sort by service name. Pull Request [compose#10278](https://github.com/docker/compose/pull/10278)
@@ -729,11 +729,11 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Compose now supports Dry Run mode for `exec` command. Pull Request [compose#10252](https://github.com/docker/compose/issues/10252)
 - Compose now supports Dry Run mode for `restart` command. Pull Request [compose#10339](https://github.com/docker/compose/issues/10339)
 
-## [2.16.0](https://docs.docker.com/compose/releases/release-notes/#2160)
+## 2.16.0
 
 *2023-02-08*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-36)
+### Update
 
 - Dependencies upgrade: bump docker to v23.0.0
 - Dependencies upgrade: bump docker-cli to v23.0.0
@@ -742,7 +742,7 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Dependencies upgrade: bump containerd to 1.6.16
 - Dependencies upgrade: bump golang to 1.20
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-35)
+### Bug fixes and enhancements
 
 - Introduced `--remove-orphans` for the `compose create` command. Fixed [compose#9718](https://github.com/docker/compose/issues/9718)
 - Shortened the TTY output when the terminal is too small. Fixed [compose#9962](https://github.com/docker/compose/issues/9962)
@@ -771,31 +771,31 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Compose now supports Dry Run mode for `pause` command.Fixed [compose#10217](https://github.com/docker/compose/issues/10217)
 - Compose now supports Dry Run mode for `cp` command.Fixed [compose#10235](https://github.com/docker/compose/issues/10235)
 
-## [2.15.1](https://docs.docker.com/compose/releases/release-notes/#2151)
+## 2.15.1
 
 *2023-01-09*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-37)
+### Update
 
 - Dependencies upgrade to fix Golan CVE-2022-27664 and CVE-2022-32149
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-36)
+### Bug fixes and enhancements
 
 - Added support for UTS namespace. Fixed [compose#8408](https://github.com/docker/compose/issues/8408)
 - Fixed filtering issue when no filter set. Fixed [roadmap#418](https://github.com/docker/roadmap/issues/418)
 - Fixed concurrent map writes issue during build step. Pull Request [compose#10151](https://github.com/docker/compose/pull/10151)
 - Fixed issue when stdin is not a terminal. Fixed [compose#9739](https://github.com/docker/compose/issues/9739)
 
-## [2.15.0](https://docs.docker.com/compose/releases/release-notes/#2150)
+## 2.15.0
 
 *2023-01-05*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-38)
+### Update
 
 - Dependencies upgrade: bump compose-go to v1.8.1
 - Dependencies upgrade: bump cli-docs-tool to 0.5.1
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-37)
+### Bug fixes and enhancements
 
 - Added support of the `privileged` attribute in the `service.build` section. Pull Request [compose#10112](https://github.com/docker/compose/pull/10112)
 - Introduced `--ignore-buildable` to ignore buildable images on pull. Fixed [compose#8805](https://github.com/docker/compose/issues/8805)
@@ -810,15 +810,15 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Compose should ignore not only auto-removed containers but also "removal in progress" for orphan containers. Pull Request [compose#10136](https://github.com/docker/compose/pull/10136)
 - Compose limits build concurrency according to `--parallel`. Fixed [compose#9091](https://github.com/docker/compose/issues/9091)
 
-## [2.14.2](https://docs.docker.com/compose/releases/release-notes/#2142)
+## 2.14.2
 
 *2022-12-20*
 
-### [Update](https://docs.docker.com/compose/releases/release-notes/#update-39)
+### Update
 
 - Dependencies upgrade: bump containerd to 1.6.14
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-38)
+### Bug fixes and enhancements
 
 - Compose now uses DOCKER_DEFAULT_PLATFORM to determine the platform when creating a container. Fixed [compose#10041](https://github.com/docker/compose/pull/10041)
 - Compose now detects when dependency failed to start. Fixed [compose#9732](https://github.com/docker/compose/pull/9732)
@@ -829,16 +829,16 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Fixed race condition on compose logs. Fixed [compose#8880](https://github.com/docker/compose/pull/8880)
 - Updated projectOptions to be public by renaming it to ProjectOptions. Fixed [compose#100102](https://github.com/docker/compose/pull/100102)
 
-## [2.14.1](https://docs.docker.com/compose/releases/release-notes/#2141)
+## 2.14.1
 
 *2022-12-15*
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates)
+### Updates
 
 - Dependencies upgrade: bump Go to 1.19.4
 - Dependencies upgrade: bump containerd to 1.6.12
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-39)
+### Bug fixes and enhancements
 
 - Added `--parallel` to limit concurrent engine calls. Pull Request [compose#10030](https://github.com/docker/compose/pull/10030)
 - Distinguished stdout and stderr in `up` logs. Fixed [compose#8098](https://github.com/docker/compose/issues/8098)
@@ -854,16 +854,16 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Fixed parsing of `repository:tag`. Fixed [compose#9208](https://github.com/docker/compose/pull/9208)
 - Load project from files when explicitly set by user. Fixed [compose#9554](https://github.com/docker/compose/pull/9554)
 
-## [2.14.0](https://docs.docker.com/compose/releases/release-notes/#2140)
+## 2.14.0
 
 *2022-12-02*
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates-1)
+### Updates
 
 - Dependencies upgrade: bump compose-go to [v1.8.0](https://github.com/compose-spec/compose-go/releases/tag/v1.8.0)
 - Dependencies upgrade: bump Go to 1.19.3
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-40)
+### Bug fixes and enhancements
 
 - Added `oom_score_adj` field to service definition. Pull Request [compose#10019](https://github.com/docker/compose/issues/10019)
 - Added mode field for tmpfs mount permissions. Pull Request [compose#10031](https://github.com/docker/compose/issues/10031)
@@ -875,17 +875,17 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Compose now uses the correct image name separator in `convert`. Fixed [compose#9904](https://github.com/docker/compose/issues/9904)
 - Fixed `run` for services using `network_mode: service:NAME`. Fixed [compose#10036](https://github.com/docker/compose/issues/10036)
 
-## [2.13.0](https://docs.docker.com/compose/releases/release-notes/#2130)
+## 2.13.0
 
 *2022-11-23*
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates-2)
+### Updates
 
 - Dependencies upgrade: bump containerd to 1.6.10
 - Dependencies upgrade: bump docker-credential-helpers to v0.7.0
 - Update CI dependencies. Pull Request [compose#9982](https://github.com/docker/compose/pull/9982)
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-41)
+### Bug fixes and enhancements
 
 - Added a `no-consistency` option to `convert` command. Fixed [compose#9963](https://github.com/docker/compose/issues/9963)
 - Added a `build` option to `run` command. Fixed [compose#10003](https://github.com/docker/compose/issues/10003)
@@ -898,37 +898,37 @@ This release fixes a build issue with Docker Desktop for Windows introduced in C
 - Removed usage of the deprecated dependency `gotest.tools` v2. Pull Request [compose#9935](https://github.com/docker/compose/pull/9935)
 - Excluded issues labeled with `kind/feature` from stale bot process. Fixed [compose#9988](https://github.com/docker/compose/pull/9988)
 
-## [2.12.2](https://docs.docker.com/compose/releases/release-notes/#2122)
+## 2.12.2
 
 *2022-10-21*
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates-3)
+### Updates
 
 - Updated Docker Engine API to restore compatibility with Golang 1.18 needed for Linux packaging. Pull Request [compose#9940](https://github.com/docker/compose/pull/9940)
 
 For the full change log or additional information, check the [Compose repository 2.12.2 release page](https://github.com/docker/compose/releases/tag/v2.12.2).
 
-## [2.12.1](https://docs.docker.com/compose/releases/release-notes/#2121)
+## 2.12.1
 
 *2022-10-21*
 
-### [Security](https://docs.docker.com/compose/releases/release-notes/#security)
+### Security
 
 - Updated Docker Engine API to apply fix of [CVE-2022-39253](https://nvd.nist.gov/vuln/detail/CVE-2022-39253). Pull Request [compose#9934](https://github.com/docker/compose/pull/9934)
 
 For the full change log or additional information, check the [Compose repository 2.12.1 release page](https://github.com/docker/compose/releases/tag/v2.12.1).
 
-## [2.12.0](https://docs.docker.com/compose/releases/release-notes/#2120)
+## 2.12.0
 
 *2022-10-18*
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates-4)
+### Updates
 
 - CI update to the documentation repository path
 - Upgraded to compose-go from [1.5.1 to 1.6.0](https://github.com/compose-spec/compose-go/releases/tag/v1.6.0)
 - Updated to go 1.19.2 to address CVE-2022-2879, CVE-2022-2880, CVE-2022-41715
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-42)
+### Bug fixes and enhancements
 
 - Added a `quiet` option when pushing an image. Fixed [compose#9089](https://github.com/docker/compose/issues/9089)
 - Fixed a misleading error message for `port` command. Pull Request [compose#9909](https://github.com/docker/compose/pull/9909)
@@ -937,7 +937,7 @@ For the full change log or additional information, check the [Compose repository
 
 For the full change log or additional information, check the [Compose repository 2.12.0 release page](https://github.com/docker/compose/releases/tag/v2.12.0).
 
-## [2.11.2](https://docs.docker.com/compose/releases/release-notes/#2112)
+## 2.11.2
 
 *2022-09-27*
 
@@ -948,11 +948,11 @@ For the full change log or additional information, check the [Compose repository
 > - Updates on environment file syntax & interpolation: see [compose#9879](https://github.com/docker/compose/issues/9879)
 > - Setting `DOCKER_HOST` via `.env` files is not supported in Compose v2
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates-5)
+### Updates
 
 - Upgraded to compose-go from [1.5.1 to 1.6.0](https://github.com/compose-spec/compose-go/releases/tag/v1.6.0)
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-43)
+### Bug fixes and enhancements
 
 - Fixed a bug to prevent "invalid template" errors on valid environment variable values. Fixes [compose##9806](https://github.com/docker/compose/issues/9806), [compose##9746](https://github.com/docker/compose/issues/9746), [compose##9704](https://github.com/docker/compose/issues/9704), [compose##9294](https://github.com/docker/compose/issues/9294)
 - Fixed a bug to ensure new images from `docker compose build` are used. Fixes [compose#9856](https://github.com/docker/compose/issues/9856)
@@ -970,11 +970,11 @@ For the full change log or additional information, check the [Compose repository
 
 For the full change log or additional information, check the [Compose repository 2.11.2 release page](https://github.com/docker/compose/releases/tag/v2.11.2).
 
-## [2.11.1](https://docs.docker.com/compose/releases/release-notes/#2111)
+## 2.11.1
 
 *2022-09-20*
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-44)
+### Bug fixes and enhancements
 
 - Fixed a bug to keep `depends_on` condition when service has `volumes_from`. Fixes [compose#9843](https://github.com/docker/compose/issues/9843)
 - Fixed a bug to keep the platform defined at service level during build if no build platforms. Fixes [compose#9729](https://github.com/docker/compose/pull/9729#issuecomment-1246748144)
@@ -982,11 +982,11 @@ For the full change log or additional information, check the [Compose repository
 
 For the full change log or additional information, check the [Compose repository 2.11.1 release page](https://github.com/docker/compose/releases/tag/v2.11.1).
 
-## [2.11.0](https://docs.docker.com/compose/releases/release-notes/#2110)
+## 2.11.0
 
 *2022-09-14*
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates-6)
+### Updates
 
 - Dependencies upgrade: bump Golang to 1.19.1
 - Dependencies upgrade: bump github.com/docker/go-units from 0.4.0 to 0.5.0
@@ -996,7 +996,7 @@ For the full change log or additional information, check the [Compose repository
 - Dependencies upgrade: bump go.opentelemetry.io/otel from 1.4.1 to 1.9.0
 - Dependencies upgrade: bump compose-go from [1.5.0 to 1.5.1](https://github.com/compose-spec/compose-go/releases/tag/v1.5.1)
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-45)
+### Bug fixes and enhancements
 
 - Added platforms build. Fixes [compose-spec#267](https://github.com/compose-spec/compose-spec/pull/267)
 - Logs now filter to services from current Compose file. Fixes [compose#9801](https://github.com/docker/compose/issues/9801)
@@ -1011,26 +1011,26 @@ For the full change log or additional information, check the [Compose repository
 
 For the full change log or additional information, check the [Compose repository 2.11.0 release page](https://github.com/docker/compose/releases/tag/v2.11.0).
 
-## [2.10.2](https://docs.docker.com/compose/releases/release-notes/#2102)
+## 2.10.2
 
 *2022-08-26*
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-46)
+### Bug fixes and enhancements
 
 - Properly respect `DOCKER_TLS_VERIFY` and `DOCKER_CERT_PATH` environment variables. Fixes [compose#9789](https://github.com/docker/compose/issues/9789).
 - Improved `Makefile` used in [docker/docker-ce-packaging#742](https://github.com/docker/docker-ce-packaging/pull/742).
 
 For the full change log or additional information, check the [Compose repository 2.10.2 release page](https://github.com/docker/compose/releases/tag/v2.10.2).
 
-## [2.10.1](https://docs.docker.com/compose/releases/release-notes/#2101)
+## 2.10.1
 
 *2022-08-24*
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates-7)
+### Updates
 
 - Dependencies update: Bumped github.com/moby/buildkit from [0.10.3 to 0.10.4](https://github.com/moby/buildkit/releases/tag/v0.10.4).
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-47)
+### Bug fixes and enhancements
 
 - Fixed image pulls being skipped when `pull_policy` was not set. Fixes [compose#9773](https://github.com/docker/compose/issues/9773).
 - Restored `.sha256` checksum files in release artifacts. Fixes [compose#9772](https://github.com/docker/compose/issues/9772).
@@ -1040,16 +1040,16 @@ For the full change log or additional information, check the [Compose repository
 
 For the full change log or additional information, check the [Compose repository 2.10.1 release page](https://github.com/docker/compose/releases/tag/v2.10.1).
 
-## [2.10.0](https://docs.docker.com/compose/releases/release-notes/#2100)
+## 2.10.0
 
 *2022-08-19*
 
-### [New](https://docs.docker.com/compose/releases/release-notes/#new)
+### New
 
 - Applied newly loaded environment variables to `DockerCli` and `APIClient`. Fixes [compose#9210](https://github.com/docker/compose/issues/9210).
 - Added support for windows/arm64 and linux/riscv64.
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates-8)
+### Updates
 
 - Updated Dockerfile syntax to latest stable and renamed docs Dockerfile.
 - Dependencies update: Upgraded BuildKit & docker/distribution.
@@ -1059,7 +1059,7 @@ For the full change log or additional information, check the [Compose repository
 - Dependencies update: Bumped to Go 1.18.5.
 - Dependencies update: Bumped github.com/cnabio/cnab-to-oci from [0.3.5 to 0.3.6](https://github.com/cnabio/cnab-to-oci/releases/tag/v0.3.6).
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-48)
+### Bug fixes and enhancements
 
 - Reverted environment variables precedence to OS over `.env` file. Fixes [compose#9737](https://github.com/docker/compose/issues/9737).
 - Updated usage strings for consistency.
@@ -1077,7 +1077,7 @@ For the full change log or additional information, check the [Compose repository
 
 For the full change log, check the [Compose repository 2.10.0 release page](https://github.com/docker/compose/releases/tag/v2.10.0).
 
-## [2.9.0](https://docs.docker.com/compose/releases/release-notes/#290)
+## 2.9.0
 
 *2022-08-7*
 
@@ -1093,11 +1093,11 @@ For the full change log, check the [Compose repository 2.10.0 release page](http
 >
 > This release reverts the breaking changes introduced in [Compose v2.8.0](https://docs.docker.com/compose/releases/release-notes/#280) by [`compose-go v1.3.0`](https://github.com/compose-spec/compose-go/releases/tag/v1.3.0).
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates-9)
+### Updates
 
 - Updated [`compose-go` to v1.4.0](https://github.com/compose-spec/compose-go/releases/tag/v1.4.0) as previous version introduced breaking changes. Fixes [compose#9700](https://github.com/docker/compose/issues/9700).
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-49)
+### Bug fixes and enhancements
 
 - Overwritten parent commands PreRun code for `compose version`. Fixes [compose#9698](https://github.com/docker/compose/issues/9698).
 - Fixed `LinkLocalIPs` in V2. Fixes [compose#9692](https://github.com/docker/compose/issues/9692).
@@ -1105,7 +1105,7 @@ For the full change log, check the [Compose repository 2.10.0 release page](http
 
 For the full change log or additional information, check the [Compose repository 2.9.0 release page](https://github.com/docker/compose/releases/tag/v2.9.0).
 
-## [2.8.0](https://docs.docker.com/compose/releases/release-notes/#280)
+## 2.8.0
 
 *2022-07-29*
 
@@ -1117,12 +1117,12 @@ For the full change log or additional information, check the [Compose repository
 >
 > Please use Compose the v2.9.0 release instead.
 
-### [New](https://docs.docker.com/compose/releases/release-notes/#new-1)
+### New
 
 - Introduced `--pull` flag to allow the force pull of updated service images. Fixes [compose#9451](https://github.com/docker/compose/issues/9451).
 - Increased code quality by adding `gocritic` to the linters.
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-50)
+### Bug fixes and enhancements
 
 - Fixed interpolation error message output. Fixes [compose-spec/compose-go#292](https://github.com/compose-spec/compose-go/pull/292).
 - Defined precedence of the environment variables evaluation. Fixes [compose#9521](https://github.com/docker/compose/issues/9606), [compose#9638](https://github.com/docker/compose/issues/9638), [compose#9608](https://github.com/docker/compose/issues/9608), [compose#9578](https://github.com/docker/compose/issues/9578). [compose#9468](https://github.com/docker/compose/issues/9468), and [compose#9683](https://github.com/docker/compose/issues/9468).
@@ -1132,20 +1132,20 @@ For the full change log or additional information, check the [Compose repository
 
 For the full change log or additional information, check the [Compose repository 2.8.0 release page](https://github.com/docker/compose/releases/tag/v2.8.0).
 
-## [2.7.0](https://docs.docker.com/compose/releases/release-notes/#270)
+## 2.7.0
 
 *2022-07-20*
 
-### [New](https://docs.docker.com/compose/releases/release-notes/#new-2)
+### New
 
 - Added support for environment secrets during build step. Fixes [compose#9606](https://github.com/docker/compose/issues/9606).
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates-10)
+### Updates
 
 - Dependencies upgrade: bumped [go to 1.18.4](https://github.com/golang/go/compare/go1.18.3...go1.18.4).
 - Dependencies upgrade: bumped [compose-go to v1.2.9](https://github.com/compose-spec/compose-go/releases/tag/v1.2.9).
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-51)
+### Bug fixes and enhancements
 
 - Networks: prevented issues due to duplicate names. Fixes [moby/moby#18864](https://github.com/moby/moby/issues/18864).
 - Fixed issue with close networks name on `compose up` and `compose down` commands. Fixes [compose#9630](https://github.com/docker/compose/issues/9044).
@@ -1166,15 +1166,15 @@ For the full change log or additional information, check the [Compose repository
 
 For the full change log or additional information, check the [Compose repository 2.7.0 release page](https://github.com/docker/compose/releases/tag/v2.7.0).
 
-## [2.6.1](https://docs.docker.com/compose/releases/release-notes/#261)
+## 2.6.1
 
 *2022-06-23*
 
-### [New](https://docs.docker.com/compose/releases/release-notes/#new-3)
+### New
 
 - Added support for setting secrets from environment variable. Fixes [compose-spec/compose-spec#251](https://github.com/compose-spec/compose-spec/issues/251).
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates-11)
+### Updates
 
 - Upgrade: compose-go [v1.2.8](https://github.com/compose-spec/compose-go/releases/tag/v1.2.8).
 - Upgrade: buildx [v0.8.2](https://github.com/docker/buildx/releases/tag/v0.8.2).
@@ -1189,7 +1189,7 @@ For the full change log or additional information, check the [Compose repository
 - Dependencies upgrade: bumped github.com/AlecAivazis/survey/v2 from 2.3.2 to 2.3.5.
 - Dependencies upgrade: bumped github.com/containerd/containerd from 1.6.2 to 1.6.6.
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-52)
+### Bug fixes and enhancements
 
 - Added links to container create request. Fixes [#9513](https://github.com/docker/compose/issues/9513).
 - Fixed `compose run` to start only direct dependencies. Fixes [#9459](https://github.com/docker/compose/issues/9459).
@@ -1211,23 +1211,23 @@ For the full change log or additional information, check the [Compose repository
 
 For the full change log or additional information, check the [Compose repository 2.6.1 release page](https://github.com/docker/compose/releases/tag/v2.6.1).
 
-## [2.6.0](https://docs.docker.com/compose/releases/release-notes/#260)
+## 2.6.0
 
 *2022-05-30*
 
-### [New](https://docs.docker.com/compose/releases/release-notes/#new-4)
+### New
 
 - Added the tags property to the build section. In this property tags can be defined to be applied to the final image, in addition to the one defined in the image property.
 - Added end-to-end tests to ensure there is no regression on environment variables precedence.
 - Added ddev's end-to-end test.
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates-12)
+### Updates
 
 - Dependencies update: bumping [compose-go to 1.2.6](https://github.com/compose-spec/compose-go/releases/tag/v1.2.6).
 - Dependencies update: bumping [compose-go to 1.2.7](https://github.com/compose-spec/compose-go/releases/tag/v1.2.7).
 - Dependencies update: bumping [golang to 1.18](https://go.dev/doc/devel/release#go1.18).
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-53)
+### Bug fixes and enhancements
 
 - Fixed `compose up` to attach only to services declared in project with enabled profiles. Fixes [#9286](https://github.com/docker/compose/issues/9286).
 - Fixed flickering prompt when pulling same image from multiple services. Fixes [#9469](https://github.com/docker/compose/issues/9469).
@@ -1237,15 +1237,15 @@ For the full change log or additional information, check the [Compose repository
 
 For the full change log or additional information, check the [Compose repository 2.6.0 release page](https://github.com/docker/compose/releases/tag/v2.6.0).
 
-## [2.5.1](https://docs.docker.com/compose/releases/release-notes/#251)
+## 2.5.1
 
 *2022-05-17*
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates-13)
+### Updates
 
 - Dependencies updates: bumping compose-go to 1.2.5.
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-54)
+### Bug fixes and enhancements
 
 - Fixed resolution of project's working directive absolute path when a relative path is declared using '--env-file'. Fixes [docker/for-mac#6229](https://github.com/docker/for-mac/issues/6229).
 - Fixed `compose down`: now rejects all arguments in order to clarify usage. Fixes [#9151](https://github.com/docker/compose/issues/9151).
@@ -1256,11 +1256,11 @@ For the full change log or additional information, check the [Compose repository
 
 For the full change log or additional information, check the [Compose repository 2.5.1 release page](https://github.com/docker/compose/releases/tag/v2.5.1).
 
-## [2.5.0](https://docs.docker.com/compose/releases/release-notes/#250)
+## 2.5.0
 
 *2022-04-29*
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-55)
+### Bug fixes and enhancements
 
 - Fixed panic with `compose down` command when `-p` flag specified. Fixes [#9353](https://github.com/docker/compose/issues/9353).
 - Passed newly created project as input to start services (`docker compose up`). Fixes [#9356](https://github.com/docker/compose/issues/9356).
@@ -1278,11 +1278,11 @@ For the full change log or additional information, check the [Compose repository
 
 For the full change log or additional information, check the [Compose repository 2.5.0 release page](https://github.com/docker/compose/releases/tag/v2.5.0).
 
-## [2.4.1](https://docs.docker.com/compose/releases/release-notes/#241)
+## 2.4.1
 
 *2022-04-04*
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-56)
+### Bug fixes and enhancements
 
 - Passed the `--rm flag` value as is to the Docker CLI when running a container with this flag. Fixes [#9314](https://github.com/docker/compose/issues/9314).
 - Added ssh config to the build options when building an image from a `docker compose up` command. Fixes [#9338](https://github.com/docker/compose/issues/9338).
@@ -1290,15 +1290,15 @@ For the full change log or additional information, check the [Compose repository
 
 For the full change log or additional information, check the [Compose repository 2.4.1 release page](https://github.com/docker/compose/releases/tag/v2.4.1).
 
-## [2.4.0](https://docs.docker.com/compose/releases/release-notes/#240)
+## 2.4.0
 
 *2022-04-1*
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates-14)
+### Updates
 
 - Dependencies update: Bumped buildx to v0.8.1. to fix possible panic on handling build context scanning errors.
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-57)
+### Bug fixes and enhancements
 
 - Passed the interactive flag '-i' from the Compose CLI to the Docker one to run exec command. Fixes [#9315](https://github.com/docker/compose/issues/9315).
 - Compose commands now take the value of `COMPOSE_PROJECT_NAME` environmental variable into consideration. Fixes [#9316](https://github.com/docker/compose/issues/9316).
@@ -1314,27 +1314,27 @@ For the full change log or additional information, check the [Compose repository
 
 For the full change log or additional information, check the [Compose repository 2.4.0 release page](https://github.com/docker/compose/releases/tag/v2.4.0).
 
-## [2.3.4](https://docs.docker.com/compose/releases/release-notes/#234)
+## 2.3.4
 
 *2022-03-25*
 
-### [New](https://docs.docker.com/compose/releases/release-notes/#new-5)
+### New
 
 - Introduced changes to use RunExec and RunStart from docker/cli to handle all the interactive/tty/* terminal logic.
 
-### [Removed](https://docs.docker.com/compose/releases/release-notes/#removed)
+### Removed
 
 - Removed a container with no candidate now produces a warning instead of an error. Fixes [#9255](https://github.com/docker/compose/issues/9255).
 - Removed the "Deprecated" mentions from -i and -t options to run and exec commands. These options are on by default and in use. Fixes [#9229](https://github.com/docker/compose/pull/9229#discussion_r819730788).
 - Removed the "Deprecated" mention from the --filter flag, to keep consistency with other commands.
 - Removed the need to get the original compose.yaml file to run 'docker compose kill'.
 
-### [Updates](https://docs.docker.com/compose/releases/release-notes/#updates-15)
+### Updates
 
 - Dependencies update: Bumped github.com/spf13/cobra from 1.3.0 to 1.4.0. Cobra library no longer requires Viper and all of its indirect dependencies [See cobra's release page](https://github.com/spf13/cobra/releases).
 - Dependencies update: Bumped buildx from v0.7.1 to v0.8.0.
 
-### [Bug fixes and enhancements](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-and-enhancements-58)
+### Bug fixes and enhancements
 
 - Recovered behavior for 'compose up -d' of recreating containers of compose file images with refreshed content. Fixes [#9259](https://github.com/docker/compose/issues/9259).
 - Docker compose --status, --filter and --format flags documentation updates.
@@ -1343,42 +1343,42 @@ For the full change log or additional information, check the [Compose repository
 
 For the full change log or additional information, check the [Compose repository 2.3.4 release page](https://github.com/docker/compose/releases/tag/v2.3.4).
 
-## [Other Releases](https://docs.docker.com/compose/releases/release-notes/#other-releases)
+## Other Releases
 
 (2022-03-8 to 2022-04-14)
 
 For the releases later than 1.29.2 and earlier than 2.3.4, please check the [Compose repository release pages](https://github.com/docker/compose/releases).
 
-## [1.29.2](https://docs.docker.com/compose/releases/release-notes/#1292)
+## 1.29.2
 
 (2021-05-10)
 
-### [Miscellaneous](https://docs.docker.com/compose/releases/release-notes/#miscellaneous)
+### Miscellaneous
 
 - Removed the prompt to use `docker-compose` in the `up` command.
 - Bumped `py` to `1.10.0` in `requirements-indirect.txt`.
 
-## [1.29.1](https://docs.docker.com/compose/releases/release-notes/#1291)
+## 1.29.1
 
 (2021-04-13)
 
-### [Bugs](https://docs.docker.com/compose/releases/release-notes/#bugs)
+### Bugs
 
 - Fixed invalid handler warning on Windows builds.
 - Fixed config hash to trigger container re-creation on IPC mode updates.
 - Fixed conversion map for `placement.max_replicas_per_node`.
 - Removed extra scan suggestion on build.
 
-## [1.29.0](https://docs.docker.com/compose/releases/release-notes/#1290)
+## 1.29.0
 
 (2021-04-06)
 
-### [Features](https://docs.docker.com/compose/releases/release-notes/#features)
+### Features
 
 - Added profile filter to `docker-compose config`.
 - Added a `depends_on` condition to wait for successful service completion.
 
-### [Miscellaneous](https://docs.docker.com/compose/releases/release-notes/#miscellaneous-1)
+### Miscellaneous
 
 - Added an image scan message on build.
 - Updated warning message for `--no-ansi` to mention `--ansi never` as alternative.
@@ -1386,80 +1386,80 @@ For the releases later than 1.29.2 and earlier than 2.3.4, please check the [Com
 - Bumped PyYAML to 5.4.1.
 - Bumped python-dotenv to 0.17.0.
 
-## [1.28.6](https://docs.docker.com/compose/releases/release-notes/#1286)
+## 1.28.6
 
 (2021-03-23)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes)
+### Bug fixes
 
 - Made `--env-file` relative to the current working directory. Environment file paths set with `--env-file` are now relative to the current working directory and override the default `.env` file located in the project directory.
 - Fixed missing service property `storage_opt` by updating the Compose schema.
 - Fixed build `extra_hosts` list format.
 - Removed additional error message on `exec`.
 
-### [Miscellaneous](https://docs.docker.com/compose/releases/release-notes/#miscellaneous-2)
+### Miscellaneous
 
 - Added `compose.yml` and `compose.yaml` to the default filename list.
 
-## [1.28.5](https://docs.docker.com/compose/releases/release-notes/#1285)
+## 1.28.5
 
 (2021-02-26)
 
-### [Bugs](https://docs.docker.com/compose/releases/release-notes/#bugs-1)
+### Bugs
 
 - Fixed the OpenSSL version mismatch error when shelling out to the SSH client (via bump to docker-py 4.4.4 which contains the fix).
 - Added missing build flags to the native builder: `platform`, `isolation` and `extra_hosts`.
 - Removed info message on native build.
 - Fixed the log fetching bug when service logging driver is set to 'none'.
 
-## [1.28.4](https://docs.docker.com/compose/releases/release-notes/#1284)
+## 1.28.4
 
 (2021-02-18)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-1)
+### Bug fixes
 
 - Fixed SSH port parsing by bumping docker-py to 4.4.3.
 
-### [Miscellaneous](https://docs.docker.com/compose/releases/release-notes/#miscellaneous-3)
+### Miscellaneous
 
 - Bumped Python to 3.7.10.
 
-## [1.28.3](https://docs.docker.com/compose/releases/release-notes/#1283)
+## 1.28.3
 
 (2021-02-17)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-2)
+### Bug fixes
 
 - Fixed SSH hostname parsing when it contains a leading 's'/'h', and removed the quiet option that was hiding the error (via docker-py bump to 4.4.2).
 - Fixed key error for `--no-log-prefix` option.
 - Fixed incorrect CLI environment variable name for service profiles: `COMPOSE_PROFILES` instead of `COMPOSE_PROFILE`.
 - Fixed the fish completion.
 
-### [Miscellaneous](https://docs.docker.com/compose/releases/release-notes/#miscellaneous-4)
+### Miscellaneous
 
 - Bumped cryptography to 3.3.2.
 - Removed the log driver filter.
 
 For a list of PRs and issues fixed in this release, see [Compose 1.28.3](https://github.com/docker/compose/milestone/53?closed=1).
 
-## [1.28.2](https://docs.docker.com/compose/releases/release-notes/#1282)
+## 1.28.2
 
 (2021-01-26)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-3)
+### Bug fixes
 
 - Revert to Python 3.7 bump for Linux static builds
 - Add bash completion for `docker-compose logs|up --no-log-prefix`
 
-### [Miscellaneous](https://docs.docker.com/compose/releases/release-notes/#miscellaneous-5)
+### Miscellaneous
 
 - CI setup update
 
-## [1.28.0](https://docs.docker.com/compose/releases/release-notes/#1280)
+## 1.28.0
 
 (2021-01-20)
 
-### [Features](https://docs.docker.com/compose/releases/release-notes/#features-1)
+### Features
 
 - Added support for NVIDIA GPUs through device requests.
 - Added support for service profiles.
@@ -1468,14 +1468,14 @@ For a list of PRs and issues fixed in this release, see [Compose 1.28.3](https:/
 - Added a flag for ANSI output control.
 - Docker Compose now uses the native Docker CLI's `build` command when building images. Set the `COMPOSE_DOCKER_CLI_BUILD=0` environment variable to disable this feature.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-4)
+### Bug fixes
 
 - Made `parallel_pull=True` by default.
 - Restored the warning for configs in non-swarm mode.
 - Took `--file` into account when defining `project_dir`.
 - Fixed a service attach bug on `compose up`.
 
-### [Miscellaneous](https://docs.docker.com/compose/releases/release-notes/#miscellaneous-6)
+### Miscellaneous
 
 - Added usage metrics.
 - Synced schema with COMPOSE specification.
@@ -1495,21 +1495,21 @@ For a list of PRs and issues fixed in this release, see [Compose 1.28.3](https:/
 - Relaxed the restriction on base images to latest minor.
 - Updated READMEs.
 
-## [1.27.4](https://docs.docker.com/compose/releases/release-notes/#1274)
+## 1.27.4
 
 (2020-09-24)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-5)
+### Bug fixes
 
 - Removed path checks for bind mounts.
 - Fixed port rendering to output long form syntax for non-v1.
 - Added protocol to the Docker socket address.
 
-## [1.27.3](https://docs.docker.com/compose/releases/release-notes/#1273)
+## 1.27.3
 
 (2020-09-16)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-6)
+### Bug fixes
 
 - Merged `max_replicas_per_node` on `docker-compose config`.
 - Fixed `depends_on` serialization on `docker-compose config`.
@@ -1517,30 +1517,30 @@ For a list of PRs and issues fixed in this release, see [Compose 1.28.3](https:/
 - Enabled relative paths for `driver_opts.device` for `local` driver.
 - Allowed strings for `cpus` fields.
 
-## [1.27.2](https://docs.docker.com/compose/releases/release-notes/#1272)
+## 1.27.2
 
 (2020-09-10)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-7)
+### Bug fixes
 
 - Fixed bug on `docker-compose run` container attach.
 
-## [1.27.1](https://docs.docker.com/compose/releases/release-notes/#1271)
+## 1.27.1
 
 (2020-09-10)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-8)
+### Bug fixes
 
 - Fixed `docker-compose run` when `service.scale` is specified.
 - Allowed the `driver` property for external networks as a temporary workaround for the Swarm network propagation issue.
 - Pinned the new internal schema version to `3.9` as the default.
 - Preserved the version number configured in the Compose file.
 
-## [1.27.0](https://docs.docker.com/compose/releases/release-notes/#1270)
+## 1.27.0
 
 (2020-09-07)
 
-### [Features](https://docs.docker.com/compose/releases/release-notes/#features-2)
+### Features
 
 - Merged 2.x and 3.x Compose formats and aligned with `COMPOSE_SPEC` schema.
 - Implemented service mode for `ipc`.
@@ -1550,7 +1550,7 @@ For a list of PRs and issues fixed in this release, see [Compose 1.28.3](https:/
 - Used the docker-py default API version for engine queries (`auto`).
 - Parsed `network_mode` on build.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-9)
+### Bug fixes
 
 - Ignored build context path validation when building is not required.
 - Fixed float to bytes conversion via docker-py bump to 4.3.1.
@@ -1559,39 +1559,39 @@ For a list of PRs and issues fixed in this release, see [Compose 1.28.3](https:/
 - Fixed experimental build failure detection.
 - Fixed context propagation to the Docker CLI.
 
-### [Miscellaneous](https://docs.docker.com/compose/releases/release-notes/#miscellaneous-7)
+### Miscellaneous
 
 - Bumped `docker-py` to 4.3.1.
 - Bumped `tox` to 3.19.0.
 - Bumped `virtualenv` to 20.0.30.
 - Added script for Docs synchronization.
 
-## [1.26.2](https://docs.docker.com/compose/releases/release-notes/#1262)
+## 1.26.2
 
 (2020-07-02)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-10)
+### Bug fixes
 
 - Enforced `docker-py` 4.2.2 as minimum version when installing with pip.
 
-## [1.26.1](https://docs.docker.com/compose/releases/release-notes/#1261)
+## 1.26.1
 
 (2020-06-30)
 
-### [Features](https://docs.docker.com/compose/releases/release-notes/#features-3)
+### Features
 
 - Bumped `docker-py` from 4.2.1 to 4.2.2.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-11)
+### Bug fixes
 
 - Enforced `docker-py` 4.2.1 as minimum version when installing with pip.
 - Fixed context load for non-docker endpoints.
 
-## [1.26.0](https://docs.docker.com/compose/releases/release-notes/#1260)
+## 1.26.0
 
 (2020-06-03)
 
-### [Features](https://docs.docker.com/compose/releases/release-notes/#features-4)
+### Features
 
 - Added `docker context` support.
 - Added missing test dependency `ddt` to `setup.py`.
@@ -1602,7 +1602,7 @@ For a list of PRs and issues fixed in this release, see [Compose 1.28.3](https:/
 - Bumped `certifi` from 2019.11.28 to 2020.4.5.1.
 - Bumped `docker-py` from 4.2.0 to 4.2.1.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-12)
+### Bug fixes
 
 - Properly escaped values coming from `env_files`.
 - Synchronized compose-schemas with upstream (docker/cli).
@@ -1613,52 +1613,52 @@ For a list of PRs and issues fixed in this release, see [Compose 1.28.3](https:/
 - Showed an error message when `version` attribute is malformed.
 - Fixed HTTPS connection when `DOCKER_HOST` is remote.
 
-## [1.25.5](https://docs.docker.com/compose/releases/release-notes/#1255)
+## 1.25.5
 
 (2020-04-10)
 
-### [Features](https://docs.docker.com/compose/releases/release-notes/#features-5)
+### Features
 
 - Bumped OpenSSL from 1.1.1d to 1.1.1f.
 - Added Compose version 3.8.
   - Limited service scale to the size specified by the field `deploy.placement.max_replicas_per_node`.
 
-## [1.25.4](https://docs.docker.com/compose/releases/release-notes/#1254)
+## 1.25.4
 
 (2020-02-03)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-13)
+### Bug fixes
 
 - Fixed the CI script to enforce the minimal MacOS version to 10.11.
 - Fixed docker-compose exec for keys with no value on environment files.
 
-## [1.25.3](https://docs.docker.com/compose/releases/release-notes/#1253)
+## 1.25.3
 
 (2020-01-23)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-14)
+### Bug fixes
 
 - Fixed the CI script to enforce the compilation with Python3.
 - Updated the binary's sha256 on the release page.
 
-## [1.25.2](https://docs.docker.com/compose/releases/release-notes/#1252)
+## 1.25.2
 
 (2020-01-20)
 
-### [New features](https://docs.docker.com/compose/releases/release-notes/#new-features)
+### New features
 
 - Docker Compose now allows the compatibility option with `COMPOSE_COMPATIBILITY` environment variable.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-15)
+### Bug fixes
 
 - Fixed an issue that caused Docker Compose to crash when the `version` field was set to an invalid value. Docker Compose now displays an error message when invalid values are used in the version field.
 - Fixed an issue that caused Docker Compose to render messages incorrectly when running commands outside a terminal.
 
-## [1.25.1](https://docs.docker.com/compose/releases/release-notes/#1251)
+## 1.25.1
 
 (2020-01-06)
 
-### [Bugfixes](https://docs.docker.com/compose/releases/release-notes/#bugfixes)
+### Bugfixes
 
 - Decoded the `APIError` explanation to Unicode before using it to create and start a container.
 - Docker Compose discards `com.docker.compose.filepaths` labels that have `None` as value. This usually occurs when labels originate from stdin.
@@ -1666,11 +1666,11 @@ For a list of PRs and issues fixed in this release, see [Compose 1.28.3](https:/
 - Passed the `HOME` environment variable in container mode when running with `script/run/run.sh`.
 - Docker Compose now reports images that cannot be pulled, however, are required to be built.
 
-## [1.25.0](https://docs.docker.com/compose/releases/release-notes/#1250)
+## 1.25.0
 
 (2019-11-18)
 
-### [New features](https://docs.docker.com/compose/releases/release-notes/#new-features-1)
+### New features
 
 - Set no-colors to true by changing `CLICOLOR` env variable to `0`.
 - Added working directory, config files, and env file to service labels.
@@ -1695,7 +1695,7 @@ For a list of PRs and issues fixed in this release, see [Compose 1.28.3](https:/
 - Updated `setup.py` for modern `pypi/setuptools`, and removed `pandoc` dependencies.
 - Removed `Dockerfile.armhf`, which is no longer required.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-16)
+### Bug fixes
 
 - Made container service color deterministic, including the removal of the color red.
 - Fixed non-ASCII character errors (Python 2 only).
@@ -1715,17 +1715,17 @@ For a list of PRs and issues fixed in this release, see [Compose 1.28.3](https:/
 - Compose container is always connected to `stdin` by default.
 - Fixed the presentation of failed services on the `docker-compose start` command when containers are not available.
 
-## [1.24.1](https://docs.docker.com/compose/releases/release-notes/#1241)
+## 1.24.1
 
 (2019-06-24)
 
 This release contains minor improvements and bug fixes.
 
-## [1.24.0](https://docs.docker.com/compose/releases/release-notes/#1240)
+## 1.24.0
 
 (2019-03-28)
 
-### [Features](https://docs.docker.com/compose/releases/release-notes/#features-6)
+### Features
 
 - Added support for connecting to the Docker Engine using the `ssh` protocol.
 - Added an `--all` flag to `docker-compose ps` to include stopped one-off containers in the command's output.
@@ -1733,7 +1733,7 @@ This release contains minor improvements and bug fixes.
 - Added support for credential_spec.
 - Added `--parallel` to `docker build`'s options in `bash` and `zsh` completion.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-17)
+### Bug fixes
 
 - Fixed a bug where some valid credential helpers weren't properly handled by Compose when attempting to pull images from private registries.
 - Fixed an issue where the output of `docker-compose start` before containers were created was misleading.
@@ -1749,11 +1749,11 @@ This release contains minor improvements and bug fixes.
 - Bumped `docker-py` version to `3.7.2` to fix SSH and proxy configuration issues.
 - Fixed release script and some typos on release documentation.
 
-## [1.23.2](https://docs.docker.com/compose/releases/release-notes/#1232)
+## 1.23.2
 
 (2018-11-28)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-18)
+### Bug fixes
 
 - Reverted a 1.23.0 change that appended random strings to container names created by `docker-compose up`, causing addressability issues.
 
@@ -1771,24 +1771,24 @@ This release contains minor improvements and bug fixes.
 
 - Fixed a bug where some invalid Compose files would raise an uncaught exception during validation.
 
-## [1.23.1](https://docs.docker.com/compose/releases/release-notes/#1231)
+## 1.23.1
 
 (2018-11-01)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-19)
+### Bug fixes
 
 - Fixed a bug where working with containers created with a version of Compose earlier than `1.23.0` would cause unexpected crashes.
 - Fixed an issue where the behavior of the `--project-directory` flag would vary depending on which subcommand was used.
 
-## [1.23.0](https://docs.docker.com/compose/releases/release-notes/#1230)
+## 1.23.0
 
 (2018-10-30)
 
-### [Important note](https://docs.docker.com/compose/releases/release-notes/#important-note)
+### Important note
 
 The default naming scheme for containers created by Compose in this version has changed from `<project>_<service>_<index>` to `<project>_<service>_<index>_<slug>`, where `<slug>` is a randomly-generated hexadecimal string. Please make sure to update scripts relying on the old naming scheme accordingly before upgrading.
 
-### [Features](https://docs.docker.com/compose/releases/release-notes/#features-7)
+### Features
 
 - Logs for containers restarting after a crash will now appear in the output of the `up` and `logs` commands.
 - Added `--hash` option to the `docker-compose config` command, allowing users to print a hash string for each service's configuration to facilitate rolling updates.
@@ -1796,7 +1796,7 @@ The default naming scheme for containers created by Compose in this version has 
 - Output for the `pull` command now reports status / progress even when pulling multiple images in parallel.
 - For images with multiple names, Compose will now attempt to match the one present in the service configuration in the output of the `images` command.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-20)
+### Bug fixes
 
 - Fixed an issue where parallel `run` commands for the same service would fail due to name collisions.
 - Fixed an issue where paths longer than 260 characters on Windows clients would cause `docker-compose build` to fail.
@@ -1812,28 +1812,28 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed a bug where issuing a `docker-compose pull` command on services without a defined image key would cause Compose to crash.
 - Volumes and binds are now mounted in the order they are declared in the service definition.
 
-### [Miscellaneous](https://docs.docker.com/compose/releases/release-notes/#miscellaneous-8)
+### Miscellaneous
 
 - The `zsh` completion script has been updated with new options, and no longer suggests container names where service names are expected.
 
-## [1.22.0](https://docs.docker.com/compose/releases/release-notes/#1220)
+## 1.22.0
 
 (2018-07-17)
 
-### [New features](https://docs.docker.com/compose/releases/release-notes/#new-features-2)
+### New features
 
-#### [Compose format version 3.7](https://docs.docker.com/compose/releases/release-notes/#compose-format-version-37)
+#### Compose format version 3.7
 
 - Introduced version 3.7 of the `docker-compose.yml` specification. This version requires Docker Engine 18.06.0 or above.
 - Added support for `rollback_config` in the deploy configuration
 - Added support for the `init` parameter in service configurations
 - Added support for extension fields in service, network, volume, secret, and config configurations
 
-#### [Compose format version 2.4](https://docs.docker.com/compose/releases/release-notes/#compose-format-version-24)
+#### Compose format version 2.4
 
 - Added support for extension fields in service, network, and volume configurations
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-21)
+### Bug fixes
 
 - Fixed a bug that prevented deployment with some Compose files when `DOCKER_DEFAULT_PLATFORM` was set
 - Compose will no longer try to create containers or volumes with invalid starting characters
@@ -1847,19 +1847,19 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed a bug that caused auth values in legacy `.dockercfg` files to be ignored
 - `docker-compose build` will no longer attempt to create image names starting with an invalid character
 
-## [1.21.2](https://docs.docker.com/compose/releases/release-notes/#1212)
+## 1.21.2
 
 (2018-05-03)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-22)
+### Bug fixes
 
 - Fixed a bug where the ip_range attribute in IPAM configs was prevented from passing validation
 
-## [1.21.1](https://docs.docker.com/compose/releases/release-notes/#1211)
+## 1.21.1
 
 (2018-04-27)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-23)
+### Bug fixes
 
 - In 1.21.0, we introduced a change to how project names are sanitized for internal use in resource names. This caused issues when manipulating an existing, deployed application whose name had changed as a result. This release properly detects resources using "legacy" naming conventions.
 - Fixed an issue where specifying an in-context Dockerfile using an absolute path would fail despite being valid.
@@ -1868,27 +1868,27 @@ The default naming scheme for containers created by Compose in this version has 
 - Improved support for credentials stores on Windows to include binaries using extensions other than `.exe`. The list of valid extensions is determined by the contents of the `PATHEXT` environment variable.
 - Fixed a bug where Compose would generate invalid binds containing duplicate elements with some v3.2 files, triggering errors at the Engine level during deployment.
 
-## [1.21.0](https://docs.docker.com/compose/releases/release-notes/#1210)
+## 1.21.0
 
 (2018-04-11)
 
-### [New features](https://docs.docker.com/compose/releases/release-notes/#new-features-3)
+### New features
 
-#### [Compose file version 2.4](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-24)
+#### Compose file version 2.4
 
 - Introduced version 2.4 of the `docker-compose.yml` specification. This version requires Docker Engine 17.12.0 or above.
 - Added support for the `platform` parameter in service definitions. If supplied, the parameter is also used when performing build for the service.
 
-#### [Compose file version 2.2 and up](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-22-and-up)
+#### Compose file version 2.2 and up
 
 - Added support for the `cpu_rt_period` and `cpu_rt_runtime` parameters in service definitions (2.x only).
 
-#### [Compose file version 2.1 and up](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-21-and-up)
+#### Compose file version 2.1 and up
 
 - Added support for the `cpu_period` parameter in service definitions (2.x only).
 - Added support for the `isolation` parameter in service build configurations. Additionally, the `isolation` parameter in service definitions is used for builds as well if no `build.isolation` parameter is defined. (2.x only)
 
-#### [All formats](https://docs.docker.com/compose/releases/release-notes/#all-formats)
+#### All formats
 
 - Added support for the `--workdir` flag in `docker-compose exec`.
 - Added support for the `--compress` flag in `docker-compose build`.
@@ -1896,7 +1896,7 @@ The default naming scheme for containers created by Compose in this version has 
 - Dashes and underscores in project names are no longer stripped out.
 - `docker-compose build` now supports the use of Dockerfile from outside the build context.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-24)
+### Bug fixes
 
 - Compose now checks that the volume's configuration matches the remote volume, and errors out if a mismatch is detected.
 - Fixed a bug that caused Compose to raise unexpected errors when attempting to create several one-off containers in parallel.
@@ -1905,28 +1905,28 @@ The default naming scheme for containers created by Compose in this version has 
 - Improved resilience when encoding of the Compose file doesn't match the system's. Users are encouraged to use UTF-8 when possible.
 - Fixed a bug where external overlay networks in Swarm would be incorrectly recognized as inexistent by Compose, interrupting otherwise valid operations.
 
-## [1.20.0](https://docs.docker.com/compose/releases/release-notes/#1200)
+## 1.20.0
 
 (2018-03-20)
 
-### [New features](https://docs.docker.com/compose/releases/release-notes/#new-features-4)
+### New features
 
-#### [Compose file version 3.6](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-36)
+#### Compose file version 3.6
 
 - Introduced version 3.6 of the `docker-compose.yml` specification. This version must be used with Docker Engine 18.02.0 or above.
 - Added support for the `tmpfs.size` property in volume mappings
 
-#### [Compose file version 3.2 and up](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-32-and-up)
+#### Compose file version 3.2 and up
 
 - The `--build-arg` option can now be used without specifying a service in `docker-compose build`
 
-#### [Compose file version 2.3](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-23)
+#### Compose file version 2.3
 
 - Added support for `device_cgroup_rules` in service definitions
 - Added support for the `tmpfs.size` property in long-form volume mappings
 - The `--build-arg` option can now be used without specifying a service in `docker-compose build`
 
-#### [All formats](https://docs.docker.com/compose/releases/release-notes/#all-formats-1)
+#### All formats
 
 - Added a `--log-level` option to the top-level `docker-compose` command. Accepted values are `debug`, `info`, `warning`, `error`, `critical`. Default log level is `info`
 - `docker-compose run` now allows users to unset the container's entrypoint
@@ -1937,7 +1937,7 @@ The default naming scheme for containers created by Compose in this version has 
 - `docker-compose ps` now shows the containers' health status if available
 - Added the long-form `--detach` option to the `exec`, `run` and `up` commands
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-25)
+### Bug fixes
 
 - Fixed `.dockerignore` handling, notably with regard to absolute paths and last-line precedence rules
 - Fixed an issue where Compose would make costly DNS lookups when connecting to the Engine when using Docker For Mac
@@ -1952,33 +1952,33 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed a bug occurring during builds caused by files with a negative `mtime` values in the build context
 - Fixed an encoding bug when streaming build progress
 
-## [1.19.0](https://docs.docker.com/compose/releases/release-notes/#1190)
+## 1.19.0
 
 (2018-02-07)
 
-### [Breaking changes](https://docs.docker.com/compose/releases/release-notes/#breaking-changes)
+### Breaking changes
 
 - On UNIX platforms, interactive `run` and `exec` commands now require the `docker` CLI to be installed on the client by default. To revert to the previous behavior, users may set the `COMPOSE_INTERACTIVE_NO_CLI` environment variable.
 
-### [New features](https://docs.docker.com/compose/releases/release-notes/#new-features-5)
+### New features
 
-#### [Compose file version 3.x](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-3x)
+#### Compose file version 3.x
 
 - The output of the `config` command should now merge `deploy` options from several Compose files in a more accurate manner
 
-#### [Compose file version 2.3](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-23-1)
+#### Compose file version 2.3
 
 - Added support for the `runtime` option in service definitions
 
-#### [Compose file version 2.1 and up](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-21-and-up-1)
+#### Compose file version 2.1 and up
 
 - Added support for the `${VAR:?err}` and `${VAR?err}` variable interpolation syntax to indicate mandatory variables
 
-#### [Compose file version 2.x](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-2x)
+#### Compose file version 2.x
 
 - Added `priority` key to service network mappings, allowing the user to define in which order the specified service will connect to each network
 
-#### [All formats](https://docs.docker.com/compose/releases/release-notes/#all-formats-2)
+#### All formats
 
 - Added `--renew-anon-volumes` (shorthand `-V`) to the `up` command, preventing Compose from recovering volume data from previous containers for anonymous volumes
 - Added limit for number of simultaneous parallel operations, which should prevent accidental resource exhaustion of the server. Default is 64 and can be configured using the `COMPOSE_PARALLEL_LIMIT` environment variable
@@ -1987,7 +1987,7 @@ The default naming scheme for containers created by Compose in this version has 
 - Added `COMPOSE_FORCE_WINDOWS_HOST` environment variable to force Compose to parse volume definitions as if the Docker host was a Windows system, even if Compose itself is currently running on UNIX
 - Bash completion should now be able to better differentiate between running, stopped and paused services
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-26)
+### Bug fixes
 
 - Fixed a bug that would cause the `build` command to report a connection error when the build context contained unreadable files or FIFO objects. These file types will now be handled appropriately
 - Fixed various issues around interactive `run`/`exec` sessions.
@@ -2002,30 +2002,30 @@ The default naming scheme for containers created by Compose in this version has 
 - Dependent services no longer get recreated along with the dependency owner if their configuration hasn't changed
 - Added better validation of `labels` fields in Compose files. Label values containing scalar types (number, boolean) now get automatically converted to strings
 
-## [1.18.0](https://docs.docker.com/compose/releases/release-notes/#1180)
+## 1.18.0
 
 (2017-12-18)
 
-### [New features](https://docs.docker.com/compose/releases/release-notes/#new-features-6)
+### New features
 
-#### [Compose file version 3.5](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-35)
+#### Compose file version 3.5
 
 - Introduced version 3.5 of the `docker-compose.yml` specification. This version requires Docker Engine 17.06.0 or above
 - Added support for the `shm_size` parameter in build configurations
 - Added support for the `isolation` parameter in service definitions
 - Added support for custom names for network, secret and config definitions
 
-#### [Compose file version 2.3](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-23-2)
+#### Compose file version 2.3
 
 - Added support for `extra_hosts` in build configuration
-- Added support for the [long syntax](https://docs.docker.com/reference/compose-file/legacy-versions/) for volume entries, as previously introduced in the 3.2 format. Using this syntax will create [mounts](https://docs.docker.com/engine/storage/bind-mounts/) instead of volumes.
+- Added support for the [long syntax]({{< ref "/reference/Composefilereference/Legacyversions" >}}) for volume entries, as previously introduced in the 3.2 format. Using this syntax will create [mounts]({{< ref "/manuals/DockerEngine/Storage/Bindmounts" >}}) instead of volumes.
 
-#### [Compose file version 2.1 and up](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-21-and-up-2)
+#### Compose file version 2.1 and up
 
 - Added support for the `oom_kill_disable` parameter in service definitions (2.x only)
 - Added support for custom names for network definitions (2.x only)
 
-#### [All formats](https://docs.docker.com/compose/releases/release-notes/#all-formats-3)
+#### All formats
 
 - Values interpolated from the environment will now be converted to the proper type when used in non-string fields.
 - Added support for `--label` in `docker-compose run`
@@ -2033,7 +2033,7 @@ The default naming scheme for containers created by Compose in this version has 
 - Added support for `--memory` in `docker-compose build`
 - Setting `stop_grace_period` in service definitions now also sets the container's `stop_timeout`
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-27)
+### Bug fixes
 
 - Fixed an issue where Compose was still handling service hostname according to legacy engine behavior, causing hostnames containing dots to be cut up
 - Fixed a bug where the `X-Y:Z` syntax for ports was considered invalid by Compose
@@ -2049,32 +2049,32 @@ The default naming scheme for containers created by Compose in this version has 
 - Added validation for `volumes` properties when using the long syntax in service definitions
 - The CLI now explicit prevents using `-d` and `--timeout` together in `docker-compose up`
 
-## [1.17.0](https://docs.docker.com/compose/releases/release-notes/#1170)
+## 1.17.0
 
 (2017-11-01)
 
-### [New features](https://docs.docker.com/compose/releases/release-notes/#new-features-7)
+### New features
 
-#### [Compose file version 3.4](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-34)
+#### Compose file version 3.4
 
 - Introduced version 3.4 of the `docker-compose.yml` specification. This version requires to be used with Docker Engine 17.06.0 or above.
 - Added support for `cache_from`, `network` and `target` options in build configurations
 - Added support for the `order` parameter in the `update_config` section
 - Added support for setting a custom name in volume definitions using the `name` parameter
 
-#### [Compose file version 2.3](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-23-3)
+#### Compose file version 2.3
 
 - Added support for `shm_size` option in build configuration
 
-#### [Compose file version 2.x](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-2x-1)
+#### Compose file version 2.x
 
 - Added support for extension fields (`x-*`). Also available for v3.4 files
 
-#### [All formats](https://docs.docker.com/compose/releases/release-notes/#all-formats-4)
+#### All formats
 
 - Added new `--no-start` to the `up` command, allowing users to create all resources (networks, volumes, containers) without starting services. The `create` command is deprecated in favor of this new option
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-28)
+### Bug fixes
 
 - Fixed a bug where `extra_hosts` values would be overridden by extension files instead of merging together
 - Fixed a bug where the validation for v3.2 files would prevent using the `consistency` field in service volume definitions
@@ -2085,28 +2085,28 @@ The default naming scheme for containers created by Compose in this version has 
 - Improved error handling when issuing a build command on Windows using an unsupported file version
 - Fixed an issue where networks with identical names would sometimes be created when running `up` commands concurrently.
 
-## [1.16.0](https://docs.docker.com/compose/releases/release-notes/#1160)
+## 1.16.0
 
 (2017-08-31)
 
-### [New features](https://docs.docker.com/compose/releases/release-notes/#new-features-8)
+### New features
 
-#### [Compose file version 2.3](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-23-4)
+#### Compose file version 2.3
 
 - Introduced version 2.3 of the `docker-compose.yml` specification. This version requires to be used with Docker Engine 17.06.0 or above.
 - Added support for the `target` parameter in build configurations
 - Added support for the `start_period` parameter in healthcheck configurations
 
-#### [Compose file version 2.x](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-2x-2)
+#### Compose file version 2.x
 
 - Added support for the `blkio_config` parameter in service definitions
 - Added support for setting a custom name in volume definitions using the `name` parameter (not available for version 2.0)
 
-#### [All formats](https://docs.docker.com/compose/releases/release-notes/#all-formats-5)
+#### All formats
 
 - Added new CLI flag `--no-ansi` to suppress ANSI control characters in output
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-29)
+### Bug fixes
 
 - Fixed a bug where nested `extends` instructions weren't resolved properly, causing "file not found" errors
 - Fixed several issues with `.dockerignore` parsing
@@ -2120,27 +2120,27 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed the output of the `docker-compose images` command when an image would come from a private repository using an explicit port number
 - Fixed the output of `docker-compose config` when a port definition used `0` as the value for the published port
 
-## [1.15.0](https://docs.docker.com/compose/releases/release-notes/#1150)
+## 1.15.0
 
 (2017-07-26)
 
-### [New features](https://docs.docker.com/compose/releases/release-notes/#new-features-9)
+### New features
 
-#### [Compose file version 2.2](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-22)
+#### Compose file version 2.2
 
 - Added support for the `network` parameter in build configurations.
 
-#### [Compose file version 2.1 and up](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-21-and-up-3)
+#### Compose file version 2.1 and up
 
 - The `pid` option in a service's definition now supports a `service:<name>` value.
 - Added support for the `storage_opt` parameter in service definitions. This option is not available for the v3 format
 
-#### [All formats](https://docs.docker.com/compose/releases/release-notes/#all-formats-6)
+#### All formats
 
 - Added `--quiet` flag to `docker-compose pull`, suppressing progress output
 - Some improvements to CLI output
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-30)
+### Bug fixes
 
 - Volumes specified through the `--volume` flag of `docker-compose run` now complement volumes declared in the service's definition instead of replacing them
 - Fixed a bug where using multiple Compose files would unset the scale value defined inside the Compose file.
@@ -2150,30 +2150,30 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed an issue where the output of `docker-compose config` would be invalid if the original file used `Y` or `N` values
 - Fixed an issue preventing `up` operations on a previously created stack on Windows Engine.
 
-## [1.14.0](https://docs.docker.com/compose/releases/release-notes/#1140)
+## 1.14.0
 
 (2017-06-19)
 
-### [New features](https://docs.docker.com/compose/releases/release-notes/#new-features-10)
+### New features
 
-#### [Compose file version 3.3](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-33)
+#### Compose file version 3.3
 
 - Introduced version 3.3 of the `docker-compose.yml` specification. This version requires to be used with Docker Engine 17.06.0 or above. Note: the `credential_spec` and `configs` keys only apply to Swarm services and will be ignored by Compose
 
-#### [Compose file version 2.2](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-22-1)
+#### Compose file version 2.2
 
 - Added the following parameters in service definitions: `cpu_count`, `cpu_percent`, `cpus`
 
-#### [Compose file version 2.1](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-21)
+#### Compose file version 2.1
 
 - Added support for build labels. This feature is also available in the 2.2 and 3.3 formats.
 
-#### [All formats](https://docs.docker.com/compose/releases/release-notes/#all-formats-7)
+#### All formats
 
 - Added shorthand `-u` for `--user` flag in `docker-compose exec`
 - Differences in labels between the Compose file and remote network will now print a warning instead of preventing redeployment.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-31)
+### Bug fixes
 
 - Fixed a bug where service's dependencies were being rescaled to their default scale when running a `docker-compose run` command
 - Fixed a bug where `docker-compose rm` with the `--stop` flag was not behaving properly when provided with a list of services to remove
@@ -2184,27 +2184,27 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed a bug where services declaring ports would cause crashes on some versions of Python 3
 - Fixed a bug where the output of `docker-compose config` would sometimes contain invalid port definitions
 
-## [1.13.0](https://docs.docker.com/compose/releases/release-notes/#1130)
+## 1.13.0
 
 (2017-05-02)
 
-### [Breaking changes](https://docs.docker.com/compose/releases/release-notes/#breaking-changes-1)
+### Breaking changes
 
 - `docker-compose up` now resets a service's scaling to its default value. You can use the newly introduced `--scale` option to specify a custom scale value
 
-### [New features](https://docs.docker.com/compose/releases/release-notes/#new-features-11)
+### New features
 
-#### [Compose file version 2.2](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-22-2)
+#### Compose file version 2.2
 
 - Introduced version 2.2 of the `docker-compose.yml` specification. This version requires to be used with Docker Engine 1.13.0 or above
 - Added support for `init` in service definitions.
 - Added support for `scale` in service definitions. The configuration's value can be overridden using the `--scale` flag in `docker-compose up`. The `scale` command is disabled for this file format
 
-#### [Compose file version 2.x](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-2x-3)
+#### Compose file version 2.x
 
 - Added support for `options` in the `ipam` section of network definitions
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-32)
+### Bug fixes
 
 - Fixed a bug where paths provided to compose via the `-f` option were not being resolved properly
 - Fixed a bug where the `ext_ip::target_port` notation in the ports section was incorrectly marked as invalid
@@ -2216,30 +2216,30 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed a bug where using `--exit-code-from` with `up` would fail if Compose was installed in a Python 3 environment
 - Fixed a bug where recreating containers using a combination of `tmpfs` and `volumes` would result in an invalid config state
 
-## [1.12.0](https://docs.docker.com/compose/releases/release-notes/#1120)
+## 1.12.0
 
 (2017-04-04)
 
-### [New features](https://docs.docker.com/compose/releases/release-notes/#new-features-12)
+### New features
 
-#### [Compose file version 3.2](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-32)
+#### Compose file version 3.2
 
 - Introduced version 3.2 of the `docker-compose.yml` specification
 - Added support for `cache_from` in the `build` section of services
 - Added support for the new expanded ports syntax in service definitions
 - Added support for the new expanded volumes syntax in service definitions
 
-#### [Compose file version 2.1](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-21-1)
+#### Compose file version 2.1
 
 - Added support for `pids_limit` in service definitions
 
-#### [Compose file version 2.0 and up](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-20-and-up)
+#### Compose file version 2.0 and up
 
 - Added `--volumes` option to `docker-compose config` that lists named volumes declared for that project
 - Added support for `mem_reservation` in service definitions (2.x only)
 - Added support for `dns_opt` in service definitions (2.x only)
 
-#### [All formats](https://docs.docker.com/compose/releases/release-notes/#all-formats-8)
+#### All formats
 
 - Added a new `docker-compose images` command that lists images used by the current project's containers
 - Added a `--stop` (shorthand `-s`) option to `docker-compose rm` that stops the running containers before removing them
@@ -2253,7 +2253,7 @@ The default naming scheme for containers created by Compose in this version has 
 - Users can now configure which path separator character they want to use to separate the `COMPOSE_FILE` environment value using the `COMPOSE_PATH_SEPARATOR` environment variable
 - Added support for port range to a single port in port mappings, such as `8000-8010:80`.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-33)
+### Bug fixes
 
 - `docker-compose run --rm` now removes anonymous volumes after execution, matching the behavior of `docker run --rm`.
 - Fixed a bug where override files containing port lists would cause a TypeError to be raised
@@ -2266,11 +2266,11 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed a bug where `docker-compose` would crash when trying to write into a closed pipe
 - Fixed an issue where Compose would not pick up on the value of COMPOSE_TLS_VERSION when used in combination with command-line TLS flags
 
-## [1.11.2](https://docs.docker.com/compose/releases/release-notes/#1112)
+## 1.11.2
 
 (2017-02-17)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-34)
+### Bug fixes
 
 - Fixed a bug that was preventing secrets configuration from being loaded properly
 - Fixed a bug where the `docker-compose config` command would fail if the config file contained secrets definitions
@@ -2278,38 +2278,38 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed an issue where socket-type files inside a build folder would cause `docker-compose` to crash when trying to build that service
 - Fixed an issue where recursive wildcard patterns `**` were not being recognized in `.dockerignore` files.
 
-## [1.11.1](https://docs.docker.com/compose/releases/release-notes/#1111)
+## 1.11.1
 
 (2017-02-09)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-35)
+### Bug fixes
 
 - Fixed a bug where the 3.1 file format was not being recognized as valid by the Compose parser
 
-## [1.11.0](https://docs.docker.com/compose/releases/release-notes/#1110)
+## 1.11.0
 
 (2017-02-08)
 
-### [New Features](https://docs.docker.com/compose/releases/release-notes/#new-features-13)
+### New Features
 
-#### [Compose file version 3.1](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-31)
+#### Compose file version 3.1
 
 - Introduced version 3.1 of the `docker-compose.yml` specification. This version requires Docker Engine 1.13.0 or above. It introduces support for secrets. See the documentation for more information
 
-#### [Compose file version 2.0 and up](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-20-and-up-1)
+#### Compose file version 2.0 and up
 
 - Introduced the `docker-compose top` command that displays processes running for the different services managed by Compose.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-36)
+### Bug fixes
 
 - Fixed a bug where extending a service defining a healthcheck dictionary would cause `docker-compose` to error out.
 - Fixed an issue where the `pid` entry in a service definition was being ignored when using multiple Compose files.
 
-## [1.10.1](https://docs.docker.com/compose/releases/release-notes/#1101)
+## 1.10.1
 
 (2017-02-01)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-37)
+### Bug fixes
 
 - Fixed an issue where the presence of older versions of the docker-py package would cause unexpected crashes while running Compose
 - Fixed an issue where healthcheck dependencies would be lost when using multiple compose files for a project
@@ -2318,17 +2318,17 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed an issue on Windows where build context paths containing unicode characters were being improperly encoded
 - Fixed a bug where Compose would occasionally crash while streaming logs when containers would stop or restart
 
-## [1.10.0](https://docs.docker.com/compose/releases/release-notes/#1100)
+## 1.10.0
 
 (2017-01-18)
 
-### [New Features](https://docs.docker.com/compose/releases/release-notes/#new-features-14)
+### New Features
 
-#### [Compose file version 3.0](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-30)
+#### Compose file version 3.0
 
 - Introduced version 3.0 of the `docker-compose.yml` specification. This version requires to be used with Docker Engine 1.13 or above and is specifically designed to work with the `docker stack` commands.
 
-#### [Compose file version 2.1 and up](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-21-and-up-4)
+#### Compose file version 2.1 and up
 
 - Healthcheck configuration can now be done in the service definition using the `healthcheck` parameter
 - Containers dependencies can now be set up to wait on positive healthchecks when declared using `depends_on`. See the documentation for the updated syntax. **Note**: This feature will not be ported to version 3 Compose files.
@@ -2336,11 +2336,11 @@ The default naming scheme for containers created by Compose in this version has 
 - Added support for the `userns_mode` parameter in service definitions
 - Compose now adds identifying labels to networks and volumes it creates
 
-#### [Compose file version 2.0 and up](https://docs.docker.com/compose/releases/release-notes/#compose-file-version-20-and-up-2)
+#### Compose file version 2.0 and up
 
 - Added support for the `stop_grace_period` option in service definitions.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-38)
+### Bug fixes
 
 - Colored output now works properly on Windows.
 - Fixed a bug where docker-compose run would fail to set up link aliases in interactive mode on Windows.
@@ -2348,7 +2348,7 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed a bug where falsy values of `COMPOSE_CONVERT_WINDOWS_PATHS` (`0`, `false`, empty value) were being interpreted as true.
 - Fixed a bug where forward slashes in some .dockerignore patterns weren't being parsed correctly on Windows
 
-## [1.9.0](https://docs.docker.com/compose/releases/release-notes/#190)
+## 1.9.0
 
 (2016-11-16)
 
@@ -2356,7 +2356,7 @@ The default naming scheme for containers created by Compose in this version has 
 
 - When using Compose with Docker Toolbox/Machine on Windows, volume paths are no longer converted from `C:\Users` to `/c/Users`-style by default. To re-enable this conversion so that your volumes keep working, set the environment variable `COMPOSE_CONVERT_WINDOWS_PATHS=1`. Users of Docker for Windows are not affected and do not need to set the variable.
 
-### [New Features](https://docs.docker.com/compose/releases/release-notes/#new-features-15)
+### New Features
 
 - Interactive mode for `docker-compose run` and `docker-compose exec` is now supported on Windows platforms. The `docker` binary is required to be present on the system for this feature to work.
 - Introduced version 2.1 of the `docker-compose.yml` specification. This version requires to be used with Docker Engine 1.12 or above.
@@ -2369,7 +2369,7 @@ The default naming scheme for containers created by Compose in this version has 
 - Compose now defaults to using the `npipe` protocol on Windows.
 - Overriding a `logging` configuration will now properly merge the `options` mappings if the `driver` values do not conflict.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-39)
+### Bug fixes
 
 - Fixed several bugs related to `npipe` protocol support on Windows.
 - Fixed an issue with Windows paths being incorrectly converted when using Docker on Windows Server.
@@ -2378,11 +2378,11 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed a bug where unicode values in environment variables would sometimes raise a unicode exception when retrieved.
 - Fixed an issue where Compose would incorrectly detect a configuration mismatch for overlay networks.
 
-## [1.8.1](https://docs.docker.com/compose/releases/release-notes/#181)
+## 1.8.1
 
 (2016-09-22)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-40)
+### Bug fixes
 
 - Fixed a bug where users using a credentials store were not able to access their private images.
 - Fixed a bug where users using identity tokens to authenticate were not able to access their private images.
@@ -2397,22 +2397,22 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed a bug where connection errors would not be handled properly by Compose during the project initialization phase.
 - Fixed a bug where a misleading error would appear when encountering a connection timeout.
 
-## [1.8.0](https://docs.docker.com/compose/releases/release-notes/#180)
+## 1.8.0
 
 (2016-06-14)
 
-### [Breaking Changes](https://docs.docker.com/compose/releases/release-notes/#breaking-changes-2)
+### Breaking Changes
 
 - As announced in 1.7.0, `docker-compose rm` now removes containers created by `docker-compose run` by default.
 - Setting `entrypoint` on a service now empties out any default command that was set on the image (i.e. any `CMD` instruction in the Dockerfile used to build it). This makes it consistent with the `--entrypoint` flag to `docker run`.
 
-### [New Features](https://docs.docker.com/compose/releases/release-notes/#new-features-16)
+### New Features
 
 - Added `docker-compose bundle`, a command that builds a bundle file to be consumed by the new *Docker Stack* commands in Docker 1.12.
 - Added `docker-compose push`, a command that pushes service images to a registry.
 - Compose now supports specifying a custom TLS version for interaction with the Docker Engine using the `COMPOSE_TLS_VERSION` environment variable.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-41)
+### Bug fixes
 
 - Fixed a bug where Compose would erroneously try to read `.env` at the project's root when it is a directory.
 - `docker-compose run -e VAR` now passes `VAR` through from the shell to the container, as with `docker run -e VAR`.
@@ -2426,11 +2426,11 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed a bug where errors during `docker-compose up` would show an unrelated stacktrace at the end of the process.
 - `docker-compose create` and `docker-compose start` show more descriptive error messages when something goes wrong.
 
-## [1.7.1](https://docs.docker.com/compose/releases/release-notes/#171)
+## 1.7.1
 
 (2016-05-04)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-42)
+### Bug fixes
 
 - Fixed a bug where the output of `docker-compose config` for v1 files would be an invalid configuration file.
 - Fixed a bug where `docker-compose config` would not check the validity of links.
@@ -2444,16 +2444,16 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed an issue where Compose would sometimes exit unexpectedly while reading events broadcasted by a Swarm cluster.
 - Corrected a statement in the docs about the location of the `.env` file, which is indeed read from the current directory, instead of in the same location as the Compose file.
 
-## [1.7.0](https://docs.docker.com/compose/releases/release-notes/#170)
+## 1.7.0
 
 (2016-04-13)
 
-### [Breaking Changes](https://docs.docker.com/compose/releases/release-notes/#breaking-changes-3)
+### Breaking Changes
 
 - `docker-compose logs` no longer follows log output by default. It now matches the behavior of `docker logs` and exits after the current logs are printed. Use `-f` to get the old default behavior.
 - Booleans are no longer allows as values for mappings in the Compose file (for keys `environment`, `labels` and `extra_hosts`). Previously this was a warning. Boolean values should be quoted so they become string values.
 
-### [New Features](https://docs.docker.com/compose/releases/release-notes/#new-features-17)
+### New Features
 
 - Compose now looks for a `.env` file in the directory where it's run and reads any environment variables defined inside, if they're not already set in the shell environment. This lets you easily set defaults for variables used in the Compose file, or for any of the `COMPOSE_*` or `DOCKER_*` variables.
 - Added a `--remove-orphans` flag to both `docker-compose up` and `docker-compose down` to remove containers for services that were removed from the Compose file.
@@ -2470,7 +2470,7 @@ The default naming scheme for containers created by Compose in this version has 
 - Added the `--build` flag to `docker-compose up` to force it to build a new image. It now shows a warning if an image is automatically built when the flag is not used.
 - Added the `docker-compose exec` command for executing a process in a running container.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-43)
+### Bug fixes
 
 - `docker-compose down` now removes containers created by `docker-compose run`.
 - A more appropriate error is shown when a timeout is hit during `up` when using a tty.
@@ -2481,17 +2481,17 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed a bug where `log_opt` and `log_driver` were not properly carried over when extending services in the v1 Compose file format.
 - Fixed a bug where empty values for build args would cause file validation to fail.
 
-## [1.6.2](https://docs.docker.com/compose/releases/release-notes/#162)
+## 1.6.2
 
 (2016-02-23)
 
 - Fixed a bug where connecting to a TLS-enabled Docker Engine would fail with a certificate verification error.
 
-## [1.6.1](https://docs.docker.com/compose/releases/release-notes/#161)
+## 1.6.1
 
 (2016-02-23)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-44)
+### Bug fixes
 
 - Fixed a bug where recreating a container multiple times would cause the new container to be started without the previous volumes.
 - Fixed a bug where Compose would set the value of unset environment variables to an empty string, instead of a key without a value.
@@ -2510,23 +2510,23 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed a bug with `up --abort-on-container-exit` where Compose would exit, but would not stop other containers.
 - Corrected the warning message that is printed when a boolean value is used as a value in a mapping.
 
-## [1.6.0](https://docs.docker.com/compose/releases/release-notes/#160)
+## 1.6.0
 
 (2016-01-15)
 
-### [Major Features](https://docs.docker.com/compose/releases/release-notes/#major-features)
+### Major Features
 
 - Compose 1.6 introduces a new format for `docker-compose.yml` which lets you define networks and volumes in the Compose file as well as services. It also makes a few changes to the structure of some configuration options.
 
   You don't have to use it - your existing Compose files will run on Compose 1.6 exactly as they do today.
 
-  Check the [upgrade guide](https://docs.docker.com/reference/compose-file/legacy-versions/) for full details.
+  Check the [upgrade guide]({{< ref "/reference/Composefilereference/Legacyversions" >}}) for full details.
 
 - Support for networking has exited experimental status and is the recommended way to enable communication between containers.
 
   If you use the new file format, your app will use networking. If you aren't ready yet, just leave your Compose file as it is and it'll continue to work just the same.
 
-  By default, you don't have to configure any networks. In fact, using networking with Compose involves even less configuration than using links. Consult the [networking guide](https://docs.docker.com/compose/how-tos/networking/) for how to use it.
+  By default, you don't have to configure any networks. In fact, using networking with Compose involves even less configuration than using links. Consult the [networking guide]({{< ref "/manuals/DockerCompose/How-tos/Networking" >}}) for how to use it.
 
   The experimental flags `--x-networking` and `--x-network-driver`, introduced in Compose 1.5, have been removed.
 
@@ -2545,7 +2545,7 @@ The default naming scheme for containers created by Compose in this version has 
 
 - There's a new `depends_on` option for specifying dependencies between services. This enforces the order of startup, and ensures that when you run `docker-compose up SERVICE` on a service with dependencies, those are started as well.
 
-### [New Features](https://docs.docker.com/compose/releases/release-notes/#new-features-18)
+### New Features
 
 - Added a new command `config` which validates and prints the Compose configuration after interpolating variables, resolving relative paths, and merging multiple files and `extends`.
 - Added a new command `create` for creating containers without starting them.
@@ -2558,7 +2558,7 @@ The default naming scheme for containers created by Compose in this version has 
 - Removed the `migrate-to-labels` command.
 - Removed the `--allow-insecure-ssl` flag.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-45)
+### Bug fixes
 
 - Fixed a validation bug that prevented the use of a range of ports in the `expose` field.
 - Fixed a validation bug that prevented the use of arrays in the `entrypoint` field if they contained duplicate entries.
@@ -2573,7 +2573,7 @@ The default naming scheme for containers created by Compose in this version has 
 - Fixed a confusing error message when DOCKER_CERT_PATH was not set properly.
 - Fixed a bug where attaching to a container would fail if it was using a non-standard logging driver (or none at all).
 
-## [1.5.2](https://docs.docker.com/compose/releases/release-notes/#152)
+## 1.5.2
 
 (2015-12-03)
 
@@ -2585,7 +2585,7 @@ The default naming scheme for containers created by Compose in this version has 
 - Add support for using a url as the value of `build`
 - Improved the validation of the `expose` option
 
-## [1.5.1](https://docs.docker.com/compose/releases/release-notes/#151)
+## 1.5.1
 
 (2015-11-12)
 
@@ -2607,11 +2607,11 @@ The default naming scheme for containers created by Compose in this version has 
 - Allow dashes in keys in the `environment` service option.
 - Improve validation error messages by including the filename as part of the error message.
 
-## [1.5.0](https://docs.docker.com/compose/releases/release-notes/#150)
+## 1.5.0
 
 (2015-11-03)
 
-### [Breaking changes](https://docs.docker.com/compose/releases/release-notes/#breaking-changes-4)
+### Breaking changes
 
 With the introduction of variable substitution support in the Compose file, any Compose file that uses an environment variable (`$VAR` or `${VAR}`) in the `command:` or `entrypoint:` field will break.
 
@@ -2619,7 +2619,7 @@ Previously these values were interpolated inside the container, with a value fro
 
 To migrate a Compose file to 1.5.0, escape the variables with an extra `$` (ex: `$$VAR` or `$${VAR}`). See https://github.com/docker/compose/blob/8cc8e61/docs/compose-file.md#variable-substitution
 
-### [Major features](https://docs.docker.com/compose/releases/release-notes/#major-features-1)
+### Major features
 
 - Compose is now available for Windows.
 - Environment variables can be used in the Compose file. See https://github.com/docker/compose/blob/8cc8e61/docs/compose-file.md#variable-substitution
@@ -2628,7 +2628,7 @@ To migrate a Compose file to 1.5.0, escape the variables with an extra `$` (ex: 
 - `up` now waits for all services to exit before shutting down, rather than shutting down as soon as one container exits.
 - Experimental support for the new docker networking system can be enabled with the `--x-networking` flag. Read more here: https://github.com/docker/docker/blob/8fee1c20/docs/userguide/dockernetworks.md
 
-### [New features](https://docs.docker.com/compose/releases/release-notes/#new-features-19)
+### New features
 
 - You can now optionally pass a mode to `volumes_from`. For example, `volumes_from: ["servicename:ro"]`.
 
@@ -2666,29 +2666,29 @@ To migrate a Compose file to 1.5.0, escape the variables with an extra `$` (ex: 
 
 - Compose can be installed and run as a Docker image. This is an experimental feature.
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-46)
+### Bug fixes
 
 - All values for the `log_driver` option which are supported by the Docker daemon are now supported by Compose.
 - `docker-compose build` can now be run successfully against a Swarm cluster.
 
-## [1.4.2](https://docs.docker.com/compose/releases/release-notes/#142)
+## 1.4.2
 
 (2015-09-22)
 
 - Fixed a regression in the 1.4.1 release that would cause `docker-compose up` without the `-d` option to exit immediately.
 
-## [1.4.1](https://docs.docker.com/compose/releases/release-notes/#141)
+## 1.4.1
 
 (2015-09-10)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-47)
+### Bug fixes
 
 - Some configuration changes (notably changes to `links`, `volumes_from`, and `net`) were not properly triggering a container recreate as part of `docker-compose up`.
 - `docker-compose up <service>` was showing logs for all services instead of just the specified services.
 - Containers with custom container names were showing up in logs as `service_number` instead of their custom container name.
 - When scaling a service sometimes containers would be recreated even when the configuration had not changed.
 
-## [1.4.0](https://docs.docker.com/compose/releases/release-notes/#140)
+## 1.4.0
 
 (2015-08-04)
 
@@ -2730,20 +2730,20 @@ To migrate a Compose file to 1.5.0, escape the variables with an extra `$` (ex: 
 
 Thanks @mnowster, @dnephin, @ekristen, @funkyfuture, @jeffk and @lukemarsden!
 
-## [1.3.3](https://docs.docker.com/compose/releases/release-notes/#133)
+## 1.3.3
 
 (2015-07-15)
 
-### [Regression fixes](https://docs.docker.com/compose/releases/release-notes/#regression-fixes)
+### Regression fixes
 
 - When stopping containers gracefully, Compose was setting the timeout to 0, effectively forcing a SIGKILL every time.
 - Compose would sometimes crash depending on the formatting of container data returned from the Docker API.
 
-## [1.3.2](https://docs.docker.com/compose/releases/release-notes/#132)
+## 1.3.2
 
 (2015-07-14)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-48)
+### Bug fixes
 
 - When there were one-off containers created by running `docker-compose run` on an older version of Compose, `docker-compose run` would fail with a name collision. Compose now shows an error if you have leftover containers of this type lying around, and tells you how to remove them.
 - Compose was not reading Docker authentication config files created in the new location, `~/docker/config.json`, and authentication against private registries would therefore fail.
@@ -2755,31 +2755,31 @@ Thanks @mnowster, @dnephin, @ekristen, @funkyfuture, @jeffk and @lukemarsden!
 
 Thanks @dano, @josephpage, @kevinsimper, @lieryan, @phemmer, @soulrebel and @sschepens!
 
-## [1.3.1](https://docs.docker.com/compose/releases/release-notes/#131)
+## 1.3.1
 
 (2015-06-21)
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-49)
+### Bug fixes
 
 - `docker-compose build` would always attempt to pull the base image before building.
 - `docker-compose help migrate-to-labels` failed with an error.
 - If no network mode was specified, Compose would set it to "bridge", rather than allowing the Docker daemon to use its configured default network mode.
 
-## [1.3.0](https://docs.docker.com/compose/releases/release-notes/#130)
+## 1.3.0
 
 (2015-06-18)
 
-### [Important notes](https://docs.docker.com/compose/releases/release-notes/#important-notes)
+### Important notes
 
 - **This release contains breaking changes, and you will need to either remove or migrate your existing containers before running your app** - see the [upgrading section of the install docs](https://github.com/docker/compose/blob/1.3.0rc1/docs/install.md#upgrading) for details.
 - Compose now requires Docker 1.6.0 or later.
 
-### [Improvements](https://docs.docker.com/compose/releases/release-notes/#improvements)
+### Improvements
 
 - Compose now uses container labels, rather than names, to keep track of containers. This makes Compose both faster and easier to integrate with your own tools.
 - Compose no longer uses "intermediate containers" when recreating containers for a service. This makes `docker-compose up` less complex and more resilient to failure.
 
-### [New features](https://docs.docker.com/compose/releases/release-notes/#new-features-20)
+### New features
 
 - `docker-compose up` has an **experimental** new behavior: it will only recreate containers for services whose configuration has changed in `docker-compose.yml`. This will eventually become the default, but for now you can take it for a spin:
 
@@ -2800,7 +2800,7 @@ Several new configuration keys have been added to `docker-compose.yml`:
 - `security_opt`, like `docker run --security-opt`, lets you specify [security options](https://docs.docker.com/reference/cli/docker/container/run/#security-opt).
 - `log_driver`, like `docker run --log-driver`, lets you specify a [log driver](https://docs.docker.com/reference/cli/docker/container/run/#log-driver).
 
-### [Bug fixes](https://docs.docker.com/compose/releases/release-notes/#bug-fixes-50)
+### Bug fixes
 
 - The output of `docker-compose run` was sometimes truncated, especially when running under Jenkins.
 - A service's volumes would sometimes not update after volume configuration was changed in `docker-compose.yml`.
@@ -2811,7 +2811,7 @@ Several new configuration keys have been added to `docker-compose.yml`:
 
 Thanks @ahromis, @albers, @aleksandr-vin, @antoineco, @ccverak, @chernjie, @dnephin, @edmorley, @fordhurley, @josephpage, @KyleJamesWalker, @lsowen, @mchasal, @noironetworks, @sdake, @sdurrheimer, @sherter, @stephenlawrence, @thaJeztah, @thieman, @turtlemonvh, @twhiteman, @vdemeester, @xuxinkun and @zwily!
 
-## [1.2.0](https://docs.docker.com/compose/releases/release-notes/#120)
+## 1.2.0
 
 (2015-04-16)
 
@@ -2827,7 +2827,7 @@ Thanks @ahromis, @albers, @aleksandr-vin, @antoineco, @ccverak, @chernjie, @dnep
 
 Thanks, @abesto, @albers, @alunduil, @dnephin, @funkyfuture, @gilclark, @IanVS, @KingsleyKelly, @knutwalker, @thaJeztah and @vmalloc!
 
-## [1.1.0](https://docs.docker.com/compose/releases/release-notes/#110)
+## 1.1.0
 
 (2015-02-25)
 
@@ -2852,7 +2852,7 @@ Besides that, there’s a lot of new stuff in this release:
 
 Thanks @dnephin, @squebe, @jbalonso, @raulcd, @benlangfield, @albers, @ggtools, @bersace, @dtenenba, @petercv, @drewkett, @TFenby, @paulRbr, @Aigeruth and @salehe!
 
-## [1.0.1](https://docs.docker.com/compose/releases/release-notes/#101)
+## 1.0.1
 
 (2014-11-04)
 
@@ -2860,7 +2860,7 @@ Thanks @dnephin, @squebe, @jbalonso, @raulcd, @benlangfield, @albers, @ggtools, 
 - Fixed `fig run` not showing output in Jenkins.
 - Fixed a bug where Fig couldn't build Dockerfiles with ADD statements pointing at URLs.
 
-## [1.0.0](https://docs.docker.com/compose/releases/release-notes/#100)
+## 1.0.0
 
 (2014-10-16)
 
@@ -2870,7 +2870,7 @@ The highlights:
 
   This means the GitHub repository has moved to https://github.com/docker/fig and our IRC channel is now #docker-fig on Freenode.
 
-- Fig can be used with the [official Docker OS X installer](https://docs.docker.com/desktop/install/mac-install/). Boot2Docker will mount the home directory from your host machine so volumes work as expected.
+- Fig can be used with the [official Docker OS X installer]({{< ref "/manuals/DockerDesktop/Install/Mac" >}}). Boot2Docker will mount the home directory from your host machine so volumes work as expected.
 
 - Fig supports Docker 1.3.
 
@@ -2905,7 +2905,7 @@ Other things:
 
 Thanks @dnephin, @d11wtq, @marksteve, @rubbish, @jbalonso, @timfreund, @alunduil, @mieciu, @shuron, @moss, @suzaku and @chmouel! Whew.
 
-## [0.5.2](https://docs.docker.com/compose/releases/release-notes/#052)
+## 0.5.2
 
 (2014-07-28)
 
@@ -2916,7 +2916,7 @@ Thanks @dnephin, @d11wtq, @marksteve, @rubbish, @jbalonso, @timfreund, @alunduil
 
 Thanks @dnephin and @marksteve!
 
-## [0.5.1](https://docs.docker.com/compose/releases/release-notes/#051)
+## 0.5.1
 
 (2014-07-11)
 
@@ -2927,7 +2927,7 @@ Thanks @dnephin and @marksteve!
 
 Thanks @ryanbrainard and @d11wtq!
 
-## [0.5.0](https://docs.docker.com/compose/releases/release-notes/#050)
+## 0.5.0
 
 (2014-07-11)
 
@@ -2975,13 +2975,13 @@ Thanks @ryanbrainard and @d11wtq!
 
 Thanks to @d11wtq, @ryanbrainard, @rail44, @j0hnsmith, @binarin, @Elemecca, @mozz100 and @marksteve for their help with this release!
 
-## [0.4.2](https://docs.docker.com/compose/releases/release-notes/#042)
+## 0.4.2
 
 (2014-06-18)
 
 - Fix various encoding errors when using `fig run`, `fig up` and `fig build`.
 
-## [0.4.1](https://docs.docker.com/compose/releases/release-notes/#041)
+## 0.4.1
 
 (2014-05-08)
 
@@ -2989,7 +2989,7 @@ Thanks to @d11wtq, @ryanbrainard, @rail44, @j0hnsmith, @binarin, @Elemecca, @moz
 - Make project name configurable. (Thanks @jefmathiot!)
 - Return correct exit code from `fig run`.
 
-## [0.4.0](https://docs.docker.com/compose/releases/release-notes/#040)
+## 0.4.0
 
 (2014-04-29)
 
@@ -3002,14 +3002,14 @@ Thanks to @d11wtq, @ryanbrainard, @rail44, @j0hnsmith, @binarin, @Elemecca, @moz
 - Handle UTF-8 correctly when streaming `fig build/run/up` output (thanks @mauvm and @shanejonas!)
 - Error message improvements
 
-## [0.3.2](https://docs.docker.com/compose/releases/release-notes/#032)
+## 0.3.2
 
 (2014-03-05)
 
 - Added an `--rm` option to `fig run`. (Thanks @marksteve!)
 - Added an `expose` option to `fig.yml`.
 
-## [0.3.1](https://docs.docker.com/compose/releases/release-notes/#031)
+## 0.3.1
 
 (2014-03-04)
 
@@ -3017,7 +3017,7 @@ Thanks to @d11wtq, @ryanbrainard, @rail44, @j0hnsmith, @binarin, @Elemecca, @moz
 - Fixed `fig rm` throwing an error.
 - Fixed a bug in `fig ps` on Docker 0.8.1 when there is a container with no command.
 
-## [0.3.0](https://docs.docker.com/compose/releases/release-notes/#030)
+## 0.3.0
 
 (2014-03-03)
 
@@ -3031,7 +3031,7 @@ Thanks to @d11wtq, @ryanbrainard, @rail44, @j0hnsmith, @binarin, @Elemecca, @moz
 
 Thanks @marksteve, @Gazler and @teozkr!
 
-## [0.2.2](https://docs.docker.com/compose/releases/release-notes/#022)
+## 0.2.2
 
 (2014-02-17)
 
@@ -3042,13 +3042,13 @@ Thanks @marksteve, @Gazler and @teozkr!
 
 Thanks to @barnybug and @dustinlacewell for their work on this release.
 
-## [0.2.1](https://docs.docker.com/compose/releases/release-notes/#021)
+## 0.2.1
 
 (2014-02-04)
 
 - General improvements to error reporting (#77, #79)
 
-## [0.2.0](https://docs.docker.com/compose/releases/release-notes/#020)
+## 0.2.0
 
 (2014-01-31)
 
@@ -3059,20 +3059,20 @@ Thanks to @barnybug and @dustinlacewell for their work on this release.
 
 Big thanks to @cameronmaske, @mrchrisadams and @damianmoore for their help with this release.
 
-## [0.1.4](https://docs.docker.com/compose/releases/release-notes/#014)
+## 0.1.4
 
 (2014-01-27)
 
 - Add a link alias without the project name. This makes the environment variables a little shorter: `REDIS_1_PORT_6379_TCP_ADDR`. (#54)
 
-## [0.1.3](https://docs.docker.com/compose/releases/release-notes/#013)
+## 0.1.3
 
 (2014-01-23)
 
 - Fix ports sometimes being configured incorrectly. (#46)
 - Fix log output sometimes not displaying. (#47)
 
-## [0.1.2](https://docs.docker.com/compose/releases/release-notes/#012)
+## 0.1.2
 
 (2014-01-22)
 
@@ -3080,13 +3080,13 @@ Big thanks to @cameronmaske, @mrchrisadams and @damianmoore for their help with 
 - Fix `fig up` requiring the ubuntu image to be pulled to recreate containers. (#33) Thanks @cameronmaske!
 - Improve reliability, fix arrow keys and fix a race condition in `fig run`. (#34, #39, #40)
 
-## [0.1.1](https://docs.docker.com/compose/releases/release-notes/#011)
+## 0.1.1
 
 (2014-01-17)
 
 - Fix bug where ports were not exposed correctly (#29). Thanks @dustinlacewell!
 
-## [0.1.0](https://docs.docker.com/compose/releases/release-notes/#010)
+## 0.1.0
 
 (2014-01-16)
 
@@ -3102,7 +3102,7 @@ Big thanks to @cameronmaske, @mrchrisadams and @damianmoore for their help with 
 
 Big thanks to @tomstuart, @EnTeQuAk, @schickling, @aronasorman and @GeoffreyPlitt.
 
-## [0.0.2](https://docs.docker.com/compose/releases/release-notes/#002)
+## 0.0.2
 
 (2014-01-02)
 
@@ -3112,7 +3112,7 @@ Big thanks to @tomstuart, @EnTeQuAk, @schickling, @aronasorman and @GeoffreyPlit
 - Add confirmation prompt to `fig rm`
 - Add `fig build` command
 
-## [0.0.1](https://docs.docker.com/compose/releases/release-notes/#001)
+## 0.0.1
 
 (2013-12-20)
 

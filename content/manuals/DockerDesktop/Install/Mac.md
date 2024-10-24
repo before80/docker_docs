@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/install/mac-install/](https://docs.docker.com/desktop/install/mac-install/)
+> 原文：[https://docs.docker.com/desktop/install/mac-install/](https://docs.docker.com/desktop/install/mac-install/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -28,13 +28,13 @@ This page contains download URLs, information about system requirements, and ins
 
 
 
-*For checksums, see [Release notes](https://docs.docker.com/desktop/release-notes/).*
+*For checksums, see [Release notes]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}).*
 
-## [System requirements](https://docs.docker.com/desktop/install/mac-install/#system-requirements)
+## System requirements
 
-Mac with Intel chip Mac with Apple silicon
+{{< tabpane text=true persist=disabled >}}
 
-------
+{{% tab header="Mac with Intel chip" %}}
 
 - A supported version of macOS.
 
@@ -46,9 +46,37 @@ Mac with Intel chip Mac with Apple silicon
 
 - At least 4 GB of RAM.
 
+{{% /tab  %}}
+
+{{% tab header="Mac with Apple silicon" %}}
+
+- A supported version of macOS.
+
+  > **Important**
+  >
+  > 
+  >
+  > Docker supports Docker Desktop on the most recent versions of macOS. That is, the current release of macOS and the previous two releases. As new major versions of macOS are made generally available, Docker stops supporting the oldest version and supports the newest version of macOS (in addition to the previous two releases).
+
+- At least 4 GB of RAM.
+
+- For the best experience, it's recommended that you install Rosetta 2. There is no longer a hard requirement to install Rosetta 2, however there are a few optional command line tools that still require Rosetta 2 when using Darwin/AMD64. See [Known issues]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}}). To install Rosetta 2 manually from the command line, run the following command:
+
+  
+
+  ```console
+  $ softwareupdate --install-rosetta
+  ```
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+
+
 ------
 
-## [Install and run Docker Desktop on Mac](https://docs.docker.com/desktop/install/mac-install/#install-and-run-docker-desktop-on-mac)
+## Install and run Docker Desktop on Mac
 
 > **Tip**
 >
@@ -56,9 +84,9 @@ Mac with Intel chip Mac with Apple silicon
 >
 > See the [FAQs](https://docs.docker.com/desktop/faqs/general/#how-do-I-run-docker-desktop-without-administrator-privileges) on how to install and run Docker Desktop without needing administrator privileges.
 
-### [Install interactively](https://docs.docker.com/desktop/install/mac-install/#install-interactively)
+### Install interactively
 
-1. Download the installer using the download buttons at the top of the page, or from the [release notes](https://docs.docker.com/desktop/release-notes/).
+1. Download the installer using the download buttons at the top of the page, or from the [release notes]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}).
 
 2. Double-click `Docker.dmg` to open the installer, then drag the Docker icon to the **Applications** folder. By default, Docker Desktop is installed at `/Applications/Docker.app`.
 
@@ -86,9 +114,9 @@ Mac with Intel chip Mac with Apple silicon
 
 7. Select **Finish**. If you have applied any of the previous configurations that require a password in step 6, enter your password to confirm your choice.
 
-### [Install from the command line](https://docs.docker.com/desktop/install/mac-install/#install-from-the-command-line)
+### Install from the command line
 
-After downloading `Docker.dmg` from either the download buttons at the top of the page or from the [release notes](https://docs.docker.com/desktop/release-notes/), run the following commands in a terminal to install Docker Desktop in the **Applications** folder:
+After downloading `Docker.dmg` from either the download buttons at the top of the page or from the [release notes]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}), run the following commands in a terminal to install Docker Desktop in the **Applications** folder:
 
 
 
@@ -145,7 +173,7 @@ The `install` command accepts the following flags:
 >
 > 
 >
-> As an IT administrator, you can use endpoint management (MDM) software to identify the number of Docker Desktop instances and their versions within your environment. This can provide accurate license reporting, help ensure your machines use the latest version of Docker Desktop, and enable you to [enforce sign-in](https://docs.docker.com/security/for-admins/enforce-sign-in/).
+> As an IT administrator, you can use endpoint management (MDM) software to identify the number of Docker Desktop instances and their versions within your environment. This can provide accurate license reporting, help ensure your machines use the latest version of Docker Desktop, and enable you to [enforce sign-in]({{< ref "/manuals/Security/Foradmins/Enforcesign-in" >}}).
 >
 > - [Intune](https://learn.microsoft.com/en-us/mem/intune/apps/app-discovered-apps)
 > - [Jamf](https://docs.jamf.com/10.25.0/jamf-pro/administrator-guide/Application_Usage.html)
@@ -153,12 +181,12 @@ The `install` command accepts the following flags:
 > - [Kolide](https://www.kolide.com/features/device-inventory/properties/mac-apps)
 > - [Workspace One](https://blogs.vmware.com/euc/2022/11/how-to-use-workspace-one-intelligence-to-manage-app-licenses-and-reduce-costs.html)
 
-## [Where to go next](https://docs.docker.com/desktop/install/mac-install/#where-to-go-next)
+## Where to go next
 
 - Explore [Docker's core subscriptions](https://www.docker.com/pricing/) to see what Docker can offer you.
-- [Get started with Docker](https://docs.docker.com/get-started/introduction/).
-- [Explore Docker Desktop](https://docs.docker.com/desktop/use-desktop/) and all its features.
-- [Troubleshooting](https://docs.docker.com/desktop/troubleshoot/) describes common problems, workarounds, how to run and submit diagnostics, and submit issues.
-- [FAQs](https://docs.docker.com/desktop/faqs/general/) provide answers to frequently asked questions.
-- [Release notes](https://docs.docker.com/desktop/release-notes/) lists component updates, new features, and improvements associated with Docker Desktop releases.
-- [Back up and restore data](https://docs.docker.com/desktop/backup-and-restore/) provides instructions on backing up and restoring data related to Docker.
+- [Get started with Docker]({{< ref "/get-started/Introduction" >}}).
+- [Explore Docker Desktop]({{< ref "/manuals/DockerDesktop/ExploreDockerDesktop" >}}) and all its features.
+- [Troubleshooting]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose" >}}) describes common problems, workarounds, how to run and submit diagnostics, and submit issues.
+- [FAQs]({{< ref "/manuals/DockerDesktop/FAQs/General" >}}) provide answers to frequently asked questions.
+- [Release notes]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}) lists component updates, new features, and improvements associated with Docker Desktop releases.
+- [Back up and restore data]({{< ref "/manuals/DockerDesktop/HowtobackupandrestoreyourDockerDesktopdata" >}}) provides instructions on backing up and restoring data related to Docker.

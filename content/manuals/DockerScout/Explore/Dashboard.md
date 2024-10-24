@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/explore/dashboard/](https://docs.docker.com/scout/explore/dashboard/)
+> 原文：[https://docs.docker.com/scout/explore/dashboard/](https://docs.docker.com/scout/explore/dashboard/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,15 +16,15 @@ draft = false
 
 The [Docker Scout Dashboard](https://scout.docker.com/) helps you share the analysis of images in an organization with your team. Developers can now see an overview of their security status across all their images from both Docker Hub and Artifactory, and get remediation advice at their fingertips. It helps team members in roles such as security, compliance, and operations to know what vulnerabilities and issues they need to focus on.
 
-## [Overview](https://docs.docker.com/scout/explore/dashboard/#overview)
+## Overview
 
 ![A screenshot of the Docker Scout Dashboard overview](Dashboard_img/dashboard-overview.webp)
 
 The **Overview** tab provides a summary for the repositories in the selected organization.
 
-At the top of this page, you can select which **Environment** to view. By default, the most recently pushed images are shown. To learn more about environments, see [Environment monitoring](https://docs.docker.com/scout/integrations/environment/).
+At the top of this page, you can select which **Environment** to view. By default, the most recently pushed images are shown. To learn more about environments, see [Environment monitoring]({{< ref "/manuals/DockerScout/Integrations/IntegratingDockerScoutwithenvironments" >}}).
 
-The **Policy** boxes show your current compliance rating for each policy, and a trend indication for the selected environment. The trend describes the policy delta for the most recent images compared to the previous version. For more information about policies, see [Policy Evaluation](https://docs.docker.com/scout/policy/).
+The **Policy** boxes show your current compliance rating for each policy, and a trend indication for the selected environment. The trend describes the policy delta for the most recent images compared to the previous version. For more information about policies, see [Policy Evaluation]({{< ref "/manuals/DockerScout/PolicyEvaluation" >}}).
 
 The vulnerability chart shows the total number of vulnerabilities for images in the selected environment over time. You can configure the timescale for the chart using the drop-down menu.
 
@@ -38,13 +38,13 @@ Use the header menu at the top of the website to access the different main secti
 - **Integrations**: create and manage third-party integrations, see [Integrations](https://docs.docker.com/scout/explore/dashboard/#integrations)
 - **Settings**: manage repository and billing settings, see [Settings](https://docs.docker.com/scout/explore/dashboard/#settings)
 
-## [Policies](https://docs.docker.com/scout/explore/dashboard/#policies)
+## Policies
 
 The **Policies** view shows a breakdown of policy compliance for all of the images in the selected organization and environment. You can use the **Image** drop-down menu to view a policy breakdown for a specific environment.
 
-For more information about policies, see [Policy Evaluation](https://docs.docker.com/scout/policy/).
+For more information about policies, see [Policy Evaluation]({{< ref "/manuals/DockerScout/PolicyEvaluation" >}}).
 
-## [Images](https://docs.docker.com/scout/explore/dashboard/#images)
+## Images
 
 The **Images** view shows all images in Scout-enabled repositories for the selected environment. You can filter the list by selecting a different environment, or by repository name using the text filter.
 
@@ -64,23 +64,23 @@ Selecting an image link takes you to a details view for the selected tag or dige
 
 - **Policy status** shows the policy evaluation results for the selected image. Here you also have links for details about the policy violations.
 
-  For more information about policy, see [Policy Evaluation](https://docs.docker.com/scout/policy/).
+  For more information about policy, see [Policy Evaluation]({{< ref "/manuals/DockerScout/PolicyEvaluation" >}}).
 
 - **Image layers** shows a breakdown of the image analysis results. You can get a complete view of the vulnerabilities your image contains and understand how they got in.
 
-## [Vulnerabilities](https://docs.docker.com/scout/explore/dashboard/#vulnerabilities)
+## Vulnerabilities
 
-The **Vulnerabilities** view shows a list of all vulnerabilities for images in the organization. This list includes details about CVE such as the severity and Common Vulnerability Scoring System (CVSS) score, as well as whether there's a fix version available. The CVSS score displayed here is the highest score out of all available [sources](https://docs.docker.com/scout/deep-dive/advisory-db-sources/).
+The **Vulnerabilities** view shows a list of all vulnerabilities for images in the organization. This list includes details about CVE such as the severity and Common Vulnerability Scoring System (CVSS) score, as well as whether there's a fix version available. The CVSS score displayed here is the highest score out of all available [sources]({{< ref "/manuals/DockerScout/Deepdive/Advisorydatabasesourcesandmatchingservice" >}}).
 
 Selecting the links on this page opens the vulnerability details page, This page is a publicly visible page, and shows detailed information about a CVE. You can share the link to a particular CVE description with other people even if they're not a member of your Docker organization or signed in to Docker Scout.
 
 If you are signed in, the **My images** tab on this page lists all of your images affected by the CVE.
 
-## [Integrations](https://docs.docker.com/scout/explore/dashboard/#integrations)
+## Integrations
 
-The **Integrations** page lets you create and manage your Docker Scout integrations, such as environment integrations and registry integrations. For more information on how to get started with integrations, see [Integrating Docker Scout with other systems](https://docs.docker.com/scout/integrations/).
+The **Integrations** page lets you create and manage your Docker Scout integrations, such as environment integrations and registry integrations. For more information on how to get started with integrations, see [Integrating Docker Scout with other systems]({{< ref "/manuals/DockerScout/Integrations" >}}).
 
-## [Settings](https://docs.docker.com/scout/explore/dashboard/#settings)
+## Settings
 
 The settings menu in the Docker Scout Dashboard contains:
 
@@ -88,17 +88,17 @@ The settings menu in the Docker Scout Dashboard contains:
 - [**Repository settings**](https://docs.docker.com/scout/explore/dashboard/#repository-settings) for enabling and disabling repositories
 - [**Notifications**](https://docs.docker.com/scout/explore/dashboard/#notification-settings) for managing your notification preferences for Docker Scout.
 
-### [Billing settings](https://docs.docker.com/scout/explore/dashboard/#billing-settings)
+### Billing settings
 
 The [Billing settings](https://scout.docker.com/settings/billing) page shows you the Docker Scout plan for the current organization. Here you can see what's included in your plan, compare it with other available plans, and change the plan if you're an organization owner.
 
-For more information about subscription plans, see [Docker Scout subscriptions and features](https://docs.docker.com/subscription/scout-details/)
+For more information about subscription plans, see [Docker Scout subscriptions and features]({{< ref "/manuals/Subscription/DockerScoutsubscriptionsandfeatures" >}})
 
-### [Repository settings](https://docs.docker.com/scout/explore/dashboard/#repository-settings)
+### Repository settings
 
 When you enable Docker Scout for a repository, Docker Scout analyzes new tags automatically when you push to that repository. To enable repositories in Amazon ECR, Azure ACR, or other third-party registries, you first need to integrate them. See [Container registry integrations](https://docs.docker.com/scout/integrations/#container-registries)
 
-### [Notification settings](https://docs.docker.com/scout/explore/dashboard/#notification-settings)
+### Notification settings
 
 The [Notification settings](https://scout.docker.com/settings/notifications) page is where you can change the preferences for receiving notifications from Docker Scout. Notification settings are personal, and changing notification settings only affects your personal account, not the entire organization.
 
@@ -128,6 +128,6 @@ The available notification settings are:
 
   To enable OS notifications, Docker Scout needs permissions to send notifications using the browser API.
 
-From this page, you can also go to the settings for Team collaboration integrations, such as the [Slack](https://docs.docker.com/scout/integrations/team-collaboration/slack/) integration.
+From this page, you can also go to the settings for Team collaboration integrations, such as the [Slack]({{< ref "/manuals/DockerScout/Integrations/Teamcollaboration/Slack" >}}) integration.
 
 You can also configure your notification settings in Docker Desktop by going to **Settings** > **Notifications**.

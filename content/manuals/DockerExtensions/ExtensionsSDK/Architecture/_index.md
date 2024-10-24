@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/architecture/](https://docs.docker.com/extensions/extensions-sdk/architecture/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/architecture/](https://docs.docker.com/extensions/extensions-sdk/architecture/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,9 +24,9 @@ Extensions can be composed of three (optional) components:
 
 ![Overview of the three components of an extension](_index_img/extensions-architecture.png)
 
-An extension doesn't necessarily need to have all these components, but at least one of them depending on the extension features. To configure and run those components, Docker Desktop uses a `metadata.json` file. See the [metadata](https://docs.docker.com/extensions/extensions-sdk/architecture/metadata/) section for more details.
+An extension doesn't necessarily need to have all these components, but at least one of them depending on the extension features. To configure and run those components, Docker Desktop uses a `metadata.json` file. See the [metadata]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/Architecture/Metadata" >}}) section for more details.
 
-## [The frontend](https://docs.docker.com/extensions/extensions-sdk/architecture/#the-frontend)
+## The frontend
 
 The frontend is basically a web application made from HTML, Javascript, and CSS. It can be built with a simple HTML file, some vanilla Javascript or any frontend framework, such as React or Vue.js.
 
@@ -42,9 +42,9 @@ The frontend can invoke `docker` commands, communicate with the extension backen
 >
 > The `docker extension init` generates a React based extension. But you can still use it as a starting point for your own extension and use any other frontend framework, like Vue, Angular, Svelte, etc. or event stay with vanilla Javascript.
 
-Learn more about [building a frontend](https://docs.docker.com/extensions/extensions-sdk/build/frontend-extension-tutorial/) for your extension.
+Learn more about [building a frontend]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/PartoneBuild/Createanadvancedfrontendextension" >}}) for your extension.
 
-## [The backend](https://docs.docker.com/extensions/extensions-sdk/architecture/#the-backend)
+## The backend
 
 Alongside a frontend application, extensions can also contain one or many backend services. In most cases, the Extension does not need a backend, and features can be implemented just by invoking docker commands through the SDK. However, there are some cases when an extension requires a backend service, for example:
 
@@ -67,7 +67,7 @@ In some cases, a `compose.yml` file can be used instead of an `image`. This is u
 >
 > 
 >
-> In some cases, it is useful to also interact with the Docker engine from the backend. See [How to use the Docker socket](https://docs.docker.com/extensions/extensions-sdk/guides/use-docker-socket-from-backend/) from the backend.
+> In some cases, it is useful to also interact with the Docker engine from the backend. See [How to use the Docker socket]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DeveloperGuides/UsetheDockersocket" >}}) from the backend.
 
 To communicate with the backend, the Extension SDK provides [functions](https://docs.docker.com/extensions/extensions-sdk/dev/api/backend/#get) to make `GET`, `POST`, `PUT`, `HEAD`, and `DELETE` requests from the frontend. Under the hood, the communication is done through a socket or named pipe, depending on the operating system. If the backend was listening to a port, it would be difficult to prevent collision with other applications running on the host or in a container already. Also, some users are running Docker Desktop in constrained environments where they can't open ports on their machines.
 
@@ -75,9 +75,9 @@ To communicate with the backend, the Extension SDK provides [functions](https://
 
 Finally, the backend can be built with any technology, as long as it can run in a container and listen on a socket.
 
-Learn more about [adding a backend](https://docs.docker.com/extensions/extensions-sdk/build/backend-extension-tutorial/) to your extension.
+Learn more about [adding a backend]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/PartoneBuild/Addabackendtoyourextension" >}}) to your extension.
 
-## [Executables](https://docs.docker.com/extensions/extensions-sdk/architecture/#executables)
+## Executables
 
 In addition to the frontend and the backend, extensions can also contain executables. Executables are binaries or shell scripts that are installed on the host when the extension is installed. The frontend can invoke them with [the extension SDK](https://docs.docker.com/extensions/extensions-sdk/dev/api/backend/#invoke-an-extension-binary-on-the-host).
 
@@ -91,4 +91,4 @@ However, since they're executed on the users' machine, they have to be available
 
 See the [host metadata section](https://docs.docker.com/extensions/extensions-sdk/architecture/metadata/#host-section) for more details.
 
-Learn how to [invoke host binaries](https://docs.docker.com/extensions/extensions-sdk/guides/invoke-host-binaries/).
+Learn how to [invoke host binaries]({{< ref "/manuals/DockerExtensions/ExtensionsSDK/DeveloperGuides/Invokehostbinaries" >}}).

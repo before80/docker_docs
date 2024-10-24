@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/cli/docker/buildx/version/](https://docs.docker.com/reference/cli/docker/buildx/version/)
+> 原文：[https://docs.docker.com/reference/cli/docker/buildx/version/](https://docs.docker.com/reference/cli/docker/buildx/version/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
@@ -18,7 +18,7 @@ draft = false
 | :---------- | ------------------------------- |
 | Usage       | `docker buildx version`         |
 
-## [Description](https://docs.docker.com/reference/cli/docker/buildx/version/#description)
+## Description
 
 View version information
 

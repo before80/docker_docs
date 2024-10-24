@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/docker-concepts/building-images/using-the-build-cache/](https://docs.docker.com/get-started/docker-concepts/building-images/using-the-build-cache/)
+> 原文：[https://docs.docker.com/get-started/docker-concepts/building-images/using-the-build-cache/](https://docs.docker.com/get-started/docker-concepts/building-images/using-the-build-cache/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
@@ -16,9 +16,9 @@ draft = false
 
 <iframe id="youtube-player-Ri6jMknjprY" data-video-id="Ri6jMknjprY" class="youtube-video aspect-video h-fit w-full py-2" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Docker concepts - Using the build cache" width="100%" height="100%" src="https://www.youtube.com/embed/Ri6jMknjprY?rel=0&amp;iv_load_policy=3&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fdocs.docker.com&amp;widgetid=1" data-gtm-yt-inspected-26="true" style="--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border-width: 0px; border-style: solid; border-color: initial; display: block; vertical-align: middle; aspect-ratio: 16 / 9; height: fit-content; width: 634.672px; padding-top: 0.5rem; padding-bottom: 0.5rem; color: rgb(0, 0, 0); font-family: &quot;Roboto Flex&quot;, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"></iframe>
 
-## [Explanation](https://docs.docker.com/get-started/docker-concepts/building-images/using-the-build-cache/#explanation)
+## Explanation
 
-Consider the following Dockerfile that you created for the [getting-started](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/) app.
+Consider the following Dockerfile that you created for the [getting-started]({{< ref "/get-started/Dockerconcepts/Buildingimages/WritingaDockerfile" >}}) app.
 
 
 
@@ -40,11 +40,11 @@ Using the build cache effectively lets you achieve faster builds by reusing resu
 
 When you're writing or editing a Dockerfile, keep an eye out for unnecessary cache misses to ensure that builds run as fast and efficiently as possible.
 
-## [Try it out](https://docs.docker.com/get-started/docker-concepts/building-images/using-the-build-cache/#try-it-out)
+## Try it out
 
 In this hands-on guide, you will learn how to use the Docker build cache effectively for a Node.js application.
 
-### [Build the application](https://docs.docker.com/get-started/docker-concepts/building-images/using-the-build-cache/#build-the-application)
+### Build the application
 
 1. [Download and install](https://www.docker.com/products/docker-desktop/) Docker Desktop.
 
@@ -238,14 +238,14 @@ In this hands-on guide, you will learn how to use the Docker build cache effecti
 
 By following these optimization techniques, you can make your Docker builds faster and more efficient, leading to quicker iteration cycles and improved development productivity.
 
-## [Additional resources](https://docs.docker.com/get-started/docker-concepts/building-images/using-the-build-cache/#additional-resources)
+## Additional resources
 
-- [Optimizing builds with cache management](https://docs.docker.com/build/cache/)
-- [Cache Storage Backend](https://docs.docker.com/build/cache/backends/)
-- [Build cache invalidation](https://docs.docker.com/build/cache/invalidation/)
+- [Optimizing builds with cache management]({{< ref "/manuals/DockerBuild/Cache" >}})
+- [Cache Storage Backend]({{< ref "/manuals/DockerBuild/Cache/Cachestoragebackends" >}})
+- [Build cache invalidation]({{< ref "/manuals/DockerBuild/Cache/Buildcacheinvalidation" >}})
 
-## [Next steps](https://docs.docker.com/get-started/docker-concepts/building-images/using-the-build-cache/#next-steps)
+## Next steps
 
 Now that you understand how to use the Docker build cache effectively, you're ready to learn about Multi-stage builds.
 
-[Multi-stage builds](https://docs.docker.com/get-started/docker-concepts/building-images/multi-stage-builds/)
+[Multi-stage builds]({{< ref "/get-started/Dockerconcepts/Buildingimages/Multi-stagebuilds" >}})

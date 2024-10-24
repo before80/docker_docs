@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/bake/expressions/](https://docs.docker.com/build/bake/expressions/)
+> 原文：[https://docs.docker.com/build/bake/expressions/](https://docs.docker.com/build/bake/expressions/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 Bake files in the HCL format support expression evaluation, which lets you perform arithmetic operations, conditionally set values, and more.
 
-## [Arithmetic operations](https://docs.docker.com/build/bake/expressions/#arithmetic-operations)
+## Arithmetic operations
 
 You can perform arithmetic operations in expressions. The following example shows how to multiply two numbers.
 
@@ -58,11 +58,11 @@ $ docker buildx bake --print app
 }
 ```
 
-## [Ternary operators](https://docs.docker.com/build/bake/expressions/#ternary-operators)
+## Ternary operators
 
 You can use ternary operators to conditionally register a value.
 
-The following example adds a tag only when a variable is not empty, using the built-in `notequal` [function](https://docs.docker.com/build/bake/funcs/).
+The following example adds a tag only when a variable is not empty, using the built-in `notequal` [function]({{< ref "/manuals/DockerBuild/Bake/Functions" >}}).
 
 docker-bake.hcl
 
@@ -108,9 +108,9 @@ $ docker buildx bake --print
 }
 ```
 
-## [Expressions with variables](https://docs.docker.com/build/bake/expressions/#expressions-with-variables)
+## Expressions with variables
 
-You can use expressions with [variables](https://docs.docker.com/build/bake/variables/) to conditionally set values, or to perform arithmetic operations.
+You can use expressions with [variables]({{< ref "/manuals/DockerBuild/Bake/Variables" >}}) to conditionally set values, or to perform arithmetic operations.
 
 The following example uses expressions to set values based on the value of variables. The `v1` build argument is set to "higher" if the variable `FOO` is greater than 5, otherwise it is set to "lower". The `v2` build argument is set to "yes" if the `IS_FOO` variable is true, otherwise it is set to "no".
 

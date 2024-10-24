@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/for-admins/single-sign-on/connect/](https://docs.docker.com/security/for-admins/single-sign-on/connect/)
+> 原文：[https://docs.docker.com/security/for-admins/single-sign-on/connect/](https://docs.docker.com/security/for-admins/single-sign-on/connect/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,14 +16,14 @@ draft = false
 
 The steps to set up your SSO configuration are:
 
-1. [Add and verify the domain or domains](https://docs.docker.com/security/for-admins/single-sign-on/configure#step-one-add-and-verify-your-domain) that your members use to sign in to Docker.
-2. [Create your SSO connection](https://docs.docker.com/security/for-admins/single-sign-on/configure#step-two-create-an-sso-connection-in-docker) in Docker.
-3. [Configure your IdP](https://docs.docker.com/security/for-admins/single-sign-on/configure/configure-idp#step-three-configure-your-idp-to-work-with-docker) to work with Docker.
+1. [Add and verify the domain or domains]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Configure#step-one-add-and-verify-your-domain" >}}) that your members use to sign in to Docker.
+2. [Create your SSO connection]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Configure#step-two-create-an-sso-connection-in-docker" >}}) in Docker.
+3. [Configure your IdP]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Configure/ConfigureyourIdP#step-three-configure-your-idp-to-work-with-docker" >}}) to work with Docker.
 4. [Complete your SSO connection](https://docs.docker.com/security/for-admins/single-sign-on/connect/#step-four-complete-your-sso-connection) in Docker.
 
 This page walks you through the final steps of creating your SSO connection. You can then test your connection and optionally enforce SSO for your organization.
 
-## [Prerequisites](https://docs.docker.com/security/for-admins/single-sign-on/connect/#prerequisites)
+## Prerequisites
 
 Make sure you have completed the following before you begin:
 
@@ -34,7 +34,7 @@ Make sure you have completed the following before you begin:
   - SAML: **SAML Sign-on URL**, **x509 Certificate**
   - Azure AD (OIDC): **Client ID**, **Client Secret**, **Azure AD Domain**
 
-## [Step four: Complete your SSO connection](https://docs.docker.com/security/for-admins/single-sign-on/connect/#step-four-complete-your-sso-connection)
+## Step four: Complete your SSO connection
 
 Admin Console Docker Hub
 
@@ -44,7 +44,7 @@ Admin Console Docker Hub
 2. To provision your users, select the organization(s) and/or team(s).
 3. Review your summary and select **Create Connection**.
 
-## [Test your SSO configuration](https://docs.docker.com/security/for-admins/single-sign-on/connect/#test-your-sso-configuration)
+## Test your SSO configuration
 
 After you’ve completed the SSO configuration process in Docker, you can test the configuration when you sign in to the [Admin Console](https://admin.docker.com/) using an incognito browser. Sign in to the [Admin Console](https://admin.docker.com/) using your domain email address. You are then redirected to your IdP's login page to authenticate.
 
@@ -64,9 +64,9 @@ After you’ve completed the SSO configuration process in Docker, you can test t
 >
 > Alternatively, see [Manage how users are provisioned](https://docs.docker.com/security/for-admins/single-sign-on/manage/#manage-how-users-are-provisioned).
 
-The SSO connection is now created. You can continue to set up SCIM without enforcing SSO log-in. For more information about setting up SCIM, see [Set up SCIM](https://docs.docker.com/security/for-admins/provisioning/scim/).
+The SSO connection is now created. You can continue to set up SCIM without enforcing SSO log-in. For more information about setting up SCIM, see [Set up SCIM]({{< ref "/manuals/Security/Foradmins/Provisioning/SCIM" >}}).
 
-## [Optional: Enforce SSO](https://docs.docker.com/security/for-admins/single-sign-on/connect/#optional-enforce-sso)
+## Optional: Enforce SSO
 
 1. Sign in to the [Admin Console](https://admin.docker.com/).
 
@@ -90,13 +90,13 @@ Your users must now sign in to Docker with SSO.
 
 ------
 
-## [More resources](https://docs.docker.com/security/for-admins/single-sign-on/connect/#more-resources)
+## More resources
 
 The following videos demonstrate how to enforce SSO.
 
 - [Video: Enforce SSO with Okta SAML](https://youtu.be/c56YECO4YP4?feature=shared&t=1072)
 - [Video: Enforce SSO with Azure AD (OIDC)](https://youtu.be/bGquA8qR9jU?feature=shared&t=1087)
 
-## [What's next](https://docs.docker.com/security/for-admins/single-sign-on/connect/#whats-next)
+## What's next
 
-Learn how you can [manage your SSO connection](https://docs.docker.com/security/for-admins/single-sign-on/manage/), domain, and users for your organization or company.
+Learn how you can [manage your SSO connection]({{< ref "/manuals/Security/Foradmins/Singlesign-on/Manage" >}}), domain, and users for your organization or company.

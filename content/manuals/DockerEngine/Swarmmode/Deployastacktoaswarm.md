@@ -8,25 +8,25 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/stack-deploy/](https://docs.docker.com/engine/swarm/stack-deploy/)
+> 原文：[https://docs.docker.com/engine/swarm/stack-deploy/](https://docs.docker.com/engine/swarm/stack-deploy/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Deploy a stack to a swarm
 
-When running Docker Engine in swarm mode, you can use `docker stack deploy` to deploy a complete application stack to the swarm. The `deploy` command accepts a stack description in the form of a [Compose file](https://docs.docker.com/reference/compose-file/legacy-versions/).
+When running Docker Engine in swarm mode, you can use `docker stack deploy` to deploy a complete application stack to the swarm. The `deploy` command accepts a stack description in the form of a [Compose file]({{< ref "/reference/Composefilereference/Legacyversions" >}}).
 
 > **Note**
 >
 > 
 >
-> The `docker stack deploy` command uses the legacy [Compose file version 3](https://docs.docker.com/reference/compose-file/legacy-versions/) format, used by Compose V1. The latest format, defined by the [Compose specification](https://docs.docker.com/reference/compose-file/) isn't compatible with the `docker stack deploy` command.
+> The `docker stack deploy` command uses the legacy [Compose file version 3]({{< ref "/reference/Composefilereference/Legacyversions" >}}) format, used by Compose V1. The latest format, defined by the [Compose specification]({{< ref "/reference/Composefilereference" >}}) isn't compatible with the `docker stack deploy` command.
 >
 > For more information about the evolution of Compose, see [History of Compose](https://docs.docker.com/compose/history/).
 
 To run through this tutorial, you need:
 
-1. A Docker Engine running in [Swarm mode](https://docs.docker.com/engine/swarm/swarm-mode/). If you're not familiar with Swarm mode, you might want to read [Swarm mode key concepts](https://docs.docker.com/engine/swarm/key-concepts/) and [How services work](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/).
+1. A Docker Engine running in [Swarm mode]({{< ref "/manuals/DockerEngine/Swarmmode/RunDockerEngineinswarmmode" >}}). If you're not familiar with Swarm mode, you might want to read [Swarm mode key concepts]({{< ref "/manuals/DockerEngine/Swarmmode/Swarmmodekeyconcepts" >}}) and [How services work]({{< ref "/manuals/DockerEngine/Swarmmode/Howswarmworks/Howserviceswork" >}}).
 
    > **Note**
    >
@@ -36,9 +36,9 @@ To run through this tutorial, you need:
    >
    > If you've already got a multi-node swarm running, keep in mind that all `docker stack` and `docker service` commands must be run from a manager node.
 
-2. A current version of [Docker Compose](https://docs.docker.com/compose/install/).
+2. A current version of [Docker Compose]({{< ref "/manuals/DockerCompose/Install" >}}).
 
-## [Set up a Docker registry](https://docs.docker.com/engine/swarm/stack-deploy/#set-up-a-docker-registry)
+## Set up a Docker registry
 
 Because a swarm consists of multiple Docker Engines, a registry is required to distribute images to all of them. You can use the [Docker Hub](https://hub.docker.com/) or maintain your own. Here's how to create a throwaway registry, which you can discard afterward.
 
@@ -73,9 +73,9 @@ Because a swarm consists of multiple Docker Engines, a registry is required to d
    {}
    ```
 
-## [Create the example application](https://docs.docker.com/engine/swarm/stack-deploy/#create-the-example-application)
+## Create the example application
 
-The app used in this guide is based on the hit counter app in the [Get started with Docker Compose](https://docs.docker.com/compose/gettingstarted/) guide. It consists of a Python app which maintains a counter in a Redis instance and increments the counter whenever you visit it.
+The app used in this guide is based on the hit counter app in the [Get started with Docker Compose]({{< ref "/manuals/DockerCompose/Quickstart" >}}) guide. It consists of a Python app which maintains a counter in a Redis instance and increments the counter whenever you visit it.
 
 1. Create a directory for the project:
 
@@ -145,7 +145,7 @@ The app used in this guide is based on the hit counter app in the [Get started w
 
    The image for the web app is built using the Dockerfile defined above. It's also tagged with `127.0.0.1:5000` - the address of the registry created earlier. This is important when distributing the app to the swarm.
 
-## [Test the app with Compose](https://docs.docker.com/engine/swarm/stack-deploy/#test-the-app-with-compose)
+## Test the app with Compose
 
 1. Start the app with `docker compose up`. This builds the web app image, pulls the Redis image if you don't already have it, and creates two containers.
 
@@ -212,7 +212,7 @@ The app used in this guide is based on the hit counter app in the [Get started w
    Removing network stackdemo_default
    ```
 
-## [Push the generated image to the registry](https://docs.docker.com/engine/swarm/stack-deploy/#push-the-generated-image-to-the-registry)
+## Push the generated image to the registry
 
 To distribute the web app's image across the swarm, it needs to be pushed to the registry you set up earlier. With Compose, this is very simple:
 
@@ -233,7 +233,7 @@ latest: digest: sha256:a81840ebf5ac24b42c1c676cbda3b2cb144580ee347c07e1bc80e35e5
 
 The stack is now ready to be deployed.
 
-## [Deploy the stack to the swarm](https://docs.docker.com/engine/swarm/stack-deploy/#deploy-the-stack-to-the-swarm)
+## Deploy the stack to the swarm
 
 1. Create the stack with `docker stack deploy`:
 

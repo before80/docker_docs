@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/faqs/macfaqs/](https://docs.docker.com/desktop/faqs/macfaqs/)
+> 原文：[https://docs.docker.com/desktop/faqs/macfaqs/](https://docs.docker.com/desktop/faqs/macfaqs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # FAQs for Docker Desktop for Mac
 
-### [Why do I keep getting a notification telling me an application has changed my Desktop configurations?](https://docs.docker.com/desktop/faqs/macfaqs/#why-do-i-keep-getting-a-notification-telling-me-an-application-has-changed-my-desktop-configurations)
+### Why do I keep getting a notification telling me an application has changed my Desktop configurations?
 
 You receive this notification because the Configuration integrity check feature has detected that a third-party application has altered your Docker Desktop configuration. This usually happens due to incorrect or missing symlinks. The notification ensures you are aware of these changes so you can review and repair any potential issues to maintain system reliability.
 
@@ -26,31 +26,31 @@ If you want to switch off Configuration integrity check notifications, navigate 
 
 If you have feedback on how to further improve the Configuration integrity check feature, [fill out the feedback form](https://docs.google.com/forms/d/e/1FAIpQLSeD_Odqc__4ihRXDtH_ba52QJuaKZ00qGnNa_tM72MmH32CZw/viewform).
 
-### [What is HyperKit?](https://docs.docker.com/desktop/faqs/macfaqs/#what-is-hyperkit)
+### What is HyperKit?
 
 HyperKit is a hypervisor built on top of the Hypervisor.framework in macOS. It runs entirely in userspace and has no other dependencies.
 
 We use HyperKit to eliminate the need for other VM products, such as Oracle VirtualBox or VMWare Fusion.
 
-### [What is the benefit of HyperKit?](https://docs.docker.com/desktop/faqs/macfaqs/#what-is-the-benefit-of-hyperkit)
+### What is the benefit of HyperKit?
 
 HyperKit is thinner than VirtualBox and VMWare fusion, and the version included is customized for Docker workloads on Mac.
 
-### [Why is com.docker.vmnetd still running after I quit the app?](https://docs.docker.com/desktop/faqs/macfaqs/#why-is-comdockervmnetd-still-running-after-i-quit-the-app)
+### Why is com.docker.vmnetd still running after I quit the app?
 
 The privileged helper process `com.docker.vmnetd` is started by `launchd` and runs in the background. The process does not consume any resources unless `Docker.app` connects to it, so it's safe to ignore.
 
-### [Where does Docker Desktop store Linux containers and images?](https://docs.docker.com/desktop/faqs/macfaqs/#where-does-docker-desktop-store-linux-containers-and-images)
+### Where does Docker Desktop store Linux containers and images?
 
 Docker Desktop stores Linux containers and images in a single, large "disk image" file in the Mac filesystem. This is different from Docker on Linux, which usually stores containers and images in the `/var/lib/docker` directory.
 
-#### [Where is the disk image file?](https://docs.docker.com/desktop/faqs/macfaqs/#where-is-the-disk-image-file)
+#### Where is the disk image file?
 
 To locate the disk image file, select **Settings** from the Docker Dashboard then **Advanced** from the **Resources** tab.
 
 The **Advanced** tab displays the location of the disk image. It also displays the maximum size of the disk image and the actual space the disk image is consuming. Note that other tools might display space usage of the file in terms of the maximum file size, and not the actual file size.
 
-#### [What if the file is too big?](https://docs.docker.com/desktop/faqs/macfaqs/#what-if-the-file-is-too-big)
+#### What if the file is too big?
 
 If the disk image file is too big, you can:
 
@@ -58,7 +58,7 @@ If the disk image file is too big, you can:
 - Delete unnecessary containers and images
 - Reduce the maximum allowable size of the file
 
-##### [How do I move the file to a bigger drive?](https://docs.docker.com/desktop/faqs/macfaqs/#how-do-i-move-the-file-to-a-bigger-drive)
+##### How do I move the file to a bigger drive?
 
 To move the disk image file to a different location:
 
@@ -70,7 +70,7 @@ To move the disk image file to a different location:
 >
 > Do not move the file directly in Finder as this can cause Docker Desktop to lose track of the file.
 
-##### [How do I delete unnecessary containers and images?](https://docs.docker.com/desktop/faqs/macfaqs/#how-do-i-delete-unnecessary-containers-and-images)
+##### How do I delete unnecessary containers and images?
 
 Check whether you have any unnecessary containers and images. If your client and daemon API are running version 1.25 or later (use the `docker version` command on the client to check your client and daemon API versions), you can see the detailed space usage information by running:
 
@@ -131,7 +131,7 @@ $ ls -klsh Docker.raw
 
 In this example, the actual size of the disk is `2333548` KB, whereas the maximum size of the disk is `64` GB.
 
-##### [How do I reduce the maximum size of the file?](https://docs.docker.com/desktop/faqs/macfaqs/#how-do-i-reduce-the-maximum-size-of-the-file)
+##### How do I reduce the maximum size of the file?
 
 To reduce the maximum size of the disk image file:
 
@@ -141,11 +141,11 @@ To reduce the maximum size of the disk image file:
 
 When you reduce the maximum size, the current disk image file is deleted, and therefore, all containers and images are lost.
 
-### [How do I add TLS certificates?](https://docs.docker.com/desktop/faqs/macfaqs/#how-do-i-add-tls-certificates)
+### How do I add TLS certificates?
 
 You can add trusted Certificate Authorities (CAs) (used to verify registry server certificates) and client certificates (used to authenticate to registries) to your Docker daemon.
 
-#### [Add custom CA certificates (server side)](https://docs.docker.com/desktop/faqs/macfaqs/#add-custom-ca-certificates-server-side)
+#### Add custom CA certificates (server side)
 
 All trusted CAs (root or intermediate) are supported. Docker Desktop creates a certificate bundle of all user-trusted CAs based on the Mac Keychain, and appends it to Moby trusted certificates. So if an enterprise SSL certificate is trusted by the user on the host, it is trusted by Docker Desktop.
 
@@ -175,7 +175,7 @@ See also, [Directory structures for certificates](https://docs.docker.com/deskto
 
 For a complete explanation of how to do this, see the blog post [Adding Self-signed Registry Certs to Docker & Docker Desktop for Mac](https://blog.container-solutions.com/adding-self-signed-registry-certs-docker-mac).
 
-#### [Add client certificates](https://docs.docker.com/desktop/faqs/macfaqs/#add-client-certificates)
+#### Add client certificates
 
 You can put your client certificates in `~/.docker/certs.d/<MyRegistry>:<Port>/client.cert` and `~/.docker/certs.d/<MyRegistry>:<Port>/client.key`.
 
@@ -188,7 +188,7 @@ When the Docker Desktop application starts, it copies the `~/.docker/certs.d` fo
 > - You need to restart Docker Desktop after making any changes to the keychain or to the `~/.docker/certs.d` directory in order for the changes to take effect.
 > - The registry cannot be listed as an *insecure registry*. Docker Desktop ignores certificates listed under insecure registries, and does not send client certificates. Commands like `docker run` that attempt to pull from the registry produce error messages on the command line, as well as on the registry.
 
-#### [Directory structures for certificates](https://docs.docker.com/desktop/faqs/macfaqs/#directory-structures-for-certificates)
+#### Directory structures for certificates
 
 If you have this directory structure, you do not need to manually add the CA certificate to your Mac OS system login:
 
@@ -226,4 +226,4 @@ You can also have this directory structure, as long as the CA certificate is als
     └── client.key
 ```
 
-To learn more about how to install a CA root certificate for the registry and how to set the client TLS certificate for verification, see [Verify repository client with certificates](https://docs.docker.com/engine/security/certificates/) in the Docker Engine topics.
+To learn more about how to install a CA root certificate for the registry and how to set the client TLS certificate for verification, see [Verify repository client with certificates]({{< ref "/manuals/DockerEngine/Security/Verifyrepositoryclientwithcertificates" >}}) in the Docker Engine topics.

@@ -8,51 +8,51 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/)
+> 原文：[https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Enforcement
 
-### [We currently have a Docker Team subscription. How do we enable SSO?](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/#we-currently-have-a-docker-team-subscription-how-do-we-enable-sso)
+### We currently have a Docker Team subscription. How do we enable SSO?
 
-SSO is available with a Docker Business subscription. To enable SSO, you must first upgrade your subscription to a Docker Business subscription. To learn how to upgrade your existing account, see [Upgrade your subscription](https://docs.docker.com/subscription/core-subscription/upgrade/).
+SSO is available with a Docker Business subscription. To enable SSO, you must first upgrade your subscription to a Docker Business subscription. To learn how to upgrade your existing account, see [Upgrade your subscription]({{< ref "/manuals/Subscription/DockerCore/Upgrade" >}}).
 
-### [How do service accounts work with SSO?](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/#how-do-service-accounts-work-with-sso)
+### How do service accounts work with SSO?
 
 Service accounts work like any other user when SSO is turned on. If the service account is using an email for a domain with SSO turned on, it needs a PAT for CLI and API usage.
 
-### [Is DNS verification required to enable SSO?](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/#is-dns-verification-required-to-enable-sso)
+### Is DNS verification required to enable SSO?
 
 Yes. You must verify a domain before using it with an SSO connection.
 
-### [Does Docker SSO support authenticating through the command line?](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/#does-docker-sso-support-authenticating-through-the-command-line)
+### Does Docker SSO support authenticating through the command line?
 
 When SSO is enforced, [passwords are prevented from accessing the Docker CLI](https://docs.docker.com/security/security-announcements/#deprecation-of-password-logins-on-cli-when-sso-enforced). You can still access the Docker CLI using a personal access token (PAT) for authentication.
 
-Each user must create a PAT to access the CLI. To learn how to create a PAT, see [Manage access tokens](https://docs.docker.com/security/for-developers/access-tokens/). Users who already used a PAT to sign in before SSO enforcement will still be able to use that PAT to authenticate.
+Each user must create a PAT to access the CLI. To learn how to create a PAT, see [Manage access tokens]({{< ref "/manuals/Security/Fordevelopers/Accesstokens" >}}). Users who already used a PAT to sign in before SSO enforcement will still be able to use that PAT to authenticate.
 
-### [How does SSO affect our automation systems and CI/CD pipelines?](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/#how-does-sso-affect-our-automation-systems-and-cicd-pipelines)
+### How does SSO affect our automation systems and CI/CD pipelines?
 
 Before enforcing SSO, you must create PATs for automation systems and CI/CD pipelines and use the tokens instead of a password.
 
-### [What can organization users who authenticated with personal emails prior to enforcement expect?](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/#what-can-organization-users-who-authenticated-with-personal-emails-prior-to-enforcement-expect)
+### What can organization users who authenticated with personal emails prior to enforcement expect?
 
 Ensure your users have their organization email on their account, so that the accounts will be migrated to SSO for authentication.
 
-### [Can I enable SSO and hold off on the enforcement option?](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/#can-i-enable-sso-and-hold-off-on-the-enforcement-option)
+### Can I enable SSO and hold off on the enforcement option?
 
 Yes, you can choose to not enforce, and users have the option to use either Docker ID (standard email and password) or domain-verified email address (SSO) at the sign-in screen.
 
-### [SSO is enforced, but one of our users is able to sign in through username and password. Why is this happening?](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/#sso-is-enforced-but-one-of-our-users-is-able-to-sign-in-through-username-and-password-why-is-this-happening)
+### SSO is enforced, but one of our users is able to sign in through username and password. Why is this happening?
 
 Guest users who are not part of your registered domain but have been invited to your organization do not sign in through your SSO Identity Provider. SSO enforcement only requires that users which do belong to your domain, must go through the SSO IdP.
 
-### [Is there a way to test this functionality in a test tenant with Okta before going to production?](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/#is-there-a-way-to-test-this-functionality-in-a-test-tenant-with-okta-before-going-to-production)
+### Is there a way to test this functionality in a test tenant with Okta before going to production?
 
 Yes, you can create a test organization. Companies can set up a new 5 seat Business plan on a new organization to test with (making sure to only enable SSO, not enforce it or all domain email users will be forced to sign in to that test tenant).
 
-### [Once we enable SSO for Docker Desktop, what's the impact to the flow for Build systems that use service accounts?](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/#once-we-enable-sso-for-docker-desktop-whats-the-impact-to-the-flow-for-build-systems-that-use-service-accounts)
+### Once we enable SSO for Docker Desktop, what's the impact to the flow for Build systems that use service accounts?
 
 If you enable SSO, there is no impact. Both username/password or personal access token (PAT) sign-in are supported. However, if you enforce SSO:
 
@@ -60,11 +60,11 @@ If you enable SSO, there is no impact. Both username/password or personal access
 - Username/password authentication [won’t work](https://docs.docker.com/security/security-announcements/#deprecation-of-password-logins-on-cli-when-sso-enforced), so you should update the build system to use a PAT instead of a password
 - Those who know the IdP credentials can sign in as that Service Account through SSO on Hub and create or change the personal access token for that service account.
 
-### [Is the sign in required tracking at runtime or install time?](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/#is-the-sign-in-required-tracking-at-runtime-or-install-time)
+### Is the sign in required tracking at runtime or install time?
 
 At runtime for Docker Desktop if it’s configured to require authentication to the organization.
 
-### [What is enforcing SSO versus enforcing sign-in?](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/#what-is-enforcing-sso-versus-enforcing-sign-in)
+### What is enforcing SSO versus enforcing sign-in?
 
 Enforcing SSO and enforcing sign-in to Docker Desktop are different features that you can use separately or together.
 
@@ -72,4 +72,4 @@ Enforcing SSO ensures that users sign in using their SSO credentials instead of 
 
 Enforcing sign-in to Docker Desktop ensures that users always sign in to an
 
-account that's a member of your organization. The benefits are that your organization's security settings are always applied to the user's session and your users always receive the benefits of your subscription. For more details, see [Enforce sign-in for Desktop](https://docs.docker.com/security/for-admins/enforce-sign-in/).
+account that's a member of your organization. The benefits are that your organization's security settings are always applied to the user's session and your users always receive the benefits of your subscription. For more details, see [Enforce sign-in for Desktop]({{< ref "/manuals/Security/Foradmins/Enforcesign-in" >}}).

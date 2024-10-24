@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/how-tos/gpu-support/](https://docs.docker.com/compose/how-tos/gpu-support/)
+> 原文：[https://docs.docker.com/compose/how-tos/gpu-support/](https://docs.docker.com/compose/how-tos/gpu-support/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,9 +16,9 @@ draft = false
 
 Compose services can define GPU device reservations if the Docker host contains such devices and the Docker Daemon is set accordingly. For this, make sure you install the [prerequisites](https://docs.docker.com/engine/containers/resource_constraints/#gpu) if you haven't already done so.
 
-The examples in the following sections focus specifically on providing service containers access to GPU devices with Docker Compose. You can use either `docker-compose` or `docker compose` commands. For more information, see [Migrate to Compose V2](https://docs.docker.com/compose/releases/migrate/).
+The examples in the following sections focus specifically on providing service containers access to GPU devices with Docker Compose. You can use either `docker-compose` or `docker compose` commands. For more information, see [Migrate to Compose V2]({{< ref "/manuals/DockerCompose/Releases/MigratetoComposeV2" >}}).
 
-## [Enabling GPU access to service containers](https://docs.docker.com/compose/how-tos/gpu-support/#enabling-gpu-access-to-service-containers)
+## Enabling GPU access to service containers
 
 GPUs are referenced in a `compose.yml` file using the [device](https://docs.docker.com/reference/compose-file/deploy/#devices) attribute from the Compose Deploy specification, within your services that need them.
 
@@ -40,7 +40,7 @@ This provides more granular control over a GPU reservation as custom values can 
 
 For more information on these properties, see the [Compose Deploy Specification](https://docs.docker.com/reference/compose-file/deploy/#devices).
 
-### [Example of a Compose file for running a service with access to 1 GPU device](https://docs.docker.com/compose/how-tos/gpu-support/#example-of-a-compose-file-for-running-a-service-with-access-to-1-gpu-device)
+### Example of a Compose file for running a service with access to 1 GPU device
 
 
 
@@ -122,7 +122,7 @@ $ nvidia-smi
 +-------------------------------+----------------------+----------------------+
 ```
 
-## [Access specific devices](https://docs.docker.com/compose/how-tos/gpu-support/#access-specific-devices)
+## Access specific devices
 
 To allow access only to GPU-0 and GPU-3 devices:
 

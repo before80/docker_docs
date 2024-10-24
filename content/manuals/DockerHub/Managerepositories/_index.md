@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/docker-hub/repos/](https://docs.docker.com/docker-hub/repos/)
+> 原文：[https://docs.docker.com/docker-hub/repos/](https://docs.docker.com/docker-hub/repos/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Manage repositories
 
-## [Manage default repository settings](https://docs.docker.com/docker-hub/repos/#manage-default-repository-settings)
+## Manage default repository settings
 
 You can manage the default repository settings for your personal account in Docker Hub. Select the **Settings** icon, then select **Repository Settings**.
 
@@ -26,7 +26,7 @@ Here you can manage the following:
 - Linked accounts: for users with a Docker Pro, Team, or Business subscription, manage your source provider accounts to enable Automated Builds.
 - Notifications: for users with a Docker Pro, Team, or Business subscription, manage how you receive notifications from autobuilds.
 
-## [Change a repository from public to private](https://docs.docker.com/docker-hub/repos/#change-a-repository-from-public-to-private)
+## Change a repository from public to private
 
 1. Navigate to your repository.
 2. Select the **Settings** tab.
@@ -35,9 +35,9 @@ Here you can manage the following:
 
 You get one free private repository with your Docker Hub user account (not available for organizations you're a member of). If you need more private repositories for your user account, upgrade your Docker Hub subscription from your [Billing Information](https://hub.docker.com/billing/plan) page.
 
-## [Move images between repositories](https://docs.docker.com/docker-hub/repos/#move-images-between-repositories)
+## Move images between repositories
 
-### [Personal to personal](https://docs.docker.com/docker-hub/repos/#personal-to-personal)
+### Personal to personal
 
 When consolidating personal repositories, you can pull private images from the initial repository and push them into another repository owned by you. To avoid losing your private images, perform the following steps:
 
@@ -63,7 +63,7 @@ When consolidating personal repositories, you can pull private images from the i
 
 The private images that existed in your previous account are now available in your new account.
 
-### [Personal to an organization](https://docs.docker.com/docker-hub/repos/#personal-to-an-organization)
+### Personal to an organization
 
 To avoid losing your private images, you can pull your private images from your personal account and push them to an organization that's owned by you.
 
@@ -97,7 +97,7 @@ To avoid losing your private images, you can pull your private images from your 
 
 The private images that existed in your user account are now available for your organization.
 
-## [Delete a repository](https://docs.docker.com/docker-hub/repos/#delete-a-repository)
+## Delete a repository
 
 > **Warning**
 >

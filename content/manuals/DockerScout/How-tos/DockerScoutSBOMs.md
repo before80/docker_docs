@@ -8,15 +8,15 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/how-tos/view-create-sboms/](https://docs.docker.com/scout/how-tos/view-create-sboms/)
+> 原文：[https://docs.docker.com/scout/how-tos/view-create-sboms/](https://docs.docker.com/scout/how-tos/view-create-sboms/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Scout SBOMs
 
-[Image analysis](https://docs.docker.com/scout/explore/analysis/) uses image SBOMs to understand what packages and versions an image contains. Docker Scout uses SBOM attestations if available on the image (recommended). If no SBOM attestation is available, Docker Scout creates one by indexing the image contents.
+[Image analysis]({{< ref "/manuals/DockerScout/Explore/DockerScoutimageanalysis" >}}) uses image SBOMs to understand what packages and versions an image contains. Docker Scout uses SBOM attestations if available on the image (recommended). If no SBOM attestation is available, Docker Scout creates one by indexing the image contents.
 
-## [View from CLI](https://docs.docker.com/scout/how-tos/view-create-sboms/#view-from-cli)
+## View from CLI
 
 To view the contents of the SBOM that Docker Scout generates, you can use the `docker scout sbom` command.
 
@@ -64,11 +64,11 @@ $ docker scout sbom --format list alpine
   zlib                    1.2.13-r1    apk
 ```
 
-For more information about the `docker scout sbom` command, refer to the [CLI reference](https://docs.docker.com/reference/cli/docker/scout/sbom/).
+For more information about the `docker scout sbom` command, refer to the [CLI reference]({{< ref "/reference/CLIreference/docker/dockerscout/dockerscoutsbom" >}}).
 
-## [Attach as build attestation](https://docs.docker.com/scout/how-tos/view-create-sboms/#attest)
+## Attach as build attestation
 
-You can generate the SBOM and attach it to the image at build-time as an [attestation](https://docs.docker.com/build/metadata/attestations/). BuildKit provides a default SBOM generator which is different from what Docker Scout uses. You can configure BuildKit to use the Docker Scout SBOM generator using the `--attest` flag for the `docker build` command. The Docker Scout SBOM indexer provides richer results and ensures better compatibility with the Docker Scout image analysis.
+You can generate the SBOM and attach it to the image at build-time as an [attestation]({{< ref "/manuals/DockerBuild/Metadata/Buildattestations" >}}). BuildKit provides a default SBOM generator which is different from what Docker Scout uses. You can configure BuildKit to use the Docker Scout SBOM generator using the `--attest` flag for the `docker build` command. The Docker Scout SBOM indexer provides richer results and ensures better compatibility with the Docker Scout image analysis.
 
 
 
@@ -78,13 +78,13 @@ $ docker build --tag <org>/<image> \
   --push .
 ```
 
-To build images with SBOM attestations, you must use either the [containerd image store](https://docs.docker.com/desktop/containerd/) feature, or use a `docker-container` builder together with the `--push` flag to push the image (with attestations) directly to a registry. The classic image store doesn't support manifest lists or image indices, which is required for adding attestations to an image.
+To build images with SBOM attestations, you must use either the [containerd image store]({{< ref "/manuals/DockerDesktop/containerdimagestore" >}}) feature, or use a `docker-container` builder together with the `--push` flag to push the image (with attestations) directly to a registry. The classic image store doesn't support manifest lists or image indices, which is required for adding attestations to an image.
 
-## [Extract to file](https://docs.docker.com/scout/how-tos/view-create-sboms/#extract-to-file)
+## Extract to file
 
 The command for extracting the SBOM of an image to an SPDX JSON file is different depending on whether the image has been pushed to a registry or if it's a local image.
 
-### [Remote image](https://docs.docker.com/scout/how-tos/view-create-sboms/#remote-image)
+### Remote image
 
 To extract the SBOM of an image and save it to a file, you can use the `docker buildx imagetools inspect` command. This command only works for images in a registry.
 
@@ -94,7 +94,7 @@ To extract the SBOM of an image and save it to a file, you can use the `docker b
 $ docker buildx imagetools inspect <image> --format "{{ json .SBOM }}" > sbom.spdx.json
 ```
 
-### [Local image](https://docs.docker.com/scout/how-tos/view-create-sboms/#local-image)
+### Local image
 
 To extract the SPDX file for a local image, build the image with the `local` exporter and use the `scout-sbom-indexer` SBOM generator plugin.
 

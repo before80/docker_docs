@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/extensions/extensions-sdk/extensions/multi-arch/](https://docs.docker.com/extensions/extensions-sdk/extensions/multi-arch/)
+> 原文：[https://docs.docker.com/extensions/extensions-sdk/extensions/multi-arch/](https://docs.docker.com/extensions/extensions-sdk/extensions/multi-arch/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -21,7 +21,7 @@ It is highly recommended that, at a minimum, your extension is supported for the
 
 Docker Desktop retrieves the extension image according to the user’s system architecture. If the extension does not provide an image that matches the user’s system architecture, Docker Desktop is not able to install the extension. As a result, users can’t run the extension in Docker Desktop.
 
-## [Build and push for multiple architectures](https://docs.docker.com/extensions/extensions-sdk/extensions/multi-arch/#build-and-push-for-multiple-architectures)
+## Build and push for multiple architectures
 
 If you created an extension from the `docker extension init` command, the `Makefile` at the root of the directory includes a target with name `push-extension`.
 
@@ -43,7 +43,7 @@ Alternatively, if you started from an empty directory, use the command below to 
 $ docker buildx build --push --platform=linux/amd64,linux/arm64 --tag=username/my-extension:0.0.1 .
 ```
 
-You can then check the image manifest to see if the image is available for both architectures using the [`docker buildx imagetools` command](https://docs.docker.com/reference/cli/docker/buildx/imagetools/):
+You can then check the image manifest to see if the image is available for both architectures using the [`docker buildx imagetools` command]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildximagetools" >}}):
 
 
 
@@ -69,9 +69,9 @@ Manifests:
 >
 > If you're having trouble pushing the image, make sure you're signed in to Docker Hub. Otherwise, run `docker login` to authenticate.
 
-For more information, see [Multi-platform images](https://docs.docker.com/build/building/multi-platform/) page.
+For more information, see [Multi-platform images]({{< ref "/manuals/DockerBuild/Building/Multi-platform" >}}) page.
 
-## [Adding multi-arch binaries](https://docs.docker.com/extensions/extensions-sdk/extensions/multi-arch/#adding-multi-arch-binaries)
+## Adding multi-arch binaries
 
 If your extension includes some binaries that deploy to the host, it’s important that they also have the right architecture when building the extension against multiple architectures.
 
@@ -157,6 +157,6 @@ As a result, when `TARGETARCH` equals:
 
 When the extension is installed, the extension framework copies the binaries from the extension image at `/darwin/kubectl` for Darwin, or `/windows/kubectl.exe` for Windows, to a specific location in the user’s host filesystem.
 
-## [Can I develop extensions that run Windows containers?](https://docs.docker.com/extensions/extensions-sdk/extensions/multi-arch/#can-i-develop-extensions-that-run-windows-containers)
+## Can I develop extensions that run Windows containers?
 
 Although Docker Extensions is supported on Docker Desktop for Windows, Mac, and Linux, the extension framework only supports Linux containers. Therefore, you must target `linux` as the OS when you build your extension image.

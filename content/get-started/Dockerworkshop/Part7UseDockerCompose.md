@@ -8,17 +8,17 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/workshop/08_using_compose/](https://docs.docker.com/get-started/workshop/08_using_compose/)
+> 原文：[https://docs.docker.com/get-started/workshop/08_using_compose/](https://docs.docker.com/get-started/workshop/08_using_compose/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
 # Use Docker Compose
 
-[Docker Compose](https://docs.docker.com/compose/) is a tool that helps you define and share multi-container applications. With Compose, you can create a YAML file to define the services and with a single command, you can spin everything up or tear it all down.
+[Docker Compose]({{< ref "/manuals/DockerCompose" >}}) is a tool that helps you define and share multi-container applications. With Compose, you can create a YAML file to define the services and with a single command, you can spin everything up or tear it all down.
 
 The big advantage of using Compose is you can define your application stack in a file, keep it at the root of your project repository (it's now version controlled), and easily enable someone else to contribute to your project. Someone would only need to clone your repository and start the app using Compose. In fact, you might see quite a few projects on GitHub/GitLab doing exactly this now.
 
-## [Create the Compose file](https://docs.docker.com/get-started/workshop/08_using_compose/#create-the-compose-file)
+## Create the Compose file
 
 In the `getting-started-app` directory, create a file named `compose.yaml`.
 
@@ -35,9 +35,9 @@ In the `getting-started-app` directory, create a file named `compose.yaml`.
 │ └── yarn.lock
 ```
 
-## [Define the app service](https://docs.docker.com/get-started/workshop/08_using_compose/#define-the-app-service)
+## Define the app service
 
-In [part 6](https://docs.docker.com/get-started/workshop/07_multi_container/), you used the following command to start the application service.
+In [part 6]({{< ref "/get-started/Dockerworkshop/Part6Multi-containerapps" >}}), you used the following command to start the application service.
 
 
 
@@ -128,7 +128,7 @@ You'll now define this service in the `compose.yaml` file.
          MYSQL_DB: todos
    ```
 
-### [Define the MySQL service](https://docs.docker.com/get-started/workshop/08_using_compose/#define-the-mysql-service)
+### Define the MySQL service
 
 Now, it's time to define the MySQL service. The command that you used for that container was the following:
 
@@ -224,7 +224,7 @@ volumes:
   todo-mysql-data:
 ```
 
-## [Run the application stack](https://docs.docker.com/get-started/workshop/08_using_compose/#run-the-application-stack)
+## Run the application stack
 
 Now that you have your `compose.yaml` file, you can start your application.
 
@@ -268,13 +268,13 @@ Now that you have your `compose.yaml` file, you can start your application.
 
 4. At this point, you should be able to open your app in your browser on [http://localhost:3000](http://localhost:3000/) and see it running.
 
-## [See the app stack in Docker Dashboard](https://docs.docker.com/get-started/workshop/08_using_compose/#see-the-app-stack-in-docker-dashboard)
+## See the app stack in Docker Dashboard
 
 If you look at the Docker Dashboard, you'll see that there is a group named **getting-started-app**. This is the project name from Docker Compose and used to group the containers together. By default, the project name is simply the name of the directory that the `compose.yaml` was located in.
 
 If you expand the stack, you'll see the two containers you defined in the Compose file. The names are also a little more descriptive, as they follow the pattern of `<service-name>-<replica-number>`. So, it's very easy to quickly see what container is your app and which container is the mysql database.
 
-## [Tear it all down](https://docs.docker.com/get-started/workshop/08_using_compose/#tear-it-all-down)
+## Tear it all down
 
 When you're ready to tear it all down, simply run `docker compose down` or hit the trash can on the Docker Dashboard for the entire app. The containers will stop and the network will be removed.
 
@@ -284,18 +284,18 @@ When you're ready to tear it all down, simply run `docker compose down` or hit t
 >
 > The Docker Dashboard does not remove volumes when you delete the app stack.
 
-## [Summary](https://docs.docker.com/get-started/workshop/08_using_compose/#summary)
+## Summary
 
 In this section, you learned about Docker Compose and how it helps you simplify the way you define and share multi-service applications.
 
 Related information:
 
-- [Compose overview](https://docs.docker.com/compose/)
-- [Compose file reference](https://docs.docker.com/reference/compose-file/)
-- [Compose CLI reference](https://docs.docker.com/reference/cli/docker/compose/)
+- [Compose overview]({{< ref "/manuals/DockerCompose" >}})
+- [Compose file reference]({{< ref "/reference/Composefilereference" >}})
+- [Compose CLI reference]({{< ref "/reference/CLIreference/docker/dockercompose" >}})
 
-## [Next steps](https://docs.docker.com/get-started/workshop/08_using_compose/#next-steps)
+## Next steps
 
 Next, you'll learn about a few best practices you can use to improve your Dockerfile.
 
-[Image-building best practices](https://docs.docker.com/get-started/workshop/09_image_best/)
+[Image-building best practices]({{< ref "/get-started/Dockerworkshop/Part8Image-buildingbestpractices" >}})

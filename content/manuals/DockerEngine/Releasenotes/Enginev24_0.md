@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/24.0/](https://docs.docker.com/engine/release-notes/24.0/)
+> 原文：[https://docs.docker.com/engine/release-notes/24.0/](https://docs.docker.com/engine/release-notes/24.0/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,10 +18,10 @@ This page describes the latest changes, additions, known issues, and fixes for D
 
 For more information about:
 
-- Deprecated and removed features, see [Deprecated Engine Features](https://docs.docker.com/engine/deprecated/).
-- Changes to the Engine API, see [Engine API version history](https://docs.docker.com/reference/api/engine/version-history/).
+- Deprecated and removed features, see [Deprecated Engine Features]({{< ref "/manuals/DockerEngine/Deprecatedfeatures" >}}).
+- Changes to the Engine API, see [Engine API version history]({{< ref "/reference/APIreference/DockerEngineAPI/EngineAPIversionhistory" >}}).
 
-## [24.0.9](https://docs.docker.com/engine/release-notes/24.0/#2409)
+## 24.0.9
 
 *2024-01-31*
 
@@ -30,7 +30,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 24.0.9 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A24.0.9)
 - [moby/moby, 24.0.9 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A24.0.9)
 
-## [Security](https://docs.docker.com/engine/release-notes/24.0/#security)
+## Security
 
 This release contains security fixes for the following CVEs affecting Docker Engine and its components.
 
@@ -59,12 +59,12 @@ For details about each vulnerability, see the relevant security advisory:
 - [CVE-2024-21626](https://github.com/opencontainers/runc/security/advisories/GHSA-xr7r-f8xq-vfvv)
 - [CVE-2024-24557](https://github.com/moby/moby/security/advisories/GHSA-xw73-rw38-6vjc)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/24.0/#packaging-updates)
+### Packaging updates
 
 - Upgrade runc to [v1.1.12](https://github.com/opencontainers/runc/releases/tag/v1.1.12). [moby/moby#47269](https://github.com/moby/moby/pull/47269)
 - Upgrade containerd to [v1.7.13](https://github.com/containerd/containerd/releases/tag/v1.7.13) (static binaries only). [moby/moby#47280](https://github.com/moby/moby/pull/47280)
 
-## [24.0.8](https://docs.docker.com/engine/release-notes/24.0/#2408)
+## 24.0.8
 
 *2024-01-25*
 
@@ -73,17 +73,17 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 24.0.8 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A24.0.8)
 - [moby/moby, 24.0.8 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A24.0.8)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/24.0/#bug-fixes-and-enhancements)
+### Bug fixes and enhancements
 
 - Live restore: Containers with auto remove (`docker run --rm`) are no longer forcibly removed on engine restart. [moby/moby#46857](https://github.com/moby/moby/pull/46869)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/24.0/#packaging-updates-1)
+### Packaging updates
 
 - Upgrade Go to `go1.20.13`. [moby/moby#47054](https://github.com/moby/moby/pull/47054), [docker/cli#4826](https://github.com/docker/cli/pull/4826), [docker/docker-ce-packaging#975](https://github.com/docker/docker-ce-packaging/pull/975)
 - Upgrade containerd (static binaries only) to [v1.7.12](https://github.com/containerd/containerd/releases/tag/v1.7.12) [moby/moby#47096](https://github.com/moby/moby/pull/47096)
 - Upgrade runc to v1.1.11. [moby/moby#47010](https://github.com/moby/moby/pull/47010)
 
-## [24.0.7](https://docs.docker.com/engine/release-notes/24.0/#2407)
+## 24.0.7
 
 *2023-10-27*
 
@@ -92,7 +92,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 24.0.7 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A24.0.7)
 - [moby/moby, 24.0.7 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A24.0.7)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/24.0/#bug-fixes-and-enhancements-1)
+### Bug fixes and enhancements
 
 - Write overlay2 layer metadata atomically. [moby/moby#46703](https://github.com/moby/moby/pull/46703)
 - Fix "Rootful-in-Rootless" Docker-in-Docker on systemd version 250 and later. [moby/moby#46626](https://github.com/moby/moby/pull/46626)
@@ -105,7 +105,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Improve the performance of the stats collector. [moby/moby#46448](https://github.com/moby/moby/pull/46448)
 - Fix an issue with source policy rules ending up in the wrong order. [moby/moby#46441](https://github.com/moby/moby/pull/46441)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/24.0/#packaging-updates-2)
+### Packaging updates
 
 - Add support for Fedora 39 and Ubuntu 23.10. [docker/docker-ce-packaging#940](https://github.com/docker/docker-ce-packaging/pull/940), [docker/docker-ce-packaging#955](https://github.com/docker/docker-ce-packaging/pull/955)
 - Fix `docker.socket` not getting disabled when uninstalling the `docker-ce` RPM package. [docker/docker-ce-packaging#852](https://github.com/docker/docker-ce-packaging/pull/852)
@@ -113,13 +113,13 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Upgrade containerd to `v1.7.6` (static binaries only). [moby/moby#46103](https://github.com/moby/moby/pull/46103)
 - Upgrade the `containerd.io` package to [`v1.6.24`](https://github.com/containerd/containerd/releases/tag/v1.6.24).
 
-### [Security](https://docs.docker.com/engine/release-notes/24.0/#security-1)
+### Security
 
 - Deny containers access to `/sys/devices/virtual/powercap` by default. This change hardens against [CVE-2020-8694](https://scout.docker.com/v/CVE-2020-8694), [CVE-2020-8695](https://scout.docker.com/v/CVE-2020-8695), and [CVE-2020-12912](https://scout.docker.com/v/CVE-2020-12912), and an attack known as [the PLATYPUS attack](https://platypusattack.com/).
 
   For more details, see [advisory](https://github.com/moby/moby/security/advisories/GHSA-jq35-85cj-fj4p), [commit](https://github.com/moby/moby/commit/c9ccbfad11a60e703e91b6cca4f48927828c7e35).
 
-## [24.0.6](https://docs.docker.com/engine/release-notes/24.0/#2406)
+## 24.0.6
 
 *2023-09-05*
 
@@ -128,7 +128,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 24.0.6 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A24.0.6)
 - [moby/moby, 24.0.6 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A24.0.6)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/24.0/#bug-fixes-and-enhancements-2)
+### Bug fixes and enhancements
 
 - containerd storage backend: Fix `docker ps` failing when a container image is no longer present in the content store. [moby/moby#46095](https://github.com/moby/moby/pull/46095)
 - containerd storage backend: Fix `docker ps -s -a` and `docker container prune` failing when a container image config is no longer present in the content store. [moby/moby#46097](https://github.com/moby/moby/pull/46097)
@@ -148,13 +148,13 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Fix credential scopes when using a PAT to `docker manifest inspect` an image on Docker Hub. [docker/cli#4512](https://github.com/docker/cli/pull/4512)
 - Fix `docker events` not supporting `--format=json`. [docker/cli#4544](https://github.com/docker/cli/pull/4544)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/24.0/#packaging-updates-3)
+### Packaging updates
 
 - Upgrade Go to `go1.20.7`. [moby/moby#46140](https://github.com/moby/moby/pull/46140), [docker/cli#4476](https://github.com/docker/cli/pull/4476), [docker/docker-ce-packaging#932](https://github.com/docker/docker-ce-packaging/pull/932)
 - Upgrade containerd to `v1.7.3` (static binaries only). [moby/moby#46103](https://github.com/moby/moby/pull/46103)
 - Upgrade Compose to `v2.21.0`. [docker/docker-ce-packaging#936](https://github.com/docker/docker-ce-packaging/pull/936)
 
-## [24.0.5](https://docs.docker.com/engine/release-notes/24.0/#2405)
+## 24.0.5
 
 *2023-07-24*
 
@@ -163,7 +163,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 24.0.5 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A24.0.5)
 - [moby/moby, 24.0.5 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A24.0.5)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/24.0/#bug-fixes-and-enhancements-3)
+### Bug fixes and enhancements
 
 - The Go client now avoids using UNIX socket paths in the HTTP `Host:` header, in order to be compatible with changes introduced in `go1.20.6`. [moby/moby#45962](https://github.com/moby/moby/pull/45962), [moby/moby#45990](https://github.com/moby/moby/pull/45990)
 - containerd storage backend: Fix `Variant` not being included in `docker image inspect` and `GET /images/{name}/json`. [moby/moby#46025](https://github.com/moby/moby/pull/46025)
@@ -175,7 +175,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Properly report errors parsing volume specifications from the command line. [docker/cli#4423](https://github.com/docker/cli/pull/4423)
 - Fix a panic caused when `auths: null` is found in the CLI config file. [docker/cli#4450](https://github.com/docker/cli/pull/4450)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/24.0/#packaging-updates-4)
+### Packaging updates
 
 - Use init scripts as provided by in moby/moby `contrib/init`. [docker/docker-ce-packaging#914](https://github.com/docker/docker-ce-packaging/pull/914), [docker/docker-ce-packaging#926](https://github.com/docker/docker-ce-packaging/pull/926)
 - Drop Upstart from `contrib/init`. [moby/moby#46044](https://github.com/moby/moby/pull/46044)
@@ -183,7 +183,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Upgrade Compose to `v2.20.2`. [docker/docker-ce-packaging#924](https://github.com/docker/docker-ce-packaging/pull/924)
 - Upgrade buildx to `v0.11.2`. [docker/docker-ce-packaging#922](https://github.com/docker/docker-ce-packaging/pull/922)
 
-## [24.0.4](https://docs.docker.com/engine/release-notes/24.0/#2404)
+## 24.0.4
 
 *2023-07-07*
 
@@ -192,11 +192,11 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 24.0.4 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A24.0.4)
 - [moby/moby, 24.0.4 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A24.0.4)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/24.0/#bug-fixes-and-enhancements-4)
+### Bug fixes and enhancements
 
 - Fix a regression introduced during 24.0.3 that causes a panic during live-restore of containers with bind mounts. [moby/moby#45903](https://github.com/moby/moby/pull/45903)
 
-## [24.0.3](https://docs.docker.com/engine/release-notes/24.0/#2403)
+## 24.0.3
 
 *2023-07-06*
 
@@ -205,7 +205,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 24.0.3 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A24.0.3)
 - [moby/moby, 24.0.3 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A24.0.3)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/24.0/#bug-fixes-and-enhancements-5)
+### Bug fixes and enhancements
 
 - containerd image store: Fix an issue where multi-platform images that did not include a manifest for the default platform could not be interacted with. [moby/moby#45849](https://github.com/moby/moby/pull/45849)
 - containerd image store: Fix specious attempts to cache `FROM scratch` in container builds. [moby/moby#45822](https://github.com/moby/moby/pull/45822)
@@ -234,13 +234,13 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Fix an issue where debug information was not correctly printed during `docker info` when only the client is in debug mode. [docker/cli#4393](https://github.com/docker/cli/pull/4393)
 - Fix issues related to hung connections when connecting to hosts over a SSH connection. [docker/cli#4395](https://github.com/docker/cli/pull/4395)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/24.0/#packaging-updates-5)
+### Packaging updates
 
 - Upgrade Go to `go1.20.5`. [moby/moby#45745](https://github.com/moby/moby/pull/45745), [docker/cli#4351](https://github.com/docker/cli/pull/4351), [docker/docker-ce-packaging#904](https://github.com/docker/docker-ce-packaging/pull/904)
 - Upgrade Compose to `v2.19.1`. [docker/docker-ce-packaging#916](https://github.com/docker/docker-ce-packaging/pull/916)
 - Upgrade buildx to `v0.11.1`. [docker/docker-ce-packaging#918](https://github.com/docker/docker-ce-packaging/pull/918)
 
-## [24.0.2](https://docs.docker.com/engine/release-notes/24.0/#2402)
+## 24.0.2
 
 *2023-05-26*
 
@@ -249,7 +249,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 24.0.2 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A24.0.2)
 - [moby/moby, 24.0.2 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A24.0.2)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/24.0/#bug-fixes-and-enhancements-6)
+### Bug fixes and enhancements
 
 - Fix a panic during build when referencing locally tagged images. [moby/buildkit#3899](https://github.com/moby/buildkit/pull/3899), [moby/moby#45582](https://github.com/moby/moby/pull/45582)
 - Fix builds potentially failing with `exit code: 4294967295` when performing many concurrent build stages. [moby/moby#45620](https://github.com/moby/moby/pull/45620)
@@ -259,11 +259,11 @@ For a full list of pull requests and changes in this release, refer to the relev
 - containerd image store: Adjust the output of image pull progress so that the output has the same format regardless of whether the containerd image store is enabled. [moby/moby#45602](https://github.com/moby/moby/pull/45602)
 - containerd image store: Switching between the default and containerd image store now requires a daemon restart. [moby/moby#45616](https://github.com/moby/moby/pull/45616)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/24.0/#packaging-updates-6)
+### Packaging updates
 
 - Upgrade Buildx to `v0.10.5`. [docker/docker-ce-packaging#900](https://github.com/docker/docker-ce-packaging/pull/900)
 
-## [24.0.1](https://docs.docker.com/engine/release-notes/24.0/#2401)
+## 24.0.1
 
 *2023-05-19*
 
@@ -272,11 +272,11 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 24.0.1 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A24.0.1)
 - [moby/moby, 24.0.1 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A24.0.1)
 
-### [Removed](https://docs.docker.com/engine/release-notes/24.0/#removed)
+### Removed
 
 - Remove CLI completions for storage drivers removed in the 24.0 major release. [docker/cli#4302](https://github.com/docker/cli/pull/4302)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/24.0/#bug-fixes-and-enhancements-7)
+### Bug fixes and enhancements
 
 - Fix an issue where DNS query NXDOMAIN replies from external servers were forwarded to the client as SERVFAIL. [moby/moby#45573](https://github.com/moby/moby/pull/45573)
 - Fix an issue where `docker pull --platform` would report `No such image` regarding another tag pointing to the same image. [moby/moby#45562](https://github.com/moby/moby/pull/45562)
@@ -285,11 +285,11 @@ For a full list of pull requests and changes in this release, refer to the relev
 - API: Fix an issue where `GET /images/{id}/json` would return `null` instead of empty `RepoTags` and `RepoDigests`. [moby/moby#45564](https://github.com/moby/moby/pull/45564)
 - API: Fix an issue where `POST /commit` did not accept an empty request body. [moby/moby#45568](https://github.com/moby/moby/pull/45568)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/24.0/#packaging-updates-7)
+### Packaging updates
 
 - Upgrade Compose to `v2.18.1`. [docker/docker-ce-packaging#896](https://github.com/docker/docker-ce-packaging/pull/896)
 
-## [24.0.0](https://docs.docker.com/engine/release-notes/24.0/#2400)
+## 24.0.0
 
 *2023-05-16*
 
@@ -298,7 +298,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - [docker/cli, 24.0.0 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A24.0.0)
 - [moby/moby, 24.0.0 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A24.0.0)
 
-### [New](https://docs.docker.com/engine/release-notes/24.0/#new)
+### New
 
 - Introduce experimental support for containerd as the content store (replacing the existing storage drivers). [moby/moby#43735](https://github.com/moby/moby/pull/43735), [other moby/moby pull requests](https://github.com/moby/moby/pulls?q=is%3Apr+is%3Amerged+milestone%3A24.0.0+-label%3Aprocess%2Fcherry-picked+label%3Acontainerd-integration+)
 - The `--host` CLI flag now supports a path component in a `ssh://` host address, allowing use of an alternate socket path without configuration on the remote host. [docker/cli#4073](https://github.com/docker/cli/pull/4073)
@@ -310,7 +310,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - The `docker-init` binary will now be discovered in FHS-compliant libexec directories, in addition to the `PATH`. [moby/moby#45198](https://github.com/moby/moby/pull/45198)
 - API: Surface the daemon-level `--no-new-privileges` in `GET /info`. [moby/moby#45320](https://github.com/moby/moby/pull/45320)
 
-### [Removed](https://docs.docker.com/engine/release-notes/24.0/#removed-1)
+### Removed
 
 - `docker info` no longer reports `IndexServiceAddress`. [docker/cli#4204](https://github.com/docker/cli/pull/4204)
 - libnetwork: Remove fallback code for obsolete kernel versions. [moby/moby#44684](https://github.com/moby/moby/pull/44684), [moby/moby#44802](https://github.com/moby/moby/pull/44802)
@@ -322,12 +322,12 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Remove workarounds for obsolete versions of `apparmor_parser` from the AppArmor profiles. [moby/moby#45500](https://github.com/moby/moby/pull/45500)
 - API: `GET /images/json` no longer represents empty RepoTags and RepoDigests as`<none>:<none>`/`<none>@<none>`. Empty arrays are returned instead on API >= 1.43. [moby/moby#45068](https://github.com/moby/moby/pull/45068)
 
-### [Deprecated](https://docs.docker.com/engine/release-notes/24.0/#deprecated)
+### Deprecated
 
 - Deprecate the `--oom-score-adjust` daemon option. [moby/moby#45315](https://github.com/moby/moby/pull/45315)
 - API: Deprecate the `VirtualSize` field in `GET /images/json` and `GET /images/{id}/json`. [moby/moby#45346](https://github.com/moby/moby/pull/45346)
 
-### [Bug fixes and enhancements](https://docs.docker.com/engine/release-notes/24.0/#bug-fixes-and-enhancements-8)
+### Bug fixes and enhancements
 
 - The `docker stack` command no longer validates the `build` section of Compose files. [docker/cli#4214](https://github.com/docker/cli/pull/4214)
 - Fix lingering healthcheck processes after the timeout is reached. [moby/moby#43739](https://github.com/moby/moby/pull/43739)
@@ -337,7 +337,7 @@ For a full list of pull requests and changes in this release, refer to the relev
 - Add `execDuration` field to the map of event attributes. [moby/moby#45494](https://github.com/moby/moby/pull/45494)
 - Swarm-level networks can now be created with the Windows `internal`, `l2bridge`, and `nat` drivers. [moby/swarmkit#3121](https://github.com/moby/swarmkit/pull/3121), [moby/moby#45291](https://github.com/moby/moby/pull/45291)
 
-### [Packaging updates](https://docs.docker.com/engine/release-notes/24.0/#packaging-updates-8)
+### Packaging updates
 
 - Update Go to `1.20.4`. [docker/cli#4253](https://github.com/docker/cli/pull/4253), [moby/moby#45456](https://github.com/moby/moby/pull/45456), [docker/docker-ce-packaging#888](https://github.com/docker/docker-ce-packaging/pull/888)
 - Update `containerd` to [`v1.7.1`](https://github.com/containerd/containerd/releases/tag/v1.7.1). [moby/moby#45537](https://github.com/moby/moby/pull/45537)

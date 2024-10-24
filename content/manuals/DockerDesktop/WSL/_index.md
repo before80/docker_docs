@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/wsl/](https://docs.docker.com/desktop/wsl/)
+> 原文：[https://docs.docker.com/desktop/wsl/](https://docs.docker.com/desktop/wsl/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,11 +20,11 @@ Docker Desktop uses the dynamic memory allocation feature in WSL 2 to improve th
 
 Additionally, with WSL 2, the time required to start a Docker daemon after a cold start is significantly faster.
 
-## [Prerequisites](https://docs.docker.com/desktop/wsl/#prerequisites)
+## Prerequisites
 
 Before you turn on the Docker Desktop WSL 2 feature, ensure you have:
 
-- At a minimum WSL version 1.1.3.0., but ideally the latest version of WSL to [avoid Docker Desktop not working as expected](https://docs.docker.com/desktop/wsl/best-practices/).
+- At a minimum WSL version 1.1.3.0., but ideally the latest version of WSL to [avoid Docker Desktop not working as expected]({{< ref "/manuals/DockerDesktop/WSL/Bestpractices" >}}).
 - Met the Docker Desktop for Windows' [system requirements](https://docs.docker.com/desktop/install/windows-install/#system-requirements).
 - Installed the WSL 2 feature on Windows. For detailed instructions, refer to the [Microsoft documentation](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
@@ -34,7 +34,7 @@ Before you turn on the Docker Desktop WSL 2 feature, ensure you have:
 >
 > This feature enhances the Windows host's ability to reclaim unused memory within the WSL virtual machine, ensuring improved memory availability for other host applications. This capability is especially beneficial for Docker Desktop, as it prevents the WSL VM from retaining large amounts of memory (in GBs) within the Linux kernel's page cache during Docker container image builds, without releasing it back to the host when no longer needed within the VM.
 
-## [Turn on Docker Desktop WSL 2](https://docs.docker.com/desktop/wsl/#turn-on-docker-desktop-wsl-2)
+## Turn on Docker Desktop WSL 2
 
 > **Important**
 >
@@ -60,9 +60,9 @@ Now `docker` commands work from Windows using the new WSL 2 engine.
 
 > **Tip**
 >
-> By default, Docker Desktop stores the data for the WSL 2 engine at `C:\Users\[USERNAME]\AppData\Local\Docker\wsl`. If you want to change the location, for example, to another drive you can do so via the `Settings -> Resources -> Advanced` page from the Docker Dashboard. Read more about this and other Windows settings at [Changing settings](https://docs.docker.com/desktop/settings/)
+> By default, Docker Desktop stores the data for the WSL 2 engine at `C:\Users\[USERNAME]\AppData\Local\Docker\wsl`. If you want to change the location, for example, to another drive you can do so via the `Settings -> Resources -> Advanced` page from the Docker Dashboard. Read more about this and other Windows settings at [Changing settings]({{< ref "/manuals/DockerDesktop/Changesettings" >}})
 
-## [Enabling Docker support in WSL 2 distros](https://docs.docker.com/desktop/wsl/#enabling-docker-support-in-wsl-2-distros)
+## Enabling Docker support in WSL 2 distros
 
 WSL 2 adds support for "Linux distros" to Windows, where each distro behaves like a VM except they all run on top of a single shared Linux kernel.
 
@@ -116,8 +116,8 @@ Docker Desktop does not require any particular Linux distros to be installed. Th
 >
 > Note that Docker Desktop version 4.30 and later keeps using the `docker-desktop-data` distribution if it was already created by an earlier version of Docker Desktop and has not been freshly installed or factory reset.
 
-## [Additional resources](https://docs.docker.com/desktop/wsl/#additional-resources)
+## Additional resources
 
-- [Explore best practices](https://docs.docker.com/desktop/wsl/best-practices/)
-- [Understand how to develop with Docker and WSL 2](https://docs.docker.com/desktop/wsl/use-wsl/)
-- [Learn about GPU support with WSL 2](https://docs.docker.com/desktop/gpu/)
+- [Explore best practices]({{< ref "/manuals/DockerDesktop/WSL/Bestpractices" >}})
+- [Understand how to develop with Docker and WSL 2]({{< ref "/manuals/DockerDesktop/WSL/UseWSL" >}})
+- [Learn about GPU support with WSL 2]({{< ref "/manuals/DockerDesktop/GPUsupport" >}})

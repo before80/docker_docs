@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/prior-releases/](https://docs.docker.com/engine/release-notes/prior-releases/)
+> 原文：[https://docs.docker.com/engine/release-notes/prior-releases/](https://docs.docker.com/engine/release-notes/prior-releases/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Engine prior releases
 
-## [1.13.1 (2017-02-08)](https://docs.docker.com/engine/release-notes/prior-releases/#1131-2017-02-08)
+## 1.13.1 (2017-02-08)
 
 **Important**: On Linux distributions where `devicemapper` was the default storage driver, the `overlay2`, or `overlay` is now used by default (if the kernel supports it). To use devicemapper, you can manually configure the storage driver to use through the `--storage-driver` daemon option, or by setting "storage-driver" in the `daemon.json` configuration file.
 
@@ -32,34 +32,34 @@ To manually remove all plugins and resolve this problem, take the following step
 2. Restart Docker. Verify that the Docker daemon starts with no errors.
 3. Reinstall your plugins.
 
-### [Contrib](https://docs.docker.com/engine/release-notes/prior-releases/#contrib)
+### Contrib
 
 - Do not require a custom build of tini [#28454](https://github.com/docker/docker/pull/28454)
 - Upgrade to Go 1.7.5 [#30489](https://github.com/docker/docker/pull/30489)
 
-### [Remote API (v1.26) & Client](https://docs.docker.com/engine/release-notes/prior-releases/#remote-api-v126--client)
+### Remote API (v1.26) & Client
 
 - Support secrets in docker stack deploy with compose file [#30144](https://github.com/docker/docker/pull/30144)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime)
+### Runtime
 
 - Fix size issue in `docker system df` [#30378](https://github.com/docker/docker/pull/30378)
 - Fix error on `docker inspect` when Swarm certificates were expired. [#29246](https://github.com/docker/docker/pull/29246)
 - Fix deadlock on v1 plugin with activate error [#30408](https://github.com/docker/docker/pull/30408)
 - Fix SELinux regression [#30649](https://github.com/docker/docker/pull/30649)
 
-### [Plugins](https://docs.docker.com/engine/release-notes/prior-releases/#plugins)
+### Plugins
 
 - Support global scoped network plugins (v2) in swarm mode [#30332](https://github.com/docker/docker/pull/30332)
 
 - Add `docker plugin upgrade` [#29414](https://github.com/docker/docker/pull/29414)
 
-### [Windows](https://docs.docker.com/engine/release-notes/prior-releases/#windows)
+### Windows
 
 - Fix small regression with old plugins in Windows [#30150](https://github.com/docker/docker/pull/30150)
 - Fix warning on Windows [#30730](https://github.com/docker/docker/pull/30730)
 
-## [1.13.0 (2017-01-18)](https://docs.docker.com/engine/release-notes/prior-releases/#1130-2017-01-18)
+## 1.13.0 (2017-01-18)
 
 **Important**: On Linux distributions where `devicemapper` was the default storage driver, the `overlay2`, or `overlay` is now used by default (if the kernel supports it). To use devicemapper, you can manually configure the storage driver to use through the `--storage-driver` daemon option, or by setting "storage-driver" in the `daemon.json` configuration file.
 
@@ -77,7 +77,7 @@ To manually remove all plugins and resolve this problem, take the following step
 2. Restart Docker. Verify that the Docker daemon starts with no errors.
 3. Reinstall your plugins.
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder)
+### Builder
 
 - Add capability to specify images used as a cache source on build. These images do not need to have local parent chain and can be pulled from other registries [#26839](https://github.com/docker/docker/pull/26839)
 - (experimental) Add option to squash image layers to the FROM image after successful builds [#22641](https://github.com/docker/docker/pull/22641)
@@ -99,7 +99,7 @@ To manually remove all plugins and resolve this problem, take the following step
 - Allow `USER` in builder on Windows [#28415](https://github.com/docker/docker/pull/28415)
 - Handle env case-insensitive on Windows [#28725](https://github.com/docker/docker/pull/28725)
 
-### [Contrib](https://docs.docker.com/engine/release-notes/prior-releases/#contrib-1)
+### Contrib
 
 - Add support for building docker debs for Ubuntu 16.04 Xenial on PPC64LE [#23438](https://github.com/docker/docker/pull/23438)
 - Add support for building docker debs for Ubuntu 16.04 Xenial on s390x [#26104](https://github.com/docker/docker/pull/26104)
@@ -115,7 +115,7 @@ To manually remove all plugins and resolve this problem, take the following step
 - Add RPM builder for Fedora 25 [#28222](https://github.com/docker/docker/pull/28222)
 - Add `make deb` support for aarch64 [#27625](https://github.com/docker/docker/pull/27625)
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution)
+### Distribution
 
 - Update notary dependency to 0.4.2 (full changelogs
 
@@ -142,7 +142,7 @@ To manually remove all plugins and resolve this problem, take the following step
 
 - Allow external storage for registry credentials [#26354](https://github.com/docker/docker/pull/26354)
 
-### [Logging](https://docs.docker.com/engine/release-notes/prior-releases/#logging)
+### Logging
 
 - Standardize the default logging tag value in all logging drivers [#22911](https://github.com/docker/docker/pull/22911)
 
@@ -160,7 +160,7 @@ To manually remove all plugins and resolve this problem, take the following step
 - Splunk Logging Driver: performance and reliability improvements [#26207](https://github.com/docker/docker/pull/26207)
 - Splunk Logging Driver: configurable formats and skip for verifying connection [#25786](https://github.com/docker/docker/pull/25786)
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking)
+### Networking
 
 - Add `--attachable` network support to enable `docker run` to work in swarm-mode overlay network [#25962](https://github.com/docker/docker/pull/25962)
 - Add support for host port PublishMode in services using the `--publish` option in `docker service create` [#27917](https://github.com/docker/docker/pull/27917) and [#28943](https://github.com/docker/docker/pull/28943)
@@ -179,7 +179,7 @@ To manually remove all plugins and resolve this problem, take the following step
 - Show peer nodes in `docker network inspect` for swarm overlay networks [#28078](https://github.com/docker/docker/pull/28078)
 - Enable ping for service VIP address [#28019](https://github.com/docker/docker/pull/28019)
 
-### [Plugins](https://docs.docker.com/engine/release-notes/prior-releases/#plugins-1)
+### Plugins
 
 - Move plugins out of experimental [#28226](https://github.com/docker/docker/pull/28226)
 - Add `--force` on `docker plugin remove` [#25096](https://github.com/docker/docker/pull/25096)
@@ -194,7 +194,7 @@ To manually remove all plugins and resolve this problem, take the following step
 - Support for global-scoped network and ipam plugins in swarm-mode [#27287](https://github.com/docker/docker/pull/27287)
 - Split `docker plugin install` into two API call `/privileges` and `/pull` [#28963](https://github.com/docker/docker/pull/28963)
 
-### [Remote API (v1.25) & Client](https://docs.docker.com/engine/release-notes/prior-releases/#remote-api-v125--client)
+### Remote API (v1.25) & Client
 
 - Support `docker stack deploy` from a Compose file [#27998](https://github.com/docker/docker/pull/27998)
 - (experimental) Implement checkpoint and restore [#22049](https://github.com/docker/docker/pull/22049)
@@ -243,7 +243,7 @@ To manually remove all plugins and resolve this problem, take the following step
 - Add information for `Manager Addresses` in the output of `docker info` [#28042](https://github.com/docker/docker/pull/28042)
 - Add a new reference filter for `docker images` [#27872](https://github.com/docker/docker/pull/27872)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-1)
+### Runtime
 
 - Add `--experimental` daemon flag to enable experimental features, instead of shipping them in a separate build [#27223](https://github.com/docker/docker/pull/27223)
 - Add a `--shutdown-timeout` daemon flag to specify the default timeout (in seconds) to stop containers gracefully before daemon exit [#23036](https://github.com/docker/docker/pull/23036)
@@ -290,7 +290,7 @@ To manually remove all plugins and resolve this problem, take the following step
 
 - Honor a container’s `--stop-signal` setting upon `docker kill` [#26464](https://github.com/docker/docker/pull/26464)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/prior-releases/#swarm-mode)
+### Swarm Mode
 
 - Add secret management [#27794](https://github.com/docker/docker/pull/27794)
 - Add support for templating service options (hostname, mounts, and environment variables) [#28025](https://github.com/docker/docker/pull/28025)
@@ -336,7 +336,7 @@ To manually remove all plugins and resolve this problem, take the following step
 - Support v2 plugins [#29433](https://github.com/docker/docker/pull/29433)
 - Add content trust for services [#29469](https://github.com/docker/docker/pull/29469)
 
-### [Volume](https://docs.docker.com/engine/release-notes/prior-releases/#volume)
+### Volume
 
 - Add support for labels on volumes [#21270](https://github.com/docker/docker/pull/21270)
 - Add support for filtering volumes by label [#25628](https://github.com/docker/docker/pull/25628)
@@ -345,12 +345,12 @@ To manually remove all plugins and resolve this problem, take the following step
 - Enhance `docker volume inspect` to show all options used when creating the volume [#26671](https://github.com/docker/docker/pull/26671)
 - Add support for local NFS volumes to resolve hostnames [#27329](https://github.com/docker/docker/pull/27329)
 
-### [Security](https://docs.docker.com/engine/release-notes/prior-releases/#security)
+### Security
 
 - Fix selinux labeling of volumes shared in a container [#23024](https://github.com/docker/docker/pull/23024)
 - Prohibit `/sys/firmware/**` from being accessed with apparmor [#26618](https://github.com/docker/docker/pull/26618)
 
-### [Deprecation](https://docs.docker.com/engine/release-notes/prior-releases/#deprecation)
+### Deprecation
 
 - Marked the `docker daemon` command as deprecated. The daemon is moved to a separate binary (`dockerd`), and should be used instead [#26834](https://github.com/docker/docker/pull/26834)
 - Deprecate unversioned API endpoints [#28208](https://github.com/docker/docker/pull/28208)
@@ -364,7 +364,7 @@ To manually remove all plugins and resolve this problem, take the following step
 - Deprecate setting duplicate engine labels [#24533](https://github.com/docker/docker/pull/24533)
 - Deprecate "top-level" network information in `NetworkSettings` [#28437](https://github.com/docker/docker/pull/28437)
 
-## [1.12.6 (2017-01-10)](https://docs.docker.com/engine/release-notes/prior-releases/#1126-2017-01-10)
+## 1.12.6 (2017-01-10)
 
 **IMPORTANT**: Docker 1.12 ships with an updated systemd unit file for rpm based installs (which includes RHEL, Fedora, CentOS, and Oracle Linux 7). When upgrading from an older version of docker, the upgrade process may not automatically install the updated version of the unit file, or fail to start the docker service if;
 
@@ -422,11 +422,11 @@ To resolve this, either remove the `--ipv6` flag (to preserve the same behavior 
 
 The network creation will instead succeed if you use an external IPAM driver which supports automatic allocation of IPv6 subnets.
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-2)
+### Runtime
 
 - Fix runC privilege escalation (CVE-2016-9962)
 
-## [1.12.5 (2016-12-15)](https://docs.docker.com/engine/release-notes/prior-releases/#1125-2016-12-15)
+## 1.12.5 (2016-12-15)
 
 **IMPORTANT**: Docker 1.12 ships with an updated systemd unit file for rpm based installs (which includes RHEL, Fedora, CentOS, and Oracle Linux 7). When upgrading from an older version of docker, the upgrade process may not automatically install the updated version of the unit file, or fail to start the docker service if;
 
@@ -484,19 +484,19 @@ To resolve this, either remove the `--ipv6` flag (to preserve the same behavior 
 
 The network network creation will instead succeed if you use an external IPAM driver which supports automatic allocation of IPv6 subnets.
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-3)
+### Runtime
 
 - Fix race on sending stdin close event [#29424](https://github.com/docker/docker/pull/29424)
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking-1)
+### Networking
 
 - Fix panic in docker network ls when a network was created with `--ipv6` and no ipv6 `--subnet` in older docker versions [#29416](https://github.com/docker/docker/pull/29416)
 
-### [Contrib](https://docs.docker.com/engine/release-notes/prior-releases/#contrib-2)
+### Contrib
 
 - Fix compilation on Darwin [#29370](https://github.com/docker/docker/pull/29370)
 
-## [1.12.4 (2016-12-12)](https://docs.docker.com/engine/release-notes/prior-releases/#1124-2016-12-12)
+## 1.12.4 (2016-12-12)
 
 **IMPORTANT**: Docker 1.12 ships with an updated systemd unit file for rpm based installs (which includes RHEL, Fedora, CentOS, and Oracle Linux 7). When upgrading from an older version of docker, the upgrade process may not automatically install the updated version of the unit file, or fail to start the docker service if;
 
@@ -523,7 +523,7 @@ To resolve this:
 
 After making those changes, run `sudo systemctl daemon-reload`, and `sudo systemctl restart docker` to reload changes and (re)start the docker daemon.
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-4)
+### Runtime
 
 - Fix issue where volume metadata was not removed [#29083](https://github.com/docker/docker/pull/29083)
 - Asynchronously close streams to prevent holding container lock [#29050](https://github.com/docker/docker/pull/29050)
@@ -536,7 +536,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix incorrect opaque directory permission in overlay2 [#29093](https://github.com/docker/docker/pull/29093)
 - Detect plugin content and error out on `docker pull` [#29297](https://github.com/docker/docker/pull/29297)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/prior-releases/#swarm-mode-1)
+### Swarm Mode
 
 - Update Swarmkit
 
@@ -549,7 +549,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Refuse swarm spec not named "default" [#29152](https://github.com/docker/docker/pull/29152)
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking-2)
+### Networking
 
 - Update libnetwork
 
@@ -575,17 +575,17 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
   - Fix a panic in `libnetwork.(*sandbox).execFunc` [docker/libnetwork#1556](https://github.com/docker/libnetwork/pull/1556)
   - Honor icc=false for internal networks [docker/libnetwork#1525](https://github.com/docker/libnetwork/pull/1525)
 
-### [Logging](https://docs.docker.com/engine/release-notes/prior-releases/#logging-1)
+### Logging
 
 - Update syslog log driver [#29150](https://github.com/docker/docker/pull/29150)
 
-### [Contrib](https://docs.docker.com/engine/release-notes/prior-releases/#contrib-3)
+### Contrib
 
 - Run "dnf upgrade" before installing in fedora [#29150](https://github.com/docker/docker/pull/29150)
 - Add build-date back to RPM packages [#29150](https://github.com/docker/docker/pull/29150)
 - deb package filename changed to include distro to distinguish between distro code names [#27829](https://github.com/docker/docker/pull/27829)
 
-## [1.12.3 (2016-10-26)](https://docs.docker.com/engine/release-notes/prior-releases/#1123-2016-10-26)
+## 1.12.3 (2016-10-26)
 
 **IMPORTANT**: Docker 1.12 ships with an updated systemd unit file for rpm based installs (which includes RHEL, Fedora, CentOS, and Oracle Linux 7). When upgrading from an older version of docker, the upgrade process may not automatically install the updated version of the unit file, or fail to start the docker service if;
 
@@ -612,7 +612,7 @@ To resolve this:
 
 After making those changes, run `sudo systemctl daemon-reload`, and `sudo systemctl restart docker` to reload changes and (re)start the docker daemon.
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-5)
+### Runtime
 
 - Fix ambient capability usage in containers (CVE-2016-8867) [#27610](https://github.com/docker/docker/pull/27610)
 - Prevent a deadlock in libcontainerd for Windows [#27136](https://github.com/docker/docker/pull/27136)
@@ -624,7 +624,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix docker exec [#27610](https://github.com/docker/docker/pull/27610)
 - Fix backward compatibility with containerd’s events log [#27693](https://github.com/docker/docker/pull/27693)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/prior-releases/#swarm-mode-2)
+### Swarm Mode
 
 - Fix conversion of restart-policy [#27062](https://github.com/docker/docker/pull/27062)
 
@@ -635,7 +635,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Fix panic when allocations happen at init time [docker/swarmkit#1651](https://github.com/docker/swarmkit/pull/1651)
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking-3)
+### Networking
 
 - Update libnetwork [#27559](https://github.com/docker/docker/pull/27559)
 
@@ -647,16 +647,16 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix a deadlock in networking code [docker/libnetwork#1507](https://github.com/docker/libnetwork/pull/1507)
 - Fix a race in load balancer state [docker/libnetwork#1512](https://github.com/docker/libnetwork/pull/1512)
 
-### [Logging](https://docs.docker.com/engine/release-notes/prior-releases/#logging-2)
+### Logging
 
 - Update fluent-logger-golang to v1.2.1 [#27474](https://github.com/docker/docker/pull/27474)
 
-### [Contrib](https://docs.docker.com/engine/release-notes/prior-releases/#contrib-4)
+### Contrib
 
 - Update buildtags for armhf ubuntu-trusty [#27327](https://github.com/docker/docker/pull/27327)
 - Add AppArmor to runc buildtags for armhf [#27421](https://github.com/docker/docker/pull/27421)
 
-## [1.12.2 (2016-10-11)](https://docs.docker.com/engine/release-notes/prior-releases/#1122-2016-10-11)
+## 1.12.2 (2016-10-11)
 
 **IMPORTANT**: Docker 1.12 ships with an updated systemd unit file for rpm based installs (which includes RHEL, Fedora, CentOS, and Oracle Linux 7). When upgrading from an older version of docker, the upgrade process may not automatically install the updated version of the unit file, or fail to start the docker service if;
 
@@ -683,7 +683,7 @@ To resolve this:
 
 After making those changes, run `sudo systemctl daemon-reload`, and `sudo systemctl restart docker` to reload changes and (re)start the docker daemon.
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-6)
+### Runtime
 
 - Fix a panic due to a race condition filtering `docker ps` [#26049](https://github.com/docker/docker/pull/26049)
 
@@ -695,7 +695,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix exec's children handling [#26874](https://github.com/docker/docker/pull/26874)
 - Fix exec form of HEALTHCHECK CMD [#26208](https://github.com/docker/docker/pull/26208)
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking-4)
+### Networking
 
 - Fix a daemon start panic on armv5 [#24315](https://github.com/docker/docker/issues/24315)
 
@@ -712,7 +712,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Disable service discovery in ingress network [docker/libnetwork#1489](https://github.com/docker/libnetwork/pull/1489)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/prior-releases/#swarm-mode-3)
+### Swarm Mode
 
 - Fix remote detection of a node's address when it joins the cluster [#26211](https://github.com/docker/docker/pull/26211)
 - Vendor SwarmKit [#26765](https://github.com/docker/docker/pull/26765)
@@ -726,18 +726,18 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix an issue where changes to a service were not detected, resulting in the service not being updated [docker/swarmkit#1497](https://github.com/docker/swarmkit/pull/1497)
 - Do not allow service creation on ingress network [docker/swarmkit#1600](https://github.com/docker/swarmkit/pull/1600)
 
-### [Contrib](https://docs.docker.com/engine/release-notes/prior-releases/#contrib-5)
+### Contrib
 
 - Update the debian sysv-init script to use `dockerd` instead of `docker daemon` [#25869](https://github.com/docker/docker/pull/25869)
 - Improve stability when running the docker client on MacOS Sierra [#26875](https://github.com/docker/docker/pull/26875)
 
 - Fix installation on debian stretch [#27184](https://github.com/docker/docker/pull/27184)
 
-### [Windows](https://docs.docker.com/engine/release-notes/prior-releases/#windows-1)
+### Windows
 
 - Fix an issue where arrow-navigation did not work when running the docker client in ConEmu [#25578](https://github.com/docker/docker/pull/25578)
 
-## [1.12.1 (2016-08-18)](https://docs.docker.com/engine/release-notes/prior-releases/#1121-2016-08-18)
+## 1.12.1 (2016-08-18)
 
 **IMPORTANT**: Docker 1.12 ships with an updated systemd unit file for rpm based installs (which includes RHEL, Fedora, CentOS, and Oracle Linux 7). When upgrading from an older version of docker, the upgrade process may not automatically install the updated version of the unit file, or fail to start the docker service if;
 
@@ -764,7 +764,7 @@ To resolve this:
 
 After making those changes, run `sudo systemctl daemon-reload`, and `sudo systemctl restart docker` to reload changes and (re)start the docker daemon.
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client)
+### Client
 
 - Add `Joined at` information in `node inspect --pretty` [#25512](https://github.com/docker/docker/pull/25512)
 
@@ -773,13 +773,13 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix issue preventing `service update --publish-add` to work as intended [#25428](https://github.com/docker/docker/pull/25428)
 - Remove `service update --network-add` and `service update --network-rm` flags because this feature is not yet implemented in 1.12, but was inadvertently added to the client in 1.12.0 [#25646](https://github.com/docker/docker/pull/25646)
 
-### [Contrib](https://docs.docker.com/engine/release-notes/prior-releases/#contrib-6)
+### Contrib
 
 - Official ARM installation for Debian Jessie, Ubuntu Trusty, and Raspbian Jessie [#24815](https://github.com/docker/docker/pull/24815) [#25591](https://github.com/docker/docker/pull/25637)
 
 - Add selinux policy per distro/version, fixing issue preventing successful installation on Fedora 24, and Oracle Linux [#25334](https://github.com/docker/docker/pull/25334) [#25593](https://github.com/docker/docker/pull/25593)
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking-5)
+### Networking
 
 - Fix issue that prevented containers to be accessed by hostname with Docker overlay driver in Swarm Mode [#25603](https://github.com/docker/docker/pull/25603) [#25648](https://github.com/docker/docker/pull/25648)
 - Fix random network issues on service with published port [#25603](https://github.com/docker/docker/pull/25603)
@@ -788,7 +788,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix issue where a task that fails to start results in a race, causing a `network xxx not found` error that masks the actual error [#25550](https://github.com/docker/docker/pull/25550)
 - Relax validation of SRV records for external services that use SRV records not formatted according to RFC 2782 [#25739](https://github.com/docker/docker/pull/25739)
 
-### [Plugins (experimental)](https://docs.docker.com/engine/release-notes/prior-releases/#plugins-experimental)
+### Plugins (experimental)
 
 - Make daemon events listen for plugin lifecycle events [#24760](https://github.com/docker/docker/pull/24760)
 - Check for plugin state before enabling plugin [#25033](https://github.com/docker/docker/pull/25033)
@@ -796,19 +796,19 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Remove plugin root from filesystem on `plugin rm` [#25187](https://github.com/docker/docker/pull/25187)
 - Prevent deadlock when more than one plugin is installed [#25384](https://github.com/docker/docker/pull/25384)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-7)
+### Runtime
 
 - Mask join tokens in daemon logs [#25346](https://github.com/docker/docker/pull/25346)
 
 - Fix `docker ps --filter` causing the results to no longer be sorted by creation time [#25387](https://github.com/docker/docker/pull/25387)
 - Fix various crashes [#25053](https://github.com/docker/docker/pull/25053)
 
-### [Security](https://docs.docker.com/engine/release-notes/prior-releases/#security-1)
+### Security
 
 - Add `/proc/timer_list` to the masked paths list to prevent information leak from the host [#25630](https://github.com/docker/docker/pull/25630)
 - Allow systemd to run with only `--cap-add SYS_ADMIN` rather than having to also add `--cap-add DAC_READ_SEARCH` or disabling seccomp filtering [#25567](https://github.com/docker/docker/pull/25567)
 
-### [Swarm](https://docs.docker.com/engine/release-notes/prior-releases/#swarm)
+### Swarm
 
 - Fix an issue where the swarm can get stuck electing a new leader after quorum is lost [#25055](https://github.com/docker/docker/issues/25055)
 - Fix unwanted rescheduling of containers after a leader failover [#25017](https://github.com/docker/docker/issues/25017)
@@ -820,14 +820,14 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix issue with global tasks not starting up [swarmkit/#1295](https://github.com/docker/swarmkit/pull/1295)
 - Garbage collect raft logs [swarmkit/#1327](https://github.com/docker/swarmkit/pull/1327)
 
-### [Volume](https://docs.docker.com/engine/release-notes/prior-releases/#volume-1)
+### Volume
 
 - Persist local volume options after a daemon restart [#25316](https://github.com/docker/docker/pull/25316)
 - Fix an issue where the mount ID was not returned on volume unmount [#25333](https://github.com/docker/docker/pull/25333)
 - Fix an issue where a volume mount could inadvertently create a bind mount [#25309](https://github.com/docker/docker/pull/25309)
 - `docker service create --mount type=bind,...` now correctly validates if the source path exists, instead of creating it [#25494](https://github.com/docker/docker/pull/25494)
 
-## [1.12.0 (2016-07-28)](https://docs.docker.com/engine/release-notes/prior-releases/#1120-2016-07-28)
+## 1.12.0 (2016-07-28)
 
 **IMPORTANT**: Docker 1.12.0 ships with an updated systemd unit file for rpm based installs (which includes RHEL, Fedora, CentOS, and Oracle Linux 7). When upgrading from an older version of docker, the upgrade process may not automatically install the updated version of the unit file, or fail to start the docker service if;
 
@@ -856,7 +856,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 **IMPORTANT**: With Docker 1.12, a Linux docker installation now has two additional binaries; `dockerd`, and `docker-proxy`. If you have scripts for installing docker, make sure to update them accordingly.
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-1)
+### Builder
 
 - New `HEALTHCHECK` Dockerfile instruction to support user-defined healthchecks [#23218](https://github.com/docker/docker/pull/23218)
 - New `SHELL` Dockerfile instruction to specify the default shell when using the shell form for commands in a Dockerfile [#22489](https://github.com/docker/docker/pull/22489)
@@ -869,13 +869,13 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Fix error message when building using a daemon with the bridge network disabled [#22932](https://github.com/docker/docker/pull/22932)
 
-### [Contrib](https://docs.docker.com/engine/release-notes/prior-releases/#contrib-7)
+### Contrib
 
 - Enable seccomp for Centos 7 and Oracle Linux 7 [#22344](https://github.com/docker/docker/pull/22344)
 
 - Remove MountFlags in systemd unit to allow shared mount propagation [#22806](https://github.com/docker/docker/pull/22806)
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution-1)
+### Distribution
 
 - Add `--max-concurrent-downloads` and `--max-concurrent-uploads` daemon flags useful for situations where network connections don't support multiple downloads/uploads [#22445](https://github.com/docker/docker/pull/22445)
 
@@ -883,7 +883,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Provide more information to the user on `docker load` [#23377](https://github.com/docker/docker/pull/23377)
 - Always save registry digest metadata about images pushed and pulled [#23996](https://github.com/docker/docker/pull/23996)
 
-### [Logging](https://docs.docker.com/engine/release-notes/prior-releases/#logging-3)
+### Logging
 
 - Syslog logging driver now supports DGRAM sockets [#21613](https://github.com/docker/docker/pull/21613)
 - Add `--details` option to `docker logs` to also display log tags [#21889](https://github.com/docker/docker/pull/21889)
@@ -893,7 +893,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Inherit the daemon log options when creating containers [#21153](https://github.com/docker/docker/pull/21153)
 - Remove `docker/` prefix from log messages tag and replace it with `{{.DaemonName}}` so that users have the option of changing the prefix [#22384](https://github.com/docker/docker/pull/22384)
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking-6)
+### Networking
 
 - Built-in Virtual-IP based internal and ingress load-balancing using IPVS [#23361](https://github.com/docker/docker/pull/23361)
 - Routing Mesh using ingress overlay network [#23361](https://github.com/docker/docker/pull/23361)
@@ -911,11 +911,11 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix DNS issue when renaming containers with generated names [#22716](https://github.com/docker/docker/pull/22716)
 - Allow both `network inspect -f {{.Id}}` and `network inspect -f {{.ID}}` to address inconsistency with inspect output [#23226](https://github.com/docker/docker/pull/23226)
 
-### [Plugins (experimental)](https://docs.docker.com/engine/release-notes/prior-releases/#plugins-experimental-1)
+### Plugins (experimental)
 
 - New `plugin` command to manager plugins with `install`, `enable`, `disable`, `rm`, `inspect`, `set` subcommands [#23446](https://github.com/docker/docker/pull/23446)
 
-### [Remote API (v1.24) & Client](https://docs.docker.com/engine/release-notes/prior-releases/#remote-api-v124--client)
+### Remote API (v1.24) & Client
 
 - Split the binary into two: `docker` (client) and `dockerd` (daemon) [#20639](https://github.com/docker/docker/pull/20639)
 - Add `before` and `since` filters to `docker images --filter` [#22908](https://github.com/docker/docker/pull/22908)
@@ -934,7 +934,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - authz: when request is denied return forbbiden exit code (403) [#22448](https://github.com/docker/docker/pull/22448)
 - Windows: fix tty-related displaying issues [#23878](https://github.com/docker/docker/pull/23878)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-8)
+### Runtime
 
 - Split the userland proxy to a separate binary (`docker-proxy`) [#23312](https://github.com/docker/docker/pull/23312)
 - Add `--live-restore` daemon flag to keep containers running when daemon shuts down, and regain control on startup [#23213](https://github.com/docker/docker/pull/23213)
@@ -970,14 +970,14 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix `on-failure` restart policy when daemon restarts [#20853](https://github.com/docker/docker/pull/20853)
 - Fix an issue with `stats` when a container is using another container's network [#21904](https://github.com/docker/docker/pull/21904)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/prior-releases/#swarm-mode-4)
+### Swarm Mode
 
 - New `swarm` command to manage swarms with `init`, `join`, `join-token`, `leave`, `update` subcommands [#23361](https://github.com/docker/docker/pull/23361) [#24823](https://github.com/docker/docker/pull/24823)
 - New `service` command to manage swarm-wide services with `create`, `inspect`, `update`, `rm`, `ps` subcommands [#23361](https://github.com/docker/docker/pull/23361) [#25140](https://github.com/docker/docker/pull/25140)
 - New `node` command to manage nodes with `accept`, `promote`, `demote`, `inspect`, `update`, `ps`, `ls` and `rm` subcommands [#23361](https://github.com/docker/docker/pull/23361) [#25140](https://github.com/docker/docker/pull/25140)
 - (experimental) New `stack` and `deploy` commands to manage and deploy multi-service applications [#23522](https://github.com/docker/docker/pull/23522) [#25140](https://github.com/docker/docker/pull/25140)
 
-### [Volume](https://docs.docker.com/engine/release-notes/prior-releases/#volume-2)
+### Volume
 
 - Add support for local and global volume scopes (analogous to network scopes) [#22077](https://github.com/docker/docker/pull/22077)
 - Allow volume drivers to provide a `Status` field [#21006](https://github.com/docker/docker/pull/21006)
@@ -988,7 +988,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix issue preventing to remove a volume in a corner case [#22103](https://github.com/docker/docker/pull/22103)
 - Windows: Enable auto-creation of host-path to match Linux [#22094](https://github.com/docker/docker/pull/22094)
 
-### [Deprecation](https://docs.docker.com/engine/release-notes/prior-releases/#deprecation-1)
+### Deprecation
 
 - Environment variables `DOCKER_CONTENT_TRUST_OFFLINE_PASSPHRASE` and `DOCKER_CONTENT_TRUST_TAGGING_PASSPHRASE` have been renamed to `DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE` and `DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE` respectively [#22574](https://github.com/docker/docker/pull/22574)
 - Remove deprecated `syslog-tag`, `gelf-tag`, `fluentd-tag` log option in favor of the more generic `tag` one [#22620](https://github.com/docker/docker/pull/22620)
@@ -998,14 +998,14 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Remove deprecated `docker ps` flags `--since` and `--before` [#22138](https://github.com/docker/docker/pull/22138)
 - Deprecate the old 3-args form of `docker import` [#23273](https://github.com/docker/docker/pull/23273)
 
-## [1.11.2 (2016-05-31)](https://docs.docker.com/engine/release-notes/prior-releases/#1112-2016-05-31)
+## 1.11.2 (2016-05-31)
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking-7)
+### Networking
 
 - Fix a stale endpoint issue on overlay networks during ungraceful restart ( [#23015](https://github.com/docker/docker/pull/23015))
 - Fix an issue where the wrong port could be reported by `docker inspect/ps/port` ( [#22997](https://github.com/docker/docker/pull/22997))
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-9)
+### Runtime
 
 - Fix a potential panic when running `docker build` ( [#23032](https://github.com/docker/docker/pull/23032))
 - Fix interpretation of `--user` parameter ( [#22998](https://github.com/docker/docker/pull/22998))
@@ -1017,26 +1017,26 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix an issue causing `docker ps` to hang on CentOS when using devicemapper ( [#22168](https://github.com/docker/docker/pull/22168), [#23067](https://github.com/docker/docker/pull/23067))
 - Fix a bug preventing to `docker exec` into a container when using devicemapper ( [#22168](https://github.com/docker/docker/pull/22168), [#23067](https://github.com/docker/docker/pull/23067))
 
-## [1.11.1 (2016-04-26)](https://docs.docker.com/engine/release-notes/prior-releases/#1111-2016-04-26)
+## 1.11.1 (2016-04-26)
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution-2)
+### Distribution
 
 - Fix schema2 manifest media type to be of type `application/vnd.docker.container.image.v1+json` ( [#21949](https://github.com/docker/docker/pull/21949))
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation)
+### Documentation
 
 - Add missing API documentation for changes introduced with 1.11.0 ( [#22048](https://github.com/docker/docker/pull/22048))
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-2)
+### Builder
 
 - Append label passed to `docker build` as arguments as an implicit `LABEL` command at the end of the processed `Dockerfile` ( [#22184](https://github.com/docker/docker/pull/22184))
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking-8)
+### Networking
 
 - Fix a panic that would occur when forwarding DNS query ( [#22261](https://github.com/docker/docker/pull/22261))
 - Fix an issue where OS threads could end up within an incorrect network namespace when using user defined networks ( [#22261](https://github.com/docker/docker/pull/22261))
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-10)
+### Runtime
 
 - Fix a bug preventing labels configuration to be reloaded via the config file ( [#22299](https://github.com/docker/docker/pull/22299))
 - Fix a regression where container mounting `/var/run` would prevent other containers from being removed ( [#22256](https://github.com/docker/docker/pull/22256))
@@ -1052,16 +1052,16 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Revert deprecation of non-existent host directories auto-creation ( [#22065](https://github.com/docker/docker/pull/22065))
 - Hide misleading rpc error on daemon shutdown ( [#22058](https://github.com/docker/docker/pull/22058))
 
-## [1.11.0 (2016-04-13)](https://docs.docker.com/engine/release-notes/prior-releases/#1110-2016-04-13)
+## 1.11.0 (2016-04-13)
 
 **IMPORTANT**: With Docker 1.11, a Linux docker installation is now made of 4 binaries (`docker`, [`docker-containerd`](https://github.com/docker/containerd), [`docker-containerd-shim`](https://github.com/docker/containerd) and [`docker-runc`](https://github.com/opencontainers/runc)). If you have scripts relying on docker being a single static binaries, make sure to update them. Interaction with the daemon stay the same otherwise, the usage of the other binaries should be transparent. A Windows docker installation remains a single binary, `docker.exe`.
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-3)
+### Builder
 
 - Fix a bug where Docker would not use the correct uid/gid when processing the `WORKDIR` command ( [#21033](https://github.com/docker/docker/pull/21033))
 - Fix a bug where copy operations with userns would not use the proper uid/gid ( [#20782](https://github.com/docker/docker/pull/20782), [#21162](https://github.com/docker/docker/pull/21162))
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client-1)
+### Client
 
 - Usage of the `:` separator for security option has been deprecated. `=` should be used instead ( [#21232](https://github.com/docker/docker/pull/21232))
 
@@ -1092,7 +1092,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Docker load learned how to display a progress bar ( [#17329](https://github.com/docker/docker/pull/17329), [#120078](https://github.com/docker/docker/pull/20078))
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution-3)
+### Distribution
 
 - Fix a panic that occurred when pulling an image with 0 layers ( [#21222](https://github.com/docker/docker/pull/21222))
 - Fix a panic that could occur on error while pushing to a registry with a misconfigured token service ( [#21212](https://github.com/docker/docker/pull/21212))
@@ -1108,7 +1108,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix generated manifest mediaType when pushing cross-repository ( [#19509](https://github.com/docker/docker/pull/19509))
 - Fix docker requesting additional push credentials when pulling an image if Content Trust is enabled ( [#20382](https://github.com/docker/docker/pull/20382))
 
-### [Logging](https://docs.docker.com/engine/release-notes/prior-releases/#logging-4)
+### Logging
 
 - Fix a race in the journald log driver ( [#21311](https://github.com/docker/docker/pull/21311))
 
@@ -1123,7 +1123,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - The fluentd log driver learned the following options: `fluentd-address`, `fluentd-buffer-limit`, `fluentd-retry-wait`, `fluentd-max-retries` and `fluentd-async-connect` ( [#19439](https://github.com/docker/docker/pull/19439))
 - Docker learned to send log to Google Cloud via the new `gcplogs` logging driver. ( [#18766](https://github.com/docker/docker/pull/18766))
 
-### [Misc](https://docs.docker.com/engine/release-notes/prior-releases/#misc)
+### Misc
 
 - When saving linked images together with `docker save` a subsequent `docker load` will correctly restore their parent/child relationship ( [#21385](https://github.com/docker/docker/pull/21385))
 - Support for building the Docker cli for OpenBSD was added ( [#21325](https://github.com/docker/docker/pull/21325))
@@ -1142,7 +1142,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Support for building Docker on arm64 was added ( [#19013](https://github.com/docker/docker/pull/19013))
 - Experimental support for building docker.exe in a native Windows Docker installation ( [#18348](https://github.com/docker/docker/pull/18348))
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking-9)
+### Networking
 
 - Fix panic if a node is forcibly removed from the cluster ( [#21671](https://github.com/docker/docker/pull/21671))
 - Fix "error creating vxlan interface" when starting a container in a Swarm cluster ( [#21671](https://github.com/docker/docker/pull/21671))
@@ -1180,12 +1180,12 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix to retain the network internal mode config for bridge networks on daemon reload ([#21780] ( https://github.com/docker/docker/pull/21780))
 - Fix to retain IPAM driver option configs on daemon reload ([#21914] ( https://github.com/docker/docker/pull/21914))
 
-### [Plugins](https://docs.docker.com/engine/release-notes/prior-releases/#plugins-2)
+### Plugins
 
 - Fix a file descriptor leak that would occur every time plugins were enumerated ( [#20686](https://github.com/docker/docker/pull/20686))
 - Fix an issue where Authz plugin would corrupt the payload body when faced with a large amount of data ( [#20602](https://github.com/docker/docker/pull/20602))
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-11)
+### Runtime
 
 - Fix a panic that could occur when cleanup after a container started with invalid parameters ( [#21716](https://github.com/docker/docker/pull/21716))
 - Fix a race with event timers stopping early ( [#21692](https://github.com/docker/docker/pull/21692))
@@ -1239,7 +1239,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix a panic during cleanup if a container was started with invalid options ( [#21802](https://github.com/docker/docker/pull/21802))
 - Fix a situation where a container cannot be stopped if the terminal is closed ( [#21840](https://github.com/docker/docker/pull/21840))
 
-### [Security](https://docs.docker.com/engine/release-notes/prior-releases/#security-2)
+### Security
 
 - Object with the `pcp_pmcd_t` selinux type were given management access to `/var/lib/docker(/.*)?` ( [#21370](https://github.com/docker/docker/pull/21370))
 - `restart_syscall`, `copy_file_range`, `mlock2` joined the list of allowed calls in the default seccomp profile ( [#21117](https://github.com/docker/docker/pull/21117), [#21262](https://github.com/docker/docker/pull/21262))
@@ -1247,7 +1247,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Docker Content Trust now requests the server to perform snapshot signing ( [#21046](https://github.com/docker/docker/pull/21046))
 - Support for using YubiKeys for Content Trust signing has been moved out of experimental ( [#21591](https://github.com/docker/docker/pull/21591))
 
-### [Volumes](https://docs.docker.com/engine/release-notes/prior-releases/#volumes)
+### Volumes
 
 - Output of `docker volume ls` is now sorted by volume name ( [#20389](https://github.com/docker/docker/pull/20389))
 - Local volumes can now accept options similar to the unix `mount` tool ( [#20262](https://github.com/docker/docker/pull/20262))
@@ -1256,34 +1256,34 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - `docker run -v` now accepts a new flag `nocopy`. This tells the runtime not to copy the container path content into the volume (which is the default behavior) ( [#21223](https://github.com/docker/docker/pull/21223))
 
-## [1.10.3 (2016-03-10)](https://docs.docker.com/engine/release-notes/prior-releases/#1103-2016-03-10)
+## 1.10.3 (2016-03-10)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-12)
+### Runtime
 
 - Fix Docker client exiting with an "Unrecognized input header" error [#20706](https://github.com/docker/docker/pull/20706)
 - Fix Docker exiting if Exec is started with both `AttachStdin` and `Detach` [#20647](https://github.com/docker/docker/pull/20647)
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution-4)
+### Distribution
 
 - Fix a crash when pushing multiple images sharing the same layers to the same repository in parallel [#20831](https://github.com/docker/docker/pull/20831)
 - Fix a panic when pushing images to a registry which uses a misconfigured token service [#21030](https://github.com/docker/docker/pull/21030)
 
-### [Plugin system](https://docs.docker.com/engine/release-notes/prior-releases/#plugin-system)
+### Plugin system
 
 - Fix issue preventing volume plugins to start when SELinux is enabled [#20834](https://github.com/docker/docker/pull/20834)
 - Prevent Docker from exiting if a volume plugin returns a null response for Get requests [#20682](https://github.com/docker/docker/pull/20682)
 - Fix plugin system leaking file descriptors if a plugin has an error [#20680](https://github.com/docker/docker/pull/20680)
 
-### [Security](https://docs.docker.com/engine/release-notes/prior-releases/#security-3)
+### Security
 
 - Fix linux32 emulation to fail during docker build [#20672](https://github.com/docker/docker/pull/20672) It was due to the `personality` syscall being blocked by the default seccomp profile.
 - Fix Oracle XE 10g failing to start in a container [#20981](https://github.com/docker/docker/pull/20981) It was due to the `ipc` syscall being blocked by the default seccomp profile.
 - Fix user namespaces not working on Linux From Scratch [#20685](https://github.com/docker/docker/pull/20685)
 - Fix issue preventing daemon to start if userns is enabled and the `subuid` or `subgid` files contain comments [#20725](https://github.com/docker/docker/pull/20725)
 
-## [1.10.2 (2016-02-22)](https://docs.docker.com/engine/release-notes/prior-releases/#1102-2016-02-22)
+## 1.10.2 (2016-02-22)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-13)
+### Runtime
 
 - Prevent systemd from deleting containers' cgroups when its configuration is reloaded [#20518](https://github.com/docker/docker/pull/20518)
 - Fix SELinux issues by disregarding `--read-only` when mounting `/dev/mqueue` [#20333](https://github.com/docker/docker/pull/20333)
@@ -1291,28 +1291,28 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix configuration loading issue with all booleans defaulting to `true` [#20471](https://github.com/docker/docker/pull/20471)
 - Fix occasional panic with `docker logs -f` [#20522](https://github.com/docker/docker/pull/20522)
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution-5)
+### Distribution
 
 - Keep layer reference if deletion failed to avoid a badly inconsistent state [#20513](https://github.com/docker/docker/pull/20513)
 - Handle gracefully a corner case when canceling migration [#20372](https://github.com/docker/docker/pull/20372)
 - Fix docker import on compressed data [#20367](https://github.com/docker/docker/pull/20367)
 - Fix tar-split files corruption during migration that later cause docker push and docker save to fail [#20458](https://github.com/docker/docker/pull/20458)
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking-10)
+### Networking
 
 - Fix daemon crash if embedded DNS is sent garbage [#20510](https://github.com/docker/docker/pull/20510)
 
-### [Volumes](https://docs.docker.com/engine/release-notes/prior-releases/#volumes-1)
+### Volumes
 
 - Fix issue with multiple volume references with same name [#20381](https://github.com/docker/docker/pull/20381)
 
-### [Security](https://docs.docker.com/engine/release-notes/prior-releases/#security-4)
+### Security
 
 - Fix potential cache corruption and delegation conflict issues [#20523](https://github.com/docker/docker/pull/20523)
 
-## [1.10.1 (2016-02-11)](https://docs.docker.com/engine/release-notes/prior-releases/#1101-2016-02-11)
+## 1.10.1 (2016-02-11)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-14)
+### Runtime
 
 - Do not stop daemon on migration hard failure [#20156](https://github.com/docker/docker/pull/20156)
 
@@ -1321,40 +1321,40 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Do not leak /dev/mqueue from the host to all containers, keep it container-specific [#19876](https://github.com/docker/docker/pull/19876) [#20133](https://github.com/docker/docker/pull/20133)
 - Fix `docker ps --filter before=...` to not show stopped containers without providing `-a` flag [#20135](https://github.com/docker/docker/pull/20135)
 
-### [Security](https://docs.docker.com/engine/release-notes/prior-releases/#security-5)
+### Security
 
 - Fix issue preventing docker events to work properly with authorization plugin [#20002](https://github.com/docker/docker/pull/20002)
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution-6)
+### Distribution
 
 - Add additional verifications and prevent from uploading invalid data to registries [#20164](https://github.com/docker/docker/pull/20164)
 
 - Fix regression preventing uppercase characters in image reference hostname [#20175](https://github.com/docker/docker/pull/20175)
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking-11)
+### Networking
 
 - Fix embedded DNS for user-defined networks in the presence of firewalld [#20060](https://github.com/docker/docker/pull/20060)
 - Fix issue where removing a network during shutdown left Docker inoperable [#20181](https://github.com/docker/docker/issues/20181) [#20235](https://github.com/docker/docker/issues/20235)
 - Embedded DNS is now able to return compressed results [#20181](https://github.com/docker/docker/issues/20181)
 - Fix port-mapping issue with `userland-proxy=false` [#20181](https://github.com/docker/docker/issues/20181)
 
-### [Logging](https://docs.docker.com/engine/release-notes/prior-releases/#logging-5)
+### Logging
 
 - Fix bug where tcp+tls protocol would be rejected [#20109](https://github.com/docker/docker/pull/20109)
 
-### [Volumes](https://docs.docker.com/engine/release-notes/prior-releases/#volumes-2)
+### Volumes
 
 - Fix issue whereby older volume drivers would not receive volume options [#19983](https://github.com/docker/docker/pull/19983)
 
-### [Misc](https://docs.docker.com/engine/release-notes/prior-releases/#misc-1)
+### Misc
 
 - Remove TasksMax from Docker systemd service [#20167](https://github.com/docker/docker/pull/20167)
 
-## [1.10.0 (2016-02-04)](https://docs.docker.com/engine/release-notes/prior-releases/#1100-2016-02-04)
+## 1.10.0 (2016-02-04)
 
 **IMPORTANT**: Docker 1.10 uses a new content-addressable storage for images and layers. A migration is performed the first time docker is run, and can take a significant amount of time depending on the number of images present. Refer to this page on the wiki for more information: https://github.com/docker/docker/wiki/Engine-v1.10.0-content-addressability-migration We also released a cool migration utility that enables you to perform the migration before updating to reduce downtime. Engine 1.10 migrator can be found on Docker Hub: https://hub.docker.com/r/docker/v1.10-migrator/
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-15)
+### Runtime
 
 - New `docker update` command that allows updating resource constraints on running containers [#15078](https://github.com/docker/docker/pull/15078)
 - Add `--tmpfs` flag to `docker run` to create a tmpfs mount in a container [#13587](https://github.com/docker/docker/pull/13587)
@@ -1390,7 +1390,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Forbid `exec` during container restart [#19722](https://github.com/docker/docker/pull/19722)
 - devicemapper: Increasing `--storage-opt dm.basesize` will now increase the base device size on daemon restart [#19123](https://github.com/docker/docker/pull/19123)
 
-### [Security](https://docs.docker.com/engine/release-notes/prior-releases/#security-6)
+### Security
 
 - Add `--userns-remap` flag to `daemon` to support user namespaces (previously in experimental) [#19187](https://github.com/docker/docker/pull/19187)
 - Add support for custom seccomp profiles in `--security-opt` [#17989](https://github.com/docker/docker/pull/17989)
@@ -1400,7 +1400,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Allow SELinux to run in a container when using the BTRFS storage driver [#16452](https://github.com/docker/docker/pull/16452)
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution-7)
+### Distribution
 
 - Use content-addressable storage for images and layers [#17924](https://github.com/docker/docker/pull/17924) A migration is performed the first time docker is run; it can take a significant amount of time depending on the number of images and containers present. Images no longer depend on the parent chain but contain a list of layer references. `docker load`/`docker save` tarballs now also contain content-addressable image configurations. For more information: https://github.com/docker/docker/wiki/Engine-v1.10.0-content-addressability-migration
 - Add support for the new [manifest format ("schema2")](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md) [#18785](https://github.com/docker/docker/pull/18785)
@@ -1409,7 +1409,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Fix issue where docker could hang indefinitely waiting for a nonexistent process to pull an image [#19743](https://github.com/docker/docker/pull/19743)
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking-12)
+### Networking
 
 - Use DNS-based discovery instead of `/etc/hosts` [#19198](https://github.com/docker/docker/pull/19198)
 - Support for network-scoped alias using `--net-alias` on `run` and `--alias` on `network connect` [#19242](https://github.com/docker/docker/pull/19242)
@@ -1437,7 +1437,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix issue preventing sometimes docker from creating the bridge network [#19338](https://github.com/docker/docker/pull/19338)
 - Do not substitute 127.0.0.1 name server when using `--net=host` [#19573](https://github.com/docker/docker/pull/19573)
 
-### [Logging](https://docs.docker.com/engine/release-notes/prior-releases/#logging-6)
+### Logging
 
 - New logging driver for Splunk [#16488](https://github.com/docker/docker/pull/16488)
 - Add support for syslog over TCP+TLS [#18998](https://github.com/docker/docker/pull/18998)
@@ -1445,7 +1445,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Enhance `docker logs --since` and `--until` to support nanoseconds and time [#17495](https://github.com/docker/docker/pull/17495)
 - Enhance AWS logs to auto-detect region [#16640](https://github.com/docker/docker/pull/16640)
 
-### [Volumes](https://docs.docker.com/engine/release-notes/prior-releases/#volumes-3)
+### Volumes
 
 - Add support to set the mount propagation mode for a volume [#17034](https://github.com/docker/docker/pull/17034)
 
@@ -1457,24 +1457,24 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Do not remove named volumes on container removal [#19568](https://github.com/docker/docker/pull/19568)
 - Allow external volume drivers to host anonymous volumes [#19190](https://github.com/docker/docker/pull/19190)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-4)
+### Builder
 
 - Add support for `**` in `.dockerignore` to wildcard multiple levels of directories [#17090](https://github.com/docker/docker/pull/17090)
 
 - Fix handling of UTF-8 characters in Dockerfiles [#17055](https://github.com/docker/docker/pull/17055)
 - Fix permissions problem when reading from STDIN [#19283](https://github.com/docker/docker/pull/19283)
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client-2)
+### Client
 
 - Add support for overriding the API version to use via an `DOCKER_API_VERSION` environment-variable [#15964](https://github.com/docker/docker/pull/15964)
 
 - Fix a bug preventing Windows clients to log in to Docker Hub [#19891](https://github.com/docker/docker/pull/19891)
 
-### [Misc](https://docs.docker.com/engine/release-notes/prior-releases/#misc-2)
+### Misc
 
 - systemd: Set TasksMax in addition to LimitNPROC in systemd service file [#19391](https://github.com/docker/docker/pull/19391)
 
-### [Deprecations](https://docs.docker.com/engine/release-notes/prior-releases/#deprecations)
+### Deprecations
 
 - Remove LXC support. The LXC driver was deprecated in Docker 1.8, and has now been removed [#17700](https://github.com/docker/docker/pull/17700)
 - Remove `--exec-driver` daemon flag, because it is no longer in use [#17700](https://github.com/docker/docker/pull/17700)
@@ -1483,9 +1483,9 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Deprecate docker packages for newly EOL'd Linux distributions: Fedora 21 and Ubuntu 15.04 (Vivid) [#18794](https://github.com/docker/docker/pull/18794), [#18809](https://github.com/docker/docker/pull/18809)
 - Deprecate `-f` flag for docker tag [#18350](https://github.com/docker/docker/pull/18350)
 
-## [1.9.1 (2015-11-21)](https://docs.docker.com/engine/release-notes/prior-releases/#191-2015-11-21)
+## 1.9.1 (2015-11-21)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-16)
+### Runtime
 
 - Do not prevent daemon from booting if images could not be restored (#17695)
 - Force IPC mount to unmount on daemon shutdown/init (#17539)
@@ -1499,17 +1499,17 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - selinux: only relabel if user requested so with the `z` option (#17450, #17834)
 - Do not make network calls when normalizing names (#18014)
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client-3)
+### Client
 
 - Fix `docker login` on windows (#17738)
 - Fix bug with `docker inspect` output when not connected to daemon (#17715)
 - Fix `docker inspect -f {{.HostConfig.Dns}} somecontainer` (#17680)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-5)
+### Builder
 
 - Fix regression with symlink behavior in ADD/COPY (#17710)
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking-13)
+### Networking
 
 - Allow passing a network ID as an argument for `--net` (#17558)
 - Fix connect to host and prevent disconnect from host for `host` network (#17476)
@@ -1518,13 +1518,13 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Allow port-mapping only for endpoints created on docker run (#17858)
 - Fixed an endpoint delete issue with a possible stale sbox (#18102)
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution-8)
+### Distribution
 
 - Correct parent chain in v2 push when v1Compatibility files on the disk are inconsistent (#18047)
 
-## [1.9.0 (2015-11-03)](https://docs.docker.com/engine/release-notes/prior-releases/#190-2015-11-03)
+## 1.9.0 (2015-11-03)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-17)
+### Runtime
 
 - `docker stats` now returns block IO metrics (#15005)
 - `docker stats` now details network stats per interface (#15786)
@@ -1550,22 +1550,22 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix an issue with incorrect template execution in `docker inspect` (#17284)
 - DEPRECATE `-c` short flag variant for `--cpu-shares` in docker run (#16271)
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client-4)
+### Client
 
 - Allow `docker import` to import from local files (#11907)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-6)
+### Builder
 
 - Add a `STOPSIGNAL` Dockerfile instruction allowing to set a different stop-signal for the container process (#15307)
 - Add an `ARG` Dockerfile instruction and a `--build-arg` flag to `docker build` that allows to add build-time environment variables (#15182)
 
 - Improve cache miss performance (#16890)
 
-### [Storage](https://docs.docker.com/engine/release-notes/prior-releases/#storage)
+### Storage
 
 - devicemapper: Implement deferred deletion capability (#16381)
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking-14)
+### Networking
 
 - `docker network` exits experimental and is part of standard release (#16645)
 - New network top-level concept, with associated subcommands and API (#16645) WARNING: the API is different from the experimental API
@@ -1580,7 +1580,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - DEPRECATE following container `NetworkSettings` fields in API v1.21: `EndpointID`, `Gateway`, `GlobalIPv6Address`, `GlobalIPv6PrefixLen`, `IPAddress`, `IPPrefixLen`, `IPv6Gateway` and `MacAddress`. Those are now specific to the `bridge` network. Use `NetworkSettings.Networks` to inspect the networking settings of a container per network.
 
-### [Volumes](https://docs.docker.com/engine/release-notes/prior-releases/#volumes-4)
+### Volumes
 
 - New top-level `volume` subcommand and API (#14242)
 
@@ -1589,7 +1589,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Ensure volumes created from Dockerfiles always use the local volume driver (#15507)
 - DEPRECATE auto-creating missing host paths for bind mounts (#16349)
 
-### [Logging](https://docs.docker.com/engine/release-notes/prior-releases/#logging-7)
+### Logging
 
 - Add `awslogs` logging driver for Amazon CloudWatch (#15495)
 - Add generic `tag` log option to allow customizing container/image information passed to driver (#15384)
@@ -1597,7 +1597,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Implement the `docker logs` endpoint for the journald driver (#13707)
 - DEPRECATE driver-specific log tags (#15384)
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution-9)
+### Distribution
 
 - `docker search` now works with partial names (#16509)
 
@@ -1609,25 +1609,25 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - DEPRECATE trust key environment variables `DOCKER_CONTENT_TRUST_OFFLINE_PASSPHRASE` and `DOCKER_CONTENT_TRUST_TAGGING_PASSPHRASE` (#16894)
 
-### [Security](https://docs.docker.com/engine/release-notes/prior-releases/#security-7)
+### Security
 
 - Add SELinux profiles to the rpm package (#15832)
 
 - Fix various issues with AppArmor profiles provided in the deb package (#14609)
 - Add AppArmor policy that prevents writing to /proc (#15571)
 
-## [1.8.3 (2015-10-12)](https://docs.docker.com/engine/release-notes/prior-releases/#183-2015-10-12)
+## 1.8.3 (2015-10-12)
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution-10)
+### Distribution
 
 - Fix layer IDs lead to local graph poisoning (CVE-2014-8178)
 - Fix manifest validation and parsing logic errors allow pull-by-digest validation bypass (CVE-2014-8179)
 
 - Add `--disable-legacy-registry` to prevent a daemon from using a v1 registry
 
-## [1.8.2 (2015-09-10)](https://docs.docker.com/engine/release-notes/prior-releases/#182-2015-09-10)
+## 1.8.2 (2015-09-10)
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution-11)
+### Distribution
 
 - Fixes rare edge case of handling GNU LongLink and LongName entries.
 - Fix ^C on docker pull.
@@ -1635,32 +1635,32 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix issue that caused the daemon to panic when loggers weren't configured properly.
 - Fix goroutine leak pulling images from registry V2.
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-18)
+### Runtime
 
 - Fix a bug mounting cgroups for docker daemons running inside docker containers.
 - Initialize log configuration properly.
 
-### [Client:](https://docs.docker.com/engine/release-notes/prior-releases/#client-5)
+### Client:
 
 - Handle `-q` flag in `docker ps` properly when there is a default format.
 
-### [Networking](https://docs.docker.com/engine/release-notes/prior-releases/#networking-15)
+### Networking
 
 - Fix several corner cases with netlink.
 
-### [Contrib](https://docs.docker.com/engine/release-notes/prior-releases/#contrib-8)
+### Contrib
 
 - Fix several issues with bash completion.
 
-## [1.8.1 (2015-08-12)](https://docs.docker.com/engine/release-notes/prior-releases/#181-2015-08-12)
+## 1.8.1 (2015-08-12)
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution-12)
+### Distribution
 
 - Fix a bug where pushing multiple tags would result in invalid images
 
-## [1.8.0 (2015-08-11)](https://docs.docker.com/engine/release-notes/prior-releases/#180-2015-08-11)
+## 1.8.0 (2015-08-11)
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution-13)
+### Distribution
 
 - Trusted pull, push and build, disabled by default
 
@@ -1671,7 +1671,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Add a more accurate error description for invalid tag name
 - Make build cache ignore mtime
 
-### [Cli](https://docs.docker.com/engine/release-notes/prior-releases/#cli)
+### Cli
 
 - Add support for DOCKER_CONFIG/--config to specify config file dir
 - Add --type flag for docker inspect command
@@ -1689,7 +1689,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Allow duration strings in `docker events` as --since/--until
 - Expose more mounts information in `docker inspect`
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-19)
+### Runtime
 
 - Add new Fluentd logging driver
 - Allow `docker import` to load from local files
@@ -1710,12 +1710,12 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - LXC execdriver compatibility with recent LXC versions
 - Mark LXC execriver as deprecated (to be removed with the migration to runc)
 
-### [Plugins](https://docs.docker.com/engine/release-notes/prior-releases/#plugins-3)
+### Plugins
 
 - Separate plugin sockets and specs locations
 - Allow TLS connections to plugins
 
-### [Bug fixes](https://docs.docker.com/engine/release-notes/prior-releases/#bug-fixes)
+### Bug fixes
 
 - Add missing 'Names' field to /containers/json API output
 - Make `docker rmi` of dangling images safe while pulling
@@ -1752,9 +1752,9 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix issue trying to push images to repository mirrors.
 - Fix error cleaning up network entrypoints when there is an initialization issue.
 
-## [1.7.1 (2015-07-14)](https://docs.docker.com/engine/release-notes/prior-releases/#171-2015-07-14)
+## 1.7.1 (2015-07-14)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-20)
+### Runtime
 
 - Fix default user spawning exec process with `docker exec`
 - Make `--bridge=none` not to configure the network bridge
@@ -1766,21 +1766,21 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix copy command mounting volumes
 - Fix read/write privileges in volumes mounted with --volumes-from
 
-### [Remote API](https://docs.docker.com/engine/release-notes/prior-releases/#remote-api)
+### Remote API
 
 - Fix unmarshalling of Command and Entrypoint
 - Set limit for minimum client version supported
 - Validate port specification
 - Return proper errors when attach/reattach fail
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution-14)
+### Distribution
 
 - Fix pulling private images
 - Fix fallback between registry V2 and V1
 
-## [1.7.0 (2015-06-16)](https://docs.docker.com/engine/release-notes/prior-releases/#170-2015-06-16)
+## 1.7.0 (2015-06-16)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-21)
+### Runtime
 
 - Experimental feature: support for out-of-process volume plugins
 
@@ -1794,7 +1794,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - The `docker logs` command supports a `--since` argument
 - UTS namespace can be shared with the host with `docker run --uts=host`
 
-### [Quality](https://docs.docker.com/engine/release-notes/prior-releases/#quality)
+### Quality
 
 - Networking stack was entirely rewritten as part of the libnetwork effort
 - Engine internals refactoring
@@ -1802,7 +1802,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Sending SIGUSR1 to a daemon will dump all goroutines stacks without exiting
 
-### [Build](https://docs.docker.com/engine/release-notes/prior-releases/#build)
+### Build
 
 - Support ${variable:-value} and ${variable:+value} syntax for environment variables
 - Support resource management flags `--cgroup-parent`, `--cpu-period`, `--cpu-quota`, `--cpuset-cpus`, `--cpuset-mems`
@@ -1810,24 +1810,24 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - The .dockerignore file support exclusion rules
 
-### [Distribution](https://docs.docker.com/engine/release-notes/prior-releases/#distribution-15)
+### Distribution
 
 - Client support for v2 mirroring support for the official registry
 
-### [Bugfixes](https://docs.docker.com/engine/release-notes/prior-releases/#bugfixes)
+### Bugfixes
 
 - Firewalld is now supported and will automatically be used when available
 - mounting --device recursively
 
-## [1.6.2 (2015-05-13)](https://docs.docker.com/engine/release-notes/prior-releases/#162-2015-05-13)
+## 1.6.2 (2015-05-13)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-22)
+### Runtime
 
 - Revert change prohibiting mounting into /sys
 
-## [1.6.1 (2015-05-07)](https://docs.docker.com/engine/release-notes/prior-releases/#161-2015-05-07)
+## 1.6.1 (2015-05-07)
 
-### [Security](https://docs.docker.com/engine/release-notes/prior-releases/#security-8)
+### Security
 
 - Fix read/write /proc paths (CVE-2015-3630)
 - Prohibit VOLUME /proc and VOLUME / (CVE-2015-3631)
@@ -1835,13 +1835,13 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix symlink traversal on container respawn allowing local privilege escalation (CVE-2015-3629)
 - Prohibit mount of /sys
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-23)
+### Runtime
 
 - Update AppArmor policy to not allow mounts
 
-## [1.6.0 (2015-04-07)](https://docs.docker.com/engine/release-notes/prior-releases/#160-2015-04-07)
+## 1.6.0 (2015-04-07)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-7)
+### Builder
 
 - Building images from an image ID
 - Build containers with resource constraints, ie `docker build --cpu-shares=100 --memory=1024m...`
@@ -1849,11 +1849,11 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - `import --change` to apply specified Dockerfile instructions while importing the image
 - Builds no longer continue in the background when canceled with CTRL-C
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client-6)
+### Client
 
 - Windows Support
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-24)
+### Runtime
 
 - Container and image Labels
 - `--cgroup-parent` for specifying a parent cgroup to place container cgroup within
@@ -1862,9 +1862,9 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - `--ulimit` to set the ulimit on a container
 - `--default-ulimit` option on the daemon which applies to all created containers (and overwritten by `--ulimit` on run)
 
-## [1.5.0 (2015-02-10)](https://docs.docker.com/engine/release-notes/prior-releases/#150-2015-02-10)
+## 1.5.0 (2015-02-10)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-8)
+### Builder
 
 - Dockerfile to use for a given `docker build` can be specified with the `-f` flag
 
@@ -1873,13 +1873,13 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Dockerfile `FROM scratch` instruction is now interpreted as a no-base specifier
 - Improve performance when exposing a large number of ports
 
-### [Hack](https://docs.docker.com/engine/release-notes/prior-releases/#hack)
+### Hack
 
 - Allow client-side only integration tests for Windows
 
 - Include docker-py integration tests against Docker daemon as part of our test suites
 
-### [Packaging](https://docs.docker.com/engine/release-notes/prior-releases/#packaging)
+### Packaging
 
 - Support for the new version of the registry HTTP API
 
@@ -1887,7 +1887,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Fixed contacting a private registry through a proxy
 
-### [Remote API](https://docs.docker.com/engine/release-notes/prior-releases/#remote-api-1)
+### Remote API
 
 - A new endpoint will stream live container resource metrics and can be accessed with the `docker stats` command
 - Containers can be renamed using the new `rename` endpoint and the associated `docker rename` command
@@ -1898,7 +1898,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Fixed returned string fields which hold numeric characters incorrectly omitting surrounding double quotes
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-25)
+### Runtime
 
 - Docker daemon has full IPv6 support
 - The `docker run` command can take the `--pid=host` flag to use the host PID namespace, which makes it possible for example to debug host processes using containerized debugging tools
@@ -1911,19 +1911,19 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Fixed container exiting on out of memory to return an invalid exit code
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other)
+### Other
 
 - The HTTP_PROXY, HTTPS_PROXY, and NO_PROXY environment variables are properly taken into account by the client when connecting to the Docker daemon
 
-## [1.4.1 (2014-12-15)](https://docs.docker.com/engine/release-notes/prior-releases/#141-2014-12-15)
+## 1.4.1 (2014-12-15)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-26)
+### Runtime
 
 - Fix issue with volumes-from and bind mounts not being honored after create
 
-## [1.4.0 (2014-12-11)](https://docs.docker.com/engine/release-notes/prior-releases/#140-2014-12-11)
+## 1.4.0 (2014-12-11)
 
-### [Notable Features since 1.3.0](https://docs.docker.com/engine/release-notes/prior-releases/#notable-features-since-130)
+### Notable Features since 1.3.0
 
 - Set key=value labels to the daemon (displayed in `docker info`), applied with new `-label` daemon flag
 - Add support for `ENV` in Dockerfile of the form: `ENV name=value name2=value2...`
@@ -1934,26 +1934,26 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Fixed `docker tag`, so it honors `--force` when overriding a tag for existing image.
 
-## [1.3.3 (2014-12-11)](https://docs.docker.com/engine/release-notes/prior-releases/#133-2014-12-11)
+## 1.3.3 (2014-12-11)
 
-### [Security](https://docs.docker.com/engine/release-notes/prior-releases/#security-9)
+### Security
 
 - Fix path traversal vulnerability in processing of absolute symbolic links (CVE-2014-9356)
 - Fix decompression of xz image archives, preventing privilege escalation (CVE-2014-9357)
 - Validate image IDs (CVE-2014-9358)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-27)
+### Runtime
 
 - Fix an issue when image archives are being read slowly
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client-7)
+### Client
 
 - Fix a regression related to stdin redirection
 - Fix a regression with `docker cp` when destination is the current directory
 
-## [1.3.2 (2014-11-20)](https://docs.docker.com/engine/release-notes/prior-releases/#132-2014-11-20)
+## 1.3.2 (2014-11-20)
 
-### [Security](https://docs.docker.com/engine/release-notes/prior-releases/#security-10)
+### Security
 
 - Fix tar breakout vulnerability
 
@@ -1961,12 +1961,12 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Security options are no longer committed to images
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-28)
+### Runtime
 
 - Fix deadlock in `docker ps -f exited=1`
 - Fix a bug when `--volumes-from` references a container that failed to start
 
-### [Registry](https://docs.docker.com/engine/release-notes/prior-releases/#registry)
+### Registry
 
 - `--insecure-registry` now accepts CIDR notation such as 10.1.0.0/16
 
@@ -1974,32 +1974,32 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Skip the experimental registry v2 API when mirroring is enabled
 
-## [1.3.1 (2014-10-28)](https://docs.docker.com/engine/release-notes/prior-releases/#131-2014-10-28)
+## 1.3.1 (2014-10-28)
 
-### [Security](https://docs.docker.com/engine/release-notes/prior-releases/#security-11)
+### Security
 
 - Prevent fallback to SSL protocols < TLS 1.0 for client, daemon and registry
 
 - Secure HTTPS connection to registries with certificate verification and without HTTP fallback unless `--insecure-registry` is specified
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-29)
+### Runtime
 
 - Fix issue where volumes would not be shared
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client-8)
+### Client
 
 - Fix issue with `--iptables=false` not automatically setting `--ip-masq=false`
 - Fix docker run output to non-TTY stdout
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-9)
+### Builder
 
 - Fix escaping `$` for environment variables
 - Fix issue with lowercase `onbuild` Dockerfile instruction
 - Restrict environment variable expansion to `ENV`, `ADD`, `COPY`, `WORKDIR`, `EXPOSE`, `VOLUME` and `USER`
 
-## [1.3.0 (2014-10-14)](https://docs.docker.com/engine/release-notes/prior-releases/#130-2014-10-14)
+## 1.3.0 (2014-10-14)
 
-### [Notable features since 1.2.0](https://docs.docker.com/engine/release-notes/prior-releases/#notable-features-since-120)
+### Notable features since 1.2.0
 
 - Docker `exec` allows you to run additional processes inside existing containers
 - Docker `create` gives you the ability to create a container via the CLI without executing a process
@@ -2014,9 +2014,9 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Ability to setup an official registry mirror
 - Ability to save multiple images with docker `save`
 
-## [1.2.0 (2014-08-20)](https://docs.docker.com/engine/release-notes/prior-releases/#120-2014-08-20)
+## 1.2.0 (2014-08-20)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-30)
+### Runtime
 
 - Make /etc/hosts /etc/resolv.conf and /etc/hostname editable at runtime
 - Auto-restart containers using policies
@@ -2024,7 +2024,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - `--cap-add` and `--cap-drop` to tweak what linux capability you want
 - `--device` to use devices in containers
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client-9)
+### Client
 
 - `docker search` on private registries
 - Add `exited` filter to `docker ps --filter`
@@ -2033,44 +2033,44 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Support for IPv6 addresses in `--dns` flag
 
-### [Proxy](https://docs.docker.com/engine/release-notes/prior-releases/#proxy)
+### Proxy
 
 - Proxy instances in separate processes
 
 - Small bug fix on UDP proxy
 
-## [1.1.2 (2014-07-23)](https://docs.docker.com/engine/release-notes/prior-releases/#112-2014-07-23)
+## 1.1.2 (2014-07-23)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-31)
+### Runtime
 
 - Fix port allocation for existing containers
 - Fix containers restart on daemon restart
 
-### [Packaging](https://docs.docker.com/engine/release-notes/prior-releases/#packaging-1)
+### Packaging
 
 - Fix /etc/init.d/docker issue on Debian
 
-## [1.1.1 (2014-07-09)](https://docs.docker.com/engine/release-notes/prior-releases/#111-2014-07-09)
+## 1.1.1 (2014-07-09)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-10)
+### Builder
 
 - Fix issue with ADD
 
-## [1.1.0 (2014-07-03)](https://docs.docker.com/engine/release-notes/prior-releases/#110-2014-07-03)
+## 1.1.0 (2014-07-03)
 
-### [Notable features since 1.0.1](https://docs.docker.com/engine/release-notes/prior-releases/#notable-features-since-101)
+### Notable features since 1.0.1
 
 - Add `.dockerignore` support
 - Pause containers during `docker commit`
 - Add `--tail` to `docker logs`
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-11)
+### Builder
 
 - Allow a tar file as context for `docker build`
 
 - Fix issue with white-spaces and multi-lines in `Dockerfiles`
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-32)
+### Runtime
 
 - Overall performance improvements
 - Allow `/` as source of `docker run -v`
@@ -2078,51 +2078,51 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix bug in `docker save`
 - Add links information to `docker inspect`
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client-10)
+### Client
 
 - Improve command line parsing for `docker commit`
 
-### [Remote API](https://docs.docker.com/engine/release-notes/prior-releases/#remote-api-2)
+### Remote API
 
 - Improve status code for the `start` and `stop` endpoints
 
-## [1.0.1 (2014-06-19)](https://docs.docker.com/engine/release-notes/prior-releases/#101-2014-06-19)
+## 1.0.1 (2014-06-19)
 
-### [Notable features since 1.0.0](https://docs.docker.com/engine/release-notes/prior-releases/#notable-features-since-100)
+### Notable features since 1.0.0
 
 - Enhance security for the LXC driver
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-12)
+### Builder
 
 - Fix `ONBUILD` instruction passed to grandchildren
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-33)
+### Runtime
 
 - Fix events subscription
 - Fix /etc/hostname file with host networking
 - Allow `-h` and `--net=none`
 - Fix issue with hotplug devices in `--privileged`
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client-11)
+### Client
 
 - Fix artifacts with events
 - Fix a panic with empty flags
 - Fix `docker cp` on Mac OS X
 
-### [Miscellaneous](https://docs.docker.com/engine/release-notes/prior-releases/#miscellaneous)
+### Miscellaneous
 
 - Fix compilation on Mac OS X
 - Fix several races
 
-## [1.0.0 (2014-06-09)](https://docs.docker.com/engine/release-notes/prior-releases/#100-2014-06-09)
+## 1.0.0 (2014-06-09)
 
-### [Notable features since 0.12.0](https://docs.docker.com/engine/release-notes/prior-releases/#notable-features-since-0120)
+### Notable features since 0.12.0
 
 - Production support
 
-## [0.12.0 (2014-06-05)](https://docs.docker.com/engine/release-notes/prior-releases/#0120-2014-06-05)
+## 0.12.0 (2014-06-05)
 
-### [Notable features since 0.11.0](https://docs.docker.com/engine/release-notes/prior-releases/#notable-features-since-0110)
+### Notable features since 0.11.0
 
 - 40+ various improvements to stability, performance and usability
 - New `COPY` Dockerfile instruction to allow copying a local file from the context into the container without ever extracting if the file is a tar file
@@ -2134,15 +2134,15 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Pull from a docker run now assumes `latest` tag if not specified
 - Enhance security on Linux capabilities and device nodes
 
-## [0.11.1 (2014-05-07)](https://docs.docker.com/engine/release-notes/prior-releases/#0111-2014-05-07)
+## 0.11.1 (2014-05-07)
 
-### [Registry](https://docs.docker.com/engine/release-notes/prior-releases/#registry-1)
+### Registry
 
 - Fix push and pull to private registry
 
-## [0.11.0 (2014-05-07)](https://docs.docker.com/engine/release-notes/prior-releases/#0110-2014-05-07)
+## 0.11.0 (2014-05-07)
 
-### [Notable features since 0.10.0](https://docs.docker.com/engine/release-notes/prior-releases/#notable-features-since-0100)
+### Notable features since 0.10.0
 
 - SELinux support for mount and process labels
 - Linked containers can be accessed by hostname
@@ -2152,15 +2152,15 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Docker now works with registries that support SHA-512
 - Multiple registry endpoints are supported to allow registry mirrors
 
-## [0.10.0 (2014-04-08)](https://docs.docker.com/engine/release-notes/prior-releases/#0100-2014-04-08)
+## 0.10.0 (2014-04-08)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-13)
+### Builder
 
 - Fix printing multiple messages on a single line. Fixes broken output during builds.
 - Follow symlinks inside container's root for ADD build instructions.
 - Fix EXPOSE caching.
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-1)
+### Documentation
 
 - Add the new options of `docker ps` to the documentation.
 - Add the options of `docker restart` to the documentation.
@@ -2182,7 +2182,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Add example for an image with multiple for `docker load`.
 - Explain what `docker run -a` does in the docs.
 
-### [Contrib](https://docs.docker.com/engine/release-notes/prior-releases/#contrib-9)
+### Contrib
 
 - Add variable for DOCKER_LOGFILE to sysvinit and use append instead of overwrite in opening the logfile.
 - Fix init script cgroup mounting workarounds to be more similar to cgroupfs-mount and thus work properly.
@@ -2190,7 +2190,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Add check-config script to contrib.
 - Fix fish shell completion.
 
-### [Hack](https://docs.docker.com/engine/release-notes/prior-releases/#hack-1)
+### Hack
 
 - Clean up "go test" output from "make test" to be much more readable/scannable.
 - Exclude more "definitely not unit tested Go source code" directories from hack/make/test.
@@ -2203,7 +2203,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Add tweaks to the hack scripts to make them simpler.
 
-### [Remote API](https://docs.docker.com/engine/release-notes/prior-releases/#remote-api-3)
+### Remote API
 
 - Add TLS auth support for API.
 
@@ -2213,7 +2213,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Split API into 2 go packages.
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-34)
+### Runtime
 
 - Support hairpin NAT without going through Docker server.
 
@@ -2313,30 +2313,30 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Update the apparmor profile for libcontainer.
 - Add deprecation notice for `docker commit -run`.
 
-## [0.9.1 (2014-03-24)](https://docs.docker.com/engine/release-notes/prior-releases/#091-2014-03-24)
+## 0.9.1 (2014-03-24)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-14)
+### Builder
 
 - Fix printing multiple messages on a single line. Fixes broken output during builds.
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-2)
+### Documentation
 
 - Fix external link on security of containers.
 
-### [Contrib](https://docs.docker.com/engine/release-notes/prior-releases/#contrib-10)
+### Contrib
 
 - Fix init script cgroup mounting workarounds to be more similar to cgroupfs-mount and thus work properly.
 - Add variable for DOCKER_LOGFILE to sysvinit and use append instead of overwrite in opening the logfile.
 
-### [Hack](https://docs.docker.com/engine/release-notes/prior-releases/#hack-2)
+### Hack
 
 - Generate md5 and sha256 hashes when building, and upload them via hack/release.sh.
 
-### [Remote API](https://docs.docker.com/engine/release-notes/prior-releases/#remote-api-4)
+### Remote API
 
 - Fix content-type detection in `docker cp`.
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-35)
+### Runtime
 
 - Use BSD raw mode on Darwin. Fixes nano, tmux and others.
 - Only unshare the mount namespace for execin.
@@ -2359,16 +2359,16 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Remove goroutine leak on error.
 - Update parseLxcInfo to comply with new lxc1.0 format.
 
-## [0.9.0 (2014-03-10)](https://docs.docker.com/engine/release-notes/prior-releases/#090-2014-03-10)
+## 0.9.0 (2014-03-10)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-15)
+### Builder
 
 - Avoid extra mount/unmount during build. This fixes mount/unmount related errors during build.
 - Add error to docker build --rm. This adds missing error handling.
 - Forbid chained onbuild, `onbuild from` and `onbuild maintainer` triggers.
 - Make `--rm` the default for `docker build`.
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-3)
+### Documentation
 
 - Download the docker client binary for Mac over https.
 - Update the titles of the install instructions & descriptions.
@@ -2386,19 +2386,19 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Bring back the memory and swap accounting section which was lost when the kernel page was removed.
 - Explain DNS warnings and how to fix them on systems running and using a local nameserver.
 
-### [Contrib](https://docs.docker.com/engine/release-notes/prior-releases/#contrib-11)
+### Contrib
 
 - Add Tanglu support for mkimage-debootstrap.
 - Add SteamOS support for mkimage-debootstrap.
 
-### [Hack](https://docs.docker.com/engine/release-notes/prior-releases/#hack-3)
+### Hack
 
 - Get package coverage when running integration tests.
 - Remove the Vagrantfile. This is being replaced with boot2docker.
 - Fix tests on systems where aufs isn't available.
 - Update packaging instructions and remove the dependency on lxc.
 
-### [Remote API](https://docs.docker.com/engine/release-notes/prior-releases/#remote-api-5)
+### Remote API
 
 - Move code specific to the API to the api package.
 
@@ -2406,7 +2406,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix registry auth & remove ping calls from CmdPush and CmdPull.
 - Add newlines to the JSON stream functions.
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-36)
+### Runtime
 
 - Do not ping the registry from the CLI. All requests to registries flow through the daemon.
 
@@ -2462,15 +2462,15 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Kill ghost containers and restart all ghost containers when the docker daemon restarts.
 - Add `DOCKER_RAMDISK` environment variable to make Docker work when the root is on a ramdisk.
 
-## [0.8.1 (2014-02-18)](https://docs.docker.com/engine/release-notes/prior-releases/#081-2014-02-18)
+## 0.8.1 (2014-02-18)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-16)
+### Builder
 
 - Avoid extra mount/unmount during build. This removes an unneeded mount/unmount operation which was causing problems with devicemapper
 - Fix regression with ADD of tar files. This stops Docker from decompressing tarballs added via ADD from the local file system
 - Add error to `docker build --rm`. This adds a missing error check to ensure failures to remove containers are detected and reported
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-4)
+### Documentation
 
 - Update issue filing instructions
 - Warn against the use of symlinks for Docker's storage folder
@@ -2478,14 +2478,14 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Rewrite the PostgreSQL example using a Dockerfile and add more details to it
 - Improve the OS X documentation
 
-### [Remote API](https://docs.docker.com/engine/release-notes/prior-releases/#remote-api-6)
+### Remote API
 
 - Fix broken images API for version less than 1.7
 - Use the right encoding for all API endpoints which return JSON
 - Move remote api client to api/
 - Queue calls to the API using generic socket wait
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-37)
+### Runtime
 
 - Fix the use of custom settings for bridges and custom bridges
 - Refactor the devicemapper code to avoid many mount/unmount race conditions and failures
@@ -2509,9 +2509,9 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Quote volume path to allow spaces
 - Fix remote tar ADD behavior. This fixes a regression which was causing Docker to extract tarballs
 
-## [0.8.0 (2014-02-04)](https://docs.docker.com/engine/release-notes/prior-releases/#080-2014-02-04)
+## 0.8.0 (2014-02-04)
 
-### [Notable features since 0.7.0](https://docs.docker.com/engine/release-notes/prior-releases/#notable-features-since-070)
+### Notable features since 0.7.0
 
 - Images and containers can be removed much faster
 - Building an image from source with docker build is now much faster
@@ -2527,40 +2527,40 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Docker is officially supported on Mac OS X
 - The Docker daemon supports systemd socket activation
 
-## [0.7.6 (2014-01-14)](https://docs.docker.com/engine/release-notes/prior-releases/#076-2014-01-14)
+## 0.7.6 (2014-01-14)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-17)
+### Builder
 
 - Do not follow symlink outside of build context
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-38)
+### Runtime
 
 - Remount bind mounts when ro is specified
 
 - Use https for fetching docker version
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-1)
+### Other
 
 - Inline the test.docker.io fingerprint
 - Add ca-certificates to packaging documentation
 
-## [0.7.5 (2014-01-09)](https://docs.docker.com/engine/release-notes/prior-releases/#075-2014-01-09)
+## 0.7.5 (2014-01-09)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-18)
+### Builder
 
 - Disable compression for build. More space usage but a much faster upload
 
 - Fix ADD caching for certain paths
 - Do not compress archive from git build
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-5)
+### Documentation
 
 - Fix error in GROUP add example
 
 - Make sure the GPG fingerprint is inline in the documentation
 - Give more specific advice on setting up signing of commits for DCO
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-39)
+### Runtime
 
 - Fix misspelled container names
 - Do not add hostname when networking is disabled
@@ -2571,7 +2571,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Add Content-Type Header "application/json" to GET /version and /info responses
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-2)
+### Other
 
 - Update DCO to version 1.1
 
@@ -2579,9 +2579,9 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Update Travis to check for new 1.1 DCO version
 
-## [0.7.4 (2014-01-07)](https://docs.docker.com/engine/release-notes/prior-releases/#074-2014-01-07)
+## 0.7.4 (2014-01-07)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-19)
+### Builder
 
 - Fix ADD caching issue with . prefixed path
 - Fix docker build on devicemapper by reverting sparse file tar option
@@ -2589,7 +2589,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Use same error handling while unmarshalling CMD and ENTRYPOINT
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-6)
+### Documentation
 
 - Simplify and streamline Amazon Quickstart
 - Install instructions use unprefixed Fedora image
@@ -2599,7 +2599,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Fix for wrong version warning on master instead of latest
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-40)
+### Runtime
 
 - Only get the image's rootfs when we need to calculate the image size
 - Correctly handle unmapping UDP ports
@@ -2612,7 +2612,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Make blank -H option default to the same as no -H was sent
 - Extract cgroups utilities to own submodule
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-3)
+### Other
 
 - Add Travis CI configuration to validate DCO and gofmt requirements
 - Add Developer Certificate of Origin Text
@@ -2620,15 +2620,15 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Upgrade VBox Guest Additions
 - Check standalone header when pinging a registry server
 
-## [0.7.3 (2014-01-02)](https://docs.docker.com/engine/release-notes/prior-releases/#073-2014-01-02)
+## 0.7.3 (2014-01-02)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-20)
+### Builder
 
 - Update ADD to use the image cache, based on a hash of the added content
 
 - Add error message for empty Dockerfile
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-7)
+### Documentation
 
 - Fix outdated link to the "Introduction" on [www.docker.io](https://www.docker.io/)
 
@@ -2649,7 +2649,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Update the 1.8 API documentation with some additions that were added to the docs for 1.7
 
-### [Hack](https://docs.docker.com/engine/release-notes/prior-releases/#hack-4)
+### Hack
 
 - Add missing libdevmapper dependency to the packagers documentation
 
@@ -2671,7 +2671,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Update install.sh script ( https://get.docker.io/) to not fail if busybox fails to download or run at the end of the Ubuntu/Debian installation
 - Add support for container names in bash completion
 
-### [Packaging](https://docs.docker.com/engine/release-notes/prior-releases/#packaging-2)
+### Packaging
 
 - Add an official Docker client binary for Darwin (Mac OS X)
 
@@ -2679,7 +2679,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Add a stubbed version of "/etc/default/docker" in the deb package
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-41)
+### Runtime
 
 - Update layer application to extract tars in place, avoiding file churn while handling whiteouts
 
@@ -2707,9 +2707,9 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Add `DOCKER_HOST` environment variable to configure the client `-H` flag without specifying it manually for every invocation
 
-## [0.7.2 (2013-12-16)](https://docs.docker.com/engine/release-notes/prior-releases/#072-2013-12-16)
+## 0.7.2 (2013-12-16)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-42)
+### Runtime
 
 - Validate container names on creation with standard regex
 
@@ -2734,7 +2734,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Allow untag operations with no container validation
 - Add auth config to docker build
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-8)
+### Documentation
 
 - Add more information about Docker logging
 
@@ -2746,7 +2746,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Add section on Trusted Builds
 - Add Network documentation page
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-4)
+### Other
 
 - Add new cover bundle for providing code coverage reporting
 
@@ -2756,9 +2756,9 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Use https to get the install script
 - Remove vendored dotcloud/tar now that Go 1.2 has been released
 
-## [0.7.1 (2013-12-05)](https://docs.docker.com/engine/release-notes/prior-releases/#071-2013-12-05)
+## 0.7.1 (2013-12-05)
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-9)
+### Documentation
 
 - Add @SvenDowideit as documentation maintainer
 - Add links example
@@ -2772,7 +2772,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Update doc for Ubuntu install
 - Improve remote api doc
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-43)
+### Runtime
 
 - Add hostconfig to docker inspect
 - Implement `docker log -f` to stream logs
@@ -2792,7 +2792,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - `docker attach` now returns the correct exit code
 - Remove the name entry when the container does not exist
 
-### [Registry](https://docs.docker.com/engine/release-notes/prior-releases/#registry-2)
+### Registry
 
 - Improve progress bars, add ETA for downloads
 - Simultaneous pulls now waits for the first to finish instead of failing
@@ -2801,7 +2801,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix issue with offline image transfer
 - Fix issue preventing using ':' in password for registry
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-5)
+### Other
 
 - Add pprof handler for debug
 - Create a Makefile
@@ -2817,9 +2817,9 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Fix OS X compilation
 
-## [0.7.0 (2013-11-25)](https://docs.docker.com/engine/release-notes/prior-releases/#070-2013-11-25)
+## 0.7.0 (2013-11-25)
 
-### [Notable features since 0.6.0](https://docs.docker.com/engine/release-notes/prior-releases/#notable-features-since-060)
+### Notable features since 0.6.0
 
 - Storage drivers: choose from aufs, device-mapper, or vfs.
 - Standard Linux support: docker now runs on unmodified Linux kernels and all major distributions.
@@ -2829,9 +2829,9 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Offline transfer: push and pull images to the filesystem without losing information.
 - Quality: numerous bugfixes and small usability improvements. Significant increase in test coverage.
 
-## [0.6.7 (2013-11-21)](https://docs.docker.com/engine/release-notes/prior-releases/#067-2013-11-21)
+## 0.6.7 (2013-11-21)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-44)
+### Runtime
 
 - Improve stability, fixes some race conditions
 - Skip the volumes mounted when deleting the volumes of container.
@@ -2850,11 +2850,11 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Prevent deletion if image is used by a running container
 - Lock around read operations in graph
 
-### [RemoteAPI](https://docs.docker.com/engine/release-notes/prior-releases/#remoteapi)
+### RemoteAPI
 
 - Return full ID on docker rmi
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client-12)
+### Client
 
 - Add -tree option to images
 - Offline image transfer
@@ -2863,15 +2863,15 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Do not forward SIGCHLD to container
 - Use string timestamp for docker events -since
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-6)
+### Other
 
 - Update to go 1.2rc5
 
 - Add /etc/default/docker support to upstart
 
-## [0.6.6 (2013-11-06)](https://docs.docker.com/engine/release-notes/prior-releases/#066-2013-11-06)
+## 0.6.6 (2013-11-06)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-45)
+### Runtime
 
 - Ensure container name on register
 - Fix regression in /etc/hosts
@@ -2896,7 +2896,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Fix regression in /etc/hosts
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client-13)
+### Client
 
 - Add -P flag to publish all exposed ports
 - Add -notrunc and -q flags to docker history
@@ -2907,21 +2907,21 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Fix docker logs with tty
 
-### [RemoteAPI](https://docs.docker.com/engine/release-notes/prior-releases/#remoteapi-1)
+### RemoteAPI
 
 - Make /events API send headers immediately
 - Do not split last column docker top
 
 - Add size to history
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-7)
+### Other
 
 - Contrib: Desktop integration. Firefox usecase.
 - Dockerfile: bump to go1.2rc3
 
-## [0.6.5 (2013-10-29)](https://docs.docker.com/engine/release-notes/prior-releases/#065-2013-10-29)
+## 0.6.5 (2013-10-29)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-46)
+### Runtime
 
 - Containers can now be named
 - Containers can now be linked together for service discovery
@@ -2941,7 +2941,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Check return value of syscall.Chdir when changing working directory inside dockerinit
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client-14)
+### Client
 
 - Only pass stdin to hijack when needed to avoid closed pipe errors
 
@@ -2950,7 +2950,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Monitor the tty size after starting the container, not prior
 - Remove useless os.Exit() calls after log.Fatal
 
-### [Hack](https://docs.docker.com/engine/release-notes/prior-releases/#hack-5)
+### Hack
 
 - Add initial init scripts library and a safer Ubuntu packaging script that works for Debian
 
@@ -2961,7 +2961,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Update all the mkimage scripts to use --numeric-owner as a tar argument
 - Update hack/release.sh process to automatically invoke hack/make.sh and bail on build and test issues
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-8)
+### Other
 
 - Documentation: Fix the flags for nc in example
 - Testing: Remove warnings and prevent mount issues
@@ -2972,9 +2972,9 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Contrib: Improve helper tools to generate debian and Arch linux server images
 
-## [0.6.4 (2013-10-16)](https://docs.docker.com/engine/release-notes/prior-releases/#064-2013-10-16)
+## 0.6.4 (2013-10-16)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-47)
+### Runtime
 
 - Add cleanup of container when Start() fails
 
@@ -3004,7 +3004,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Split stdout stderr
 - Always create a new session for the container
 
-### [Testing](https://docs.docker.com/engine/release-notes/prior-releases/#testing)
+### Testing
 
 - Add aggregated docker-ci email report
 - Add cleanup to remove leftover containers
@@ -3021,7 +3021,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Increase TestRunDetach timeout
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-10)
+### Documentation
 
 - Add initial draft of the Docker infrastructure doc
 - Add devenvironment link to CONTRIBUTING.md
@@ -3064,13 +3064,13 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Minor spelling correction of protocoll -> protocol
 
-### [Contrib](https://docs.docker.com/engine/release-notes/prior-releases/#contrib-12)
+### Contrib
 
 - Add vim syntax highlighting for Dockerfiles from @honza
 - Add mkimage-arch.sh
 - Reorganize contributed completion scripts to add zsh completion
 
-### [Hack](https://docs.docker.com/engine/release-notes/prior-releases/#hack-6)
+### Hack
 
 - Add vagrant user to the docker group
 - Add proper bash completion for "docker push"
@@ -3094,22 +3094,22 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Enable SSH Agent forwarding in Vagrant VM
 - Several small tweaks/fixes for contrib/mkimage-debian.sh
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-9)
+### Other
 
 - Builder: Abort build if mergeConfig returns an error and fix duplicate error message
 - Packaging: Remove deprecated packaging directory
 - Registry: Use correct auth config when logging in.
 - Registry: Fix the error message so it is the same as the regex
 
-## [0.6.3 (2013-09-23)](https://docs.docker.com/engine/release-notes/prior-releases/#063-2013-09-23)
+## 0.6.3 (2013-09-23)
 
-### [Packaging](https://docs.docker.com/engine/release-notes/prior-releases/#packaging-3)
+### Packaging
 
 - Add 'docker' group on install for ubuntu package
 - Update tar vendor dependency
 - Download apt key over HTTPS
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-48)
+### Runtime
 
 - Only copy and change permissions on non-bindmount volumes
 
@@ -3117,20 +3117,20 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Fix HTTP imports from STDIN
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-11)
+### Documentation
 
 - Update section on extracting the docker binary after build
 - Update development environment docs for new build process
 - Remove 'base' image from documentation
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-10)
+### Other
 
 - Client: Fix detach issue
 - Registry: Update regular expression to match index
 
-## [0.6.2 (2013-09-17)](https://docs.docker.com/engine/release-notes/prior-releases/#062-2013-09-17)
+## 0.6.2 (2013-09-17)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-49)
+### Runtime
 
 - Add domainname support
 - Implement image filtering with path.Match
@@ -3144,19 +3144,19 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - `docker start` set error code upon error
 - `docker run` set the same error code as the process started
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-21)
+### Builder
 
 - Add -rm option in order to remove intermediate containers
 
 - Allow multiline for the RUN instruction
 
-### [Registry](https://docs.docker.com/engine/release-notes/prior-releases/#registry-3)
+### Registry
 
 - Implement login with private registry
 
 - Fix push issues
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-11)
+### Other
 
 - Hack: Vendor all dependencies
 
@@ -3164,21 +3164,21 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Packaging: Break down hack/make.sh into small scripts, one per 'bundle': test, binary, ubuntu etc.
 - Documentation: General improvements
 
-## [0.6.1 (2013-08-23)](https://docs.docker.com/engine/release-notes/prior-releases/#061-2013-08-23)
+## 0.6.1 (2013-08-23)
 
-### [Registry](https://docs.docker.com/engine/release-notes/prior-releases/#registry-4)
+### Registry
 
 - Pass "meta" headers in API calls to the registry
 
-### [Packaging](https://docs.docker.com/engine/release-notes/prior-releases/#packaging-4)
+### Packaging
 
 - Use correct upstart script with new build tool
 - Use libffi-dev, don't build it from sources
 - Remove duplicate mercurial install command
 
-## [0.6.0 (2013-08-22)](https://docs.docker.com/engine/release-notes/prior-releases/#060-2013-08-22)
+## 0.6.0 (2013-08-22)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-50)
+### Runtime
 
 - Add lxc-conf flag to allow custom lxc options
 - Add an option to set the working directory
@@ -3238,7 +3238,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Refactor checksum
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-12)
+### Documentation
 
 - Add MongoDB image example
 - Add instructions for creating and using the docker group
@@ -3261,7 +3261,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Solved the logo being squished in Safari
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-22)
+### Builder
 
 - Add USER instruction do Dockerfile
 - Add workdir support for the Buildfile
@@ -3275,7 +3275,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Repository name (and optionally a tag) in build usage
 - Make sure ADD will create everything in 0755
 
-### [Remote API](https://docs.docker.com/engine/release-notes/prior-releases/#remote-api-7)
+### Remote API
 
 - Sort Images by most recent creation date.
 - Reworking opaque requests in registry module
@@ -3283,13 +3283,13 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Use mime pkg to parse Content-Type
 - 650 http utils and user agent field
 
-### [Hack](https://docs.docker.com/engine/release-notes/prior-releases/#hack-7)
+### Hack
 
 - Bash Completion: Limit commands to containers of a relevant state
 
 - Add docker dependencies coverage testing into docker-ci
 
-### [Packaging](https://docs.docker.com/engine/release-notes/prior-releases/#packaging-5)
+### Packaging
 
 - Docker-brew 0.5.2 support and memory footprint reduction
 
@@ -3304,12 +3304,12 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Enabled the docs to generate manpages.
 - Revert Bind daemon to 0.0.0.0 in Vagrant.
 
-### [Register](https://docs.docker.com/engine/release-notes/prior-releases/#register)
+### Register
 
 - Improve auth push
 - Registry unit tests + mock registry
 
-### [Tests](https://docs.docker.com/engine/release-notes/prior-releases/#tests)
+### Tests
 
 - Improve TestKillDifferentUser to prevent timeout on buildbot
 
@@ -3320,15 +3320,15 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Add registry functional test to docker-ci
 - Add some tests in server and utils
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-12)
+### Other
 
 - Contrib: bash completion script
 - Client: Add docker cp command and copy api endpoint to copy container files/folders to the host
 - Don't read from stdout when only attached to stdin
 
-## [0.5.3 (2013-08-13)](https://docs.docker.com/engine/release-notes/prior-releases/#053-2013-08-13)
+## 0.5.3 (2013-08-13)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-51)
+### Runtime
 
 - Use docker group for socket permissions
 
@@ -3336,11 +3336,11 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Handle ip route showing mask-less IP addresses
 - Add hostname to environment
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-23)
+### Builder
 
 - Make sure ENV instruction within build perform a commit each time
 
-## [0.5.2 (2013-08-08)](https://docs.docker.com/engine/release-notes/prior-releases/#052-2013-08-08)
+## 0.5.2 (2013-08-08)
 
 - Builder: Forbid certain paths within docker build ADD
 
@@ -3348,9 +3348,9 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - API: Change daemon to listen on unix socket by default
 
-## [0.5.1 (2013-07-30)](https://docs.docker.com/engine/release-notes/prior-releases/#051-2013-07-30)
+## 0.5.1 (2013-07-30)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-52)
+### Runtime
 
 - Add `ps` args to `docker top`
 - Add support for container ID files (pidfile like)
@@ -3364,27 +3364,27 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Do not override volumes from config
 - Fix issue with EXPOSE override
 
-### [API](https://docs.docker.com/engine/release-notes/prior-releases/#api)
+### API
 
 - Docker client now sets useragent (RFC 2616)
 - Add /events endpoint
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-24)
+### Builder
 
 - ADD command now understands URLs
 - CmdAdd and CmdEnv now respect Dockerfile-set ENV variables
 
 - Create directories with 755 instead of 700 within ADD instruction
 
-### [Hack](https://docs.docker.com/engine/release-notes/prior-releases/#hack-8)
+### Hack
 
 - Simplify unit tests with helpers
 - Improve docker.upstart event
 - Add coverage testing into docker-ci
 
-## [0.5.0 (2013-07-17)](https://docs.docker.com/engine/release-notes/prior-releases/#050-2013-07-17)
+## 0.5.0 (2013-07-17)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-53)
+### Runtime
 
 - List all processes running inside a container with 'docker top'
 - Host directories can be mounted as volumes with 'docker run -v'
@@ -3395,34 +3395,34 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Don't save a container's hostname when committing an image.
 
-### [Registry](https://docs.docker.com/engine/release-notes/prior-releases/#registry-5)
+### Registry
 
 - New image naming scheme inspired by Go packaging convention allows arbitrary combinations of registries
 
 - Fix issues when uploading images to a private registry
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-25)
+### Builder
 
 - ENTRYPOINT instruction sets a default binary entry point to a container
 - VOLUME instruction marks a part of the container as persistent data
 
 - 'docker build' displays the full output of a build by default
 
-## [0.4.8 (2013-07-01)](https://docs.docker.com/engine/release-notes/prior-releases/#048-2013-07-01)
+## 0.4.8 (2013-07-01)
 
 - Builder: New build operation ENTRYPOINT adds an executable entry point to the container. - Runtime: Fix a bug which caused 'docker run -d' to no longer print the container ID.
 
 - Tests: Fix issues in the test suite
 
-## [0.4.7 (2013-06-28)](https://docs.docker.com/engine/release-notes/prior-releases/#047-2013-06-28)
+## 0.4.7 (2013-06-28)
 
-### [Remote API](https://docs.docker.com/engine/release-notes/prior-releases/#remote-api-8)
+### Remote API
 
 - The progress bar updates faster when downloading and uploading large files
 
 - Fix a bug in the optional unix socket transport
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-54)
+### Runtime
 
 - Improve detection of kernel version
 
@@ -3432,22 +3432,22 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Use 'tar --numeric-owner' to avoid uid mismatch across multiple hosts
 
-### [Hack](https://docs.docker.com/engine/release-notes/prior-releases/#hack-9)
+### Hack
 
 - Improve test suite and dev environment
 - Remove dependency on unit tests on 'os/user'
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-13)
+### Other
 
 - Registry: easier push/pull to a custom registry
 
 - Documentation: add terminology section
 
-## [0.4.6 (2013-06-22)](https://docs.docker.com/engine/release-notes/prior-releases/#046-2013-06-22)
+## 0.4.6 (2013-06-22)
 
 - Runtime: fix a bug which caused creation of empty images (and volumes) to crash.
 
-## [0.4.5 (2013-06-21)](https://docs.docker.com/engine/release-notes/prior-releases/#045-2013-06-21)
+## 0.4.5 (2013-06-21)
 
 - Builder: 'docker build git://URL' fetches and builds a remote git repository
 
@@ -3457,13 +3457,13 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Runtime: fix a regression introduced in 0.4.3 which caused the logs command to fail.
 - Builder: fix a regression when using ADD with single regular file.
 
-## [0.4.4 (2013-06-19)](https://docs.docker.com/engine/release-notes/prior-releases/#044-2013-06-19)
+## 0.4.4 (2013-06-19)
 
 - Builder: fix a regression introduced in 0.4.3 which caused builds to fail on new clients.
 
-## [0.4.3 (2013-06-19)](https://docs.docker.com/engine/release-notes/prior-releases/#043-2013-06-19)
+## 0.4.3 (2013-06-19)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-26)
+### Builder
 
 - ADD of a local file will detect tar archives and unpack them
 
@@ -3475,7 +3475,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Nicer output for 'docker build'
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-55)
+### Runtime
 
 - Remove bsdtar dependency
 - Add unix socket and multiple -H support
@@ -3486,32 +3486,32 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Forbid parallel push/pull for a single image/repo. Fixes `#311`
 - Fix race condition within Run command when attaching.
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client-15)
+### Client
 
 - HumanReadable ProgressBar sizes in pull
 - Fix docker version's git commit output
 
-### [API](https://docs.docker.com/engine/release-notes/prior-releases/#api-1)
+### API
 
 - Send all tags on History API call
 - Add tag lookup to history command. Fixes #882
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-13)
+### Documentation
 
 - Fix missing command in irc bouncer example
 
-## [0.4.2 (2013-06-17)](https://docs.docker.com/engine/release-notes/prior-releases/#042-2013-06-17)
+## 0.4.2 (2013-06-17)
 
 - Packaging: Bumped version to work around an Ubuntu bug
 
-## [0.4.1 (2013-06-17)](https://docs.docker.com/engine/release-notes/prior-releases/#041-2013-06-17)
+## 0.4.1 (2013-06-17)
 
-### [Remote Api](https://docs.docker.com/engine/release-notes/prior-releases/#remote-api-9)
+### Remote Api
 
 - Add flag to enable cross domain requests
 - Add images and containers sizes in docker ps and docker images
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-56)
+### Runtime
 
 - Configure dns configuration host-wide with 'docker -d -dns'
 - Detect faulty DNS configuration and replace it with a public default
@@ -3520,71 +3520,71 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Improve image removal to garbage-collect unreferenced parents
 
-### [Client](https://docs.docker.com/engine/release-notes/prior-releases/#client-16)
+### Client
 
 - Allow multiple params in inspect
 - Print the container id before the hijack in `docker run`
 
-### [Registry](https://docs.docker.com/engine/release-notes/prior-releases/#registry-6)
+### Registry
 
 - Add regexp check on repo's name
 - Move auth to the client
 
 - Remove login check on pull
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-14)
+### Other
 
 - Vagrantfile: Add the rest api port to vagrantfile's port_forward
 - Upgrade to Go 1.1
 
 - Builder: don`t ignore last line in Dockerfile when it doesn`t end with \n
 
-## [0.4.0 (2013-06-03)](https://docs.docker.com/engine/release-notes/prior-releases/#040-2013-06-03)
+## 0.4.0 (2013-06-03)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-27)
+### Builder
 
 - Introducing Builder
 - 'docker build' builds a container, layer by layer, from a source repository containing a Dockerfile
 
-### [Remote API](https://docs.docker.com/engine/release-notes/prior-releases/#remote-api-10)
+### Remote API
 
 - Introducing Remote API
 - control Docker programmatically using a simple HTTP/json API
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-57)
+### Runtime
 
 - Various reliability and usability improvements
 
-## [0.3.4 (2013-05-30)](https://docs.docker.com/engine/release-notes/prior-releases/#034-2013-05-30)
+## 0.3.4 (2013-05-30)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-28)
+### Builder
 
 - 'docker build' builds a container, layer by layer, from a source repository containing a Dockerfile
 - 'docker build -t FOO' applies the tag FOO to the newly built container.
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-58)
+### Runtime
 
 - Interactive TTYs correctly handle window resize
 
 - Fix how configuration is merged between layers
 
-### [Remote API](https://docs.docker.com/engine/release-notes/prior-releases/#remote-api-11)
+### Remote API
 
 - Split stdout and stderr on 'docker run'
 - Optionally listen on a different IP and port (use at your own risk)
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-14)
+### Documentation
 
 - Improve install instructions.
 
-## [0.3.3 (2013-05-23)](https://docs.docker.com/engine/release-notes/prior-releases/#033-2013-05-23)
+## 0.3.3 (2013-05-23)
 
 - Registry: Fix push regression
 - Various bugfixes
 
-## [0.3.2 (2013-05-09)](https://docs.docker.com/engine/release-notes/prior-releases/#032-2013-05-09)
+## 0.3.2 (2013-05-09)
 
-### [Registry](https://docs.docker.com/engine/release-notes/prior-releases/#registry-7)
+### Registry
 
 - Improve the checksum process
 - Use the size to have a good progress bar while pushing
@@ -3592,13 +3592,13 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Fix error 400 on push
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-59)
+### Runtime
 
 - Store the actual archive on commit
 
-## [0.3.1 (2013-05-08)](https://docs.docker.com/engine/release-notes/prior-releases/#031-2013-05-08)
+## 0.3.1 (2013-05-08)
 
-### [Builder](https://docs.docker.com/engine/release-notes/prior-releases/#builder-29)
+### Builder
 
 - Implement the autorun capability within docker builder
 - Add caching to docker builder
@@ -3609,13 +3609,13 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - use any whitespaces instead of tabs
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-60)
+### Runtime
 
 - Add go version to debug infos
 
 - Kernel version - don't show the dash if flavor is empty
 
-### [Registry](https://docs.docker.com/engine/release-notes/prior-releases/#registry-8)
+### Registry
 
 - Add docker search top level command in order to search a repository
 
@@ -3624,13 +3624,13 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Improve checksum - async calculation
 
-### [Images](https://docs.docker.com/engine/release-notes/prior-releases/#images)
+### Images
 
 - Output graph of images to dot (graphviz)
 
 - Fix ByParent function
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-15)
+### Documentation
 
 - New introduction and high-level overview
 - Add the documentation for docker builder
@@ -3641,7 +3641,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Update [www.docker.io](https://www.docker.io/) website.
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-15)
+### Other
 
 - Website: new high-level overview
 
@@ -3649,27 +3649,27 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Packaging: packaging ubuntu; issue #510: Use golang-stable PPA package to build docker
 
-## [0.3.0 (2013-05-06)](https://docs.docker.com/engine/release-notes/prior-releases/#030-2013-05-06)
+## 0.3.0 (2013-05-06)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/prior-releases/#runtime-61)
+### Runtime
 
 - Fix the command existence check
 - strings.Split may return an empty string on no match
 - Fix an index out of range crash if cgroup memory is not
 
-### [Documentation](https://docs.docker.com/engine/release-notes/prior-releases/#documentation-16)
+### Documentation
 
 - Various improvements
 
 - New example: sharing data between 2 couchdb databases
 
-### [Other](https://docs.docker.com/engine/release-notes/prior-releases/#other-16)
+### Other
 
 - Vagrant: Use only one deb line in /etc/apt
 
 - Registry: Implement the new registry
 
-## [0.2.2 (2013-05-03)](https://docs.docker.com/engine/release-notes/prior-releases/#022-2013-05-03)
+## 0.2.2 (2013-05-03)
 
 - Support for data volumes ('docker run -v=PATH')
 - Share data volumes between containers ('docker run -volumes-from')
@@ -3678,7 +3678,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Upgrade to Go 1.0.3
 - Various upgrades to the dev environment for contributors
 
-## [0.2.1 (2013-05-01)](https://docs.docker.com/engine/release-notes/prior-releases/#021-2013-05-01)
+## 0.2.1 (2013-05-01)
 
 - 'docker commit -run' bundles a layer with default runtime options: command, ports etc.
 
@@ -3692,7 +3692,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Runtime: improve test coverage
 
-## [0.2.0 (2013-04-23)](https://docs.docker.com/engine/release-notes/prior-releases/#020-2013-04-23)
+## 0.2.0 (2013-04-23)
 
 - Runtime: ghost containers can be killed and waited for
 
@@ -3705,7 +3705,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 
 - Various bugfixes
 
-## [0.1.8 (2013-04-22)](https://docs.docker.com/engine/release-notes/prior-releases/#018-2013-04-22)
+## 0.1.8 (2013-04-22)
 
 - Dynamically detect cgroup capabilities
 - Issue stability warning on kernels <3.8
@@ -3715,7 +3715,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Fix handling of pidfile
 - Various bugfixes and stability improvements
 
-## [0.1.7 (2013-04-18)](https://docs.docker.com/engine/release-notes/prior-releases/#017-2013-04-18)
+## 0.1.7 (2013-04-18)
 
 - Container ports are available on localhost
 - 'docker ps' shows allocated TCP ports
@@ -3723,11 +3723,11 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Streamline ubuntu packaging & uploading
 - Various bugfixes and stability improvements
 
-## [0.1.6 (2013-04-17)](https://docs.docker.com/engine/release-notes/prior-releases/#016-2013-04-17)
+## 0.1.6 (2013-04-17)
 
 - Record the author an image with 'docker commit -author'
 
-## [0.1.5 (2013-04-17)](https://docs.docker.com/engine/release-notes/prior-releases/#015-2013-04-17)
+## 0.1.5 (2013-04-17)
 
 - Disable standalone mode
 - Use a custom DNS resolver with 'docker -d -dns'
@@ -3741,7 +3741,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Automatically load aufs module
 - Various bugfixes and stability improvements
 
-## [0.1.4 (2013-04-09)](https://docs.docker.com/engine/release-notes/prior-releases/#014-2013-04-09)
+## 0.1.4 (2013-04-09)
 
 - Full support for TTY emulation
 - Detach from a TTY session with the escape sequence `C-p C-q`
@@ -3749,14 +3749,14 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Minor UI improvements
 - Automatically create our own bridge interface 'docker0'
 
-## [0.1.3 (2013-04-04)](https://docs.docker.com/engine/release-notes/prior-releases/#013-2013-04-04)
+## 0.1.3 (2013-04-04)
 
 - Choose TCP frontend port with '-p :PORT'
 - Layer format is versioned
 - Major reliability improvements to the process manager
 - Various bugfixes and stability improvements
 
-## [0.1.2 (2013-04-03)](https://docs.docker.com/engine/release-notes/prior-releases/#012-2013-04-03)
+## 0.1.2 (2013-04-03)
 
 - Set container hostname with 'docker run -h'
 - Selective attach at run with 'docker run -a [stdin[,stdout[,stderr]]]'
@@ -3766,7 +3766,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Use XZ compression by default
 - Make IP allocator lazy
 
-## [0.1.1 (2013-03-31)](https://docs.docker.com/engine/release-notes/prior-releases/#011-2013-03-31)
+## 0.1.1 (2013-03-31)
 
 - Display shorthand IDs for convenience
 - Stabilize process management
@@ -3778,7 +3778,7 @@ After making those changes, run `sudo systemctl daemon-reload`, and `sudo system
 - Auto-login on push
 - Beefed up documentation
 
-## [0.1.0 (2013-03-23)](https://docs.docker.com/engine/release-notes/prior-releases/#010-2013-03-23)
+## 0.1.0 (2013-03-23)
 
 Initial public release
 

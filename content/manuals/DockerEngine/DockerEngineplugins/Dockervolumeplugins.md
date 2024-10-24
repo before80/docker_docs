@@ -8,35 +8,35 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/extend/plugins_volume/](https://docs.docker.com/engine/extend/plugins_volume/)
+> 原文：[https://docs.docker.com/engine/extend/plugins_volume/](https://docs.docker.com/engine/extend/plugins_volume/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker volume plugins
 
-Docker Engine volume plugins enable Engine deployments to be integrated with external storage systems such as Amazon EBS, and enable data volumes to persist beyond the lifetime of a single Docker host. See the [plugin documentation](https://docs.docker.com/engine/extend/legacy_plugins/) for more information.
+Docker Engine volume plugins enable Engine deployments to be integrated with external storage systems such as Amazon EBS, and enable data volumes to persist beyond the lifetime of a single Docker host. See the [plugin documentation]({{< ref "/manuals/DockerEngine/DockerEngineplugins/UseDockerEngineplugins" >}}) for more information.
 
-## [Changelog](https://docs.docker.com/engine/extend/plugins_volume/#changelog)
+## Changelog
 
-### [1.13.0](https://docs.docker.com/engine/extend/plugins_volume/#1130)
+### 1.13.0
 
 - If used as part of the v2 plugin architecture, mountpoints that are part of paths returned by the plugin must be mounted under the directory specified by `PropagatedMount` in the plugin configuration ( [#26398](https://github.com/docker/docker/pull/26398))
 
-### [1.12.0](https://docs.docker.com/engine/extend/plugins_volume/#1120)
+### 1.12.0
 
 - Add `Status` field to `VolumeDriver.Get` response ( [#21006](https://github.com/docker/docker/pull/21006#))
 - Add `VolumeDriver.Capabilities` to get capabilities of the volume driver ( [#22077](https://github.com/docker/docker/pull/22077))
 
-### [1.10.0](https://docs.docker.com/engine/extend/plugins_volume/#1100)
+### 1.10.0
 
 - Add `VolumeDriver.Get` which gets the details about the volume ( [#16534](https://github.com/docker/docker/pull/16534))
 - Add `VolumeDriver.List` which lists all volumes owned by the driver ( [#16534](https://github.com/docker/docker/pull/16534))
 
-### [1.8.0](https://docs.docker.com/engine/extend/plugins_volume/#180)
+### 1.8.0
 
 - Initial support for volume driver plugins ( [#14659](https://github.com/docker/docker/pull/14659))
 
-## [Command-line changes](https://docs.docker.com/engine/extend/plugins_volume/#command-line-changes)
+## Command-line changes
 
 To give a container access to a volume, use the `--volume` and `--volume-driver` flags on the `docker container run` command. The `--volume` (or `-v`) flag accepts a volume name and path on the host, and the `--volume-driver` flag accepts a driver type.
 
@@ -48,22 +48,22 @@ $ docker volume create --driver=flocker volumename
 $ docker container run -it --volume volumename:/data busybox sh
 ```
 
-### [`--volume`](https://docs.docker.com/engine/extend/plugins_volume/#--volume)
+### `--volume`
 
 The `--volume` (or `-v`) flag takes a value that is in the format `<volume_name>:<mountpoint>`. The two parts of the value are separated by a colon (`:`) character.
 
 - The volume name is a human-readable name for the volume, and cannot begin with a `/` character. It is referred to as `volume_name` in the rest of this topic.
 - The `Mountpoint` is the path on the host (v1) or in the plugin (v2) where the volume has been made available.
 
-### [`volumedriver`](https://docs.docker.com/engine/extend/plugins_volume/#volumedriver)
+### `volumedriver`
 
 Specifying a `volumedriver` in conjunction with a `volumename` allows you to use plugins such as [Flocker](https://github.com/ScatterHQ/flocker) to manage volumes external to a single host, such as those on EBS.
 
-## [Create a VolumeDriver](https://docs.docker.com/engine/extend/plugins_volume/#create-a-volumedriver)
+## Create a VolumeDriver
 
 The container creation endpoint (`/containers/create`) accepts a `VolumeDriver` field of type `string` allowing to specify the name of the driver. If not specified, it defaults to `"local"` (the default driver for local volumes).
 
-## [Volume plugin protocol](https://docs.docker.com/engine/extend/plugins_volume/#volume-plugin-protocol)
+## Volume plugin protocol
 
 If a plugin registers itself as a `VolumeDriver` when activated, it must provide the Docker Daemon with writeable paths on the host filesystem. The Docker daemon provides these paths to containers to consume. The Docker daemon makes the volumes available by bind-mounting the provided paths into the containers.
 
@@ -71,7 +71,7 @@ If a plugin registers itself as a `VolumeDriver` when activated, it must provide
 >
 > Volume plugins should *not* write data to the `/var/lib/docker/` directory, including `/var/lib/docker/volumes`. The `/var/lib/docker/` directory is reserved for Docker.
 
-### [`/VolumeDriver.Create`](https://docs.docker.com/engine/extend/plugins_volume/#volumedrivercreate)
+### `/VolumeDriver.Create`
 
 Request:
 
@@ -98,7 +98,7 @@ Response:
 
 Respond with a string error if an error occurred.
 
-### [`/VolumeDriver.Remove`](https://docs.docker.com/engine/extend/plugins_volume/#volumedriverremove)
+### `/VolumeDriver.Remove`
 
 Request:
 
@@ -124,7 +124,7 @@ Response:
 
 Respond with a string error if an error occurred.
 
-### [`/VolumeDriver.Mount`](https://docs.docker.com/engine/extend/plugins_volume/#volumedrivermount)
+### `/VolumeDriver.Mount`
 
 Request:
 
@@ -169,7 +169,7 @@ Response:
 
 `Err` is either empty or contains an error string.
 
-### [`/VolumeDriver.Path`](https://docs.docker.com/engine/extend/plugins_volume/#volumedriverpath)
+### `/VolumeDriver.Path`
 
 Request:
 
@@ -211,7 +211,7 @@ Respond with the path on the host (v1) or inside the plugin (v2) where the volum
 
 `Mountpoint` is optional. However, the plugin may be queried again later if one is not provided.
 
-### [`/VolumeDriver.Unmount`](https://docs.docker.com/engine/extend/plugins_volume/#volumedriverunmount)
+### `/VolumeDriver.Unmount`
 
 Request:
 
@@ -240,7 +240,7 @@ Response:
 
 Respond with a string error if an error occurred.
 
-### [`/VolumeDriver.Get`](https://docs.docker.com/engine/extend/plugins_volume/#volumedriverget)
+### `/VolumeDriver.Get`
 
 Request:
 
@@ -288,7 +288,7 @@ Response:
 
 Respond with a string error if an error occurred. `Mountpoint` and `Status` are optional.
 
-### [/VolumeDriver.List](https://docs.docker.com/engine/extend/plugins_volume/#volumedriverlist)
+### /VolumeDriver.List
 
 Request:
 
@@ -336,7 +336,7 @@ Response:
 
 Respond with a string error if an error occurred. `Mountpoint` is optional.
 
-### [/VolumeDriver.Capabilities](https://docs.docker.com/engine/extend/plugins_volume/#volumedrivercapabilities)
+### /VolumeDriver.Capabilities
 
 Request:
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/dev-environments/set-up/](https://docs.docker.com/desktop/dev-environments/set-up/)
+> 原文：[https://docs.docker.com/desktop/dev-environments/set-up/](https://docs.docker.com/desktop/dev-environments/set-up/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -103,6 +103,6 @@ The `development` target uses a `golang:1.16-alpine` image with all dependencies
 
 In the example, the Docker Compose files are the same. However, they could be different and the services defined in the main Compose file may use other targets to build or directly reference other images.
 
-## [What's next?](https://docs.docker.com/desktop/dev-environments/set-up/#whats-next)
+## What's next?
 
-Learn how to [distribute your dev environment](https://docs.docker.com/desktop/dev-environments/share/)
+Learn how to [distribute your dev environment]({{< ref "/manuals/DockerDesktop/DevEnvironmentsBeta/Distributeyourdevenvironment" >}})

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/get-started/workshop/05_persisting_data/](https://docs.docker.com/get-started/workshop/05_persisting_data/)
+> 原文：[https://docs.docker.com/get-started/workshop/05_persisting_data/](https://docs.docker.com/get-started/workshop/05_persisting_data/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
@@ -16,11 +16,11 @@ draft = false
 
 In case you didn't notice, your todo list is empty every single time you launch the container. Why is this? In this part, you'll dive into how the container is working.
 
-## [The container's filesystem](https://docs.docker.com/get-started/workshop/05_persisting_data/#the-containers-filesystem)
+## The container's filesystem
 
 When a container runs, it uses the various layers from an image for its filesystem. Each container also gets its own "scratch space" to create/update/remove files. Any changes won't be seen in another container, even if they're using the same image.
 
-### [See this in practice](https://docs.docker.com/get-started/workshop/05_persisting_data/#see-this-in-practice)
+### See this in practice
 
 To see this in action, you're going to start two containers. In one container, you'll create a file. In the other container, you'll verify the file exists. What you'll see is that the file created in one container isn't available in another.
 
@@ -66,15 +66,15 @@ To see this in action, you're going to start two containers. In one container, y
 
 5. Go ahead and remove the containers using `docker ps --all` to get the IDs, and then `docker rm -f <container-id>` to remove the containers.
 
-## [Container volumes](https://docs.docker.com/get-started/workshop/05_persisting_data/#container-volumes)
+## Container volumes
 
 With the previous experiment, you saw that each container starts from the image definition each time it starts. While containers can create, update, and delete files, those changes are lost when you remove the container and Docker isolates all changes to that container. With volumes, you can change all of this.
 
-[Volumes](https://docs.docker.com/engine/storage/volumes/) provide the ability to connect specific filesystem paths of the container back to the host machine. If you mount a directory in the container, changes in that directory are also seen on the host machine. If you mount that same directory across container restarts, you'd see the same files.
+[Volumes]({{< ref "/manuals/DockerEngine/Storage/Volumes" >}}) provide the ability to connect specific filesystem paths of the container back to the host machine. If you mount a directory in the container, changes in that directory are also seen on the host machine. If you mount that same directory across container restarts, you'd see the same files.
 
 There are two main types of volumes. You'll eventually use both, but you'll start with volume mounts.
 
-## [Persist the todo data](https://docs.docker.com/get-started/workshop/05_persisting_data/#persist-the-todo-data)
+## Persist the todo data
 
 By default, the todo app stores its data in a SQLite database at `/etc/todos/todo.db` in the container's filesystem. If you're not familiar with SQLite, no worries! It's simply a relational database that stores all the data in a single file. While this isn't the best for large-scale applications, it works for small demos. You'll learn how to switch this to a different database engine later.
 
@@ -82,7 +82,7 @@ With the database being a single file, if you can persist that file on the host 
 
 As mentioned, you're going to use a volume mount. Think of a volume mount as an opaque bucket of data. Docker fully manages the volume, including the storage location on disk. You only need to remember the name of the volume.
 
-### [Create a volume and start the container](https://docs.docker.com/get-started/workshop/05_persisting_data/#create-a-volume-and-start-the-container)
+### Create a volume and start the container
 
 You can create the volume and start the container using the CLI or Docker Desktop's graphical interface.
 
@@ -171,7 +171,7 @@ To start the todo app container with the volume mounted:
 
 ------
 
-### [Verify that the data persists](https://docs.docker.com/get-started/workshop/05_persisting_data/#verify-that-the-data-persists)
+### Verify that the data persists
 
 1. Once the container starts up, open the app and add a few items to your todo list.
 
@@ -187,7 +187,7 @@ To start the todo app container with the volume mounted:
 
 You've now learned how to persist data.
 
-## [Dive into the volume](https://docs.docker.com/get-started/workshop/05_persisting_data/#dive-into-the-volume)
+## Dive into the volume
 
 A lot of people frequently ask "Where is Docker storing my data when I use a volume?" If you want to know, you can use the `docker volume inspect` command.
 
@@ -217,17 +217,17 @@ You should see output like the following:
 
 The `Mountpoint` is the actual location of the data on the disk. Note that on most machines, you will need to have root access to access this directory from the host.
 
-## [Summary](https://docs.docker.com/get-started/workshop/05_persisting_data/#summary)
+## Summary
 
 In this section, you learned how to persist container data.
 
 Related information:
 
-- [docker CLI reference](https://docs.docker.com/reference/cli/docker/)
-- [Volumes](https://docs.docker.com/engine/storage/volumes/)
+- [docker CLI reference]({{< ref "/reference/CLIreference/docker" >}})
+- [Volumes]({{< ref "/manuals/DockerEngine/Storage/Volumes" >}})
 
-## [Next steps](https://docs.docker.com/get-started/workshop/05_persisting_data/#next-steps)
+## Next steps
 
 Next, you'll learn how you can develop your app more efficiently using bind mounts.
 
-[Use bind mounts](https://docs.docker.com/get-started/workshop/06_bind_mounts/)
+[Use bind mounts]({{< ref "/get-started/Dockerworkshop/Part5Usebindmounts" >}})

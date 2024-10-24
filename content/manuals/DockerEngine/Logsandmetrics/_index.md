@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/logging/](https://docs.docker.com/engine/logging/)
+> 原文：[https://docs.docker.com/engine/logging/](https://docs.docker.com/engine/logging/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,7 +20,7 @@ By default, `docker logs` or `docker service logs` shows the command's output ju
 
 In some cases, `docker logs` may not show useful information unless you take additional steps.
 
-- If you use a [logging driver](https://docs.docker.com/engine/logging/configure/) which sends logs to a file, an external host, a database, or another logging back-end, and have ["dual logging"](https://docs.docker.com/engine/logging/dual-logging/) disabled, `docker logs` may not show useful information.
+- If you use a [logging driver]({{< ref "/manuals/DockerEngine/Logsandmetrics/Configureloggingdrivers" >}}) which sends logs to a file, an external host, a database, or another logging back-end, and have ["dual logging"]({{< ref "/manuals/DockerEngine/Logsandmetrics/Usedockerlogswithremoteloggingdrivers" >}}) disabled, `docker logs` may not show useful information.
 - If your image runs a non-interactive process such as a web server or a database, that application may send its output to log files instead of `STDOUT` and `STDERR`.
 
 In the first case, your logs are processed in other ways and you may choose not to use `docker logs`. In the second case, the official `nginx` image shows one workaround, and the official Apache `httpd` image shows another.
@@ -29,7 +29,7 @@ The official `nginx` image creates a symbolic link from `/var/log/nginx/access.l
 
 The official `httpd` driver changes the `httpd` application's configuration to write its normal output directly to `/proc/self/fd/1` (which is `STDOUT`) and its errors to `/proc/self/fd/2` (which is `STDERR`). See the [Dockerfile](https://github.com/docker-library/httpd/blob/b13054c7de5c74bbaa6d595dbe38969e6d4f860c/2.2/Dockerfile#L72-L75).
 
-## [Next steps](https://docs.docker.com/engine/logging/#next-steps)
+## Next steps
 
-- Configure [logging drivers](https://docs.docker.com/engine/logging/configure/).
-- Write a [Dockerfile](https://docs.docker.com/reference/dockerfile/).
+- Configure [logging drivers]({{< ref "/manuals/DockerEngine/Logsandmetrics/Configureloggingdrivers" >}}).
+- Write a [Dockerfile]({{< ref "/reference/Dockerfilereference" >}}).

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/bake/introduction/](https://docs.docker.com/build/bake/introduction/)
+> 原文：[https://docs.docker.com/build/bake/introduction/](https://docs.docker.com/build/bake/introduction/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,7 +18,7 @@ Bake is an abstraction for the `docker build` command that lets you more easily 
 
 Bake is a command built into the Buildx CLI, so as long as you have Buildx installed, you also have access to bake, via the `docker buildx bake` command.
 
-## [Building a project with Bake](https://docs.docker.com/build/bake/introduction/#building-a-project-with-bake)
+## Building a project with Bake
 
 Here's a simple example of a `docker build` command:
 
@@ -54,7 +54,7 @@ $ docker buildx bake myapp
 
 For simple builds, the difference between `docker build` and `docker buildx bake` is minimal. However, as your build configuration grows more complex, Bake provides a more structured way to manage that complexity, that would be difficult to manage with CLI flags for the `docker build`. It also provides a way to share build configurations across your team, so that everyone is building images in a consistent way, with the same configuration.
 
-## [The Bake file format](https://docs.docker.com/build/bake/introduction/#the-bake-file-format)
+## The Bake file format
 
 You can write Bake files in HCL, YAML (Docker Compose files), or JSON. In general, HCL is the most expressive and flexible format, which is why you'll see it used in most of the examples in this documentation, and in projects that use Bake.
 
@@ -89,9 +89,9 @@ target "myapp" {
 }
 ```
 
-## [Next steps](https://docs.docker.com/build/bake/introduction/#next-steps)
+## Next steps
 
 To learn more about using Bake, see the following topics:
 
-- Learn how to define and use [targets](https://docs.docker.com/build/bake/targets/) in Bake
-- To see all the properties that can be set for a target, refer to the [Bake file reference](https://docs.docker.com/build/bake/reference/).
+- Learn how to define and use [targets]({{< ref "/manuals/DockerBuild/Bake/Targets" >}}) in Bake
+- To see all the properties that can be set for a target, refer to the [Bake file reference]({{< ref "/manuals/DockerBuild/Bake/Bakefilereference" >}}).

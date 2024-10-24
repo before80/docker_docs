@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/compose/bridge/usage/](https://docs.docker.com/compose/bridge/usage/)
+> 原文：[https://docs.docker.com/compose/bridge/usage/](https://docs.docker.com/compose/bridge/usage/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -21,7 +21,7 @@ Compose Bridge is an [Experimental](https://docs.docker.com/release-lifecycle/#e
 Compose Bridge supplies an out-of-the box transformation for your Compose configuration file. Based on an arbitrary `compose.yaml` file, Compose Bridge produces:
 
 - A [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) so all your resources are isolated and don't conflict with resources from other deployments.
-- A [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) with an entry for each and every [config](https://docs.docker.com/reference/compose-file/configs/) resource in your Compose application.
+- A [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) with an entry for each and every [config]({{< ref "/reference/Composefilereference/Configstop-levelelements" >}}) resource in your Compose application.
 - [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) for application services. This ensures that the specified number of instances of your application are maintained in the Kubernetes cluster.
 - [Services](https://kubernetes.io/docs/concepts/services-networking/service/) for ports exposed by your services, used for service-to-service communication.
 - [Services](https://kubernetes.io/docs/concepts/services-networking/service/) for ports published by your services, with type `LoadBalancer` so that Docker Desktop will also expose the same port on the host.
@@ -35,7 +35,7 @@ It also supplies a Kustomize overlay dedicated to Docker Desktop with:
 - A `PersistentVolumeClaim` to use the Docker Desktop storage provisioner `desktop-storage-provisioner` to handle volume provisioning more effectively.
 - A Kustomize file to link all the resources together.
 
-## [Use the default Compose Bridge transformation](https://docs.docker.com/compose/bridge/usage/#use-the-default-compose-bridge-transformation)
+## Use the default Compose Bridge transformation
 
 To use the default transformation run the following command:
 
@@ -107,7 +107,7 @@ $ compose-bridge convert --help
 >
 > Make sure you are signed in to your Docker account, navigate to your container in the **Containers** view, and in the top-right corner select **View configurations** and then **Convert and Deploy to Kubernetes**.
 
-## [What's next?](https://docs.docker.com/compose/bridge/usage/#whats-next)
+## What's next?
 
-- [Explore how you can customize Compose Bridge](https://docs.docker.com/compose/bridge/customize/)
-- [Explore the advanced integration](https://docs.docker.com/compose/bridge/advanced-integration/)
+- [Explore how you can customize Compose Bridge]({{< ref "/manuals/DockerCompose/ComposeBridge/Customize" >}})
+- [Explore the advanced integration]({{< ref "/manuals/DockerCompose/ComposeBridge/Advanced" >}})

@@ -8,13 +8,13 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/reference/build-checks/undefined-var/](https://docs.docker.com/reference/build-checks/undefined-var/)
+> 原文：[https://docs.docker.com/reference/build-checks/undefined-var/](https://docs.docker.com/reference/build-checks/undefined-var/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
 
 # UndefinedVar
 
-## [Output](https://docs.docker.com/reference/build-checks/undefined-var/#output)
+## Output
 
 
 
@@ -22,7 +22,7 @@ draft = false
 Usage of undefined variable '$foo'
 ```
 
-## [Description](https://docs.docker.com/reference/build-checks/undefined-var/#description)
+## Description
 
 Before you reference an environment variable or a build argument in a `RUN` instruction, you should ensure that the variable is declared in the Dockerfile, using the `ARG` or `ENV` instructions.
 
@@ -45,7 +45,7 @@ The check detects that `$PAHT` is undefined, and that it's probably a misspellin
 Usage of undefined variable '$PAHT' (did you mean $PATH?)
 ```
 
-## [Examples](https://docs.docker.com/reference/build-checks/undefined-var/#examples)
+## Examples
 
 ❌ Bad: `$foo` is an undefined build argument.
 

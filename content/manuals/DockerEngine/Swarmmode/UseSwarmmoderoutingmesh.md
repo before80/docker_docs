@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/ingress/](https://docs.docker.com/engine/swarm/ingress/)
+> 原文：[https://docs.docker.com/engine/swarm/ingress/](https://docs.docker.com/engine/swarm/ingress/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -27,7 +27,7 @@ You must also open the published port between the swarm nodes and any external r
 
 You can also [bypass the routing mesh](https://docs.docker.com/engine/swarm/ingress/#bypass-the-routing-mesh) for a given service.
 
-## [Publish a port for a service](https://docs.docker.com/engine/swarm/ingress/#publish-a-port-for-a-service)
+## Publish a port for a service
 
 Use the `--publish` flag to publish a port when you create a service. `target` is used to specify the port inside the container, and `published` is used to specify the port to bind on the routing mesh. If you leave off the `published` port, a random high-numbered port is bound for each service task. You need to inspect the task to determine the port.
 
@@ -88,11 +88,11 @@ $ docker service inspect --format="{{json .Endpoint.Spec.Ports}}" my-web
 
 The output shows the `<CONTAINER-PORT>` (labeled `TargetPort`) from the containers and the `<PUBLISHED-PORT>` (labeled `PublishedPort`) where nodes listen for requests for the service.
 
-### [Publish a port for TCP only or UDP only](https://docs.docker.com/engine/swarm/ingress/#publish-a-port-for-tcp-only-or-udp-only)
+### Publish a port for TCP only or UDP only
 
 By default, when you publish a port, it is a TCP port. You can specifically publish a UDP port instead of or in addition to a TCP port. When you publish both TCP and UDP ports, if you omit the protocol specifier, the port is published as a TCP port. If you use the longer syntax (recommended), set the `protocol` key to either `tcp` or `udp`.
 
-#### [TCP only](https://docs.docker.com/engine/swarm/ingress/#tcp-only)
+#### TCP only
 
 Long syntax:
 
@@ -114,7 +114,7 @@ $ docker service create --name dns-cache \
   dns-cache
 ```
 
-#### [TCP and UDP](https://docs.docker.com/engine/swarm/ingress/#tcp-and-udp)
+#### TCP and UDP
 
 Long syntax:
 
@@ -138,7 +138,7 @@ $ docker service create --name dns-cache \
   dns-cache
 ```
 
-#### [UDP only](https://docs.docker.com/engine/swarm/ingress/#udp-only)
+#### UDP only
 
 Long syntax:
 
@@ -160,7 +160,7 @@ $ docker service create --name dns-cache \
   dns-cache
 ```
 
-## [Bypass the routing mesh](https://docs.docker.com/engine/swarm/ingress/#bypass-the-routing-mesh)
+## Bypass the routing mesh
 
 By default, swarm services which publish ports do so using the routing mesh. When you connect to a published port on any swarm node (whether it is running a given service or not), you are redirected to a worker which is running that service, transparently. Effectively, Docker acts as a load balancer for your swarm services.
 
@@ -180,11 +180,11 @@ $ docker service create --name dns-cache \
   dns-cache
 ```
 
-## [Configure an external load balancer](https://docs.docker.com/engine/swarm/ingress/#configure-an-external-load-balancer)
+## Configure an external load balancer
 
 You can configure an external load balancer for swarm services, either in combination with the routing mesh or without using the routing mesh at all.
 
-### [Using the routing mesh](https://docs.docker.com/engine/swarm/ingress/#using-the-routing-mesh)
+### Using the routing mesh
 
 You can configure an external load balancer to route requests to a swarm service. For example, you could configure [HAProxy](https://www.haproxy.org/) to balance requests to an nginx service published to port 8080.
 
@@ -220,12 +220,12 @@ When you access the HAProxy load balancer on port 80, it forwards requests to no
 
 You can configure any type of load balancer to route requests to swarm nodes. To learn more about HAProxy, see the [HAProxy documentation](https://cbonte.github.io/haproxy-dconv/).
 
-### [Without the routing mesh](https://docs.docker.com/engine/swarm/ingress/#without-the-routing-mesh)
+### Without the routing mesh
 
 To use an external load balancer without the routing mesh, set `--endpoint-mode` to `dnsrr` instead of the default value of `vip`. In this case, there is not a single virtual IP. Instead, Docker sets up DNS entries for the service such that a DNS query for the service name returns a list of IP addresses, and the client connects directly to one of these.
 
 You can't use `--endpoint-mode dnsrr` together with `--publish mode=ingress`. You must run your own load balancer in front of the service. A DNS query for the service name on the Docker host returns a list of IP addresses for the nodes running the service. Configure your load balancer to consume this list and balance the traffic across the nodes. See [Configure service discovery](https://docs.docker.com/engine/swarm/networking/#configure-service-discovery).
 
-## [Learn more](https://docs.docker.com/engine/swarm/ingress/#learn-more)
+## Learn more
 
-- [Deploy services to a swarm](https://docs.docker.com/engine/swarm/services/)
+- [Deploy services to a swarm]({{< ref "/manuals/DockerEngine/Swarmmode/Deployservicestoaswarm" >}})

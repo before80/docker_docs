@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/admin/organization/manage-a-team/](https://docs.docker.com/admin/organization/manage-a-team/)
+> 原文：[https://docs.docker.com/admin/organization/manage-a-team/](https://docs.docker.com/admin/organization/manage-a-team/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -20,13 +20,13 @@ A team is a group of Docker users that belong to an organization. An organizatio
 
 The organization owner can add additional organization owners to help them manage users, teams, and repositories in the organization by assigning them the owner role.
 
-## [Organization owner](https://docs.docker.com/admin/organization/manage-a-team/#organization-owner)
+## Organization owner
 
-An organization owner is an administrator who is responsible to manage repositories and add team members to the organization. They have full access to private repositories, all teams, billing information, and org settings. An org owner can also specify [permissions](https://docs.docker.com/admin/organization/manage-a-team/#permissions-reference) for each team in the organization. Only an org owner can enable [SSO](https://docs.docker.com/security/for-admins/single-sign-on/) for the organization. When SSO is enabled for your organization, the org owner can also manage users. Docker can auto-provision Docker IDs for new end-users or users who'd like to have a separate Docker ID for company use through SSO enforcement.
+An organization owner is an administrator who is responsible to manage repositories and add team members to the organization. They have full access to private repositories, all teams, billing information, and org settings. An org owner can also specify [permissions](https://docs.docker.com/admin/organization/manage-a-team/#permissions-reference) for each team in the organization. Only an org owner can enable [SSO]({{< ref "/manuals/Security/Foradmins/Singlesign-on" >}}) for the organization. When SSO is enabled for your organization, the org owner can also manage users. Docker can auto-provision Docker IDs for new end-users or users who'd like to have a separate Docker ID for company use through SSO enforcement.
 
 The org owner can also add additional org owners to help them manage users, teams, and repositories in the organization.
 
-## [Create a team](https://docs.docker.com/admin/organization/manage-a-team/#create-a-team)
+## Create a team
 
 {{< tabpane text=true persist=disabled >}}
 
@@ -43,7 +43,7 @@ The org owner can also add additional org owners to help them manage users, team
 
 **Early Access**
 
-The Docker Admin Console is an [early access](https://docs.docker.com/release-lifecycle#early-access-ea) product.
+The Docker Admin Console is an [early access]({{< ref "/manuals/Releaselifecycle#early-access-ea" >}}) product.
 
 It's available to all company owners and organization owners. You can still manage organizations in Docker Hub, but the Admin Console includes company-level management and enhanced features for organization management.
 
@@ -61,7 +61,7 @@ It's available to all company owners and organization owners. You can still mana
 
 ------
 
-## [Configure repository permissions for a team](https://docs.docker.com/admin/organization/manage-a-team/#configure-repository-permissions-for-a-team)
+## Configure repository permissions for a team
 
 Organization owners can configure repository permissions on a per-team basis. For example, you can specify that all teams within an organization have "Read and Write" access to repositories A and B, whereas only specific teams have "Admin" access. Note that org owners have full administrative access to all repositories within the organization.
 
@@ -77,9 +77,9 @@ To give a team access to a repository
 
    ![Team Repo Permissions](Createandmanageateam_img/team-repo-permission.png)
 
-Organization owners can also assign members the editor role to grant partial administrative access. See [Roles and permissions](https://docs.docker.com/security/for-admins/roles-and-permissions/) for more about the editor role.
+Organization owners can also assign members the editor role to grant partial administrative access. See [Roles and permissions]({{< ref "/manuals/Security/Foradmins/Rolesandpermissions" >}}) for more about the editor role.
 
-### [Permissions reference](https://docs.docker.com/admin/organization/manage-a-team/#permissions-reference)
+### Permissions reference
 
 - `Read-only` access lets users view, search, and pull a private repository in the same way as they can a public repository.
 - `Read & Write` access lets users pull, push, and view a repository. In addition, it lets users view, cancel, retry or trigger builds
@@ -107,14 +107,14 @@ Permissions are cumulative. For example, if you have "Read & Write" permissions,
 >
 > A user who hasn't verified their email address only has `Read-only` access to the repository, regardless of the rights their team membership has given them.
 
-## [View a team's permissions for all repositories](https://docs.docker.com/admin/organization/manage-a-team/#view-a-teams-permissions-for-all-repositories)
+## View a team's permissions for all repositories
 
 To view a team's permissions across all repositories:
 
 1. Open **Organizations** > ***Your Organization\*** > **Teams** > ***Team Name\***.
 2. Select the **Permissions** tab, where you can view the repositories this team can access.
 
-## [Delete a team](https://docs.docker.com/admin/organization/manage-a-team/#delete-a-team)
+## Delete a team
 
 Organization owners can delete a team in Docker Hub or Admin Console. When you remove a team from your organization, this action revokes the members' access to the team's permitted resources. It won't remove users from other teams that they belong to, nor will it delete any resources.
 
@@ -135,7 +135,7 @@ Organization owners can delete a team in Docker Hub or Admin Console. When you r
 
 **Early Access**
 
-The Docker Admin Console is an [early access](https://docs.docker.com/release-lifecycle#early-access-ea) product.
+The Docker Admin Console is an [early access]({{< ref "/manuals/Releaselifecycle#early-access-ea" >}}) product.
 
 It's available to all company owners and organization owners. You can still manage organizations in Docker Hub, but the Admin Console includes company-level management and enhanced features for organization management.
 
@@ -153,7 +153,7 @@ It's available to all company owners and organization owners. You can still mana
 
 ------
 
-## [More resources](https://docs.docker.com/admin/organization/manage-a-team/#more-resources)
+## More resources
 
 - [Video: Docker teams](https://youtu.be/WKlT1O-4Du8?feature=shared&t=348)
 - [Video: Roles, teams, and repositories](https://youtu.be/WKlT1O-4Du8?feature=shared&t=435)

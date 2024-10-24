@@ -8,40 +8,40 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/release-notes/17.06/](https://docs.docker.com/engine/release-notes/17.06/)
+> 原文：[https://docs.docker.com/engine/release-notes/17.06/](https://docs.docker.com/engine/release-notes/17.06/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Docker Engine 17.06 release notes
 
-## [17.06.2-ce](https://docs.docker.com/engine/release-notes/17.06/#17062-ce)
+## 17.06.2-ce
 
 2017-09-05
 
-### [Client](https://docs.docker.com/engine/release-notes/17.06/#client)
+### Client
 
 - Enable TCP keepalive in the client to prevent loss of connection [docker/cli#415](https://github.com/docker/cli/pull/415)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/17.06/#runtime)
+### Runtime
 
 - Devmapper: ensure UdevWait is called after calls to setCookie [moby/moby#33732](https://github.com/moby/moby/pull/33732)
 - Aufs: ensure diff layers are correctly removed to prevent leftover files from using up storage [moby/moby#34587](https://github.com/moby/moby/pull/34587)
 
-### [Swarm mode](https://docs.docker.com/engine/release-notes/17.06/#swarm-mode)
+### Swarm mode
 
 - Ignore PullOptions for running tasks [docker/swarmkit#2351](https://github.com/docker/swarmkit/pull/2351)
 
-## [17.06.1-ce](https://docs.docker.com/engine/release-notes/17.06/#17061-ce)
+## 17.06.1-ce
 
 2017-08-15
 
-### [Builder](https://docs.docker.com/engine/release-notes/17.06/#builder)
+### Builder
 
 - Fix a regression, where `ADD` from remote URL's extracted archives [#89](https://github.com/docker/docker-ce/pull/89)
 - Fix handling of remote "git@" notation [#100](https://github.com/docker/docker-ce/pull/100)
 - Fix copy `--from` conflict with force pull [#86](https://github.com/docker/docker-ce/pull/86)
 
-### [Client](https://docs.docker.com/engine/release-notes/17.06/#client-1)
+### Client
 
 - Make pruning volumes optional when running `docker system prune`, and add a `--volumes` flag [#109](https://github.com/docker/docker-ce/pull/109)
 - Show progress of replicated tasks before they are assigned [#97](https://github.com/docker/docker-ce/pull/97)
@@ -50,21 +50,21 @@ draft = false
 - Fix API version negotiation not working if the daemon returns an error [#115](https://github.com/docker/docker-ce/pull/115)
 - Print an error if "until" filter is combined with "--volumes" on system prune [#154](https://github.com/docker/docker-ce/pull/154)
 
-### [Logging](https://docs.docker.com/engine/release-notes/17.06/#logging)
+### Logging
 
 - Fix stderr logging for `journald` and `syslog` [#95](https://github.com/docker/docker-ce/pull/95)
 - Fix log readers can block writes indefinitely [#98](https://github.com/docker/docker-ce/pull/98)
 - Fix `awslogs` driver repeating last event [#151](https://github.com/docker/docker-ce/pull/151)
 
-### [Networking](https://docs.docker.com/engine/release-notes/17.06/#networking)
+### Networking
 
 - Fix issue with driver options not received by network drivers [#127](https://github.com/docker/docker-ce/pull/127)
 
-### [Plugins](https://docs.docker.com/engine/release-notes/17.06/#plugins)
+### Plugins
 
 - Make plugin removes more resilient to failure [#91](https://github.com/docker/docker-ce/pull/91)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/17.06/#runtime-1)
+### Runtime
 
 - Prevent a `goroutine` leak when `healthcheck` gets stopped [#90](https://github.com/docker/docker-ce/pull/90)
 - Do not error on relabel when relabel not supported [#92](https://github.com/docker/docker-ce/pull/92)
@@ -78,17 +78,17 @@ draft = false
 - Fix error handling with `not-exist` errors on remove [#142](https://github.com/docker/docker-ce/pull/142)
 - Fix REST API Swagger representation cannot be loaded with SwaggerUI [#156](https://github.com/docker/docker-ce/pull/156)
 
-### [Security](https://docs.docker.com/engine/release-notes/17.06/#security)
+### Security
 
 - Redact secret data on secret creation [#99](https://github.com/docker/docker-ce/pull/99)
 
-### [Swarm mode](https://docs.docker.com/engine/release-notes/17.06/#swarm-mode-1)
+### Swarm mode
 
 - Do not add duplicate platform information to service spec [#107](https://github.com/docker/docker-ce/pull/107)
 - Cluster update and memory issue fixes [#114](https://github.com/docker/docker-ce/pull/114)
 - Changing get network request to return predefined network in swarm [#150](https://github.com/docker/docker-ce/pull/150)
 
-## [17.06.0-ce](https://docs.docker.com/engine/release-notes/17.06/#17060-ce)
+## 17.06.0-ce
 
 2017-06-28
 
@@ -104,12 +104,12 @@ draft = false
 >
 > registries. If you require interaction with registries that have not yet migrated to the v2 protocol, set the `--disable-legacy-registry=false` daemon option. Interaction with v1 registries will be removed in Docker 17.12.
 
-### [Builder](https://docs.docker.com/engine/release-notes/17.06/#builder-1)
+### Builder
 
 - Add `--iidfile` option to docker build. It allows specifying a location where to save the resulting image ID
 - Allow specifying any remote ref in git checkout URLs [#32502](https://github.com/moby/moby/pull/32502)
 
-### [Client](https://docs.docker.com/engine/release-notes/17.06/#client-2)
+### Client
 
 - Add `--format` option to `docker stack ls` [#31557](https://github.com/moby/moby/pull/31557)
 - Add support for labels in compose initiated builds [#32632](https://github.com/moby/moby/pull/32632) [#32972](https://github.com/moby/moby/pull/32972)
@@ -133,16 +133,16 @@ draft = false
 
 - Adjusted `docker stats` memory output [#docker/cli/80](https://github.com/docker/cli/pull/80)
 
-### [Distribution](https://docs.docker.com/engine/release-notes/17.06/#distribution)
+### Distribution
 
 - Select digest over tag when both are provided during a pull [#33214](https://github.com/moby/moby/pull/33214)
 
-### [Logging](https://docs.docker.com/engine/release-notes/17.06/#logging-1)
+### Logging
 
 - Add monitored resource type metadata for GCP logging driver [#32930](https://github.com/moby/moby/pull/32930)
 - Add multiline processing to the AWS CloudWatch logs driver [#30891](https://github.com/moby/moby/pull/30891)
 
-### [Networking](https://docs.docker.com/engine/release-notes/17.06/#networking-1)
+### Networking
 
 - Add Support swarm-mode services with node-local networks such as macvlan, ipvlan, bridge, host [#32981](https://github.com/moby/moby/pull/32981)
 - Pass driver-options to network drivers on service creation [#32981](https://github.com/moby/moby/pull/33130)
@@ -150,11 +150,11 @@ draft = false
 
 - Several improvements to Service Discovery [#docker/libnetwork/1796](https://github.com/docker/libnetwork/pull/1796)
 
-### [Packaging](https://docs.docker.com/engine/release-notes/17.06/#packaging)
+### Packaging
 
 - Rely on `container-selinux` on Centos/Fedora/RHEL when available [#32437](https://github.com/moby/moby/pull/32437)
 
-### [Runtime](https://docs.docker.com/engine/release-notes/17.06/#runtime-2)
+### Runtime
 
 - Add build & engine info prometheus metrics [#32792](https://github.com/moby/moby/pull/32792)
 
@@ -187,11 +187,11 @@ draft = false
 - Ensure log drivers get passed the same filename to both StartLogging and StopLogging endpoints [#33583](https://github.com/moby/moby/pull/33583)
 - Remove daemon data structure dump on `SIGUSR1` to avoid a panic [#33598](https://github.com/moby/moby/pull/33598)
 
-### [Security](https://docs.docker.com/engine/release-notes/17.06/#security-1)
+### Security
 
 - Allow personality with UNAME26 bit set in default seccomp profile [#32965](https://github.com/moby/moby/pull/32965)
 
-### [Swarm Mode](https://docs.docker.com/engine/release-notes/17.06/#swarm-mode-2)
+### Swarm Mode
 
 - Add an option to allow specifying a different interface for the data traffic (as opposed to control traffic) [#32717](https://github.com/moby/moby/pull/32717)
 
@@ -211,6 +211,6 @@ draft = false
 - Fix possible orchestration panic in mixed version clusters [#swarmkit/2233](https://github.com/docker/swarmkit/pull/2233)
 - Avoid assigning duplicate IPs during initialization [#swarmkit/2237](https://github.com/docker/swarmkit/pull/2237)
 
-### [Deprecation](https://docs.docker.com/engine/release-notes/17.06/#deprecation)
+### Deprecation
 
 - Disable legacy registry (v1) by default [#33629](https://github.com/moby/moby/pull/33629)

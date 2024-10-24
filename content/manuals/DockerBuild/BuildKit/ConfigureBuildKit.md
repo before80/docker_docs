@@ -8,15 +8,15 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/buildkit/configure/](https://docs.docker.com/build/buildkit/configure/)
+> 原文：[https://docs.docker.com/build/buildkit/configure/](https://docs.docker.com/build/buildkit/configure/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
 # Configure BuildKit
 
-If you create a `docker-container` or `kubernetes` builder with Buildx, you can apply a custom [BuildKit configuration](https://docs.docker.com/build/buildkit/toml-configuration/) by passing the [`--config` flag](https://docs.docker.com/reference/cli/docker/buildx/create/#config) to the `docker buildx create` command.
+If you create a `docker-container` or `kubernetes` builder with Buildx, you can apply a custom [BuildKit configuration]({{< ref "/manuals/DockerBuild/BuildKit/buildkitd_toml" >}}) by passing the [`--config` flag](https://docs.docker.com/reference/cli/docker/buildx/create/#config) to the `docker buildx create` command.
 
-## [Registry mirror](https://docs.docker.com/build/buildkit/configure/#registry-mirror)
+## Registry mirror
 
 You can define a registry mirror to use for your builds. Doing so redirects BuildKit to pull images from a different hostname. The following steps exemplify defining a mirror for `docker.io` (Docker Hub) to `mirror.gcr.io`.
 
@@ -82,7 +82,7 @@ time="2022-02-06T17:47:48Z" level=debug msg="fetch response received" response.h
 ...
 ```
 
-## [Setting registry certificates](https://docs.docker.com/build/buildkit/configure/#setting-registry-certificates)
+## Setting registry certificates
 
 If you specify registry certificates in the BuildKit configuration, the daemon copies the files into the container under `/etc/buildkit/certs`. The following steps show adding a self-signed registry certificate to the BuildKit configuration.
 
@@ -153,7 +153,7 @@ Now you can push to the registry using this builder, and it will authenticate us
 $ docker buildx build --push --tag myregistry.com/myimage:latest .
 ```
 
-## [CNI networking](https://docs.docker.com/build/buildkit/configure/#cni-networking)
+## CNI networking
 
 CNI networking for builders can be useful for dealing with network port contention during concurrent builds. CNI is [not yet](https://github.com/moby/buildkit/issues/28) available in the default BuildKit image. But you can create your own image that includes CNI support.
 
@@ -195,11 +195,11 @@ $ docker buildx create --use --bootstrap \
   --buildkitd-flags "--oci-worker-net=cni"
 ```
 
-## [Resource limiting](https://docs.docker.com/build/buildkit/configure/#resource-limiting)
+## Resource limiting
 
-### [Max parallelism](https://docs.docker.com/build/buildkit/configure/#max-parallelism)
+### Max parallelism
 
-You can limit the parallelism of the BuildKit solver, which is particularly useful for low-powered machines, using a [BuildKit configuration](https://docs.docker.com/build/buildkit/toml-configuration/) while creating a builder with the [`--config` flags](https://docs.docker.com/reference/cli/docker/buildx/create/#config).
+You can limit the parallelism of the BuildKit solver, which is particularly useful for low-powered machines, using a [BuildKit configuration]({{< ref "/manuals/DockerBuild/BuildKit/buildkitd_toml" >}}) while creating a builder with the [`--config` flags](https://docs.docker.com/reference/cli/docker/buildx/create/#config).
 
 
 
@@ -209,7 +209,7 @@ You can limit the parallelism of the BuildKit solver, which is particularly usef
   max-parallelism = 4
 ```
 
-Now you can [create a `docker-container` builder](https://docs.docker.com/build/builders/drivers/docker-container/) that will use this BuildKit configuration to limit parallelism.
+Now you can [create a `docker-container` builder]({{< ref "/manuals/DockerBuild/Builders/Builddrivers/Dockercontainerbuilddriver" >}}) that will use this BuildKit configuration to limit parallelism.
 
 
 
@@ -220,7 +220,7 @@ $ docker buildx create --use \
   --config /etc/buildkitd.toml
 ```
 
-### [TCP connection limit](https://docs.docker.com/build/buildkit/configure/#tcp-connection-limit)
+### TCP connection limit
 
 TCP connections are limited to 4 simultaneous connections per registry for pulling and pushing images, plus one additional connection dedicated to metadata requests. This connection limit prevents your build from getting stuck while pulling images. The dedicated metadata connection helps reduce the overall build time.
 

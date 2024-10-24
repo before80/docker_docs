@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/desktop/troubleshoot/](https://docs.docker.com/desktop/troubleshoot/)
+> 原文：[https://docs.docker.com/desktop/troubleshoot/](https://docs.docker.com/desktop/troubleshoot/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,11 +16,11 @@ draft = false
 
 This page contains information on how to diagnose and troubleshoot Docker Desktop, and how to check the logs.
 
-## [Troubleshoot menu](https://docs.docker.com/desktop/troubleshoot/#troubleshoot-menu)
+## Troubleshoot menu
 
 To navigate to **Troubleshoot** either:
 
-- Select the Docker menu Docker menu ![whale menu](_index_img/whale-x.svg+xml) and then **Troubleshoot**.
+- Select the Docker menu Docker menu ![whale menu](_index_img/whale-x.svg) and then **Troubleshoot**.
 - Select the **Troubleshoot** icon near the top-right corner of Docker Dashboard.
 
 The **Troubleshooting** menu contains the following options:
@@ -38,7 +38,7 @@ If you are a Mac or Linux user, you also have the option to **Uninstall** Docker
 >
 > If you need to contact support, select the **Question mark** icon near the top-right corner of Docker Dashboard, and then select **Contact support**. Users with a paid Docker subscription can use this option to send a support request.
 
-## [Diagnose](https://docs.docker.com/desktop/troubleshoot/#diagnose)
+## Diagnose
 
 > **Tip**
 >
@@ -50,7 +50,7 @@ If you are a Mac or Linux user, you also have the option to **Uninstall** Docker
 > - [docker/for-win](https://github.com/docker/for-win/issues)
 > - [docker/for-linux](https://github.com/docker/for-linux/issues)
 
-### [Diagnose from the app](https://docs.docker.com/desktop/troubleshoot/#diagnose-from-the-app)
+### Diagnose from the app
 
 1. From **Troubleshoot**, select **Get support**. This opens the in-app Support page and starts collecting the diagnostics.
 
@@ -86,11 +86,11 @@ If you are a Mac or Linux user, you also have the option to **Uninstall** Docker
      >
      > 
      >
-     > You must be signed in to Docker Desktop to access the support form. For information on what's covered as part of Docker Desktop support, see [Support](https://docs.docker.com/support/).
+     > You must be signed in to Docker Desktop to access the support form. For information on what's covered as part of Docker Desktop support, see [Support]({{< ref "/manuals/Getsupport" >}}).
 
    - If you don't have a paid Docker subscription, select **Report a Bug** to open a new Docker Desktop issue on GitHub. Complete the information required and ensure you add the diagnostic ID you copied in step three.
 
-### [Diagnose from an error message](https://docs.docker.com/desktop/troubleshoot/#diagnose-from-an-error-message)
+### Diagnose from an error message
 
 1. When an error message appears, select **Gather diagnostics**.
 
@@ -124,11 +124,11 @@ If you are a Mac or Linux user, you also have the option to **Uninstall** Docker
      >
      > 
      >
-     > You must be signed in to Docker Desktop to access the support form. For information on what's covered as part of Docker Desktop support, see [Support](https://docs.docker.com/support/).
+     > You must be signed in to Docker Desktop to access the support form. For information on what's covered as part of Docker Desktop support, see [Support]({{< ref "/manuals/Getsupport" >}}).
 
    - If you don't have a paid Docker subscription, you can open a new Docker Desktop issue on GitHub for [Mac](https://github.com/docker/for-mac/issues), [Windows](https://github.com/docker/for-win/issues), or [Linux](https://github.com/docker/for-linux/issues). Complete the information required and ensure you add the diagnostic ID printed in step two.
 
-### [Diagnose from the terminal](https://docs.docker.com/desktop/troubleshoot/#diagnose-from-the-terminal)
+### Diagnose from the terminal
 
 In some cases, it's useful to run the diagnostics yourself, for instance, if Docker Desktop cannot start.
 
@@ -180,7 +180,7 @@ Windows Mac Linux
 
 ------
 
-#### [Use your diagnostics ID to get help](https://docs.docker.com/desktop/troubleshoot/#use-your-diagnostics-id-to-get-help)
+#### Use your diagnostics ID to get help
 
 If you have a paid Docker subscription, select **Contact support**. This opens the Docker Desktop support form. Fill in the information required and add the ID you copied in step three to the **Diagnostics ID field**. Then, select **Submit ticket** to request Docker Desktop support.
 
@@ -190,7 +190,7 @@ If you don't have a paid Docker subscription, create an issue on GitHub:
 - [For Mac](https://github.com/docker/for-mac/issues)
 - [For Windows](https://github.com/docker/for-win/issues)
 
-### [Self-diagnose tool](https://docs.docker.com/desktop/troubleshoot/#self-diagnose-tool)
+### Self-diagnose tool
 
 Docker Desktop contains a self-diagnose tool which can help you identify some common problems.
 
@@ -224,7 +224,7 @@ You can then create an issue on GitHub:
 - [For Mac](https://github.com/docker/for-mac/issues)
 - [For Windows](https://github.com/docker/for-win/issues)
 
-## [Check the logs](https://docs.docker.com/desktop/troubleshoot/#check-the-logs)
+## Check the logs
 
 In addition to using the diagnose option to submit logs, you can browse the logs yourself.
 
@@ -244,12 +244,12 @@ This opens up all the logs in your preferred text editor for you to explore.
 
 ------
 
-## [View the Docker daemon logs](https://docs.docker.com/desktop/troubleshoot/#view-the-docker-daemon-logs)
+## View the Docker daemon logs
 
-Refer to the [Read the daemon logs](https://docs.docker.com/engine/daemon/logs/) section to learn how to view the Docker Daemon logs.
+Refer to the [Read the daemon logs]({{< ref "/manuals/DockerEngine/Daemon/Readthedaemonlogs" >}}) section to learn how to view the Docker Daemon logs.
 
-## [Further resources](https://docs.docker.com/desktop/troubleshoot/#further-resources)
+## Further resources
 
-- View specific [troubleshoot topics](https://docs.docker.com/desktop/troubleshoot/topics/).
-- Implement [workarounds for common problems](https://docs.docker.com/desktop/troubleshoot/workarounds/)
-- View information on [known issues](https://docs.docker.com/desktop/troubleshoot/known-issues/)
+- View specific [troubleshoot topics]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Commontopics" >}}).
+- Implement [workarounds for common problems]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Workaroundsforcommonproblems" >}})
+- View information on [known issues]({{< ref "/manuals/DockerDesktop/Troubleshootanddiagnose/Knownissues" >}})

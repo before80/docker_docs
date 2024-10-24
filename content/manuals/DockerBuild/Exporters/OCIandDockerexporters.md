@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/exporters/oci-docker/](https://docs.docker.com/build/exporters/oci-docker/)
+> 原文：[https://docs.docker.com/build/exporters/oci-docker/](https://docs.docker.com/build/exporters/oci-docker/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,9 +16,9 @@ draft = false
 
 The `oci` exporter outputs the build result into an [OCI image layout](https://github.com/opencontainers/image-spec/blob/main/image-layout.md) tarball. The `docker` exporter behaves the same way, except it exports a Docker image layout instead.
 
-The [`docker` driver](https://docs.docker.com/build/builders/drivers/docker/) doesn't support these exporters. You must use `docker-container` or some other driver if you want to generate these outputs.
+The [`docker` driver]({{< ref "/manuals/DockerBuild/Builders/Builddrivers/Dockerdriver" >}}) doesn't support these exporters. You must use `docker-container` or some other driver if you want to generate these outputs.
 
-## [Synopsis](https://docs.docker.com/build/exporters/oci-docker/#synopsis)
+## Synopsis
 
 Build a container image using the `oci` and `docker` exporters:
 
@@ -47,7 +47,7 @@ The following table describes the available parameters:
 | `oci-mediatypes`    | `true`,`false`                         |         | Use OCI media types in exporter manifests. Defaults to `true` for `type=oci`, and `false` for `type=docker`. See [OCI Media types](https://docs.docker.com/build/exporters/#oci-media-types) |
 | `annotation.<key>`  | String                                 |         | Attach an annotation with the respective `key` and `value` to the built image,see [annotations](https://docs.docker.com/build/exporters/oci-docker/#annotations) |
 
-## [Annotations](https://docs.docker.com/build/exporters/oci-docker/#annotations)
+## Annotations
 
 These exporters support adding OCI annotation using `annotation` parameter, followed by the annotation name using dot notation. The following example sets the `org.opencontainers.image.title` annotation:
 
@@ -60,6 +60,6 @@ $ docker buildx build \
 
 For more information about annotations, see [BuildKit documentation](https://github.com/moby/buildkit/blob/master/docs/annotations.md).
 
-## [Further reading](https://docs.docker.com/build/exporters/oci-docker/#further-reading)
+## Further reading
 
 For more information on the `oci` or `docker` exporters, see the [BuildKit README](https://github.com/moby/buildkit/blob/master/README.md#docker-tarball).

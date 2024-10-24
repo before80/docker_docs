@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/scout/integrations/ci/gitlab/](https://docs.docker.com/scout/integrations/ci/gitlab/)
+> 原文：[https://docs.docker.com/scout/integrations/ci/gitlab/](https://docs.docker.com/scout/integrations/ci/gitlab/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 The following examples runs in GitLab CI in a repository containing a Docker image's definition and contents. Triggered by a commit, the pipeline builds the image. If the commit was to the default branch, it uses Docker Scout to get a CVE report. If the commit was to a different branch, it uses Docker Scout to compare the new version to the current published version.
 
-## [Steps](https://docs.docker.com/scout/integrations/ci/gitlab/#steps)
+## Steps
 
 First, set up the rest of the workflow. There's a lot that's not specific to Docker Scout but needed to create the images to compare.
 
@@ -89,7 +89,7 @@ rules:
 
 These final lines ensure that the pipeline only runs if the commit contains a Dockerfile and if the commit was to the CI branch.
 
-## [Video walkthrough](https://docs.docker.com/scout/integrations/ci/gitlab/#video-walkthrough)
+## Video walkthrough
 
 The following is a video walkthrough of the process of setting up the workflow with GitLab.
 

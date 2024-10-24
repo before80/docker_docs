@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/engine/swarm/how-swarm-mode-works/pki/](https://docs.docker.com/engine/swarm/how-swarm-mode-works/pki/)
+> 原文：[https://docs.docker.com/engine/swarm/how-swarm-mode-works/pki/](https://docs.docker.com/engine/swarm/how-swarm-mode-works/pki/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -16,7 +16,7 @@ draft = false
 
 The Swarm mode public key infrastructure (PKI) system built into Docker makes it simple to securely deploy a container orchestration system. The nodes in a swarm use mutual Transport Layer Security (TLS) to authenticate, authorize, and encrypt the communications with other nodes in the swarm.
 
-When you create a swarm by running `docker swarm init`, Docker designates itself as a manager node. By default, the manager node generates a new root Certificate Authority (CA) along with a key pair, which are used to secure communications with other nodes that join the swarm. If you prefer, you can specify your own externally-generated root CA, using the `--external-ca` flag of the [docker swarm init](https://docs.docker.com/reference/cli/docker/swarm/init/) command.
+When you create a swarm by running `docker swarm init`, Docker designates itself as a manager node. By default, the manager node generates a new root Certificate Authority (CA) along with a key pair, which are used to secure communications with other nodes that join the swarm. If you prefer, you can specify your own externally-generated root CA, using the `--external-ca` flag of the [docker swarm init]({{< ref "/reference/CLIreference/docker/dockerswarm/dockerswarminit" >}}) command.
 
 The manager node also generates two tokens to use when you join additional nodes to the swarm: one worker token and one manager token. Each token includes the digest of the root CA's certificate and a randomly generated secret. When a node joins the swarm, the joining node uses the digest to validate the root CA certificate from the remote manager. The remote manager uses the secret to ensure the joining node is an approved node.
 
@@ -45,9 +45,9 @@ Certificate:
 ...snip...
 ```
 
-By default, each node in the swarm renews its certificate every three months. You can configure this interval by running the `docker swarm update --cert-expiry <TIME PERIOD>` command. The minimum rotation value is 1 hour. Refer to the [docker swarm update](https://docs.docker.com/reference/cli/docker/swarm/update/) CLI reference for details.
+By default, each node in the swarm renews its certificate every three months. You can configure this interval by running the `docker swarm update --cert-expiry <TIME PERIOD>` command. The minimum rotation value is 1 hour. Refer to the [docker swarm update]({{< ref "/reference/CLIreference/docker/dockerswarm/dockerswarmupdate" >}}) CLI reference for details.
 
-## [Rotating the CA certificate](https://docs.docker.com/engine/swarm/how-swarm-mode-works/pki/#rotating-the-ca-certificate)
+## Rotating the CA certificate
 
 > **Note**
 >
@@ -71,7 +71,7 @@ When you issue the `docker swarm ca --rotate` command, the following things happ
 
 From this point on, all new node certificates issued are signed with the new root CA, and do not contain any intermediates.
 
-## [Learn More](https://docs.docker.com/engine/swarm/how-swarm-mode-works/pki/#learn-more)
+## Learn More
 
-- Read about how [nodes](https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/) work.
-- Learn how Swarm mode [services](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/) work.
+- Read about how [nodes]({{< ref "/manuals/DockerEngine/Swarmmode/Howswarmworks/Hownodeswork" >}}) work.
+- Learn how Swarm mode [services]({{< ref "/manuals/DockerEngine/Swarmmode/Howswarmworks/Howserviceswork" >}}) work.

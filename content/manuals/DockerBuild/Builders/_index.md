@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/builders/](https://docs.docker.com/build/builders/)
+> 原文：[https://docs.docker.com/build/builders/](https://docs.docker.com/build/builders/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -18,15 +18,15 @@ A builder is a BuildKit daemon that you can use to run your builds. BuildKit is 
 
 You can create and manage builders, inspect them, and even connect to builders running remotely. You interact with builders using the Docker CLI.
 
-## [Default builder](https://docs.docker.com/build/builders/#default-builder)
+## Default builder
 
 Docker Engine automatically creates a builder that becomes the default backend for your builds. This builder uses the BuildKit library bundled with the daemon. This builder requires no configuration.
 
-The default builder is directly bound to the Docker daemon and its [context](https://docs.docker.com/engine/manage-resources/contexts/). If you change the Docker context, your `default` builder refers to the new Docker context.
+The default builder is directly bound to the Docker daemon and its [context]({{< ref "/manuals/DockerEngine/Manageresources/Dockercontexts" >}}). If you change the Docker context, your `default` builder refers to the new Docker context.
 
-## [Build drivers](https://docs.docker.com/build/builders/#build-drivers)
+## Build drivers
 
-Buildx implements a concept of [build drivers](https://docs.docker.com/build/builders/drivers/) to refer to different builder configurations. The default builder created by the daemon uses the [`docker` driver](https://docs.docker.com/build/builders/drivers/docker/).
+Buildx implements a concept of [build drivers]({{< ref "/manuals/DockerBuild/Builders/Builddrivers" >}}) to refer to different builder configurations. The default builder created by the daemon uses the [`docker` driver]({{< ref "/manuals/DockerBuild/Builders/Builddrivers/Dockerdriver" >}}).
 
 Buildx supports the following build drivers:
 
@@ -35,7 +35,7 @@ Buildx supports the following build drivers:
 - `kubernetes`: creates BuildKit pods in a Kubernetes cluster.
 - `remote`: connects directly to a manually managed BuildKit daemon.
 
-## [Selected builder](https://docs.docker.com/build/builders/#selected-builder)
+## Selected builder
 
 Selected builder refers to the builder that's used by default when you run build commands.
 
@@ -54,13 +54,13 @@ my_builder      docker-container
   my_builder0   default              running  v0.11.6  linux/amd64, linux/amd64/v2, linux/amd64/v3, linux/386
 ```
 
-### [Select a different builder](https://docs.docker.com/build/builders/#select-a-different-builder)
+### Select a different builder
 
 To switch between builders, use the `docker buildx use <name>` command.
 
 After running this command, the builder you specify is automatically selected when you invoke builds.
 
-## [Additional information](https://docs.docker.com/build/builders/#additional-information)
+## Additional information
 
-- For information about how to interact with and manage builders, see [Manage builders](https://docs.docker.com/build/builders/manage/)
-- To learn about different types of builders, see [Build drivers](https://docs.docker.com/build/builders/drivers/)
+- For information about how to interact with and manage builders, see [Manage builders]({{< ref "/manuals/DockerBuild/Builders/Managebuilders" >}})
+- To learn about different types of builders, see [Build drivers]({{< ref "/manuals/DockerBuild/Builders/Builddrivers" >}})

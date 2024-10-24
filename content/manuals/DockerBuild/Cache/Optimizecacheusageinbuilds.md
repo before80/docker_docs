@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文: [https://docs.docker.com/build/cache/optimize/](https://docs.docker.com/build/cache/optimize/)
+> 原文：[https://docs.docker.com/build/cache/optimize/](https://docs.docker.com/build/cache/optimize/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
@@ -24,7 +24,7 @@ Here are a few techniques you can use to optimize build caching and speed up the
 - [Use cache mounts](https://docs.docker.com/build/cache/optimize/#use-cache-mounts): Cache mounts let you specify a persistent package cache to be used during builds. The persistent cache helps speed up build steps, especially steps that involve installing packages using a package manager. Having a persistent cache for packages means that even if you rebuild a layer, you only download new or changed packages.
 - [Use an external cache](https://docs.docker.com/build/cache/optimize/#use-an-external-cache): An external cache lets you store build cache at a remote location. The external cache image can be shared between multiple builds, and across different environments.
 
-## [Order your layers](https://docs.docker.com/build/cache/optimize/#order-your-layers)
+## Order your layers
 
 Putting the commands in your Dockerfile into a logical order is a great place to start. Because a change causes a rebuild for steps that follow, try to make expensive steps appear near the beginning of the Dockerfile. Steps that change often should appear near the end of the Dockerfile, to avoid triggering rebuilds of layers that haven't changed.
 
@@ -59,7 +59,7 @@ RUN npm build                    # Run build
 
 By installing dependencies in earlier layers of the Dockerfile, there is no need to rebuild those layers when a project file has changed.
 
-## [Keep the context small](https://docs.docker.com/build/cache/optimize/#keep-the-context-small)
+## Keep the context small
 
 The easiest way to make sure your context doesn't include unnecessary files is to create a `.dockerignore` file in the root of your build context. The `.dockerignore` file works similarly to `.gitignore` files, and lets you exclude files and directories from the build context.
 
@@ -76,7 +76,7 @@ tmp*
 
 Ignore-rules specified in the `.dockerignore` file apply to the entire build context, including subdirectories. This means it's a rather coarse-grained mechanism, but it's a good way to exclude files and directories that you know you don't need in the build context, such as temporary files, log files, and build artifacts.
 
-## [Use bind mounts](https://docs.docker.com/build/cache/optimize/#use-bind-mounts)
+## Use bind mounts
 
 You might be familiar with bind mounts for when you run containers with `docker run` or Docker Compose. Bind mounts let you mount a file or directory from the host machine into a container.
 
@@ -109,7 +109,7 @@ There are a few things to be aware of when using bind mounts in a build:
 - Mounted files are not persisted in the final image. Only the output of the `RUN` instruction is persisted in the final image. If you need to include files from the build context in the final image, you need to use the `COPY` or `ADD` instructions.
 - If the target directory is not empty, the contents of the target directory are hidden by the mounted files. The original contents are restored after the `RUN` instruction is done.
 
-## [Use cache mounts](https://docs.docker.com/build/cache/optimize/#use-cache-mounts)
+## Use cache mounts
 
 Regular cache layers in Docker correspond to an exact match of the instruction and the files it depends on. If the instruction and the files it depends on have changed since the layer was built, the layer is invalidated, and the build process has to rebuild the layer.
 
@@ -144,7 +144,7 @@ RUN --mount=type=cache,target=/go/pkg/mod \
 
 It's important that you read the documentation for the build tool you're using to make sure you're using the correct cache mount options. Package managers have different requirements for how they use the cache, and using the wrong options can lead to unexpected behavior. For example, Apt needs exclusive access to its data, so the caches use the option `sharing=locked` to ensure parallel builds using the same cache mount wait for each other and not access the same cache files at the same time.
 
-## [Use an external cache](https://docs.docker.com/build/cache/optimize/#use-an-external-cache)
+## Use an external cache
 
 The default cache storage for builds is internal to the builder (BuildKit instance) you're using. Each builder uses its own cache storage. When you switch between different builders, the cache is not shared between them. Using an external cache lets you define a remote location for pushing and pulling cache data.
 
@@ -199,14 +199,14 @@ This cache can be used locally as well. To pull the cache in a local build, you 
 $ docker buildx build --cache-from type=registry,ref=user/app:buildcache .
 ```
 
-## [Summary](https://docs.docker.com/build/cache/optimize/#summary)
+## Summary
 
 Optimizing cache usage in builds can significantly speed up the build process. Keeping the build context small, using bind mounts, cache mounts, and external caches are all techniques you can use to make the most of the build cache and speed up the build process.
 
 For more information about the concepts discussed in this guide, see:
 
 - [.dockerignore files](https://docs.docker.com/build/concepts/context/#dockerignore-files)
-- [Cache invalidation](https://docs.docker.com/build/cache/invalidation/)
+- [Cache invalidation]({{< ref "/manuals/DockerBuild/Cache/Buildcacheinvalidation" >}})
 - [Cache mounts](https://docs.docker.com/reference/dockerfile/#run---mounttypecache)
-- [Cache backend types](https://docs.docker.com/build/cache/backends/)
-- [Building best practices](https://docs.docker.com/build/building/best-practices/)
+- [Cache backend types]({{< ref "/manuals/DockerBuild/Cache/Cachestoragebackends" >}})
+- [Building best practices]({{< ref "/manuals/DockerBuild/Building/Bestpractices" >}})
