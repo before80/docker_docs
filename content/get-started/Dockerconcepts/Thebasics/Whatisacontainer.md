@@ -49,9 +49,9 @@ A container is simply an isolated process with all of the files it needs to run.
 
 In this hands-on, you will see how to run a Docker container using the Docker Desktop GUI.
 
-Using the GUI Using the CLI
+{{< tabpane text=true persist=disabled >}}
 
-------
+{{% tab header="Using the GUI " %}}
 
 Use the following instructions to run a container.
 
@@ -74,6 +74,32 @@ Use the following instructions to run a container.
 7. Select **Run** to start your container.
 
 Congratulations! You just ran your first container! 🎉
+
+{{% /tab  %}}
+
+{{% tab header="Using the CLI" %}}
+
+Follow the instructions to run a container using the CLI:
+
+1. Open your CLI terminal and start a container by using the [`docker run`](https://docs.docker.com/reference/cli/docker/container/run/) command:
+
+   
+
+   ```console
+   $ docker run -d -p 8080:80 docker/welcome-to-docker
+   ```
+
+   The output from this command is the full container ID.
+
+Congratulations! You just fired up your first container! 🎉
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+
+
+
 
 ### [View your container](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/#view-your-container)
 

@@ -48,20 +48,50 @@ In the following steps, you'll create the network first and then attach the MySQ
 
 2. Start a MySQL container and attach it to the network. You're also going to define a few environment variables that the database will use to initialize the database. To learn more about the MySQL environment variables, see the "Environment Variables" section in the [MySQL Docker Hub listing](https://hub.docker.com/_/mysql/).
 
-   Mac / Linux / Git Bash PowerShell Command Prompt
+   {{< tabpane text=true persist=disabled >}}
 
-   ------
-
-   
+   {{% tab header="Mac / Linux / Git Bash" %}}
 
    ```console
-   $ docker run -d \
+    docker run -d \
        --network todo-app --network-alias mysql \
        -v todo-mysql-data:/var/lib/mysql \
        -e MYSQL_ROOT_PASSWORD=secret \
        -e MYSQL_DATABASE=todos \
        mysql:8.0
    ```
+
+   {{% /tab  %}}
+
+   {{% tab header="PowerShell" %}}
+
+   ```powershell
+   $ docker run -d `
+       --network todo-app --network-alias mysql `
+       -v todo-mysql-data:/var/lib/mysql `
+       -e MYSQL_ROOT_PASSWORD=secret `
+       -e MYSQL_DATABASE=todos `
+       mysql:8.0
+   ```
+
+   {{% /tab  %}}
+
+   {{% tab header="Command Prompt" %}}
+
+   ```console
+    docker run -d ^
+       --network todo-app --network-alias mysql ^
+       -v todo-mysql-data:/var/lib/mysql ^
+       -e MYSQL_ROOT_PASSWORD=secret ^
+       -e MYSQL_DATABASE=todos ^
+       mysql:8.0
+   ```
+
+   {{% /tab  %}}
+
+   {{< /tabpane >}}
+
+   
 
    ------
 
@@ -188,14 +218,12 @@ You can now start your dev-ready container.
 
 1. Specify each of the previous environment variables, as well as connect the container to your app network. Make sure that you are in the `getting-started-app` directory when you run this command.
 
-   Mac / Linux PowerShell Command Prompt Git Bash
+   {{< tabpane text=true persist=disabled >}}
 
-   ------
-
-   
+   {{% tab header="Mac / Linux" %}}
 
    ```console
-   $ docker run -dp 127.0.0.1:3000:3000 \
+    docker run -dp 127.0.0.1:3000:3000 \
      -w /app -v "$(pwd):/app" \
      --network todo-app \
      -e MYSQL_HOST=mysql \
@@ -205,6 +233,68 @@ You can now start your dev-ready container.
      node:18-alpine \
      sh -c "yarn install && yarn run dev"
    ```
+
+   {{% /tab  %}}
+
+   {{% tab header="PowerShell " %}}
+
+   In Windows, run this command in PowerShell.
+
+   
+
+   ```powershell
+   $ docker run -dp 127.0.0.1:3000:3000 `
+     -w /app -v "$(pwd):/app" `
+     --network todo-app `
+     -e MYSQL_HOST=mysql `
+     -e MYSQL_USER=root `
+     -e MYSQL_PASSWORD=secret `
+     -e MYSQL_DB=todos `
+     node:18-alpine `
+     sh -c "yarn install && yarn run dev"
+   ```
+
+   {{% /tab  %}}
+
+   {{% tab header="Command Prompt" %}}
+
+   In Windows, run this command in Command Prompt.
+
+   
+
+   ```console
+   $ docker run -dp 127.0.0.1:3000:3000 ^
+     -w /app -v "%cd%:/app" ^
+     --network todo-app ^
+     -e MYSQL_HOST=mysql ^
+     -e MYSQL_USER=root ^
+     -e MYSQL_PASSWORD=secret ^
+     -e MYSQL_DB=todos ^
+     node:18-alpine ^
+     sh -c "yarn install && yarn run dev"
+   ```
+
+   {{% /tab  %}}
+
+   {{% tab header="Git Bash" %}}
+
+   ```console
+   docker run -dp 127.0.0.1:3000:3000 \
+     -w //app -v "/$(pwd):/app" \
+     --network todo-app \
+     -e MYSQL_HOST=mysql \
+     -e MYSQL_USER=root \
+     -e MYSQL_PASSWORD=secret \
+     -e MYSQL_DB=todos \
+     node:18-alpine \
+     sh -c "yarn install && yarn run dev"
+   ```
+
+   {{% /tab  %}}
+
+   {{< /tabpane >}}
+
+    
 
    ------
 

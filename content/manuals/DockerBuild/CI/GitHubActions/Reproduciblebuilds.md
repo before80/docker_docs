@@ -79,11 +79,12 @@ jobs:
 
 
 
-------
-
 ## [Git commit timestamps](https://docs.docker.com/build/ci/github-actions/reproducible-builds/#git-commit-timestamps)
 
 The following example sets `SOURCE_DATE_EPOCH` to the Git commit timestamp.
+
+{{< tabpane text=true persist=disabled >}}
+
 
 {{% tab header="docker/build-push-action" %}}
 

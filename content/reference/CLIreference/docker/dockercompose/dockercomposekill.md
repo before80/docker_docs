@@ -11,3 +11,26 @@ draft = false
 > 原文: [https://docs.docker.com/reference/cli/docker/compose/kill/](https://docs.docker.com/reference/cli/docker/compose/kill/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:43+08:00`
+
+# docker compose kill
+
+| Description | Force stop service containers                |
+| :---------- | -------------------------------------------- |
+| Usage       | `docker compose kill [OPTIONS] [SERVICE...]` |
+
+## [Description](https://docs.docker.com/reference/cli/docker/compose/kill/#description)
+
+Forces running containers to stop by sending a `SIGKILL` signal. Optionally the signal can be passed, for example:
+
+
+
+```console
+$ docker compose kill -s SIGINT
+```
+
+## [Options](https://docs.docker.com/reference/cli/docker/compose/kill/#options)
+
+| Option             | Default   | Description                                                  |
+| ------------------ | --------- | ------------------------------------------------------------ |
+| `--remove-orphans` |           | Remove containers for services not defined in the Compose file |
+| `-s, --signal`     | `SIGKILL` | SIGNAL to send to the container                              |

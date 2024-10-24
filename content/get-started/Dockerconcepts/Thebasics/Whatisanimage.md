@@ -47,9 +47,9 @@ For example, [Redis](https://hub.docker.com/_/redis) and [Memcached](https://hub
 
 ## [Try it out](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/#try-it-out)
 
-Using the GUI Using the CLI
+{{< tabpane text=true persist=disabled >}}
 
-------
+{{% tab header="Using the GUI" %}}
 
 In this hands-on, you will learn how to search and pull a container image using the Docker Desktop GUI.
 
@@ -68,6 +68,67 @@ In this hands-on, you will learn how to search and pull a container image using 
    ![A screenshot of the Docker Dashboard showing the search results for the docker/welcome-to-docker image](Whatisanimage_img/select-image.webp)
 
 4. Select **Pull** to download the image.
+
+{{% /tab  %}}
+
+{{% tab header="Using the CLI" %}}
+
+Follow the instructions to search and pull a Docker image using CLI to view its layers.
+
+### [Search for and download an image](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/#search-for-and-download-an-image)
+
+1. Open a terminal and search for images using the [`docker search`](https://docs.docker.com/reference/cli/docker/search/) command:
+
+   
+
+   ```console
+   docker search docker/welcome-to-docker
+   ```
+
+   You will see output like the following:
+
+   
+
+   ```console
+   NAME                       DESCRIPTION                                     STARS     OFFICIAL
+   docker/welcome-to-docker   Docker image for new users getting started w…   20
+   ```
+
+   This output shows you information about relevant images available on Docker Hub.
+
+2. Pull the image using the [`docker pull`](https://docs.docker.com/reference/cli/docker/image/pull/) command.
+
+   
+
+   ```console
+   docker pull docker/welcome-to-docker
+   ```
+
+   You will see output like the following:
+
+   
+
+   ```console
+   Using default tag: latest
+   latest: Pulling from docker/welcome-to-docker
+   579b34f0a95b: Download complete
+   d11a451e6399: Download complete
+   1c2214f9937c: Download complete
+   b42a2f288f4d: Download complete
+   54b19e12c655: Download complete
+   1fb28e078240: Download complete
+   94be7e780731: Download complete
+   89578ce72c35: Download complete
+   Digest: sha256:eedaff45e3c78538087bdd9dc7afafac7e110061bbdd836af4104b10f10ab693
+   Status: Downloaded newer image for docker/welcome-to-docker:latest
+   docker.io/docker/welcome-to-docker:latest
+   ```
+
+   Each of line represents a different downloaded layer of the image. Remember that each layer is a set of filesystem changes and provides functionality of the image.
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
 
 ### [Learn about the image](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/#learn-about-the-image)
 

@@ -136,9 +136,9 @@ In this hands-on guide, you will build a simple image using a provided Dockerfil
 
    If you have Git, you can clone the repository for the sample application. Otherwise, you can download the sample application. Choose one of the following options.
 
-   Clone with git Download
+   {{< tabpane text=true persist=disabled >}}
 
-   ------
+   {{% tab header="Clone with git" %}}
 
    Use the following command in a terminal to clone the sample application repository.
 
@@ -147,6 +147,18 @@ In this hands-on guide, you will build a simple image using a provided Dockerfil
    ```console
    $ git clone https://github.com/docker/getting-started-todo-app
    ```
+
+   {{% /tab  %}}
+
+   {{% tab header="Download" %}}
+
+   Download the source and extract it.
+
+   [Download the source](https://github.com/docker/getting-started-todo-app/raw/cd61f824da7a614a8298db503eed6630eeee33a3/app.zip)
+
+   {{% /tab  %}}
+
+   {{< /tabpane >}}
 
    ------
 

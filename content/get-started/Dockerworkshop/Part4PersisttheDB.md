@@ -86,9 +86,9 @@ As mentioned, you're going to use a volume mount. Think of a volume mount as an 
 
 You can create the volume and start the container using the CLI or Docker Desktop's graphical interface.
 
-CLI Docker Desktop
+{{< tabpane text=true persist=disabled >}}
 
-------
+{{% tab header="CLI" %}}
 
 1. Create a volume by using the `docker volume create` command.
 
@@ -121,6 +121,53 @@ CLI Docker Desktop
    > ```
    >
    > For more details about Git Bash's syntax differences, see [Working with Git Bash](https://docs.docker.com/desktop/troubleshoot/topics/#working-with-git-bash).
+
+{{% /tab  %}}
+
+{{% tab header=" Docker Desktop" %}}
+
+To create a volume:
+
+1. Select **Volumes** in Docker Desktop.
+2. In **Volumes**, select **Create**.
+3. Specify `todo-db` as the volume name, and then select **Create**.
+
+To stop and remove the app container:
+
+1. Select **Containers** in Docker Desktop.
+2. Select **Delete** in the **Actions** column for the container.
+
+To start the todo app container with the volume mounted:
+
+1. Select the search box at the top of Docker Desktop.
+
+2. In the search window, select the **Images** tab.
+
+3. In the search box, specify the image name, `getting-started`.
+
+   > **Tip**
+   >
+   > 
+   >
+   > Use the search filter to filter images and only show **Local images**.
+
+4. Select your image and then select **Run**.
+
+5. Select **Optional settings**.
+
+6. In **Host port**, specify the port, for example, `3000`.
+
+7. In **Host path**, specify the name of the volume, `todo-db`.
+
+8. In **Container path**, specify `/etc/todos`.
+
+9. Select **Run**.
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+
 
 ------
 

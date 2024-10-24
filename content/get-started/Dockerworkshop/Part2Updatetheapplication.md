@@ -60,11 +60,11 @@ The error occurred because you aren't able to start the new container while your
 
 To remove a container, you first need to stop it. Once it has stopped, you can remove it. You can remove the old container using the CLI or Docker Desktop's graphical interface. Choose the option that you're most comfortable with.
 
-CLI Docker Desktop
+{{< tabpane text=true persist=disabled >}}
 
-------
+{{% tab header="CLI" %}}
 
-### [Remove a container using the CLI](https://docs.docker.com/get-started/workshop/03_updating_app/#remove-a-container-using-the-cli)
+**Remove a container using the CLI**
 
 1. Get the ID of the container by using the `docker ps` command.
 
@@ -93,6 +93,22 @@ CLI Docker Desktop
 > **Note**
 >
 > You can stop and remove a container in a single command by adding the `force` flag to the `docker rm` command. For example: `docker rm -f <the-container-id>`
+
+{{% /tab  %}}
+
+{{% tab header="Docker Desktop" %}}
+
+**Remove a container using Docker Desktop**
+
+1. Open Docker Desktop to the **Containers** view.
+2. Select the trash can icon under the **Actions** column for the container that you want to delete.
+3. In the confirmation dialog, select **Delete forever**.
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+
 
 ------
 

@@ -150,15 +150,29 @@ Using a bind mount, you can map the configuration file on your host computer to 
 
 4. It's time to run the container. The `--mount` and `-v` examples produce the same result. You can't run them both unless you remove the `my_site` container after running the first one.
 
-   `-v` `--mount`
+   {{< tabpane text=true persist=disabled >}}
 
-   ------
+   {{% tab header="`-v` " %}}
+
+   ```console
+    docker run -d --name my_site -p 8080:80 -v .:/usr/local/apache2/htdocs/ httpd:2.4
+   ```
+
+   {{% /tab  %}}
+
+   {{% tab header="`--mount`" %}}
+
+   ```console
+    docker run -d --name my_site -p 8080:80 --mount type=bind,source=./,target=/usr/local/apache2/htdocs/ httpd:2.4
+   ```
 
    
 
-   ```console
-   $ docker run -d --name my_site -p 8080:80 -v .:/usr/local/apache2/htdocs/ httpd:2.4
-   ```
+   {{% /tab  %}}
+
+   {{< /tabpane >}}
+
+   
 
    ------
 

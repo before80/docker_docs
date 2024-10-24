@@ -54,9 +54,9 @@ In this hands-on guide, you'll first see how to build and run a counter web appl
 
 1. Get the sample application. If you have Git, you can clone the repository for the sample application. Otherwise, you can download the sample application. Choose one of the following options.
 
-   Clone with git Download
+   {{< tabpane text=true persist=disabled >}}
 
-   ------
+   {{% tab header="Clone with git " %}}
 
    Use the following command in a terminal to clone the sample application repository.
 
@@ -76,7 +76,29 @@ In this hands-on guide, you'll first see how to build and run a counter web appl
 
    Inside this directory, you'll find two sub-directories - `nginx` and `web`.
 
-   ------
+   {{% /tab  %}}
+
+   {{% tab header="Download" %}}
+
+   Download the source and extract it.
+
+   [Download the source](https://github.com/dockersamples/nginx-node-redis/archive/refs/heads/main.zip)
+
+   Navigate into the `nginx-node-redis-main` directory:
+
+   
+
+   ```console
+   $ cd nginx-node-redis-main
+   ```
+
+   Inside this directory, you'll find two sub-directories - `nginx` and `web`.
+
+   {{% /tab  %}}
+
+   {{< /tabpane >}}
+
+   
 
 2. [Download and install](https://docs.docker.com/get-started/get-docker/) Docker Desktop.
 

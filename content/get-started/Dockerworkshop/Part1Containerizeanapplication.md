@@ -54,9 +54,9 @@ To build the image, you'll need to use a Dockerfile. A Dockerfile is simply a te
 
 1. In the `getting-started-app` directory, the same location as the `package.json` file, create a file named `Dockerfile`. You can use the following commands to create a Dockerfile based on your operating system.
 
-   Mac / Linux / Windows (Git Bash) Windows (Command Prompt) Windows (PowerShell)
+   {{< tabpane text=true persist=disabled >}}
 
-   ------
+   {{% tab header="Mac / Linux / Windows (Git Bash) " %}}
 
    In the terminal, run the following commands.
 
@@ -76,7 +76,55 @@ To build the image, you'll need to use a Dockerfile. A Dockerfile is simply a te
    $ touch Dockerfile
    ```
 
-   ------
+   {{% /tab  %}}
+
+   {{% tab header="Windows (Command Prompt)" %}}
+
+   In the Windows Command Prompt, run the following commands.
+
+   Make sure you're in the `getting-started-app` directory. Replace `\path\to\getting-started-app` with the path to your `getting-started-app` directory.
+
+   
+
+   ```console
+   $ cd \path\to\getting-started-app
+   ```
+
+   Create an empty file named `Dockerfile`.
+
+   
+
+   ```console
+   $ type nul > Dockerfile
+   ```
+
+   {{% /tab  %}}
+
+   {{% tab header=" Windows (PowerShell)" %}}
+
+   In PowerShell, run the following commands.
+
+   Make sure you're in the `getting-started-app` directory. Replace `\path\to\getting-started-app` with the path to your `getting-started-app` directory.
+
+   
+
+   ```console
+   $ cd \path\to\getting-started-app
+   ```
+
+   Create an empty file named `Dockerfile`.
+
+   
+
+   ```powershell
+   $ New-Item -Path . -Name Dockerfile -ItemType File
+   ```
+
+   {{% /tab  %}}
+
+   {{< /tabpane >}}
+
+   
 
 2. Using a text editor or code editor, add the following contents to the Dockerfile:
 
@@ -145,9 +193,9 @@ At this point, you have a running todo list manager with a few items.
 
 If you take a quick look at your containers, you should see at least one container running that's using the `getting-started` image and on port `3000`. To see your containers, you can use the CLI or Docker Desktop's graphical interface.
 
-CLI Docker Desktop
+{{< tabpane text=true persist=disabled >}}
 
-------
+{{% tab header="CLI " %}}
 
 Run the following `docker ps` command in a terminal to list your containers.
 
@@ -165,6 +213,20 @@ Output similar to the following should appear.
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
 df784548666d        getting-started     "docker-entrypoint.s…"   2 minutes ago       Up 2 minutes        127.0.0.1:3000->3000/tcp   priceless_mcclintock
 ```
+
+{{% /tab  %}}
+
+{{% tab header="Docker Desktop" %}}
+
+In Docker Desktop, select the **Containers** tab to see a list of your containers.
+
+![Docker Desktop with get-started container running](Part1Containerizeanapplication_img/dashboard-two-containers.webp)
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+
 
 ------
 
