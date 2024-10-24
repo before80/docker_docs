@@ -43,7 +43,12 @@ $1$2
 
 # 3 使用 https://github.com/before80/local_tools_with_go/tree/main/replace_all_content_md_file_link_to_hugo_link 上的程序来替换文档中的链接，做到尽量都本地化处理链接。
 
+# 4 替换文档中视频使用的iframe为 youtube 简码
+// 查找匹配如下正则表达式
+<iframe id="youtube\-[^"]+" [^\n]+ src="https:\/\/www\.youtube\.com\/embed\/([^\?]+)\?[^"]+" [^\n]+><\/iframe>
 
+// 替换成
+{{< youtube "$1">}}
 
 ```
 
