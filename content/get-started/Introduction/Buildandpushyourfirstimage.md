@@ -122,7 +122,7 @@ Now that you have a repository, you are ready to build and push your image. An i
 
 1. To get started, either clone or [download the project as a ZIP file](https://github.com/docker/getting-started-todo-app/archive/refs/heads/main.zip) to your local machine.
 
-   
+   首先，您可以克隆项目或[下载项目 ZIP 文件](https://github.com/docker/getting-started-todo-app/archive/refs/heads/main.zip)到本地机器。
 
    ```console
    $ git clone https://github.com/docker/getting-started-todo-app
@@ -130,7 +130,7 @@ Now that you have a repository, you are ready to build and push your image. An i
 
    And after the project is cloned, navigate into the new directory created by the clone:
 
-   
+   项目克隆完成后，进入克隆创建的新目录：
 
    ```console
    $ cd getting-started-todo-app
@@ -138,7 +138,7 @@ Now that you have a repository, you are ready to build and push your image. An i
 
 2. Build the project by running the following command, swapping out `DOCKER_USERNAME` with your username.
 
-   
+   通过运行以下命令构建项目，并将 `DOCKER_USERNAME` 替换为您的用户名。
 
    ```console
    $ docker build -t DOCKER_USERNAME/getting-started-todo-app .
@@ -146,7 +146,7 @@ Now that you have a repository, you are ready to build and push your image. An i
 
    For example, if your Docker username was `mobydock`, you would run the following:
 
-   
+   例如，如果您的 Docker 用户名是 `mobydock`，您将运行以下命令：
 
    ```console
    $ docker build -t mobydock/getting-started-todo-app .
@@ -154,7 +154,7 @@ Now that you have a repository, you are ready to build and push your image. An i
 
 3. To verify the image exists locally, you can use the `docker image ls` command:
 
-   
+   要验证镜像是否存在本地，您可以使用 `docker image ls` 命令：
 
    ```console
    $ docker image ls
@@ -162,7 +162,7 @@ Now that you have a repository, you are ready to build and push your image. An i
 
    You will see output similar to the following:
 
-   
+   您将看到类似以下的输出：
 
    ```console
    REPOSITORY                          TAG       IMAGE ID       CREATED          SIZE
@@ -172,129 +172,80 @@ Now that you have a repository, you are ready to build and push your image. An i
 
 4. To push the image, use the `docker push` command. Be sure to replace `DOCKER_USERNAME` with your username:
 
-   
+   要推送镜像，请使用 `docker push` 命令。确保将 `DOCKER_USERNAME` 替换为您的用户名：
 
    ```console
    $ docker push DOCKER_USERNAME/getting-started-todo-app
    ```
 
    Depending on your upload speeds, this may take a moment to push.
+   
+   根据您的上传速度，这可能需要一些时间。
 
 {{% /tab  %}}
 
 {{% tab header="VS Code" %}}
 
-1. Open Visual Studio Code. In the **File** menu, select **Open Folder**. Choose **Clone Git Repository** and paste this URL: https://github.com/docker/getting-started-todo-app
+1. Open Visual Studio Code. In the **File** menu, select **Open Folder**. Choose **Clone Git Repository** and paste this URL: https://github.com/docker/getting-started-todo-app 打开 Visual Studio Code。在 **文件** 菜单中，选择 **打开文件夹**。选择 **克隆 Git 仓库** 并粘贴此 URL: https://github.com/docker/getting-started-todo-app
 
    ![Screenshot of VS code showing how to clone a repository](Buildandpushyourfirstimage_img/clone-the-repo.webp)
 
-2. Right-click the `Dockerfile` and select the **Build Image...** menu item.
+2. Right-click the `Dockerfile` and select the **Build Image...** menu item. 右键单击 `Dockerfile`，然后选择 **构建镜像...** 菜单项。
 
    ![Screenshot of VS Code showing the right-click menu and "Build Image" menu item](Buildandpushyourfirstimage_img/build-vscode-menu-item.webp)
 
-3. In the dialog that appears, enter a name of `DOCKER_USERNAME/getting-started-todo-app`, replacing `DOCKER_USERNAME` with your Docker username.
+3. In the dialog that appears, enter a name of `DOCKER_USERNAME/getting-started-todo-app`, replacing `DOCKER_USERNAME` with your Docker username. 在出现的对话框中，输入 `DOCKER_USERNAME/getting-started-todo-app` 作为名称，将 `DOCKER_USERNAME` 替换为您的 Docker 用户名。
 
-4. After pressing **Enter**, you'll see a terminal appear where the build will occur. Once it's completed, feel free to close the terminal.
+4. After pressing **Enter**, you'll see a terminal appear where the build will occur. Once it's completed, feel free to close the terminal. 按下 **Enter** 后，您将看到一个终端窗口，构建过程将在其中进行。完成后，您可以关闭终端。
 
-5. Open the Docker Extension for VS Code by selecting the Docker logo in the left nav menu.
+5. Open the Docker Extension for VS Code by selecting the Docker logo in the left nav menu. 通过选择左侧导航菜单中的 Docker 图标，打开 VS Code 的 Docker 扩展。
 
-6. Find the image you created. It'll have a name of `docker.io/DOCKER_USERNAME/getting-started-todo-app`.
+6. Find the image you created. It'll have a name of `docker.io/DOCKER_USERNAME/getting-started-todo-app`.找到您创建的镜像。它的名称将是 `docker.io/DOCKER_USERNAME/getting-started-todo-app`。
 
-7. Expand the image to view the tags (or different versions) of the image. You should see a tag named `latest`, which is the default tag given to an image.
+7. Expand the image to view the tags (or different versions) of the image. You should see a tag named `latest`, which is the default tag given to an image. 展开该镜像以查看镜像的标签（或不同版本）。您应该会看到一个名为 `latest` 的标签，这是给镜像分配的默认标签。
 
-8. Right-click on the **latest** item and select the **Push...** option.
+8. Right-click on the **latest** item and select the **Push...** option. 右键单击 **latest** 项，然后选择 **推送...** 选项。
 
    ![Screenshot of the Docker Extension and the right-click menu to push an image](Buildandpushyourfirstimage_img/build-vscode-push-image.webp)
 
-9. Press **Enter** to confirm and then watch as your image is pushed to Docker Hub. Depending on your upload speeds, it might take a moment to push the image.
+9. Press **Enter** to confirm and then watch as your image is pushed to Docker Hub. Depending on your upload speeds, it might take a moment to push the image.按 **Enter** 进行确认，然后观察您的镜像被推送到 Docker Hub。根据您的上传速度，推送镜像可能需要一些时间。
 
-   Once the upload is finished, feel free to close the terminal.
+   Once the upload is finished, feel free to close the terminal. 
+   
+   上传完成后，您可以关闭终端。
 
 {{% /tab  %}}
 
 {{< /tabpane >}}
 
-
-
 ------
 
-1. To get started, either clone or [download the project as a ZIP file](https://github.com/docker/getting-started-todo-app/archive/refs/heads/main.zip) to your local machine.
-
-   
-
-   ```console
-   $ git clone https://github.com/docker/getting-started-todo-app
-   ```
-
-   And after the project is cloned, navigate into the new directory created by the clone:
-
-   
-
-   ```console
-   $ cd getting-started-todo-app
-   ```
-
-2. Build the project by running the following command, swapping out `DOCKER_USERNAME` with your username.
-
-   
-
-   ```console
-   $ docker build -t DOCKER_USERNAME/getting-started-todo-app .
-   ```
-
-   For example, if your Docker username was `mobydock`, you would run the following:
-
-   
-
-   ```console
-   $ docker build -t mobydock/getting-started-todo-app .
-   ```
-
-3. To verify the image exists locally, you can use the `docker image ls` command:
-
-   
-
-   ```console
-   $ docker image ls
-   ```
-
-   You will see output similar to the following:
-
-   
-
-   ```console
-   REPOSITORY                          TAG       IMAGE ID       CREATED          SIZE
-   mobydock/getting-started-todo-app   latest    1543656c9290   2 minutes ago    1.12GB
-   ...
-   ```
-
-4. To push the image, use the `docker push` command. Be sure to replace `DOCKER_USERNAME` with your username:
-
-   
-
-   ```console
-   $ docker push DOCKER_USERNAME/getting-started-todo-app
-   ```
-
-   Depending on your upload speeds, this may take a moment to push.
-
-------
-
-## Recap
+## 回顾 Recap
 
 Before you move on, take a moment and reflect on what happened here. Within a few moments, you were able to build a container image that packages your application and push it to Docker Hub.
 
+​	在继续之前，请花点时间回顾一下刚才发生的事情。在短短几分钟内，您已经能够构建一个包含应用程序的容器镜像并将其推送到 Docker Hub。
+
 Going forward, you’ll want to remember that:
 
+​	今后，您需要记住以下几点：
+
 - Docker Hub is the go-to registry for finding trusted content. Docker provides a collection of trusted content, composed of Docker Official Images, Docker Verified Publishers, and Docker Sponsored Open Source Software, to use directly or as bases for your own images.
+- Docker Hub 是寻找可信内容的首选注册表。Docker 提供了一系列可信内容，包括 Docker 官方镜像、Docker 认证发布者以及 Docker 赞助的开源软件，您可以直接使用或作为您自己镜像的基础。
+
 - Docker Hub provides a marketplace to distribute your own applications. Anyone can create an account and distribute images. While you are publicly distributing the image you created, private repositories can ensure your images are accessible to only authorized users.
+- Docker Hub 提供了一个分发您自己应用程序的市场。任何人都可以创建账户并分发镜像。虽然您是公开分发创建的镜像，但私有仓库可以确保您的镜像仅对授权用户可访问。
 
-> **Usage of other registries**
+> **Usage of other registries** 使用其他注册表
 >
-> While Docker Hub is the default registry, registries are standardized and made interoperable through the [Open Container Initiative](https://opencontainers.org/). This allows companies and organizations to run their own private registries. Quite often, trusted content is mirrored (or copied) from Docker Hub into these private registries.
+> While Docker Hub is the default registry, registries are standardized and made interoperable through the [Open Container Initiative](https://opencontainers.org/). This allows companies and organizations to run their own private registries. Quite often, trusted content is mirrored (or copied) from Docker Hub into these private registries. 
+>
+> ​	虽然 Docker Hub 是默认注册表，但通过 [开放容器倡议](https://opencontainers.org/) 使注册表标准化并具有互操作性。这允许公司和组织运行自己的私有注册表。通常，可信内容会从 Docker Hub 镜像到这些私有注册表中。
 
-## Next steps
+## 接下来 Next steps
 
 Now that you’ve built an image, it's time to discuss why you as a developer should learn more about Docker and how it will help you in your day-to-day tasks.
 
-[What's Next]({{< ref "/get-started/Introduction/Whatsnext" >}})
+​	现在您已经构建了镜像，是时候讨论为什么作为开发者您应该进一步学习 Docker，以及它如何帮助您日常的工作。
+
+[What's Next]({{< ref "/get-started/Introduction/Whatsnext" >}}) [接下来做什么]({{< ref "/get-started/Introduction/Whatsnext" >}})
