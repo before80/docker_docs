@@ -1,24 +1,29 @@
 +++
-title = "Part 7: Use Docker Compose"
+title = "Part 7: 使用 Docker Compose"
 date = 2024-10-23T14:54:35+08:00
 weight = 60
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 > 原文：[https://docs.docker.com/get-started/workshop/08_using_compose/](https://docs.docker.com/get-started/workshop/08_using_compose/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:35+08:00`
 
-# Use Docker Compose
+# Use Docker Compose - 使用 Docker Compose
 
 [Docker Compose]({{< ref "/manuals/DockerCompose" >}}) is a tool that helps you define and share multi-container applications. With Compose, you can create a YAML file to define the services and with a single command, you can spin everything up or tear it all down.
 
+​	[Docker Compose]({{< ref "/manuals/DockerCompose" >}}) 是一个帮助你定义和共享多容器应用的工具。通过 Compose，你可以创建一个 YAML 文件来定义服务，并通过一个命令启动或停止所有服务。
+
 The big advantage of using Compose is you can define your application stack in a file, keep it at the root of your project repository (it's now version controlled), and easily enable someone else to contribute to your project. Someone would only need to clone your repository and start the app using Compose. In fact, you might see quite a few projects on GitHub/GitLab doing exactly this now.
 
-## Create the Compose file
+​	使用 Compose 的最大优点是可以将应用栈定义在文件中，将其保存在项目根目录（进行版本控制），并轻松让他人参与项目。其他人只需克隆你的代码库并使用 Compose 启动应用即可。事实上，你可能会看到 GitHub 或 GitLab 上有许多项目正是这么做的。
+
+## 创建 Compose 文件 Create the Compose file
 
 In the `getting-started-app` directory, create a file named `compose.yaml`.
 
