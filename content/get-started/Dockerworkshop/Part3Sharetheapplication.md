@@ -142,7 +142,7 @@ Now that your image has been built and pushed into a registry, try running your 
    >
    > For more information about how port mapping works, see [Networking](https://docs.docker.com/engine/network/#published-ports).
    >
-   > ​	要了解更多关于端口映射的工作原理，请参阅 [网络]({{< ref "/manuals/DockerEngine/Network" >}})。
+   > ​	要了解更多关于端口映射的工作原理，请参阅 [网络](https://docs.docker.com/engine/network/#published-ports)。
 
 6. Select the 3000 badge when it appears. 当 3000 端口徽章出现时，点击它。
 

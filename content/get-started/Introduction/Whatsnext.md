@@ -1,5 +1,5 @@
 +++
-title = "接下来做什么 - What's next"
+title = "接下来做什么"
 date = 2024-10-23T14:54:35+08:00
 weight = 30
 type = "docs"
