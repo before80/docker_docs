@@ -50,6 +50,11 @@ $1$2
 // 替换成
 {{< youtube "$1">}}
 
+# 5 在reference/Dockerfilereference.md文档中将 https://docs.docker.com/reference/dockerfile/# 替换成 #
+// 查找匹配如下字符
+https://docs.docker.com/reference/dockerfile/#
+// 替换成
+#
 ```
 
 
