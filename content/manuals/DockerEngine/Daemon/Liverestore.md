@@ -1,5 +1,5 @@
 +++
-title = "Live restore"
+title = "实时恢复"
 date = 2024-10-23T14:54:40+08:00
 weight = 30
 type = "docs"
