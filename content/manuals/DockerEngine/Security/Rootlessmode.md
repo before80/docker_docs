@@ -209,7 +209,7 @@ You might need `sudo dnf install -y iptables`.
 
   - `docker inspect` 中显示的 `IPAddress` 在 RootlessKit 的网络命名空间内进行了命名空间隔离。这意味着该 IP 地址无法从主机访问，除非通过 `nsenter` 进入网络命名空间。
 
-- Host network (`docker run --net=host`) is also namespaced inside RootlessKit.
+- xxxxxxxxxx2 1$ docker run --rm -it --security-opt seccomp=unconfined debian:jessie \2    unshare --map-root-user --user sh -c whoamiconsole
 
   - 主机网络（`docker run --net=host`）也在 RootlessKit 内进行了命名空间隔离。
 
