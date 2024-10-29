@@ -1,24 +1,29 @@
 +++
-title = "Amazon CloudWatch Logs logging driver"
+title = "Amazon CloudWatch Logs 日志驱动"
 date = 2024-10-23T14:54:40+08:00
 weight = 1
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 > 原文：[https://docs.docker.com/engine/logging/drivers/awslogs/](https://docs.docker.com/engine/logging/drivers/awslogs/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
-# Amazon CloudWatch Logs logging driver
+# Amazon CloudWatch Logs logging driver - Amazon CloudWatch Logs 日志驱动
 
 The `awslogs` logging driver sends container logs to [Amazon CloudWatch Logs](https://aws.amazon.com/cloudwatch/details/#log-monitoring). Log entries can be retrieved through the [AWS Management Console](https://console.aws.amazon.com/cloudwatch/home#logs:) or the [AWS SDKs and Command Line Tools](https://docs.aws.amazon.com/cli/latest/reference/logs/index.html).
 
-## Usage
+​	`awslogs` 日志驱动将容器日志发送到 [Amazon CloudWatch Logs](https://aws.amazon.com/cloudwatch/details/#log-monitoring)。日志条目可以通过 [AWS 管理控制台](https://console.aws.amazon.com/cloudwatch/home#logs:) 或 [AWS SDK 和命令行工具](https://docs.aws.amazon.com/cli/latest/reference/logs/index.html) 来检索。
+
+## 用法 Usage
 
 To use the `awslogs` driver as the default logging driver, set the `log-driver` and `log-opt` keys to appropriate values in the `daemon.json` file, which is located in `/etc/docker/` on Linux hosts or `C:\ProgramData\docker\config\daemon.json` on Windows Server. For more about configuring Docker using `daemon.json`, see [daemon.json](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file). The following example sets the log driver to `awslogs` and sets the `awslogs-region` option.
+
+​	要将 `awslogs` 设为默认日志驱动，请在 `daemon.json` 文件中设置 `log-driver` 和 `log-opt` 键。该文件位于 Linux 主机的 `/etc/docker/` 或 Windows Server 的 `C:\ProgramData\docker\config\daemon.json`。有关如何使用 `daemon.json` 配置 Docker 的更多信息，请参见 [daemon.json](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file)。以下示例将日志驱动设置为 `awslogs`，并设置了 `awslogs-region` 选项。
 
 
 
@@ -33,7 +38,11 @@ To use the `awslogs` driver as the default logging driver, set the `log-driver` 
 
 Restart Docker for the changes to take effect.
 
+​	重启 Docker 以使更改生效。
+
 You can set the logging driver for a specific container by using the `--log-driver` option to `docker run`:
+
+​	可以通过 `docker run` 的 `--log-driver` 选项为特定容器设置日志驱动：
 
 
 
@@ -42,6 +51,8 @@ $ docker run --log-driver=awslogs ...
 ```
 
 If you are using Docker Compose, set `awslogs` using the following declaration example:
+
+​	如果使用 Docker Compose，可以如下声明 `awslogs`：
 
 
 
@@ -53,13 +64,17 @@ myservice:
       awslogs-region: us-east-1
 ```
 
-## Amazon CloudWatch Logs options
+## Amazon CloudWatch Logs 选项 Amazon CloudWatch Logs options
 
 You can add logging options to the `daemon.json` to set Docker-wide defaults, or use the `--log-opt NAME=VALUE` flag to specify Amazon CloudWatch Logs logging driver options when starting a container.
+
+​	可以将日志选项添加到 `daemon.json` 以设置 Docker 全局默认值，也可以在启动容器时使用 `--log-opt NAME=VALUE` 参数指定 Amazon CloudWatch Logs 日志驱动选
 
 ### awslogs-region
 
 The `awslogs` logging driver sends your Docker logs to a specific region. Use the `awslogs-region` log option or the `AWS_REGION` environment variable to set the region. By default, if your Docker daemon is running on an EC2 instance and no region is set, the driver uses the instance's region.
+
+​	`awslogs` 日志驱动将 Docker 日志发送到特定区域。使用 `awslogs-region` 日志选项或 `AWS_REGION` 环境变量来设置区域。如果 Docker 守护进程在 EC2 实例上运行且未设置区域，驱动程序将使用实例的区域。
 
 
 
@@ -71,15 +86,21 @@ $ docker run --log-driver=awslogs --log-opt awslogs-region=us-east-1 ...
 
 By default, Docker uses either the `awslogs-region` log option or the detected region to construct the remote CloudWatch Logs API endpoint. Use the `awslogs-endpoint` log option to override the default endpoint with the provided endpoint.
 
+​	默认情况下，Docker 使用 `awslogs-region` 日志选项或检测到的区域来构造远程 CloudWatch Logs API 端点。使用 `awslogs-endpoint` 日志选项可以覆盖默认端点。
+
 > **Note**
 >
 > 
 >
 > The `awslogs-region` log option or detected region controls the region used for signing. You may experience signature errors if the endpoint you've specified with `awslogs-endpoint` uses a different region.
+>
+> ​	`awslogs-region` 日志选项或检测到的区域控制用于签名的区域。如果您指定的 `awslogs-endpoint` 使用不同的区域，可能会遇到签名错误。
 
 ### awslogs-group
 
 You must specify a [log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) for the `awslogs` logging driver. You can specify the log group with the `awslogs-group` log option:
+
+​	必须为 `awslogs` 日志驱动指定一个 [日志组](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)。可以通过 `awslogs-group` 日志选项指定日志组：
 
 
 
@@ -91,15 +112,21 @@ $ docker run --log-driver=awslogs --log-opt awslogs-region=us-east-1 --log-opt a
 
 To configure which [log stream](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) should be used, you can specify the `awslogs-stream` log option. If not specified, the container ID is used as the log stream.
 
+​	要配置使用哪个 [日志流](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)，可以指定 `awslogs-stream` 日志选项。如果未指定，容器 ID 将用作日志流。
+
 > **Note**
 >
 > 
 >
 > Log streams within a given log group should only be used by one container at a time. Using the same log stream for multiple containers concurrently can cause reduced logging performance.
+>
+> ​	同一日志组内的日志流应仅由一个容器同时使用。多容器同时使用相同的日志流可能会导致日志记录性能下降。
 
 ### awslogs-create-group
 
 Log driver returns an error by default if the log group doesn't exist. However, you can set the `awslogs-create-group` to `true` to automatically create the log group as needed. The `awslogs-create-group` option defaults to `false`.
+
+​	默认情况下，如果日志组不存在，日志驱动会返回错误。可以将 `wslogs-create-group` 设置为 `true`，以在需要时自动创建日志组。`awslogs-create-group` 选项默认值为 `false`。
 
 
 
@@ -117,14 +144,22 @@ $ docker run \
 > 
 >
 > Your AWS IAM policy must include the `logs:CreateLogGroup` permission before you attempt to use `awslogs-create-group`.
+>
+> ​	您的 AWS IAM 策略必须包含 `logs:CreateLogGroup` 权限，才能使用 `awslogs-create-group`。
 
 ### awslogs-create-stream
 
 By default, the log driver creates the AWS CloudWatch Logs stream used for container log persistence.
 
+​	默认情况下，日志驱动会创建用于容器日志持久化的 AWS CloudWatch Logs 日志流。
+
 Set `awslogs-create-stream` to `false` to disable log stream creation. When disabled, the Docker daemon assumes the log stream already exists. A use case where this is beneficial is when log stream creation is handled by another process avoiding redundant AWS CloudWatch Logs API calls.
 
+​	将 `awslogs-create-stream` 设置为 `false` 可以禁用日志流创建。禁用时，Docker 守护进程假设日志流已存在。这在日志流创建由其他进程处理以避免重复的 AWS CloudWatch Logs API 调用的情况下很有用。
+
 If `awslogs-create-stream` is set to `false` and the log stream does not exist, log persistence to CloudWatch fails during container runtime, resulting in `Failed to put log events` error messages in daemon logs.
+
+​	如果 `awslogs-create-stream` 设置为 `false` 且日志流不存在，则在容器运行时日志无法持久化到 CloudWatch，导致守护进程日志中出现 `Failed to put log events` 错误消息。
 
 
 
@@ -142,17 +177,27 @@ $ docker run \
 
 The `awslogs-datetime-format` option defines a multi-line start pattern in [Python `strftime` format](https://strftime.org/). A log message consists of a line that matches the pattern and any following lines that don't match the pattern. Thus the matched line is the delimiter between log messages.
 
+​	`awslogs-datetime-format` 选项使用 [Python `strftime` 格式](https://strftime.org/) 定义多行起始模式。日志消息由匹配模式的行和随后不匹配模式的行组成。因此，匹配行是日志消息之间的分隔符。
+
 One example of a use case for using this format is for parsing output such as a stack dump, which might otherwise be logged in multiple entries. The correct pattern allows it to be captured in a single entry.
 
+​	一个使用该格式的示例用例是解析堆栈转储等输出，这可能会以多个条目记录下来。正确的模式可将其捕获为单个条目。
+
 This option always takes precedence if both `awslogs-datetime-format` and `awslogs-multiline-pattern` are configured.
+
+​	如果同时配置了 `awslogs-datetime-format` 和 `awslogs-multiline-pattern`，则此选项始终优先。
 
 > **Note**
 >
 > 
 >
 > Multi-line logging performs regular expression parsing and matching of all log messages, which may have a negative impact on logging performance.
+>
+> ​	多行日志记录会对所有日志消息进行正则表达式解析和匹配，可能会对日志记录性能产生负面影响。
 
 Consider the following log stream, where new log messages start with a timestamp:
+
+​	考虑以下日志流，其中新日志消息以时间戳开始：
 
 
 
