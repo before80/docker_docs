@@ -1,69 +1,114 @@
 +++
-title = "Manage sensitive data with Docker secrets"
+title = "使用 Docker Secrets 管理敏感数据"
 date = 2024-10-23T14:54:40+08:00
 weight = 80
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 > 原文：[https://docs.docker.com/engine/swarm/secrets/](https://docs.docker.com/engine/swarm/secrets/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
-# Manage sensitive data with Docker secrets
+# Manage sensitive data with Docker secrets - 使用 Docker Secrets 管理敏感数据
 
-## About secrets
+## 关于 Secrets - About secrets
 
 In terms of Docker Swarm services, a *secret* is a blob of data, such as a password, SSH private key, SSL certificate, or another piece of data that should not be transmitted over a network or stored unencrypted in a Dockerfile or in your application's source code. You can use Docker *secrets* to centrally manage this data and securely transmit it to only those containers that need access to it. Secrets are encrypted during transit and at rest in a Docker swarm. A given secret is only accessible to those services which have been granted explicit access to it, and only while those service tasks are running.
 
+​	在 Docker Swarm 服务中，*secret* 是一段数据，例如密码、SSH 私钥、SSL 证书，或其他不应通过网络传输或在 Dockerfile 或应用程序的源代码中以未加密形式存储的数据。您可以使用 Docker *secrets* 来集中管理这些数据，并将其安全传输到仅需要访问它的容器中。Secrets 在 Docker swarm 中传输和存储时均被加密。只有那些明确获得访问权限的服务才能访问给定的 secret，且只有当这些服务任务正在运行时才可访问。
+
 You can use secrets to manage any sensitive data which a container needs at runtime but you don't want to store in the image or in source control, such as:
 
+​	您可以使用 secrets 管理任何容器在运行时需要但不希望存储在镜像或源代码控制中的敏感数据，例如：
+
 - Usernames and passwords
+  - 用户名和密码
+
 - TLS certificates and keys
+  - TLS 证书和密钥
+
 - SSH keys
+  - SSH 密钥
+
 - Other important data such as the name of a database or internal server
+  - 其他重要数据，如数据库名称或内部服务器地址
+
 - Generic strings or binary content (up to 500 kb in size)
+  - 通用字符串或二进制内容（最大 500 KB）
 
 > **Note**
 >
 > 
 >
 > Docker secrets are only available to swarm services, not to standalone containers. To use this feature, consider adapting your container to run as a service. Stateful containers can typically run with a scale of 1 without changing the container code.
+>
+> ​	Docker secrets 仅适用于 Swarm 服务，不适用于独立容器。要使用此功能，可以考虑将容器配置为以服务形式运行。状态容器通常可以在不更改容器代码的情况下以 1 的规模运行。
 
 Another use case for using secrets is to provide a layer of abstraction between the container and a set of credentials. Consider a scenario where you have separate development, test, and production environments for your application. Each of these environments can have different credentials, stored in the development, test, and production swarms with the same secret name. Your containers only need to know the name of the secret to function in all three environments.
 
+​	另一种使用 secrets 的情况是为容器和一组凭据之间提供抽象层。例如，您的应用程序拥有不同的开发、测试和生产环境。每个环境可以在开发、测试和生产 Swarm 中存储具有相同 secret 名称的不同凭据。容器只需要知道 secret 的名称即可在所有三个环境中正常工作。
+
 You can also use secrets to manage non-sensitive data, such as configuration files. However, Docker supports the use of [configs]({{< ref "/manuals/DockerEngine/Swarmmode/StoreconfigurationdatausingDockerConfigs" >}}) for storing non-sensitive data. Configs are mounted into the container's filesystem directly, without the use of a RAM disk.
 
-### Windows support
+​	您还可以使用 secrets 管理非敏感数据，如配置文件。不过，Docker 支持使用 [configs]({{< ref "/manuals/DockerEngine/Swarmmode/StoreconfigurationdatausingDockerConfigs" >}}) 来存储非敏感数据。Configs 会直接挂载到容器的文件系统中，无需使用 RAM 磁盘。
+
+### Windows 支持 Windows support
 
 Docker includes support for secrets on Windows containers. Where there are differences in the implementations, they are called out in the examples below. Keep the following notable differences in mind:
 
-- Microsoft Windows has no built-in driver for managing RAM disks, so within running Windows containers, secrets are persisted in clear text to the container's root disk. However, the secrets are explicitly removed when a container stops. In addition, Windows does not support persisting a running container as an image using `docker commit` or similar commands.
-- On Windows, we recommend enabling [BitLocker](https://technet.microsoft.com/en-us/library/cc732774(v=ws.11).aspx) on the volume containing the Docker root directory on the host machine to ensure that secrets for running containers are encrypted at rest.
-- Secret files with custom targets are not directly bind-mounted into Windows containers, since Windows does not support non-directory file bind-mounts. Instead, secrets for a container are all mounted in `C:\ProgramData\Docker\internal\secrets` (an implementation detail which should not be relied upon by applications) within the container. Symbolic links are used to point from there to the desired target of the secret within the container. The default target is `C:\ProgramData\Docker\secrets`.
-- When creating a service which uses Windows containers, the options to specify UID, GID, and mode are not supported for secrets. Secrets are currently only accessible by administrators and users with `system` access within the container.
+​	Docker 包含对 Windows 容器中 secrets 的支持。实现上的差异在以下方面被标注出来，需注意以下重要差异：
 
-## How Docker manages secrets
+- Microsoft Windows has no built-in driver for managing RAM disks, so within running Windows containers, secrets are persisted in clear text to the container's root disk. However, the secrets are explicitly removed when a container stops. In addition, Windows does not support persisting a running container as an image using `docker commit` or similar commands.
+  - Microsoft Windows 没有内置的 RAM 磁盘驱动程序，因此在 Windows 容器中运行时，secrets 将以明文形式持久保存到容器的根磁盘。不过，容器停止时会显式删除这些 secrets。此外，Windows 不支持使用 `docker commit` 或类似命令将正在运行的容器保存为镜像。
+
+- On Windows, we recommend enabling [BitLocker](https://technet.microsoft.com/en-us/library/cc732774(v=ws.11).aspx) on the volume containing the Docker root directory on the host machine to ensure that secrets for running containers are encrypted at rest.
+  - 在 Windows 上，建议在主机上的 Docker 根目录所在的卷上启用 [BitLocker](https://technet.microsoft.com/en-us/library/cc732774(v=ws.11).aspx) 以确保运行中的容器的 secrets 在静态时加密。
+
+- Secret files with custom targets are not directly bind-mounted into Windows containers, since Windows does not support non-directory file bind-mounts. Instead, secrets for a container are all mounted in `C:\ProgramData\Docker\internal\secrets` (an implementation detail which should not be relied upon by applications) within the container. Symbolic links are used to point from there to the desired target of the secret within the container. The default target is `C:\ProgramData\Docker\secrets`.
+  - 自定义目标的 secret 文件不会直接绑定挂载到 Windows 容器中，因为 Windows 不支持非目录文件绑定挂载。相反，容器的所有 secrets 都挂载到 `C:\ProgramData\Docker\internal\secrets` 中（应用程序不应依赖此实现细节）。符号链接用于指向容器内的 secrets 目标。默认目标为 `C:\ProgramData\Docker\secrets`。
+
+- When creating a service which uses Windows containers, the options to specify UID, GID, and mode are not supported for secrets. Secrets are currently only accessible by administrators and users with `system` access within the container.
+  - 创建使用 Windows 容器的服务时，不支持为 secrets 指定 UID、GID 和模式。当前仅管理员和具有 `system` 访问权限的用户可以在容器内访问 secrets。
+
+## Docker 如何管理 Secrets - How Docker manages secrets
 
 When you add a secret to the swarm, Docker sends the secret to the swarm manager over a mutual TLS connection. The secret is stored in the Raft log, which is encrypted. The entire Raft log is replicated across the other managers, ensuring the same high availability guarantees for secrets as for the rest of the swarm management data.
 
+​	当您将 secret 添加到 Swarm 时，Docker 通过互相的 TLS 连接将 secret 发送到 Swarm 管理器。Secret 存储在加密的 Raft 日志中。整个 Raft 日志在其他管理器之间复制，从而保证与 Swarm 管理数据相同的高可用性。
+
 When you grant a newly-created or running service access to a secret, the decrypted secret is mounted into the container in an in-memory filesystem. The location of the mount point within the container defaults to `/run/secrets/<secret_name>` in Linux containers, or `C:\ProgramData\Docker\secrets` in Windows containers. You can also specify a custom location.
+
+​	当您授予新创建或正在运行的服务访问某个 secret 的权限时，该解密后的 secret 将挂载到容器中的内存文件系统中。在 Linux 容器中，挂载点的位置默认位于 `/run/secrets/<secret_name>`，在 Windows 容器中位于 `C:\ProgramData\Docker\secrets`。您也可以指定自定义位置。
 
 You can update a service to grant it access to additional secrets or revoke its access to a given secret at any time.
 
+​	可以随时更新服务以授予其对其他 secrets 的访问权限或撤销其对某个 secret 的访问。
+
 A node only has access to (encrypted) secrets if the node is a swarm manager or if it is running service tasks which have been granted access to the secret. When a container task stops running, the decrypted secrets shared to it are unmounted from the in-memory filesystem for that container and flushed from the node's memory.
+
+​	只有当节点是 Swarm 管理器或正在运行获得访问权限的服务任务时，该节点才能访问（加密的）secrets。当容器任务停止运行时，分配给它的解密 secret 会从该容器的内存文件系统中卸载，并从节点内存中清除。
 
 If a node loses connectivity to the swarm while it is running a task container with access to a secret, the task container still has access to its secrets, but cannot receive updates until the node reconnects to the swarm.
 
+​	如果节点在运行具有 secret 访问权限的任务容器时与 Swarm 失去连接，任务容器仍可访问其 secrets，但在节点重新连接到 Swarm 之前无法接收更新。
+
 You can add or inspect an individual secret at any time, or list all secrets. You cannot remove a secret that a running service is using. See [Rotate a secret](https://docs.docker.com/engine/swarm/secrets/#example-rotate-a-secret) for a way to remove a secret without disrupting running services.
+
+​	您可以随时添加或检查单个 secret，或列出所有 secrets。但不能删除正在运行的服务使用的 secret。查看 [轮换 secret](https://docs.docker.com/engine/swarm/secrets/#example-rotate-a-secret) 以了解如何在不中断正在运行的服务的情况下删除 secret。
 
 To update or roll back secrets more easily, consider adding a version number or date to the secret name. This is made easier by the ability to control the mount point of the secret within a given container.
 
-## Read more about `docker secret` commands
+​	为便于更新或回滚 secrets，建议在 secret 名称中添加版本号或日期。通过控制 secret 在特定容器内的挂载点可以更容易地实现此操作。
+
+## 了解更多 `docker secret` 命令 Read more about `docker secret` commands
 
 Use these links to read about specific commands, or continue to the [example about using secrets with a service](https://docs.docker.com/engine/swarm/secrets/#simple-example-get-started-with-secrets).
+
+​	使用以下链接了解特定命令，或继续查看[使用服务的 secrets 示例](https://docs.docker.com/engine/swarm/secrets/#simple-example-get-started-with-secrets)。
 
 - [`docker secret create`]({{< ref "/reference/CLIreference/docker/dockersecret/dockersecretcreate" >}})
 - [`docker secret inspect`]({{< ref "/reference/CLIreference/docker/dockersecret/dockersecretinspect" >}})
@@ -72,27 +117,35 @@ Use these links to read about specific commands, or continue to the [example abo
 - [`--secret`](https://docs.docker.com/reference/cli/docker/service/create/#secret) flag for `docker service create`
 - [`--secret-add` and `--secret-rm`](https://docs.docker.com/reference/cli/docker/service/update/#secret-add) flags for `docker service update`
 
-## Examples
+## 示例 Examples
 
 This section includes three graduated examples which illustrate how to use Docker secrets. The images used in these examples have been updated to make it easier to use Docker secrets. To find out how to modify your own images in a similar way, see [Build support for Docker Secrets into your images](https://docs.docker.com/engine/swarm/secrets/#build-support-for-docker-secrets-into-your-images).
+
+​	此部分包含三个分级示例，展示了如何使用 Docker secrets。示例中使用的镜像已更新，使得更容易使用 Docker secrets。要了解如何以类似方式修改您自己的镜像，请参阅 [在镜像中构建 Docker Secrets 支持](https://docs.docker.com/engine/swarm/secrets/#build-support-for-docker-secrets-into-your-images)。
 
 > **Note**
 >
 > 
 >
 > These examples use a single-Engine swarm and unscaled services for simplicity. The examples use Linux containers, but Windows containers also support secrets. See [Windows support](https://docs.docker.com/engine/swarm/secrets/#windows-support).
+>
+> ​	这些示例为简单起见使用单引擎 Swarm 和未扩展的服务。示例使用 Linux 容器，但 Windows 容器同样支持 secrets。请参阅 [Windows 支持](https://docs.docker.com/engine/swarm/secrets/#windows-support)。
 
-### Defining and using secrets in compose files
+### 在 Compose 文件中定义和使用 Secrets - Defining and using secrets in compose files
 
 Both the `docker-compose` and `docker stack` commands support defining secrets in a compose file. See [the Compose file reference]({{< ref "/reference/Composefilereference/Legacyversions" >}}) for details.
 
-### Simple example: Get started with secrets
+​	`docker-compose` 和 `docker stack` 命令均支持在 compose 文件中定义 secrets。详见 [Compose 文件参考]({{< ref "/reference/Composefilereference/Legacyversions" >}})。
+
+### 简单示例：开始使用 secrets - Simple example: Get started with secrets
 
 This simple example shows how secrets work in just a few commands. For a real-world example, continue to [Intermediate example: Use secrets with a Nginx service](https://docs.docker.com/engine/swarm/secrets/#intermediate-example-use-secrets-with-a-nginx-service).
 
+​	此简单示例展示了仅需几个命令即可使用 secrets。若要查看真实案例，请继续查看[中级示例：将 secrets 与 Nginx 服务一起使用](https://docs.docker.com/engine/swarm/secrets/#intermediate-example-use-secrets-with-a-nginx-service)。
+
 1. Add a secret to Docker. The `docker secret create` command reads standard input because the last argument, which represents the file to read the secret from, is set to `-`.
 
-   
+   向 Docker 添加一个 secret。`docker secret create` 命令读取标准输入，因为最后一个参数（表示要从中读取 secret 的文件）设置为 `-`。
 
    ```console
    $ printf "This is a secret" | docker secret create my_secret_data -
@@ -100,7 +153,7 @@ This simple example shows how secrets work in just a few commands. For a real-wo
 
 2. Create a `redis` service and grant it access to the secret. By default, the container can access the secret at `/run/secrets/<secret_name>`, but you can customize the file name on the container using the `target` option.
 
-   
+   创建一个 `redis` 服务并授予其访问该 secret 的权限。默认情况下，容器可以在 `/run/secrets/<secret_name>` 访问该 secret，但您可以使用 `target` 选项自定义容器中的文件名。
 
    ```console
    $ docker service  create --name redis --secret my_secret_data redis:alpine
@@ -108,7 +161,7 @@ This simple example shows how secrets work in just a few commands. For a real-wo
 
 3. Verify that the task is running without issues using `docker service ps`. If everything is working, the output looks similar to this:
 
-   
+   使用 `docker service ps` 验证任务是否正常运行。如果一切正常，输出类似如下：
 
    ```console
    $ docker service ps redis
@@ -119,7 +172,7 @@ This simple example shows how secrets work in just a few commands. For a real-wo
 
    If there were an error, and the task were failing and repeatedly restarting, you would see something like this:
 
-   
+   如果有错误且任务失败并反复重启，则会看到如下内容：
 
    ```console
    $ docker service ps redis
@@ -134,7 +187,7 @@ This simple example shows how secrets work in just a few commands. For a real-wo
 
 4. Get the ID of the `redis` service task container using `docker ps` , so that you can use `docker container exec` to connect to the container and read the contents of the secret data file, which defaults to being readable by all and has the same name as the name of the secret. The first command below illustrates how to find the container ID, and the second and third commands use shell completion to do this automatically.
 
-   
+   使用 `docker ps` 获取 `redis` 服务任务容器的 ID，以便使用 `docker container exec` 连接到容器并读取 secret 数据文件的内容，该文件默认对所有人可读，且名称与 secret 名称相同。以下命令演示如何查找容器 ID，第二和第三个命令通过 shell 完成此操作。
 
    ```console
    $ docker ps --filter name=redis -q
@@ -153,7 +206,7 @@ This simple example shows how secrets work in just a few commands. For a real-wo
 
 5. Verify that the secret is not available if you commit the container.
 
-   
+   验证 secret 在提交容器后不可用。
 
    ```console
    $ docker commit $(docker ps --filter name=redis -q) committed_redis
@@ -165,7 +218,7 @@ This simple example shows how secrets work in just a few commands. For a real-wo
 
 6. Try removing the secret. The removal fails because the `redis` service is running and has access to the secret.
 
-   
+   尝试删除 secret。删除失败，因为 `redis` 服务正在运行并具有该 secret 的访问权限。
 
    ```console
    $ docker secret ls
@@ -182,7 +235,7 @@ This simple example shows how secrets work in just a few commands. For a real-wo
 
 7. Remove access to the secret from the running `redis` service by updating the service.
 
-   
+   通过更新服务，从运行的 `redis` 服务中删除该 secret 的访问权限。
 
    ```console
    $ docker service update --secret-rm my_secret_data redis
@@ -190,7 +243,7 @@ This simple example shows how secrets work in just a few commands. For a real-wo
 
 8. Repeat steps 3 and 4 again, verifying that the service no longer has access to the secret. The container ID is different, because the `service update` command redeploys the service.
 
-   
+   再次重复步骤 3 和 4，验证该服务不再具有对 secret 的访问权限。容器 ID 不同，因为 `service update` 命令重新部署了该服务。
 
    ```console
    $ docker container exec -it $(docker ps --filter name=redis -q) cat /run/secrets/my_secret_data
@@ -200,7 +253,7 @@ This simple example shows how secrets work in just a few commands. For a real-wo
 
 9. Stop and remove the service, and remove the secret from Docker.
 
-   
+   停止并删除服务，然后从 Docker 中删除该 secret。
 
    ```console
    $ docker service rm redis
@@ -208,15 +261,19 @@ This simple example shows how secrets work in just a few commands. For a real-wo
    $ docker secret rm my_secret_data
    ```
 
-### Simple example: Use secrets in a Windows service
+### 简单示例：在 Windows 服务中使用 secrets - Simple example: Use secrets in a Windows service
 
 This is a very simple example which shows how to use secrets with a Microsoft IIS service running on Docker for Windows running Windows containers on Microsoft Windows 10. It is a naive example that stores the webpage in a secret.
 
+​	这是一个展示如何在 Windows 容器中运行的 Microsoft IIS 服务中使用 secrets 的简单示例。此示例将网页内容存储在一个 secret 中。
+
 This example assumes that you have PowerShell installed.
+
+​	此示例假设您已安装 PowerShell。
 
 1. Save the following into a new file `index.html`.
 
-   
+   将以下内容保存为一个新文件 `index.html`。
 
    ```html
    <html lang="en">
@@ -229,7 +286,7 @@ This example assumes that you have PowerShell installed.
 
 2. If you have not already done so, initialize or join the swarm.
 
-   
+   如果尚未这样做，初始化或加入 swarm。
 
    ```console
    > docker swarm init
@@ -237,7 +294,7 @@ This example assumes that you have PowerShell installed.
 
 3. Save the `index.html` file as a swarm secret named `homepage`.
 
-   
+   将 `index.html` 文件保存为名为 `homepage` 的 swarm secret。
 
    ```console
    > docker secret create homepage index.html
@@ -245,7 +302,7 @@ This example assumes that you have PowerShell installed.
 
 4. Create an IIS service and grant it access to the `homepage` secret.
 
-   
+   创建一个 IIS 服务并授予其访问 `homepage` secret 的权限。
 
    ```console
    > docker service create `
@@ -260,12 +317,14 @@ This example assumes that you have PowerShell installed.
    > 
    >
    > There is technically no reason to use secrets for this example; [configs]({{< ref "/manuals/DockerEngine/Swarmmode/StoreconfigurationdatausingDockerConfigs" >}}) are a better fit. This example is for illustration only.
+   >
+   > ​	从技术上讲，此示例没有必要使用 secrets；[configs]({{< ref "/manuals/DockerEngine/Swarmmode/StoreconfigurationdatausingDockerConfigs" >}}) 更适合该用途。此示例仅用于说明。
 
-5. Access the IIS service at `http://localhost:8000/`. It should serve the HTML content from the first step.
+5. Access the IIS service at `http://localhost:8000/`. It should serve the HTML content from the first step. 访问 `http://localhost:8000/` 上的 IIS 服务。它应显示第一步的 HTML 内容。
 
 6. Remove the service and the secret.
 
-   
+   删除服务和 secret。
 
    ```console
    > docker service rm my-iis
