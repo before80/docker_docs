@@ -211,6 +211,8 @@ with some random words
 
 The format can be expressed as a `strftime` expression of `[%b %d, %Y %H:%M:%S]`, and the `awslogs-datetime-format` value can be set to that expression:
 
+​	格式可以用 `strftime` 表达式 `[%b %d, %Y %H:%M:%S]` 表示，并将 `awslogs-datetime-format` 值设置为该表达式：
+
 
 
 ```console
@@ -223,6 +225,8 @@ $ docker run \
 ```
 
 This parses the logs into the following CloudWatch log events:
+
+​	这会将日志解析为以下 CloudWatch 日志事件：
 
 
 
@@ -241,41 +245,51 @@ with some random words
 
 The following `strftime` codes are supported:
 
+​	支持的 `strftime` 代码如下：
+
 | Code | Meaning                                                      | Example  |
 | :--- | :----------------------------------------------------------- | :------- |
-| `%a` | Weekday abbreviated name.                                    | Mon      |
-| `%A` | Weekday full name.                                           | Monday   |
-| `%w` | Weekday as a decimal number where 0 is Sunday and 6 is Saturday. | 0        |
-| `%d` | Day of the month as a zero-padded decimal number.            | 08       |
-| `%b` | Month abbreviated name.                                      | Feb      |
-| `%B` | Month full name.                                             | February |
-| `%m` | Month as a zero-padded decimal number.                       | 02       |
-| `%Y` | Year with century as a decimal number.                       | 2008     |
-| `%y` | Year without century as a zero-padded decimal number.        | 08       |
-| `%H` | Hour (24-hour clock) as a zero-padded decimal number.        | 19       |
-| `%I` | Hour (12-hour clock) as a zero-padded decimal number.        | 07       |
-| `%p` | AM or PM.                                                    | AM       |
-| `%M` | Minute as a zero-padded decimal number.                      | 57       |
-| `%S` | Second as a zero-padded decimal number.                      | 04       |
-| `%L` | Milliseconds as a zero-padded decimal number.                | .123     |
-| `%f` | Microseconds as a zero-padded decimal number.                | 000345   |
-| `%z` | UTC offset in the form +HHMM or -HHMM.                       | +1300    |
-| `%Z` | Time zone name.                                              | PST      |
-| `%j` | Day of the year as a zero-padded decimal number.             | 363      |
+| `%a` | 星期缩写名。Weekday abbreviated name.                        | Mon      |
+| `%A` | 星期全称。Weekday full name.                                 | Monday   |
+| `%w` | 星期作为十进制数，0 表示星期日，6 表示星期六。Weekday as a decimal number where 0 is Sunday and 6 is Saturday. | 0        |
+| `%d` | 日期（以零填充的十进制数）。Day of the month as a zero-padded decimal number. | 08       |
+| `%b` | 月份缩写名。Month abbreviated name.                          | Feb      |
+| `%B` | 月份全称。Month full name.                                   | February |
+| `%m` | 月份（以零填充的十进制数）。Month as a zero-padded decimal number. | 02       |
+| `%Y` | 带世纪的年份。Year with century as a decimal number.         | 2008     |
+| `%y` | 无世纪的年份（以零填充）。Year without century as a zero-padded decimal number. | 08       |
+| `%H` | 小时（24 小时制，以零填充）。Hour (24-hour clock) as a zero-padded decimal number. | 19       |
+| `%I` | 小时（12 小时制，以零填充）。Hour (12-hour clock) as a zero-padded decimal number. | 07       |
+| `%p` | 上午或下午。AM or PM.                                        | AM       |
+| `%M` | 分钟（以零填充）。Minute as a zero-padded decimal number.    | 57       |
+| `%S` | 秒数（以零填充）。Second as a zero-padded decimal number.    | 04       |
+| `%L` | 毫秒（以零填充）。Milliseconds as a zero-padded decimal number. | .123     |
+| `%f` | 微秒（以零填充）。Microseconds as a zero-padded decimal number. | 000345   |
+| `%z` | UTC 偏移量（格式为 +HHMM 或 -HHMM）。UTC offset in the form +HHMM or -HHMM. | +1300    |
+| `%Z` | 时区名称。Time zone name.                                    | PST      |
+| `%j` | 一年中的第几天（以零填充）。Day of the year as a zero-padded decimal number. | 363      |
 
 ### awslogs-multiline-pattern
 
 The `awslogs-multiline-pattern` option defines a multi-line start pattern using a regular expression. A log message consists of a line that matches the pattern and any following lines that don't match the pattern. Thus the matched line is the delimiter between log messages.
 
+​	`awslogs-multiline-pattern` 选项使用正则表达式定义多行起始模式。日志消息由匹配该模式的行和随后的不匹配行组成。匹配行为日志消息的分隔符。
+
 This option is ignored if `awslogs-datetime-format` is also configured.
+
+​	如果配置了 `awslogs-datetime-format`，则忽略此选项。
 
 > **Note**
 >
 > 
 >
 > Multi-line logging performs regular expression parsing and matching of all log messages. This may have a negative impact on logging performance.
+>
+> ​	多行日志记录会对所有日志消息进行正则表达式解析和匹配，这可能会对日志性能产生负面影响。
 
 Consider the following log stream, where each log message should start with the pattern `INFO`:
+
+​	考虑以下日志流，其中每条日志消息应以 `INFO` 开头：
 
 
 
@@ -287,6 +301,8 @@ INFO Another message was logged
 ```
 
 You can use the regular expression of `^INFO`:
+
+​	可以使用正则表达式 `^INFO`：
 
 
 
@@ -300,6 +316,8 @@ $ docker run \
 ```
 
 This parses the logs into the following CloudWatch log events:
+
+​	这将日志解析为以下 CloudWatch 日志事件：
 
 
 
@@ -319,15 +337,23 @@ INFO Another message was logged
 
 Specify `tag` as an alternative to the `awslogs-stream` option. `tag` interprets Go template markup, such as `{{.ID}}`, `{{.FullID}}` or `{{.Name}}` `docker.{{.ID}}`. See the [tag option documentation]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}}) for details on supported template substitutions.
 
+​	可以使用 `tag` 作为 `awslogs-stream` 选项的替代方法。`tag` 支持 Go 模板标记，例如 `{{.ID}}`、`{{.FullID}}` 或 `{{.Name}}`。详细信息请参阅 [标签选项文档]({{< ref "/manuals/DockerEngine/Logsandmetrics/Customizelogdriveroutput" >}})。
+
 When both `awslogs-stream` and `tag` are specified, the value supplied for `awslogs-stream` overrides the template specified with `tag`.
 
+​	当同时指定了 `awslogs-stream` 和 `tag` 时，`awslogs-stream` 的值会覆盖 `tag` 指定的模板。
+
 If not specified, the container ID is used as the log stream.
+
+​	如果未指定，容器 ID 将用作日志流。
 
 > **Note**
 >
 > 
 >
 > The CloudWatch log API doesn't support `:` in the log name. This can cause some issues when using the `{{ .ImageName }}` as a tag, since a Docker image has a format of `IMAGE:TAG`, such as `alpine:latest`. Template markup can be used to get the proper format. To get the image name and the first 12 characters of the container ID, you can use:
+>
+> ​	CloudWatch 日志 API 不支持在日志名称中使用 `:`。当使用 `{{ .ImageName }}` 作为标签时，可能会遇到问题，因为 Docker 镜像的格式为 `IMAGE:TAG`（例如 `alpine:latest`）。可以使用模板标记来格式化。例如，获取镜像名称和容器 ID 的前 12 个字符：
 >
 > 
 >
@@ -336,28 +362,38 @@ If not specified, the container ID is used as the log stream.
 > ```
 >
 > the output is something like: `alpine_latest-bf0072049c76`
+>
+> ​	输出格式类似于：`alpine_latest-bf0072049c76`
 
 ### awslogs-force-flush-interval-seconds
 
 The `awslogs` driver periodically flushes logs to CloudWatch.
 
-The `awslogs-force-flush-interval-seconds` option changes log flush interval seconds.
+​	`awslogs` 驱动会定期将日志刷新到 CloudWatch。
 
-Default is 5 seconds.
+The `awslogs-force-flush-interval-seconds` option changes log flush interval seconds. Default is 5 seconds.
+
+​	`awslogs-force-flush-interval-seconds` 选项可更改日志刷新间隔，默认值为 5 秒。
 
 ### awslogs-max-buffered-events
 
 The `awslogs` driver buffers logs.
 
-The `awslogs-max-buffered-events` option changes log buffer size.
+​	`awslogs` 驱动会缓存日志。
 
-Default is 4K.
+The `awslogs-max-buffered-events` option changes log buffer size. Default is 4K.
 
-## Credentials
+​	`awslogs-max-buffered-events` 选项可更改日志缓冲区大小，默认值为 4K。
+
+## 凭证 Credentials
 
 You must provide AWS credentials to the Docker daemon to use the `awslogs` logging driver. You can provide these credentials with the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_SESSION_TOKEN` environment variables, the default AWS shared credentials file (`~/.aws/credentials` of the root user), or if you are running the Docker daemon on an Amazon EC2 instance, the Amazon EC2 instance profile.
 
+​	必须向 Docker 守护进程提供 AWS 凭证才能使用 `awslogs` 日志驱动。可以通过环境变量 `AWS_ACCESS_KEY_ID`、`AWS_SECRET_ACCESS_KEY` 和 `AWS_SESSION_TOKEN`，默认的 AWS 共享凭证文件（根用户的 `~/.aws/credentials`），或 Amazon EC2 实例上的 EC2 实例配置文件来提供这些凭证。
+
 Credentials must have a policy applied that allows the `logs:CreateLogStream` and `logs:PutLogEvents` actions, as shown in the following example.
+
+​	凭证必须有允许执行 `logs:CreateLogStream` 和 `logs:PutLogEvents` 操作的策略，如以下示例所示。
 
 
 
