@@ -1,5 +1,5 @@
 +++
-title = "Specify a project name"
+title = "指定项目名称"
 date = 2024-10-23T14:54:40+08:00
 weight = 1
 type = "docs"
@@ -50,7 +50,7 @@ Compose uses a project name to isolate environments from each other. There are m
 
 Project names must contain only lowercase letters, decimal digits, dashes, and underscores, and must begin with a lowercase letter or decimal digit. If the base name of the project directory or current directory violates this constraint, alternative mechanisms are available.
 
-​	项目名称只能包含小写字母、数字、短横线和下划线，并且必须以小写字母或数字开头。如果项目目录的基本名称或当前目录不符合此约束，则可以使用其他方法。
+xxxxxxxxxx5 1services:2  app:3    image: backend4    pre_stop:5      - command: ./data_flush.shyaml
 
 The precedence order for each method, from highest to lowest, is as follows:
 

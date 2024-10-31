@@ -95,7 +95,7 @@ Multiple profiles can be specified by passing multiple `--profile` flags or a co
 
 ​	可以通过传递多个 `--profile` 标志或使用逗号分隔列表为 `COMPOSE_PROFILES` 环境变量指定多个配置文件：
 
-
+xxxxxxxxxx5 1services:2  app:3    image: backend4    pre_stop:5      - command: ./data_flush.shyaml
 
 ```console
 $ docker compose --profile frontend --profile debug up
