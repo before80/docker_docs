@@ -28,7 +28,7 @@ Remove all unused local volumes. Unused local volumes are those which are not re
 | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
 | [`-a, --all`](https://docs.docker.com/reference/cli/docker/volume/prune/#all) |         | API 1.42+ Remove all unused volumes, not just anonymous ones |
 | [`--filter`](https://docs.docker.com/reference/cli/docker/volume/prune/#filter) |         | Provide filter values (e.g. `label=<label>`)                 |
-| `-f, --force`                                                |         | Do not prompt for confirmation                               |
+| xxxxxxxxxx3 1$ docker volume rm hello2​3helloconsole          |         | Do not prompt for confirmation                               |
 
 ## Examples
 

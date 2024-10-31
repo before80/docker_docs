@@ -22,8 +22,10 @@ draft = false
 
 Display detailed information on one or more images
 
+​	显示一个或多个镜像的详细信息
+
 ## Options
 
 | Option         | Default | Description                                                  |
 | -------------- | ------- | ------------------------------------------------------------ |
-| `-f, --format` |         | Format output using a custom template: 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
+| `-f, --format` |         | 使用自定义模板格式化输出： 'json'：以 JSON 格式打印 'TEMPLATE'：使用给定的 Go 模板打印输出。有关使用模板格式化输出的更多信息，请参考 [Docker文档](https://docs.docker.com/go/formatting/)  Format output using a custom template: 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |

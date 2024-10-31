@@ -22,11 +22,13 @@ draft = false
 
 Returns information about a volume. By default, this command renders all results in a JSON array. You can specify an alternate format to execute a given template for each result. Go's [text/template](https://pkg.go.dev/text/template) package describes all the details of the format.
 
+​	返回有关卷的信息。默认情况下，该命令以 JSON 数组格式输出所有结果。您可以指定替代格式来根据给定模板执行输出。Go 的 [text/template](https://pkg.go.dev/text/template) 包描述了格式的所有详细信息。
+
 ## Options
 
 | Option                                                       | Default | Description                                                  |
 | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
-| [`-f, --format`](https://docs.docker.com/reference/cli/docker/volume/inspect/#format) |         | Format output using a custom template: 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
+| [`-f, --format`](https://docs.docker.com/reference/cli/docker/volume/inspect/#format) |         | 使用自定义模板格式化输出：'json'：以 JSON 格式输出 'TEMPLATE'：使用给定的 Go 模板格式输出。请参阅 https://docs.docker.com/go/formatting/ 了解更多关于模板格式化的信息  Format output using a custom template: 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
 
 ## Examples
 
@@ -40,6 +42,8 @@ myvolume
 
 Use the `docker volume inspect` comment to inspect the configuration of the volume:
 
+​	使用 `docker volume inspect` 命令检查卷的配置：
+
 
 
 ```console
@@ -47,6 +51,8 @@ $ docker volume inspect myvolume
 ```
 
 The output is in JSON format, for example:
+
+​	输出为 JSON 格式，例如：
 
 
 
@@ -66,7 +72,9 @@ The output is in JSON format, for example:
 
 ### Format the output (--format)
 
-Use the `--format` flag to format the output using a Go template, for example, to print the `Mountpoint` property:
+Use the `--format` flag to format the output using a Go template, for example, to prt the `Mountpoint` property:
+
+​	使用 `--format` 标志使用 Go 模板格式化输出，例如打印 `Mountpoint` 属性：
 
 
 

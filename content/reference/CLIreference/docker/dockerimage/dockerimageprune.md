@@ -22,19 +22,23 @@ draft = false
 
 Remove all dangling images. If `-a` is specified, also remove all images not referenced by any container.
 
+​	删除所有悬挂的镜像。如果指定了 `-a`，还会删除所有未被任何容器引用的镜像。
+
+
+
 ## Options
 
-| Option                                                       | Default | Description                                      |
-| ------------------------------------------------------------ | ------- | ------------------------------------------------ |
-| `-a, --all`                                                  |         | Remove all unused images, not just dangling ones |
-| [`--filter`](https://docs.docker.com/reference/cli/docker/image/prune/#filter) |         | Provide filter values (e.g. `until=<timestamp>`) |
-| `-f, --force`                                                |         | Do not prompt for confirmation                   |
+| Option                                                       | Default | Description                                                  |
+| ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
+| `-a, --all`                                                  |         | 删除所有未使用的镜像，而不仅仅是悬挂的镜像 Remove all unused images, not just dangling ones |
+| [`--filter`](https://docs.docker.com/reference/cli/docker/image/prune/#filter) |         | 提供过滤值（例如 `until=<timestamp>`） Provide filter values (e.g. `until=<timestamp>`) |
+| `-f, --force`                                                |         | 不提示确认 Do not prompt for confirmation                    |
 
 ## Examples
 
 Example output:
 
-
+​	示例输出：
 
 ```console
 $ docker image prune -a
@@ -73,26 +77,42 @@ Total reclaimed space: 16.43 MB
 
 The filtering flag (`--filter`) format is of "key=value". If there is more than one filter, then pass multiple flags (e.g., `--filter "foo=bar" --filter "bif=baz"`)
 
+​	过滤标志 (`--filter`) 的格式为 "key=value"。如果有多个过滤器，则传递多个标志（例如，`--filter "foo=bar" --filter "bif=baz"`）
+
 The currently supported filters are:
 
+​	当前支持的过滤器包括：
+
 - until (`<timestamp>`) - only remove images created before given timestamp
+  - until (`<timestamp>`) - 仅删除在给定时间戳之前创建的镜像
+
 - label (`label=<key>`, `label=<key>=<value>`, `label!=<key>`, or `label!=<key>=<value>`) - only remove images with (or without, in case `label!=...` is used) the specified labels.
+  - label (`label=<key>`、`label=<key>=<value>`、`label!=<key>` 或 `label!=<key>=<value>`) - 仅删除具有（或不具有，使用 `label!=...` 的情况下）指定标签的镜像。
+
 
 The `until` filter can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time. Supported formats for date formatted time stamps include RFC3339Nano, RFC3339, `2006-01-02T15:04:05`, `2006-01-02T15:04:05.999999999`, `2006-01-02T07:00`, and `2006-01-02`. The local timezone on the daemon will be used if you do not provide either a `Z` or a `+-00:00` timezone offset at the end of the timestamp. When providing Unix timestamps enter seconds[.nanoseconds], where seconds is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds (aka Unix epoch or Unix time), and the optional .nanoseconds field is a fraction of a second no more than nine digits long.
 
+​	`until` 过滤器可以是 Unix 时间戳、日期格式的时间戳，或相对于守护进程机器时间计算的 Go 持续时间字符串（例如 `10m`、`1h30m`）。支持的日期格式的时间戳包括 RFC3339Nano、RFC3339、`2006-01-02T15:04:05`、`2006-01-02T15:04:05.999999999`、`2006-01-02T07:00` 和 `2006-01-02`。如果您没有在时间戳末尾提供 `Z` 或 `+-00:00` 时区偏移，守护进程将使用本地时区。提供 Unix 时间戳时，输入格式为秒[.纳秒]，其中秒是自 1970 年 1 月 1 日（UTC/GMT 午夜）以来经过的秒数，不包括闰秒（即 Unix 纪元或 Unix 时间），可选的 .纳秒字段是最多九位数的秒的一部分。
+
 The `label` filter accepts two formats. One is the `label=...` (`label=<key>` or `label=<key>=<value>`), which removes images with the specified labels. The other format is the `label!=...` (`label!=<key>` or `label!=<key>=<value>`), which removes images without the specified labels.
+
+​	`label` 过滤器接受两种格式。一种是 `label=...`（`label=<key>` 或 `label=<key>=<value>`），用于删除具有指定标签的镜像。另一种格式是 `label!=...`（`label!=<key>` 或 `label!=<key>=<value>`），用于删除没有指定标签的镜像。
 
 > **Note**
 >
-> **Predicting what will be removed**
+> **Predicting what will be removed 预测将被删除的内容**
 >
 > If you are using positive filtering (testing for the existence of a label or that a label has a specific value), you can use `docker image ls` with the same filtering syntax to see which images match your filter.
 >
+> ​	如果您使用正向过滤（测试标签是否存在或标签是否具有特定值），可以使用与相同过滤语法的 `docker image ls` 查看哪些镜像匹配您的过滤器。
+>
 > However, if you are using negative filtering (testing for the absence of a label or that a label doesn't have a specific value), this type of filter doesn't work with `docker image ls` so you cannot easily predict which images will be removed. In addition, the confirmation prompt for `docker image prune` always warns that all dangling images will be removed, even if you are using `--filter`.
+>
+> ​	然而，如果您使用负向过滤（测试标签是否不存在或标签不具有特定值），此类过滤器不适用于 `docker image ls`，因此无法轻松预测哪些镜像将被删除。此外，`docker image prune` 的确认提示始终警告所有悬挂镜像将被删除，即使您使用 `--filter`。
 
 The following removes images created before `2017-01-04T00:00:00`:
 
-
+​	以下命令删除在 `2017-01-04T00:00:00` 之前创建的镜像：
 
 ```console
 $ docker images --format 'table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.CreatedAt}}\t{{.Size}}'
@@ -120,6 +140,8 @@ foo                 latest              2f287ac753da        2017-01-04 13:42:23 
 ```
 
 The following removes images created more than 10 days (`240h`) ago:
+
+​	以下命令删除创建时间超过 10 天（`240h`）的镜像：
 
 
 
@@ -163,13 +185,15 @@ busybox             latest              e02e811dd08f        2 months ago        
 
 The following example removes images with the label `deprecated`:
 
-
+​	以下示例删除带有 `deprecated` 标签的镜像：
 
 ```console
 $ docker image prune --filter="label=deprecated"
 ```
 
 The following example removes images with the label `maintainer` set to `john`:
+
+​	以下示例删除带有 `maintainer` 标签且值为 `john` 的镜像：
 
 
 
@@ -179,6 +203,8 @@ $ docker image prune --filter="label=maintainer=john"
 
 This example removes images which have no `maintainer` label:
 
+​	该示例删除没有 `maintainer` 标签的镜像：
+
 
 
 ```console
@@ -186,6 +212,8 @@ $ docker image prune --filter="label!=maintainer"
 ```
 
 This example removes images which have a maintainer label not set to `john`:
+
+​	该示例删除 `maintainer` 标签值不是 `john` 的镜像：
 
 
 
@@ -196,3 +224,5 @@ $ docker image prune --filter="label!=maintainer=john"
 > **Note**
 >
 > You are prompted for confirmation before the `prune` removes anything, but you are not shown a list of what will potentially be removed. In addition, `docker image ls` doesn't support negative filtering, so it difficult to predict what images will actually be removed.
+>
+> ​	在 `prune` 删除任何内容之前会提示您确认，但不会显示可能被删除的列表。此外，`docker image ls` 不支持负过滤，因此很难预测实际会删除哪些镜像。

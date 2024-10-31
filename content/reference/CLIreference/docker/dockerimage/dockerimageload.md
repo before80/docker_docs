@@ -23,6 +23,8 @@ draft = false
 
 Load an image or repository from a tar archive (even if compressed with gzip, bzip2, xz or zstd) from a file or STDIN. It restores both images and tags.
 
+​	从文件或标准输入中加载一个 tar 归档（即使经过 gzip、bzip2、xz 或 zstd 压缩）。它可以恢复镜像和标签。
+
 ## Options
 
 | Option                                                       | Default | Description                                  |
