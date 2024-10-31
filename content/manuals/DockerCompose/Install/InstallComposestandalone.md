@@ -78,7 +78,7 @@ Follow these instructions if you are running the Docker daemon and client direct
     Start-BitsTransfer -Source "https://github.com/docker/compose/releases/download/v2.29.6/docker-compose-windows-x86_64.exe" -Destination $Env:ProgramFiles\Docker\docker-compose.exe
    ```
 
-   To install a different version of Compose, substitute `v2.29.6` with the version of Compose you want to use.
+   xxxxxxxxxx1 1$ docker info --format '{{range .ClientInfo.Plugins}}{{if eq .Name "compose"}}{{.Path}}{{end}}{{end}}'console
 
    ​	如需安装其他版本的 Compose，将 `v2.29.6` 替换为您要使用的 Compose 版本。
 

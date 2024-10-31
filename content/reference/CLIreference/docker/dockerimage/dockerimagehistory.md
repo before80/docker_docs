@@ -23,6 +23,8 @@ draft = false
 
 Show the history of an image
 
+​	显示镜像的历史记录。
+
 ## Options
 
 | Option                                                       | Default | Description                                                  |

@@ -89,6 +89,3 @@ $ sudo tar -c . | docker import --change "ENV DEBUG=true" - exampleimagedir
 
 Note the `sudo` in this example – you must preserve the ownership of the files (especially root ownership) during the archiving with tar. If you are not root (or the sudo command) when you tar, then the ownerships might not get preserved.
 
-Table of contents
-
-[Description](https://docs.docker.com/reference/cli/docker/image/import/#description)[Options](https://docs.docker.com/reference/cli/docker/image/import/#options)[Examples](https://docs.docker.com/reference/cli/docker/image/import/#examples)[Import from a remote location](https://docs.docker.com/reference/cli/docker/image/import/#import-from-a-remote-location)[Import from a local file](https://docs.docker.com/reference/cli/docker/image/import/#import-from-a-local-file)[Import from a local directory](https://docs.docker.com/reference/cli/docker/image/import/#import-from-a-local-directory)[Import from a local directory with new configurations](https://docs.docker.com/reference/cli/docker/image/import/#import-from-a-local-directory-with-new-configurations)

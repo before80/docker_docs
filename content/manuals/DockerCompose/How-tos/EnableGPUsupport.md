@@ -1,5 +1,5 @@
 +++
-title = "Enable GPU support"
+title = "启用 GPU 支持"
 date = 2024-10-23T14:54:40+08:00
 weight = 80
 type = "docs"
