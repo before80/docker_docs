@@ -12,11 +12,15 @@ draft = false
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
-# Docker Desktop for Windows Edge Release notes
+# Docker Desktop for Windows Edge Release notes - Docker Desktop for Windows Edge 版本说明
 
 This page contains information about Docker Desktop Edge releases. Edge releases give you early access to our newest features. Note that some of the features may be experimental, and some of them may not ever reach the Stable release.
 
+​	此页面包含有关 Docker Desktop Edge 版本的信息。Edge 版本让您能够提前体验我们的最新功能。请注意，某些功能可能是实验性的，可能不会进入稳定版。
+
 For Docker Desktop system requirements, see [What to know before you install](https://docs.docker.com/desktop/install/windows-install/#system-requirements).
+
+​	有关 Docker Desktop 系统要求，请参阅[安装前须知](https://docs.docker.com/desktop/install/windows-install/#system-requirements)。
 
 ## Docker Desktop Community 2.5.4
 
