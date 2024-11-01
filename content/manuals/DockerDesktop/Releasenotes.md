@@ -1,24 +1,31 @@
 +++
-title = "Release notes"
+title = "发布说明"
 date = 2024-10-23T14:54:40+08:00
 weight = 210
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 > 原文：[https://docs.docker.com/desktop/release-notes/](https://docs.docker.com/desktop/release-notes/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
-# Docker Desktop release notes
+# Docker Desktop release notes - Docker Desktop 发布说明
 
 This page contains information about the new features, improvements, known issues, and bug fixes in Docker Desktop releases. For frequently asked questions about Docker Desktop releases, see [FAQs]({{< ref "/manuals/DockerDesktop/FAQs/Releases" >}}).
 
+​	本页面包含 Docker Desktop 版本中的新功能、改进、已知问题和错误修复信息。有关 Docker Desktop 发布的常见问题解答，请参阅 [FAQs]({{< ref "/manuals/DockerDesktop/FAQs/Releases" >}})。
+
 Docker Desktop versions older than 6 months from the latest release are not available for download.
 
+​	距最新发布版本超过 6 个月的 Docker Desktop 版本无法下载。
+
 Take a look at the [Docker Public Roadmap](https://github.com/orgs/docker/projects/51/views/1?filterQuery=) to see what's coming next.
+
+​	查看 [Docker 公共路线图](https://github.com/orgs/docker/projects/51/views/1?filterQuery=) 以了解接下来的计划。
 
 ## 4.34.3
 
