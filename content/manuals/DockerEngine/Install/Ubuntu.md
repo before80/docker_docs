@@ -31,8 +31,8 @@ To get started with Docker Engine on Ubuntu, make sure you [meet the prerequisit
 >
 > ​	在安装 Docker 之前，请确保您了解以下安全影响和防火墙不兼容性。
 
-- If you use ufw or firewalld to manage firewall settings, be aware that when you expose container ports using Docker, these ports bypass your firewall rules. For more information, refer to [Docker and ufw](https://docs.docker.com/engine/network/packet-filtering-firewalls/#docker-and-ufw).
-  - 如果您使用 ufw 或 firewalld 来管理防火墙设置，请注意，当您使用 Docker 暴露容器端口时，这些端口会绕过您的防火墙规则。有关更多信息，请参阅 [Docker 和 ufw](https://docs.docker.com/engine/network/packet-filtering-firewalls/#docker-and-ufw)。
+- If you use ufw or firewalld to manage firewall settings, be aware that when you expose container ports using Docker, these ports bypass your firewall rules. For more information, refer to [Docker and ufw]({{< ref "/manuals/DockerEngine/Networking/Packetfilteringandfirewalls#docker-and-ufw">}}).
+  - 如果您使用 ufw 或 firewalld 来管理防火墙设置，请注意，当您使用 Docker 暴露容器端口时，这些端口会绕过您的防火墙规则。有关更多信息，请参阅 [Docker 和 ufw]({{< ref "/manuals/DockerEngine/Networking/Packetfilteringandfirewalls#docker-and-ufw">}})。
 
 - Docker is only compatible with `iptables-nft` and `iptables-legacy`. Firewall rules created with `nft` are not supported on a system with Docker installed. Make sure that any firewall rulesets you use are created with `iptables` or `ip6tables`, and that you add them to the `DOCKER-USER` chain, see [Packet filtering and firewalls]({{< ref "/manuals/DockerEngine/Networking/Packetfilteringandfirewalls" >}}).
   - Docker 仅兼容 `iptables-nft` 和 `iptables-legacy`。系统中使用 Docker 时，不支持 `nft` 创建的防火墙规则。请确保您使用的任何防火墙规则集是通过 `iptables` 或 `ip6tables` 创建的，并将它们添加到 `DOCKER-USER` 链中，详见 [数据包过滤和防火墙]({{< ref "/manuals/DockerEngine/Networking/Packetfilteringandfirewalls" >}})。
@@ -102,14 +102,14 @@ You can install Docker Engine in different ways, depending on your needs:
 - Docker Engine comes bundled with [Docker Desktop for Linux]({{< ref "/manuals/DockerDesktop/Install/Linux" >}}). This is the easiest and quickest way to get started.
   - Docker 引擎随 [Linux 的 Docker 桌面版]({{< ref "/manuals/DockerDesktop/Install/Linux" >}}) 一起捆绑。这是最简单、最快速的开始方法。
 
-- Set up and install Docker Engine from [Docker's `apt` repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository).
-  - 从 [Docker 的 `apt` 仓库](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)设置并安装 Docker 引擎。
+- Set up and install Docker Engine from [Docker's `apt` repository](#使用-apt-仓库安装-install-using-the-apt-repository).
+  - 从 [Docker 的 `apt` 仓库](#使用-apt-仓库安装-install-using-the-apt-repository)设置并安装 Docker 引擎。
 
-- [Install it manually](https://docs.docker.com/engine/install/ubuntu/#install-from-a-package) and manage upgrades manually.
-  - [手动安装](https://docs.docker.com/engine/install/ubuntu/#install-from-a-package)，并手动管理升级。
+- [Install it manually](#从包安装-install-from-a-package) and manage upgrades manually.
+  - [手动安装](#从包安装-install-from-a-package)，并手动管理升级。
 
-- Use a [convenience script](https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script). Only recommended for testing and development environments.
-  - 使用[便捷脚本](https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script)。仅推荐用于测试和开发环境。
+- Use a [convenience script](#使用便捷脚本安装-install-using-the-convenience-script). Only recommended for testing and development environments.
+  - 使用[便捷脚本](#使用便捷脚本安装-install-using-the-convenience-script)。仅推荐用于测试和开发环境。
 
 
 ### 使用 `apt` 仓库安装 Install using the `apt` repository
@@ -222,11 +222,56 @@ You have now successfully installed and started Docker Engine.
 >
 > ​	`docker` 用户组存在但没有包含任何用户，因此需要使用 `sudo` 来运行 Docker 命令。继续参阅 [Linux 后续步骤]({{< ref "/manuals/DockerEngine/Install/Post-installationsteps" >}}) 以允许非特权用户运行 Docker 命令和其他可选配置步骤。
 
+#### 使用阿里云镜像（个人添加）
+
+```sh
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \
+$(lsb_release -cs) stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+
+​	再接着上面的第二个步骤进行安装。
+
+​	最后执行：`sudo systemctl start docker` 来手动启动Docker 守护进程服务。
+
+​	若需要开启启动，请参照：[使用 systemd 配置 Docker 开机启动]({{< ref "/manuals/DockerEngine/Install/Post-installationsteps#使用-systemd-配置-docker-开机启动-configure-docker-to-start-on-boot-with-systemd">}})。	
+
+​	接着就是查看`docker`这个用户组，是否存在：
+
+```sh
+sudo getent group docker 
+```
+
+​	以及查看当前用户是否在`docker`这个用户组中：
+
+```
+groups $USER
+```
+
+​	若不在`docker`这个用户组中，可以通过以下命令进行添加：
+
+```sh
+sudo usermod -aG docker $USER
+```
+
+
+
 #### 升级 Docker 引擎 Upgrade Docker Engine
 
-To upgrade Docker Engine, follow step 2 of the [installation instructions](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository), choosing the new version you want to install.
+To upgrade Docker Engine, follow step 2 of the [installation instructions](#安装方法-installation-methods), choosing the new version you want to install.
 
-​	要升级 Docker 引擎，请按照[安装说明](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)的第 2 步，选择要安装的新版本。
+​	要升级 Docker 引擎，请按照[安装说明](#安装方法-installation-methods)的第 2 步，选择要安装的新版本。
+
+
 
 ### 从包安装 Install from a package
 
@@ -295,15 +340,15 @@ You have now successfully installed and started Docker Engine.
 
 #### 升级 Docker 引擎 Upgrade Docker Engine
 
-To upgrade Docker Engine, download the newer package files and repeat the [installation procedure](https://docs.docker.com/engine/install/ubuntu/#install-from-a-package), pointing to the new files.
+To upgrade Docker Engine, download the newer package files and repeat the [installation procedure](#从包安装-install-from-a-package), pointing to the new files.
 
-​	要升级 Docker 引擎，请下载更新的包文件并重复[安装过程](https://docs.docker.com/engine/install/ubuntu/#install-from-a-package)，指向新文件。
+​	要升级 Docker 引擎，请下载更新的包文件并重复[安装过程](#从包安装-install-from-a-package)，指向新文件。
 
 ### 使用便捷脚本安装 Install using the convenience script
 
-Docker provides a convenience script at https://get.docker.com/ to install Docker into development environments non-interactively. The convenience script isn't recommended for production environments, but it's useful for creating a provisioning script tailored to your needs. Also refer to the [install using the repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) steps to learn about installation steps to install using the package repository. The source code for the script is open source, and you can find it in the [`docker-install` repository on GitHub](https://github.com/docker/docker-install).
+Docker provides a convenience script at https://get.docker.com/ to install Docker into development environments non-interactively. The convenience script isn't recommended for production environments, but it's useful for creating a provisioning script tailored to your needs. Also refer to the [install using the repository](#使用-apt-仓库安装-install-using-the-apt-repository) steps to learn about installation steps to install using the package repository. The source code for the script is open source, and you can find it in the [`docker-install` repository on GitHub](https://github.com/docker/docker-install).
 
-​	Docker 提供了一个便捷脚本 https://get.docker.com/ 来非交互式地将 Docker 安装到开发环境中。便捷脚本不推荐用于生产环境，但在创建适合您需求的配置脚本时很有用。另请参阅 [使用仓库安装](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)的步骤以了解如何通过包仓库安装。该脚本的源代码是开源的，可在 [GitHub 的 `docker-install` 仓库](https://github.com/docker/docker-install) 中找到。
+​	Docker 提供了一个便捷脚本 https://get.docker.com/ 来非交互式地将 Docker 安装到开发环境中。便捷脚本不推荐用于生产环境，但在创建适合您需求的配置脚本时很有用。另请参阅 [使用仓库安装](#使用-apt-仓库安装-install-using-the-apt-repository)的步骤以了解如何通过包仓库安装。该脚本的源代码是开源的，可在 [GitHub 的 `docker-install` 仓库](https://github.com/docker/docker-install) 中找到。
 
 Always examine scripts downloaded from the internet before running them locally. Before installing, make yourself familiar with potential risks and limitations of the convenience script:
 

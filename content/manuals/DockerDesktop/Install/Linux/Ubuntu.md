@@ -61,7 +61,7 @@ Recommended approach to install Docker Desktop on Ubuntu:
 
 ​	推荐的安装方法：
 
-1. Set up Docker's package repository. See step one of [Install using the `apt` repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository). 设置 Docker 的包仓库。请参阅[使用 `apt` 仓库安装](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)的第一步。
+1. Set up Docker's package repository. See step one of [Install using the `apt` repository]({{< ref "/manuals/DockerEngine/Install/Ubuntu#使用-apt-仓库安装-install-using-the-apt-repository">}}). 设置 Docker 的包仓库。请参阅[使用 `apt` 仓库安装]({{< ref "/manuals/DockerEngine/Install/Ubuntu#使用-apt-仓库安装-install-using-the-apt-repository">}})的第一步。
 
 2. Download the latest [DEB package](https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64). For checksums, see the [Release notes]({{< ref "/manuals/DockerDesktop/Releasenotes" >}}). 下载最新的 [DEB 包](https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64)。检查文件校验和，请查看[发行说明]({{< ref "/manuals/DockerDesktop/Releasenotes" >}})。
 
@@ -72,10 +72,12 @@ Recommended approach to install Docker Desktop on Ubuntu:
    ```console
    $ sudo apt-get update
    $ sudo apt-get install ./docker-desktop-<arch>.deb
+   # 个人说明：
+   # 这里应该是使用 sudo apt-get install docker-desktop 才能进行安装！
    ```
 
    Don't forget to substitute `<arch>` with the architecture you want.
-
+   
    ​	请将 `<arch>` 替换为您需要的架构。
    
    > **Note**

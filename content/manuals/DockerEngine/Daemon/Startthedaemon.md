@@ -41,9 +41,9 @@ On some operating systems, like Ubuntu and Debian, the Docker daemon service sta
 $ sudo systemctl start docker
 ```
 
-If you want Docker to start at boot, see [Configure Docker to start on boot](https://docs.docker.com/engine/install/linux-postinstall/#configure-docker-to-start-on-boot-with-systemd).
+If you want Docker to start at boot, see [Configure Docker to start on boot]({{< ref "/manuals/DockerEngine/Install/Post-installationsteps#使用-systemd-配置-docker-开机启动-configure-docker-to-start-on-boot-with-systemd">}}).
 
-​	如果希望 Docker 在启动时自动启动，请参阅 [配置 Docker 开机启动](https://docs.docker.com/engine/install/linux-postinstall/#configure-docker-to-start-on-boot-with-systemd)。
+​	如果希望 Docker 在启动时自动启动，请参阅 [配置 Docker 开机启动]({{< ref "/manuals/DockerEngine/Install/Post-installationsteps#使用-systemd-配置-docker-开机启动-configure-docker-to-start-on-boot-with-systemd">}})。
 
 ## 手动启动守护进程 Start the daemon manually
 

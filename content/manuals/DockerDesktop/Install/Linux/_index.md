@@ -81,16 +81,16 @@ To install Docker Desktop successfully, your Linux host must meet the following 
 - At least 4 GB of RAM.
   - 至少 4 GB 的内存。
 
-- Enable configuring ID mapping in user namespaces, see [File sharing](https://docs.docker.com/desktop/faqs/linuxfaqs/#how-do-i-enable-file-sharing).
-  - 启用在用户命名空间中配置 ID 映射的功能，详见[文件共享](https://docs.docker.com/desktop/faqs/linuxfaqs/#how-do-i-enable-file-sharing)。
+- Enable configuring ID mapping in user namespaces, see [File sharing]({{< ref "/manuals/DockerDesktop/FAQs/Linux#如何启用文件共享-how-do-i-enable-file-sharing">}}).
+  - 启用在用户命名空间中配置 ID 映射的功能，详见[文件共享]({{< ref "/manuals/DockerDesktop/FAQs/Linux#如何启用文件共享-how-do-i-enable-file-sharing">}})。
 
-- Recommended: [Initialize `pass`](https://docs.docker.com/desktop/get-started/#credentials-management-for-linux-users) for credentials management.
-  - 推荐：为凭证管理[初始化 `pass`](https://docs.docker.com/desktop/get-started/#credentials-management-for-linux-users)。
+- Recommended: [Initialize `pass`]({{< ref "/manuals/DockerDesktop/Signin">}}) for credentials management.
+  - 推荐：为凭证管理[初始化 `pass`]({{< ref "/manuals/DockerDesktop/Signin">}})。
 
 
-Docker Desktop for Linux runs a Virtual Machine (VM). For more information on why, see [Why Docker Desktop for Linux runs a VM](https://docs.docker.com/desktop/faqs/linuxfaqs/#why-does-docker-desktop-for-linux-run-a-vm).
+Docker Desktop for Linux runs a Virtual Machine (VM). For more information on why, see [Why Docker Desktop for Linux runs a VM]({{< ref "/manuals/DockerDesktop/FAQs/Linux#为什么-docker-desktop-for-linux-需要运行虚拟机-why-does-docker-desktop-for-linux-run-a-vm">}}).
 
-​	Linux 上的 Docker Desktop 运行一个虚拟机 (VM)。了解更多信息，请参阅[为何 Linux 上的 Docker Desktop 运行 VM](https://docs.docker.com/desktop/faqs/linuxfaqs/#why-does-docker-desktop-for-linux-run-a-vm)。
+​	Linux 上的 Docker Desktop 运行一个虚拟机 (VM)。了解更多信息，请参阅[为何 Linux 上的 Docker Desktop 运行 VM]({{< ref "/manuals/DockerDesktop/FAQs/Linux#为什么-docker-desktop-for-linux-需要运行虚拟机-why-does-docker-desktop-for-linux-run-a-vm">}})。
 
 > **Note**
 >
