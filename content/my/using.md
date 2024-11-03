@@ -193,3 +193,83 @@ sudo rm -rf /etc/docker
 ## Docker 镜像的存放路径
 
 ​	`/var/lib/docker`目录下的`image`目录。
+
+
+
+## 为docker这个命令设置别名
+
+**bash 的配置文件 `/etc/bash.bashrc`** 
+
+​	在该文件的末尾添加：
+
+```sh
+alias d='docker'
+```
+
+​	若要立即生效，请执行以下命令：
+
+```sh
+source /etc/bash.bashrc
+```
+
+**fish的配置文件 `~/.config/fish/config.fish`**
+
+​	在该文件的末尾添加：
+
+```sh
+alias d='docker'
+```
+
+​	若要立即生效，请执行以下命令：
+
+```sh
+source ~/.config/fish/config.fish
+```
+
+## docker常用命令
+
+### docker build
+
+```sh
+docker build -t <tag_name> .
+
+docker build --network=host -t <tag_name> .
+```
+
+### docker login
+
+```sh
+docker login -u <username>
+```
+
+
+
+### docker run
+
+```sh
+docker run -dp 127.0.0.1:3000:3000 <image_name>[:latest]
+
+docker run -d --name <container_name> \
+ -p 127.0.0.1:3000:3000 
+ --mount src=myvol1,dst=/app \
+ <image_name>[:latest]
+ 
+```
+
+### docker volume
+
+```sh
+# 创建
+docker volume create <volume_name>
+
+# 列出
+docker volume ls
+
+# 查看
+docker volume inspect <volume_name>
+
+# 移除
+docker volume rm <volume_name>
+```
+
+docker 

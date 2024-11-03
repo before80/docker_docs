@@ -66,9 +66,9 @@ If you need to specify volume driver options, you must use `--mount`.
 
 - `-v` or `--volume`: Consists of three fields, separated by colon characters (`:`). The fields must be in the correct order, and the meaning of each field isn't immediately obvious.  `-v` 或 `--volume`：包含三个字段，以冒号（`:`）分隔。字段顺序必须正确，且每个字段的含义不直观。
   - In the case of named volumes, the first field is the name of the volume, and is unique on a given host machine. For anonymous volumes, the first field is omitted. 
-    - 第二个字段是文件或目录在容器中的挂载路径。在命名卷的情况下，第一个字段是卷的名称，在特定主机上是唯一的。对于匿名卷，第一个字段省略。
+    - 在命名卷的情况下，第一个字段是卷的名称，在特定主机上是唯一的。对于匿名卷，第一个字段省略。
   - The second field is the path where the file or directory is mounted in the container. 
-    - 第二个字段是文件或目录在容器中的挂载路径。第二个字段是文件或目录在容器中的挂载路径。
+    - 第二个字段是文件或目录在容器中的挂载路径。
   - The third field is optional, and is a comma-separated list of options, such as `ro`. These options are discussed below.
     - 第三个字段是可选的，为逗号分隔的选项列表，例如 `ro`。这些选项会在下文中讨论。
 
@@ -79,10 +79,10 @@ If you need to specify volume driver options, you must use `--mount`.
     - 挂载的 `source`。对于命名卷，这是卷的名称。对于匿名卷，此字段省略。可以指定为 `source` 或 `src`。
   - The `destination` takes as its value the path where the file or directory is mounted in the container. Can be specified as `destination`, `dst`, or `target`.
     - `destination` 的值为文件或目录在容器中的挂载路径。可以指定为 `destination`、`dst` 或 `target`。
-  - The `volume-subpath` option takes a path to a subdirectory within the volume to mount into the container. The subdirectory must exist in the volume before the volume is mounted to a container. See [Mount a volume subdirectory](https://docs.docker.com/engine/storage/volumes/#mount-a-volume-subdirectory).
-    - `volume-subpath` 选项接受一个子目录路径，用于将该卷中的特定子目录挂载到容器中。挂载卷前，子目录必须存在于卷中。参见[挂载卷的子目录](https://docs.docker.com/engine/storage/volumes/#mount-a-volume-subdirectory)。
-  - The `readonly` option, if present, causes the bind mount to be [mounted into the container as read-only](https://docs.docker.com/engine/storage/volumes/#use-a-read-only-volume). Can be specified as `readonly` or `ro`.
-    - `readonly` 选项（如果存在）将绑定挂载[只读方式挂载到容器中](https://docs.docker.com/engine/storage/volumes/#use-a-read-only-volume)。可以指定为 `readonly` 或 `ro`。
+  - The `volume-subpath` option takes a path to a subdirectory within the volume to mount into the container. The subdirectory must exist in the volume before the volume is mounted to a container. See [Mount a volume subdirectory](#挂载卷子目录-mount-a-volume-subdirectory).
+    - `volume-subpath` 选项接受一个子目录路径，用于将该卷中的特定子目录挂载到容器中。挂载卷前，子目录必须存在于卷中。参见[挂载卷的子目录](#挂载卷子目录-mount-a-volume-subdirectory)。
+  - The `readonly` option, if present, causes the bind mount to be [mounted into the container as read-only](#使用只读卷-use-a-read-only-volume). Can be specified as `readonly` or `ro`.
+    - `readonly` 选项（如果存在）将绑定挂载[只读方式挂载到容器中](#使用只读卷-use-a-read-only-volume)。可以指定为 `readonly` 或 `ro`。
   - The `volume-opt` option, which can be specified more than once, takes a key-value pair consisting of the option name and its value.
     - `volume-opt` 选项可以指定多次，包含一个键值对，由选项名称和其值组成。
 
