@@ -157,6 +157,30 @@ To build the image, you'll need to use a Dockerfile. A Dockerfile is simply a te
    EXPOSE 3000
    ```
 
+   > 以上我个人做了修改，防止构建过程失败：
+   >
+   > ​	即配置了国内镜像源。
+   >
+   > ```dockerfile
+   > # syntax=docker/dockerfile:1
+   > 
+   > FROM node:18-alpine
+   > WORKDIR /app
+   > COPY . .
+   > RUN yarn config set registry https://registry.npmmirror.com
+   > RUN yarn install --production
+   > CMD ["node", "src/index.js"]
+   > EXPOSE 3000
+   > ```
+   >
+   > ​	并且在构建的时候使用如下命令：
+   >
+   > ```sh
+   > docker build --network=host -t getting-started .
+   > ```
+   >
+   > 
+
 3. Build the image using the following commands: 使用以下命令构建镜像：
 
    In the terminal, make sure you're in the `getting-started-app` directory. Replace `/path/to/getting-started-app` with the path to your `getting-started-app` directory.
@@ -182,13 +206,13 @@ To build the image, you'll need to use a Dockerfile. A Dockerfile is simply a te
    After Docker downloaded the image, the instructions from the Dockerfile copied in your application and used `yarn` to install your application's dependencies. The `CMD` directive specifies the default command to run when starting a container from this image.
 
    ​	下载镜像后，Dockerfile 中的指令将你的应用程序复制进去，并使用 `yarn` 安装了应用程序的依赖项。`CMD` 指令指定了从该镜像启动容器时的默认运行命令。
-   
+
    Finally, the `-t` flag tags your image. Think of this as a human-readable name for the final image. Since you named the image `getting-started`, you can refer to that image when you run a container.
-   
+
    ​	最后，`-t` 标志为你的镜像打标签。可以把它看作是最终镜像的可读名称。由于你将镜像命名为 `getting-started`，你可以在运行容器时引用该镜像。
-   
+
    The `.` at the end of the `docker build` command tells Docker that it should look for the `Dockerfile` in the current directory.
-   
+
    ​	`docker build` 命令末尾的 `.` 表示 Docker 应该在当前目录中查找 Dockerfile。
 
 ## 启动应用容器 Start an app container

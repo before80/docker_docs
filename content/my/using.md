@@ -40,7 +40,7 @@ sudo systemctl enable containerd.service
 
 
 
-## 配置阿里云镜像加速器（目前好像已失效）
+## 配置阿里云镜像加速器（目前已失效）
 
 > ​	参照：[https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors)
 
@@ -59,8 +59,12 @@ sudo systemctl restart docker
 
 > **阿里云官网给出的变更说明** 
 >
-> ​	为进一步规范镜像加速器工具的使用，容器镜像服务ACR将于2024年07月02日起对镜像加速器功能进行相应的调整。
+> ​	参见：[https://help.aliyun.com/zh/acr/product-overview/product-change-acr-mirror-accelerator-function-adjustment-announcement](https://help.aliyun.com/zh/acr/product-overview/product-change-acr-mirror-accelerator-function-adjustment-announcement)
 >
+> ​	摘录部分内容如下：	
+>
+> > ​	为进一步规范镜像加速器工具的使用，容器镜像服务ACR将于2024年07月02日起对镜像加速器功能进行相应的调整。
+> >
 > > **变更内容**
 > >
 > > ​	调整镜像加速器功能的使用范围：
@@ -94,16 +98,18 @@ sudo systemctl daemon-reload && sudo systemctl restart docker
 
 
 
-## 为什么你不能使用`docker search`命令
+## 为什么你不能使用`docker search`命令？
 
-​	例如，
+​	例如：
 
 ```sh
 docker search nginx
 Error response from daemon: Get "https://index.docker.io/v1/search?q=nginx&n=25": dial tcp 108.160.166.137:443: i/o timeout
 ```
 
-​	你会看到，其需要访问`index.docker.io`这一域名，目前国内是访问不了的，除非你使用了代理。
+​	你会看到，其需要访问`index.docker.io`这一域名，目前国内是访问不了的，不信，你通过`ping index.docker.io` 命令试试，除非你使用了代理。
+
+​	
 
 ## 卸载
 
@@ -150,7 +156,7 @@ dpkg: 警告: 卸载 docker-ce 时，目录 /etc/docker 非空，因而不会删
 sudo rm -rf /etc/docker
 ```
 
-
+​	若之前存在`/etc/systemd/system/docker.service.d`目录，其也不会被自动删除。
 
 ## 配置代理
 
@@ -167,14 +173,22 @@ sudo rm -rf /etc/docker
 
    `your.proxy.server:port`替换成你指定的代理，例如：`127.0.0.1:10808`
 
-3. 重启docker服务：
-
-   ```sh
-   sudo systemctl daemon-reload
-   sudo systemctl restart docker
+   ```
+   [Service]
+   Environment="HTTP_PROXY=http://127.0.0.1:10808"
+   Environment="HTTPS_PROXY=http://127.0.0.1:10808"
+   Environment="NO_PROXY=localhost,127.0.0.1"
    ```
 
    
+
+3. 重启docker服务：
+
+   ```sh
+   sudo systemctl daemon-reload && sudo systemctl restart docker
+   ```
+   
+
 
 ## Docker 镜像的存放路径
 

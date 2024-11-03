@@ -53,7 +53,7 @@ Before looking at how you can use bind mounts for developing your application, y
 
 ​	在了解如何使用绑定挂载开发应用程序之前，你可以通过快速实验来实际理解绑定挂载的工作原理。
 
-1. Verify that your `getting-started-app` directory is in a directory defined in Docker Desktop's file sharing setting. This setting defines which parts of your filesystem you can share with containers. For details about accessing the setting, see [File sharing](https://docs.docker.com/desktop/settings/#file-sharing). 验证你的 `getting-started-app` 目录是否位于 Docker Desktop 的文件共享设置中定义的目录中。此设置定义了哪些文件系统部分可以与容器共享。有关如何访问该设置的详细信息，请参阅[文件共享](https://docs.docker.com/desktop/settings/#file-sharing)。
+1. Verify that your `getting-started-app` directory is in a directory defined in Docker Desktop's file sharing setting. This setting defines which parts of your filesystem you can share with containers. For details about accessing the setting, see [File sharing]({{< ref "/manuals/DockerDesktop/Changesettings#文件共享-file-sharing">}}). 验证你的 `getting-started-app` 目录是否位于 Docker Desktop 的文件共享设置中定义的目录中。此设置定义了哪些文件系统部分可以与容器共享。有关如何访问该设置的详细信息，请参阅[文件共享]({{< ref "/manuals/DockerDesktop/Changesettings#文件共享-file-sharing">}})。
 
 2. Open a terminal and change directory to the `getting-started-app` directory. 打开终端并切换到 `getting-started-app` 目录。
 
@@ -204,6 +204,19 @@ You can use the CLI or Docker Desktop to run your container with a bind mount.
        node:18-alpine \
        sh -c "yarn install && yarn run dev"
    ```
+
+   > 以上我个人做了修改，防止构建过程失败：
+   >
+   > ​	即配置了国内镜像源。
+   >
+   > ```sh
+   > $ docker run -dp 127.0.0.1:3000:3000 \
+   >     -w /app --mount type=bind,src="$(pwd)",target=/app \
+   >     node:18-alpine \
+   >     sh -c "yarn config set registry https://registry.npmmirror.com && yarn install && yarn run dev"
+   > ```
+   >
+   > 
 
    The following is a breakdown of the command:
 

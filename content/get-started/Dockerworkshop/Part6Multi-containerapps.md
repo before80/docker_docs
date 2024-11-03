@@ -277,6 +277,25 @@ You can now start your dev-ready container.
      sh -c "yarn install && yarn run dev"
    ```
 
+   > 以下我个人做了修改，防止构建过程失败：
+   >
+   > ​	即配置了国内镜像源，以及使用`zlongx/gs02`镜像。
+   >
+   > ```
+   > docker run -dp 127.0.0.1:3000:3000 \
+   >   -w /app -v "$(pwd):/app" \
+   >   --network todo-app \
+   >   -e MYSQL_HOST=mysql \
+   >   -e MYSQL_USER=root \
+   >   -e MYSQL_PASSWORD=secret \
+   >   -e MYSQL_DB=todos \
+   >   zlongx/gs02 \
+   >   sh -c "yarn install && yarn run dev"
+   > ```
+   >
+
+   
+
    {{% /tab  %}}
 
    {{% tab header="PowerShell " %}}
