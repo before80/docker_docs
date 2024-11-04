@@ -247,13 +247,22 @@ docker login -u <username>
 ### docker run
 
 ```sh
+# 
 docker run -dp 127.0.0.1:3000:3000 <image_name>[:latest]
 
+# 
 docker run -d --name <container_name> \
  -p 127.0.0.1:3000:3000 
  --mount src=myvol1,dst=/app \
  <image_name>[:latest]
  
+ # --rm ：当容器退出时，自动删除容器及其关联的匿名卷
+ # --mount 挂载
+ docker run --rm --mout type=volume,src=<volume_name>,dst=/logs <image_name>[:latest] mkdir -p /logs/app1 /logs/app2
+ docker run -d --name app1 --mount type=volume,src=<volume_name>,src=logs,dst=/var/log/app1/,volume-subpath=app1 <image_name>[:latest]
+  docker run -d --name app2 --mount type=volume,src=<volume_name>,src=logs,dst=/var/log/app1/,volume-subpath=app2 <image_name>[:latest]
+  
+  # 
 ```
 
 ### docker volume
