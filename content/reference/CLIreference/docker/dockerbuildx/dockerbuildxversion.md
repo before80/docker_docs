@@ -22,6 +22,8 @@ draft = false
 
 View version information
 
+​	查看版本信息
+
 
 
 ```console

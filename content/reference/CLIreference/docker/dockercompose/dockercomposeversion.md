@@ -22,9 +22,11 @@ draft = false
 
 Show the Docker Compose version information
 
+​	显示 Docker Compose 版本信息
+
 ## Options
 
 | Option         | Default | Description                                                  |
 | -------------- | ------- | ------------------------------------------------------------ |
-| `-f, --format` |         | Format the output. Values: [pretty \| json]. (Default: pretty) |
-| `--short`      |         | Shows only Compose's version number                          |
+| `-f, --format` |         | 格式输出。 - Format the output. Values: [pretty \| json]. (Default: pretty) |
+| `--short`      |         | 仅显示 Compose 的版本号 Shows only Compose's version number  |

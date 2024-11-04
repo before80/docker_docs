@@ -28,8 +28,10 @@ Experimental features are intended for testing and feedback as their functionali
 
 Scale services
 
+​	缩放服务
+
 ## Options
 
-| Option      | Default | Description                  |
-| ----------- | ------- | ---------------------------- |
-| `--no-deps` |         | Don't start linked services. |
+| Option      | Default | Description                                   |
+| ----------- | ------- | --------------------------------------------- |
+| `--no-deps` |         | 不启动链接的服务 Don't start linked services. |

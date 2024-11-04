@@ -22,15 +22,19 @@ draft = false
 
 Switches the current builder instance. Build commands invoked after this command will run on a specified builder. Alternatively, a context name can be used to switch to the default builder of that context.
 
+​	切换当前构建器实例。在此命令之后调用的构建命令将在指定的构建器上运行。或者，可以使用上下文名称切换到该上下文的默认构建器。
+
 ## Options
 
-| Option      | Default | Description                                |
-| ----------- | ------- | ------------------------------------------ |
-| `--default` |         | Set builder as default for current context |
-| `--global`  |         | Builder persists context changes           |
+| Option      | Default | Description                                                  |
+| ----------- | ------- | ------------------------------------------------------------ |
+| `--default` |         | 将构建器设置为当前上下文的默认构建器 Set builder as default for current context |
+| `--global`  |         | 构建器持久化上下文更改 Builder persists context changes      |
 
 ## Examples
 
-### Override the configured builder instance (--builder)
+### 覆盖配置的构建器实例（`--builder`） Override the configured builder instance (`--builder`)
 
 Same as [`buildx --builder`](https://docs.docker.com/reference/cli/docker/buildx/#builder).
+
+​	与 [`buildx --builder`](https://docs.docker.com/reference/cli/docker/buildx/#builder) 相同。

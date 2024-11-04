@@ -22,6 +22,8 @@ draft = false
 
 Starts existing containers for a servicedocker compose start
 
+​	启动已存在的容器以供服务使用：
+
 | Description | Start services                      |
 | :---------- | ----------------------------------- |
 | Usage       | `docker compose start [SERVICE...]` |
@@ -29,3 +31,6 @@ Starts existing containers for a servicedocker compose start
 ## Description
 
 Starts existing containers for a service
+
+​	启动服务的现有容器
+

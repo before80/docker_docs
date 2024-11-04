@@ -27,3 +27,5 @@ Experimental features are intended for testing and feedback as their functionali
 ## Description
 
 EXPERIMENTAL - Dry run command allow you to test a command without applying changes
+
+​	实验性 - 干运行命令允许您测试命令而不应用更改

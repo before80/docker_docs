@@ -29,8 +29,10 @@ Experimental features are intended for testing and feedback as their functionali
 
 List checkpoints for a container
 
+​	列出容器的检查点
+
 ## Options
 
-| Option             | Default | Description                               |
-| ------------------ | ------- | ----------------------------------------- |
-| `--checkpoint-dir` |         | Use a custom checkpoint storage directory |
+| Option             | Default | Description                                                  |
+| ------------------ | ------- | ------------------------------------------------------------ |
+| `--checkpoint-dir` |         | 使用自定义检查点存储目录 Use a custom checkpoint storage directory |

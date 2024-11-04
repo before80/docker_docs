@@ -28,11 +28,13 @@ Experimental features are intended for testing and feedback as their functionali
 
 Experimental commands
 
+​	实验性命令
+
 ## Subcommands
 
 | Command                                                      | Description                                                  |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| [`docker compose alpha dry-run`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposealpha/dockercomposealphadry-run" >}}) | EXPERIMENTAL - Dry run command allow you to test a command without applying changes |
-| [`docker compose alpha publish`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposealpha/dockercomposealphapublish" >}}) | Publish compose application                                  |
-| [`docker compose alpha scale`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposealpha/dockercomposealphascale" >}}) | Scale services                                               |
-| [`docker compose alpha viz`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposealpha/dockercomposealphaviz" >}}) | EXPERIMENTAL - Generate a graphviz graph from your compose file |
+| [`docker compose alpha dry-run`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposealpha/dockercomposealphadry-run" >}}) | 实验性 - 干运行命令允许您测试命令而不应用更改 EXPERIMENTAL - Dry run command allow you to test a command without applying changes |
+| [`docker compose alpha publish`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposealpha/dockercomposealphapublish" >}}) | 发布 Compose 应用 Publish compose application                |
+| [`docker compose alpha scale`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposealpha/dockercomposealphascale" >}}) | 缩放服务 Scale services                                      |
+| [`docker compose alpha viz`]({{< ref "/reference/CLIreference/docker/dockercompose/dockercomposealpha/dockercomposealphaviz" >}}) | 实验性 - 从您的 Compose 文件生成 Graphviz 图 EXPERIMENTAL - Generate a graphviz graph from your compose file |

@@ -22,8 +22,10 @@ draft = false
 
 Block until the first service container stops
 
+​	阻塞，直到第一个服务容器停止
+
 ## Options
 
-| Option           | Default | Description                                  |
-| ---------------- | ------- | -------------------------------------------- |
-| `--down-project` |         | Drops project when the first container stops |
+| Option           | Default | Description                                                  |
+| ---------------- | ------- | ------------------------------------------------------------ |
+| `--down-project` |         | 当第一个容器停止时，删除项目 Drops project when the first container stops |

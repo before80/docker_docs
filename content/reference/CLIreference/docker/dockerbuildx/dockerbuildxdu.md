@@ -24,18 +24,18 @@ Disk usage
 
 ## Options
 
-| Option                                                       | Default | Description                   |
-| ------------------------------------------------------------ | ------- | ----------------------------- |
-| `--filter`                                                   |         | Provide filter values         |
-| [`--verbose`](https://docs.docker.com/reference/cli/docker/buildx/du/#verbose) |         | Provide a more verbose output |
+| Option                                                       | Default | Description                                    |
+| ------------------------------------------------------------ | ------- | ---------------------------------------------- |
+| `--filter`                                                   |         | 提供过滤值 Provide filter values               |
+| [`--verbose`](https://docs.docker.com/reference/cli/docker/buildx/du/#verbose) |         | 提供更详细的输出 Provide a more verbose output |
 
 ## Examples
 
-### Show disk usage
+### 显示磁盘使用情况 Show disk usage
 
 The `docker buildx du` command shows the disk usage for the currently selected builder.
 
-
+​	`docker buildx du` 命令显示当前选定构建器的磁盘使用情况。
 
 ```console
 $ docker buildx du
@@ -59,16 +59,26 @@ Total:         10.36GB
 
 If `RECLAIMABLE` is false, the `docker buildx du prune` command won't delete the record, even if you use `--all`. That's because the record is actively in use by some component of the builder.
 
+​	如果 `RECLAIMABLE` 为 false，`docker buildx du prune` 命令将不会删除该记录，即使使用 `--all` 选项。这是因为该记录正在被构建器的某个组件积极使用。
+
 The asterisks (*) in the default output indicate the following:
 
+​	默认输出中的星号 (*) 表示以下内容：
+
 - An asterisk next to an ID (`zu7m6evdpebh5h8kfkpw9dlf2*`) indicates that the record is mutable. The size of the record may change, or another build can take ownership of it and change or commit to it. If you run the `du` command again, this item may not be there anymore, or the size might be different.
+  - ID 后面的星号（`zu7m6evdpebh5h8kfkpw9dlf2*`）表示该记录是可变的。该记录的大小可能会变化，或其他构建可以占用它并进行更改或提交。如果再次运行 `du` 命令，该项可能不再存在，或者大小可能不同。
+
 - An asterisk next to a size (`8.288kB*`) indicates that the record is shared. Storage of the record is shared with some other resource, typically an image. If you prune such a record then you will lose build cache but only metadata will be deleted as the image still needs to actual storage layers.
 
-### Use verbose output (--verbose)
+  - 大小后面的星号（`8.288kB*`）表示该记录是共享的。该记录的存储与其他某个资源共享，通常是一个镜像。如果你修剪这样的记录，你将失去构建缓存，但仅删除元数据，因为该镜像仍需要实际的存储层。
+
+  
+
+### 使用详细输出（`--verbose`） Use verbose output (`--verbose`)
 
 The verbose output of the `docker buildx du` command is useful for inspecting the disk usage records in more detail. The verbose output shows the mutable and shared states more clearly, as well as additional information about the corresponding layer.
 
-
+​	`docker buildx du` 命令的详细输出对于更详细地检查磁盘使用记录非常有用。详细输出更清楚地显示了可变和共享状态，以及有关相应层的额外信息。
 
 ```console
 $ docker buildx du --verbose
@@ -92,11 +102,11 @@ Reclaimable:    4.453GB
 Total:          4.453GB
 ```
 
-### Override the configured builder instance (--builder)
+### 覆盖配置的构建器实例（`--builder`） Override the configured builder instance (`--builder`)
 
 Use the `--builder` flag to inspect the disk usage of a particular builder.
 
-
+​	使用 `--builder` 标志来检查特定构建器的磁盘使用情况。
 
 ```console
 $ docker buildx du --builder youthful_shtern

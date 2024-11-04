@@ -22,29 +22,39 @@ draft = false
 
 Shows information about the current or specified builder.
 
+​	显示当前或指定构建器的信息。
+
 ## Options
 
-| Option                                                       | Default | Description                                 |
-| ------------------------------------------------------------ | ------- | ------------------------------------------- |
-| [`--bootstrap`](https://docs.docker.com/reference/cli/docker/buildx/inspect/#bootstrap) |         | Ensure builder has booted before inspecting |
+| Option                                                       | Default | Description                                                  |
+| ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
+| [`--bootstrap`](https://docs.docker.com/reference/cli/docker/buildx/inspect/#bootstrap) |         | 确保在检查之前构建器已启动 Ensure builder has booted before inspecting |
 
 ## Examples
 
-### Ensure that the builder is running before inspecting (--bootstrap)
+### 在检查之前确保构建器正在运行（`--bootstrap`） Ensure that the builder is running before inspecting (`--bootstrap`)
 
 Use the `--bootstrap` option to ensure that the builder is running before inspecting it. If the driver is `docker-container`, then `--bootstrap` starts the BuildKit container and waits until it's operational. Bootstrapping is automatically done during build, and therefore not necessary. The same BuildKit container is used during the lifetime of the associated builder node (as displayed in `buildx ls`).
 
-### Override the configured builder instance (--builder)
+​	使用 `--bootstrap` 选项确保在检查构建器之前，它正在运行。如果驱动程序是 `docker-container`，则 `--bootstrap` 启动 BuildKit 容器并等待其运行。引导过程在构建期间自动进行，因此并不是必要的。在关联的构建器节点的生命周期内，使用的是相同的 BuildKit 容器（如在 `buildx ls` 中所示）。
+
+### 覆盖配置的构建器实例（`--builder`） Override the configured builder instance (`--builder`)
 
 Same as [`buildx --builder`](https://docs.docker.com/reference/cli/docker/buildx/#builder).
 
-### Get information about a builder instance
+​	与 [`buildx --builder`](https://docs.docker.com/reference/cli/docker/buildx/#builder) 相同。
+
+### 获取构建器实例的信息 Get information about a builder instance
 
 By default, `inspect` shows information about the current builder. Specify the name of the builder to inspect to get information about that builder. The following example shows information about a builder instance named `elated_tesla`:
+
+​	默认情况下，`inspect` 显示当前构建器的信息。指定要检查的构建器名称以获取该构建器的信息。以下示例显示名为 `elated_tesla` 的构建器实例的信息：
 
 > **Note**
 >
 > The asterisk (`*`) next to node build platform(s) indicate they have been manually set during `buildx create`. Otherwise the platforms were automatically detected.
+>
+> ​	节点构建平台旁边的星号（`*`）表示它们是在 `buildx create` 期间手动设置的。否则，这些平台是自动检测的。
 
 
 
@@ -87,6 +97,8 @@ GC Policy rule#3:
 ```
 
 `debug` flag can also be used to get more information about the builder:
+
+​	`debug` 标志也可以用于获取有关构建器的更多信息：
 
 
 

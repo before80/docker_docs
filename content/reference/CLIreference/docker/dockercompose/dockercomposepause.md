@@ -21,3 +21,5 @@ draft = false
 ## Description
 
 Pauses running containers of a service. They can be unpaused with `docker compose unpause`.
+
+​	暂停服务的运行容器。可以使用 `docker compose unpause` 恢复运行。

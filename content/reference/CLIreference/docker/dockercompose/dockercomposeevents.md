@@ -22,7 +22,11 @@ draft = false
 
 Stream container events for every container in the project.
 
+​	流式传输项目中每个容器的事件。
+
 With the `--json` flag, a json object is printed one per line with the format:
+
+​	使用 `--json` 标志时，将以每行一个的格式打印 JSON 对象：
 
 
 
@@ -42,8 +46,12 @@ With the `--json` flag, a json object is printed one per line with the format:
 
 The events that can be received using this can be seen [here](https://docs.docker.com/reference/cli/docker/system/events/#object-types).
 
+​	可以使用此功能接收的事件可以在 [这里](https://docs.docker.com/reference/cli/docker/system/events/#object-types) 查看。
+
 ## Options
 
-| Option   | Default | Description                               |
-| -------- | ------- | ----------------------------------------- |
-| `--json` |         | Output events as a stream of json objects |
+| Option   | Default | Description                                                  |
+| -------- | ------- | ------------------------------------------------------------ |
+| `--json` |         | 将事件输出为 JSON 对象流 Output events as a stream of json objects |
+
+​	

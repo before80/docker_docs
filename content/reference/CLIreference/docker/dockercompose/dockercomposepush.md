@@ -22,10 +22,17 @@ draft = false
 
 Pushes images for services to their respective registry/repository.
 
+​	将服务的镜像推送到相应的注册表/仓库。
+
 The following assumptions are made:
 
+​	以下假设成立：
+
 - You are pushing an image you have built locally
+  - 你正在推送一个在本地构建的镜像
+
 - You have access to the build key
+  - 你有权访问构建密钥
 
 Examples
 
@@ -35,17 +42,17 @@ Examples
 services:
   service1:
     build: .
-    image: localhost:5000/yourimage  ## goes to local registry
+    image: localhost:5000/yourimage  ## goes to local registry 推送到本地注册表
 
   service2:
     build: .
-    image: your-dockerid/yourimage  ## goes to your repository on Docker Hub
+    image: your-dockerid/yourimage  ## goes to your repository on Docker Hub 推送到你在 Docker Hub 的仓库
 ```
 
 ## Options
 
-| Option                   | Default | Description                                            |
-| ------------------------ | ------- | ------------------------------------------------------ |
-| `--ignore-push-failures` |         | Push what it can and ignores images with push failures |
-| `--include-deps`         |         | Also push images of services declared as dependencies  |
-| `-q, --quiet`            |         | Push without printing progress information             |
+| Option                   | Default | Description                                                  |
+| ------------------------ | ------- | ------------------------------------------------------------ |
+| `--ignore-push-failures` |         | 尝试推送可用的镜像，忽略推送失败的镜像 Push what it can and ignores images with push failures |
+| `--include-deps`         |         | 还推送声明为依赖的服务的镜像 Also push images of services declared as dependencies |
+| `-q, --quiet`            |         | 无需打印进度信息进行推送 Push without printing progress information |

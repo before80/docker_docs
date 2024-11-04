@@ -22,8 +22,12 @@ draft = false
 
 Stops the specified or current builder. This does not prevent buildx build to restart the builder. The implementation of stop depends on the driver.
 
+​	停止指定的或当前的构建器。这并不会阻止 buildx build 重新启动构建器。停止的实现取决于驱动程序。
+
 ## Examples
 
-### Override the configured builder instance (--builder)
+### 覆盖配置的构建器实例（`--builder`） Override the configured builder instance (`--builder`)
 
 Same as [`buildx --builder`](https://docs.docker.com/reference/cli/docker/buildx/#builder).
+
+​	与 [`buildx --builder`](https://docs.docker.com/reference/cli/docker/buildx/#builder) 相同。

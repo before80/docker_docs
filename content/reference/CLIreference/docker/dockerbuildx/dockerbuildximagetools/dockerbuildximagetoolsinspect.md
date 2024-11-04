@@ -22,7 +22,7 @@ draft = false
 
 Show details of an image in the registry.
 
-
+​	显示注册表中镜像的详细信息。
 
 ```console
 $ docker buildx imagetools inspect alpine
@@ -62,24 +62,29 @@ Manifests:
 
 ## Options
 
-| Option                                                       | Default           | Description                                   |
-| ------------------------------------------------------------ | ----------------- | --------------------------------------------- |
-| [`--format`](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#format) | ``{{.Manifest}}`` | Format the output using the given Go template |
-| [`--raw`](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#raw) |                   | Show original, unformatted JSON manifest      |
+| Option                                                       | Default           | Description                                                  |
+| ------------------------------------------------------------ | ----------------- | ------------------------------------------------------------ |
+| [`--format`](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#format) | ``{{.Manifest}}`` | 使用给定的 Go 模板格式化输出 Format the output using the given Go template |
+| [`--raw`](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/#raw) |                   | 显示原始的、未格式化的 JSON 清单 Show original, unformatted JSON manifest |
 
 ## Examples
 
-### Override the configured builder instance (--builder)
+### 覆盖配置的构建器实例（`--builder`） Override the configured builder instance (`--builder`)
 
 Same as [`buildx --builder`](https://docs.docker.com/reference/cli/docker/buildx/#builder).
 
-### Format the output (--format)
+​	与 [`buildx --builder`](https://docs.docker.com/reference/cli/docker/buildx/#builder) 相同。
+
+### 格式化输出（`--format`） Format the output (`--format`)
 
 Format the output using the given Go template. Defaults to `{{.Manifest}}` if unset. Following fields are available:
 
-- `.Name`: provides the reference of the image
-- `.Manifest`: provides the manifest or manifest list
-- `.Image`: provides the image config
+​	使用给定的 Go 模板格式化输出。如果未设置，则默认为 `{{.Manifest}}`。可用字段包括：
+
+- `.Name`: provides the reference of the image 提供镜像的引用
+
+- `.Manifest`: provides the manifest or manifest list 提供清单或清单列表
+- `.Image`: provides the image config 提供镜像配置
 
 #### `.Name`
 
@@ -139,7 +144,7 @@ Manifests:
 
 A `json` template function is also available if you want to render fields in JSON format:
 
-
+​	如果想以 JSON 格式呈现字段，还可以使用 `json` 模板函数：
 
 ```console
 $ docker buildx imagetools inspect crazymax/buildkit:attest --format "{{json .Manifest}}"
@@ -445,7 +450,7 @@ $ docker buildx imagetools inspect crazymax/buildkit:attest --format "{{json .Pr
 
 The following command provides [SBOM](https://github.com/moby/buildkit/blob/master/docs/attestations/sbom.md) JSON output:
 
-
+​	以下命令提供 [SBOM](https://github.com/moby/buildkit/blob/master/docs/attestations/sbom.md) JSON 输出：
 
 ```console
 $ docker buildx imagetools inspect crazymax/buildkit:attest --format "{{json .SBOM}}"
@@ -554,9 +559,11 @@ $ docker buildx imagetools inspect crazymax/buildkit:attest --format "{{json .}}
 }
 ```
 
-#### Multi-platform
+#### 多平台 Multi-platform
 
 Multi-platform images are supported for `.Image`, `.SLSA` and `.SBOM` fields. If you want to pick up a specific platform, you can specify it using the `index` go template function:
+
+​	多平台镜像支持 `.Image`、`.SLSA` 和 `.SBOM` 字段。如果您想选择特定平台，可以使用 `index` Go 模板函数进行指定：
 
 
 
@@ -632,11 +639,11 @@ $ docker buildx imagetools inspect --format '{{json (index .Image "linux/s390x")
 }
 ```
 
-### Show original JSON manifest (--raw)
+### 显示原始 JSON 清单（`--raw`）Show original JSON manifest (`--raw`)
 
 Use the `--raw` option to print the raw JSON manifest.
 
-
+​	使用 `--raw` 选项打印原始 JSON 清单。
 
 ```console
 $ docker buildx imagetools inspect --raw crazymax/loop

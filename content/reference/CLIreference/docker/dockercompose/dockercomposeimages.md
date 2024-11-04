@@ -22,9 +22,11 @@ draft = false
 
 List images used by the created containers
 
+​	列出已创建容器使用的镜像
+
 ## Options
 
-| Option        | Default | Description                                |
-| ------------- | ------- | ------------------------------------------ |
-| `--format`    | `table` | Format the output. Values: [table \| json] |
-| `-q, --quiet` |         | Only display IDs                           |
+| Option        | Default | Description                                                  |
+| ------------- | ------- | ------------------------------------------------------------ |
+| `--format`    | `table` | 格式化输出。可选值： [table \|json] -  Format the output. Values: [table \| json] |
+| `-q, --quiet` |         | 仅显示 ID - Only display IDs                                 |

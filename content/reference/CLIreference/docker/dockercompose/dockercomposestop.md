@@ -22,6 +22,8 @@ draft = false
 
 Displays the running processes
 
+​	显示正在运行的进程
+
 ## Examples
 
 

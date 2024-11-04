@@ -28,9 +28,11 @@ Experimental features are intended for testing and feedback as their functionali
 
 Publish compose application
 
+​	发布 Compose 应用
+
 ## Options
 
 | Option                    | Default | Description                                                  |
 | ------------------------- | ------- | ------------------------------------------------------------ |
-| `--oci-version`           |         | OCI Image/Artifact specification version (automatically determined by default) |
-| `--resolve-image-digests` |         | Pin image tags to digests                                    |
+| `--oci-version`           |         | OCI 镜像/工件规范版本（默认自动确定） OCI Image/Artifact specification version (automatically determined by default) |
+| `--resolve-image-digests` |         | 将镜像标签固定为摘要 Pin image tags to digests               |

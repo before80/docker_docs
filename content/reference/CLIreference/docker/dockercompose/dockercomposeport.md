@@ -22,9 +22,11 @@ draft = false
 
 Prints the public port for a port binding
 
+​	打印端口绑定的公共端口
+
 ## Options
 
-| Option       | Default | Description                                             |
-| ------------ | ------- | ------------------------------------------------------- |
-| `--index`    |         | Index of the container if service has multiple replicas |
-| `--protocol` | `tcp`   | tcp or udp                                              |
+| Option       | Default | Description                                                  |
+| ------------ | ------- | ------------------------------------------------------------ |
+| `--index`    |         | 如果服务有多个副本，则为容器的索引 Index of the container if service has multiple replicas |
+| `--protocol` | `tcp`   | tcp 或 udp - tcp or udp                                      |

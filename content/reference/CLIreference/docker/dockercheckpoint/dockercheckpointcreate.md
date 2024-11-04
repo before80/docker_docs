@@ -28,9 +28,11 @@ Experimental features are intended for testing and feedback as their functionali
 
 Create a checkpoint from a running container
 
+​	从正在运行的容器创建检查点
+
 ## Options
 
-| Option             | Default | Description                                  |
-| ------------------ | ------- | -------------------------------------------- |
-| `--checkpoint-dir` |         | Use a custom checkpoint storage directory    |
-| `--leave-running`  |         | Leave the container running after checkpoint |
+| Option             | Default | Description                                                  |
+| ------------------ | ------- | ------------------------------------------------------------ |
+| `--checkpoint-dir` |         | 使用自定义检查点存储目录 Use a custom checkpoint storage directory |
+| `--leave-running`  |         | 在检查点后保持容器运行 Leave the container running after checkpoint |

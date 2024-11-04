@@ -22,7 +22,7 @@ draft = false
 
 Forces running containers to stop by sending a `SIGKILL` signal. Optionally the signal can be passed, for example:
 
-
+​	通过发送 `SIGKILL` 信号强制停止正在运行的容器。可以选择性地传递信号，例如：
 
 ```console
 $ docker compose kill -s SIGINT
@@ -32,5 +32,5 @@ $ docker compose kill -s SIGINT
 
 | Option             | Default   | Description                                                  |
 | ------------------ | --------- | ------------------------------------------------------------ |
-| `--remove-orphans` |           | Remove containers for services not defined in the Compose file |
-| `-s, --signal`     | `SIGKILL` | SIGNAL to send to the container                              |
+| `--remove-orphans` |           | 删除在 Compose 文件中未定义的服务的容器 Remove containers for services not defined in the Compose file |
+| `-s, --signal`     | `SIGKILL` | 发送到容器的信号 SIGNAL to send to the container             |

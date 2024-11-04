@@ -28,12 +28,14 @@ Experimental features are intended for testing and feedback as their functionali
 
 EXPERIMENTAL - Generate a graphviz graph from your compose file
 
+​	实验性 - 从您的 Compose 文件生成 Graphviz 图
+
 ## Options
 
 | Option               | Default | Description                                                  |
 | -------------------- | ------- | ------------------------------------------------------------ |
-| `--image`            |         | Include service's image name in output graph                 |
-| `--indentation-size` | `1`     | Number of tabs or spaces to use for indentation              |
-| `--networks`         |         | Include service's attached networks in output graph          |
-| `--ports`            |         | Include service's exposed ports in output graph              |
-| `--spaces`           |         | If given, space character ' ' will be used to indent, otherwise tab character '\t' will be used |
+| `--image`            |         | 在输出图中包含服务的镜像名称 Include service's image name in output graph |
+| `--indentation-size` | `1`     | 用于缩进的制表符或空格的数量 Number of tabs or spaces to use for indentation |
+| `--networks`         |         | 在输出图中包含服务的附加网络 Include service's attached networks in output graph |
+| `--ports`            |         | 在输出图中包含服务的暴露端口 Include service's exposed ports in output graph |
+| `--spaces`           |         | 如果给定，将使用空格字符 ' ' 来缩进，否则将使用制表符字符 '\t' If given, space character ' ' will be used to indent, otherwise tab character '\t' will be used |
