@@ -23,15 +23,17 @@ draft = false
 
 Start one or more stopped containers
 
+​	启动一个或多个已停止的容器
+
 ## Options
 
 | Option              | Default | Description                                                  |
 | ------------------- | ------- | ------------------------------------------------------------ |
-| `-a, --attach`      |         | Attach STDOUT/STDERR and forward signals                     |
-| `--checkpoint`      |         | experimental (daemon) Restore from this checkpoint           |
-| `--checkpoint-dir`  |         | experimental (daemon) Use a custom checkpoint storage directory |
-| `--detach-keys`     |         | Override the key sequence for detaching a container          |
-| `-i, --interactive` |         | Attach container's STDIN                                     |
+| `-a, --attach`      |         | 附加标准输出/标准错误并转发信号 Attach STDOUT/STDERR and forward signals |
+| `--checkpoint`      |         | 实验性（守护进程） 从此检查点恢复 experimental (daemon) Restore from this checkpoint |
+| `--checkpoint-dir`  |         | 实验性（守护进程） 使用自定义检查点存储目录 experimental (daemon) Use a custom checkpoint storage directory |
+| `--detach-keys`     |         | 覆盖分离容器的键序列 Override the key sequence for detaching a container |
+| `-i, --interactive` |         | 附加容器的标准输入 Attach container's STDIN                  |
 
 ## Examples
 

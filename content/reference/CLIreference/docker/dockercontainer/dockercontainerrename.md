@@ -23,6 +23,8 @@ draft = false
 
 The `docker rename` command renames a container.
 
+​	`docker rename` 命令用于重命名容器。
+
 ## Examples
 
 

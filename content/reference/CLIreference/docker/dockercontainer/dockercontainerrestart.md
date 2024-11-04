@@ -23,6 +23,8 @@ draft = false
 
 Restart one or more containers
 
+​	重启一个或多个容器。
+
 ## Options
 
 | Option         | Default | Description                                  |

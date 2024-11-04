@@ -21,19 +21,29 @@ draft = false
 
 Swarm This command works with the Swarm orchestrator.
 
+​	Swarm 此命令与 Swarm 调度器配合使用。
+
 ## Description
 
 Removes the specified configs from the Swarm.
 
+​	从 Swarm 中删除指定的配置。
+
 For detailed information about using configs, refer to [store configuration data using Docker Configs]({{< ref "/manuals/DockerEngine/Swarmmode/StoreconfigurationdatausingDockerConfigs" >}}).
+
+​	有关使用配置的详细信息，请参考 [使用 Docker 配置存储配置数据]({{< ref "/manuals/DockerEngine/Swarmmode/StoreconfigurationdatausingDockerConfigs" >}})。
 
 > **Note**
 >
 > This is a cluster management command, and must be executed on a Swarm manager node. To learn about managers and workers, refer to the [Swarm mode section]({{< ref "/manuals/DockerEngine/Swarmmode" >}}) in the documentation.
+>
+> ​	这是一个集群管理命令，必须在 Swarm 管理节点上执行。要了解管理节点和工作节点，请参考文档中的 [Swarm 模式部分]({{< ref "/manuals/DockerEngine/Swarmmode" >}})。
 
 ## Examples
 
 This example removes a config:
+
+​	以下示例删除一个配置：
 
 
 

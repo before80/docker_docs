@@ -22,9 +22,11 @@ draft = false
 
 Display detailed information on one or more containers
 
+​	显示一个或多个容器的详细信息
+
 ## Options
 
 | Option         | Default | Description                                                  |
 | -------------- | ------- | ------------------------------------------------------------ |
-| `-f, --format` |         | Format output using a custom template: 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
-| `-s, --size`   |         | Display total file sizes                                     |
+| `-f, --format` |         | 使用自定义模板格式化输出： 'json': 以 JSON 格式打印 'TEMPLATE': 使用给定的 Go 模板打印输出。有关使用模板格式化输出的更多信息，请参阅 https://docs.docker.com/go/formatting/    Format output using a custom template: 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
+| `-s, --size`   |         | 显示文件总大小 Display total file sizes                      |

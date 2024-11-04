@@ -23,17 +23,23 @@ draft = false
 
 List the changed files and directories in a container᾿s filesystem since the container was created. Three different types of change are tracked:
 
-| Symbol | Description                     |
-| ------ | ------------------------------- |
-| `A`    | A file or directory was added   |
-| `D`    | A file or directory was deleted |
-| `C`    | A file or directory was changed |
+​	列出自容器创建以来在容器文件系统中更改的文件和目录。跟踪三种不同类型的更改：
+
+| Symbol | Description                                      |
+| ------ | ------------------------------------------------ |
+| `A`    | 添加了文件或目录 A file or directory was added   |
+| `D`    | 删除了文件或目录 A file or directory was deleted |
+| `C`    | 修改了文件或目录 A file or directory was changed |
 
 You can use the full or shortened container ID or the container name set using `docker run --name` option.
+
+​	您可以使用完整的或缩短的容器 ID，或者使用 `docker run --name` 选项设置的容器名称。
 
 ## Examples
 
 Inspect the changes to an `nginx` container:
+
+​	检查 `nginx` 容器的更改：
 
 
 

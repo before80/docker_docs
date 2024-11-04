@@ -23,6 +23,8 @@ draft = false
 
 The main process inside the container will receive `SIGTERM`, and after a grace period, `SIGKILL`. The first signal can be changed with the `STOPSIGNAL` instruction in the container's Dockerfile, or the `--stop-signal` option to `docker run`.
 
+​	容器内的主进程将接收到 `SIGTERM` 信号，在一个宽限期后，将接收到 `SIGKILL` 信号。第一个信号可以通过容器的 Dockerfile 中的 `STOPSIGNAL` 指令或 `docker run` 的 `--stop-signal` 选项进行更改。
+
 ## Options
 
 | Option         | Default | Description                                  |

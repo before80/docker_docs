@@ -23,7 +23,11 @@ draft = false
 
 The `docker run` command runs a command in a new container, pulling the image if needed and starting the container.
 
+​	`docker run` 命令在一个新容器中运行命令，如果需要会拉取镜像并启动容器。
+
 You can restart a stopped container with all its previous changes intact using `docker start`. Use `docker ps -a` to view a list of all containers, including those that are stopped.
+
+​	你可以使用 `docker start` 重新启动一个已停止的容器，并保留其之前的所有更改。使用 `docker ps -a` 可以查看所有容器的列表，包括那些已停止的容器。
 
 ## Options
 
@@ -135,7 +139,7 @@ You can restart a stopped container with all its previous changes intact using `
 
 ## Examples
 
-### Assign name (--name)
+### Assign name (`--name`)
 
 The `--name` flag lets you specify a custom identifier for a container. The following example runs a container named `test` using the `nginx:alpine` image in [detached mode](https://docs.docker.com/reference/cli/docker/container/run/#detach).
 
@@ -180,7 +184,7 @@ PING test (172.18.0.2): 56 data bytes
 ...
 ```
 
-### Capture container ID (--cidfile)
+### Capture container ID (`--cidfile`)
 
 To help with automation, you can have Docker write the container ID out to a file of your choosing. This is similar to how some programs might write out their process ID to a file (you might've seen them as PID files):
 
@@ -192,7 +196,7 @@ $ docker run --cidfile /tmp/docker_test.cid ubuntu echo "test"
 
 This creates a container and prints `test` to the console. The `cidfile` flag makes Docker attempt to create a new file and write the container ID to it. If the file exists already, Docker returns an error. Docker closes this file when `docker run` exits.
 
-### PID settings (--pid)
+### PID settings (`--pid`)
 
 
 
@@ -276,7 +280,7 @@ Joining another container's PID namespace can be useful for debugging that conta
    strace: Process 1 attached
    ```
 
-### Disable namespace remapping for a container (--userns)
+### Disable namespace remapping for a container (`--userns`)
 
 If you enable user namespaces on the daemon, all containers are started with user namespaces enabled by default. To disable user namespace remapping for a specific container, you can set the `--userns` flag to `host`.
 
@@ -290,7 +294,7 @@ docker run --userns=host hello-world
 
 For more information, refer to [Isolate containers with a user namespace]({{< ref "/manuals/DockerEngine/Security/Isolatecontainerswithausernamespace" >}}).
 
-### UTS settings (--uts)
+### UTS settings (`--uts`)
 
 
 
@@ -307,7 +311,7 @@ The UTS namespace is for setting the hostname and the domain that's visible to r
 
 You may wish to share the UTS namespace with the host if you would like the hostname of the container to change as the hostname of the host changes. A more advanced use case would be changing the host's hostname from a container.
 
-### IPC settings (--ipc)
+### IPC settings (`--ipc`)
 
 
 
@@ -332,7 +336,7 @@ If not specified, daemon default is used, which can either be `"private"` or `"s
 
 Shared memory segments are used to accelerate inter-process communication at memory speed, rather than through pipes or through the network stack. Shared memory is commonly used by databases and custom-built (typically C/OpenMPI, C++/using boost libraries) high performance applications for scientific computing and financial services industries. If these types of applications are broken into multiple containers, you might need to share the IPC mechanisms of the containers, using `"shareable"` mode for the main (i.e. "donor") container, and `"container:<donor-name-or-ID>"` for other containers.
 
-### Escalate container privileges (--privileged)
+### Escalate container privileges (`--privileged`)
 
 The `--privileged` flag gives the following capabilities to a container:
 
@@ -376,7 +380,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 none            1.9G     0  1.9G   0% /mnt
 ```
 
-### Set working directory (-w, --workdir)
+### Set working directory (`-w`, `--workdir`)
 
 
 
@@ -386,7 +390,7 @@ $ docker run -w /path/to/dir/ -i -t ubuntu pwd
 
 The `-w` option runs the command executed inside the directory specified, in this example, `/path/to/dir/`. If the path doesn't exist, Docker creates it inside the container.
 
-### Set storage driver options per container (--storage-opt)
+### Set storage driver options per container (`--storage-opt`)
 
 
 
@@ -400,7 +404,7 @@ For the `overlay2` storage driver, the size option is only available if the back
 
 For the `windowsfilter`, `btrfs`, and `zfs` storage drivers, you cannot pass a size less than the Default BaseFS Size.
 
-### Mount tmpfs (--tmpfs)
+### Mount tmpfs (`--tmpfs`)
 
 The `--tmpfs` flag lets you create a `tmpfs` mount.
 
@@ -414,7 +418,7 @@ $ docker run -d --tmpfs /run:rw,noexec,nosuid,size=65536k my_image
 
 For more information, see [tmpfs mounts](https://docs.docker.com/storage/tmpfs/).
 
-### Mount volume (-v)
+### Mount volume (`-v`)
 
 
 
@@ -442,7 +446,7 @@ $ docker run -v /doesnt/exist:/foo -w /foo -i -t ubuntu bash
 
 When the host directory of a bind-mounted volume doesn't exist, Docker automatically creates this directory on the host for you. In the example above, Docker creates the `/doesnt/exist` folder before starting your container.
 
-### Mount volume read-only (--read-only)
+### Mount volume read-only (`--read-only`)
 
 
 
@@ -487,7 +491,7 @@ docker run -v c:\foo:c:\existing-directory-with-contents ...
 
 For in-depth information about volumes, refer to [manage data in containers](https://docs.docker.com/storage/volumes/)
 
-### Add bind mounts or volumes using the --mount flag
+### Add bind mounts or volumes using the `--mount` flag
 
 The `--mount` flag allows you to mount volumes, host-directories, and `tmpfs` mounts in a container.
 
@@ -509,7 +513,7 @@ $ docker run --read-only --mount type=volume,target=/icanwrite busybox touch /ic
 $ docker run -t -i --mount type=bind,src=/data,dst=/data busybox sh
 ```
 
-### Publish or expose port (-p, --expose)
+### Publish or expose port (`-p`, `--expose`)
 
 
 
@@ -531,7 +535,7 @@ $ docker run --expose 80 nginx:alpine
 
 This exposes port `80` of the container without publishing the port to the host system's interfaces.
 
-### Publish all exposed ports (-P, --publish-all)
+### Publish all exposed ports (`-P`, `--publish-all`)
 
 
 
@@ -545,7 +549,7 @@ The `-P` flag only publishes port numbers that are explicitly flagged as exposed
 
 The range of ports are within an *ephemeral port range* defined by `/proc/sys/net/ipv4/ip_local_port_range`. Use the `-p` flag to explicitly map a single port or range of ports.
 
-### Set the pull policy (--pull)
+### Set the pull policy (`--pull`)
 
 Use the `--pull` flag to set the image pull policy when creating (and running) the container.
 
@@ -574,7 +578,7 @@ $ docker run --pull=never hello-world
 docker: Error response from daemon: No such image: hello-world:latest.
 ```
 
-### Set environment variables (-e, --env, --env-file)
+### Set environment variables (`-e`, `--env`, `--env-file`)
 
 
 
@@ -626,7 +630,7 @@ VAR2=value2
 USER=jonzeolla
 ```
 
-### Set metadata on container (-l, --label, --label-file)
+### Set metadata on container (`-l`, `--label`, `--label-file`)
 
 A label is a `key=value` pair that applies metadata to a container. To label a container with two labels:
 
@@ -664,7 +668,7 @@ You can load multiple label-files by supplying multiple `--label-file` flags.
 
 For additional information on working with labels, see [Labels](https://docs.docker.com/config/labels-custom-metadata/).
 
-### Connect a container to a network (--network)
+### Connect a container to a network (`--network`)
 
 To start a container and connect it to a network, use the `--network` option.
 
@@ -743,7 +747,7 @@ $ docker run -itd --network=name=my-net,\"driver-opt=com.docker.network.endpoint
 
 For more information on connecting a container to a network when using the `run` command, see the [Docker network overview](https://docs.docker.com/network/).
 
-### Mount volumes from container (--volumes-from)
+### Mount volumes from container (`--volumes-from`)
 
 
 
@@ -757,7 +761,7 @@ Labeling systems like SELinux require placing proper labels on volume content mo
 
 To change the label in the container context, you can add either of two suffixes `:z` or `:Z` to the volume mount. These suffixes tell Docker to relabel file objects on the shared volumes. The `z` option tells Docker that two containers share the volume content. As a result, Docker labels the content with a shared content label. Shared volume labels allow all containers to read/write content. The `Z` option tells Docker to label the content with a private unshared label. Only the current container can use a private volume.
 
-### Detached mode (-d, --detach)
+### Detached mode (`-d`, `--detach`)
 
 The `--detach` (or `-d`) flag starts a container as a background process that doesn't occupy your terminal window. By design, containers started in detached mode exit when the root process used to run the container exits, unless you also specify the `--rm` option. If you use `-d` with `--rm`, the container is removed when it exits or when the daemon exits, whichever happens first.
 
@@ -779,7 +783,7 @@ $ docker run -d -p 80:80 my_image nginx -g 'daemon off;'
 
 To do input/output with a detached container use network connections or shared volumes. These are required because the container is no longer listening to the command line where `docker run` was run.
 
-### Override the detach sequence (--detach-keys)
+### Override the detach sequence (`--detach-keys`)
 
 Use the `--detach-keys` option to override the Docker key sequence for detach. This is useful if the Docker default sequence conflicts with key sequence you use for other applications. There are two ways to define your own detach key sequence, as a per-container override or as a configuration property on your entire configuration.
 
@@ -794,7 +798,7 @@ To override the sequence for an individual container, use the `--detach-keys="<s
 
 These `a`, `ctrl-a`, `X`, or `ctrl-\\` values are all examples of valid key sequences. To configure a different configuration default key sequence for all containers, see [**Configuration file** section](https://docs.docker.com/reference/cli/docker/#configuration-files).
 
-### Add host device to container (--device)
+### Add host device to container (`--device`)
 
 
 
@@ -874,7 +878,7 @@ This starts an `ubuntu` container with access to the specified CDI device, `vend
 - A valid CDI specification (JSON or YAML file) for the requested device is available on the system running the daemon, in one of the configured CDI specification directories.
 - The CDI feature has been enabled in the daemon; see [Enable CDI devices](https://docs.docker.com/reference/cli/dockerd/#enable-cdi-devices).
 
-### Attach to STDIN/STDOUT/STDERR (-a, --attach)
+### Attach to STDIN/STDOUT/STDERR (`-a`, `--attach`)
 
 The `--attach` (or `-a`) flag tells `docker run` to bind to the container's `STDIN`, `STDOUT` or `STDERR`. This makes it possible to manipulate the output and input as needed. You can specify to which of the three standard streams (`STDIN`, `STDOUT`, `STDERR`) you'd like to connect instead, as in:
 
@@ -914,7 +918,7 @@ $ cat somefile | docker run -i -a stdin mybuilder dobuild
 
 See also [the `docker cp` command]({{< ref "/reference/CLIreference/docker/dockercontainer/dockercontainercp" >}}).
 
-### Keep STDIN open (-i, --interactive)
+### Keep STDIN open (`-i`, `--interactive`)
 
 The `--interactive` (or `-i`) flag keeps the container's `STDIN` open, and lets you send input to the container through standard input.
 
@@ -954,7 +958,7 @@ You can use the `--init` flag to indicate that an init process should be used as
 
 The default init process used is the first `docker-init` executable found in the system path of the Docker daemon process. This `docker-init` binary, included in the default installation, is backed by [tini](https://github.com/krallin/tini).
 
-### Allocate a pseudo-TTY (-t, --tty)
+### Allocate a pseudo-TTY (`-t`, `--tty`)
 
 The `--tty` (or `-t`) flag attaches a pseudo-TTY to the container, connecting your terminal to the I/O streams of the container. Allocating a pseudo-TTY to the container means that you get access to input and output feature that TTY devices provide.
 
@@ -988,7 +992,7 @@ You can use the `-t` flag without `-i` flag. This still allocates a pseudo-TTY t
 
 Using the `--cgroup-parent` flag, you can pass a specific cgroup to run a container in. This allows you to create and manage cgroups on their own. You can define custom resources for those cgroups and put containers under a common parent group.
 
-### Using dynamically created devices (--device-cgroup-rule)
+### Using dynamically created devices (`--device-cgroup-rule`)
 
 Docker assigns devices available to a container at creation time. The assigned devices are added to the cgroup.allow file and created into the container when it runs. This poses a problem when you need to add a new device to running container.
 
@@ -1040,7 +1044,7 @@ The example below exposes the first and third GPUs.
 $ docker run -it --rm --gpus '"device=0,2"' ubuntu nvidia-smi
 ```
 
-### Restart policies (--restart)
+### Restart policies (`--restart`)
 
 Use the `--restart` flag to specify a container's *restart policy*. A restart policy controls whether the Docker daemon restarts a container after exit. Docker supports the following restart policies:
 
@@ -1101,7 +1105,7 @@ $ docker inspect -f "{{ .State.StartedAt }}" my-container
 
 Combining `--restart` (restart policy) with the `--rm` (clean up) flag results in an error. On container restart, attached clients are disconnected.
 
-### Clean up (--rm)
+### Clean up (`--rm`)
 
 By default, a container's file system persists even after the container exits. This makes debugging a lot easier, since you can inspect the container's final state and you retain all your data.
 
@@ -1125,7 +1129,7 @@ If you are running short-term **foreground** processes, these container file sys
 >
 > Volumes inherited via `--volumes-from` are removed with the same logic: if the original volume was specified with a name it isn't removed.
 
-### Add entries to container hosts file (--add-host)
+### Add entries to container hosts file (`--add-host`)
 
 You can add other hosts into a container's `/etc/hosts` file by using one or more `--add-host` flags. This example adds a static address for a host named `my-hostname`:
 
@@ -1179,7 +1183,7 @@ The `--add-host` flag also accepts a `:` separator, for example:
 $ docker run --add-host=my-hostname:8.8.8.8 --rm -it alpine
 ```
 
-### Logging drivers (--log-driver)
+### Logging drivers (`--log-driver`)
 
 The container can have a different logging driver than the Docker daemon. Use the `--log-driver=<DRIVER>` with the `docker run` command to configure the container's logging driver.
 
@@ -1196,7 +1200,7 @@ $ docker logs 5101d3b
 Error response from daemon: configured logging driver does not support reading
 ```
 
-### Set ulimits in container (--ulimit)
+### Set ulimits in container (`--ulimit`)
 
 Since setting `ulimit` settings in a container requires extra privileges not available in the default container, you can set these using the `--ulimit` flag. Specify `--ulimit` with a soft and hard limit in the format `<type>=<soft limit>[:<hard limit>]`. For example:
 
@@ -1241,13 +1245,13 @@ $ docker run -d -u daemon --ulimit nproc=3 busybox top
 
 The 4th container fails and reports a "[8] System error: resource temporarily unavailable" error. This fails because the caller set `nproc=3` resulting in the first three containers using up the three processes quota set for the `daemon` user.
 
-### Stop container with signal (--stop-signal)
+### Stop container with signal (`--stop-signal`)
 
 The `--stop-signal` flag sends the system call signal to the container to exit. This signal can be a signal name in the format `SIG<NAME>`, for instance `SIGKILL`, or an unsigned number that matches a position in the kernel's syscall table, for instance `9`.
 
 The default value is defined by [`STOPSIGNAL`](https://docs.docker.com/reference/dockerfile/#stopsignal) in the image, or `SIGTERM` if the image has no `STOPSIGNAL` defined.
 
-### Optional security options (--security-opt)
+### Optional security options (`--security-opt`)
 
 | Option                                    | Description                                                  |
 | :---------------------------------------- | :----------------------------------------------------------- |
@@ -1307,7 +1311,7 @@ This means that commands that raise privileges such as `su` or `sudo` no longer 
 
 On Windows, you can use the `--security-opt` flag to specify the `credentialspec` option. The `credentialspec` must be in the format `file://spec.txt` or `registry://keyname`.
 
-### Stop container with timeout (--stop-timeout)
+### Stop container with timeout (`--stop-timeout`)
 
 The `--stop-timeout` flag sets the number of seconds to wait for the container to stop after sending the pre-defined (see `--stop-signal`) system call signal. If the container does not exit after the timeout elapses, it's forcibly killed with a `SIGKILL` signal.
 
@@ -1315,7 +1319,7 @@ If you set `--stop-timeout` to `-1`, no timeout is applied, and the daemon waits
 
 The Daemon determines the default, and is 10 seconds for Linux containers, and 30 seconds for Windows containers.
 
-### Specify isolation technology for container (--isolation)
+### Specify isolation technology for container (`--isolation`)
 
 This option is useful in situations where you are running Docker containers on Windows. The `--isolation=<value>` option sets a container's isolation technology. On Linux, the only supported is the `default` option which uses Linux namespaces. These two commands are equivalent on Linux:
 
@@ -1356,7 +1360,7 @@ PS C:\> docker run -d --isolation default microsoft/nanoserver powershell echo h
 PS C:\> docker run -d --isolation hyperv microsoft/nanoserver powershell echo hyperv
 ```
 
-### Specify hard limits on memory available to containers (-m, --memory)
+### Specify hard limits on memory available to containers (`-m`, `--memory`)
 
 These parameters always set an upper limit on the memory available to the container. Linux sets this on the cgroup and applications in a container can query it at `/sys/fs/cgroup/memory/memory.limit_in_bytes`.
 
@@ -1396,7 +1400,7 @@ On Windows, this affects containers differently depending on what type of isolat
   OsMaxProcessMemorySize     : 137438953344
   ```
 
-### Configure namespaced kernel parameters (sysctls) at runtime (--sysctl)
+### Configure namespaced kernel parameters (sysctls) at runtime (`--sysctl`)
 
 The `--sysctl` sets namespaced kernel parameters (sysctls) in the container. For example, to turn on IP forwarding in the containers network namespace, run this command:
 

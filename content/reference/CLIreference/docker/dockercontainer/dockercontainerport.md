@@ -23,11 +23,15 @@ draft = false
 
 List port mappings or a specific mapping for the container
 
+​	列出容器的端口映射或特定的映射。
+
 ## Examples
 
-### Show all mapped ports
+### 显示所有映射的端口 Show all mapped ports
 
 You can find out all the ports mapped by not specifying a `PRIVATE_PORT`, or just a specific mapping:
+
+​	您可以通过不指定 `PRIVATE_PORT` 来查找所有映射的端口，或者只查看特定的映射：
 
 
 

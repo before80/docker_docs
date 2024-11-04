@@ -20,15 +20,19 @@ draft = false
 
 Swarm This command works with the Swarm orchestrator.
 
+​	Swarm 此命令与 Swarm 调度器配合使用。
+
 ## Description
 
 Manage configs.
 
+​	管理配置。
+
 ## Subcommands
 
-| Command                                                      | Description                                         |
-| :----------------------------------------------------------- | :-------------------------------------------------- |
-| [`docker config create`]({{< ref "/reference/CLIreference/docker/dockerconfig/dockerconfigcreate" >}}) | Create a config from a file or STDIN                |
-| [`docker config inspect`]({{< ref "/reference/CLIreference/docker/dockerconfig/dockerconfiginspect" >}}) | Display detailed information on one or more configs |
-| [`docker config ls`]({{< ref "/reference/CLIreference/docker/dockerconfig/dockerconfigls" >}}) | List configs                                        |
-| [`docker config rm`]({{< ref "/reference/CLIreference/docker/dockerconfig/dockerconfigrm" >}}) | Remove one or more configs                          |
+| Command                                                      | Description                                                  |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| [`docker config create`]({{< ref "/reference/CLIreference/docker/dockerconfig/dockerconfigcreate" >}}) | 从文件或标准输入创建配置 Create a config from a file or STDIN |
+| [`docker config inspect`]({{< ref "/reference/CLIreference/docker/dockerconfig/dockerconfiginspect" >}}) | 显示一个或多个配置的详细信息 Display detailed information on one or more configs |
+| [`docker config ls`]({{< ref "/reference/CLIreference/docker/dockerconfig/dockerconfigls" >}}) | 列出配置 List configs                                        |
+| [`docker config rm`]({{< ref "/reference/CLIreference/docker/dockerconfig/dockerconfigrm" >}}) | 删除一个或多个配置 Remove one or more configs                |
