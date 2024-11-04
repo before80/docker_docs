@@ -32,7 +32,7 @@ Creates a new volume that containers can consume and store data in. If a name is
 | `-d, --driver`                                               | `local`  | 指定卷驱动程序名称 Specify volume driver name                |
 | `--group`                                                    |          | API 1.42+ Swarm 集群卷组（集群卷） API 1.42+ Swarm Cluster Volume group (cluster volumes) |
 | `--label`                                                    |          | 为卷设置元数据 Set metadata for a volume                     |
-| `--limit-bytes`                                              |          | API 1.42+ Swarm 集群卷的最小大小（以字节为单位） API 1.42+ Swarm Minimum size of the Cluster Volume in bytes |
+| `--limit-bytes`                                              |          | xxxxxxxxxx3 1$ docker volume inspect --format '{{ .Mountpoint }}' myvolume2​3/var/lib/docker/volumes/myvolume/_dataconsole |
 | [`-o, --opt`](https://docs.docker.com/reference/cli/docker/volume/create/#opt) |          | 设置特定驱动程序的选项 Set driver specific options           |
 | `--required-bytes`                                           |          | API 1.42+ Swarm 集群卷的最大大小（以字节为单位） API 1.42+ Swarm Maximum size of the Cluster Volume in bytes |
 | `--scope`                                                    | `single` | API 1.42+ Swarm 集群卷访问范围（`single`、`multi`） API 1.42+ Swarm Cluster Volume access scope (`single`, `multi`) |

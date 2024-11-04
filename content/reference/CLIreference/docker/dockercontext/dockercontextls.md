@@ -23,16 +23,20 @@ draft = false
 
 List contexts
 
+​	列出上下文
+
 ## Options
 
 | Option        | Default | Description                                                  |
 | ------------- | ------- | ------------------------------------------------------------ |
-| `--format`    |         | Format output using a custom template: 'table': Print output in table format with column headers (default) 'table TEMPLATE': Print output in table format using the given Go template 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
-| `-q, --quiet` |         | Only show context names                                      |
+| `--format`    |         | 使用自定义模板格式化输出：'table'：以带有列标题的表格格式打印输出（默认）；'table TEMPLATE'：使用指定的 Go 模板以表格格式打印输出；'json'：以 JSON 格式打印输出；'TEMPLATE'：使用指定的 Go 模板格式化输出。有关使用模板格式化输出的详细信息，请参阅 https://docs.docker.com/go/formatting/。  Format output using a custom template: 'table': Print output in table format with column headers (default) 'table TEMPLATE': Print output in table format using the given Go template 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
+| `-q, --quiet` |         | 仅显示上下文名称 Only show context names                     |
 
 ## Examples
 
 Use `docker context ls` to print all contexts. The currently active context is indicated with an `*`:
+
+​	使用 `docker context ls` 打印所有上下文。当前活动的上下文用 `*` 表示。
 
 
 

@@ -28,9 +28,11 @@ Experimental features are intended for testing and feedback as their functionali
 
 Display an image manifest, or manifest list
 
+​	显示镜像清单或清单列表
+
 ## Options
 
-| Option          | Default | Description                                          |
-| --------------- | ------- | ---------------------------------------------------- |
-| `--insecure`    |         | Allow communication with an insecure registry        |
-| `-v, --verbose` |         | Output additional info including layers and platform |
+| Option          | Default | Description                                                  |
+| --------------- | ------- | ------------------------------------------------------------ |
+| `--insecure`    |         | 允许与不安全的注册表通信 Allow communication with an insecure registry |
+| `-v, --verbose` |         | 输出额外信息，包括层信息和平台 Output additional info including layers and platform |

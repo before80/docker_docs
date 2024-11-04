@@ -21,3 +21,5 @@ draft = false
 ## Description
 
 Imports a context previously exported with `docker context export`. To import from stdin, use a hyphen (`-`) as filename.
+
+​	从之前使用 `docker context export` 导出的上下文导入。如果要从标准输入导入，请使用连字符 (`-`) 作为文件名。

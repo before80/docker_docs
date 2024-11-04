@@ -70,7 +70,7 @@ scottabernethy/busybox                                                          
 marclop/busybox-solr
 ```
 
-### Display non-truncated description (--no-trunc)
+### Display non-truncated description (`--no-trunc`)
 
 This example displays images with a name containing 'busybox', at least 3 stars and the description isn't truncated in the output:
 
@@ -85,11 +85,11 @@ progrium/busybox                                                                
 radial/busyboxplus   Full-chain, Internet enabled, busybox made from scratch. Comes in git and cURL flavors.   8
 ```
 
-### Limit search results (--limit)
+### Limit search results (`--limit`)
 
 The flag `--limit` is the maximum number of results returned by a search. If no value is set, the default is set by the daemon.
 
-### Filtering (--filter)
+### Filtering (`--filter`)
 
 The filtering flag (`-f` or `--filter`) format is a `key=value` pair. If there is more than one filter, then pass multiple flags (e.g. `--filter is-official=true --filter stars=3`).
 
@@ -127,7 +127,7 @@ NAME      DESCRIPTION           STARS     OFFICIAL
 busybox   Busybox base image.   325       [OK]
 ```
 
-### Format the output (--format)
+### Format the output (`--format`)
 
 The formatting option (`--format`) pretty-prints search output using a Go template.
 

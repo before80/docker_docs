@@ -286,7 +286,7 @@ Commercial support is available at
 </html>
 ```
 
-### Remote debugging using the --host option
+### Remote debugging using the `--host` option
 
 The following examples shows how to use the `--host` option. The first example uses SSH to connect to a remote Docker instance at `example.org` as the `root` user, and get a shell into the `my-container` container.
 

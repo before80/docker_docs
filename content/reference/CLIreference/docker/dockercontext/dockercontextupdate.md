@@ -22,16 +22,18 @@ draft = false
 
 Updates an existing `context`. See [context create]({{< ref "/reference/CLIreference/docker/dockercontext/dockercontextcreate" >}}).
 
+​	更新现有的 `context`。参见 context create。
+
 ## Options
 
-| Option          | Default | Description                |
-| --------------- | ------- | -------------------------- |
-| `--description` |         | Description of the context |
-| `--docker`      |         | set the docker endpoint    |
+| Option          | Default | Description                              |
+| --------------- | ------- | ---------------------------------------- |
+| `--description` |         | 上下文的描述 Description of the context  |
+| `--docker`      |         | 设置 docker 端点 set the docker endpoint |
 
 ## Examples
 
-### Update an existing context
+### 更新现有上下文 Update an existing context
 
 
 

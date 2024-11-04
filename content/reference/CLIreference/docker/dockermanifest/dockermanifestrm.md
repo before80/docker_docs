@@ -27,3 +27,6 @@ Experimental features are intended for testing and feedback as their functionali
 ## Description
 
 Delete one or more manifest lists from local storage
+
+​	从本地存储中删除一个或多个清单列表
+

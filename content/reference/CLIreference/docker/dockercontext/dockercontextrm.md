@@ -23,8 +23,10 @@ draft = false
 
 Remove one or more contexts
 
+​	删除一个或多个上下文
+
 ## Options
 
-| Option        | Default | Description                           |
-| ------------- | ------- | ------------------------------------- |
-| `-f, --force` |         | Force the removal of a context in use |
+| Option        | Default | Description                                                  |
+| ------------- | ------- | ------------------------------------------------------------ |
+| `-f, --force` |         | 强制删除正在使用的上下文 Force the removal of a context in use |

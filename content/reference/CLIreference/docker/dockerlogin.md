@@ -189,7 +189,7 @@ To authenticate to a registry with a username and password, you can use the `--u
 $ docker login -u moby
 ```
 
-### Provide a password using STDIN (--password-stdin)
+### Provide a password using STDIN (`--password-stdin`)
 
 To run the `docker login` command non-interactively, you can set the `--password-stdin` flag to provide a password through `STDIN`. Using `STDIN` prevents the password from ending up in the shell's history, or log-files.
 

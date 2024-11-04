@@ -41,7 +41,7 @@ A full image name has the following format and components:
     - `[NAMESPACE/]REPOSITORY`：第一个可选组件通常是用户或组织的命名空间。第二个强制组件是仓库名称。当命名空间不存在时，Docker 使用 `library` 作为默认命名空间。
 
 
-After the image name, the optional `TAG` is a custom, human-readable manifest identifier that's typically a specific version or variant of an image. The tag must be valid ASCII and can contain lowercase and uppercase letters, digits, underscores, periods, and hyphens. It can't start with a period or hyphen and must be no longer than 128 characters. If you don't specify a tag, the command uses `latest` by default.
+xxxxxxxxxx1 1$ docker save -o ubuntu.tar ubuntu:lucid ubuntu:saucyconsole
 
 ​	在镜像名称之后，可选的 `TAG` 是一个自定义的人类可读清单标识符，通常是镜像的特定版本或变体。标签必须是有效的 ASCII，并可以包含小写和大写字母、数字、下划线、句点和连字符。标签不能以句点或连字符开头，并且不得超过 128 个字符。如果未指定标签，命令默认使用 `latest`。
 

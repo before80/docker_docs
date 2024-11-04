@@ -22,15 +22,17 @@ draft = false
 
 Inspects one or more contexts.
 
+​	检查一个或多个上下文。
+
 ## Options
 
 | Option         | Default | Description                                                  |
 | -------------- | ------- | ------------------------------------------------------------ |
-| `-f, --format` |         | Format output using a custom template: 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
+| `-f, --format` |         | 使用自定义模板格式化输出：'json'：以 JSON 格式打印输出；'TEMPLATE'：使用指定的 Go 模板格式化输出。有关使用模板格式化输出的详细信息，请参阅 https://docs.docker.com/go/formatting/。  Format output using a custom template: 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
 
 ## Examples
 
-### Inspect a context by name
+### 按名称检查上下文 Inspect a context by name
 
 
 

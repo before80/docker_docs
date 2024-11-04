@@ -21,3 +21,5 @@ draft = false
 ## Description
 
 Set the default context to use, when `DOCKER_HOST`, `DOCKER_CONTEXT` environment variables and `--host`, `--context` global options aren't set. To disable usage of contexts, you can use the special `default` context.
+
+​	设置默认上下文，以在未设置 `DOCKER_HOST`、`DOCKER_CONTEXT` 环境变量和 `--host`、`--context` 全局选项时使用。要禁用上下文的使用，可以使用特殊的 `default` 上下文。

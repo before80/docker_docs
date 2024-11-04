@@ -24,13 +24,13 @@ Docker inspect provides detailed information on constructs controlled by Docker.
 
 By default, `docker inspect` will render results in a JSON array.
 
-### Format the output (--format)
+### Format the output (`--format`)
 
 If a format is specified, the given template will be executed for each result.
 
 Go's [text/template](https://pkg.go.dev/text/template) package describes all the details of the format.
 
-### Specify target type (--type)
+### Specify target type (`--type`)
 
 ```
 --type container|image|node|network|secret|service|volume|task|plugin
@@ -48,7 +48,7 @@ The following example inspects a volume named `myvolume`.
 $ docker inspect --type=volume myvolume
 ```
 
-### Inspect the size of a container (-s, --size)
+### Inspect the size of a container (`-s, --size`)
 
 The `--size`, or short-form `-s`, option adds two additional fields to the `docker inspect` output. This option only works for containers. The container doesn't have to be running, it also works for stopped containers.
 

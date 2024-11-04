@@ -28,9 +28,11 @@ Experimental features are intended for testing and feedback as their functionali
 
 Push a manifest list to a repository
 
+​	将清单列表推送到存储库
+
 ## Options
 
-| Option        | Default | Description                               |
-| ------------- | ------- | ----------------------------------------- |
-| `--insecure`  |         | Allow push to an insecure registry        |
-| `-p, --purge` |         | Remove the local manifest list after push |
+| Option        | Default | Description                                                  |
+| ------------- | ------- | ------------------------------------------------------------ |
+| `--insecure`  |         | 允许推送到不安全的注册表 Allow push to an insecure registry  |
+| `-p, --purge` |         | 推送后删除本地清单列表 Remove the local manifest list after push |

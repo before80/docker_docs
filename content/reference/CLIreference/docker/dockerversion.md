@@ -144,7 +144,7 @@ $ docker version --format '{{.Client.APIVersion}}'
 
 ## Examples
 
-### Format the output (--format)
+### Format the output (`--format`)
 
 The formatting option (`--format`) pretty-prints the output using a Go template, which allows you to customize the output format, or to obtain specific information from the output. Refer to the [format command and log output](https://docs.docker.com/config/formatting/) page for details of the format.
 

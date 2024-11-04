@@ -22,11 +22,13 @@ draft = false
 
 Disconnects a container from a network. The container must be running to disconnect it from the network.
 
+​	将容器从网络中断开。要断开容器与网络的连接，容器必须正在运行。
+
 ## Options
 
-| Option        | Default | Description                                      |
-| ------------- | ------- | ------------------------------------------------ |
-| `-f, --force` |         | Force the container to disconnect from a network |
+| Option        | Default | Description                                                  |
+| ------------- | ------- | ------------------------------------------------------------ |
+| `-f, --force` |         | 强制断开容器与网络的连接 Force the container to disconnect from a network |
 
 ## Examples
 

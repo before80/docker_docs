@@ -23,11 +23,13 @@ draft = false
 
 Remove one or more volumes. You can't remove a volume that's in use by a container.
 
+​	删除一个或多个卷。您无法删除一个正在被容器使用的卷。
+
 ## Options
 
-| Option        | Default | Description                                        |
-| ------------- | ------- | -------------------------------------------------- |
-| `-f, --force` |         | API 1.25+ Force the removal of one or more volumes |
+| Option        | Default | Description                                                  |
+| ------------- | ------- | ------------------------------------------------------------ |
+| `-f, --force` |         | API 1.25+ 强制删除一个或多个卷 API 1.25+ Force the removal of one or more volumes |
 
 ## Examples
 

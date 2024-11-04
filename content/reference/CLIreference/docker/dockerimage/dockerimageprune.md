@@ -77,7 +77,7 @@ Total reclaimed space: 16.43 MB
 
 The filtering flag (`--filter`) format is of "key=value". If there is more than one filter, then pass multiple flags (e.g., `--filter "foo=bar" --filter "bif=baz"`)
 
-​	过滤标志 (`--filter`) 的格式为 "key=value"。如果有多个过滤器，则传递多个标志（例如，`--filter "foo=bar" --filter "bif=baz"`）
+x 1$ docker load --input fedora.tar2​3Loaded image: fedora:rawhide4Loaded image: fedora:205​6$ docker images7​8REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE9busybox             latest              769b9341d937        7 weeks ago         2.489 MB10fedora              rawhide             0d20aec6529d        7 weeks ago         387 MB11fedora              20                  58394af37342        7 weeks ago         385.5 MB12fedora              heisenbug           58394af37342        7 weeks ago         385.5 MB13fedora              latest              58394af37342        7 weeks ago         385.5 MBconsole
 
 The currently supported filters are:
 

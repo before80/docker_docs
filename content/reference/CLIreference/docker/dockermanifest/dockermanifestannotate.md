@@ -28,12 +28,14 @@ Experimental features are intended for testing and feedback as their functionali
 
 Add additional information to a local image manifest
 
+​	向本地镜像清单添加附加信息
+
 ## Options
 
-| Option          | Default | Description                  |
-| --------------- | ------- | ---------------------------- |
-| `--arch`        |         | Set architecture             |
-| `--os`          |         | Set operating system         |
-| `--os-features` |         | Set operating system feature |
-| `--os-version`  |         | Set operating system version |
-| `--variant`     |         | Set architecture variant     |
+| Option          | Default | Description                                   |
+| --------------- | ------- | --------------------------------------------- |
+| `--arch`        |         | 设置架构 Set architecture                     |
+| `--os`          |         | 设置操作系统 Set operating system             |
+| `--os-features` |         | 设置操作系统特性 Set operating system feature |
+| `--os-version`  |         | 设置操作系统版本 Set operating system version |
+| `--variant`     |         | 设置架构变体 Set architecture variant         |

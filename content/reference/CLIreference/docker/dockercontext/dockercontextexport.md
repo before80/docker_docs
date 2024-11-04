@@ -22,7 +22,11 @@ draft = false
 
 Exports a context to a file that can then be used with `docker context import`.
 
+​	将上下文导出到一个文件，然后可以通过 `docker context import` 使用该文件。
+
 The default output filename is `<CONTEXT>.dockercontext`. To export to `STDOUT`, use `-` as filename, for example:
+
+​	默认输出文件名为 `<CONTEXT>.dockercontext`。要导出到 `STDOUT`，请使用 `-` 作为文件名。
 
 
 

@@ -28,9 +28,11 @@ Experimental features are intended for testing and feedback as their functionali
 
 Create a local manifest list for annotating and pushing to a registry
 
+​	创建用于标注并推送到注册表的本地清单列表
+
 ## Options
 
-| Option        | Default | Description                                   |
-| ------------- | ------- | --------------------------------------------- |
-| `-a, --amend` |         | Amend an existing manifest list               |
-| `--insecure`  |         | Allow communication with an insecure registry |
+| Option        | Default | Description                                                  |
+| ------------- | ------- | ------------------------------------------------------------ |
+| `-a, --amend` |         | 修改现有的清单列表 Amend an existing manifest list           |
+| `--insecure`  |         | 允许与不安全的注册表通信 Allow communication with an insecure registry |

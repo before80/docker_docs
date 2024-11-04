@@ -23,18 +23,20 @@ draft = false
 
 Lists all the networks the Engine `daemon` knows about. This includes the networks that span across multiple hosts in a cluster.
 
+​	列出引擎 `daemon` 所知的所有网络。这包括跨集群中多个主机的网络。
+
 ## Options
 
 | Option                                                       | Default | Description                                                  |
 | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
-| [`-f, --filter`](https://docs.docker.com/reference/cli/docker/network/ls/#filter) |         | Provide filter values (e.g. `driver=bridge`)                 |
-| [`--format`](https://docs.docker.com/reference/cli/docker/network/ls/#format) |         | Format output using a custom template: 'table': Print output in table format with column headers (default) 'table TEMPLATE': Print output in table format using the given Go template 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
-| `--no-trunc`                                                 |         | Do not truncate the output                                   |
-| `-q, --quiet`                                                |         | Only display network IDs                                     |
+| [`-f, --filter`](https://docs.docker.com/reference/cli/docker/network/ls/#filter) |         | 提供过滤器值（例如 `driver=bridge`） Provide filter values (e.g. `driver=bridge`) |
+| [`--format`](https://docs.docker.com/reference/cli/docker/network/ls/#format) |         | 使用自定义模板格式化输出: 'table': 以带有列标题的表格格式打印输出（默认） 'table TEMPLATE': 使用给定的 Go 模板格式化输出 'json': 以 JSON 格式打印输出 'TEMPLATE': 使用给定的 Go 模板格式化输出。详细信息请参阅 https://docs.docker.com/go/formatting/  Format output using a custom template: 'table': Print output in table format with column headers (default) 'table TEMPLATE': Print output in table format using the given Go template 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
+| `--no-trunc`                                                 |         | 不截断输出 Do not truncate the output                        |
+| `-q, --quiet`                                                |         | 仅显示网络 ID Only display network IDs                       |
 
 ## Examples
 
-### List all networks
+### 列出所有网络 List all networks
 
 
 
@@ -49,7 +51,7 @@ cf03ee007fb4        host                host            local
 
 Use the `--no-trunc` option to display the full network id:
 
-
+​	使用 `--no-trunc` 选项显示完整的网络 ID：
 
 ```console
 $ docker network ls --no-trunc
@@ -61,14 +63,18 @@ c288470c46f6c8949c5f7e5099b5b7947b07eabe8d9a27d79a9cbf111adcbf47   host         
 63d1ff1f77b07ca51070a8c227e962238358bd310bde1529cf62e6c307ade161   dev                 bridge           local
 ```
 
-### Filtering (--filter)
+### Filtering (`--filter`)
 
 The filtering flag (`-f` or `--filter`) format is a `key=value` pair. If there is more than one filter, then pass multiple flags (e.g. `--filter "foo=bar" --filter "bif=baz"`). Multiple filter flags are combined as an `OR` filter. For example, `-f type=custom -f type=builtin` returns both `custom` and `builtin` networks.
 
+​	过滤标志（`-f` 或 `--filter`）格式为 `key=value` 对。如果有多个过滤条件，则传递多个标志（例如 `--filter "foo=bar" --filter "bif=baz"`）。多个过滤标志作为 `OR` 过滤器组合。例如，`-f type=custom -f type=builtin` 返回 `custom` 和 `builtin` 两种类型的网络。
+
 The currently supported filters are:
 
+​	当前支持的过滤器有：
+
 - driver
-- id (network's id)
+- id (network's id) （网络 ID）
 - label (`label=<key>` or `label=<key>=<value>`)
 - name (network's name)
 - scope (`swarm|global|local`)
@@ -78,9 +84,11 @@ The currently supported filters are:
 
 The `driver` filter matches networks based on their driver.
 
+​	`driver` 过滤器根据网络的驱动程序匹配网络。
+
 The following example matches networks with the `bridge` driver:
 
-
+​	以下示例匹配 `bridge` 驱动程序的网络：
 
 ```console
 $ docker network ls --filter driver=bridge
@@ -93,9 +101,11 @@ f6e212da9dfd        test2               bridge            local
 
 The `id` filter matches on all or part of a network's ID.
 
+​	`id` 过滤器匹配网络 ID 的全部或部分。
+
 The following filter matches all networks with an ID containing the `63d1ff1f77b0...` string.
 
-
+​	以下过滤条件匹配 ID 包含 `63d1ff1f77b0...` 的所有网络。
 
 ```console
 $ docker network ls --filter id=63d1ff1f77b07ca51070a8c227e962238358bd310bde1529cf62e6c307ade161
@@ -105,7 +115,7 @@ NETWORK ID          NAME                DRIVER           SCOPE
 
 You can also filter for a substring in an ID as this shows:
 
-
+​	还可以过滤 ID 的子字符串，如下所示：
 
 ```console
 $ docker network ls --filter id=95e74588f40d
@@ -121,7 +131,11 @@ NETWORK ID          NAME                DRIVER          SCOPE
 
 The `label` filter matches networks based on the presence of a `label` alone or a `label` and a value.
 
+​	`label` 过滤器根据标签或标签和值匹配网络。
+
 The following filter matches networks with the `usage` label regardless of its value.
+
+​	以下过滤条件匹配具有 `usage` 标签的网络，无论其值是什么。
 
 
 
@@ -133,6 +147,8 @@ f6e212da9dfd        test2               bridge         local
 ```
 
 The following filter matches networks with the `usage` label with the `prod` value.
+
+​	以下过滤条件匹配 `usage` 标签的值为 `prod` 的网络。
 
 
 
@@ -146,7 +162,11 @@ f6e212da9dfd        test2               bridge        local
 
 The `name` filter matches on all or part of a network's name.
 
+​	`name` 过滤器匹配网络名称的全部或部分。
+
 The following filter matches all networks with a name containing the `foobar` string.
+
+​	以下过滤条件匹配名称包含 `foobar` 的所有网络。
 
 
 
@@ -157,6 +177,8 @@ NETWORK ID          NAME                DRIVER       SCOPE
 ```
 
 You can also filter for a substring in a name as this shows:
+
+​	还可以过滤名称的子字符串，如下所示：
 
 
 
@@ -171,7 +193,11 @@ NETWORK ID          NAME                DRIVER       SCOPE
 
 The `scope` filter matches networks based on their scope.
 
+​	`scope` 过滤器根据范围匹配网络。
+
 The following example matches networks with the `swarm` scope:
+
+​	以下示例匹配 `swarm` 范围的网络：
 
 
 
@@ -183,6 +209,8 @@ ic6r88twuu92        swarmnet            overlay             swarm
 ```
 
 The following example matches networks with the `local` scope:
+
+​	以下示例匹配 `local` 范围的网络：
 
 
 
@@ -199,7 +227,11 @@ f9e115d2de35        none                null                local
 
 The `type` filter supports two values; `builtin` displays predefined networks (`bridge`, `none`, `host`), whereas `custom` displays user defined networks.
 
+​	`type` 过滤器支持两个值；`builtin` 显示预定义的网络（`bridge`, `none`, `host`），而 `custom` 显示用户定义的网络。
+
 The following filter matches all user defined networks:
+
+​	以下过滤条件匹配所有用户定义的网络：
 
 
 
@@ -212,6 +244,8 @@ NETWORK ID          NAME                DRIVER       SCOPE
 
 By having this flag it allows for batch cleanup. For example, use this filter to delete all user defined networks:
 
+​	使用此标志可实现批量清理。例如，使用此过滤器删除所有用户定义的网络：
+
 
 
 ```console
@@ -220,11 +254,17 @@ $ docker network rm `docker network ls --filter type=custom -q`
 
 A warning will be issued when trying to remove a network that has containers attached.
 
-### Format the output (--format)
+​	尝试删除连接有容器的网络时将发出警告。
+
+### Format the output (`--format`)
 
 The formatting options (`--format`) pretty-prints networks output using a Go template.
 
+​	格式化选项（`--format`）使用 Go 模板美化网络输出。
+
 Valid placeholders for the Go template are listed below:
+
+​	Go 模板的有效占位符如下所示：
 
 | Placeholder  | Description                                                  |
 | ------------ | ------------------------------------------------------------ |
@@ -232,15 +272,19 @@ Valid placeholders for the Go template are listed below:
 | `.Name`      | Network name                                                 |
 | `.Driver`    | Network driver                                               |
 | `.Scope`     | Network scope (local, global)                                |
-| `.IPv6`      | Whether IPv6 is enabled on the network or not.               |
-| `.Internal`  | Whether the network is internal or not.                      |
-| `.Labels`    | All labels assigned to the network.                          |
-| `.Label`     | Value of a specific label for this network. For example `{{.Label "project.version"}}` |
-| `.CreatedAt` | Time when the network was created                            |
+| `.IPv6`      | 是否在网络上启用了 IPv6 Whether IPv6 is enabled on the network or not. |
+| `.Internal`  | 网络是否为内部网络 Whether the network is internal or not.   |
+| `.Labels`    | 网络分配的所有标签 All labels assigned to the network.       |
+| `.Label`     | 此网络中特定标签的值。例如 `{{.Label "project.version"}}` Value of a specific label for this network. For example `{{.Label "project.version"}}` |
+| `.CreatedAt` | 网络的创建时间 Time when the network was created             |
 
 When using the `--format` option, the `network ls` command will either output the data exactly as the template declares or, when using the `table` directive, includes column headers as well.
 
+​	使用 `--format` 选项时，`network ls` 命令将按模板直接输出数据，或者在使用 `table` 指令时包含列标题。
+
 The following example uses a template without headers and outputs the `ID` and `Driver` entries separated by a colon (`:`) for all networks:
+
+​	以下示例使用不带标题的模板输出所有网络的 `ID` 和 `Driver` 条目，并用冒号（`:`）分隔：
 
 
 
@@ -252,6 +296,8 @@ d1584f8dc718: host
 ```
 
 To list all networks in JSON format, use the `json` directive:
+
+​	要以 JSON 格式列出所有网络，使用 `json` 指令：
 
 
 

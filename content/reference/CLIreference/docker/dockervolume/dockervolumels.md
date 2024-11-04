@@ -34,7 +34,7 @@ List all the volumes known to Docker. You can filter using the `-f` or `--filter
 | [`--format`](https://docs.docker.com/reference/cli/docker/volume/ls/#format) |         | 使用自定义模板格式化输出：'table'：以表格格式输出，包含列标题（默认）'table TEMPLATE'：使用指定的 Go 模板以表格格式输出 'json'：以 JSON 格式输出 'TEMPLATE'：使用给定的 Go 模板格式输出。请参阅 https://docs.docker.com/go/formatting/ 了解更多模板格式信息 Format output using a custom template: 'table': Print output in table format with column headers (default) 'table TEMPLATE': Print output in table format using the given Go template 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
 | `-q, --quiet`                                                |         | 仅显示卷名称 Only display volume names                       |
 
-## Examples
+## xxxxxxxxxx3 1$ docker volume inspect --format '{{ .Mountpoint }}' myvolume2​3/var/lib/docker/volumes/myvolume/_dataconsole
 
 ### 创建一个卷 Create a volume
 
@@ -56,7 +56,7 @@ local               rosemary
 local               tyler
 ```
 
-### Filtering (--filter)
+### Filtering (`--filter`)
 
 The filtering flag (`-f` or `--filter`) format is of "key=value". If there is more than one filter, then pass multiple flags (e.g., `--filter "foo=bar" --filter "bif=baz"`)
 
