@@ -28,9 +28,9 @@ draft = false
 >
 > ​	本页面描述了 **旧版 `docker build` 的实现**，使用的是旧版（BuildKit 之前的）构建后端。此配置仅在构建 Windows 容器时相关。
 >
-> For information about the default `docker build`, using Buildx, see [`docker buildx build`]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildx">}}).
+> For information about the default `docker build`, using Buildx, see [`docker buildx build`]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildxbuild">}}).
 >
-> ​	关于默认的 `docker build`（使用 Buildx），请参阅 [`docker buildx build`]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildx">}})。
+> ​	关于默认的 `docker build`（使用 Buildx），请参阅 [`docker buildx build`]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildxbuild">}})。
 
 When building with legacy builder, images are created from a Dockerfile by running a sequence of [commits]({{< ref "/reference/CLIreference/docker/dockercontainer/dockercontainercommit">}}). This process is inefficient and slow compared to using BuildKit, which is why this build strategy is deprecated for all use cases except for building Windows containers. It's still useful for building Windows containers because BuildKit doesn't yet have full feature parity for Windows.
 
