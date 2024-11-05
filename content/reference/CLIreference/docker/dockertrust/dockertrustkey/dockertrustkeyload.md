@@ -22,21 +22,25 @@ draft = false
 
 `docker trust key load` adds private keys to the local Docker trust keystore.
 
+​	`docker trust key load` 将私钥添加到本地 Docker 信任密钥库中。
+
 To add a signer to a repository use `docker trust signer add`.
+
+​	要将签名者添加到仓库中，请使用 `docker trust signer add`。
 
 ## Options
 
-| Option   | Default  | Description             |
-| -------- | -------- | ----------------------- |
-| `--name` | `signer` | Name for the loaded key |
+| Option   | Default  | Description                                  |
+| -------- | -------- | -------------------------------------------- |
+| `--name` | `signer` | 加载密钥时使用的名称 Name for the loaded key |
 
 ## Examples
 
-### Load a single private key
+### 加载单个私钥 Load a single private key
 
 For a private key `alice.pem` with permissions `-rw-------`
 
-
+​	对于权限为 `-rw-------` 的私钥 `alice.pem`：
 
 ```console
 $ docker trust key load alice.pem
@@ -49,7 +53,7 @@ Successfully imported key from alice.pem
 
 To specify a name use the `--name` flag:
 
-
+​	要指定名称，可以使用 `--name` 标志：
 
 ```console
 $ docker trust key load --name alice-key alice.pem

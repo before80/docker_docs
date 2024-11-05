@@ -22,22 +22,24 @@ draft = false
 
 Search [Docker Hub](https://hub.docker.com/) for images
 
+​	在 [Docker Hub](https://hub.docker.com/) 上搜索镜像
+
 ## Options
 
-| Option                                                       | Default | Description                                |
-| ------------------------------------------------------------ | ------- | ------------------------------------------ |
-| [`-f, --filter`](https://docs.docker.com/reference/cli/docker/search/#filter) |         | Filter output based on conditions provided |
-| [`--format`](https://docs.docker.com/reference/cli/docker/search/#format) |         | Pretty-print search using a Go template    |
-| [`--limit`](https://docs.docker.com/reference/cli/docker/search/#limit) |         | Max number of search results               |
-| [`--no-trunc`](https://docs.docker.com/reference/cli/docker/search/#no-trunc) |         | Don't truncate output                      |
+| Option                                                       | Default | Description                                                  |
+| ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
+| [`-f, --filter`](https://docs.docker.com/reference/cli/docker/search/#filter) |         | 基于提供的条件过滤输出 Filter output based on conditions provided |
+| [`--format`](https://docs.docker.com/reference/cli/docker/search/#format) |         | 使用 Go 模板美化搜索输出 Pretty-print search using a Go template |
+| [`--limit`](https://docs.docker.com/reference/cli/docker/search/#limit) |         | 搜索结果的最大数量 Max number of search results              |
+| [`--no-trunc`](https://docs.docker.com/reference/cli/docker/search/#no-trunc) |         | 不截断输出 Don't truncate output                             |
 
 ## Examples
 
-### Search images by name
+### 根据名称搜索镜像 Search images by name
 
 This example displays images with a name containing 'busybox':
 
-
+​	此示例显示名称中包含 'busybox' 的镜像：
 
 ```console
 $ docker search busybox
@@ -70,9 +72,11 @@ scottabernethy/busybox                                                          
 marclop/busybox-solr
 ```
 
-### Display non-truncated description (`--no-trunc`)
+### 显示完整描述（`--no-trunc`） Display non-truncated description (`--no-trunc`)
 
 This example displays images with a name containing 'busybox', at least 3 stars and the description isn't truncated in the output:
+
+​	此示例显示名称中包含 'busybox' 的镜像，至少 3 颗星，且输出中不截断描述：
 
 
 
@@ -85,25 +89,40 @@ progrium/busybox                                                                
 radial/busyboxplus   Full-chain, Internet enabled, busybox made from scratch. Comes in git and cURL flavors.   8
 ```
 
-### Limit search results (`--limit`)
+### 限制搜索结果数量（`--limit`） Limit search results (`--limit`)
 
 The flag `--limit` is the maximum number of results returned by a search. If no value is set, the default is set by the daemon.
+
+​	`--limit` 标志设置搜索返回的最大结果数量。如果未设置值，默认为守护进程设定的值。
 
 ### Filtering (`--filter`)
 
 The filtering flag (`-f` or `--filter`) format is a `key=value` pair. If there is more than one filter, then pass multiple flags (e.g. `--filter is-official=true --filter stars=3`).
 
+​	过滤标志（`-f` 或 `--filter`）格式为 `key=value`。如果有多个过滤条件，则传递多个标志（例如 `--filter is-official=true --filter stars=3`）。
+
 The currently supported filters are:
 
+​	当前支持的过滤条件包括：
+
 - stars (int - number of stars the image has)
+  - stars（int - 镜像的星数）
+
 - is-automated (boolean - true or false) - is the image automated or not (deprecated)
+
+  - is-automated（boolean - true 或 false）- 镜像是否自动化（已废弃）
+
 - is-official (boolean - true or false) - is the image official or not
+
+  - is-official（boolean - true 或 false）- 镜像是否官方
+
+  
 
 #### stars
 
 This example displays images with a name containing 'busybox' and at least 3 stars:
 
-
+​	此示例显示名称中包含 'busybox' 且至少有 3 颗星的镜像：
 
 ```console
 $ docker search --filter stars=3 busybox
@@ -118,7 +137,7 @@ radial/busyboxplus   Full-chain, Internet enabled, busybox made...   8
 
 This example displays images with a name containing 'busybox', at least 3 stars and are official builds:
 
-
+​	此示例显示名称中包含 'busybox'，至少有 3 颗星并且是官方构建的镜像：
 
 ```console
 $ docker search --filter is-official=true --filter stars=3 busybox
@@ -131,19 +150,27 @@ busybox   Busybox base image.   325       [OK]
 
 The formatting option (`--format`) pretty-prints search output using a Go template.
 
+​	格式化选项（`--format`）使用 Go 模板美化搜索输出。
+
 Valid placeholders for the Go template are:
 
-| Placeholder    | Description                                    |
-| -------------- | ---------------------------------------------- |
-| `.Name`        | Image Name                                     |
-| `.Description` | Image description                              |
-| `.StarCount`   | Number of stars for the image                  |
-| `.IsOfficial`  | "OK" if image is official                      |
-| `.IsAutomated` | "OK" if image build was automated (deprecated) |
+​	有效的 Go 模板占位符包括：
+
+| Placeholder    | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| `.Name`        | 镜像名称 Image Name                                          |
+| `.Description` | 镜像描述 Image description                                   |
+| `.StarCount`   | 镜像的星数 Number of stars for the image                     |
+| `.IsOfficial`  | 如果镜像是官方镜像则显示 "OK"  "OK" if image is official     |
+| `.IsAutomated` | 如果镜像构建是自动化则显示 "OK"（已废弃）  "OK" if image build was automated (deprecated) |
 
 When you use the `--format` option, the `search` command will output the data exactly as the template declares. If you use the `table` directive, column headers are included as well.
 
+​	当使用 `--format` 选项时，`search` 命令会完全按照模板声明的格式输出数据。如果使用 `table` 指令，列标题也会被包含在内。
+
 The following example uses a template without headers and outputs the `Name` and `StarCount` entries separated by a colon (`:`) for all images:
+
+​	以下示例使用无标题模板，输出所有镜像的 `Name` 和 `StarCount` 条目，并用冒号（`:`）分隔：
 
 
 
@@ -163,6 +190,8 @@ maxexcloo/nginx: 7
 ```
 
 This example outputs a table format:
+
+​	此示例输出表格格式：
 
 
 

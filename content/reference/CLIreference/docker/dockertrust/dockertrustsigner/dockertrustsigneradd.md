@@ -22,19 +22,21 @@ draft = false
 
 `docker trust signer add` adds signers to signed repositories.
 
+​	`docker trust signer add` 将签名者添加到已签名的仓库。
+
 ## Options
 
-| Option  | Default | Description                          |
-| ------- | ------- | ------------------------------------ |
-| `--key` |         | Path to the signer's public key file |
+| Option  | Default | Description                                               |
+| ------- | ------- | --------------------------------------------------------- |
+| `--key` |         | 签名者公钥文件的路径 Path to the signer's public key file |
 
 ## Examples
 
-### Add a signer to a repository
+###  向仓库添加签名者 Add a signer to a repository
 
 To add a new signer, `alice`, to this repository:
 
-
+​	要将新的签名者 `alice` 添加到该仓库：
 
 ```console
 $ docker trust inspect --pretty example/trust-demo
@@ -54,7 +56,7 @@ Root Key:       3cb2228f6561e58f46dbc4cda4fcaff9d5ef22e865a94636f82450d1d2234949
 
 Add `alice` with `docker trust signer add`:
 
-
+​	使用 `docker trust signer add` 添加 `alice`：
 
 ```console
 $ docker trust signer add alice example/trust-demo --key alice.crt
@@ -65,7 +67,7 @@ Successfully added signer: alice to example/trust-demo
 
 `docker trust inspect --pretty` now lists `alice` as a valid signer:
 
-
+​	`docker trust inspect --pretty` 现在列出 `alice` 作为有效的签名者：
 
 ```console
 $ docker trust inspect --pretty example/trust-demo

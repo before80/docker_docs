@@ -22,9 +22,11 @@ draft = false
 
 Manage entities who can sign Docker images
 
+​	管理可以签署 Docker 镜像的实体
+
 ## Subcommands
 
-| Command                                                      | Description     |
-| :----------------------------------------------------------- | :-------------- |
-| [`docker trust signer add`]({{< ref "/reference/CLIreference/docker/dockertrust/dockertrustsigner/dockertrustsigneradd" >}}) | Add a signer    |
-| [`docker trust signer remove`]({{< ref "/reference/CLIreference/docker/dockertrust/dockertrustsigner/dockertrustsignerremove" >}}) | Remove a signer |
+| Command                                                      | Description                |
+| :----------------------------------------------------------- | :------------------------- |
+| [`docker trust signer add`]({{< ref "/reference/CLIreference/docker/dockertrust/dockertrustsigner/dockertrustsigneradd" >}}) | 添加签名者 Add a signer    |
+| [`docker trust signer remove`]({{< ref "/reference/CLIreference/docker/dockertrust/dockertrustsigner/dockertrustsignerremove" >}}) | 移除签名者 Remove a signer |

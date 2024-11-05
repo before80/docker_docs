@@ -22,19 +22,21 @@ draft = false
 
 `docker trust signer remove` removes signers from signed repositories.
 
+​	`docker trust signer remove` 从已签名的仓库中移除签名者。
+
 ## Options
 
 | Option        | Default | Description                                                  |
 | ------------- | ------- | ------------------------------------------------------------ |
-| `-f, --force` |         | Do not prompt for confirmation before removing the most recent signer |
+| `-f, --force` |         | 在移除最近的签名者之前，不提示确认 Do not prompt for confirmation before removing the most recent signer |
 
 ## Examples
 
-### Remove a signer from a repository
+### 从仓库中移除签名者 Remove a signer from a repository
 
 To remove an existing signer, `alice`, from this repository:
 
-
+​	要从该仓库中移除现有的签名者 `alice`：
 
 ```console
 $ docker trust inspect --pretty example/trust-demo
@@ -55,6 +57,8 @@ Root Key:       3cb2228f6561e58f46dbc4cda4fcaff9d5ef22e865a94636f82450d1d2234949
 
 Remove `alice` with `docker trust signer remove`:
 
+​	使用 `docker trust signer remove` 移除 `alice`：
+
 
 
 ```console
@@ -66,6 +70,8 @@ Successfully removed alice from example/trust-demo
 ```
 
 `docker trust inspect --pretty` now doesn't list `alice` as a valid signer:
+
+​	`docker trust inspect --pretty` 现在不再列出 `alice` 作为有效的签名者：
 
 
 
@@ -85,9 +91,11 @@ Repository Key: ecc457614c9fc399da523a5f4e24fe306a0a6ee1cc79a10e4555b3c6ab02f71e
 Root Key:       3cb2228f6561e58f46dbc4cda4fcaff9d5ef22e865a94636f82450d1d2234949
 ```
 
-### Remove a signer from multiple repositories
+### 从多个仓库中移除签名者 Remove a signer from multiple repositories
 
 To remove an existing signer, `alice`, from multiple repositories:
+
+​	要从多个仓库中移除现有的签名者 `alice`：
 
 
 
@@ -129,6 +137,8 @@ Root Key:       3cb2228f6561e58f46dbc4cda4fcaff9d5ef22e865a94636f82450d1d2234949
 
 Remove `alice` from both images with a single `docker trust signer remove` command:
 
+​	使用单个 `docker trust signer remove` 命令从两个镜像中移除 `alice`：
+
 
 
 ```console
@@ -144,6 +154,8 @@ Successfully removed alice from example/trust-demo2
 ```
 
 Run `docker trust inspect --pretty` to confirm that `alice` is no longer listed as a valid signer of either `example/trust-demo` or `example/trust-demo2`:
+
+​	运行 `docker trust inspect --pretty` 确认 `alice` 不再被列为 `example/trust-demo` 或 `example/trust-demo2` 的有效签名者：
 
 
 
@@ -182,6 +194,8 @@ Root Key:       3cb2228f6561e58f46dbc4cda4fcaff9d5ef22e865a94636f82450d1d2234949
 ```
 
 `docker trust signer remove` removes signers to repositories on a best effort basis. It continues to remove the signer from subsequent repositories if one attempt fails:
+
+​	`docker trust signer remove` 会尽最大努力从仓库中移除签名者。如果一次尝试失败，它会继续从后续的仓库中移除该签名者。
 
 
 

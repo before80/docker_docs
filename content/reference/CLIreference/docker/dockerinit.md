@@ -22,31 +22,60 @@ draft = false
 
 Initialize a project with the files necessary to run the project in a container.
 
+​	初始化一个项目，生成运行在容器中所需的文件。
+
 Docker Desktop provides the `docker init` CLI command. Run `docker init` in your project directory to be walked through the creation of the following files with sensible defaults for your project:
 
+​	Docker Desktop 提供了 `docker init` CLI 命令。在项目目录中运行 `docker init`，系统会引导您创建以下文件，并根据您的项目提供合理的默认值：
+
 - .dockerignore
+
 - Dockerfile
 - compose.yaml
 - README.Docker.md
 
 If any of the files already exist, a prompt appears and provides a warning as well as giving you the option to overwrite all the files. If `docker-compose.yaml` already exists instead of `compose.yaml`, `docker init` can overwrite it, using `docker-compose.yaml` as the name for the Compose file.
 
+​	如果这些文件中有任何已存在的文件，系统会出现提示并给出警告，同时让您选择是否覆盖所有文件。如果已经存在 `docker-compose.yaml` 文件而非 `compose.yaml`，则 `docker init` 可以覆盖它，并使用 `docker-compose.yaml` 作为 Compose 文件的名称。
+
 > **Warning**
 >
 > You can't recover overwritten files. To back up an existing file before selecting to overwrite it, rename the file or copy it to another directory.
+>
+> ​	覆盖的文件无法恢复。要在选择覆盖之前备份现有文件，请重命名文件或将其复制到另一个目录。
 
 After running `docker init`, you can choose one of the following templates:
 
+​	运行 `docker init` 后，您可以选择以下模板之一：
+
 - ASP.NET Core: Suitable for an ASP.NET Core application.
+  - ASP.NET Core：适合 ASP.NET Core 应用程序。
+
 - Go: Suitable for a Go server application.
+  - Go：适合 Go 服务应用程序。
+
 - Java: suitable for a Java application that uses Maven and packages as an uber jar.
+  - Java：适合使用 Maven 并打包为 uber jar 的 Java 应用程序。
+
 - Node: Suitable for a Node server application.
+  - Node：适合 Node 服务应用程序。
+
 - PHP with Apache: Suitable for a PHP web application.
+  - PHP with Apache：适合 PHP Web 应用程序。
+
 - Python: Suitable for a Python server application.
+  - Python：适合 Python 服务应用程序。
+
 - Rust: Suitable for a Rust server application.
+  - Rust：适合 Rust 服务应用程序。
+
 - Other: General purpose starting point for containerizing your application.
+  - Other：容器化您的应用程序的通用起点。
+
 
 After `docker init` has completed, you may need to modify the created files and tailor them to your project. Visit the following topics to learn more about the files:
+
+​	在 `docker init` 完成后，您可能需要修改生成的文件并根据项目需求进行调整。访问以下主题以了解文件的详细信息：
 
 - [.dockerignore](https://docs.docker.com/reference/dockerfile/#dockerignore-file)
 - [Dockerfile]({{< ref "/reference/Dockerfilereference" >}})
@@ -54,15 +83,17 @@ After `docker init` has completed, you may need to modify the created files and 
 
 ## Options
 
-| Option      | Default | Description                        |
-| ----------- | ------- | ---------------------------------- |
-| `--version` |         | Display version of the init plugin |
+| Option      | Default | Description                                             |
+| ----------- | ------- | ------------------------------------------------------- |
+| `--version` |         | 显示初始化插件的版本 Display version of the init plugin |
 
 ## Examples
 
-### Example of running `docker init`
+### 运行 `docker init` 的示例 Example of running `docker init`
 
 The following example shows the initial menu after running `docker init`. See the additional examples to view the options for each language or framework.
+
+​	以下示例显示运行 `docker init` 后的初始菜单。查看每种语言或框架的选项示例。
 
 
 
@@ -92,9 +123,11 @@ Let's get started!
   Quit
 ```
 
-### Example of selecting Go
+### 选择 Go 的示例 Example of selecting Go
 
 The following example shows the prompts that appear after selecting `Go` and example input.
+
+​	以下示例显示选择 `Go` 后出现的提示以及示例输入。
 
 
 
@@ -120,9 +153,11 @@ Your application will be available at http://localhost:3333
 Consult README.Docker.md for more information about using the generated files.
 ```
 
-### Example of selecting Node
+### 选择 Node 的示例 Example of selecting Node
 
 The following example shows the prompts that appear after selecting `Node` and example input.
+
+​	以下示例显示选择 `Node` 后出现的提示以及示例输入。
 
 
 
@@ -151,9 +186,11 @@ Your application will be available at http://localhost:8000
 Consult README.Docker.md for more information about using the generated files.
 ```
 
-### Example of selecting Python
+### 选择 Python 的示例 Example of selecting Python
 
 The following example shows the prompts that appear after selecting `Python` and example input.
+
+​	以下示例显示选择 `Python` 后出现的提示以及示例输入。
 
 
 
@@ -179,11 +216,13 @@ Your application will be available at http://localhost:8000
 Consult README.Docker.md for more information about using the generated files.
 ```
 
-### Example of selecting Rust
+### 选择 Rust 的示例 Example of selecting Rust
 
 The following example shows the prompts that appear after selecting `Rust` and example input.
 
+​	以下示例显示选择 `Rust` 后出现的提示以及示例输入。
 
+​	
 
 ```console
 ? What application platform does your project use? Rust
@@ -206,9 +245,11 @@ Your application will be available at http://localhost:8000
 Consult README.Docker.md for more information about using the generated files.
 ```
 
-### Example of selecting ASP.NET Core
+### 选择 ASP.NET Core 的示例 Example of selecting ASP.NET Core
 
 The following example shows the prompts that appear after selecting `ASP.NET Core` and example input.
+
+​	以下示例显示选择 `ASP.NET Core` 后出现的提示以及示例输入。
 
 
 
@@ -234,9 +275,11 @@ Your application will be available at http://localhost:8000
 Consult README.Docker.md for more information about using the generated files.
 ```
 
-### Example of selecting PHP with Apache
+### 选择 PHP with Apache 的示例 Example of selecting PHP with Apache
 
 The following example shows the prompts that appear after selecting `PHP with Apache` and example input. The PHP with Apache template is suitable for both pure PHP applications and applications using Composer as a dependency manager. After running `docker init`, you must manually add any PHP extensions that are required by your application to the Dockerfile.
+
+​	以下示例显示选择 `PHP with Apache` 后出现的提示以及示例输入。PHP with Apache 模板适用于纯 PHP 应用程序和使用 Composer 作为依赖管理的应用程序。运行 `docker init` 后，您必须手动将应用程序所需的 PHP 扩展添加到 Dockerfile 中。
 
 
 
@@ -264,9 +307,11 @@ Your application will be available at http://localhost:9000
 Consult README.Docker.md for more information about using the generated files.
 ```
 
-### Example of selecting Java
+### 选择 Java 的示例 Example of selecting Java
 
 The following example shows the prompts that appear after selecting `Java` and example input.
+
+​	以下示例显示选择 `Java` 后出现的提示以及示例输入。
 
 
 
@@ -292,9 +337,11 @@ Your application will be available at http://localhost:9000
 Consult README.Docker.md for more information about using the generated files.
 ```
 
-### Example of selecting Other
+### 选择 Other 的示例 Example of selecting Other
 
 The following example shows the output after selecting `Other`.
+
+​	以下示例显示选择 `Other` 后的输出。
 
 
 

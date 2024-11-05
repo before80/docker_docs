@@ -22,6 +22,8 @@ draft = false
 
 Log out from a registry. If no server is specified, the default is defined by the daemon.
 
+​	登出一个注册表。如果未指定服务器，默认服务器由守护进程定义。
+
 ## Examples
 
 

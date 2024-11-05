@@ -22,9 +22,11 @@ draft = false
 
 Manage keys for signing Docker images
 
+​	管理签署 Docker 镜像的密钥
+
 ## Subcommands
 
-| Command                                                      | Description                          |
-| :----------------------------------------------------------- | :----------------------------------- |
-| [`docker trust key generate`]({{< ref "/reference/CLIreference/docker/dockertrust/dockertrustkey/dockertrustkeygenerate" >}}) | Generate and load a signing key-pair |
-| [`docker trust key load`]({{< ref "/reference/CLIreference/docker/dockertrust/dockertrustkey/dockertrustkeyload" >}}) | Load a private key file for signing  |
+| Command                                                      | Description                                                |
+| :----------------------------------------------------------- | :--------------------------------------------------------- |
+| [`docker trust key generate`]({{< ref "/reference/CLIreference/docker/dockertrust/dockertrustkey/dockertrustkeygenerate" >}}) | 生成并加载签名密钥对Generate and load a signing key-pair   |
+| [`docker trust key load`]({{< ref "/reference/CLIreference/docker/dockertrust/dockertrustkey/dockertrustkeyload" >}}) | 加载用于签名的私钥文件 Load a private key file for signing |

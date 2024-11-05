@@ -36,7 +36,7 @@ draft = false
 
 Here's an example of a repository with two signed tags:
 
-​	
+​	以下是包含两个已签名标签的仓库示例：
 
 
 
@@ -58,6 +58,8 @@ Root Key:       3cb2228f6561e58f46dbc4cda4fcaff9d5ef22e865a94636f82450d1d2234949
 ```
 
 When `alice`, one of the signers, runs `docker trust revoke`:
+
+​	当签名者之一 `alice` 执行 `docker trust revoke` 命令时：
 
 ​	
 
@@ -71,6 +73,8 @@ Successfully deleted signature for example/trust-demo:red
 
 After revocation, the tag is removed from the list of released tags:
 
+​	撤销签名后，标签将从已发布标签列表中移除：
+
 
 
 
@@ -91,9 +95,11 @@ Repository Key: ecc457614c9fc399da523a5f4e24fe306a0a6ee1cc79a10e4555b3c6ab02f71e
 Root Key:       3cb2228f6561e58f46dbc4cda4fcaff9d5ef22e865a94636f82450d1d2234949
 ```
 
-### Revoke signatures on all tags in a repository
+### 撤销仓库中所有标签的签名 Revoke signatures on all tags in a repository
 
 When no tag is specified, `docker trust` revokes all signatures that you have a signing key for.
+
+​	如果没有指定标签，`docker trust` 会撤销所有有签名密钥的签名：
 
 
 
@@ -116,7 +122,7 @@ Root Key:       3cb2228f6561e58f46dbc4cda4fcaff9d5ef22e865a94636f82450d1d2234949
 
 When `alice`, one of the signers, runs `docker trust revoke`:
 
-
+​	当签名者之一 `alice` 执行 `docker trust revoke` 命令时：
 
 ```console
 $ docker trust revoke example/trust-demo
@@ -127,7 +133,7 @@ Successfully deleted signature for example/trust-demo
 
 All tags that have `alice`'s signature on them are removed from the list of released tags:
 
-
+​	所有包含 `alice` 签名的标签将从已发布标签列表中移除：
 
 ```console
 $ docker trust inspect --pretty example/trust-demo

@@ -22,19 +22,21 @@ draft = false
 
 `docker trust sign` adds signatures to tags to create signed repositories.
 
+​	`docker trust sign` 用于为标签添加签名，以创建签名的仓库。
+
 ## Options
 
-| Option    | Default | Description                 |
-| --------- | ------- | --------------------------- |
-| `--local` |         | Sign a locally tagged image |
+| Option    | Default | Description                                    |
+| --------- | ------- | ---------------------------------------------- |
+| `--local` |         | 签署本地标签的镜像 Sign a locally tagged image |
 
 ## Examples
 
-### Sign a tag as a repository admin
+### 作为仓库管理员签署标签 Sign a tag as a repository admin
 
 Given an image:
 
-
+​	给定一个镜像：
 
 ```console
 $ docker trust inspect --pretty example/trust-demo
@@ -49,7 +51,7 @@ Root Key:       246d360f7c53a9021ee7d4259e3c5692f3f1f7ad4737b1ea8c7b8da741ad980b
 
 Sign a new tag with `docker trust sign`:
 
-
+​	使用 `docker trust sign` 为一个新标签签名：
 
 ```console
 $ docker trust sign example/trust-demo:v2
@@ -71,7 +73,7 @@ Successfully signed docker.io/example/trust-demo:v2
 
 Use `docker trust inspect --pretty` to list the new signature:
 
-
+​	使用 `docker trust inspect --pretty` 列出新的签名：
 
 ```console
 $ docker trust inspect --pretty example/trust-demo
@@ -85,11 +87,11 @@ Repository Key: 36d4c3601102fa7c5712a343c03b94469e5835fb27c191b529c06fd19c14a942
 Root Key:       246d360f7c53a9021ee7d4259e3c5692f3f1f7ad4737b1ea8c7b8da741ad980b
 ```
 
-### Sign a tag as a signer
+### 作为签名者签署标签 Sign a tag as a signer
 
 Given an image:
 
-
+​	给定一个镜像：
 
 ```console
 $ docker trust inspect --pretty example/trust-demo
@@ -110,7 +112,7 @@ Root Key:       3cb2228f6561e58f46dbc4cda4fcaff9d5ef22e865a94636f82450d1d2234949
 
 Sign a new tag with `docker trust sign`:
 
-
+​	使用 `docker trust sign` 为一个新标签签名：
 
 ```console
 $ docker trust sign example/trust-demo:v1
@@ -130,7 +132,7 @@ Successfully signed docker.io/example/trust-demo:v1
 
 `docker trust inspect --pretty` lists the new signature:
 
-
+​	`docker trust inspect --pretty` 列出新的签名：
 
 ```console
 $ docker trust inspect --pretty example/trust-demo
