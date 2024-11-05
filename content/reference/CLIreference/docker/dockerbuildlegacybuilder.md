@@ -28,13 +28,13 @@ draft = false
 >
 > ​	本页面描述了 **旧版 `docker build` 的实现**，使用的是旧版（BuildKit 之前的）构建后端。此配置仅在构建 Windows 容器时相关。
 >
-> For information about the default `docker build`, using Buildx, see [`docker buildx build`](https://docs.docker.com/reference/cli/docker/build/).
+> For information about the default `docker build`, using Buildx, see [`docker buildx build`]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildx">}}).
 >
-> ​	关于默认的 `docker build`（使用 Buildx），请参阅 [`docker buildx build`](https://docs.docker.com/reference/cli/docker/build/)。
+> ​	关于默认的 `docker build`（使用 Buildx），请参阅 [`docker buildx build`]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildx">}})。
 
-When building with legacy builder, images are created from a Dockerfile by running a sequence of [commits](https://docs.docker.com/reference/cli/docker/container/commit/). This process is inefficient and slow compared to using BuildKit, which is why this build strategy is deprecated for all use cases except for building Windows containers. It's still useful for building Windows containers because BuildKit doesn't yet have full feature parity for Windows.
+When building with legacy builder, images are created from a Dockerfile by running a sequence of [commits]({{< ref "/reference/CLIreference/docker/dockercontainer/dockercontainercommit">}}). This process is inefficient and slow compared to using BuildKit, which is why this build strategy is deprecated for all use cases except for building Windows containers. It's still useful for building Windows containers because BuildKit doesn't yet have full feature parity for Windows.
 
-​	在使用旧版构建器时，通过运行一系列 [提交操作](https://docs.docker.com/reference/cli/docker/container/commit/)从 Dockerfile 创建镜像。相比使用 BuildKit，这种方式效率低且速度慢，因此除了用于构建 Windows 容器外，该构建策略已被弃用。对于 Windows 容器，这种构建方式仍然有用，因为 BuildKit 尚未完全支持 Windows 的所有功能。
+​	在使用旧版构建器时，通过运行一系列 [提交操作]({{< ref "/reference/CLIreference/docker/dockercontainer/dockercontainercommit">}})从 Dockerfile 创建镜像。相比使用 BuildKit，这种方式效率低且速度慢，因此除了用于构建 Windows 容器外，该构建策略已被弃用。对于 Windows 容器，这种构建方式仍然有用，因为 BuildKit 尚未完全支持 Windows 的所有功能。
 
 Builds invoked with `docker build` use Buildx (and BuildKit) by default, unless:
 
