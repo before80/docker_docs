@@ -20,27 +20,35 @@ draft = false
 
 Swarm This command works with the Swarm orchestrator.
 
+​	Swarm 该命令可在 Swarm 编排器中使用。
+
 ## Description
 
 Creates a secret using standard input or from a file for the secret content.
 
+​	通过标准输入或文件内容创建一个机密。
+
 For detailed information about using secrets, refer to [manage sensitive data with Docker secrets]({{< ref "/manuals/DockerEngine/Swarmmode/ManagesensitivedatawithDockersecrets" >}}).
+
+​	有关使用机密的详细信息，请参阅 [使用 Docker 机密管理敏感数据]({{< ref "/manuals/DockerEngine/Swarmmode/ManagesensitivedatawithDockersecrets" >}})。
 
 > **Note**
 >
 > This is a cluster management command, and must be executed on a swarm manager node. To learn about managers and workers, refer to the [Swarm mode section]({{< ref "/manuals/DockerEngine/Swarmmode" >}}) in the documentation.
+>
+> ​	这是一个集群管理命令，必须在 Swarm 管理节点上执行。关于管理节点和工作节点的更多信息，请参阅文档中的 [Swarm 模式部分]({{< ref "/manuals/DockerEngine/Swarmmode" >}})。
 
 ## Options
 
-| Option                                                       | Default | Description               |
-| ------------------------------------------------------------ | ------- | ------------------------- |
-| `-d, --driver`                                               |         | API 1.31+ Secret driver   |
-| [`-l, --label`](https://docs.docker.com/reference/cli/docker/secret/create/#label) |         | Secret labels             |
-| `--template-driver`                                          |         | API 1.37+ Template driver |
+| Option                                                       | Default | Description                                  |
+| ------------------------------------------------------------ | ------- | -------------------------------------------- |
+| `-d, --driver`                                               |         | API 1.31+ 机密驱动 API 1.31+ Secret driver   |
+| [`-l, --label`](https://docs.docker.com/reference/cli/docker/secret/create/#label) |         | 机密标签 Secret labels                       |
+| `--template-driver`                                          |         | API 1.37+ 模板驱动 API 1.37+ Template driver |
 
 ## Examples
 
-### Create a secret
+### 创建机密 Create a secret
 
 
 
@@ -55,7 +63,7 @@ ID                          NAME                CREATED             UPDATED
 onakdyv307se2tl7nl20anokv   my_secret           6 seconds ago       6 seconds ago
 ```
 
-### Create a secret with a file
+### 使用文件创建机密 Create a secret with a file
 
 
 
@@ -70,7 +78,7 @@ ID                          NAME                CREATED             UPDATED
 dg426haahpi5ezmkkj5kyl3sn   my_secret           7 seconds ago       7 seconds ago
 ```
 
-### Create a secret with labels (--label)
+### 使用标签创建机密（`--label`） Create a secret with labels (`--label`)
 
 
 

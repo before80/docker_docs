@@ -22,17 +22,21 @@ draft = false
 
 `docker trust revoke` removes signatures from tags in signed repositories.
 
+​	`docker trust revoke` 从已签名的仓库中删除标签签名。
+
 ## Options
 
-| Option      | Default | Description                    |
-| ----------- | ------- | ------------------------------ |
-| `-y, --yes` |         | Do not prompt for confirmation |
+| Option      | Default | Description                               |
+| ----------- | ------- | ----------------------------------------- |
+| `-y, --yes` |         | 不提示确认 Do not prompt for confirmation |
 
 ## Examples
 
-### Revoke signatures from a signed tag
+### 从已签名标签中撤销签名 Revoke signatures from a signed tag
 
 Here's an example of a repository with two signed tags:
+
+​	
 
 
 
@@ -55,6 +59,8 @@ Root Key:       3cb2228f6561e58f46dbc4cda4fcaff9d5ef22e865a94636f82450d1d2234949
 
 When `alice`, one of the signers, runs `docker trust revoke`:
 
+​	
+
 
 
 ```console
@@ -64,6 +70,8 @@ Successfully deleted signature for example/trust-demo:red
 ```
 
 After revocation, the tag is removed from the list of released tags:
+
+
 
 
 

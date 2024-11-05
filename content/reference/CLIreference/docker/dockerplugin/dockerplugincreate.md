@@ -22,15 +22,19 @@ draft = false
 
 Creates a plugin. Before creating the plugin, prepare the plugin's root filesystem as well as the [config.json]({{< ref "/manuals/DockerEngine/DockerEngineplugins/PluginConfigVersion1ofPluginV2" >}}).
 
+​	创建插件。在创建插件之前，准备好插件的根文件系统以及 [config.json]({{< ref "/manuals/DockerEngine/DockerEngineplugins/PluginConfigVersion1ofPluginV2" >}})。
+
 ## Options
 
-| Option       | Default | Description                     |
-| ------------ | ------- | ------------------------------- |
-| `--compress` |         | Compress the context using gzip |
+| Option       | Default | Description                                          |
+| ------------ | ------- | ---------------------------------------------------- |
+| `--compress` |         | 使用 gzip 压缩上下文 Compress the context using gzip |
 
 ## Examples
 
 The following example shows how to create a sample `plugin`.
+
+​	以下示例展示了如何创建一个示例 `plugin`。
 
 
 
@@ -52,3 +56,5 @@ ID              NAME            DESCRIPTION                  ENABLED
 ```
 
 The plugin can subsequently be enabled for local use or pushed to the public registry.
+
+​	插件随后可以启用以供本地使用或推送到公共注册表。

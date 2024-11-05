@@ -22,17 +22,21 @@ draft = false
 
 `docker trust inspect` provides low-level JSON information on signed repositories. This includes all image tags that are signed, who signed them, and who can sign new tags.
 
+​	`docker trust inspect` 提供关于已签名仓库的低级 JSON 信息，包括所有已签名的镜像标签、签署者及可签署新标签的实体。
+
 ## Options
 
-| Option     | Default | Description                                      |
-| ---------- | ------- | ------------------------------------------------ |
-| `--pretty` |         | Print the information in a human friendly format |
+| Option     | Default | Description                                                  |
+| ---------- | ------- | ------------------------------------------------------------ |
+| `--pretty` |         | 以易读的格式打印信息 Print the information in a human friendly format |
 
 ## Examples
 
-### Get low-level details about signatures for a single image tag
+### 获取单个镜像标签的签名详细信息 Get low-level details about signatures for a single image tag
 
 Use the `docker trust inspect` to get trust information about an image. The following example prints trust information for the `alpine:latest` image:
+
+​	使用 `docker trust inspect` 获取有关镜像的信任信息。以下示例显示了 `alpine:latest` 镜像的信任信息：
 
 
 
@@ -42,7 +46,7 @@ $ docker trust inspect alpine:latest
 
 The output is in JSON format, for example:
 
-
+​	输出为 JSON 格式，例如：
 
 ```json
 [
@@ -82,9 +86,15 @@ The output is in JSON format, for example:
 
 The `SignedTags` key will list the `SignedTag` name, its `Digest`, and the `Signers` responsible for the signature.
 
+​	`SignedTags` 键列出 `SignedTag` 名称、其 `Digest` 以及负责签名的 `Signers`。
+
 `AdministrativeKeys` will list the `Repository` and `Root` keys.
 
+​	`AdministrativeKeys` 列出 `Repository` 和 `Root` 密钥。
+
 If signers are set up for the repository via other `docker trust` commands, `docker trust inspect` includes a `Signers` key:
+
+​	如果通过其他 `docker trust` 命令为仓库设置了签署者，`docker trust inspect` 会包含一个 `Signers` 键：
 
 
 
@@ -93,6 +103,8 @@ $ docker trust inspect my-image:purple
 ```
 
 The output is in JSON format, for example:
+
+​	输出为 JSON 格式，例如：
 
 
 
@@ -167,7 +179,7 @@ The output is in JSON format, for example:
 
 If the image tag is unsigned or unavailable, `docker trust inspect` does not display any signed tags.
 
-
+​	如果镜像标签未签名或不可用，`docker trust inspect` 不会显示任何已签名标签。
 
 ```console
 $ docker trust inspect unsigned-img
@@ -177,7 +189,7 @@ no signatures or cannot access unsigned-img
 
 However, if other tags are signed in the same image repository, `docker trust inspect` reports relevant key information:
 
-
+​	但是，如果在同一个镜像仓库中其他标签被签名，`docker trust inspect` 会报告相关的密钥信息：
 
 ```console
 $ docker trust inspect alpine:unsigned
@@ -185,7 +197,7 @@ $ docker trust inspect alpine:unsigned
 
 The output is in JSON format, for example:
 
-
+​	输出为 JSON 格式，例如：
 
 ```json
 [
@@ -214,9 +226,11 @@ The output is in JSON format, for example:
 ]
 ```
 
-### Get details about signatures for all image tags in a repository
+### 获取仓库中所有镜像标签的签名详细信息 Get details about signatures for all image tags in a repository
 
 If no tag is specified, `docker trust inspect` will report details for all signed tags in the repository:
+
+​	如果没有指定标签，`docker trust inspect` 将报告仓库中所有已签名标签的详细信息：
 
 
 
@@ -226,7 +240,7 @@ $ docker trust inspect alpine
 
 The output is in JSON format, for example:
 
-
+​	输出为 JSON 格式，例如：
 
 ```json
 [
@@ -285,9 +299,11 @@ The output is in JSON format, for example:
 ]
 ```
 
-### Get details about signatures for multiple images
+### 获取多个镜像的签名详细信息 Get details about signatures for multiple images
 
 `docker trust inspect` can take multiple repositories and images as arguments, and reports the results in an ordered list:
+
+​	`docker trust inspect` 可以接受多个仓库和镜像作为参数，并按顺序列出结果：
 
 
 
@@ -297,7 +313,7 @@ $ docker trust inspect alpine notary
 
 The output is in JSON format, for example:
 
-
+​	输出为 JSON 格式，例如：
 
 ```json
 [
@@ -401,11 +417,13 @@ The output is in JSON format, for example:
 ]
 ```
 
-### Formatting
+### 格式化输出 Formatting
 
 You can print the inspect output in a human-readable format instead of the default JSON output, by using the `--pretty` option:
 
-### Get details about signatures for a single image tag
+​	你可以使用 `--pretty` 选项将检查输出以易读格式打印，而不是默认的 JSON 输出：
+
+### 获取单个镜像标签的签名详细信息 Get details about signatures for a single image tag
 
 
 
@@ -422,9 +440,15 @@ Root Key:       a2489bcac7a79aa67b19b96c4a3bf0c675ffdf00c6d2fabe1a5df1115e80adce
 
 The `SIGNED TAG` is the signed image tag with a unique content-addressable `DIGEST`. `SIGNERS` lists all entities who have signed.
 
+​	`SIGNED TAG` 是带有唯一内容可寻址的 `DIGEST` 的已签名镜像标签。`SIGNERS` 列出所有签署实体。
+
 The administrative keys listed specify the root key of trust, as well as the administrative repository key. These keys are responsible for modifying signers, and rotating keys for the signed repository.
 
+​	列出的管理密钥指定信任的根密钥以及管理仓库的密钥。它们负责修改签署者和旋转签名仓库的密钥。
+
 If signers are set up for the repository via other `docker trust` commands, `docker trust inspect --pretty` displays them appropriately as a `SIGNER` and specify their `KEYS`:
+
+​	如果通过其他 `docker trust` 命令为仓库设置了签署者，`docker trust inspect --pretty` 将适当地显示它们为 `SIGNER` 并指定它们的 `KEYS`：
 
 
 
@@ -448,6 +472,8 @@ Root Key:       40b66ccc8b176be8c7d365a17f3e046d1c3494e053dd57cfeacfe2e19c4f8e8f
 
 However, if other tags are signed in the same image repository, `docker trust inspect` reports relevant key information.
 
+​	然而，如果同一镜像仓库中的其他标签已签名，`docker trust inspect` 会报告相关的密钥信息。
+
 
 
 ```console
@@ -461,7 +487,7 @@ Repository Key: 5a46c9aaa82ff150bb7305a2d17d0c521c2d784246807b2dc611f436a69041fd
 Root Key:       a2489bcac7a79aa67b19b96c4a3bf0c675ffdf00c6d2fabe1a5df1115e80adce
 ```
 
-### Get details about signatures for all image tags in a repository
+### 获取仓库中所有镜像标签的签名详细信息 Get details about signatures for all image tags in a repository
 
 
 
@@ -486,6 +512,8 @@ Root Key:       a2489bcac7a79aa67b19b96c4a3bf0c675ffdf00c6d2fabe1a5df1115e80adce
 ```
 
 Here's an example with signers that are set up by `docker trust` commands:
+
+​	以下是通过 `docker trust` 命令设置签署者的示例：
 
 
 

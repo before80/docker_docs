@@ -135,7 +135,7 @@ Credential helpers are specified in a similar way to `credsStore`, but allow for
 
 ## Examples
 
-### Authenticate to Docker Hub with web-based login
+### xxxxxxxxxx1 1$ docker inspect --format='{{json .Config}}' $INSTANCE_IDconsole
 
 By default, the `docker login` command authenticates to Docker Hub, using a device code flow. This flow lets you authenticate to Docker Hub without entering your password. Instead, you visit a URL in your web browser, enter a code, and authenticate.
 

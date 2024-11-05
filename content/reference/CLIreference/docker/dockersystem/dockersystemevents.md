@@ -23,13 +23,19 @@ draft = false
 
 Use `docker events` to get real-time events from the server. These events differ per Docker object type. Different event types have different scopes. Local scoped events are only seen on the node they take place on, and Swarm scoped events are seen on all managers.
 
+​	使用 `docker events` 从服务器获取实时事件。这些事件根据 Docker 对象类型有所不同。不同类型的事件有不同的作用域。局部作用域的事件仅在它们发生的节点上可见，而 Swarm 作用域的事件可以在所有管理节点上看到。
+
 Only the last 1000 log events are returned. You can use filters to further limit the number of events returned.
 
-### Object types
+​	仅返回最近的 1000 条日志事件。您可以使用过滤器进一步限制返回的事件数量。
+
+### 对象类型 Object types
 
 #### Containers
 
 Docker containers report the following events:
+
+​	Docker 容器报告以下事件：
 
 - `attach`
 - `commit`
@@ -60,6 +66,8 @@ Docker containers report the following events:
 
 Docker images report the following events:
 
+​	Docker 镜像报告以下事件：
+
 - `delete`
 - `import`
 - `load`
@@ -73,6 +81,8 @@ Docker images report the following events:
 
 Docker plugins report the following events:
 
+​	Docker 插件报告以下事件：
+
 - `enable`
 - `disable`
 - `install`
@@ -82,6 +92,8 @@ Docker plugins report the following events:
 
 Docker volumes report the following events:
 
+​	Docker 卷报告以下事件：
+
 - `create`
 - `destroy`
 - `mount`
@@ -90,6 +102,8 @@ Docker volumes report the following events:
 #### Networks
 
 Docker networks report the following events:
+
+​	Docker 网络报告以下事件：
 
 - `create`
 - `connect`
@@ -101,11 +115,15 @@ Docker networks report the following events:
 
 Docker daemons report the following events:
 
+​	Docker 守护进程报告以下事件：
+
 - `reload`
 
 #### Services
 
 Docker services report the following events:
+
+​	Docker 服务报告以下事件：
 
 - `create`
 - `remove`
@@ -115,6 +133,8 @@ Docker services report the following events:
 
 Docker nodes report the following events:
 
+​	Docker 节点报告以下事件：
+
 - `create`
 - `remove`
 - `update`
@@ -122,6 +142,8 @@ Docker nodes report the following events:
 #### Secrets
 
 Docker secrets report the following events:
+
+​	Docker 密钥报告以下事件：
 
 - `create`
 - `remove`
@@ -131,27 +153,41 @@ Docker secrets report the following events:
 
 Docker configs report the following events:
 
+​	Docker 配置报告以下事件：
+
 - `create`
 - `remove`
 - `update`
 
-### Limiting, filtering, and formatting the output
+### 限制、过滤和格式化输出 Limiting, filtering, and formatting the output
 
-#### Limit events by time (--since, --until)
+#### 按时间限制事件（`--since, --until`） Limit events by time (`--since, --until`)
 
 The `--since` and `--until` parameters can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the client machine’s time. If you do not provide the `--since` option, the command returns only new and/or live events. Supported formats for date formatted time stamps include RFC3339Nano, RFC3339, `2006-01-02T15:04:05`, `2006-01-02T15:04:05.999999999`, `2006-01-02T07:00`, and `2006-01-02`. The local timezone on the client will be used if you do not provide either a `Z` or a `+-00:00` timezone offset at the end of the timestamp. When providing Unix timestamps enter seconds[.nanoseconds], where seconds is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds (aka Unix epoch or Unix time), and the optional .nanoseconds field is a fraction of a second no more than nine digits long.
 
+​	`--since` 和 `--until` 参数可以是 Unix 时间戳、日期格式的时间戳或基于客户端机器时间的 Go 时长字符串（例如 `10m`, `1h30m`）。如果没有提供 `--since` 选项，命令只返回新创建和/或实时事件。支持的日期格式包括 RFC3339Nano、RFC3339、`2006-01-02T15:04:05`、`2006-01-02T15:04:05.999999999`、`2006-01-02T07:00` 和 `2006-01-02`。如果时间戳末尾未指定 `Z` 或 `+-00:00` 的时区偏移量，将使用客户端的本地时区。Unix 时间戳格式为秒[.纳秒]，秒数从 1970 年 1 月 1 日起计算（UTC/GMT 零点），可选的 .纳秒字段为不超过九位数的秒的小数部分。
+
 Only the last 1000 log events are returned. You can use filters to further limit the number of events returned.
 
-#### Filtering (--filter)
+​	仅返回最近的 1000 条日志事件。您可以使用过滤器进一步限制返回的事件数量。
+
+#### Filtering (`--filter`)
 
 The filtering flag (`-f` or `--filter`) format is of "key=value". If you would like to use multiple filters, pass multiple flags (e.g., `--filter "foo=bar" --filter "bif=baz"`)
 
+​	过滤标志（`-f` 或 `--filter`）格式为 "key=value"。若需多个过滤器，请传递多个标志（例如 `--filter "foo=bar" --filter "bif=baz"`）。
+
 Using the same filter multiple times is interpreted as a logical `OR`; for example, `--filter container=588a23dac085 --filter container=a8f7720b8c22` displays events for container `588a23dac085` or container `a8f7720b8c22`.
+
+​	使用相同过滤器多次将被解释为逻辑 `OR`；例如，`--filter container=588a23dac085 --filter container=a8f7720b8c22` 显示容器 `588a23dac085` 或容器 `a8f7720b8c22` 的事件。
 
 Using multiple filters is interpreted as a logical `AND`; for example, `--filter container=588a23dac085 --filter event=start` displays events for container `588a23dac085` and where the event type is `start`.
 
+​	使用多个不同的过滤器将被解释为逻辑 `AND`；例如，`--filter container=588a23dac085 --filter event=start` 显示容器 `588a23dac085` 且事件类型为 `start` 的事件。
+
 The currently supported filters are:
+
+​	当前支持的过滤器包括：
 
 - config (`config=<name or id>`)
 - container (`container=<name or id>`)
@@ -172,24 +208,30 @@ The currently supported filters are:
 
 If you specify a format (`--format`), the given template is executed instead of the default format. Go's [text/template](https://pkg.go.dev/text/template) package describes all the details of the format.
 
+​	如果指定了格式（`--format`），则将执行给定的模板，而不是默认格式。Go 的 [text/template](https://pkg.go.dev/text/template) 包描述了格式的所有细节。
+
 If a format is set to `{{json .}}`, events are streamed in the JSON Lines format. For information about JSON Lines, see https://jsonlines.org/.
+
+​	如果将格式设置为 `{{json .}}`，事件将以 JSON Lines 格式流式传输。关于 JSON Lines 的信息，请参阅 https://jsonlines.org/。
 
 ## Options
 
 | Option         | Default | Description                                                  |
 | -------------- | ------- | ------------------------------------------------------------ |
-| `-f, --filter` |         | Filter output based on conditions provided                   |
-| `--format`     |         | Format output using a custom template: 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
-| `--since`      |         | Show all events created since timestamp                      |
-| `--until`      |         | Stream events until this timestamp                           |
+| `-f, --filter` |         | 根据提供的条件过滤输出 Filter output based on conditions provided |
+| `--format`     |         | 使用自定义模板格式化输出: 'json': 以 JSON 格式打印 'TEMPLATE': 使用指定的 Go 模板格式化输出。有关使用模板格式化输出的更多信息，请参阅 https://docs.docker.com/go/formatting/ Format output using a custom template: 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
+| `--since`      |         | 显示自指定时间戳以来创建的所有事件 Show all events created since timestamp |
+| `--until`      |         | 流式传输事件直到该时间戳  Stream events until this timestamp |
 
 ## Examples
 
-### Basic example
+### 基本示例 Basic example
 
 You'll need two shells for this example.
 
-**Shell 1: Listening for events:**
+​	此示例需要两个 shell。
+
+ **Shell 1: Listening for events 监听事件 :**
 
 
 
@@ -197,7 +239,7 @@ You'll need two shells for this example.
 $ docker events
 ```
 
-**Shell 2: Start and Stop containers:**
+**Shell 2: Start and Stop containers 启动和停止容器:**
 
 
 
@@ -207,7 +249,7 @@ $ docker start test
 $ docker stop test
 ```
 
-**Shell 1: (Again .. now showing events):**
+**Shell 1: (Again .. now showing events 再次显示事件):**
 
 
 
@@ -223,9 +265,13 @@ $ docker stop test
 
 To exit the `docker events` command, use `CTRL+C`.
 
-### Filter events by time
+​	要退出 `docker events` 命令，请使用 `CTRL+C`。
+
+### 按时间过滤事件 Filter events by time
 
 You can filter the output by an absolute timestamp or relative time on the host machine, using the following different time formats:
+
+​	可以通过主机上的绝对时间戳或相对时间来过滤输出，使用以下不同的时间格式：
 
 
 
@@ -277,9 +323,11 @@ $ docker events --since '2017-01-05T00:35:30' --until '2017-01-05T00:36:05'
 2017-01-05T00:36:04.795031609+08:00 container start 0fdb...ff37 (image=alpine:latest, name=test)
 ```
 
-### Filter events by criteria
+### 按条件过滤事件 Filter events by criteria
 
 The following commands show several different ways to filter the `docker event` output.
+
+​	以下命令显示了几种过滤 `docker event` 输出的不同方法：
 
 
 
@@ -377,7 +425,7 @@ $ docker events --filter 'scope=swarm'
 2017-07-10T07:47:31.093797134Z secret create 6g5pufzsv438p9tbvl9j94od4 (name=new_secret)
 ```
 
-### Format the output
+### 格式化输出 Format the output
 
 
 
@@ -392,11 +440,11 @@ Type=container  Status=die  ID=2ee349dac409e97974ce8d01b70d250b85e0ba8189299c126
 Type=container  Status=destroy  ID=2ee349dac409e97974ce8d01b70d250b85e0ba8189299c126a87812311951e26
 ```
 
-#### Format as JSON
+#### 格式化为 JSON Format as JSON
 
 To list events in JSON format, use the `json` directive, which is the same `--format '{{ json . }}`.
 
-
+​	要以 JSON 格式列出事件，请使用 `json` 指令，即 `--format '{{ json . }}`。
 
 ```console
 $ docker events --format json

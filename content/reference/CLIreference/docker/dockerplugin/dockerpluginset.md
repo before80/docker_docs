@@ -22,18 +22,32 @@ draft = false
 
 Change settings for a plugin. The plugin must be disabled.
 
+​	更改插件的设置。插件必须处于禁用状态。
+
 The settings currently supported are:
 
+​	当前支持的设置包括：
+
 - env variables
+  - 环境变量
+
 - source of mounts
+  - 挂载源
+
 - path of devices
+  - 设备路径
+
 - args
+  - 参数
+
 
 ## Examples
 
-### Change an environment variable
+### 更改环境变量 Change an environment variable
 
 The following example change the env variable `DEBUG` on the `sample-volume-plugin` plugin.
+
+​	以下示例更改 `sample-volume-plugin` 插件的环境变量 `DEBUG`。
 
 
 
@@ -47,9 +61,11 @@ $ docker plugin inspect -f {{.Settings.Env}} tiborvass/sample-volume-plugin
 [DEBUG=1]
 ```
 
-### Change the source of a mount
+### 更改挂载的源 Change the source of a mount
 
 The following example change the source of the `mymount` mount on the `myplugin` plugin.
+
+​	以下示例更改 `myplugin` 插件上 `mymount` 挂载的源。
 
 
 
@@ -66,12 +82,14 @@ $ docker plugin inspect -f '{{with $mount := index .Settings.Mounts 0}}{{$mount.
 > **Note**
 >
 > Since only `source` is settable in `mymount`, `docker plugins set mymount=/bar myplugin` would work too.
+>
+> ​	由于 `mymount` 中只有 `source` 是可设置的，因此 `docker plugins set mymount=/bar myplugin` 也可以生效。
 
-### Change a device path
+### 更改设备路径 Change a device path
 
 The following example change the path of the `mydevice` device on the `myplugin` plugin.
 
-
+​	以下示例更改 `myplugin` 插件上 `mydevice` 设备的路径。
 
 ```console
 $ docker plugin inspect -f '{{with $device := index .Settings.Devices 0}}{{$device.Path}}{{end}}' myplugin
@@ -88,12 +106,14 @@ $ docker plugin inspect -f '{{with $device := index .Settings.Devices 0}}{{$devi
 > **Note**
 >
 > Since only `path` is settable in `mydevice`, `docker plugins set mydevice=/dev/bar myplugin` would work too.
+>
+> ​	由于 `mydevice` 中只有 `path` 是可设置的，因此 `docker plugins set mydevice=/dev/bar myplugin` 也可以生效。
 
-### Change the source of the arguments
+### 更改参数源 Change the source of the arguments
 
 The following example change the value of the args on the `myplugin` plugin.
 
-
+​	以下示例更改 `myplugin` 插件的参数值。
 
 ```console
 $ docker plugin inspect -f '{{.Settings.Args}}' myplugin

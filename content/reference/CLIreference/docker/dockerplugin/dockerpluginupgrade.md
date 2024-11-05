@@ -22,19 +22,21 @@ draft = false
 
 Upgrades an existing plugin to the specified remote plugin image. If no remote is specified, Docker will re-pull the current image and use the updated version. All existing references to the plugin will continue to work. The plugin must be disabled before running the upgrade.
 
+​	升级现有插件至指定的远程插件镜像。如果未指定远程，Docker 将重新拉取当前镜像并使用更新版本。插件的所有现有引用将继续生效。在运行升级之前，插件必须禁用。
+
 ## Options
 
 | Option                    | Default | Description                                                  |
 | ------------------------- | ------- | ------------------------------------------------------------ |
-| `--disable-content-trust` | `true`  | Skip image verification                                      |
-| `--grant-all-permissions` |         | Grant all permissions necessary to run the plugin            |
-| `--skip-remote-check`     |         | Do not check if specified remote plugin matches existing plugin image |
+| `--disable-content-trust` | `true`  | 跳过镜像验证 Skip image verification                         |
+| `--grant-all-permissions` |         | 授予运行插件所需的所有权限 Grant all permissions necessary to run the plugin |
+| `--skip-remote-check`     |         | 不检查指定的远程插件是否与现有插件镜像匹配 Do not check if specified remote plugin matches existing plugin image |
 
 ## Examples
 
 The following example installs `vieus/sshfs` plugin, uses it to create and use a volume, then upgrades the plugin.
 
-
+​	以下示例安装 `vieus/sshfs` 插件，使用该插件创建并使用卷，然后升级该插件。
 
 ```console
 $ docker plugin install vieux/sshfs DEBUG=1

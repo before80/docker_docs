@@ -22,17 +22,23 @@ draft = false
 
 After you have created a plugin using `docker plugin create` and the plugin is ready for distribution, use `docker plugin push` to share your images to Docker Hub or a self-hosted registry.
 
+​	在使用 `docker plugin create` 创建插件并准备好分发后，使用 `docker plugin push` 将镜像共享到 Docker Hub 或自托管注册表。
+
 Registry credentials are managed by [docker login]({{< ref "/reference/CLIreference/docker/dockerlogin" >}}).
+
+​	注册表凭证由 [docker login]({{< ref "/reference/CLIreference/docker/dockerlogin" >}}) 管理。
 
 ## Options
 
-| Option                    | Default | Description        |
-| ------------------------- | ------- | ------------------ |
-| `--disable-content-trust` | `true`  | Skip image signing |
+| Option                    | Default | Description                     |
+| ------------------------- | ------- | ------------------------------- |
+| `--disable-content-trust` | `true`  | 跳过镜像签名 Skip image signing |
 
 ## Examples
 
 The following example shows how to push a sample `user/plugin`.
+
+​	以下示例展示如何推送一个示例 `user/plugin`。
 
 
 

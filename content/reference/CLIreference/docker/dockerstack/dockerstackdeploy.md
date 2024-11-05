@@ -21,30 +21,38 @@ draft = false
 
 Swarm This command works with the Swarm orchestrator.
 
+​	Swarm 此命令适用于 Swarm 编排器。
+
 ## Description
 
 Create and update a stack from a `compose` file on the swarm.
 
+​	从 `compose` 文件在 Swarm 上创建和更新栈。
+
 > **Note**
 >
 > This is a cluster management command, and must be executed on a swarm manager node. To learn about managers and workers, refer to the [Swarm mode section]({{< ref "/manuals/DockerEngine/Swarmmode" >}}) in the documentation.
+>
+> ​	这是一个集群管理命令，必须在 Swarm 管理节点上执行。要了解管理器和工作节点，请参阅文档中的 Swarm 模式部分。
 
 ## Options
 
 | Option                                                       | Default  | Description                                                  |
 | ------------------------------------------------------------ | -------- | ------------------------------------------------------------ |
-| [`-c, --compose-file`](https://docs.docker.com/reference/cli/docker/stack/deploy/#compose-file) |          | API 1.25+ Path to a Compose file, or `-` to read from stdin  |
-| `-d, --detach`                                               | `true`   | Exit immediately instead of waiting for the stack services to converge |
-| `--prune`                                                    |          | API 1.27+ Prune services that are no longer referenced       |
-| `-q, --quiet`                                                |          | Suppress progress output                                     |
-| `--resolve-image`                                            | `always` | API 1.30+ Query the registry to resolve image digest and supported platforms (`always`, `changed`, `never`) |
-| `--with-registry-auth`                                       |          | Send registry authentication details to Swarm agents         |
+| [`-c, --compose-file`](https://docs.docker.com/reference/cli/docker/stack/deploy/#compose-file) |          | API 1.25+ Compose 文件路径，或使用 `-` 从标准输入读取 API 1.25+ Path to a Compose file, or `-` to read from stdin |
+| `-d, --detach`                                               | `true`   | 立即退出，而不是等待栈服务收敛 Exit immediately instead of waiting for the stack services to converge |
+| `--prune`                                                    |          | API 1.27+ 删除不再引用的服务 API 1.27+ Prune services that are no longer referenced |
+| `-q, --quiet`                                                |          | 抑制进度输出 Suppress progress output                        |
+| `--resolve-image`                                            | `always` | API 1.30+ 查询注册表以解析镜像摘要和支持的平台（`always`、`changed`、`never`） API 1.30+ Query the registry to resolve image digest and supported platforms (`always`, `changed`, `never`) |
+| `--with-registry-auth`                                       |          | 将注册表认证信息发送到 Swarm 代理 Send registry authentication details to Swarm agents |
 
 ## Examples
 
 ### Compose file (--compose-file)
 
 The `deploy` command supports Compose file version `3.0` and above.
+
+​	`deploy` 命令支持 Compose 文件版本 `3.0` 及以上。
 
 
 
@@ -65,6 +73,8 @@ Creating service vossibility_lookupd
 
 The Compose file can also be provided as standard input with `--compose-file -`:
 
+​	Compose 文件也可以通过标准输入提供，使用 `--compose-file -`：
+
 
 
 ```console
@@ -83,6 +93,8 @@ Creating service vossibility_lookupd
 ```
 
 If your configuration is split between multiple Compose files, e.g. a base configuration and environment-specific overrides, you can provide multiple `--compose-file` flags.
+
+​	如果配置分为多个 Compose 文件（例如，基本配置和特定环境覆盖），可以提供多个 `--compose-file` 标志。
 
 
 
@@ -103,7 +115,7 @@ Creating service vossibility_lookupd
 
 You can verify that the services were correctly created:
 
-
+​	你可以验证服务是否已正确创建。
 
 ```console
 $ docker service ls

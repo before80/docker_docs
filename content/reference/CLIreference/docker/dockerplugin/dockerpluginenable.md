@@ -22,15 +22,19 @@ draft = false
 
 Enables a plugin. The plugin must be installed before it can be enabled, see [`docker plugin install`]({{< ref "/reference/CLIreference/docker/dockerplugin/dockerplugininstall" >}}).
 
+​	启用插件。插件必须已安装后才能启用，详见 [`docker plugin install`]({{< ref "/reference/CLIreference/docker/dockerplugin/dockerplugininstall" >}})。
+
 ## Options
 
-| Option      | Default | Description                      |
-| ----------- | ------- | -------------------------------- |
-| `--timeout` | `30`    | HTTP client timeout (in seconds) |
+| Option      | Default | Description                                                |
+| ----------- | ------- | ---------------------------------------------------------- |
+| `--timeout` | `30`    | HTTP 客户端超时时间（秒） HTTP client timeout (in seconds) |
 
 ## Examples
 
 The following example shows that the `sample-volume-plugin` plugin is installed, but disabled:
+
+​	以下示例显示 `sample-volume-plugin` 插件已安装，但处于禁用状态：
 
 
 
@@ -43,7 +47,7 @@ ID            NAME                                    DESCRIPTION               
 
 To enable the plugin, use the following command:
 
-
+​	要启用该插件，请使用以下命令：
 
 ```console
 $ docker plugin enable tiborvass/sample-volume-plugin

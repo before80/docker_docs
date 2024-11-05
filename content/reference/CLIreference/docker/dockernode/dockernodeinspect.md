@@ -20,24 +20,30 @@ draft = false
 
 Swarm This command works with the Swarm orchestrator.
 
+​	Swarm 该命令适用于 Swarm 协调器。
+
 ## Description
 
 Returns information about a node. By default, this command renders all results in a JSON array. You can specify an alternate format to execute a given template for each result. Go's [text/template](https://pkg.go.dev/text/template) package describes all the details of the format.
 
+​	返回有关节点的信息。默认情况下，该命令以 JSON 数组格式呈现所有结果。您可以指定其他格式来为每个结果执行指定的模板。Go 的 [text/template](https://pkg.go.dev/text/template) 包描述了格式的所有详细信息。
+
 > **Note**
 >
 > This is a cluster management command, and must be executed on a swarm manager node. To learn about managers and workers, refer to the [Swarm mode section]({{< ref "/manuals/DockerEngine/Swarmmode" >}}) in the documentation.
+>
+> ​	这是一个集群管理命令，必须在 Swarm 管理节点上执行。有关管理节点和工作节点的更多信息，请参阅文档中的 [Swarm 模式部分]({{< ref "/manuals/DockerEngine/Swarmmode" >}})。
 
 ## Options
 
 | Option                                                       | Default | Description                                                  |
 | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
-| [`-f, --format`](https://docs.docker.com/reference/cli/docker/node/inspect/#format) |         | Format output using a custom template: 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
-| `--pretty`                                                   |         | Print the information in a human friendly format             |
+| [`-f, --format`](https://docs.docker.com/reference/cli/docker/node/inspect/#format) |         | 使用自定义模板格式化输出：'json'：以 JSON 格式打印 'TEMPLATE'：使用指定的 Go 模板打印输出。有关使用模板格式化输出的更多信息，请参阅 https://docs.docker.com/go/formatting/   Format output using a custom template: 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
+| `--pretty`                                                   |         | 以人性化的格式打印信息 Print the information in a human friendly format |
 
 ## Examples
 
-### Inspect a node
+### 检查节点信息 Inspect a node
 
 
 
@@ -118,7 +124,7 @@ $ docker node inspect swarm-manager
 ]
 ```
 
-### Format the output (--format)
+### Format the output (`--format`)
 
 
 
@@ -130,7 +136,7 @@ false
 
 Use `--format=pretty` or the `--pretty` shorthand to pretty-print the output:
 
-
+​	使用 `--format=pretty` 或 `--pretty` 简写，以美观格式显示输出：
 
 ```console
 $ docker node inspect --format=pretty self

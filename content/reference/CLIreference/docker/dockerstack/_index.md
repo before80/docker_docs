@@ -20,6 +20,8 @@ draft = false
 
 Swarm This command works with the Swarm orchestrator.
 
+​	Swarm 此命令适用于 Swarm 编排器。
+
 ## Description
 
 Manage stacks.
@@ -28,9 +30,9 @@ Manage stacks.
 
 | Command                                                      | Description                                                  |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| [`docker stack config`]({{< ref "/reference/CLIreference/docker/dockerstack/dockerstackconfig" >}}) | Outputs the final config file, after doing merges and interpolations |
-| [`docker stack deploy`]({{< ref "/reference/CLIreference/docker/dockerstack/dockerstackdeploy" >}}) | Deploy a new stack or update an existing stack               |
-| [`docker stack ls`]({{< ref "/reference/CLIreference/docker/dockerstack/dockerstackls" >}}) | List stacks                                                  |
-| [`docker stack ps`]({{< ref "/reference/CLIreference/docker/dockerstack/dockerstackps" >}}) | List the tasks in the stack                                  |
-| [`docker stack rm`]({{< ref "/reference/CLIreference/docker/dockerstack/dockerstackrm" >}}) | Remove one or more stacks                                    |
-| [`docker stack services`]({{< ref "/reference/CLIreference/docker/dockerstack/dockerstackservices" >}}) | List the services in the stack                               |
+| [`docker stack config`]({{< ref "/reference/CLIreference/docker/dockerstack/dockerstackconfig" >}}) | 输出最终配置文件，执行合并和插值后 Outputs the final config file, after doing merges and interpolations |
+| [`docker stack deploy`]({{< ref "/reference/CLIreference/docker/dockerstack/dockerstackdeploy" >}}) | 部署新栈或更新现有栈 Deploy a new stack or update an existing stack |
+| [`docker stack ls`]({{< ref "/reference/CLIreference/docker/dockerstack/dockerstackls" >}}) | 列出栈 List stacks                                           |
+| [`docker stack ps`]({{< ref "/reference/CLIreference/docker/dockerstack/dockerstackps" >}}) | 列出栈中的任务 List the tasks in the stack                   |
+| [`docker stack rm`]({{< ref "/reference/CLIreference/docker/dockerstack/dockerstackrm" >}}) | 移除一个或多个栈 Remove one or more stacks                   |
+| [`docker stack services`]({{< ref "/reference/CLIreference/docker/dockerstack/dockerstackservices" >}}) | 列出栈中的服务 List the services in the stack                |

@@ -20,13 +20,19 @@ draft = false
 
 Swarm This command works with the Swarm orchestrator.
 
+​	Swarm 该命令适用于 Swarm 协调器。
+
 ## Description
 
 Demotes an existing manager so that it is no longer a manager.
 
+​	将现有的管理节点降级，使其不再是管理器。
+
 > **Note**
 >
 > This is a cluster management command, and must be executed on a swarm manager node. To learn about managers and workers, refer to the [Swarm mode section]({{< ref "/manuals/DockerEngine/Swarmmode" >}}) in the documentation.
+>
+> ​	这是一个集群管理命令，必须在 Swarm 管理节点上执行。有关管理节点和工作节点的更多信息，请参阅文档中的 [Swarm 模式部分]({{< ref "/manuals/DockerEngine/Swarmmode" >}})。
 
 ## Examples
 

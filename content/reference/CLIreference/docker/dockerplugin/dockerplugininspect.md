@@ -22,17 +22,21 @@ draft = false
 
 Returns information about a plugin. By default, this command renders all results in a JSON array.
 
+​	返回有关插件的信息。默认情况下，该命令以 JSON 数组形式呈现所有结果。
+
 ## Options
 
 | Option                                                       | Default | Description                                                  |
 | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
-| [`-f, --format`](https://docs.docker.com/reference/cli/docker/plugin/inspect/#format) |         | Format output using a custom template: 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
+| [`-f, --format`](https://docs.docker.com/reference/cli/docker/plugin/inspect/#format) |         | 使用自定义模板格式化输出：'json'：以 JSON 格式输出 'TEMPLATE'：使用给定的 Go 模板格式化输出。有关使用模板格式化输出的更多信息，请参阅 https://docs.docker.com/go/formatting/  Format output using a custom template: 'json': Print in JSON format 'TEMPLATE': Print output using the given Go template. Refer to https://docs.docker.com/go/formatting/ for more information about formatting output with templates |
 
 ## Examples
 
 ### Inspect a plugin
 
 The following example inspects the `tiborvass/sample-volume-plugin` plugin:
+
+​	以下示例检查 `tiborvass/sample-volume-plugin` 插件：
 
 
 
@@ -42,7 +46,7 @@ $ docker plugin inspect tiborvass/sample-volume-plugin:latest
 
 Output is in JSON format (output below is formatted for readability):
 
-
+​	输出为 JSON 格式（以下输出为可读性而格式化）：
 
 ```json
 {
@@ -152,7 +156,7 @@ Output is in JSON format (output below is formatted for readability):
 }
 ```
 
-### Format the output (--format)
+### Format the output (`--format`)
 
 
 

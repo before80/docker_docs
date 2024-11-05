@@ -21,25 +21,33 @@ draft = false
 
 Swarm This command works with the Swarm orchestrator.
 
+​	Swarm 此命令适用于 Swarm 编排器。
+
 ## Description
 
 Remove the stack from the swarm.
 
+​	从 Swarm 中移除栈。
+
 > **Note**
 >
 > This is a cluster management command, and must be executed on a swarm manager node. To learn about managers and workers, refer to the [Swarm mode section]({{< ref "/manuals/DockerEngine/Swarmmode" >}}) in the documentation.
+>
+> ​	这是一个集群管理命令，必须在 Swarm 管理节点上执行。要了解管理器和工作节点，请参阅 Swarm 模式部分。
 
 ## Options
 
-| Option         | Default | Description                   |
-| -------------- | ------- | ----------------------------- |
-| `-d, --detach` | `true`  | Do not wait for stack removal |
+| Option         | Default | Description                                |
+| -------------- | ------- | ------------------------------------------ |
+| `-d, --detach` | `true`  | 不等待栈移除 Do not wait for stack removal |
 
 ## Examples
 
-### Remove a stack
+### 移除栈 Remove a stack
 
 This will remove the stack with the name `myapp`. Services, networks, and secrets associated with the stack will be removed.
+
+​	这将移除名为 `myapp` 的栈。与栈关联的服务、网络和密钥将被移除。
 
 
 
@@ -53,11 +61,11 @@ Removing network myapp_default
 Removing network myapp_frontend
 ```
 
-### Remove multiple stacks
+### 移除多个栈 Remove multiple stacks
 
 This will remove all the specified stacks, `myapp` and `vossibility`. Services, networks, and secrets associated with all the specified stacks will be removed.
 
-
+​	这将移除所有指定的栈，包括 `myapp` 和 `vossibility`。所有指定栈关联的服务、网络和密钥将被移除。
 
 ```console
 $ docker stack rm myapp vossibility
