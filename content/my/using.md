@@ -14,12 +14,12 @@ draft = false
 ```sh
 sudo apt-get install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
 # Add the repository to Apt sources:
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \
 $(lsb_release -cs) stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
@@ -28,14 +28,11 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 
-# 手动启动 Docker 守护进程服务
-sudo systemctl start docker
-# 手动启动 containerd 进程服务
-sudo systemctl start containerd
+# 手动启动 Docker 守护进程服务 和 手动启动 containerd 进程服务
+sudo systemctl start docker && sudo systemctl start containerd
 
 # 设置 Docker 和 containerd 开机自动启动
-sudo systemctl enable docker.service
-sudo systemctl enable containerd.service
+sudo systemctl enable docker.service && sudo systemctl enable containerd.service
 ```
 
 

@@ -78,7 +78,7 @@ Recommended approach to install Docker Desktop on Ubuntu:
    $ sudo apt-get update
    $ sudo apt-get install ./docker-desktop-<arch>.deb
    # 个人说明：
-   # 这里应该是使用 sudo apt-get install docker-desktop 才能进行安装！
+   # 这里应该是使用 sudo dpkg -i ./docker-desktop-<arch>.deb 才能进行安装！
    ```
 
    Don't forget to substitute `<arch>` with the architecture you want.
