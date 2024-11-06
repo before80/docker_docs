@@ -78,6 +78,7 @@ sudo systemctl restart docker
 ​	请直接参照：[https://www.coderjia.cn/archives/dba3f94c-a021-468a-8ac6-e840f85867ea](https://www.coderjia.cn/archives/dba3f94c-a021-468a-8ac6-e840f85867ea)
 
 ```sh
+# 请使用 bash , 若使用 fish 可能报错
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
