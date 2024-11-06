@@ -42,24 +42,15 @@ To install Docker Desktop successfully, you must:
 
   - 需要一台运行 Ubuntu 22.04、24.04 或最新非 LTS 版本的 x86-64 系统。
 
-- For non-Gnome Desktop environments, `gnome-terminal` must be installed:
-
-  - 对于非 Gnome 桌面环境，必须安装 `gnome-terminal`：
-
-  ```sh
-  sudo apt install gnome-terminal
-  ```
-
-  
 
 
   > **Note**
   >
   > 
   >
-  > The latest Ubuntu 24.04 LTS is not yet supported. Docker Desktop will fail to start. Due to a change in how the latest Ubuntu release restricts the unprivileged namespaces, `sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0` needs to be run at least once. Refer to the [Ubuntu Blog](https://ubuntu.com/blog/ubuntu-23-10-restricted-unprivileged-user-namespaces) for more details.
+  > ~~The latest Ubuntu 24.04 LTS is not yet supported. Docker Desktop will fail to start. Due to a change in how the latest Ubuntu release restricts the unprivileged namespaces, `sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0` needs to be run at least once. Refer to the [Ubuntu Blog](https://ubuntu.com/blog/ubuntu-23-10-restricted-unprivileged-user-namespaces) for more details.~~
   >
-  > 最新的 Ubuntu 24.04 LTS 尚不支持。Docker Desktop 将无法启动。由于最新的 Ubuntu 版本改变了如何限制非特权命名空间，需要至少运行一次 `sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0`。有关详细信息，请参阅 [Ubuntu 博客](https://ubuntu.com/blog/ubuntu-23-10-restricted-unprivileged-user-namespaces)。
+  > ~~最新的 Ubuntu 24.04 LTS 尚不支持。Docker Desktop 将无法启动。由于最新的 Ubuntu 版本改变了如何限制非特权命名空间，需要至少运行一次 `sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0`。有关详细信息，请参阅 [Ubuntu 博客](https://ubuntu.com/blog/ubuntu-23-10-restricted-unprivileged-user-namespaces)。~~
 
 - For non-Gnome Desktop environments, `gnome-terminal` must be installed:
 
