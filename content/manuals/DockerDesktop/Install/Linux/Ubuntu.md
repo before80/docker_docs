@@ -10,7 +10,7 @@ draft = false
 
 > 原文：[https://docs.docker.com/desktop/install/linux/ubuntu/](https://docs.docker.com/desktop/install/linux/ubuntu/)
 >
-> 收录该文档的时间：`2024-10-23T14:54:40+08:00`
+> 收录该文档的时间：`2024-11-06T08:36:58+08:00`
 
 # Install Docker Desktop on Ubuntu - 在 Ubuntu 上安装 Docker Desktop
 
@@ -30,13 +30,27 @@ To install Docker Desktop successfully, you must:
 
 ​	要成功安装 Docker Desktop，您必须：
 
-- Meet the [general system requirements](https://docs.docker.com/desktop/install/linux/#general-system-requirements).
+- Meet the [general system requirements]({{< ref "/manuals/DockerDesktop/Install/Linux#general-system-requirements">}}).
 
-  - 满足[常规系统要求](https://docs.docker.com/desktop/install/linux/#general-system-requirements)。
+  - 满足[常规系统要求]({{< ref "/manuals/DockerDesktop/Install/Linux#general-system-requirements">}})。
 
-- Have a 64-bit version of either the LTS version Ubuntu Jammy Jellyfish 22.04, or the current non-LTS version. Docker Desktop is supported on `x86_64` (or `amd64`) architecture.
+- ~~Have a 64-bit version of either the LTS version Ubuntu Jammy Jellyfish 22.04, or the current non-LTS version. Docker Desktop is supported on `x86_64` (or `amd64`) architecture.~~
 
-  - 使用 64 位版本的 LTS 版本 Ubuntu Jammy Jellyfish 22.04 或当前非 LTS 版本。Docker Desktop 支持 `x86_64`（或 `amd64`）架构。
+  - ~~使用 64 位版本的 LTS 版本 Ubuntu Jammy Jellyfish 22.04 或当前非 LTS 版本。Docker Desktop 支持 `x86_64`（或 `amd64`）架构。~~
+
+- Have an x86-64 system with Ubuntu 22.04, 24.04, or the latest non-LTS version.
+
+  - 需要一台运行 Ubuntu 22.04、24.04 或最新非 LTS 版本的 x86-64 系统。
+
+- For non-Gnome Desktop environments, `gnome-terminal` must be installed:
+
+  - 对于非 Gnome 桌面环境，必须安装 `gnome-terminal`：
+
+  ```sh
+  sudo apt install gnome-terminal
+  ```
+
+  
 
 
   > **Note**
