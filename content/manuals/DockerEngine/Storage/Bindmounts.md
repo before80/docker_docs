@@ -59,10 +59,10 @@ In general, `--mount` is more explicit and verbose. The biggest difference is th
     - 挂载的 `source`。对于绑定挂载，这是 Docker 守护进程主机上文件或目录的路径。可以指定为 `source` 或 `src`。
   - The `destination` takes as its value the path where the file or directory is mounted in the container. May be specified as `destination`, `dst`, or `target`.
     - `destination` 指定文件或目录在容器中的挂载路径。可以指定为 `destination`、`dst` 或 `target`。
-  - The `readonly` option, if present, causes the bind mount to be [mounted into the container as read-only](https://docs.docker.com/engine/storage/bind-mounts/#use-a-read-only-bind-mount).
-    - `readonly` 选项（如果存在），使绑定挂载[作为只读挂载到容器中](https://docs.docker.com/engine/storage/bind-mounts/#use-a-read-only-bind-mount)。
-  - The `bind-propagation` option, if present, changes the [bind propagation](https://docs.docker.com/engine/storage/bind-mounts/#configure-bind-propagation). May be one of `rprivate`, `private`, `rshared`, `shared`, `rslave`, `slave`.
-    - `bind-propagation` 选项（如果存在），更改[绑定传播](https://docs.docker.com/engine/storage/bind-mounts/#configure-bind-propagation)，可以是 `rprivate`、`private`、`rshared`、`shared`、`rslave`、`slave` 中的一个。
+  - The `readonly` option, if present, causes the bind mount to be [mounted into the container as read-only](#使用只读绑定挂载-use-a-read-only-bind-mount).
+    - `readonly` 选项（如果存在），使绑定挂载[作为只读挂载到容器中](#使用只读绑定挂载-use-a-read-only-bind-mount)。
+  - The `bind-propagation` option, if present, changes the [bind propagation](#配置绑定传播-configure-bind-propagation). May be one of `rprivate`, `private`, `rshared`, `shared`, `rslave`, `slave`.
+    - `bind-propagation` 选项（如果存在），更改[绑定传播](#配置绑定传播-configure-bind-propagation)，可以是 `rprivate`、`private`、`rshared`、`shared`、`rslave`、`slave` 中的一个。
   - The `--mount` flag does not support `z` or `Z` options for modifying selinux labels.
     - `--mount` 标志不支持 `z` 或 `Z` 选项修改 selinux 标签。
 

@@ -35,6 +35,28 @@ sudo systemctl start docker && sudo systemctl start containerd
 sudo systemctl enable docker.service && sudo systemctl enable containerd.service
 ```
 
+​	若需要开启启动，请参照：[使用 systemd 配置 Docker 开机启动](http://dd.cn/manuals/DockerEngine/Install/Post-installationsteps/#使用-systemd-配置-docker-开机启动-configure-docker-to-start-on-boot-with-systemd)。
+
+ 	接着就是查看`docker`这个用户组，是否存在：
+
+```sh
+sudo getent group docker
+```
+
+
+
+​	 以及查看当前用户是否在`docker`这个用户组中：
+
+```
+groups $USER
+```
+
+ 	若不在`docker`这个用户组中，可以通过以下命令进行添加：
+
+```sh
+sudo usermod -aG docker $USER
+```
+
 
 
 ## 配置阿里云镜像加速器（目前已失效）
@@ -280,3 +302,108 @@ docker volume rm <volume_name>
 ```
 
 docker 
+
+
+
+```sh
+lx@lxm ~/Desktop> gpg --generate-key                                                                                                                      
+gpg (GnuPG) 2.4.4; Copyright (C) 2024 g10 Code GmbH
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+注意：使用 “gpg --full-generate-key” 以获得一个全功能的密钥生成对话框。
+
+GnuPG 需要构建用户标识以辨认您的密钥。
+
+真实姓名： zlongx
+电子邮件地址： zlongxiangde@gmail.com
+您选定了此用户标识：
+    “zlongx <zlongxiangde@gmail.com>”
+
+更改姓名（N）、注释（C）、电子邮件地址（E）或确定（O）/退出（Q）？ O
+我们需要生成大量的随机字节。在质数生成期间做些其他操作（敲打键盘
+、移动鼠标、读写硬盘之类的）将会是一个不错的主意；这会让随机数
+发生器有更好的机会获得足够的熵。
+我们需要生成大量的随机字节。在质数生成期间做些其他操作（敲打键盘
+、移动鼠标、读写硬盘之类的）将会是一个不错的主意；这会让随机数
+发生器有更好的机会获得足够的熵。
+gpg: 目录‘/home/lx/.gnupg/openpgp-revocs.d’已创建
+gpg: 吊销证书已被存储为‘/home/lx/.gnupg/openpgp-revocs.d/2953C26DEA5BBF55BD0B980CE27EEFE03C7DD23A.rev’
+公钥和私钥已经生成并被签名。
+
+pub   ed25519 2024-11-06 [SC] [有效至：2027-11-06]
+      2953C26DEA5BBF55BD0B980CE27EEFE03C7DD23A
+uid                      zlongx <zlongxiangde@gmail.com>
+sub   cv25519 2024-11-06 [E] [有效至：2027-11-06]
+lx@lxm ~/Desktop> pass init 2953C26DEA5BBF55BD0B980CE27EEFE03C7DD23A                                                                                      
+mkdir: 已创建目录 '/home/lx/.password-store/'                                                                                                             
+Password store initialized for 2953C26DEA5BBF55BD0B980CE27EEFE03C7DD23A
+
+```
+
+
+
+
+
+## docker-desktop启动时报错 (之后发现其实是版本不对，改用4.35.0安装就可以)
+
+​	在`~.docker/desktop/log/host/Docker Desktop.stderr.log`文件中有如下内容：
+
+```txt
+FATAL:setuid_sandbox_host.cc(158)] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing I'm aborting now. You need to make sure that `/opt/docker-desktop/chrome-sandbox` is owned by root and has mode 4755.
+```
+
+​	查看`/opt/docker-desktop/chrome-sandbox`：
+
+```sh
+lx@lxm /o/d/bin> ll /opt/docker-desktop/chrome-sandbox                                                                                                    
+-rwxr-xr-x 1 root root 53K Oct  8 23:57 /opt/docker-desktop/chrome-sandbox* 
+```
+
+​	果然，该文件的权限mode只是`755`，修改文件的权限mode：
+
+```
+lx@lxm /o/d/bin> sudo chmod 4755 /opt/docker-desktop/chrome-sandbox                                                                                       
+lx@lxm /o/d/bin> ll /opt/docker-desktop/chrome-sandbox                                                                                                    
+-rwsr-xr-x 1 root root 53K Oct  8 23:57 /opt/docker-desktop/chrome-sandbox* 
+```
+
+​	可以看到修改后，该文件的权限已经是`4755`了。
+
+​	重新启动`docker-desktop`:
+
+```sh
+systemctl --user restart /opt/docker-desktop/bin/docker-desktop
+```
+
+​	这样就看到了`docker-desktop`的启动窗口了！
+
+![image-20241106113416271](using_img/image-20241106113416271.png)
+
+
+
+![image-20241106113459117](using_img/image-20241106113459117.png)
+
+```txt
+An unexpected error occurred
+Docker Desktop encountered an unexpected error and needs to close.
+
+Search our troubleshooting documentation ⁠ to find a solution or workaround. Alternatively, you can gather a diagnostics report and submit a support request or GitHub issue.
+
+running engine: waiting for the Docker API: engine linux/qemu failed to run: running VM: running virtiofsd for /home:  Error entering sandbox: DropSupplementalGroups(Os { code: 1, kind: PermissionDenied, message: "Operation not permitted" })
+```
+
+```txt
+An unexpected error occurred
+Docker Desktop encountered an unexpected error and needs to close.
+
+Search our troubleshooting documentation ⁠ to find a solution or workaround. Alternatively, you can gather a diagnostics report and submit a support request or GitHub issue.
+
+running engine: resetting socket forwarder: starting: configuring options: computing socketforward options: qemu lacks support for networkType vpnkit
+```
+
+## docker -desktop登录不了用户
+
+![image-20241106123609288](using_img/image-20241106123609288.png)
+
+​	找到`设置->Resources->Proxies`，启用 `Manual proxy configuration`，填入相关代理，即可登录成功。
