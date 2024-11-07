@@ -178,7 +178,7 @@ You can configure DNS resolution on a per-container basis, using flags for the `
 
 Your container will have lines in `/etc/hosts` which define the hostname of the container itself, as well as `localhost` and a few other common things. Custom hosts, defined in `/etc/hosts` on the host machine, aren't inherited by containers. To pass additional hosts into a container, refer to [add entries to container hosts file](https://docs.docker.com/reference/cli/docker/container/run/#add-host) in the `docker run` reference documentation.
 
-​	容器的 `/etc/hosts` 文件中会包含容器自身的主机名，以及 `localhost` 和一些常用条目。在主机上的 `/etc/hosts` 文件中定义的自定义主机不会被容器继承。如需将额外的主机传入容器，请参见 `docker run` 参考文档中的[添加到容器主机文件](https://docs.docker.com/reference/cli/docker/container/run/#add-host)。
+​	容器的 `/etc/hosts` 文件中会包含容器自身的主机名，以及 `localhost` 和一些常用条目。在主机上的 `/etc/hosts` 文件中定义的自定义主机不会被容器继承。如需将额外的主机传入容器，请参见 `docker run` 参考文档中的[添加到容器主机文件]({{< ref "/reference/CLIreference/docker/dockercontainer/dockerrun#向容器的主机文件添加条目---add-host-add-entries-to-container-hosts-file---add-host">}})。
 
 ## 代理服务器 Proxy server
 
