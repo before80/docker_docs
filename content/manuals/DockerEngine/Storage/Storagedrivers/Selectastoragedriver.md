@@ -44,7 +44,7 @@ Some storage drivers require you to use a specific format for the backing filesy
 
 After you have narrowed down which storage drivers you can choose from, your choice is determined by the characteristics of your workload and the level of stability you need. See [Other considerations](https://docs.docker.com/engine/storage/drivers/select-storage-driver/#other-considerations) for help in making the final decision.
 
-​	确定了可选的存储驱动后，根据工作负载的特性和稳定性需求做出选择。参见[其他注意事项](https://docs.docker.com/engine/storage/drivers/select-storage-driver/#other-considerations)以帮助做出最终决定。
+​	确定了可选的存储驱动后，根据工作负载的特性和稳定性需求做出选择。参见[其他注意事项](#其他注意事项-other-considerations)以帮助做出最终决定。
 
 ## 各 Linux 发行版支持的存储驱动 Supported storage drivers per Linux distribution
 
