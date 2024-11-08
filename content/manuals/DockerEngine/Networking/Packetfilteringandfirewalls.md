@@ -102,7 +102,7 @@ By default, for both IPv4 and IPv6, the daemon blocks access to ports that have 
 
 For example, `docker run -p 8080:80 [...]` creates a mapping between port 8080 on any address on the Docker host, and the container's port 80. Outgoing connections from the container will masquerade, using the Docker host's IP address.
 
-​	例如，`docker run -p 8080:80 [...]` 在 Docker 主机的任意地址与容器的端口 80 之间创建了一个映射。来自容器的外发连接将使用主机的 IP 地址进行伪装。
+​	例如，`docker run -p 8080:80 [...]` 会在 Docker 主机的任意地址上的端口 8080 和容器的端口 80 之间创建映射。从容器发出的连接将使用 Docker 主机的 IP 地址进行伪装。
 
 ### 限制对容器的外部连接 Restrict external connections to containers
 
