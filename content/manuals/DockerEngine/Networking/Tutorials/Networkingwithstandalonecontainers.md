@@ -15,9 +15,9 @@ draft = false
 
 # Networking with standalone containers - 独立容器的网络配置
 
-This series of tutorials deals with networking for standalone Docker containers. For networking with swarm services, see [Networking with swarm services](https://docs.docker.com/engine/network/tutorials/overlay/). If you need to learn more about Docker networking in general, see the [overview](https://docs.docker.com/engine/network/tutorials/standalone/).
+This series of tutorials deals with networking for standalone Docker containers. For networking with swarm services, see [Networking with swarm services]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithoverlaynetworks" >}}). If you need to learn more about Docker networking in general, see the [overview]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithstandalonecontainers" >}}).
 
-​	本教程系列介绍了如何配置独立 Docker 容器的网络。关于 swarm 服务的网络配置，请参阅 [swarm 服务的网络配置](https://docs.docker.com/engine/network/tutorials/overlay/)。若需了解 Docker 网络的更多内容，请参阅 [概述](https://docs.docker.com/engine/network/tutorials/standalone/)。
+​	本教程系列介绍了如何配置独立 Docker 容器的网络。关于 swarm 服务的网络配置，请参阅 [swarm 服务的网络配置]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithoverlaynetworks" >}})。若需了解 Docker 网络的更多内容，请参阅 [概述]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithstandalonecontainers" >}})。
 
 This topic includes two different tutorials. You can run each of them on Linux, Windows, or a Mac, but for the last one, you need a second Docker host running elsewhere.
 
@@ -30,9 +30,9 @@ This topic includes two different tutorials. You can run each of them on Linux, 
   - [使用用户定义的桥接网络](https://docs.docker.com/engine/network/tutorials/standalone/#use-user-defined-bridge-networks) 展示了如何创建并使用自定义桥接网络，以连接在同一 Docker 主机上运行的容器。这对于生产中的独立容器是推荐的。
 
 
-Although [overlay networks](https://docs.docker.com/engine/network/drivers/overlay/) are generally used for swarm services, you can also use an overlay network for standalone containers. That's covered as part of the [tutorial on using overlay networks](https://docs.docker.com/engine/network/tutorials/overlay/#use-an-overlay-network-for-standalone-containers).
+Although [overlay networks]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Overlaynetworkdriver" >}}) are generally used for swarm services, you can also use an overlay network for standalone containers. That's covered as part of the [tutorial on using overlay networks](https://docs.docker.com/engine/network/tutorials/overlay/#use-an-overlay-network-for-standalone-containers).
 
-​	尽管 [overlay 网络](https://docs.docker.com/engine/network/drivers/overlay/) 通常用于 swarm 服务，你也可以在独立容器中使用 overlay 网络。可以在 [使用 overlay 网络的教程](https://docs.docker.com/engine/network/tutorials/overlay/#use-an-overlay-network-for-standalone-containers) 中查看相关内容。
+​	尽管 [overlay 网络]({{< ref "/manuals/DockerEngine/Networking/Networkdrivers/Overlaynetworkdriver" >}}) 通常用于 swarm 服务，你也可以在独立容器中使用 overlay 网络。可以在 [使用 overlay 网络的教程](https://docs.docker.com/engine/network/tutorials/overlay/#use-an-overlay-network-for-standalone-containers) 中查看相关内容。
 
 ## 使用默认桥接网络 Use the default bridge network
 
@@ -627,6 +627,6 @@ In this example, we again start two `alpine` containers, but attach them to a us
 
 ## 其他网络教程 Other networking tutorials
 
-- [Host networking tutorial](https://docs.docker.com/engine/network/tutorials/host/)
-- [Overlay networking tutorial](https://docs.docker.com/engine/network/tutorials/overlay/)
-- [Macvlan networking tutorial](https://docs.docker.com/engine/network/tutorials/macvlan/)
+- [Host networking tutorial]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingusingthehostnetwork" >}})
+- [Overlay networking tutorial]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithoverlaynetworks" >}})
+- [Macvlan networking tutorial]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingusingamacvlannetwork" >}})

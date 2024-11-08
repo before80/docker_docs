@@ -135,9 +135,9 @@ Make sure you have:
    >
    > ​	确保 `Dockerfile` 没有 `.txt` 等文件扩展名。一些编辑器可能会自动添加文件扩展名，导致运行应用时出现错误。
    
-   For more information on how to write Dockerfiles, see the [Dockerfile reference](https://docs.docker.com/reference/dockerfile/).
+   For more information on how to write Dockerfiles, see the [Dockerfile reference]({{< ref "/reference/Dockerfilereference" >}}).
    
-   ​	有关如何编写 Dockerfile 的更多信息，请参见 [Dockerfile 参考](https://docs.docker.com/reference/dockerfile/)。
+   ​	有关如何编写 Dockerfile 的更多信息，请参见 [Dockerfile 参考]({{< ref "/reference/Dockerfilereference" >}})。
 
 ## 第二步：在 Compose 文件中定义服务 Step 2: Define services in a Compose file
 
@@ -171,9 +171,9 @@ The `redis` service uses a public [Redis](https://registry.hub.docker.com/_/redi
 
 ​	`redis` 服务使用从 Docker Hub 注册表拉取的公共 [Redis](https://registry.hub.docker.com/_/redis/) 镜像。
 
-For more information on the `compose.yaml` file, see [How Compose works](https://docs.docker.com/compose/intro/compose-application-model/).
+For more information on the `compose.yaml` file, see [How Compose works]({{< ref "/manuals/DockerCompose/IntroductiontoCompose/HowComposeworks" >}}).
 
-​	有关 `compose.yaml` 文件的更多信息，请参见 [Compose 工作原理](https://docs.docker.com/compose/intro/compose-application-model/)。
+​	有关 `compose.yaml` 文件的更多信息，请参见 [Compose 工作原理]({{< ref "/manuals/DockerCompose/IntroductiontoCompose/HowComposeworks" >}})。
 
 ## 第三步：使用 Compose 构建并运行应用 Step 3: Build and run your app with Compose
 
@@ -286,9 +286,9 @@ Whenever a file is changed, Compose syncs the file to the corresponding location
 
 ​	每当文件发生更改时，Compose 会将文件同步到容器内 `/code` 下的相应位置。复制完成后，bundler 会在不重启的情况下更新正在运行的应用。
 
-For more information on how Compose Watch works, see [Use Compose Watch](https://docs.docker.com/compose/how-tos/file-watch/). Alternatively, see [Manage data in containers](https://docs.docker.com/engine/storage/volumes/) for other options.
+For more information on how Compose Watch works, see [Use Compose Watch]({{< ref "/manuals/DockerCompose/How-tos/UseComposeWatch" >}}). Alternatively, see [Manage data in containers]({{< ref "/manuals/DockerEngine/Storage/Volumes" >}}) for other options.
 
-​	有关 Compose Watch 工作原理的更多信息，请参见 [使用 Compose Watch](https://docs.docker.com/compose/how-tos/file-watch/)。有关其他选项，请参见 [在容器中管理数据](https://docs.docker.com/engine/storage/volumes/)。
+​	有关 Compose Watch 工作原理的更多信息，请参见 [使用 Compose Watch]({{< ref "/manuals/DockerCompose/How-tos/UseComposeWatch" >}})。有关其他选项，请参见 [在容器中管理数据]({{< ref "/manuals/DockerEngine/Storage/Volumes" >}})。
 
 > **Note**
 >
@@ -377,9 +377,9 @@ Using multiple Compose files lets you customize a Compose application for differ
 
 4. Run `docker compose up` to build the app with the updated Compose files, and run it. You should see the `Hello world` message in your browser. 运行 `docker compose up` 构建并运行带有更新后的 Compose 文件的应用。您应在浏览器中看到 `Hello World` 消息。
 
-This is a simplified example, but it demonstrates the basic principle of `include` and how it can make it easier to modularize complex applications into sub-Compose files. For more information on `include` and working with multiple Compose files, see [Working with multiple Compose files](https://docs.docker.com/compose/how-tos/multiple-compose-files/).
+This is a simplified example, but it demonstrates the basic principle of `include` and how it can make it easier to modularize complex applications into sub-Compose files. For more information on `include` and working with multiple Compose files, see [Working with multiple Compose files]({{< ref "/manuals/DockerCompose/How-tos/UsemultipleComposefiles" >}}).
 
-​	这是一个简化示例，但它展示了 `include` 的基本原理以及如何将复杂的应用模块化为子 Compose 文件。有关 `include` 和使用多个 Compose 文件的更多信息，请参见 [使用多个 Compose 文件](https://docs.docker.com/compose/how-tos/multiple-compose-files/)。
+​	这是一个简化示例，但它展示了 `include` 的基本原理以及如何将复杂的应用模块化为子 Compose 文件。有关 `include` 和使用多个 Compose 文件的更多信息，请参见 [使用多个 Compose 文件]({{< ref "/manuals/DockerCompose/How-tos/UsemultipleComposefiles" >}})。
 
 ## 第八步：尝试其他命令 Step 8: Experiment with some other commands
 
@@ -417,9 +417,9 @@ This is a simplified example, but it demonstrates the basic principle of `includ
 
 - Try the [Sample apps with Compose](https://github.com/docker/awesome-compose)
   - 尝试 [使用 Compose 的示例应用](https://github.com/docker/awesome-compose)
-- [Explore the full list of Compose commands](https://docs.docker.com/reference/cli/docker/compose/)
+- [Explore the full list of Compose commands]({{< ref "/reference/CLIreference/docker/dockercompose" >}})
   - 查看完整的 Compose 命令列表
-- [Explore the Compose file reference](https://docs.docker.com/reference/compose-file/)
+- [Explore the Compose file reference]({{< ref "/reference/Composefilereference" >}})
   - 浏览 Compose 文件参考
 - [Check out the Learning Docker Compose video on LinkedIn Learning](https://www.linkedin.com/learning/learning-docker-compose/)
   - 查看 LinkedIn Learning 上的 Learning Docker Compose 视频

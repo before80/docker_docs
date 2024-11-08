@@ -170,7 +170,7 @@ The `install` command accepts the following flags:
 
   - `--user=<username>`：在安装过程中执行特权配置。这使用户在首次运行时无需授予 root 权限。有关用户名的查找方法，请在 CLI 中输入 `ls /Users`。
 
-- `--admin-settings`: Automatically creates an `admin-settings.json` file which is used by administrators to control certain Docker Desktop settings on client machines within their organization. For more information, see [Settings Management](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/). `--admin-settings`：自动创建一个 `admin-settings.json` 文件，用于管理员在组织中的客户端设备上控制 Docker Desktop 的某些设置。更多信息请参见 [设置管理](https://docs.docker.com/security/for-admins/hardened-desktop/settings-management/)。
+- `--admin-settings`: Automatically creates an `admin-settings.json` file which is used by administrators to control certain Docker Desktop settings on client machines within their organization. For more information, see [Settings Management]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/SettingsManagement" >}}). `--admin-settings`：自动创建一个 `admin-settings.json` 文件，用于管理员在组织中的客户端设备上控制 Docker Desktop 的某些设置。更多信息请参见 [设置管理]({{< ref "/manuals/Security/Foradmins/HardenedDockerDesktop/SettingsManagement" >}})。
 
   - It must be used together with the `--allowed-org=<org name>` flag.
 

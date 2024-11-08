@@ -196,9 +196,9 @@ You can either [export a volume now](https://docs.docker.com/desktop/use-desktop
 
    {{% tab header=" External cloud storage" %}}
 
-   You must have a [Docker Business subscription](https://docs.docker.com/subscription/core-subscription/details/) to export to an external cloud provider.
+   You must have a [Docker Business subscription]({{< ref "/manuals/Subscription/DockerCore/Subscriptionsandfeatures" >}}) to export to an external cloud provider.
 
-   ​	您必须拥有 [Docker Business 订阅](https://docs.docker.com/subscription/core-subscription/details/) 才能导出到外部云提供商。
+   ​	您必须拥有 [Docker Business 订阅]({{< ref "/manuals/Subscription/DockerCore/Subscriptionsandfeatures" >}}) 才能导出到外部云提供商。
 
    Select your cloud provider and then specify the URL to upload to the storage. Refer to the following documentation for your cloud provider to learn how to obtain a URL.
 
@@ -251,9 +251,9 @@ You can either [export a volume now](https://docs.docker.com/desktop/use-desktop
 
    {{% tab header=" External cloud storage" %}}
 
-   You must have a [Docker Business subscription](https://docs.docker.com/subscription/core-subscription/details/) to export to an external cloud provider.
+   You must have a [Docker Business subscription]({{< ref "/manuals/Subscription/DockerCore/Subscriptionsandfeatures" >}}) to export to an external cloud provider.
 
-   ​	您必须拥有 [Docker Business 订阅](https://docs.docker.com/subscription/core-subscription/details/) 才能导出到外部云提供商。
+   ​	您必须拥有 [Docker Business 订阅]({{< ref "/manuals/Subscription/DockerCore/Subscriptionsandfeatures" >}}) 才能导出到外部云提供商。
 
    Select your cloud provider and then specify the URL to upload to the storage. Refer to the following documentation for your cloud provider to learn how to obtain a URL.
 

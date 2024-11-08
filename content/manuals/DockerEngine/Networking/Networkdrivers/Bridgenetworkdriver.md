@@ -122,7 +122,7 @@ Some of these options are also available as flags to the `dockerd` CLI, and you 
 
 The Docker daemon supports a `--bridge` flag, which you can use to define your own `docker0` bridge. Use this option if you want to run multiple daemon instances on the same host. For details, see [Run multiple daemons](https://docs.docker.com/reference/cli/dockerd/#run-multiple-daemons).
 
-​	Docker 守护进程支持 `--bridge` 标志，您可以使用它来定义自己的 `docker0` 桥接。如果要在同一主机上运行多个守护进程实例，请使用此选项。详情请参见 [运行多个守护进程](https://docs.docker.com/reference/cli/dockerd/#run-multiple-daemons)。
+​	Docker 守护进程支持 `--bridge` 标志，您可以使用它来定义自己的 `docker0` 桥接。如果要在同一主机上运行多个守护进程实例，请使用此选项。详情请参见 [运行多个守护进程]({{< ref "/reference/CLIreference/dockerd#运行多个守护进程-run-multiple-daemons">}})。
 
 ### 默认主机绑定地址 Default host binding address
 

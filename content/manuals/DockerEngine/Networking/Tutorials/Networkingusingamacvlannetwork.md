@@ -15,9 +15,9 @@ draft = false
 
 # Networking using a macvlan network - 使用 macvlan 网络的网络教程
 
-This series of tutorials deals with networking standalone containers which connect to `macvlan` networks. In this type of network, the Docker host accepts requests for multiple MAC addresses at its IP address, and routes those requests to the appropriate container. For other networking topics, see the [overview](https://docs.docker.com/engine/network/).
+This series of tutorials deals with networking standalone containers which connect to `macvlan` networks. In this type of network, the Docker host accepts requests for multiple MAC addresses at its IP address, and routes those requests to the appropriate container. For other networking topics, see the [overview]({{< ref "/manuals/DockerEngine/Networking" >}}).
 
-​	本系列教程介绍了如何在连接到 `macvlan` 网络的独立容器中进行网络设置。在这种类型的网络中，Docker 主机接受多个 MAC 地址的请求并将这些请求路由到相应的容器。有关其他网络主题，请参见[网络概述](https://docs.docker.com/engine/network/)。
+​	本系列教程介绍了如何在连接到 `macvlan` 网络的独立容器中进行网络设置。在这种类型的网络中，Docker 主机接受多个 MAC 地址的请求并将这些请求路由到相应的容器。有关其他网络主题，请参见[网络概述]({{< ref "/manuals/DockerEngine/Networking" >}})。
 
 ## 目标 Goal
 
@@ -234,6 +234,6 @@ In the 802.1Q trunked bridge example, your traffic flows through a sub-interface
 
 ## 其他网络教程 Other networking tutorials
 
-- [Standalone networking tutorial 独立网络教程](https://docs.docker.com/engine/network/tutorials/standalone/)
-- [Overlay networking tutorial - Overlay 网络教程](https://docs.docker.com/engine/network/tutorials/overlay/)
-- [Host networking tutorial - host 网络教程](https://docs.docker.com/engine/network/tutorials/host/)
+- [Standalone networking tutorial 独立网络教程]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithstandalonecontainers" >}})
+- [Overlay networking tutorial - Overlay 网络教程]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithoverlaynetworks" >}})
+- [Host networking tutorial - host 网络教程]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingusingthehostnetwork" >}})

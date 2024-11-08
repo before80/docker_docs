@@ -136,7 +136,7 @@ Options with [] may be specified multiple times.
 
 To run the daemon with debug output, use `dockerd --debug` or add `"debug": true` to [the `daemon.json` file](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file).
 
-​	要使用调试输出运行守护进程，请使用 `dockerd --debug` 或在 [`daemon.json` 文件](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file)中添加 `"debug": true`。
+​	要使用调试输出运行守护进程，请使用 `dockerd --debug` 或在 [`daemon.json` 文件](#daemon-configuration-file)中添加 `"debug": true`。
 
 > **Note**
 >

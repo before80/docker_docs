@@ -47,9 +47,9 @@ Builds invoked with `docker build` use Buildx (and BuildKit) by default, unless:
   - 通过设置环境变量 `DOCKER_BUILDKIT=0` 明确选择不使用 BuildKit
 
 
-The descriptions on this page only covers information that's exclusive to the legacy builder, and cases where behavior in the legacy builder deviates from behavior in BuildKit. For information about features and flags that are common between the legacy builder and BuildKit, such as `--tag` and `--target`, refer to the documentation for [`docker buildx build`](https://docs.docker.com/reference/cli/docker/buildx/build/).
+The descriptions on this page only covers information that's exclusive to the legacy builder, and cases where behavior in the legacy builder deviates from behavior in BuildKit. For information about features and flags that are common between the legacy builder and BuildKit, such as `--tag` and `--target`, refer to the documentation for [`docker buildx build`]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildxbuild" >}}).
 
-​	本页面仅涵盖旧版构建器独有的信息，以及在旧版构建器与 BuildKit 的行为有所不同的情况。关于旧版构建器和 BuildKit 共有的功能和选项（如 `--tag` 和 `--target`），请参考 [`docker buildx build`](https://docs.docker.com/reference/cli/docker/buildx/build/) 的文档。
+​	本页面仅涵盖旧版构建器独有的信息，以及在旧版构建器与 BuildKit 的行为有所不同的情况。关于旧版构建器和 BuildKit 共有的功能和选项（如 `--tag` 和 `--target`），请参考 [`docker buildx build`]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildxbuild" >}}) 的文档。
 
 ### 使用旧版构建器的构建上下文 Build context with the legacy builder
 
@@ -174,9 +174,9 @@ Squashing layers can be beneficial if your Dockerfile produces multiple layers m
 
 ​	合并层对于修改相同文件的多层 `Dockerfile` 可能有用。例如，一步创建文件，另一层删除它们。对于其他情况，合并层可能会对性能产生负面影响。包含多个层的镜像在拉取时可以并行处理，并在镜像间共享层（节省空间）。
 
-For most use cases, multi-stage builds are a better alternative, as they give more fine-grained control over your build, and can take advantage of future optimizations in the builder. Refer to the [Multi-stage builds](https://docs.docker.com/build/building/multi-stage/) section for more information.
+For most use cases, multi-stage builds are a better alternative, as they give more fine-grained control over your build, and can take advantage of future optimizations in the builder. Refer to the [Multi-stage builds]({{< ref "/manuals/DockerBuild/Building/Multi-stage" >}}) section for more information.
 
-​	大多数情况下，多阶段构建是更好的选择，因为它提供了更细致的控制，并可利用构建器的未来优化。有关更多信息，请参阅 [多阶段构建](https://docs.docker.com/build/building/multi-stage/) 部分。
+​	大多数情况下，多阶段构建是更好的选择，因为它提供了更细致的控制，并可利用构建器的未来优化。有关更多信息，请参阅 [多阶段构建]({{< ref "/manuals/DockerBuild/Building/Multi-stage" >}}) 部分。
 
 #### 已知限制 Known limitations
 

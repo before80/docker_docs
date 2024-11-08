@@ -15,9 +15,9 @@ draft = false
 
 # Networking with overlay networks - 使用 Overlay 网络的网络教程
 
-This series of tutorials deals with networking for swarm services. For networking with standalone containers, see [Networking with standalone containers](https://docs.docker.com/engine/network/tutorials/standalone/). If you need to learn more about Docker networking in general, see the [overview](https://docs.docker.com/engine/network/).
+This series of tutorials deals with networking for swarm services. For networking with standalone containers, see [Networking with standalone containers]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithstandalonecontainers" >}}). If you need to learn more about Docker networking in general, see the [overview]({{< ref "/manuals/DockerEngine/Networking" >}}).
 
-​	本系列教程介绍了 swarm 服务的网络设置。关于独立容器的网络设置，请参见[独立容器的网络教程](https://docs.docker.com/engine/network/tutorials/standalone/)。如果需要了解更多 Docker 网络的概述，请参见[网络概述](https://docs.docker.com/engine/network/)。
+​	本系列教程介绍了 swarm 服务的网络设置。关于独立容器的网络设置，请参见[独立容器的网络教程]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithstandalonecontainers" >}})。如果需要了解更多 Docker 网络的概述，请参见[网络概述]({{< ref "/manuals/DockerEngine/Networking" >}})。
 
 This page includes the following tutorials. You can run each of them on Linux, Windows, or a Mac, but for the last one, you need a second Docker host running elsewhere.
 
@@ -58,9 +58,9 @@ These hosts will be referred to as `manager`, `worker-1`, and `worker-2`. The `m
 
 ​	这些主机将被称为 `manager`、`worker-1` 和 `worker-2`。`manager` 主机将既作为管理节点又作为工作节点，既可以运行服务任务，也可以管理 swarm。`worker-1` 和 `worker-2` 仅作为工作节点。
 
-If you don't have three hosts handy, an easy solution is to set up three Ubuntu hosts on a cloud provider such as Amazon EC2, all on the same network with all communications allowed to all hosts on that network (using a mechanism such as EC2 security groups), and then to follow the [installation instructions for Docker Engine - Community on Ubuntu](https://docs.docker.com/engine/install/ubuntu/).
+If you don't have three hosts handy, an easy solution is to set up three Ubuntu hosts on a cloud provider such as Amazon EC2, all on the same network with all communications allowed to all hosts on that network (using a mechanism such as EC2 security groups), and then to follow the [installation instructions for Docker Engine - Community on Ubuntu]({{< ref "/manuals/DockerEngine/Install/Ubuntu" >}}).
 
-​	如果没有三台主机，您可以在云提供商（如 Amazon EC2）上设置三台 Ubuntu 主机，所有主机位于同一网络中，并且允许相互通信（使用类似于 EC2 安全组的机制）。然后按照 [Docker Engine - Community 在 Ubuntu 上的安装说明](https://docs.docker.com/engine/install/ubuntu/) 进行安装。
+​	如果没有三台主机，您可以在云提供商（如 Amazon EC2）上设置三台 Ubuntu 主机，所有主机位于同一网络中，并且允许相互通信（使用类似于 EC2 安全组的机制）。然后按照 [Docker Engine - Community 在 Ubuntu 上的安装说明]({{< ref "/manuals/DockerEngine/Install/Ubuntu" >}}) 进行安装。
 
 ### 操作步骤 Walkthrough
 
@@ -473,6 +473,6 @@ This example refers to the two nodes in our swarm as `host1` and `host2`. This e
 
 ## 其他网络教程 Other networking tutorials
 
-- [Host networking tutorial](https://docs.docker.com/engine/network/tutorials/host/)
-- [Standalone networking tutorial](https://docs.docker.com/engine/network/tutorials/standalone/)
-- [Macvlan networking tutorial](https://docs.docker.com/engine/network/tutorials/macvlan/)
+- [Host networking tutorial]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingusingthehostnetwork" >}})
+- [Standalone networking tutorial]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithstandalonecontainers" >}})
+- [Macvlan networking tutorial]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingusingamacvlannetwork" >}})

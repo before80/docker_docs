@@ -28,9 +28,9 @@ The information in this section explains legacy container links within the Docke
 
 ​	本节介绍 Docker 默认 `bridge` 网络中的旧版容器链接功能，该网络在您安装 Docker 时自动创建。
 
-Before the [Docker networks feature](https://docs.docker.com/engine/network/), you could use the Docker link feature to allow containers to discover each other and securely transfer information about one container to another container. With the introduction of the Docker networks feature, you can still create links but they behave differently between default `bridge` network and [user defined networks](https://docs.docker.com/engine/network/drivers/bridge/#differences-between-user-defined-bridges-and-the-default-bridge).
+Before the [Docker networks feature]({{< ref "/manuals/DockerEngine/Networking" >}}), you could use the Docker link feature to allow containers to discover each other and securely transfer information about one container to another container. With the introduction of the Docker networks feature, you can still create links but they behave differently between default `bridge` network and [user defined networks](https://docs.docker.com/engine/network/drivers/bridge/#differences-between-user-defined-bridges-and-the-default-bridge).
 
-​	在 [Docker 网络功能](https://docs.docker.com/engine/network/) 引入之前，可以使用 Docker 链接功能让容器相互发现，并将一个容器的信息安全地传递到另一个容器中。引入 Docker 网络功能后，您仍然可以创建链接，但在默认 `bridge` 网络和[用户定义的网络](https://docs.docker.com/engine/network/drivers/bridge/#differences-between-user-defined-bridges-and-the-default-bridge)之间，其行为有所不同。
+​	在 [Docker 网络功能]({{< ref "/manuals/DockerEngine/Networking" >}}) 引入之前，可以使用 Docker 链接功能让容器相互发现，并将一个容器的信息安全地传递到另一个容器中。引入 Docker 网络功能后，您仍然可以创建链接，但在默认 `bridge` 网络和[用户定义的网络](https://docs.docker.com/engine/network/drivers/bridge/#differences-between-user-defined-bridges-and-the-default-bridge)之间，其行为有所不同。
 
 This section briefly discusses connecting via a network port and then goes into detail on container linking in default `bridge` network.
 
@@ -50,9 +50,9 @@ $ docker run -d -P training/webapp python app.py
 >
 > 
 >
-> Containers have an internal network and an IP address. Docker can have a variety of network configurations. You can see more information on Docker networking [here](https://docs.docker.com/engine/network/).
+> Containers have an internal network and an IP address. Docker can have a variety of network configurations. You can see more information on Docker networking [here]({{< ref "/manuals/DockerEngine/Networking" >}}).
 >
-> ​	容器有一个内部网络和一个 IP 地址。Docker 可以有多种网络配置。有关 Docker 网络的更多信息，请参见[此处](https://docs.docker.com/engine/network/)。
+> ​	容器有一个内部网络和一个 IP 地址。Docker 可以有多种网络配置。有关 Docker 网络的更多信息，请参见[此处]({{< ref "/manuals/DockerEngine/Networking" >}})。
 
 When that container was created, the `-P` flag was used to automatically map any network port inside it to a random high port within an *ephemeral port range* on your Docker host. Next, when `docker ps` was run, you saw that port 5000 in the container was bound to port 49155 on the host.
 

@@ -143,9 +143,9 @@ You can then sign in to your machine with the user ID specified, and launch Dock
 >
 > 
 >
-> If you are using the WSL 2 backend, first make sure that you meet the [minimum required version](https://docs.docker.com/desktop/wsl/best-practices/) for WSL 2. Otherwise, update WSL 2 first.
+> If you are using the WSL 2 backend, first make sure that you meet the [minimum required version]({{< ref "/manuals/DockerDesktop/WSL/Bestpractices" >}}) for WSL 2. Otherwise, update WSL 2 first.
 >
-> ​	如果您使用 WSL 2 后端，首先确保满足 [WSL 2 的最低版本要求](https://docs.docker.com/desktop/wsl/best-practices/)。否则，请先更新 WSL 2。
+> ​	如果您使用 WSL 2 后端，首先确保满足 [WSL 2 的最低版本要求]({{< ref "/manuals/DockerDesktop/WSL/Bestpractices" >}})。否则，请先更新 WSL 2。
 
 To run Docker Desktop on Windows without requiring administrator privileges, install via the command line and pass the `—always-run-service` installer flag.
 

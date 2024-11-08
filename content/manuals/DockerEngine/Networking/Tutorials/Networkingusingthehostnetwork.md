@@ -15,9 +15,9 @@ draft = false
 
 # Networking using the host network - 使用host网络的网络教程
 
-This series of tutorials deals with networking standalone containers which bind directly to the Docker host's network, with no network isolation. For other networking topics, see the [overview](https://docs.docker.com/engine/network/).
+This series of tutorials deals with networking standalone containers which bind directly to the Docker host's network, with no network isolation. For other networking topics, see the [overview]({{< ref "/manuals/DockerEngine/Networking" >}}).
 
-​	本系列教程介绍了如何在直接绑定到 Docker 主机网络的独立容器中进行网络设置，不进行网络隔离。有关其他网络主题，请参见[网络概述](https://docs.docker.com/engine/network/)。
+​	本系列教程介绍了如何在直接绑定到 Docker 主机网络的独立容器中进行网络设置，不进行网络隔离。有关其他网络主题，请参见[网络概述]({{< ref "/manuals/DockerEngine/Networking" >}})。
 
 ## 目标 Goal
 
@@ -73,6 +73,6 @@ The goal of this tutorial is to start a `nginx` container which binds directly t
 
 ## 其他网络教程 Other networking tutorials
 
-- [Standalone networking tutorial 独立网络教程](https://docs.docker.com/engine/network/tutorials/standalone/)
-- [Overlay networking tutorial - Overlay 网络教程](https://docs.docker.com/engine/network/tutorials/overlay/)
-- [Macvlan networking tutorial - Macvlan 网络教程](https://docs.docker.com/engine/network/tutorials/macvlan/)
+- [Standalone networking tutorial 独立网络教程]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithstandalonecontainers" >}})
+- [Overlay networking tutorial - Overlay 网络教程]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingwithoverlaynetworks" >}})
+- [Macvlan networking tutorial - Macvlan 网络教程]({{< ref "/manuals/DockerEngine/Networking/Tutorials/Networkingusingamacvlannetwork" >}})
