@@ -162,11 +162,11 @@ $ docker network create my-net
 
 You can specify the subnet, the IP address range, the gateway, and other options. See the [docker network create](https://docs.docker.com/reference/cli/docker/network/create/#specify-advanced-options) reference or the output of `docker network create --help` for details.
 
-​	可以指定子网、IP 地址范围、网关等选项。有关详细信息，请参见 [docker network create](https://docs.docker.com/reference/cli/docker/network/create/#specify-advanced-options) 参考或运行 `docker network create --help` 查看帮助。
+​	可以指定子网、IP 地址范围、网关等选项。有关详细信息，请参见 [docker network create]({{< ref "/reference/CLIreference/docker/dockernetwork/dockernetworkcreate#指定高级选项-specify-advanced-options">}}) 参考或运行 `docker network create --help` 查看帮助。
 
 Use the `docker network rm` command to remove a user-defined bridge network. If containers are currently connected to the network, [disconnect them](https://docs.docker.com/engine/network/drivers/bridge/#disconnect-a-container-from-a-user-defined-bridge) first.
 
-​	使用 `docker network rm` 命令删除用户定义的桥接网络。如果网络中有容器连接，请先[断开它们的连接](https://docs.docker.com/engine/network/drivers/bridge/#disconnect-a-container-from-a-user-defined-bridge)。
+​	使用 `docker network rm` 命令删除用户定义的桥接网络。如果网络中有容器连接，请先[断开它们的连接](#从用户定义的桥接断开容器-disconnect-a-container-from-a-user-defined-bridge)。
 
 ```console
 $ docker network rm my-net
@@ -223,7 +223,7 @@ $ docker network create --ipv6 --subnet 2001:db8:1234::/64 my-net
 
 The default `bridge` network is considered a legacy detail of Docker and is not recommended for production use. Configuring it is a manual operation, and it has [technical shortcomings](https://docs.docker.com/engine/network/drivers/bridge/#differences-between-user-defined-bridges-and-the-default-bridge).
 
-​	默认的 `bridge` 网络被认为是 Docker 的一个传统细节，不建议用于生产环境。配置它是一个手动操作，并且它有[技术缺陷](https://docs.docker.com/engine/network/drivers/bridge/#differences-between-user-defined-bridges-and-the-default-bridge)。
+​	默认的 `bridge` 网络被认为是 Docker 的一个传统细节，不建议用于生产环境。配置它是一个手动操作，并且它有[技术缺陷](#用户定义的桥接和默认桥接的区别-differences-between-user-defined-bridges-and-the-default-bridge)。
 
 ### 连接容器到默认桥接网络 Connect a container to the default bridge network
 

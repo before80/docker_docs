@@ -150,7 +150,7 @@ To run the daemon with debug output, use `dockerd --debug` or add `"debug": true
 
 The following list of environment variables are supported by the `dockerd` daemon. Some of these environment variables are supported both by the Docker Daemon and the `docker` CLI. Refer to [Environment variables](https://docs.docker.com/reference/cli/docker/#environment-variables) to learn about environment variables supported by the `docker` CLI.
 
-​	以下是 `dockerd` 守护进程支持的环境变量列表，其中一些环境变量也由 Docker 守护进程和 `docker` CLI 支持。有关 `docker` CLI 支持的环境变量，参阅 [环境变量](https://docs.docker.com/reference/cli/docker/#environment-variables)。
+​	以下是 `dockerd` 守护进程支持的环境变量列表，其中一些环境变量也由 Docker 守护进程和 `docker` CLI 支持。有关 `docker` CLI 支持的环境变量，参阅 [环境变量]({{< ref "/reference/CLIreference/docker#environment-variables">}})。
 
 | Variable            | Description                                                  |
 | :------------------ | :----------------------------------------------------------- |
@@ -172,14 +172,14 @@ The following list of environment variables are supported by the `dockerd` daemo
 >
 > Refer to the [Docker Desktop manual](https://docs.docker.com/desktop/networking/#httphttps-proxy-support) if you are running [Docker Desktop]({{< ref "/manuals/DockerDesktop" >}}).
 >
-> ​	如果您使用的是 [Docker Desktop]({{< ref "/manuals/DockerDesktop" >}})，请参考 [Docker Desktop 手册](https://docs.docker.com/desktop/networking/#httphttps-proxy-support)。
+> ​	如果您使用的是 [Docker Desktop]({{< ref "/manuals/DockerDesktop" >}})，请参考 [Docker Desktop 手册]({{< ref "/manuals/DockerDesktop/ExplorenetworkingfeaturesonDockerDesktop#httphttps-代理支持-httphttps-proxy-support">}})。
 
 If you are behind an HTTP proxy server, for example in corporate settings, you may have to configure the Docker daemon to use the proxy server for operations such as pulling and pushing images. The daemon can be configured in three ways:
 
 ​	如果您处在 HTTP 代理服务器后，例如在公司环境中，可能需要配置 Docker 守护进程以通过代理服务器进行镜像拉取和推送操作。守护进程可以通过以下三种方式进行配置：
 
 1. Using environment variables (`HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY`). 使用环境变量 (`HTTP_PROXY`、`HTTPS_PROXY` 和 `NO_PROXY`)。
-2. Using the `http-proxy`, `https-proxy`, and `no-proxy` fields in the [daemon configuration file](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file) (Docker Engine version 23.0 or later). 在 [守护进程配置文件](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file)中使用 `http-proxy`、`https-proxy` 和 `no-proxy` 字段（Docker 引擎版本 23.0 或更高）。
+2. Using the `http-proxy`, `https-proxy`, and `no-proxy` fields in the [daemon configuration file](https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file) (Docker Engine version 23.0 or later). 在 [守护进程配置文件]({{< ref "/reference/CLIreference/dockerd#daemon-configuration-file">}})中使用 `http-proxy`、`https-proxy` 和 `no-proxy` 字段（Docker 引擎版本 23.0 或更高）。
 3. Using the `--http-proxy`, `--https-proxy`, and `--no-proxy` command-line options. (Docker Engine version 23.0 or later). 使用命令行选项 `--http-proxy`、`--https-proxy` 和 `--no-proxy`（Docker 引擎版本 23.0 或更高）。
 
 The command-line and configuration file options take precedence over environment variables. Refer to [control and configure Docker with systemd]({{< ref "/manuals/DockerEngine/Daemon/Daemonproxyconfiguration" >}}) to set these environment variables on a host using `systemd`.
@@ -190,7 +190,7 @@ The command-line and configuration file options take precedence over environment
 
 The Docker daemon can listen for [Docker Engine API](https://docs.docker.com/engine/api/) requests via three different types of Socket: `unix`, `tcp`, and `fd`.
 
-​	Docker 守护进程可以通过三种不同类型的套接字监听 [Docker 引擎 API](https://docs.docker.com/engine/api/) 请求：`unix`、`tcp` 和 `fd`。
+​	Docker 守护进程可以通过三种不同类型的套接字监听 [Docker Engine API](https://docs.docker.com/engine/api/) 请求：`unix`、`tcp` 和 `fd`。
 
 By default, a `unix` domain socket (or IPC socket) is created at `/var/run/docker.sock`, requiring either `root` permission, or `docker` group membership.
 
@@ -1109,7 +1109,7 @@ The `--config-file` option allows you to set any configuration option for the da
 
 The options set in the configuration file must not conflict with options set using flags. The Docker daemon fails to start if an option is duplicated between the file and the flags, regardless of their value. This is intentional, and avoids silently ignore changes introduced in configuration reloads. For example, the daemon fails to start if you set daemon labels in the configuration file and also set daemon labels via the `--label` flag. Options that are not present in the file are ignored when the daemon starts.
 
-​	配置文件中的选项不得与通过标志设置的选项冲突。如果文件中的选项与标志中的选项重复（无论值如何），Docker 守护进程将无法启动。此设置旨在避免在重新加载配置时默默忽略更改。例如，如果在配置文件中设置了守护进程标签，同时通过 `--label` 标志设置了标签，守护进程将无法启动。守护进程启动时会忽略配置文件中不存在的选项。
+​	配置文件中设置的选项不得与通过标志设置的选项冲突。如果某个选项在文件和标志中重复设置，Docker 守护进程将无法启动，无论它们的值如何。这种设计是有意的，以避免在配置重载中出现对更改的静默忽略。例如，如果在配置文件中设置了守护进程标签，同时又通过 `--label` 标志设置了守护进程标签，守护进程将无法启动。在守护进程启动时，文件中未出现的选项将被忽略。
 
 The `--validate` option allows to validate a configuration file without starting the Docker daemon. A non-zero exit code is returned for invalid configuration files.
 
