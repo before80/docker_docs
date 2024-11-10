@@ -29,7 +29,7 @@ Overlay networks are often used to create a connection between Swarm services, b
 
 This page describes overlay networks in general, and when used with standalone containers. For information about overlay for Swarm services, see [Manage Swarm service networks]({{< ref "/manuals/DockerEngine/Swarmmode/Manageswarmservicenetworks" >}}).
 
-​	本页面描述了通用的 Overlay 网络，以及它们如何与独立容器一起使用。有关 Swarm 服务的 Overlay 网络的信息，请参见 [管理 Swarm 服务网络]({{< ref "/manuals/DockerEngine/Swarmmode/Manageswarmservicenetworks" >}}
+​	本页面描述了通用的 Overlay 网络，以及它们如何与独立容器一起使用。有关 Swarm 服务的 Overlay 网络的信息，请参见 [管理 Swarm 服务网络]({{< ref "/manuals/DockerEngine/Swarmmode/Manageswarmservicenetworks" >}})
 
 ## 创建一个 Overlay 网络 Create an overlay network
 

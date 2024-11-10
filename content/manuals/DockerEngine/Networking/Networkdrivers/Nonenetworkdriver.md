@@ -17,7 +17,7 @@ draft = false
 
 If you want to completely isolate the networking stack of a container, you can use the `--network none` flag when starting the container. Within the container, only the loopback device is created.
 
-​	如果您想完全隔离容器的网络堆栈，可以在启动容器时使用 `--network none` 标志。在容器内，只有回环设备会被创建
+​	如果您想完全隔离容器的网络栈，可以在启动容器时使用 `--network none` 标志。在容器内，只有回环设备会被创建
 
 The following example shows the output of `ip link show` in an `alpine` container using the `none` network driver.
 
