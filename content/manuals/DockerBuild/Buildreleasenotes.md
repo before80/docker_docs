@@ -1,20 +1,23 @@
 +++
-title = "Build release notes"
+title = "构建发布说明"
 date = 2024-10-23T14:54:40+08:00
 weight = 110
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 > 原文：[https://docs.docker.com/build/release-notes/](https://docs.docker.com/build/release-notes/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
-# Build release notes
+# Build release notes 构建发布说明
 
 This page contains information about the new features, improvements, and bug fixes in [Docker Buildx](https://github.com/docker/buildx).
+
+​	本页面包含有关 [Docker Buildx](https://github.com/docker/buildx) 的新功能、改进和错误修复的信息。
 
 ## 0.17.1
 
@@ -22,11 +25,19 @@ This page contains information about the new features, improvements, and bug fix
 
 The full release note for this release is available [on GitHub](https://github.com/docker/buildx/releases/tag/v0.17.1).
 
+​	此版本的完整发布说明可在 [GitHub](https://github.com/docker/buildx/releases/tag/v0.17.1) 上查看。
+
 ### Bug fixes
 
 - Do not set `network.host` entitlement flag automatically on builder creation for the `docker-container` and `kubernetes` drivers if the entitlement is set in the [BuildKit configuration file]({{< ref "/manuals/DockerBuild/BuildKit/buildkitd_toml" >}}). [docker/buildx#2685](https://github.com/docker/buildx/pull/2685)
+  - 如果在 [BuildKit 配置文件]({{< ref "/manuals/DockerBuild/BuildKit/buildkitd_toml" >}}) 中设置了授权标志，则在为 `docker-container` 和 `kubernetes` 驱动程序创建构建器时，不会自动设置 `network.host` 授权标志。[docker/buildx#2685](https://github.com/docker/buildx/pull/2685)
+
 - Do not print the `network` field with `docker buildx bake --print` when empty. [docker/buildx#2689](https://github.com/docker/buildx/pull/2689)
+  - 当 `docker buildx bake --print` 输出为空时，不会显示 `network` 字段。[docker/buildx#2689](https://github.com/docker/buildx/pull/2689)
+
 - Fix telemetry socket path under WSL2. [docker/buildx#2698](https://github.com/docker/buildx/pull/2698)
+  - 修复 WSL2 下的遥测套接字路径。[docker/buildx#2698](https://github.com/docker/buildx/pull/2698)
+
 
 ## 0.17.0
 
@@ -34,32 +45,75 @@ The full release note for this release is available [on GitHub](https://github.c
 
 The full release note for this release is available [on GitHub](https://github.com/docker/buildx/releases/tag/v0.17.0).
 
+​	此版本的完整发布说明可在 [GitHub](https://github.com/docker/buildx/releases/tag/v0.17.0) 上查看。
+
 ### New
 
 - Add `basename`, `dirname` and `sanitize` functions to Bake. [docker/buildx#2649](https://github.com/docker/buildx/pull/2649/)
-- Enable support for Bake entitlements to allow privileged operations during builds. [docker/buildx#2666](https://github.com/docker/buildx/pull/2666/)
+  - 为 Bake 添加 `basename`、`dirname` 和 `sanitize` 函数。[docker/buildx#2649](https://github.com/docker/buildx/pull/2649/)
 
-### Enhancements
+- Enable support for Bake entitlements to allow privileged operations during builds. [docker/buildx#2666](https://github.com/docker/buildx/pull/2666/)
+  - 启用对 Bake 授权的支持，以允许构建期间的特权操作。[docker/buildx#2666](https://github.com/docker/buildx/pull/2666/)
+
+
+### 增强功能 Enhancements
 
 - Introduce CLI metrics tracking for Bake commands. [docker/buildx#2610](https://github.com/docker/buildx/pull/2610/)
+
+  - 为 Bake 命令引入 CLI 指标跟踪。[docker/buildx#2610](https://github.com/docker/buildx/pull/2610/)
+
 - Add `--debug` to all build commands. Previously, it was only available on the top-level `docker` and `docker buildx` commands. [docker/buildx#2660](https://github.com/docker/buildx/pull/2660/)
+
+  - 将 `--debug` 添加到所有构建命令中。此前，它仅适用于顶层 `docker` 和 `docker buildx` 命令。[docker/buildx#2660](https://github.com/docker/buildx/pull/2660/)
+
 - Allow builds from stdin for multi-node builders. [docker/buildx#2656](https://github.com/docker/buildx/pull/2656/)
+
+  - 允许多节点构建器从标准输入进行构建。[docker/buildx#2656](https://github.com/docker/buildx/pull/2656/)
+
 - Improve `kubernetes` driver initialization. [docker/buildx#2606](https://github.com/docker/buildx/pull/2606/)
+
+  - 改进 `kubernetes` 驱动程序的初始化。[docker/buildx#2606](https://github.com/docker/buildx/pull/2606/)
+
 - Include target name in the error message when building multiple targets with Bake. [docker/buildx#2651](https://github.com/docker/buildx/pull/2651/)
+
+  - 在使用 Bake 构建多个目标时，在错误消息中包含目标名称。[docker/buildx#2651](https://github.com/docker/buildx/pull/2651/)
+
 - Optimize metrics handling to reduce performance overhead during progress tracking. [docker/buildx#2641](https://github.com/docker/buildx/pull/2641/)
+
+  - 优化指标处理以减少进度跟踪时的性能开销。[docker/buildx#2641](https://github.com/docker/buildx/pull/2641/)
+
 - Display the number of warnings after completing a rule check. [docker/buildx#2647](https://github.com/docker/buildx/pull/2647/)
+
+  - 在规则检查完成后显示警告数量。[docker/buildx#2647](https://github.com/docker/buildx/pull/2647/)
+
 - Skip build ref and provenance metadata for frontend methods. [docker/buildx#2650](https://github.com/docker/buildx/pull/2650/)
+
+  - 对于前端方法，跳过构建引用和溯源元数据。[docker/buildx#2650](https://github.com/docker/buildx/pull/2650/)
+
 - Add support for setting network mode in Bake files (HCL and JSON). [docker/buildx#2671](https://github.com/docker/buildx/pull/2671/)
+
+  - 增加在 Bake 文件（HCL 和 JSON）中设置网络模式的支持。[docker/buildx#2671](https://github.com/docker/buildx/pull/2671/)
+
 - Support the `--metadata-file` flag when set along the `--call` flag. [docker/buildx#2640](https://github.com/docker/buildx/pull/2640/)
+
+  - 在与 `--call` 标志一起设置时，支持 `--metadata-file` 标志。[docker/buildx#2640](https://github.com/docker/buildx/pull/2640/)
+
 - Use shared session for local contexts used by multiple Bake targets. [docker/buildx#2615](https://github.com/docker/buildx/pull/2615/), [docker/buildx#2607](https://github.com/docker/buildx/pull/2607/), [docker/buildx#2663](https://github.com/docker/buildx/pull/2663/)
+
+  - 为 Bake 目标共享会话使用本地上下文。[docker/buildx#2615](https://github.com/docker/buildx/pull/2615/)、[docker/buildx#2607](https://github.com/docker/buildx/pull/2607/)、[docker/buildx#2663](https://github.com/docker/buildx/pull/2663/)
+
+  
 
 ### Bug fixes
 
 - Improve memory management to avoid unnecessary allocations. [docker/buildx#2601](https://github.com/docker/buildx/pull/2601/)
+  - 改善内存管理以避免不必要的分配。[docker/buildx#2601](https://github.com/docker/buildx/pull/2601/)
 
 ### Packaging updates
 
 - Compose support has been updated to v2.1.6. [docker/buildx#2547](https://github.com/docker/buildx/pull/2547/)
+  - Compose 支持已更新到 v2.1.6。[docker/buildx#2547](https://github.com/docker/buildx/pull/2547/)
+
 
 ## 0.16.2
 
