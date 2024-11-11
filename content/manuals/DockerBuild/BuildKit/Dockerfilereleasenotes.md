@@ -1,28 +1,35 @@
 +++
-title = "Dockerfile release notes"
+title = "Dockerfile 发布说明"
 date = 2024-10-23T14:54:40+08:00
 weight = 30
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 > 原文：[https://docs.docker.com/build/buildkit/dockerfile-release-notes/](https://docs.docker.com/build/buildkit/dockerfile-release-notes/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
-# Dockerfile release notes
+# Dockerfile release notes - Dockerfile 发布说明
 
 This page contains information about the new features, improvements, known issues, and bug fixes in [Dockerfile reference]({{< ref "/reference/Dockerfilereference" >}}).
 
+​	此页面包含有关 [Dockerfile 参考]({{< ref "/reference/Dockerfilereference" >}}) 的新功能、改进、已知问题和错误修复的信息。
+
 For usage, see the [Dockerfile frontend syntax]({{< ref "/manuals/DockerBuild/BuildKit/CustomDockerfilesyntax" >}}) page.
+
+​	有关用法，请参见 [Dockerfile 前端语法]({{< ref "/manuals/DockerBuild/BuildKit/CustomDockerfilesyntax" >}}) 页面。
 
 ## 1.10.0
 
 *2024-09-10*
 
 The full release note for this release is available [on GitHub](https://github.com/moby/buildkit/releases/tag/dockerfile%2F1.10.0).
+
+​	此版本的完整发行说明可在 [GitHub 上查看](https://github.com/moby/buildkit/releases/tag/dockerfile%2F1.10.0)。
 
 
 
@@ -31,12 +38,34 @@ The full release note for this release is available [on GitHub](https://github.c
 ```
 
 - [Build secrets](https://docs.docker.com/build/building/secrets/#target) can now be mounted as environment variables using the `env=VARIABLE` option. [moby/buildkit#5215](https://github.com/moby/buildkit/pull/5215)
+
+  - [构建机密](https://docs.docker.com/build/building/secrets/#target) 现在可以使用 `env=VARIABLE` 选项作为环境变量挂载。[moby/buildkit#5215](https://github.com/moby/buildkit/pull/5215)
+
 - The [`# check` directive](https://docs.docker.com/reference/dockerfile/#check) now allows new experimental attribute for enabling experimental validation rules like `CopyIgnoredFile`. [moby/buildkit#5213](https://github.com/moby/buildkit/pull/5213)
+
+  - [`# check` 指令](https://docs.docker.com/reference/dockerfile/#check) 现在允许启用实验验证规则的新实验属性，如 `CopyIgnoredFile`。[moby/buildkit#5213](https://github.com/moby/buildkit/pull/5213)
+
 - Improve validation of unsupported modifiers for variable substitution. [moby/buildkit#5146](https://github.com/moby/buildkit/pull/5146)
+
+  - 改进对变量替换不支持的修饰符的验证。[moby/buildkit#5146](https://github.com/moby/buildkit/pull/5146)
+
 - `ADD` and `COPY` instructions now support variable interpolation for build arguments for the `--chmod` option values. [moby/buildkit#5151](https://github.com/moby/buildkit/pull/5151)
+
+  - `ADD` 和 `COPY` 指令现在支持对 `--chmod` 选项值的构建参数进行变量插值。[moby/buildkit#5151](https://github.com/moby/buildkit/pull/5151)
+
 - Improve validation of the `--chmod` option for `COPY` and `ADD` instructions. [moby/buildkit#5148](https://github.com/moby/buildkit/pull/5148)
+
+  - 改进 `COPY` 和 `ADD` 指令的 `--chmod` 选项验证。[moby/buildkit#5148](https://github.com/moby/buildkit/pull/5148)
+
 - Fix missing completions for size and destination attributes on mounts. [moby/buildkit#5245](https://github.com/moby/buildkit/pull/5245)
+
+  - 修复挂载上大小和目标属性缺失的问题。[moby/buildkit#5245](https://github.com/moby/buildkit/pull/5245)
+
 - OCI annotations are now set to the Dockerfile frontend release image. [moby/buildkit#5197](https://github.com/moby/buildkit/pull/5197)
+
+  - 现在，Dockerfile 前端发布镜像中设置了 OCI 注释。[moby/buildkit#5197](https://github.com/moby/buildkit/pull/5197)
+
+  
 
 ## 1.9.0
 
@@ -44,23 +73,35 @@ The full release note for this release is available [on GitHub](https://github.c
 
 The full release note for this release is available [on GitHub](https://github.com/moby/buildkit/releases/tag/dockerfile%2F1.9.0).
 
+​	此版本的完整发行说明可在 [GitHub 上查看](https://github.com/moby/buildkit/releases/tag/dockerfile%2F1.9.0)。
+
 
 
 ```dockerfile
 # syntax=docker/dockerfile:1.9.0
 ```
 
-- Add new validation rules:
+- Add new validation rules: 添加新的验证规则：
   - `SecretsUsedInArgOrEnv`
   - `InvalidDefaultArgInFrom`
   - `RedundantTargetPlatform`
   - `CopyIgnoredFile` (experimental)
   - `FromPlatformFlagConstDisallowed`
 - Many performance improvements for working with big Dockerfiles. [moby/buildkit#5067](https://github.com/moby/buildkit/pull/5067/), [moby/buildkit#5029](https://github.com/moby/buildkit/pull/5029/)
+  - 针对处理大型 Dockerfile 的多项性能改进。[moby/buildkit#5067](https://github.com/moby/buildkit/pull/5067/), [moby/buildkit#5029](https://github.com/moby/buildkit/pull/5029/)
+
 - Fix possible panic when building Dockerfile without defined stages. [moby/buildkit#5150](https://github.com/moby/buildkit/pull/5150/)
+  - 修复在没有定义阶段的 Dockerfile 中构建可能发生的 panic。[moby/buildkit#5150](https://github.com/moby/buildkit/pull/5150/)
+
 - Fix incorrect JSON parsing that could cause some incorrect JSON values to pass without producing an error. [moby/buildkit#5107](https://github.com/moby/buildkit/pull/5107/)
+  - 修复可能导致某些错误 JSON 值通过而不会产生错误的 JSON 解析问题。[moby/buildkit#5107](https://github.com/moby/buildkit/pull/5107/)
+
 - Fix a regression where `COPY --link` with a destination path of `.` could fail. [moby/buildkit#5080](https://github.com/moby/buildkit/pull/5080/)
+  - 修复 `COPY --link` 目标路径为 `.` 时可能失败的回归问题。[moby/buildkit#5080](https://github.com/moby/buildkit/pull/5080/)
+
 - Fix validation of `ADD --checksum` when used with a Git URL. [moby/buildkit#5085](https://github.com/moby/buildkit/pull/5085/)
+  - 修复使用 Git URL 时 `ADD --checksum` 的验证问题。[moby/buildkit#5085](https://github.com/moby/buildkit/pull/5085/)
+
 
 ## 1.8.1
 
