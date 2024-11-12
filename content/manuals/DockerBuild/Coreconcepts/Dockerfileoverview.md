@@ -49,7 +49,7 @@ The default filename to use for a Dockerfile is `Dockerfile`, without a file ext
 
 Some projects may need distinct Dockerfiles for specific purposes. A common convention is to name these `<something>.Dockerfile`. You can specify the Dockerfile filename using the `--file` flag for the `docker build` command. Refer to the [`docker build` CLI reference](https://docs.docker.com/reference/cli/docker/buildx/build/#file) to learn about the `--file` flag.
 
-​	一些项目可能需要特定用途的不同 Dockerfile。一个常见的约定是将这些文件命名为 `<something>.Dockerfile`。您可以使用 `docker build` 命令的 `--file` 标志指定 Dockerfile 文件名。有关 `--file` 标志的详细信息，请参阅 [`docker build` CLI 参考](https://docs.docker.com/reference/cli/docker/buildx/build/#file)。
+​	一些项目可能需要特定用途的不同 Dockerfile。一个常见的约定是将这些文件命名为 `<something>.Dockerfile`。您可以使用 `docker build` 命令的 `--file` 标志指定 Dockerfile 文件名。有关 `--file` 标志的详细信息，请参阅 [`docker build` CLI 参考]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildxbuild#指定-dockerfile--f---file-specify-a-dockerfile--f---file">}})。
 
 > **Note**
 >
@@ -171,7 +171,7 @@ FROM ubuntu:22.04
 
 The [`FROM` instruction](https://docs.docker.com/reference/dockerfile/#from) sets your base image to the 22.04 release of Ubuntu. All instructions that follow are executed in this base image: an Ubuntu environment. The notation `ubuntu:22.04`, follows the `name:tag` standard for naming Docker images. When you build images, you use this notation to name your images. There are many public images you can leverage in your projects, by importing them into your build steps using the Dockerfile `FROM` instruction.
 
-​	[`FROM` 指令](https://docs.docker.com/reference/dockerfile/#from) 将您的基础镜像设置为 Ubuntu 的 22.04 版本。后续的所有指令都将在此基础镜像（Ubuntu 环境）中执行。`ubuntu:22.04` 采用 `name:tag` 的镜像命名标准。您可以在构建步骤中使用 Dockerfile `FROM` 指令导入许多公共镜像，将它们用于项目中。
+​	[`FROM` 指令]({{< ref "/reference/Dockerfilereference#from">}}) 将您的基础镜像设置为 Ubuntu 的 22.04 版本。后续的所有指令都将在此基础镜像（Ubuntu 环境）中执行。`ubuntu:22.04` 采用 `name:tag` 的镜像命名标准。您可以在构建步骤中使用 Dockerfile `FROM` 指令导入许多公共镜像，将它们用于项目中。
 
 [Docker Hub](https://hub.docker.com/search?image_filter=official&q=&type=image) contains a large set of official images that you can use for this purpose.
 
@@ -191,7 +191,7 @@ RUN apt-get update && apt-get install -y python3 python3-pip
 
 This [`RUN` instruction](https://docs.docker.com/reference/dockerfile/#run) executes a shell in Ubuntu that updates the APT package index and installs Python tools in the container.
 
-​	此 [`RUN` 指令](https://docs.docker.com/reference/dockerfile/#run) 在 Ubuntu 中执行一个 shell，用于更新 APT 包索引并在容器中安装 Python 工具。
+​	此 [`RUN` 指令]({{< ref "/reference/Dockerfilereference#run">}}) 在 Ubuntu 中执行一个 shell，用于更新 APT 包索引并在容器中安装 Python 工具。
 
 ### Comments
 
@@ -205,7 +205,7 @@ Note the `# install app dependencies` line. This is a comment. Comments in Docke
 >
 > You might've noticed that comments are denoted using the same symbol as the [syntax directive](https://docs.docker.com/build/concepts/dockerfile/#dockerfile-syntax) on the first line of the file. The symbol is only interpreted as a directive if the pattern matches a directive and appears at the beginning of the Dockerfile. Otherwise, it's treated as a comment.
 >
-> ​	您可能已经注意到，注释使用的符号与文件第一行的 [语法指令](https://docs.docker.com/build/concepts/dockerfile/#dockerfile-syntax) 相同。只有当模式匹配指令并出现在 Dockerfile 开头时，该符号才会被解释为指令，否则它将被视为注释。
+> ​	您可能已经注意到，注释使用的符号与文件第一行的 [语法指令](#dockerfile-语法-dockerfile-syntax) 相同。只有当模式匹配指令并出现在 Dockerfile 开头时，该符号才会被解释为指令，否则它将被视为注释。
 
 ### 安装依赖项 Installing dependencies
 
@@ -225,7 +225,7 @@ A prerequisite for this instruction is that `pip` is installed into the build co
 
 The next instruction uses the [`COPY` instruction](https://docs.docker.com/reference/dockerfile/#copy) to copy the `hello.py` file from the local build context into the root directory of our image.
 
-​	下一条指令使用 [`COPY` 指令](https://docs.docker.com/reference/dockerfile/#copy) 将 `hello.py` 文件从本地构建上下文复制到镜像的根目录中。
+​	下一条指令使用 [`COPY` 指令]({{< ref "/reference/Dockerfilereference#copy">}}) 将 `hello.py` 文件从本地构建上下文复制到镜像的根目录中。
 
 ```dockerfile
 COPY hello.py /
@@ -243,7 +243,7 @@ After the `COPY` instruction, the `hello.py` file is added to the filesystem of 
 
 If your application uses environment variables, you can set environment variables in your Docker build using the [`ENV` instruction](https://docs.docker.com/reference/dockerfile/#env).
 
-​	如果您的应用程序使用环境变量，可以使用 [`ENV` 指令](https://docs.docker.com/reference/dockerfile/#env) 在 Docker 构建中设置环境变量。
+​	如果您的应用程序使用环境变量，可以使用 [`ENV` 指令]({{< ref "/reference/Dockerfilereference#env">}}) 在 Docker 构建中设置环境变量。
 
 ```dockerfile
 ENV FLASK_APP=hello
@@ -257,7 +257,7 @@ This sets a Linux environment variable we'll need later. Flask, the framework us
 
 The [`EXPOSE` instruction](https://docs.docker.com/reference/dockerfile/#expose) marks that our final image has a service listening on port `8000`.
 
-​	[`EXPOSE` 指令](https://docs.docker.com/reference/dockerfile/#expose) 指出最终镜像的服务在端口 `8000` 上监听。
+​	[`EXPOSE` 指令]({{< ref "/reference/Dockerfilereference#expose">}}) 指出最终镜像的服务在端口 `8000` 上监听。
 
 
 
@@ -273,7 +273,7 @@ This instruction isn't required, but it is a good practice and helps tools and t
 
 Finally, [`CMD` instruction](https://docs.docker.com/reference/dockerfile/#cmd) sets the command that is run when the user starts a container based on this image.
 
-​	最后，[`CMD` 指令](https://docs.docker.com/reference/dockerfile/#cmd) 设置在基于此镜像启动容器时运行的命令。
+​	最后，[`CMD` 指令]({{< ref "/reference/Dockerfilereference#cmd">}}) 设置在基于此镜像启动容器时运行的命令。
 
 ```dockerfile
 CMD ["flask", "run", "--host", "0.0.0.0", "--port", "8000"]
@@ -289,13 +289,13 @@ CMD flask run --host 0.0.0.0 --port 8000
 
 There are subtle differences between these two versions, for example in how they trap signals like `SIGTERM` and `SIGKILL`. For more information about these differences, see [Shell and exec form](https://docs.docker.com/reference/dockerfile/#shell-and-exec-form)
 
-​	这两种形式之间存在细微差异，例如在处理 `SIGTERM` 和 `SIGKILL` 信号时的不同。有关这些差异的更多信息，请参阅 [Shell 和 exec 形式](https://docs.docker.com/reference/dockerfile/#shell-and-exec-form)。
+​	这两种形式之间存在细微差异，例如在处理 `SIGTERM` 和 `SIGKILL` 信号时的不同。有关这些差异的更多信息，请参阅 [Shell 和 exec 形式]({{< ref "/reference/Dockerfilereference#shell-形式-shell-form">}})。
 
 ## Building
 
 To build a container image using the Dockerfile example from the [previous section](https://docs.docker.com/build/concepts/dockerfile/#example), you use the `docker build` command:
 
-​	要使用上一节 [Dockerfile 示例](https://docs.docker.com/build/concepts/dockerfile/#example)构建容器镜像，使用 `docker build` 命令：
+​	要使用上一节 [Dockerfile 示例](#example)构建容器镜像，使用 `docker build` 命令：
 
 ```console
 $ docker build -t test:latest .

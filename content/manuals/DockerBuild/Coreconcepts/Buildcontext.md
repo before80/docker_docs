@@ -66,9 +66,9 @@ For more information about the different types of filesystem contexts that you c
 
 ​	有关可以用于构建的不同类型的文件系统上下文的更多信息，请参见：
 
-- [Local files](https://docs.docker.com/build/concepts/context/#local-context)
-- [Git repositories](https://docs.docker.com/build/concepts/context/#git-repositories)
-- [Remote tarballs](https://docs.docker.com/build/concepts/context/#remote-tarballs)
+- [Local files](#本地上下文-local-context)
+- [Git repositories](#git-repositories)
+- [Remote tarballs](#远程上下文-remote-context)
 
 ### 文本文件上下文 Text file contexts
 
@@ -78,7 +78,7 @@ When your build context is a plain-text file, the builder interprets the file as
 
 For more information, see [empty build context](https://docs.docker.com/build/concepts/context/#empty-context).
 
-​	有关更多信息，请参见[空构建上下文](https://docs.docker.com/build/concepts/context/#empty-context)。
+​	有关更多信息，请参见[空构建上下文](#空上下文-empty-context)。
 
 ## 本地上下文 Local context
 
@@ -103,7 +103,7 @@ This makes files and directories in the current working directory available to t
 
 You can also use local tarballs as build context, by piping the tarball contents to the `docker build` command. See [Tarballs](https://docs.docker.com/build/concepts/context/#local-tarballs).
 
-​	你还可以使用本地 tar 包作为构建上下文，将 tar 包内容通过管道传递给 `docker build` 命令。请参见 [Tar 包](https://docs.docker.com/build/concepts/context/#local-tarballs)。
+​	你还可以使用本地 tar 包作为构建上下文，将 tar 包内容通过管道传递给 `docker build` 命令。请参见 [Tar 包](#本地-tar-包-local-tarballs)。
 
 ### 本地目录 Local directories
 
@@ -231,15 +231,15 @@ You can specify the address of a remote Git repository, tarball, or plain-text f
 ​	您可以指定远程 Git 仓库、tarball 压缩包或纯文本文件作为构建上下文。
 
 - For Git repositories, the builder automatically clones the repository. See [Git repositories](https://docs.docker.com/build/concepts/context/#git-repositories).
-  - 对于 Git 仓库，构建器会自动克隆该仓库。请参阅[Git 仓库](https://docs.docker.com/build/concepts/context/#git-repositories)。
+  - 对于 Git 仓库，构建器会自动克隆该仓库。请参阅[Git 仓库](#git-repositories)。
 
 - For tarballs, the builder downloads and extracts the contents of the tarball. See [Tarballs](https://docs.docker.com/build/concepts/context/#remote-tarballs).
-  - 对于 tarball 压缩包，构建器会下载并解压该 tarball。请参阅[tarball 压缩包](https://docs.docker.com/build/concepts/context/#remote-tarballs)。
+  - 对于 tarball 压缩包，构建器会下载并解压该 tarball。请参阅[tarball 压缩包](#远程-tarball-压缩包-remote-tarballs)。
 
 
 If the remote tarball is a text file, the builder receives no [filesystem context](https://docs.docker.com/build/concepts/context/#filesystem-contexts), and instead assumes that the remote file is a Dockerfile. See [Empty build context](https://docs.docker.com/build/concepts/context/#empty-context).
 
-​	如果远程 tarball 是一个文本文件，构建器不会收到[文件系统上下文](https://docs.docker.com/build/concepts/context/#filesystem-contexts)，而是会假设远程文件是 Dockerfile。请参阅[空构建上下文](https://docs.docker.com/build/concepts/context/#empty-context)。
+​	如果远程 tarball 是一个文本文件，构建器不会收到[文件系统上下文](#文件系统上下文-filesystem-contexts)，而是会假设远程文件是 Dockerfile。请参阅[空构建上下文](#空上下文-empty-context)。
 
 ### Git repositories
 
@@ -322,7 +322,7 @@ docker build github.com/docker/buildx#d4f088e
 
 By default, BuildKit doesn't keep the `.git` directory when using Git contexts. You can configure BuildKit to keep the directory by setting the [`BUILDKIT_CONTEXT_KEEP_GIT_DIR` build argument](https://docs.docker.com/reference/dockerfile/#buildkit-built-in-build-args). This can be useful to if you want to retrieve Git information during your build:
 
-​	默认情况下，当使用 Git 上下文时，BuildKit 不会保留 `.git` 目录。您可以通过设置 [`BUILDKIT_CONTEXT_KEEP_GIT_DIR` 构建参数](https://docs.docker.com/reference/dockerfile/#buildkit-built-in-build-args)来配置 BuildKit 保留该目录。这在构建期间需要获取 Git 信息时可能会很有用：
+​	默认情况下，当使用 Git 上下文时，BuildKit 不会保留 `.git` 目录。您可以通过设置 [`BUILDKIT_CONTEXT_KEEP_GIT_DIR` 构建参数]({{< ref "/reference/Dockerfilereference#buildkit-内置构建参数-buildkit-built-in-build-args">}})来配置 BuildKit 保留该目录。这在构建期间需要获取 Git 信息时可能会很有用：
 
 ```dockerfile
 # syntax=docker/dockerfile:1
@@ -348,7 +348,7 @@ When you specify a Git context that's also a private repository, the builder nee
 
 Buildx automatically detects and uses SSH credentials if the Git context you specify is an SSH or Git address. By default, this uses `$SSH_AUTH_SOCK`. You can configure the SSH credentials to use with the [`--ssh` flag](https://docs.docker.com/reference/cli/docker/buildx/build/#ssh).
 
-​	如果您指定的 Git 上下文是 SSH 或 Git 地址，Buildx 会自动检测并使用 SSH 凭据。默认情况下，它会使用 `$SSH_AUTH_SOCK`。您可以使用 [`--ssh` 标志](https://docs.docker.com/reference/cli/docker/buildx/build/#ssh)来配置要使用的 SSH 凭据。
+​	如果您指定的 Git 上下文是 SSH 或 Git 地址，Buildx 会自动检测并使用 SSH 凭据。默认情况下，它会使用 `$SSH_AUTH_SOCK`。您可以使用 [`--ssh` 标志]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildxbuild#向构建公开-ssh-代理套接字或密钥---ssh-ssh-agent-socket-or-keys-to-expose-to-the-build---ssh">}})来配置要使用的 SSH 凭据。
 
 
 
@@ -360,7 +360,7 @@ $ docker buildx build --ssh default git@github.com:user/private.git
 
 If you want to use token-based authentication instead, you can pass the token using the [`--secret` flag](https://docs.docker.com/reference/cli/docker/buildx/build/#secret).
 
-​	如果您想使用基于令牌的身份验证，可以通过 [`--secret` 标志](https://docs.docker.com/reference/cli/docker/buildx/build/#secret)传递令牌。
+​	如果您想使用基于令牌的身份验证，可以通过 [`--secret` 标志]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildxbuild#向构建公开的秘密---secret-secret-to-expose-to-the-build---secret">}})传递令牌。
 
 
 
