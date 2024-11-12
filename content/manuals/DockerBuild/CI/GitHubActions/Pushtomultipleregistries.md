@@ -1,22 +1,23 @@
 +++
-title = "Push to multiple registries"
+title = "推送到多个注册表"
 date = 2024-10-23T14:54:40+08:00
 weight = 110
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 > 原文：[https://docs.docker.com/build/ci/github-actions/push-multi-registries/](https://docs.docker.com/build/ci/github-actions/push-multi-registries/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
-# Push to multiple registries with GitHub Actions
+# Push to multiple registries with GitHub Actions - 使用 GitHub Actions 推送到多个注册表
 
 The following workflow will connect you to Docker Hub and GitHub Container Registry, and push the image to both registries:
 
-
+​	以下工作流将连接到 Docker Hub 和 GitHub Container Registry，并将镜像推送到两个注册表：
 
 ```yaml
 name: ci

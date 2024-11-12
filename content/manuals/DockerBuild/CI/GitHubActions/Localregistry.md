@@ -1,22 +1,23 @@
 +++
-title = "Local registry"
+title = "本地注册表"
 date = 2024-10-23T14:54:40+08:00
 weight = 80
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 > 原文：[https://docs.docker.com/build/ci/github-actions/local-registry/](https://docs.docker.com/build/ci/github-actions/local-registry/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
-# Local registry with GitHub Actions
+# Local registry with GitHub Actions - 使用 GitHub Actions 配置本地注册表
 
 For testing purposes you may need to create a [local registry](https://hub.docker.com/_/registry) to push images into:
 
-
+​	为了进行测试，您可能需要创建一个[本地注册表](https://hub.docker.com/_/registry)来推送镜像：
 
 ```yaml
 name: ci

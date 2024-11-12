@@ -12,11 +12,11 @@ draft = false
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
-# Manage tags and labels with GitHub Actions
+# Manage tags and labels with GitHub Actions 
 
 If you want an "automatic" tag management and [OCI Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/annotations.md) for labels, you can do it in a dedicated setup step. The following workflow will use the [Docker Metadata Action](https://github.com/docker/metadata-action) to handle tags and labels based on GitHub Actions events and Git metadata:
 
-
+​	如果您希望对标签进行“自动”管理，并为标签使用 [OCI 镜像格式规范](https://github.com/opencontainers/image-spec/blob/master/annotations.md)，可以在专门的设置步骤中实现。以下工作流将使用 [Docker Metadata Action](https://github.com/docker/metadata-action) 基于 GitHub Actions 事件和 Git 元数据来处理标签和标签：
 
 ```yaml
 name: ci

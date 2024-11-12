@@ -1,18 +1,19 @@
 +++
-title = "Builders"
+title = "构建器"
 date = 2024-10-23T14:54:40+08:00
 weight = 30
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 > 原文：[https://docs.docker.com/build/builders/](https://docs.docker.com/build/builders/)
 >
 > 收录该文档的时间：`2024-10-23T14:54:40+08:00`
 
-# Builders
+# Builders - 构建器
 
 A builder is a BuildKit daemon that you can use to run your builds. BuildKit is the build engine that solves the build steps in a Dockerfile to produce a container image or other artifacts.
 
