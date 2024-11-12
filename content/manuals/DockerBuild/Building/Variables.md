@@ -29,7 +29,7 @@ In Docker Build, build arguments (`ARG`) and environment variables (`ENV`) both 
 >
 > See [Build secrets]({{< ref "/manuals/DockerBuild/Building/Secrets" >}}) for more information.
 >
-> ​	详见 [构建密钥](https://docs.docker.com/build/building/secrets/)。
+> ​	详见 [构建密钥]({{< ref "/manuals/DockerBuild/Building/Secrets">}})。
 
 ## 相似性与差异 Similarities and differences
 
@@ -53,7 +53,7 @@ They make Dockerfiles more flexible, and easier to maintain.
 
 For an example on how you can use build arguments, see [`ARG` usage example](https://docs.docker.com/build/building/variables/#arg-usage-example).
 
-​	关于如何使用构建参数的示例，请参阅 [`ARG` 使用示例](https://docs.docker.com/build/building/variables/#arg-usage-example)。
+​	关于如何使用构建参数的示例，请参阅 [`ARG` 使用示例](#arg-使用示例-arg-usage-example)。
 
 ### 环境变量 Environment variables
 
@@ -82,7 +82,7 @@ You can't override or set an environment variable at build-time. Values for envi
 
 For an example on how to use environment variables for configuring builds, see [`ENV` usage example](https://docs.docker.com/build/building/variables/#env-usage-example).
 
-​	关于如何使用环境变量配置构建的示例，请参阅 [`ENV` 使用示例](https://docs.docker.com/build/building/variables/#env-usage-example)。
+​	关于如何使用环境变量配置构建的示例，请参阅 [`ENV` 使用示例](#env-使用示例-env-usage-example)。
 
 ## `ARG` 使用示例 `ARG` usage example
 
@@ -139,10 +139,10 @@ For more information on how to use build arguments, refer to:
 
 ​	有关如何使用构建参数的更多信息，请参考：
 
-- [`ARG` Dockerfile reference](https://docs.docker.com/reference/dockerfile/#arg)
+- [`ARG` Dockerfile reference]({{< ref "/reference/Dockerfilereference#arg">}})
   - `ARG` Dockerfile 参考
 
-- [`docker build --build-arg` reference](https://docs.docker.com/reference/cli/docker/buildx/build/#build-arg)
+- [`docker build --build-arg` reference]({{< ref "/reference/CLIreference/docker/dockerbuildx/dockerbuildxbuild#设置构建时变量--build-arg-set-build-time-variables---build-arg">}})
   - `docker build --build-arg` 参考
 
 
@@ -197,7 +197,7 @@ For more information on how to use environment variables in builds, refer to:
 
 ​	有关如何在构建中使用环境变量的更多信息，请参考：
 
-- [`ENV` Dockerfile reference](https://docs.docker.com/reference/dockerfile/#env)
+- [`ENV` Dockerfile reference]({{< ref "/reference/Dockerfilereference#env">}})
   - `ENV` Dockerfile 参考
 
 
@@ -315,7 +315,7 @@ RUN GOOS=$TARGETOS go build -o ./exe .
 
 For more information about multi-platform build arguments, refer to [Multi-platform arguments](https://docs.docker.com/reference/dockerfile/#automatic-platform-args-in-the-global-scope)
 
-​	有关多平台构建参数的更多信息，请参考 [多平台参数](https://docs.docker.com/reference/dockerfile/#automatic-platform-args-in-the-global-scope)。
+​	有关多平台构建参数的更多信息，请参考 [多平台参数]({{< ref "/reference/Dockerfilereference#全局范围内的自动平台-args---automatic-platform-args-in-the-global-scope">}})。
 
 ### 代理参数 Proxy arguments
 
@@ -347,7 +347,7 @@ $ docker build --build-arg HTTP_PROXY=https://my-proxy.example.com .
 
 For more information about proxy build arguments, refer to [Proxy arguments](https://docs.docker.com/reference/dockerfile/#predefined-args).
 
-​	有关代理构建参数的更多信息，请参考 [代理参数](https://docs.docker.com/reference/dockerfile/#predefined-args)。
+​	有关代理构建参数的更多信息，请参考 [代理参数]({{< ref "/reference/Dockerfilereference#预定义的-args---predefined-args">}})。
 
 ## 构建工具配置变量 Build tool configuration variables
 
@@ -376,7 +376,7 @@ The following environment variables enable, disable, or change the behavior of B
 
 BuildKit also supports a few additional configuration parameters. Refer to [BuildKit built-in build args](https://docs.docker.com/reference/dockerfile/#buildkit-built-in-build-args).
 
-​	BuildKit 还支持一些其他配置参数。请参考 [BuildKit 内置构建参数](https://docs.docker.com/reference/dockerfile/#buildkit-built-in-build-args)。
+​	BuildKit 还支持一些其他配置参数。请参考 [BuildKit 内置构建参数]({{< ref "/reference/Dockerfilereference#buildkit-内置构建参数-buildkit-built-in-build-args">}})。
 
 You can express Boolean values for environment variables in different ways. For example, `true`, `1`, and `T` all evaluate to true. Evaluation is done using the `strconv.ParseBool` function in the Go standard library. See the [reference documentation](https://pkg.go.dev/strconv#ParseBool) for details.
 
@@ -521,7 +521,7 @@ Introduced in Buildx version 0.14.0
 
 Sets the HTTP authentication token when using a remote Bake definition in a private Git repository. This is equivalent to the [`GIT_AUTH_TOKEN` secret](https://docs.docker.com/build/building/secrets/#git-authentication-for-remote-contexts), but facilitates the pre-flight authentication in Bake when loading the remote Bake file.
 
-​	在使用私有 Git 仓库中的远程 Bake 定义时，设置 HTTP 认证令牌。这相当于 [`GIT_AUTH_TOKEN` 密钥](https://docs.docker.com/build/building/secrets/#git-authentication-for-remote-contexts)，在加载远程 Bake 文件时便于进行预认证。
+​	在使用私有 Git 仓库中的远程 Bake 定义时，设置 HTTP 认证令牌。这相当于 [`GIT_AUTH_TOKEN` 密钥]({{< ref "/manuals/DockerBuild/Building/Secrets#远程上下文的-git-认证-git-authentication-for-remote-contexts">}})，在加载远程 Bake 文件时便于进行预认证。
 
 Usage:
 

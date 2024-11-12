@@ -196,9 +196,7 @@ RUN echo "stage2"
 
 With [BuildKit enabled](https://docs.docker.com/build/buildkit/#getting-started), building the `stage2` target in this Dockerfile means only `base` and `stage2` are processed. There is no dependency on `stage1`, so it's skipped.
 
-​	启用 [BuildKit](https://docs.docker.com/build/buildkit/#getting-started) 后，构建此 Dockerfile 中的 `stage2` 目标时，只处理 `base` 和 `stage2`。没有依赖 `stage1`，因此它被跳过。
-
-
+​	启用 [BuildKit]({{< ref "/manuals/DockerBuild/BuildKit#getting-started">}}) 后，构建此 Dockerfile 中的 `stage2` 目标时，只处理 `base` 和 `stage2`。没有依赖 `stage1`，因此它被跳过。
 
 
 
@@ -221,8 +219,6 @@ $ DOCKER_BUILDKIT=1 docker build --no-cache -f Dockerfile --target stage2 .
 On the other hand, building the same target without BuildKit results in all stages being processed:
 
 ​	相反，在不使用 BuildKit 的情况下构建相同目标会处理所有阶段：
-
-
 
 
 
