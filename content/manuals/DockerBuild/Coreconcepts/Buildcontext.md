@@ -151,9 +151,9 @@ Use the following syntax to build an image using files on your local filesystem,
 $ docker build -f- PATH
 ```
 
-The syntax uses the -f (or --file) option to specify the Dockerfile to use, and it uses a hyphen (-) as filename to instruct Docker to read the Dockerfile from stdin.
+The syntax uses the `-f` (or `--file`) option to specify the Dockerfile to use, and it uses a hyphen (`-`) as filename to instruct Docker to read the Dockerfile from stdin.
 
-​	该语法使用 -f（或 --file）选项指定要使用的 Dockerfile，并使用连字符（-）作为文件名，指示 Docker 从标准输入读取 Dockerfile。
+​	该语法使用 `-f`（或 `--file`）选项指定要使用的 Dockerfile，并使用连字符（`-`）作为文件名，指示 Docker 从标准输入读取 Dockerfile。
 
 The following example uses the current directory (.) as the build context, and builds an image using a Dockerfile passed through stdin using a here-document.
 
